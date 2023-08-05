@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+paddle_ner/__init__.py
+paddle_ner/data_reader.py
+paddle_ner/server.py
+paddle_ner/train.py
+paddle_ner.egg-info/PKG-INFO
+paddle_ner.egg-info/SOURCES.txt
+paddle_ner.egg-info/dependency_links.txt
+paddle_ner.egg-info/not-zip-safe
+paddle_ner.egg-info/requires.txt
+paddle_ner.egg-info/top_level.txt
