@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: ProductionalizingProject-1
+Version: 0.5.11
+Summary: This should be a short description of our project
+Home-page: https://github.com/DevelopIntelligence
+Author: Some Person
+Author-email: somebody@example.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.16.0<1.17)
+
+# MyProject
+
+This project is a test setuptools project.
+
+
