@@ -1,0 +1,9 @@
+Django>=2
+djangorestframework>=3
+
+[development]
+psycopg2-binary
+
+[testing]
+tox
+watchdog
