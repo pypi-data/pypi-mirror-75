@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: django-site-metrics
+Version: 0.1.2
+Summary: django-site-metrics is a statistics module for django. It stores requests in a database for admins to see, it can also be used to get statistics on who is online etc.
+Requires-Dist: Django (>=2.2)
+Requires-Dist: python-dateutil
+
+Home-page: https://github.com/rsalmaso/django-site-metrics.git
+Author: Raffaele Salmaso
+Author-email: raffaele@salmaso.org
+License: UNKNOWN
+Download-URL: https://pypi.org/project/django-site-metrics/
+Description: .. include:: description.rst
+        
+        .. image:: https://github.com/rsalmaso/django-site-metrics/raw/master/docs/graph.png
+        
+        As well as a site statistics module, with the active_users template tag and manager method you can also use django-site-metrics to show who is online in a certain time.
+        
+        django-site-metrics is a "fork" of `django-request`_, which focus only on postgresql support and is able to use a separate database.
+        
+        .. _django-request: https://github.com/django-request/django-request/
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Classifier: Framework :: Django :: 3.1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/x-rst
