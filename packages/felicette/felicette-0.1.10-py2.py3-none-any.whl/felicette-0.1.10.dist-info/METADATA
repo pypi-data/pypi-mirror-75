@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: felicette
+Version: 0.1.10
+Summary: Satellite imagery for dummies.
+Home-page: https://github.com/plant99/felicette
+Author: Shivashis Padhi
+Author-email: shivashispadhi@gmail.com
+License: BSD
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: click (==7.1.2)
+Requires-Dist: requests (==2.24.0)
+Requires-Dist: sat-search (==0.2.3)
+Requires-Dist: rich (==3.3.2)
+Requires-Dist: tqdm (==4.48.0)
+Requires-Dist: rasterio (==1.1.5)
+Requires-Dist: rio-color (==1.0.0)
+Requires-Dist: pillow (==7.2.0)
+Requires-Dist: opencv-python (==4.3.0.36)
+
+
+Satellite imagery for dummies.
+
+

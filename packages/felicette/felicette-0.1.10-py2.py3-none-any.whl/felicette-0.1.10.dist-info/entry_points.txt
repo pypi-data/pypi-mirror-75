@@ -1,0 +1,3 @@
+[console_scripts]
+felicette = felicette.cli:main
+
