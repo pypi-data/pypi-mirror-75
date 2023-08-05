@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: insomnyak-connector
+Version: 0.0.102
+Summary: Suite of prebuilt connectors to other APIs
+Home-page: https://pypi.org/project/insomnyak-connector/
+Author: Rene Serulle
+Author-email: rene@insomnyak.com
+License: UNKNOWN
+Keywords: gcp gsuite gmail gsheets bigquery gdrive
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Requires-Python: >=3.7.4
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: google-api-python-client
+Requires-Dist: google-auth-httplib2
+Requires-Dist: google-auth-oauthlib
+Requires-Dist: google-cloud-storage
+Requires-Dist: google-cloud-bigquery
+Requires-Dist: google-cloud-bigquery-storage
+
+## INSOMNYAK Connectors
+This API package GSuite and GCP API connections into classes with simpler executions. 
+
+
