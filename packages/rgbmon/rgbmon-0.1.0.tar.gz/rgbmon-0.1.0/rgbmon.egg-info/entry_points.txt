@@ -1,0 +1,3 @@
+[console_scripts]
+rgbmon-cli = rgbmon.cli:main
+
