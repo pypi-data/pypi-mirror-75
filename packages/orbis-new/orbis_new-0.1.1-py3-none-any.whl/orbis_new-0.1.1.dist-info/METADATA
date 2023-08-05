@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: orbis-new
+Version: 0.1.1
+Summary: Real time Electron flux data
+Home-page: https://github.com/donglai96/ORBIS_new
+Author: Donglai Ma
+Author-email: dma96@atmos.ucla.edu
+License: MIT
+Keywords: predict radiation-belt
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: mechanize
+Requires-Dist: tensorflow (>=2.0)
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+
+# ORBIS_new
+ORBIS model to predict/nowcast the radiation belt flux in different channel
+
+## Installation
+
+
+
+``` bash
+pip install --upgrade pip
+pip install orbis-new==0.1.1
+```
+
+
+
+## Test
+
+test the output in a ipynb
+
+I recommend start a new python env
+
+```text
+| -- test.ipynb
+| -- RB_model
+	| -- 'DL_15_model.h5'
+```
+
+
+
+```python
+import ORBIS_new
+orbis = ORBIS_new.predict.get_realtime_flux(makeplot = True)
+data_frame = orbis.get_dataframe()
+print(data_frame)
+```
+
+
+
