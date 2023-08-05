@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: qri
+Version: 0.1.0
+Summary: qri python client
+Home-page: https://github.com/qri-io/qri-python
+Author: Dustin Long
+Author-email: dustmop@qri.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas (==1.0.0)
+
+# qri-python
+
+```
+ ██████╗ ██████╗ ██╗
+██╔═══██╗██╔══██╗██║
+██║   ██║██████╔╝██║
+██║▄▄ ██║██╔══██╗██║
+╚██████╔╝██║  ██║██║
+ ╚══▀▀═╝ ╚═╝  ╚═╝╚═╝
+```
+
+qri python client
+
+
+# Installation
+
+```
+pip install qri
+```
+
+# Usage
+
+```
+import qri
+```
+
+```
+# Add a dataset from cloud to your repository
+$ qri.add("b5/world_bank_population")
+```
+> Fetching from registry...
+>
+> "Added b5/world_bank_population: ..."
+
+```
+# List datasets in your repository
+$ qri.list()
+```
+> [Dataset("b5/world_bank_population")]
+
+```
+# Get that single dataset as a variable
+$ d = qri.get("b5/world_bank_population")
+```
+
+```
+# Look at metadata description
+$ d.meta.description
+```
+> ( 1 ) United Nations Population Division. World Population Prospects: 2017 Revision...
+
+```
+# Get the dataset body as a pandas DataFrame
+$ d.body
+```
+> `.   country_name  country_code   indicator_name    ...`
+>
+> `0   Afghanistan   AFG            Population, total ...`
+> 
+> `...`
+
+TODO: Save changes
+
+
+
