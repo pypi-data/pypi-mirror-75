@@ -1,0 +1,1 @@
+b=tuple('										Wu'.split('	'))

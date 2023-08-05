@@ -1,0 +1,1 @@
+b=tuple('																											Xu	Yi	Gui	Can	Huo	Lu	Hua	Weng	Xian	Zhen																																																													Jie	Yao		Mie	Gong	Chen		Yan		Shuang						Gang																							Mou																																																																																		Ke'.split('	'))
