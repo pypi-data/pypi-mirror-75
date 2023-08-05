@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+gcp_jupyterlab_shared/__init__.py
+gcp_jupyterlab_shared/handlers.py
+gcp_jupyterlab_shared/handlers_test.py
+gcp_jupyterlab_shared/test_data.py
+gcp_jupyterlab_shared.egg-info/PKG-INFO
+gcp_jupyterlab_shared.egg-info/SOURCES.txt
+gcp_jupyterlab_shared.egg-info/dependency_links.txt
+gcp_jupyterlab_shared.egg-info/requires.txt
+gcp_jupyterlab_shared.egg-info/top_level.txt
+jupyter-config/jupyter_notebook_config.d/gcp_jupyterlab_shared.json
