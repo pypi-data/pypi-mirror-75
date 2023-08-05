@@ -1,0 +1,12 @@
+covid_advisor/__init__.py,sha256=Ge3OLyCa5z2MEA3O93UDpNMQq5MACZxW0BRW4KN64Vw,18
+covid_advisor/__main__.py,sha256=00CWh5Bk_g1RfO5NMKehkXtnBFRdcFBdh8hpiCZc1OI,108
+covid_advisor/app/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+covid_advisor/app/advisory_flask.py,sha256=508BG6JQmzVsVuZHBR-3q1PvFRBEb-vUU_wHpqCRTX0,1459
+covid_advisor/app/app_testrun.py,sha256=wpYpan6LJ_gWoSCO26QiHtdvfOE8VutNXOSKCOhku0A,1076
+covid_advisor/app/covid_stats.py,sha256=KANycKgcMQ5iLTCSr6MnRw5iDduMpshu0wllIsKn5v8,6157
+covid_advisor/app/security.py,sha256=Lrgs2S5rfc0_YWGVn9Xa3fISDs7Xy0CZXfa4GPsQfTQ,636
+covid_advisor/app/user_database.py,sha256=FeFQFI_9v2MDa9qEXZ5zYFwPNPptEYT1calLwLtJBaA,1026
+covid_advisory-0.0.4.dist-info/METADATA,sha256=qWIDoAoHwIyQCxTsVocQ8Uk8lB9pw7XOjRxvr90fzPw,646
+covid_advisory-0.0.4.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+covid_advisory-0.0.4.dist-info/top_level.txt,sha256=ZyG_WqcRmtAgN9aIqjeNkOArYvRown_lBFD2tTxAfc0,14
+covid_advisory-0.0.4.dist-info/RECORD,,
