@@ -1,0 +1,26 @@
+Flask-Babel==0.12.2
+Flask-Cors==3.0.8
+Flask-Mail==0.9.1
+Flask-Migrate==2.5.3
+Flask-RESTful==0.3.7
+Flask-SQLAlchemy==2.4.0
+Flask-Script==2.0.6
+Flask-WTF==0.14.3
+Flask==1.1.1
+Jinja2==2.10.1
+WTForms==2.2.1
+Werkzeug==0.16.1
+blinker==1.4
+email-validator==1.0.4
+itsdangerous==1.1.0
+six==1.14.0
+
+[dev]
+Flask-Testing
+flake8
+pytest
+tox
+zest.releaser
+
+[dev:python_version < "3.3"]
+mock

@@ -1,0 +1,527 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-05-21 22:28+0200\n"
+"PO-Revision-Date: 2020-05-13 15:41+0000\n"
+"Last-Translator: Muge Niu <mugeniu12138@gmail.com>\n"
+"Language: zh_HANS_CN\n"
+"Language-Team: Chinese (Simplified) "
+"<https://hosted.weblate.org/projects/i-hate-money/i-hate-money/zh_Hans/>"
+"\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.8.0\n"
+
+msgid ""
+"Not a valid amount or expression. Only numbers and + - * / operators are "
+"accepted."
+msgstr "金额或符号无效。仅限数字与+-*/符号。"
+
+msgid "Project name"
+msgstr "账目名称"
+
+msgid "Private code"
+msgstr "共享密钥"
+
+msgid "Email"
+msgstr "邮箱"
+
+msgid "Project identifier"
+msgstr "账目名称"
+
+msgid "Create the project"
+msgstr "创建账目明细"
+
+#, python-format
+msgid ""
+"A project with this identifier (\"%(project)s\") already exists. Please "
+"choose a new identifier"
+msgstr "账目(“%(project)s”)已存在，请选择一个新名称"
+
+msgid "Get in"
+msgstr "进入"
+
+msgid "Admin password"
+msgstr "管理密码"
+
+msgid "Send me the code by email"
+msgstr "通过邮件发送"
+
+msgid "This project does not exists"
+msgstr "账目不存在"
+
+msgid "Password mismatch"
+msgstr "密码错误"
+
+msgid "Password"
+msgstr "密码"
+
+msgid "Password confirmation"
+msgstr "密码确认"
+
+msgid "Reset password"
+msgstr "密码重置"
+
+msgid "Date"
+msgstr "日期"
+
+msgid "What?"
+msgstr "什么？"
+
+msgid "Payer"
+msgstr "支付人"
+
+msgid "Amount paid"
+msgstr "支付金额"
+
+msgid "For whom?"
+msgstr "成员？"
+
+msgid "Submit"
+msgstr "确定"
+
+msgid "Submit and add a new one"
+msgstr "确定并添加另一个"
+
+msgid "Bills can't be null"
+msgstr "数字不能为零"
+
+msgid "Name"
+msgstr "姓名"
+
+msgid "Weights should be positive"
+msgstr "权重必须大于零"
+
+msgid "Weight"
+msgstr "权重"
+
+msgid "Add"
+msgstr "添加"
+
+msgid "User name incorrect"
+msgstr "用户名称不正确"
+
+msgid "This project already have this member"
+msgstr "此项目已经包含此成员了"
+
+msgid "People to notify"
+msgstr "通知的人"
+
+msgid "Send invites"
+msgstr "发送邀请"
+
+#, python-format
+msgid "The email %(email)s is not valid"
+msgstr "此邮箱%(email)s不存在"
+
+msgid "Too many failed login attempts, please retry later."
+msgstr "输入错误太多次了，请稍后重试。"
+
+#, python-format
+msgid "This admin password is not the right one. Only %(num)d attempts left."
+msgstr "管理密码有误，只剩 %(num)d次尝试机会"
+
+msgid "You either provided a bad token or no project identifier."
+msgstr "你输入了错误的符号或没有项目标识符。"
+
+msgid "This private code is not the right one"
+msgstr "专用码不正确"
+
+#, python-format
+msgid "You have just created '%(project)s' to share your expenses"
+msgstr "你新建了一个‘%(project)s'来分担你的花费"
+
+msgid "A reminder email has just been sent to you"
+msgstr ""
+
+msgid ""
+"We tried to send you an reminder email, but there was an error. You can "
+"still use the project normally."
+msgstr ""
+
+#, python-format
+msgid "The project identifier is %(project)s"
+msgstr "项目的标识符是%(project)s"
+
+msgid ""
+"Sorry, there was an error while sending you an email with password reset "
+"instructions. Please check the email configuration of the server or "
+"contact the administrator."
+msgstr ""
+
+msgid "No token provided"
+msgstr "没有符号"
+
+msgid "Invalid token"
+msgstr "无效符号"
+
+msgid "Unknown project"
+msgstr "未知项目"
+
+msgid "Password successfully reset."
+msgstr "密码重置成功"
+
+msgid "Project successfully deleted"
+msgstr "项目成功删除"
+
+#, python-format
+msgid "You have been invited to share your expenses for %(project)s"
+msgstr "你被邀请进入 %(project)s来分担你的花费"
+
+msgid "Your invitations have been sent"
+msgstr "你的申请已发出"
+
+msgid ""
+"Sorry, there was an error while trying to send the invitation emails. "
+"Please check the email configuration of the server or contact the "
+"administrator."
+msgstr ""
+
+#, python-format
+msgid "%(member)s has been added"
+msgstr "已添加%(member)s"
+
+#, python-format
+msgid "%(name)s is part of this project again"
+msgstr "%(name)s 已经在项目里了"
+
+#, python-format
+msgid ""
+"User '%(name)s' has been deactivated. It will still appear in the users "
+"list until its balance becomes zero."
+msgstr "用户 '%(name)s'已被暂停，在余额为0之前会继续显示在用户列表里"
+
+#, python-format
+msgid "User '%(name)s' has been removed"
+msgstr "用户 '%(name)s'已被移除"
+
+#, python-format
+msgid "User '%(name)s' has been edited"
+msgstr "用户'%(name)s'已编辑"
+
+msgid "The bill has been added"
+msgstr "帐单已添加"
+
+msgid "The bill has been deleted"
+msgstr "账单已删除"
+
+msgid "The bill has been modified"
+msgstr "帐单已修改"
+
+msgid "Sorry, we were unable to find the page you've asked for."
+msgstr "对不起，未找到该页面"
+
+msgid "The best thing to do is probably to get back to the main page."
+msgstr "最好的办法是返回主页"
+
+msgid "Back to the list"
+msgstr "返回列表"
+
+msgid "Administration tasks are currently disabled."
+msgstr "管理任务目前禁用。"
+
+msgid "The project you are trying to access do not exist, do you want to"
+msgstr "该项目不存在，你是否要"
+
+msgid "create it"
+msgstr "创建"
+
+msgid "?"
+msgstr "？"
+
+msgid "Create a new project"
+msgstr "新建项目"
+
+msgid "Project"
+msgstr "项目"
+
+msgid "Number of members"
+msgstr "会员人数"
+
+msgid "Number of bills"
+msgstr "帐单数目"
+
+msgid "Newest bill"
+msgstr "最新账单"
+
+msgid "Oldest bill"
+msgstr "最旧帐单"
+
+msgid "Actions"
+msgstr "操作"
+
+msgid "edit"
+msgstr "编辑"
+
+msgid "delete"
+msgstr "删除"
+
+msgid "The Dashboard is currently deactivated."
+msgstr "操作面板失效"
+
+msgid "you sure?"
+msgstr "确定？"
+
+msgid "Edit project"
+msgstr "编辑项目"
+
+msgid "Download project's data"
+msgstr "下载项目数据"
+
+msgid "Bill items"
+msgstr "单据项目"
+
+msgid "Download the list of bills with owner, amount, reason,... "
+msgstr "下载帐单清单包含所有者，数目，理由… "
+
+msgid "Settle plans"
+msgstr "解决方案"
+
+msgid "Download the list of transactions needed to settle the current bills."
+msgstr "下载结账的交易记录。"
+
+msgid "Can't remember the password?"
+msgstr "忘记密码？"
+
+msgid "Cancel"
+msgstr "取消"
+
+msgid "Edit the project"
+msgstr "编辑项目"
+
+msgid "Edit this bill"
+msgstr "编辑帐单"
+
+msgid "Add a bill"
+msgstr "添加账单"
+
+msgid "Select all"
+msgstr "全选"
+
+msgid "Select none"
+msgstr "全不选"
+
+msgid "Add participant"
+msgstr "添加参与人"
+
+msgid "Edit this member"
+msgstr "编辑成员"
+
+msgid "john.doe@example.com, mary.moe@site.com"
+msgstr "john.doe@example.com, mary.moe@site.com"
+
+msgid "Send the invitations"
+msgstr "发送邀请"
+
+msgid "Download"
+msgstr "下载"
+
+msgid "Manage your shared <br />expenses, easily"
+msgstr "轻松管理你分享的<br />花费"
+
+msgid "Try out the demo"
+msgstr "试试小样"
+
+msgid "You're sharing a house?"
+msgstr "你与人合租吗？"
+
+msgid "Going on holidays with friends?"
+msgstr "与朋友一起度假吗？"
+
+msgid "Simply sharing money with others?"
+msgstr "简单的与他人共享钱吗？"
+
+msgid "We can help!"
+msgstr "我们可以帮助！"
+
+msgid "Log in to an existing project"
+msgstr "登陆已知项目"
+
+msgid "Log in"
+msgstr "登录"
+
+msgid "can't remember your password?"
+msgstr "记不住密码？"
+
+msgid "Create"
+msgstr "创建"
+
+msgid ""
+"Don\\'t reuse a personal password. Choose a private code and send it to "
+"your friends"
+msgstr ""
+
+msgid "Account manager"
+msgstr "账户经理"
+
+msgid "Bills"
+msgstr "帐单"
+
+msgid "Settle"
+msgstr "解决"
+
+msgid "Statistics"
+msgstr "统计"
+
+msgid "Settings"
+msgstr "设置"
+
+msgid "Languages"
+msgstr "语言"
+
+msgid "Projects"
+msgstr "项目"
+
+msgid "Start a new project"
+msgstr "开始一个新项目"
+
+msgid "Other projects :"
+msgstr "其他项目："
+
+msgid "switch to"
+msgstr "切换到"
+
+msgid "Dashboard"
+msgstr "操作面板"
+
+msgid "Logout"
+msgstr "退出"
+
+msgid "Code"
+msgstr "代码"
+
+msgid "Mobile Application"
+msgstr "手机软件"
+
+msgid "Documentation"
+msgstr "文件"
+
+msgid "Administation Dashboard"
+msgstr "管理面板"
+
+msgid "\"I hate money\" is a free software"
+msgstr "“I hate money\"是一个免费软件"
+
+msgid "you can contribute and improve it!"
+msgstr "你可以贡献自己的力量让它变得更好！"
+
+msgid "deactivate"
+msgstr "暂停"
+
+msgid "reactivate"
+msgstr "激活"
+
+msgid "Invite people"
+msgstr "邀请别人"
+
+msgid "You should start by adding participants"
+msgstr "从添加参与人开始"
+
+msgid "Add a new bill"
+msgstr "添加新帐单"
+
+msgid "When?"
+msgstr "什么时候？"
+
+msgid "Who paid?"
+msgstr "谁付的钱？"
+
+msgid "For what?"
+msgstr "什么东西？"
+
+msgid "How much?"
+msgstr "多少？"
+
+#, python-format
+msgid "Added on %(date)s"
+msgstr "添加到%(date)s"
+
+msgid "each"
+msgstr "每一个·"
+
+msgid "No bills"
+msgstr "没有账单"
+
+msgid "Nothing to list yet."
+msgstr "没有列表"
+
+msgid "You probably want to"
+msgstr "你想要"
+
+msgid "add a bill"
+msgstr "添加账单"
+
+msgid "add participants"
+msgstr "添加参与人"
+
+msgid "Password reminder"
+msgstr "密码提醒"
+
+msgid ""
+"A link to reset your password has been sent to you, please check your "
+"emails."
+msgstr "重置密码的链接已发送给你，请检查邮箱。"
+
+msgid "Return to home page"
+msgstr "返回主页"
+
+msgid "Your projects"
+msgstr "你的项目"
+
+msgid "Reset your password"
+msgstr "重设密码"
+
+msgid "Invite people to join this project"
+msgstr "邀请其他人加入项目"
+
+msgid "Share Identifier & code"
+msgstr "分享标识符与码"
+
+msgid ""
+"You can share the project identifier and the private code by any "
+"communication means."
+msgstr "你可以通过任何通信手段分享项目标识符与专用码"
+
+msgid "Identifier:"
+msgstr "标识符："
+
+msgid "Share the Link"
+msgstr "分享链接"
+
+msgid "You can directly share the following link via your prefered medium"
+msgstr "你可以直接通过你喜欢的媒体分享链接"
+
+msgid "Send via Emails"
+msgstr "邮件发送"
+
+msgid ""
+"Specify a (comma separated) list of email adresses you want to notify "
+"about the\n"
+"                creation of this budget management project and we will "
+"send them an email for you."
+msgstr ""
+"指定一个邮箱接收通知\n"
+"创建预算管理项目，我们会把它通过邮件发送给你"
+
+msgid "Who pays?"
+msgstr "谁付款？"
+
+msgid "To whom?"
+msgstr "给谁？"
+
+msgid "Who?"
+msgstr "谁？"
+
+msgid "Paid"
+msgstr "付款"
+
+msgid "Spent"
+msgstr "花费"
+
+msgid "Balance"
+msgstr "余额"
+
