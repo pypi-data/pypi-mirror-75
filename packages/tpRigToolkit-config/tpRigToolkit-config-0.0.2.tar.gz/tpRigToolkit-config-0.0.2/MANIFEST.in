@@ -1,0 +1,3 @@
+recursive-include tpRigToolkit/config/* *.yml
+include versioneer.py
+include tpRigToolkit/config/_version.py
