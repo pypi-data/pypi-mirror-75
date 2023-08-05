@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: bg-atlasapi
+Version: 0.0.5rc0
+Summary: A lightweight python module to interact with atlases for systems neuroscience
+Home-page: https://github.com/brainglobe/bg-atlasapi
+Author: Luigi Petrucco, Federico Claudi, Adam Tyson
+Author-email: adam.tyson@ucl.ac.uk
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.6, <3.8
+Requires-Dist: numpy
+Requires-Dist: tifffile
+Requires-Dist: treelib
+Requires-Dist: pandas
+Requires-Dist: requests
+Requires-Dist: meshio
+Requires-Dist: click
+Requires-Dist: rich
+Requires-Dist: tqdm (>=4.46.1)
+Requires-Dist: bg-space
+Provides-Extra: dev
+Requires-Dist: allensdk ; extra == 'dev'
+Requires-Dist: sphinx ; extra == 'dev'
+Requires-Dist: brainio (>=0.0.16) ; extra == 'dev'
+Requires-Dist: vtkplotter ; extra == 'dev'
+Requires-Dist: recommonmark ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme ; extra == 'dev'
+Requires-Dist: pydoc-markdown ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: gitpython ; extra == 'dev'
+Requires-Dist: coverage ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: PyMCubes ; extra == 'dev'
+
+UNKNOWN
+
+
