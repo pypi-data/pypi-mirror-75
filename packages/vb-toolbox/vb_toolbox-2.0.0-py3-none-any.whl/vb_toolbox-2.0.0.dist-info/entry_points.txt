@@ -1,0 +1,6 @@
+[console_scripts]
+vb_tool = vb_toolbox.app:main
+
+[gui_scripts]
+vb_gui = vb_toolbox.app_gui:main
+
