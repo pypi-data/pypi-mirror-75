@@ -1,0 +1,11 @@
+numpy
+
+[:python_version < "3.7"]
+dataclasses>='0.7'
+
+[dev]
+nbdev>=0.2.20
+matplotlib
+pillow
+torch
+pandas
