@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+VERSION
+requirements.txt
+setup.cfg
+setup.py
+rhasspy_hermes_app.egg-info/PKG-INFO
+rhasspy_hermes_app.egg-info/SOURCES.txt
+rhasspy_hermes_app.egg-info/dependency_links.txt
+rhasspy_hermes_app.egg-info/requires.txt
+rhasspy_hermes_app.egg-info/top_level.txt
+rhasspyhermes_app/__init__.py
+rhasspyhermes_app/py.typed
+tests/__init__.py
+tests/test_hotword.py
+tests/test_intent.py
+tests/test_nlu.py
