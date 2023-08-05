@@ -1,0 +1,18 @@
+name: thelper
+channels:
+  - pytorch
+  - conda-forge
+dependencies:
+  - cython
+  - ddt
+  - gitdb
+  - gitpython
+  - h5py
+  - hdf5plugin
+  - lz4
+  - matplotlib
+  - numpy
+  - opencv
+  - pip
+  - pip:
+    - -r requirements.txt

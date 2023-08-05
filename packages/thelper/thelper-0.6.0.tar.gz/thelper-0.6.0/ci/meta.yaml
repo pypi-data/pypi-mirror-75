@@ -1,0 +1,71 @@
+{% set name = "thelper" %}
+{% set version = "0.6.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+
+build:
+  number: 0
+  entry_points:
+    - thelper = thelper.cli:main
+  script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv "
+
+requirements:
+  host:
+    - cython
+    - gitpython
+    - h5py
+    - lz4
+    - matplotlib
+    - numpy
+    - opencv
+    - pillow
+    - pip
+    - python {{ python }}
+    - pyyaml
+    - scikit-learn
+    - six
+    - tensorboardx
+    - pytorch
+    - torchvision
+    - tqdm
+  run:
+    - cython
+    - gitpython
+    - h5py
+    - lz4
+    - matplotlib
+    - numpy
+    - opencv
+    - pillow
+    - pip
+    - python
+    - pyyaml
+    - scikit-learn
+    - six
+    - tensorboardx
+    - pytorch
+    - torchvision
+    - tqdm
+
+test:
+  imports:
+    - thelper
+  commands:
+    - thelper --help
+
+about:
+  home: https://github.com/plstcharles/thelper
+  license: Apache Software
+  license_family: APACHE
+  license_file: LICENSE
+  summary: Training framework & tools for PyTorch-based machine learning projects.
+  doc_url: https://thelper.readthedocs.io/en/latest/
+
+extra:
+  recipe-maintainers:
+    - plstcharles
