@@ -1,0 +1,8 @@
+{
+  "properties": {
+    "LOG_LEVEL": "ERROR",
+    "WSC_API_VERSION": "v1.4",
+    "WSC_API_PATH": "https://api.cloud.wowza.com/api/",
+    "WSC_TARGET_NAME": "fastly"
+  }
+}
