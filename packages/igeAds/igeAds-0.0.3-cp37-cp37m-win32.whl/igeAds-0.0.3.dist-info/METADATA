@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: igeAds
+Version: 0.0.3
+Summary: C++ extension Ads for 3D and 2D games.
+Home-page: https://indigames.net/
+Author: Indigames
+Author-email: dev@indigames.net
+License: MIT
+Keywords: Ads Admob Applovin FacebookAds 3D game Indigames
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Topic :: Games/Entertainment
+Description-Content-Type: text/markdown
+
+# igeAds
+
+C++ extension Ads for 3D and 2D games.
+
+### Before running this tutorial, you have to install igeAds
+	[pip install igeAds]
+
+### Available libraries
+- Admob [ Android / iOS ] (**do not recommend**)
+- Applovin [ Android / iOS ] (**recommend**)
+- Facebook [ Android / iOS ] (**do not recommend**)
+
+### Functions
+#### Applovin
+- First, you need to import and init the module
+	```
+	import igeAds
+    ads_applovin = igeAds.applovin()
+    ads_applovin.init(android=("50781ce08cccd9e5", "5ad29e98a6ed623c", "1a61c958e699b07a"), ios=("543b53f89be58d39", "ded4ed1fe2aa54e0", "3602eab376c95aa3"))
+	```
+- _Showing the ads_
+	- **Banner**
+
+	| Position | MoveTo Enum |
+	| ------- | ------------ |
+	| Top of the screen, horizontally centered. | kPositionTop = 0,
+	| Bottom of the screen, horizontally centered. | kPositionBottom,
+	| Top-left corner of the screen. | kPositionTopLeft,
+	| Top-right corner of the screen. | kPositionTopRight,
+	| Bottom-left corner of the screen. | kPositionBottomLeft,
+	| Bottom-right corner of the screen. | kPositionBottomRight,
+
+	```
+	// default (position = 0, left = 0, top = 0)
+	ads_applovin.showBanner(position, left, top)
+	ads_applovin.hideBanner()
+	```
+	- **Interstitial**
+	```
+	ads_applovin.showInterstitial()
+	```
+	- **RewardedVideo**
+	```
+	ads_applovin.showRewardedVideo()
+	ads_applovin.pauseRewardedVideo()
+	ads_applovin.resumeRewardedVideo()
+	```
+- _Release it when everything is done_
+	```
+	ads_applovin.release()
+	```
+
