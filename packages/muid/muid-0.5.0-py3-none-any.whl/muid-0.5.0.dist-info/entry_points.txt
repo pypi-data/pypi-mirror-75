@@ -1,0 +1,3 @@
+[console_scripts]
+muid = muid.__main__:main
+
