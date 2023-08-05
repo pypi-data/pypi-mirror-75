@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+tests/__init__.py
+tests/test_base.py
+tests/test_soap_stressor.py
+vdu_nlp_services/__init__.py
+vdu_nlp_services/fused_stressor.py
+vdu_nlp_services/morphological_analyzer.py
+vdu_nlp_services/soap_stressor.py
+vdu_nlp_services.egg-info/PKG-INFO
+vdu_nlp_services.egg-info/SOURCES.txt
+vdu_nlp_services.egg-info/dependency_links.txt
+vdu_nlp_services.egg-info/requires.txt
+vdu_nlp_services.egg-info/top_level.txt
