@@ -1,0 +1,12 @@
+wheel
+pillow>=7.1.0
+PyPDF2
+
+[gui]
+PyMuPDF>=1.14.5
+
+[gui:python_version < "3.0"]
+PySimpleGUI27>=2.2.0
+
+[gui:python_version >= "3.0"]
+PySimpleGUI>=4.0.0
