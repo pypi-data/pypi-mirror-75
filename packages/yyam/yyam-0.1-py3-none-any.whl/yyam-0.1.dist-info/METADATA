@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: yyam
+Version: 0.1
+Summary: include-yy's account manager
+Home-page: https://github.com/include-yy/account-manager
+Author: include-yy
+Author-email: 969041171@qq.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3
+Requires-Dist: toml
+
+UNKNOWN
+
+
