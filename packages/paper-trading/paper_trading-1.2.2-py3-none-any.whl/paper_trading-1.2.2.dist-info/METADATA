@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: paper-trading
+Version: 1.2.2
+Summary: creat your own paper trading server
+Home-page: https://github.com/pTraderTeam/paper_trading
+License: MIT
+Author: Michael
+Author-email: cao6237699@126.com
+Requires-Python: >=3.7,<4.0
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Dist: APScheduler (>=3.6.3,<4.0.0)
+Requires-Dist: Flask (>=1.0.2,<2.0.0)
+Requires-Dist: Flask-Bootstrap (>=3.3.7.1,<4.0.0.0)
+Requires-Dist: Flask-Login (>=0.4.1,<0.5.0)
+Requires-Dist: Flask-Mail (>=0.9.1,<0.10.0)
+Requires-Dist: Flask-Moment (>=0.8.0,<0.9.0)
+Requires-Dist: Flask-Script (>=2.0.6,<3.0.0)
+Requires-Dist: Flask-SocketIO (>=3.3.2,<4.0.0)
+Requires-Dist: flask-blueprint (>=1.2.9,<2.0.0)
+Requires-Dist: matplotlib (>=3.2.2,<4.0.0)
+Requires-Dist: mpl_finance (>=0.10.1,<0.11.0)
+Requires-Dist: numpy (>=1.16.3,<2.0.0)
+Requires-Dist: pandas (>=0.24.2,<0.25.0)
+Requires-Dist: pymongo (>=3.8.0,<4.0.0)
+Requires-Dist: pytdx (>=1.68,<2.0)
+Requires-Dist: requests (>=2.21.0,<3.0.0)
+Requires-Dist: ta-lib (>=0.4.18,<0.5.0)
+Requires-Dist: tushare (>=1.2.40,<2.0.0)
