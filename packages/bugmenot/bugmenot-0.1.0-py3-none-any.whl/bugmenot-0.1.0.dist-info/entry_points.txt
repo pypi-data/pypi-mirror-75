@@ -1,0 +1,3 @@
+[console_scripts]
+bugmenot = bugmenot.__main__:main
+
