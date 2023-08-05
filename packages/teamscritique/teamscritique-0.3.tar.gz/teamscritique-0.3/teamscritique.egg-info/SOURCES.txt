@@ -1,0 +1,11 @@
+MANIFEST.in
+mlp_classifier.model
+setup.py
+teamscritique/__init__.py
+teamscritique/utils.py
+teamscritique.egg-info/PKG-INFO
+teamscritique.egg-info/SOURCES.txt
+teamscritique.egg-info/dependency_links.txt
+teamscritique.egg-info/not-zip-safe
+teamscritique.egg-info/requires.txt
+teamscritique.egg-info/top_level.txt
