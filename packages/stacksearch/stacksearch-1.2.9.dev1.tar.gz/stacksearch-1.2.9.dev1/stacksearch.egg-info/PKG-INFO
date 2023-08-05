@@ -1,0 +1,140 @@
+Metadata-Version: 2.1
+Name: stacksearch
+Version: 1.2.9.dev1
+Summary: StackSearch is a python module that provides a way to search StackOverflow.
+Home-page: UNKNOWN
+Author: Bryan Hu
+Author-email: bryan.hu.cn@gmail.com
+License: UNKNOWN
+Project-URL: Source Code, https://github.com/ThatXliner/stacksearch
+Project-URL: Documentation, https://stacksearch.readthedocs.io/en/latest/index.html
+Project-URL: Tracker, https://github.com/ThatXliner/stacksearch/issues
+Description: # stacksearch 🔎
+        
+        [![Build Status](https://travis-ci.com/ThatXliner/stacksearch.svg?branch=Stable)](https://travis-ci.com/ThatXliner/stacksearch) [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/ThatXliner/stacksearch) ![Scrutinizer code quality (GitHub/Bitbucket)](https://img.shields.io/scrutinizer/quality/g/ThatXliner/stacksearch/master) ![PyPI](https://img.shields.io/pypi/v/stacksearch) ![PyPI - Implementation](https://img.shields.io/pypi/implementation/stacksearch) ![PyPI - Python Version](https://img.shields.io/pypi/pyversions/stacksearch) ![PyPI - License](https://img.shields.io/pypi/l/stacksearch) ![GitHub top language](https://img.shields.io/github/languages/top/ThatXliner/stacksearch) ![GitHub language count](https://img.shields.io/github/languages/count/ThatXliner/stacksearch) [![Documentation Status](https://readthedocs.org/projects/stacksearch/badge/?version=latest)](https://stacksearch.readthedocs.io/en/latest/?badge=latest)
+        
+        StackSearch is a python module that provides a way to search [StackOverflow](https://stackoverflow.com/).
+        
+        The reason this is better than other modules is that this module provides a modern API, a beautiful command-line interface via argparse and blessings, all in pure Python.
+        
+        It is also available as a standalone command-line tool, so you may run it directly like so:
+        
+        ```bash
+        stacksearch This is the query
+        ```
+        
+        without the `python3 -m` prefix, if desired.
+        
+        It also has an API which you can use via
+        
+        ```python
+        >>> from stackoverflow import Search
+        >>> Search.Search("This is the query")
+        ```
+        
+        Have fun!
+        
+        ## Benefits 👍
+        
+        The benefits of this module as opposed to the other StackOverflow-searching modules is that this module provides the following:
+        
+        - The ability to return a dictionary of _ALL_ the search results found, **not just the first result**
+        - The ability to return results from a variety of different [StackExchange](https://stackexchange.com/) sites
+        - A **beautiful command-line interface _for humans_**
+        - A decently documented API
+        - An optional **asynchronous API**
+        - Decently easy-to-read code (formatted with [Black](https://github.com/psf/black))
+        - And **open source code on [GitHub](https://github.com/ThatXliner/stacksearch/tree/Stable)**
+        
+        ## Downsides 👎
+        
+        - Possibly _slower_ than the other modules
+        - **The first PyPi project ever made by ThatXliner**
+        - Not _fully_ (completely) optimized (well, after all, it's python)
+        - ~~A big list of dependencies~~ (shortened in version 1.0.0 or so)
+        
+        ## Current Features 😁
+        
+        - **Everything listed in the 'Benefits' section of the README above**
+        - Mostly, **if not fully**, [type-hinted](https://www.python.org/dev/peps/pep-0585/)
+        - A **beautiful, simple, yet powerful command-line interface** (via [argparse](https://docs.python.org/3/library/argparse.html) and [blessings](https://pypi.org/project/blessings/))
+        - **Asynchronous** StackOverflow requests!
+        - The ability to **crank out raw [JSON](https://www.json.org/json-en.html) data** to **_use_**
+        - And an **API**
+        
+        ## Future Features 🏃‍♂️
+        
+        - [x] ~~Asynchronous StackOverflow requests!~~ (Done in v1.1.0)
+        - [x] Documentation (_Sort of_ added in v1.2.8)
+        - [ ] Object-oriented APIs
+        - [ ] Python backwards-compatibility
+        - [ ] Being able to scrape _all_ StackOverflow sites/pages
+        - [x] ~~A better README~~ (Done in v1.0.0.1)
+        - [ ] Being able to output different formats of data (e.g. YAML, TOML, XML, etc)
+        - [ ] And more command-line options
+        
+        ## Usage Examples
+        
+        - For creating a text editor extension built on this package
+        
+        - For searching StackOverflow and/or **other StackExchange websites** without leaving the Terminal (for those [Vim](https://www.vim.org/) people)
+        
+        - For getting lots of answers from all StackExchange sites you know
+        
+        ## License
+        
+        MIT License
+        
+        ```text
+        Copyright (c) 2020 ThatXliner
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        ```
+        
+        ## Code style guide 😳
+        
+        [Black](https://github.com/psf/black). We (I, right now.) use the black formatter to format our code. **It's pretty strict.**
+        
+        ## Contributing ✏️
+        
+        ![GitHub contributors](https://img.shields.io/github/contributors/ThatXliner/stacksearch)
+        
+        Due to the fact that I have a GitHub secret on the repository, **no one here will be a pull-requestless contributor**, meaning **all contributors will need to contribute to the project via pull-request and/or issue reports**. <sub>Though, there are exceptions.</sub>
+        
+        ## Links 📎
+        
+        [GitHub](https://github.com/ThatXliner/stacksearch/tree/Stable) (Possibly this page)
+        
+        [PyPi](https://pypi.org/project/stacksearch/) (Possibly this page)
+        
+        [Travis-CI](https://travis-ci.com/github/ThatXliner/stacksearch)
+        
+Keywords: api stackexchange stackoverflow python webscrape webscrap
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
