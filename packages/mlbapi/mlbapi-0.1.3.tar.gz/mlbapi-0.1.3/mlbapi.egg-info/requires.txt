@@ -1,0 +1,8 @@
+requests
+python-dateutil
+inflection
+
+[dev]
+pytest
+pytest-cov
+coveralls
