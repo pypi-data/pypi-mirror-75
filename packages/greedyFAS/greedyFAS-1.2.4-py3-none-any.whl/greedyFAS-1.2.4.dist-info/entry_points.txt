@@ -1,0 +1,7 @@
+[console_scripts]
+annoFAS = greedyFAS.annoFAS:main
+annoParserFAS = greedyFAS.annoParserFAS:main
+calcFAS = greedyFAS.calcFAS:main
+hamstrFAS = greedyFAS.hamstrFAS:main
+prepareFAS = greedyFAS.prepareFAS:main
+
