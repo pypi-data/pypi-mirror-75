@@ -1,0 +1,73 @@
+# Functions and Datasets to support statistics book(s) by Julian Faraway
+
+I am the author of
+
+[Linear Models with R](https://people.bath.ac.uk/jjf23/LMR/index.html)
+
+and
+
+[Extending the Linear Model with R](https://people.bath.ac.uk/jjf23/ELM/index.html)
+
+A new book entitled *Linear Models with Python* will be published soon. This package
+contains data (and documentation) along with a few functions to support this book.
+
+# Data
+
+All the datasets from *Linear Models with R* are included. These are all small datasets
+useful for teaching or other example purposes.
+
+You can load a dataset (for example) with
+
+```
+import faraway.datasets.composite
+composite = faraway.datasets.composite.load()
+composite
+```
+
+and you can see the description with
+
+```
+print(faraway.datasets.composite.DESCR)
+```
+
+The datasets included are
+
+```
+            clot        fat         infmort     peanut      resceram    swiss
+aatemp      coagulation fortune     jsp         penicillin  salmonella  teengamb
+abrasion    composite   fpe         kanga       pima        sat         truck
+air         cornnit     fruitfly    leafburn    pipeline    savings     tvdoctor
+alfalfa     corrosion   galamiss    manilius    pressure    seatpos     uswages
+anaesthetic crawl       galapagos   mba         prostate    sexab       wafer
+butterfat   denim       gammaray    meatspec    pulp        snail       warpbreaks
+cars        divusa      generic     newhamp     punting     sono        whiteside
+cheddar     eco         globwarm    oatvar      pvc         speedo
+chmiss      eggprod     hips        odor        rabbit      star
+chredlin    families    hsb         ozone       rats        statedata
+```
+
+This is a subset of those available in my [R package on CRAN](https://cran.r-project.org/web/packages/faraway/index.html)
+where you can also see documentation on these datasets.
+
+# Functions
+
+Currently, there is only one useful function which is an alternative to the regression summary function
+used in `statsmodels`. It is much more compact. Suppose `lmod` is an OLSresults object, then (note the spelling is `sumary()`)
+
+```
+lmod.sumary()
+```
+
+would produce something like
+
+```
+           coefs stderr tvalues pvalues
+Intercept  7.068 19.154    0.37  0.7154
+Area      -0.024  0.022   -1.07  0.2963
+Elevation  0.319  0.054    5.95  0.0000
+Nearest    0.009  1.054    0.01  0.9932
+Scruz     -0.241  0.215   -1.12  0.2752
+Adjacent  -0.075  0.018   -4.23  0.0003
+
+n=30 p=6 Residual SD=60.975 R-squared=0.77
+```
