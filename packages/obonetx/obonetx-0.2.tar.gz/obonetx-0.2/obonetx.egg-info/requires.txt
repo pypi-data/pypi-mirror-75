@@ -1,0 +1,7 @@
+networkx
+obonet
+
+[dev]
+pytest>=3.7
+pipenv
+twine
