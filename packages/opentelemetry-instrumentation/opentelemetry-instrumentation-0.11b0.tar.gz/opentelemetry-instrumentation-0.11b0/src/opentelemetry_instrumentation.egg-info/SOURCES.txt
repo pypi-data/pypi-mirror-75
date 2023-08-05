@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+src/opentelemetry/instrumentation/bootstrap.py
+src/opentelemetry/instrumentation/instrumentor.py
+src/opentelemetry/instrumentation/utils.py
+src/opentelemetry/instrumentation/version.py
+src/opentelemetry/instrumentation/auto_instrumentation/__init__.py
+src/opentelemetry/instrumentation/auto_instrumentation/sitecustomize.py
+src/opentelemetry_instrumentation.egg-info/PKG-INFO
+src/opentelemetry_instrumentation.egg-info/SOURCES.txt
+src/opentelemetry_instrumentation.egg-info/dependency_links.txt
+src/opentelemetry_instrumentation.egg-info/entry_points.txt
+src/opentelemetry_instrumentation.egg-info/not-zip-safe
+src/opentelemetry_instrumentation.egg-info/requires.txt
+src/opentelemetry_instrumentation.egg-info/top_level.txt
