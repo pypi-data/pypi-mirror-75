@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: holger-utils
+Version: 0.3.2
+Summary: utils for developing web application
+Home-page: https://gitlab.com/football-fantasy/holger-utils
+Author: Mohammad Hosein Shamsaei
+Author-email: holgerco.dev@gmail.com
+License: UNKNOWN
+Description: # Holger utils
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
