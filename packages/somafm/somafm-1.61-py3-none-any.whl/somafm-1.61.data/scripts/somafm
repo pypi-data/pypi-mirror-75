@@ -1,0 +1,622 @@
+#!python
+# Python frontend for playing SomaFM with MPlayer
+# Written by Tom Nardi (MS3FGX@gmail.com)
+# Licensed under the GPLv3, see "COPYING"
+version = "1.61"
+
+import re
+import os
+import sys
+import pickle
+import shutil
+import signal
+import requests
+import argparse
+import colorama
+import platform
+import subprocess
+from random import randrange
+from datetime import datetime
+from colorama import Fore, Style
+from collections import OrderedDict
+
+# Optional Chromecast support, don't error if can't import
+try:
+    import pychromecast
+    chromecast_support = True
+except ImportError:
+    chromecast_support = False
+
+# Basic config options:
+#-----------------------------------------------------------------------
+
+# Default quality (0 is highest available)
+quality_num = 0
+
+# Default channel to play
+default_chan = "Groove Salad"
+
+# Name of Chromecast device
+chromecast_name = "The Office"
+
+# Show track names in terminal while casting
+cast_sync = True
+
+# Highlight station IDs in yellow
+station_highlights = True
+
+# Enable/Disable experimental desktop notifications
+desktop_notifications = False
+
+# Show which player is being used in header
+show_player = False
+
+# Experimental Options:
+#-----------------------------------------------------------------------
+
+# Run a custom command on each new track (BE CAREFUL)
+custom_notifications = False
+
+# Custom notification command, track title will be given as argument
+notification_cmd = ""
+
+# Log tracks to file
+log_tracks = False
+
+# File to store track listing
+track_file = "/tmp/somafm_tracks.txt"
+
+# Following variables should probably be left alone
+#-----------------------------------------------------------------------
+
+# SomaFM channel list
+url = "https://somafm.com/channels.json"
+
+# Directory for cache
+cache_dir = "/tmp/soma_cache"
+
+# Directory for channel icons
+icon_dir = cache_dir + "/icons"
+
+# Default image size for icons
+image_size = "xlimage"
+
+# File name for channel cache
+channel_file = cache_dir + "/channel_list"
+
+# PID file
+pid_file = "/tmp/soma.pid"
+
+# Known station IDs
+station_ids = ["SomaFM", "Big Url"]
+
+# Supported players
+players = ['mplayer','mpg123','mpv']
+
+# Define functions
+#-----------------------------------------------------------------------#
+# Catch ctrl-c
+def signal_handler(sig, frame):
+    print(Fore.RED + "Force closing...")
+    # Kill any sneaky players
+    for player_name in players:
+        subprocess.call(['killall', '-q', player_name])
+    # Delete PID file
+    os.unlink(pid_file)
+    sys.exit(0)
+
+# Check for supported players and config variables
+def configPlayer():
+    # Make player definition global, init name
+    global player
+    player = {'name': ''}
+    # Loop through list of players
+    for player_name in players:
+        # Match found
+        if shutil.which(player_name):
+            if player_name == 'mplayer':
+                player = {
+                    'name': 'mplayer',
+                    'arg': '-playlist',
+                    'sarg1': '-ao',
+                    'sarg2': 'null',
+                    'stream': 'PLS'
+                    }
+                break
+            elif player_name == 'mpg123':
+                player = {
+                    'name': 'mpg123',
+                    'arg': '-@',
+                    'sarg1': '-a',
+                    'sarg2': 'null',
+                    'stream': 'MP3'
+                    }
+                break
+            elif player_name == 'mpv':
+                player = {
+                    'name': 'mpv',
+                    'arg': '',
+                    'stream': 'PLS'
+                    }
+                break
+
+    # If dict hasn't been populated, then no player was found
+    if not player['name']:
+        print(Fore.RED + "No supported player found!")
+        print(Fore.WHITE + "Please check documentation for a list of supported players.")
+        exit()
+
+# Download master list of channels
+def downloadChannels():
+    # Make global so other functions can acess it
+    global channel_list
+
+    # Let user know we're downloading
+    print("Downloading channel list...", end='')
+    sys.stdout.flush()
+
+    # Pull down JSON file
+    try:
+        channel_raw = requests.get(url, timeout=15)
+    except requests.exceptions.Timeout:
+        print("Timeout!")
+        exit()
+    except requests.exceptions.ConnectionError:
+        print("Network Error!")
+        exit()
+    except requests.exceptions.RequestException as e:
+        print("Unknown Error!")
+        exit()
+
+    # Put channels in list
+    channel_list = channel_raw.json()['channels']
+
+    # Write to file
+    with open(channel_file, 'wb') as fp:
+        pickle.dump(channel_list, fp)
+
+    print("OK")
+
+# Download channel icons
+def downloadIcons():
+    # Create icon directory if don't exist
+    if not os.path.exists(icon_dir):
+        os.mkdir(icon_dir)
+
+    # If there are already icons, return
+    if os.listdir(icon_dir):
+        return
+
+    # Let user know we're downloading
+    print("Downloading channel icons", end='')
+    sys.stdout.flush()
+
+    for channel in channel_list:
+        # Download current icon
+        current_icon = requests.get(channel[image_size])
+
+        # Construct path
+        icon_path = icon_dir + "/" + os.path.basename(channel[image_size])
+
+        # Save it to file
+        with open(icon_path, 'wb') as saved_icon:
+            saved_icon.write(current_icon.content)
+
+        # Print a dot so user knows we're moving
+        print(".", end='')
+        sys.stdout.flush()
+
+    # If we get here, all done
+    print("OK")
+
+# Loop through channels and print their descriptions
+def listChannels():
+    # Loop through channels
+    print(Fore.RED + "------------------------------")
+    for channel in channel_list:
+        print(Fore.BLUE + '{:>22}'.format(channel['title']) + Fore.WHITE, end=' : ')
+        print(Fore.GREEN + channel['description'] + Fore.RESET)
+
+# Show sorted list of listeners
+def showStats():
+    # To count total listeners
+    listeners = 0
+
+    # Dictionary for sorting
+    channel_dict = {}
+
+    # Put channels and listener counts into dictionary
+    for channel in channel_list:
+        channel_dict[channel['title']] = int(channel['listeners'])
+
+    # Sort and print results
+    sorted_list = OrderedDict(sorted(channel_dict.items(), key=lambda x: x[1], reverse=True))
+    print(Fore.RED + "------------------------------")
+    for key, val in sorted_list.items():
+        # Total up listeners
+        listeners = listeners + val
+        print(Fore.GREEN + '{:>4}'.format(val) + Fore.BLUE, end=' : ')
+        print(Fore.BLUE + key + Fore.RESET)
+
+    # Print total line
+    print(Fore.YELLOW + '{:>4}'.format(listeners) + Fore.BLUE, end=' : ')
+    print(Fore.CYAN + "Total Listeners" + Fore.RESET)
+
+# Return information for given channel
+def channelGet(request, channel_name):
+    for channel in channel_list:
+        if channel_name.capitalize() in channel['title'].capitalize():
+            # Channel exists, now what?
+            if request == "VERIFY":
+                return()
+            elif request == "PLS":
+                # Give MPlayer on Mac OS an HTTP PLS link
+                if player['name'] == "mplayer" and platform.system() == "Darwin":
+                    return(channel['playlists'][quality_num]['url'].replace('https', 'http'))
+                # On Linux, use HTTPS for future proofing
+                return(channel['playlists'][quality_num]['url'])
+            elif request == "NAME":
+                return(channel['title'])
+            elif request == "DESC":
+                return(channel['description'])
+            elif request == "ICON":
+                return(icon_dir + "/" + os.path.basename(channel[image_size]))
+            elif request == "ICON_URL":
+                return(channel[image_size])
+            elif request == "URL":
+                # Download PLS
+                pls_file = requests.get(channel['playlists'][quality_num]['url'])
+
+                # Split out file URL
+                for line in pls_file.text.splitlines():
+                    if "File1" in line:
+                        return(line.split('=')[1])
+            elif request == "MP3":
+                # For mpg123 compatibility, return HTTP MP3 stream
+                # This may break in the future if Soma goes all HTTPS
+                for stream in channel['playlists']:
+                        if stream['format'] == 'mp3':
+                            return(stream['url'].replace('https', 'http'))
+            else:
+                print(Fore.RED + "Unknown channel operation!")
+                exit()
+
+    # If we get here, no match
+    print(Fore.RED + "Channel not found!")
+    print(Fore.WHITE + "Double check the name of the channel and try again.")
+    exit()
+
+# Stream channel with media player
+def startStream(channel_name):
+    # Open stream
+    print("Loading stream...", end='')
+    try:
+        playstream = subprocess.Popen([player['name'], player['arg'], channelGet(player['stream'],
+                     args.channel)], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=False)
+    except:
+        print(Fore.RED + "FAILED")
+        print("")
+        print(Fore.WHITE + "Playback encountered an unknown error.")
+        exit()
+    print("OK")
+
+    # Hand off to info display
+    streamInfo(playstream)
+
+# Stream channel on Chromecast
+def startCast(channel_name):
+    # Populate stream variables
+    stream_name = channelGet('NAME', channel_name)
+    stream_url = channelGet('URL', channel_name)
+
+    # Now try to communicate with CC
+    print("Connecting to", chromecast_name, end='...')
+    sys.stdout.flush()
+    try:
+        chromecasts = pychromecast.get_chromecasts()
+        cast = next(cc for cc in chromecasts if cc.device.friendly_name == chromecast_name)
+    except:
+        print(Fore.RED + "FAILED")
+        print("")
+        print(Fore.WHITE + "Double check the device name and try again.")
+        exit()
+
+    # Attempt to start stream
+    try:
+        cast.wait()
+        stream = cast.media_controller
+        stream.play_media(stream_url, 'audio/mp3', stream_name, channelGet('ICON_URL', channel_name))
+        stream.block_until_active()
+    except:
+        print(Fore.RED + "FAILED")
+        print("")
+        print(Fore.WHITE + "Stream failed to start on Chromecast.")
+        exit()
+    print("OK")
+
+    # Start player with no audio to get track info
+    if cast_sync:
+        # Some player specific tweaks
+        if player['name'] == 'mpg123':
+            # mpg123 needs @ added to stream name
+            stream_url = '-@'+channelGet('MP3', args.channel)
+        elif player['name'] == 'mpv':
+            # Playing without audio doesn't seem to work in mpv, so bail out for now
+            print(Fore.RED + "Cast sync not supported on mpv.")
+            exit()
+
+        try:
+            playstream = subprocess.Popen([player['name'], player['sarg1'], player['sarg2'], stream_url],
+                         stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=False)
+        except:
+            print(Fore.RED + "Track Sync Failed!")
+            exit()
+
+        # Hand off to info display
+        streamInfo(playstream)
+
+        # If we get here, then player has stopped and so should Cast
+        cast.quit_app()
+    else:
+        print(Fore.RED + "--------------------------")
+        print(Fore.WHITE + "Now playing: " + Fore.CYAN + stream_name)
+        exit()
+
+# Determine if track is a Station ID
+def stationID(track):
+    # Loop through known IDs, return on match
+    for station in station_ids:
+        if station.capitalize() in track.capitalize():
+            return(True)
+
+    # If we get here, no match was found
+    return(False)
+
+# Print stream and track information
+def streamInfo(playstream):
+    InfoPrinted = False
+    print(Fore.RED + "--------------------------")
+    # Parse output
+    for line in playstream.stdout:
+        # Print debug information
+        if args.verbose:
+            print(line)
+
+        if InfoPrinted is False:
+            # mpv
+            if line.startswith(b'File tags:'):
+                if show_player:
+                    print(Fore.CYAN + "Player: " + Fore.WHITE + "mpv")
+                # mpv doesn't give us much info, so have to pull channel name from args
+                print(Fore.CYAN + "Channel: " + Fore.WHITE + channelGet('NAME', args.channel))
+                print(Fore.RED + "--------------------------")
+                print(Fore.WHITE + "Press Crtl+C to Quit")
+                InfoPrinted = True
+
+            # mpg123
+            if line.startswith(b'ICY-NAME'):
+                if show_player:
+                    print(Fore.CYAN + "Player: " + Fore.WHITE + "mpg123")
+                print(Fore.CYAN + "Channel: " + Fore.WHITE + line.decode().split(':', 2)[1].strip())
+            if line.startswith(b'MPEG'):
+                print(Fore.CYAN + "Bitrate: " + Fore.WHITE + line.decode().strip())
+                print(Fore.RED + "--------------------------")
+                InfoPrinted = True
+
+            # Mplayer
+            if line.startswith(b'Name'):
+                if show_player:
+                    print(Fore.CYAN + "Player: " + Fore.WHITE + "MPlayer")
+                print(Fore.CYAN + "Channel: " + Fore.WHITE + line.decode().split(':', 2)[1].strip())
+            if line.startswith(b'Genre'):
+                print(Fore.CYAN + "Genre: " + Fore.WHITE + line.decode().split(':', 1)[1].strip())
+            if line.startswith(b'Bitrate'):
+                print(Fore.CYAN + "Bitrate: " + Fore.WHITE + line.decode().split(':', 1)[1].strip())
+                print(Fore.RED + "--------------------------")
+                InfoPrinted = True
+
+        # Updates on every new track
+        if line.startswith(b'ICY Info:') or line.startswith(b'ICY-META:') or line.startswith(b' icy-title:'):
+            # mpv format is different
+            if line.startswith(b' icy-title:'):
+                track = line.decode().split(':', 1)[1].strip()
+            else:
+                # Break out artist - track data
+                info = line.decode().split(':', 1)[1].strip()
+                match = re.search(r"StreamTitle='(.*)';StreamUrl=", info)
+                track = match.group(1)
+
+            # Print date before track
+            print(Fore.BLUE + datetime.now().strftime("%H:%M:%S"), end=' | ')
+
+            # Check if track is a station ID once, save value to variable
+            IDStatus = stationID(track)
+
+            # Highlight station IDs in yellow
+            if station_highlights and IDStatus:
+                print(Fore.YELLOW + track)
+            else:
+                print(Fore.GREEN + track)
+
+            # Before doing anything further, make sure it's not a Station ID
+            if not IDStatus:
+                # Log track to file if enabled
+                if log_tracks:
+                    track_log.write(track + "\n")
+
+                # Send desktop notification if enabled
+                if desktop_notifications:
+                    subprocess.Popen(['notify-send', '-i', channelGet('ICON', args.channel), track])
+
+                # Run custom notification command if enabled
+                if custom_notifications:
+                    subprocess.run([notification_cmd, track], stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=False)
+
+# Execution below this line
+#-----------------------------------------------------------------------#
+# Load signal handler
+signal.signal(signal.SIGINT, signal_handler)
+
+# Handle arguments
+parser = argparse.ArgumentParser(description='Simple Python 3 player for SomaFM, version ' + version)
+parser.add_argument('-l', '--list', action='store_true', help='Download and display list of channels')
+parser.add_argument('-s', '--stats', action='store_true', help='Display current listener stats')
+parser.add_argument('-a', '--about', action='store_true', help='Show information about SomaFM')
+parser.add_argument('-c', '--cast', action='store_true', help='Start playback on Chromecast')
+parser.add_argument('-f', '--file', action='store_true', help='Enable experimental track logging for this session')
+parser.add_argument('-n', '--notify', action='store_true', help='Enable experimental desktop notifications for this session')
+parser.add_argument('-p', '--player', action='store_true', help='Show which player is being used for this session')
+parser.add_argument('-v', '--verbose', action='store_true', help='For debug use, prints all output of media player.')
+parser.add_argument('-d', '--delete', action='store_true', help='Delete cache files')
+parser.add_argument("channel", nargs='?', const=1, default=default_chan, help="Channel to stream. Default is Groove Salad")
+args = parser.parse_args()
+
+# Check for existing PID file
+if os.path.isfile(pid_file):
+    # There can be only one
+    print("SomaFM is already running!")
+    print("If you think this message is a mistake, delete the file: " + pid_file)
+    sys.exit()
+
+# If we get here, create one
+with open(pid_file, 'w') as pidfile:
+    pidfile.write(str(os.getpid()))
+
+# Enable log file
+if args.file:
+    log_tracks = True
+
+# Enable desktop notifications
+if args.player:
+    show_player = True
+
+# Enable player display
+if args.notify:
+    desktop_notifications = True
+
+# Delete cache directory, exit
+if args.delete:
+    try:
+        shutil.rmtree(cache_dir)
+    except:
+        print("Error while clearing cache!")
+        exit()
+
+    # If we get here, sucess
+    print("Cache cleared.")
+    exit()
+
+# Get screen ready
+colorama.init()
+os.system('clear')
+print(Style.BRIGHT, end='')
+
+if args.about:
+    # I can't decide which one I like best, so let's use them all!
+    randlogo = randrange(3)
+    if randlogo == 0:
+        print(Fore.BLUE + "   _____                  " + Fore.GREEN + "     ________  ___")
+        print(Fore.BLUE + "  / ___/____  ____ ___  ____ _" + Fore.GREEN + "/ ____/  |/  /")
+        print(Fore.BLUE + "  \__ \/ __ \/ __ `__ \/ __ `" + Fore.GREEN + "/ /_  / /|_/ / ")
+        print(Fore.BLUE + " ___/ / /_/ / / / / / / /_/ " + Fore.GREEN + "/ __/ / /  / /  ")
+        print(Fore.BLUE + "/____/\____/_/ /_/ /_/\__,_" + Fore.GREEN + "/_/   /_/  /_/   ")
+    elif randlogo == 1:
+        print(Fore.BLUE + " __" + Fore.GREEN + "                         ___")
+        print(Fore.BLUE + "/ _\ ___  _ __ ___   __ _  " + Fore.GREEN + "/ __\/\/\   ")
+        print(Fore.BLUE + "\ \ / _ \| '_ ` _ \ / _` |" + Fore.GREEN + "/ _\ /    \  ")
+        print(Fore.BLUE + "_\ \ (_) | | | | | | (_| " + Fore.GREEN + "/ /  / /\/\ \ ")
+        print(Fore.BLUE + "\__/\___/|_| |_| |_|\__,_" + Fore.GREEN + "\/   \/    \/ ")
+    elif randlogo == 2:
+        print(Fore.BLUE + " ______     ______     __    __     ______  " + Fore.GREEN + "   ______   __    __    ")
+        print(Fore.BLUE + "/\  ___\   /\  __ \   /\ '-./  \   /\  __ \ " + Fore.GREEN + "  /\  ___\ /\ '-./  \   ")
+        print(Fore.BLUE + "\ \___  \  \ \ \/\ \  \ \ \-./\ \  \ \  __ \ " + Fore.GREEN + " \ \  __\ \ \ \-./\ \  ")
+        print(Fore.BLUE + " \/\_____\  \ \_____\  \ \_\ \ \_\  \ \_\ \_\ " + Fore.GREEN + " \ \_\    \ \_\ \ \_\ ")
+        print(Fore.BLUE + "  \/_____/   \/_____/   \/_/  \/_/   \/_/\/_/ " + Fore.GREEN + "  \/_/     \/_/  \/_/ ")
+
+    print(Fore.WHITE + "")
+    print("SomaFM is a listener-supported Internet-only radio station.")
+    print("")
+    print("That means no advertising or annoying commercial interruptions. SomaFM's")
+    print("mission is to search for and expose great new music which people may")
+    print("otherwise never encounter.")
+    print("")
+    print("If you like what you hear on SomaFM and want to help, please consider")
+    print("visiting their site and making a donation.")
+    print("")
+    print(Fore.BLUE + "https://somafm.com/support/")
+    print("")
+    exit()
+
+# Create cache directory if doesn't exist
+if not os.path.exists(cache_dir):
+    os.mkdir(cache_dir)
+
+if args.list:
+    # Always download, this allows manual update
+    downloadChannels()
+    listChannels()
+    exit()
+
+if args.stats:
+    downloadChannels()
+    showStats()
+    exit()
+
+# If we get here, we are playing
+# Check for player binaries before we get too comfortable
+configPlayer()
+
+# See if we already have a channel list
+if os.path.isfile(channel_file) == False:
+    downloadChannels()
+
+# Load local channel list
+with open (channel_file, 'rb') as fp:
+    channel_list = pickle.load(fp)
+
+# Open file for track logging (enable line buffering)
+if log_tracks:
+    track_log = open(track_file, 'a', 1)
+
+# Sanity check for desktop notifications
+if desktop_notifications:
+    # See if we have notify-send
+    if shutil.which("notify-send") == None:
+        # If we don't, turn off notifications and warn user
+        desktop_notifications = False
+        print(Fore.RED + "Desktop notifications not supported on this system!" + Fore.WHITE)
+    else:
+        # Otherwise, get icons
+        downloadIcons()
+
+# Record the start time
+start_time = datetime.now()
+
+# If Chromecast support is enabled, break off here
+if args.cast:
+    if chromecast_support:
+        startCast(args.channel)
+    else:
+        print(Fore.RED + "Chromecast Support Disabled!")
+        print(Fore.WHITE + "Please install the pychromecast library.")
+        exit()
+else:
+    # Else, start stream
+    startStream(args.channel)
+
+# Calculate how long we were playing
+time_elapsed = datetime.now() - start_time
+hours, remainder = divmod(int(time_elapsed.total_seconds()), 3600)
+minutes, seconds = divmod(remainder, 60)
+
+# Close log file
+if log_tracks:
+    track_log.close()
+
+# Print exit message
+print(Fore.RESET + "Playback stopped after {:02}:{:02}:{:02}".format(int(hours), int(minutes), int(seconds)))
+
+# Delete PID file
+os.unlink(pid_file)
+
+# EOF
