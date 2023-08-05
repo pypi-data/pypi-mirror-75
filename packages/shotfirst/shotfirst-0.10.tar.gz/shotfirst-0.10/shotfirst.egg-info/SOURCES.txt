@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.cfg
+setup.py
+shotfirst/__init__.py
+shotfirst/handlers.py
+shotfirst/program.py
+shotfirst.egg-info/PKG-INFO
+shotfirst.egg-info/SOURCES.txt
+shotfirst.egg-info/dependency_links.txt
+shotfirst.egg-info/entry_points.txt
+shotfirst.egg-info/not-zip-safe
+shotfirst.egg-info/requires.txt
+shotfirst.egg-info/top_level.txt
