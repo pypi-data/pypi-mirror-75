@@ -1,0 +1,58 @@
+MANIFEST.in
+README.md
+setup.py
+src/ea/__init__.py
+src/ea/sutadapters/__init__.py
+src/ea/sutadapters/GUI/__init__.py
+src/ea/sutadapters/GUI/android_adb.py
+src/ea/sutadapters/GUI/selenium_rc.py
+src/ea/sutadapters/GUI/sikuli.py
+src/ea/sutadapters/GUI/templates.py
+src/ea/sutadapters/GUI/deps/pip_list.txt
+src/ea/sutadapters/GUI/deps/yum_list.txt
+src/ea/var/tests/1/actions/selenium/clickelement.yml
+src/ea/var/tests/1/actions/selenium/closebrowser.yml
+src/ea/var/tests/1/actions/selenium/openbrowser.yml
+src/ea/var/tests/1/actions/selenium/typetext.yml
+src/ea/var/tests/1/actions/selenium/waitelement.yml
+src/ea/var/tests/1/actions/sikulix/get_text_clipboard.yml
+src/ea/var/tests/1/actions/sikulix/run_code.yml
+src/ea/var/tests/1/actions/sikulix/type_path.yml
+src/ea/var/tests/1/actions/sikulix/type_shorcut.yml
+src/ea/var/tests/1/actions/sikulix/type_text.yml
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/01_Application.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/01_Browser.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/01_Mobile.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/01_Snippets/01_000 Prepare test data.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/01_Snippets/01_001 Load signin page.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/01_Snippets/01_002 Load page signin_create account.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/01_Snippets/01_003 Configure page signin_create account.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/01_Snippets/01_004 Configure page signin_create account_privacy terms_cancel.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/01_Snippets/01_005 Configure page signin_create account -- Selenium2.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/01_Snippets/01_006 Multi_session.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/02_TestsPlan/02_001 Open browser_load google.tpx
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/02_TestsPlan/02_002 Close browser.tpx
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/02_TestsPlan/02_003 Create account_privacy terms_cancel.tpx
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/02_TestsPlan/02_004 Create account_privacy terms_cancel -- Selenium2.tpx
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/03_TestsGlobal/03_001 Create google account and cancel.tgx
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Selenium/03_TestsGlobal/03_002 Create google account and cancel -- Selenium2.tgx
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Sikulix/01_Get clipboard content.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Sikulix/02_Type path.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Sikulix/03_Raw_ actions.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Sikulix/04_Win cmd get version.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Tests_Mobiles/001_Full_Scenario_OTP.tpx
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Tests_Mobiles/01_Android.tsx
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Tests_Mobiles/02_OTP_Google.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/Tests_Mobiles/03_PlayStore.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/USER INTERFACE/000_Client_Launch_Test.tpx
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/USER INTERFACE/02_Client_Connection.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/USER INTERFACE/03_Client_Run_Test.tux
+src/ea/var/tests/1/deprecated/Samples/Adapter_GUI/USER INTERFACE/06_Client_Disconnection.tux
+src/ea/var/tests/1/workflows/selenium/google_create_account.yml
+src/ea/var/tests/1/workflows/selenium/google_search.yml
+src/ea/var/tests/1/workflows/sikulix/keyboard.yml
+src/extensiveautomation_plugin_gui.egg-info/PKG-INFO
+src/extensiveautomation_plugin_gui.egg-info/SOURCES.txt
+src/extensiveautomation_plugin_gui.egg-info/dependency_links.txt
+src/extensiveautomation_plugin_gui.egg-info/requires.txt
+src/extensiveautomation_plugin_gui.egg-info/top_level.txt
