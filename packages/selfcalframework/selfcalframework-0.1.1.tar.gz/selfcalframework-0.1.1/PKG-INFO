@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: selfcalframework
+Version: 0.1.1
+Summary: A Python object oriented framework to do self-calibration
+Home-page: https://github.com/miguelcarcamov/objectoriented_selfcal
+Author: Miguel Carcamo
+Author-email: miguel.carcamo@manchester.ac.uk
+License: GNU
+Description: # objectoriented_selfcal
+        Object Oriented Framework for self-calibration
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
