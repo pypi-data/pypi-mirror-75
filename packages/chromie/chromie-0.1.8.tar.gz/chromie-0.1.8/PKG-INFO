@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: chromie
+Version: 0.1.8
+Summary: UNKNOWN
+Home-page: https://github.com/Sandersland/chromie
+Author: Steffen Andersland
+Author-email: stefandersland@gmail.com
+License: MIT
+Description: # Chromie
+        
+        ## Usage
+        ### Prompt for a file name that will create a project folder in the current working directory.
+        `chromie init . -n my_chrome_extension`
+        
+        ### Create a zip file containing all folders in the project directory not listed in a .zipignore file.
+        `chromie pack .`
+        
+        ### Increment manifest version number based on [semantic versioning specification](https://semver.org/).
+        `chromie package . -i major`
+        
+        ### Preview chrome extension in browser -- Currently only available for macOS and requires that you don't already have a running chrome session.
+        `chromie preview .`
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Provides-Extra: dev
