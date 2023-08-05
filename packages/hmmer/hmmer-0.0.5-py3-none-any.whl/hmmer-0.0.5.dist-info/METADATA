@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: hmmer
+Version: 0.0.5
+Summary: Python interface for HMMER software
+Home-page: https://github.com/EBI-Metagenomics/hmmer-py
+Author: Danilo Horta
+Author-email: horta@ebi.ac.uk
+Maintainer: Danilo Horta
+Maintainer-email: horta@ebi.ac.uk
+License: MIT
+Download-URL: https://github.com/EBI-Metagenomics/hmmer-py
+Keywords: hmmer,dna,protein
+Platform: Windows
+Platform: MacOS
+Platform: Linux
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Description-Content-Type: text/markdown
+Requires-Dist: appdirs (>=1.4.3)
+Requires-Dist: fasta-reader (>=0.0.9)
+Requires-Dist: pytest (>=5.3.5)
+
+# hmmer-py
+
+Python interface for HMMER software.
+
+
