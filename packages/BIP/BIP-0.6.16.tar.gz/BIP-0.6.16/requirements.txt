@@ -1,0 +1,7 @@
+numpy>1.8
+scipy>0.13
+liveplots
+cython>=0.20
+cythongsl>=0.2.1
+wheel
+six
