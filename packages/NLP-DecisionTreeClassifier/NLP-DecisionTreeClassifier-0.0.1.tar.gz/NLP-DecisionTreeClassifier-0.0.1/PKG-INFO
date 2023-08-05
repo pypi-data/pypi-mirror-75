@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: NLP-DecisionTreeClassifier
+Version: 0.0.1
+Summary: Decision Tree Classifier for text entities
+Home-page: UNKNOWN
+Author: James Crone
+Author-email: jmcrone98@gmail.com
+License: UNKNOWN
+Description: # NLP-DecisionTreeClassifier
+        Sci-kit Learn Decision Tree Classifier for identifying word entities in text 
+        
+        
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
