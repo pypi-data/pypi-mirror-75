@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "pancho-sql-explorer"
+version = "0.1.0"
+description = ""
+authors = ["Francisco Ceruti <hello@fceruti.com>"]
+packages = [
+    { include = "explorer" }
+]
+include = ["AUTHORS", "HISTORY", "LICENSE"]
+
+
+[tool.poetry.dependencies]
+python = "^3.7"
+sqlparse = "^0.3.1"
+unicodecsv = "^0.14.1"
+six = "^1.15.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

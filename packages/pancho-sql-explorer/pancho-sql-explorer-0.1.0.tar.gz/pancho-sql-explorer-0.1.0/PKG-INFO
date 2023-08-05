@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pancho-sql-explorer
+Version: 0.1.0
+Summary: 
+Author: Francisco Ceruti
+Author-email: hello@fceruti.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: six (>=1.15.0,<2.0.0)
+Requires-Dist: sqlparse (>=0.3.1,<0.4.0)
+Requires-Dist: unicodecsv (>=0.14.1,<0.15.0)
