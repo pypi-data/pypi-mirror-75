@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: graia-application-mirai
+Version: 0.0.4
+Summary: 
+License: MIT
+Author: GreyElaina
+Author-email: GreyElaina@outlook.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: aiohttp (>=3.6.2,<4.0.0)
+Requires-Dist: contextvars (>=2.4,<3.0); python_version < "3.7"
+Requires-Dist: graia-broadcast (>0.0.3)
+Requires-Dist: pydantic (>=1.6.1,<2.0.0)
+Requires-Dist: yarl (>=1.4.2,<2.0.0)
