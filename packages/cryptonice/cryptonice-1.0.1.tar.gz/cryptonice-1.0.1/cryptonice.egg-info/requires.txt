@@ -1,0 +1,5 @@
+sslyze>=2.1.4
+dnspython>=2.0.0
+http-client>=0.1.21
+urllib3>=1.25.9
+ipaddress>=1.0.22pathlib~=1.0.1
