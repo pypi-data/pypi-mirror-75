@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+setup.py
+paur/__init__.py
+paur/paur.py
+paur.egg-info/PKG-INFO
+paur.egg-info/SOURCES.txt
+paur.egg-info/dependency_links.txt
+paur.egg-info/requires.txt
+paur.egg-info/top_level.txt
+paur/init/__init__.py
+paur/init/utils.py
+paur/utils/__init__.py
+paur/utils/conf.py

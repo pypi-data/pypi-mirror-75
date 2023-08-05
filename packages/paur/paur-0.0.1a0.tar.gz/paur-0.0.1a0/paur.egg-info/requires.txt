@@ -1,0 +1,11 @@
+typer
+shellingham
+aurlib
+aorlib
+aiosqlite
+
+[dev]
+black
+pylint
+isort
+mypy
