@@ -1,0 +1,12 @@
+requests
+grequests
+cjkwrap
+beautifulsoup4
+lxml
+python-vlc
+python-mpv
+
+[test]
+pytest
+coverage
+codacy-coverage
