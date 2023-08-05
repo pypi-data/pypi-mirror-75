@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: stormlock
+Version: 0.1.2
+Summary: Simple distributed lock with support for multiple backends
+Home-page: https://github.com/tmccombs/stormlock
+Keywords: lock,cli
+Author: Thayne McCombs
+Author-email: astrothayne@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: dynamodb
+Provides-Extra: etcd
+Provides-Extra: postgresql
+Provides-Extra: redis
+Requires-Dist: boto3 (>=1.13.1,<2.0.0); extra == "dynamodb"
+Requires-Dist: etcd3 (>=0.12.0,<0.13.0); extra == "etcd"
+Requires-Dist: psycopg2 (>=2.8.5,<3.0.0); extra == "postgresql"
+Requires-Dist: redis (>=3.4.1,<4.0.0); extra == "redis"
+Project-URL: Repository, https://github.com/tmccombs/stormlock
+Description-Content-Type: text/x-rst
+
+==============
+Stormlock
+==============
+
+|status| |version|
+
+.. |status| image:: https://github.com/tmccombs/stormlock/workflows/Main/badge.svg
+    :alt: Build Status
+    :target: https://github.com/tmccombs/stormlock/actions
+.. |version| image:: https://img.shields.io/pypi/v/stormlock
+    :alt: Version
+
+.. note:: Stormlock is a work in progress and not ready for production use.
+  Also documentation is mostly missing at this point.
+
+Stormlock is a simple centralized locking system primarily intended for human operators (although it may also be useful in some
+simple scripting scenarios).
+
+The basic idea is that you acquire a lock by running a command, which gives you a "lease id". That lease id can then be used to
+release the lock, or extend its duration. All locks are given a duration after which they are automatically released. The lock is
+stored in  a backend, which is generally some kind of database.
+
+The intended use case is where you have some kind of operation which happens somewhat infrequently across a distributed system,
+and you want to ensure multiple operators don't perform the operation at the same time. For example, this could be used to make sure
+to prevent simultaneous attempts to apply infrastructure-as-code changes, database patches, etc. to the same system by different
+operators.
+
+This is **not** intended as a general purpose lock. It is designed with the assumption that locks can be held for a long time without
+problems (hours or even days), and that the TTL for the lock doesn't need granularity better than a second. Furthermore, the availability
+of the lock is a function of the availability of the backend it uses.
+
+Backends
+--------
+
+The currently supported backends are:
+
+* Etcd
+    - Renewing a lock always uses the same TTL as the original acquisition
+* Redis
+* DynamoDB
+* PostgreSQL
+
+It's also possible to implement your own backend by implementing the ``stormlock.Backend`` interface and registering the class in the
+``stormlock.backends`` entry point in python.
+
