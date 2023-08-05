@@ -1,0 +1,5 @@
+[console_scripts]
+pdftocgen=pdftocgen.app:main
+pdftocio=pdftocio.app:main
+pdfxmeta=pdfxmeta.app:main
+
