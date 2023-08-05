@@ -1,0 +1,3 @@
+[console_scripts]
+mc4_aggregator = mc4.command_line:main
+
