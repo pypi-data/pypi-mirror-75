@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: pedroai
+Version: 0.1.3
+Summary: 
+Author: Pedro Rodriguez
+Author-email: me@pedro.ai
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: plotnine (>=0.6,<0.7)
+Requires-Dist: requests (>=2.23.0,<3.0.0)
