@@ -1,0 +1,6 @@
+click
+jinja2
+sphinx
+
+[:python_version < "3.8"]
+importlib_metadata
