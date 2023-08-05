@@ -1,0 +1,11 @@
+README.md
+setup.py
+spconfigreader/__init__.py
+spconfigreader/configreader.py
+spconfigreader.egg-info/PKG-INFO
+spconfigreader.egg-info/SOURCES.txt
+spconfigreader.egg-info/dependency_links.txt
+spconfigreader.egg-info/requires.txt
+spconfigreader.egg-info/top_level.txt
+tests/__init__.py
+tests/test.py
