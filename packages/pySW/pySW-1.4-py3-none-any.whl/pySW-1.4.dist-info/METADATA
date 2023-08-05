@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: pySW
+Version: 1.4
+Summary: A Wrapper around Solidworks VBA API for Automating Geometry Modifications for Python based Optimization and Design Space Exploration.
+Home-page: https://github.com/kalyanpi4/pySW
+Author: Kalyan Inamdar
+Author-email: kalyaninamdar@protonmail.com
+License: UNKNOWN
+Download-URL: https://github.com/kalyanpi4/pySW/archive/V1.4.tar.gz
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: pywin32
+
+# pySW
+A Wrapper around Solidworks VBA API for Automating Geometry Modifications for Python-based Optimization and Design Space Exploration
+
+pySW is simply a Python wrapper around Solidworks built-in VBA API for automated modifications to Solidworks assemblies and parts.
+
+The primary purpose of pySW is optimization studies, Design Space Exploration studies, etc. Many good libraries offer a framework for single and multi-objective optimization, like [pymoo](https://pymoo.org/index.html), [openMDAO](https://openmdao.org/) and [pyOpt](http://www.pyopt.org/) written in Python itself. Design space can be explored using libraries like [pyDOE](https://pythonhosted.org/pyDOE/index.html). Apart from these, the famous [Scipy](https://docs.scipy.org/doc/scipy/reference/optimize.html) library provides functions for minimizing (or maximizing) objective functions, possibly subject to constraints.
+
+In many cases, the optimization or the space exploration problem is not straightforward that it cannot be expressed as an equation or a set of equations. Some problems require some communication links between various software. For example, consider the optimization of a winglet of a commercial aircraft. This problem requires modifying and saving geometry using a CAD program, using a CAE program for analyzing and saving results of the analysis, and a third program/code to act as a link between CAD and CAE code as well as perform the tasks of optimization or space exploration. The first task can be performed using pySW and the third task using the libraries mentioned above.
+
+Note: Solidworks is proprietary software of 3DS Systems. If you have access to Solidworks, pySW will make your life much easier if you want to optimize using Solidworks.
+As an option, FreeCAD is an open-source primarily CAD program written completely in Python. It also as modules for CFD using OpenFOAM and FEM analyses.
+
+It currently cannot modify or create sketches.
+
+pySW version 1.4 onwards includes a feature to extract dimensions and tolerances from a SolidWorks drawing (.SLDDRW) document.
+
+
+### Installation
+
+You can install pySW from pip from the command prompt by running:
+
+```sh
+pip install pySW
+```
+
+Dependencies:
+1. [pywin32](https://pypi.org/project/pywin32/)
+2. [Numpy](https://numpy.org/)
+3. [pandas](https://pandas.pydata.org/)
+
+You can install the dependencies by running the following commands in the command prompt. If you have installed the open-source Anaconda distribution for Python, please check if the libaries are already installed.
+```sh
+pip install pywin32
+pip install numpy
+pip install pandas
+```
+
+License
+----
+
+GNU Lesser General Public License v3
+
+
+[//]: # (These are reference links used in the body of this note and get stripped out when the markdown processor does its job. There is no need to format nicely because it shouldn't be seen. Thanks SO - http://stackoverflow.com/questions/4823468/store-comments-in-markdown-syntax)
+
+
+   [dill]: <https://github.com/joemccann/dillinger>
+   [pymoo]: <https://pymoo.org/index.html>
+   [openMDAO]: <https://openmdao.org/>
+   [pyOpt]: <http://www.pyopt.org/>
+   [pyDOE]: <https://pythonhosted.org/pyDOE/index.html>
+   [Scipy]: <https://docs.scipy.org/doc/scipy/reference/optimize.html>
+   [pywin32]: <https://pypi.org/project/pywin32/>
+   [Numpy]: <https://numpy.org/>
+   [pandas]: <https://pandas.pydata.org/>
+
+
