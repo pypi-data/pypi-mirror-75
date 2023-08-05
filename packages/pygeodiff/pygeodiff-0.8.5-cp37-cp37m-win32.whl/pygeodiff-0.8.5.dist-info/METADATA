@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: pygeodiff
+Version: 0.8.5
+Summary: Python wrapper around GeoDiff library
+Home-page: https://github.com/lutraconsulting/geodiff
+Author: Peter Petrik
+Author-email: peter.petrik@lutraconsulting.co.uk
+License: License :: OSI Approved :: MIT License
+Keywords: diff,gis,geo,geopackage,merge
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+
+Python wrapper around GeoDiff library
+
+
