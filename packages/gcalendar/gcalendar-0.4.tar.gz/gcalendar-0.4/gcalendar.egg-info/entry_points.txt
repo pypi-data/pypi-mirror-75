@@ -1,0 +1,3 @@
+[console_scripts]
+gcalendar = gcalendar.__main__:main
+

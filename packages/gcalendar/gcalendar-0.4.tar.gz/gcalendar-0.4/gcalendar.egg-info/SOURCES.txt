@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+gcalendar/__init__.py
+gcalendar/__main__.py
+gcalendar/gcalendar.py
+gcalendar.egg-info/PKG-INFO
+gcalendar.egg-info/SOURCES.txt
+gcalendar.egg-info/dependency_links.txt
+gcalendar.egg-info/entry_points.txt
+gcalendar.egg-info/requires.txt
+gcalendar.egg-info/top_level.txt
