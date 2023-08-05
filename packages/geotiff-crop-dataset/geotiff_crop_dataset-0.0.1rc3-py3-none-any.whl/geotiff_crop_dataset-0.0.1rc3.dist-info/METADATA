@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: geotiff-crop-dataset
+Version: 0.0.1rc3
+Summary: A Pytorch dataset that crops rasterio-readable image files to small sections on the fly.
+Home-page: https://github.com/tayden/pytorch_crop_dataset
+Author: Taylor Denouden
+Author-email: taylor.denouden@hakai.org
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: rasterio
+
+UNKNOWN
+
+
