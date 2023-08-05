@@ -1,0 +1,13 @@
+cryptography
+sortedcontainers
+
+[:python_version > "3.0"]
+chardet
+
+[dev]
+nose
+tox
+
+[docs]
+sphinx
+sphinx-argparse
