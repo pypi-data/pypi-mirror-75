@@ -1,0 +1,16 @@
+CHANGES.txt
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+scipion_installer.egg-info/PKG-INFO
+scipion_installer.egg-info/SOURCES.txt
+scipion_installer.egg-info/dependency_links.txt
+scipion_installer.egg-info/entry_points.txt
+scipion_installer.egg-info/requires.txt
+scipion_installer.egg-info/top_level.txt
+scipioninstaller/__init__.py
+scipioninstaller/__main__.py
+scipioninstaller/installer.py
+scipioninstaller/launchers.py
