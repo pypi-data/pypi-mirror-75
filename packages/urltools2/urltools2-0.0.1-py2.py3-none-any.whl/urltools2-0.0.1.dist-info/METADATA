@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: urltools2
+Version: 0.0.1
+Summary: Some functions to parse and normalize URLs.
+Home-page: https://github.com/rbaier/python-urltools
+Author: Roderick Baier, Varun Sharma
+Author-email: roderick.baier@gmail.com, varunsharmalive@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Utilities
+
+Some functions to parse and normalize URLs.
+
+
