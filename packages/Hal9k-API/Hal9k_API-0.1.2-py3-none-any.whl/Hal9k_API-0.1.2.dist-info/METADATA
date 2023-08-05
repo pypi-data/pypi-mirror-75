@@ -1,0 +1,77 @@
+Metadata-Version: 2.1
+Name: Hal9k-API
+Version: 0.1.2
+Summary: The HackerLab 9000 API Server.
+Home-page: https://github.com/haxys-labs/Hal9k-Overmind-API
+Author: CMSteffen
+Author-email: cmsteffen@haxys.net
+License: MIT
+Project-URL: Source Code, https://github.com/haxys-labs/Hal9k-Overmind-API
+Project-URL: Documentation, https://github.com/haxys-labs/Hal9k-Overmind-API
+Keywords: hacker hacking lab laboratory virtual machine virtualbox vm flask
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Server
+Classifier: Topic :: Security
+Classifier: Topic :: System
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+Requires-Dist: Lib-Hal9k (>=0.7.0)
+Requires-Dist: flask (>=1.1.2)
+Requires-Dist: flask-cors (>=3.0.8)
+
+# Hal9k-Overmind-API
+The HackerLab 9000 Overmind API server.
+
+## What is Hal9k-Overmind-API?
+This is a back-end server designed to provide HTTP API access to the [HackerLab 9000 Library](https://github.com/haxys-labs/Lib-Hal9k).
+
+## Future Goals
+In the future, this API will include the ability to set up playlists, user authentication, access control, and more. The end goal is to create an API capable of being integrated with any number of front-end systems.
+
+## Installation
+
+`pip install Hal9k-API`
+
+_Note: This requires the VirtualBox SDK to be properly installed and configured. Instructions will be added to this repository soon._
+
+## Usage
+
+To start the API server:
+
+`python3 -m hal9k_api`
+
+The API runs in debug mode on port 5000. It's accessible via HTTP methods:
+
+```
+haxys@straylight:~$ curl -X GET http://localhost:5000/
+This is the HackerLab 9000 Overmind API Server. For more information, see <a href='https://github.com/haxys-labs/Hal9k-Overmind-API'>the GitHub repository</a>.
+haxys@straylight:~$ curl -X GET http://localhost:5000/get_tracks/
+{"tracks": ["Kali 2020.2 x64", "Debian 9.11 x64"]}
+```
+
+# Changelog
+
+* **0.1.2** :: Refactored code; API remains consistent.
+* **0.1.1** :: Fixed some minor bugs.
+* **0.1.0** :: Implemented `get_tracks` functionality.
+
+
