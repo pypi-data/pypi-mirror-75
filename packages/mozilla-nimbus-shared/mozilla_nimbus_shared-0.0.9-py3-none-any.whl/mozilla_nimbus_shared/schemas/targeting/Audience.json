@@ -1,0 +1,32 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$ref": "#/definitions/Audience",
+  "definitions": {
+    "Audience": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "targeting": {
+          "type": "string"
+        },
+        "filter_expression": {
+          "type": "string"
+        },
+        "desktop_telemetry": {
+          "type": "string",
+          "description": "A boolean BigQuery SQL expression expressing whether a single row in telemetry.main would have\nmatched the audience definition. These are used for sizing experiment populations,\nnot for targeting."
+        }
+      },
+      "required": [
+        "name",
+        "description"
+      ],
+      "additionalProperties": false
+    }
+  }
+}
