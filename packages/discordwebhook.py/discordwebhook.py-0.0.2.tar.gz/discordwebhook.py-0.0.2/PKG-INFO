@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: discordwebhook.py
+Version: 0.0.2
+Summary: Easily using discord webhooks in python - asynchronous and synchronous - currently undocumented
+Home-page: https://github.com/Coolo22/discordwebhook.py
+Author: Coolo2
+Author-email: itsxcoolo2@gmail.com
+License: MIT
+Description: 
+        A simple python package for posting to discord webhooks in python
+        Has asynchronous and synchronous options
+        
+Keywords: discord,webhook,python,easy,post,asynchronous,synchronous
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
