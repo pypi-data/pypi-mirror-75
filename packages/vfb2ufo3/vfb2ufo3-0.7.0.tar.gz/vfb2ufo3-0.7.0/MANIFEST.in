@@ -1,0 +1,2 @@
+recursive-include vfb2ufo3 COPYING-GCC LICENSE README.md *.pyd *.py *.dll
+prune vfb2ufo3/src
