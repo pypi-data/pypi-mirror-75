@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: yolo-v4
+Version: 0.5
+Summary: Interface Darknet YOLOv4 with python
+Home-page: UNKNOWN
+Author: Philippe Remy
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: opencv-python
+Requires-Dist: scikit-image
+Requires-Dist: attrs
+Requires-Dist: Pillow
+
+UNKNOWN
+
+
