@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: prettiest-ast
+Version: 0.0.1.dev3
+Summary: UNKNOWN
+Home-page: https://github.com/salt-die/prettiest_ast
+Author: salt-die
+Author-email: saltdie.py@gmail.com
+License: MIT
+Description: # prettiest_ast
+        
+        A simple pretty printer for python abstract syntax trees:
+        
+        ```py
+        >>> from prettiest_ast import ppast
+        >>> ppast('for i in range(5): print(i)')
+        
+        For
+        ├──Name
+        │  ├──i
+        │  ╰──Store
+        ├──Call
+        │  ├──Name
+        │  │  ├──range
+        │  │  ╰──Load
+        │  ╰──Constant
+        │     ╰──5
+        ╰──Expr
+           ╰──Call
+              ├──Name
+              │  ├──print
+              │  ╰──Load
+              ╰──Name
+                 ├──i
+                 ╰──Load
+        ```
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
