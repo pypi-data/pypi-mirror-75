@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: epftool
+Version: 1.0.0
+Summary: Command line tool to search EPF files.
+Home-page: https://github.com/Illidanz/epftool
+Author: Illidan
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: click (>=7.1)
+Requires-Dist: tqdm (>=4.48)
+
+# EPF tool
+Command line tool to search EPF files.  
+## Run from pip
+`pip install epftool`  
+`epftool --help`  
+## Run from source
+Install pipenv.  
+`pipenv install`  
+`pipenv run python epftool --help`  
+
+
