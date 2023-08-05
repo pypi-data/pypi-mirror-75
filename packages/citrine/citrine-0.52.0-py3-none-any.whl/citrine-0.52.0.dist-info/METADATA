@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: citrine
+Version: 0.52.0
+Summary: Python library for the Citrine Platform
+Home-page: http://github.com/CitrineInformatics/citrine-python
+Author: Citrine Informatics
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests (<3,>=2.22.0)
+Requires-Dist: pyjwt (<2,>=1.7.1)
+Requires-Dist: arrow (<0.16,>=0.15.4)
+Requires-Dist: strip-hints (<0.2,>=0.1.8)
+Requires-Dist: gemd (<0.13,>=0.12)
+Requires-Dist: boto3 (<2,>=1.9.226)
+Requires-Dist: botocore (<2,>=1.12.226)
+Requires-Dist: deprecation (<3,>=2.0.7)
+Requires-Dist: urllib3 (<2,>=1.25.7)
+Provides-Extra: builders
+Requires-Dist: pandas (<2,>=0.25) ; extra == 'builders'
+
+UNKNOWN
+
+
