@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: simple_detection
+Version: 0.0.1
+Summary: simple_detection
+Home-page: https://github.com/quanhua92/simple_detection
+Author: Quan Hua
+Author-email: quanhua92@gmail.com
+License: Apache
+Description: # simple_detection
+        A Simple object / text Detection api for Python and command line
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
