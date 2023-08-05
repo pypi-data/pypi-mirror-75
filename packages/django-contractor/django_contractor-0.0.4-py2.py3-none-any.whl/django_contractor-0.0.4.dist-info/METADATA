@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: django-contractor
+Version: 0.0.4
+Summary: Fetch media files that were build elsewhere
+Home-page: https://github.com/stefanw/django-contractor
+Author: Stefan Wehrmeyer
+Author-email: mail@stefanwehrmeyer.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP
+Description-Content-Type: text/markdown
+Requires-Dist: Django
+Requires-Dist: requests
+Requires-Dist: celery
+Requires-Dist: lxml
+
+# Django Contractor
+
+You need additional CSS/JS on your website, but don't want to include it in your Django project? Build it somewhere else, notify contractor via webhook and it will fetch the files from a URL into a versioned media directory. Then you can use them in your website like normal Django media files.
+
+
