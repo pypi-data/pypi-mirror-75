@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: manik-notebookc
+Version: 1.1.2
+Summary: A package to convert your Jupyter Notebook
+Home-page: https://github.com/manikcloud/AwsCodeArtifact
+Author: Varun Manik
+Author-email: varunmanik1@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
+Requires-Dist: ipython (>=6)
+Requires-Dist: nbformat (>=4)
+Requires-Dist: nbconvert (>=5)
+Requires-Dist: requests (>=2)
+
+# notebookc
+===========
+
+Convert a Jupyter Notebook to a Python script or HTML file in your Python program.
+
+
