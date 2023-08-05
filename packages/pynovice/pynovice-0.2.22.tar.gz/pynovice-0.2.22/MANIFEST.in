@@ -1,0 +1,5 @@
+include RELEASE-VERSION
+include version.py
+include pynovice/geo_map/*
+include pynovice/bert_extracterr/*
+# Anything else you normally use
