@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.py
+pathomap/Bodymap.py
+pathomap/Gene.py
+pathomap/Organ.py
+pathomap/__init__.py
+pathomap/misc.py
+pathomap.egg-info/PKG-INFO
+pathomap.egg-info/SOURCES.txt
+pathomap.egg-info/dependency_links.txt
+pathomap.egg-info/requires.txt
+pathomap.egg-info/top_level.txt
+pathomap/data/.DS_Store
+pathomap/data/abstract_gene_weight_matrix.csv
+pathomap/data/expression_value.csv
+pathomap/data/gene_tissue_similarity.csv
