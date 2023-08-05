@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: eight-track-recorder
+Version: 0.0.1
+Summary: Application to archive 8tracks.com before it's gone
+Home-page: https://github.com/dcooper01/eight-track-recorder
+License: MIT
+Author: Daniel
+Author-email: dcooper01sp@protonmail.com
+Maintainer: Daniel
+Maintainer-email: dcooper01sp@protonmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: httpx (>=0.13.3,<0.14.0)
+Requires-Dist: loguru (>=0.5.1,<0.6.0)
+Requires-Dist: pypeln (>=0.4.4,<0.5.0)
+Requires-Dist: python-dotenv (>=0.14.0,<0.15.0)
+Requires-Dist: srsly (>=2.2.0,<3.0.0)
+Requires-Dist: tqdm (>=4.48.0,<5.0.0)
+Project-URL: Repository, https://github.com/dcooper01/eight-track-recorder
+Description-Content-Type: text/markdown
+
+# Eight Track Recorder
+
+## Requirements
+
+Python 3.8+
+
+**Eight Track Recorder** is an application built to archive 8tracks.com into a useful format before it's gone
+
+## Installation
+
+<div class="termy">
+
+```console
+$ pip install eight-track-recorder
+---> 100%
+successfully installed eight-track-recorder
+```
+
+</div>
