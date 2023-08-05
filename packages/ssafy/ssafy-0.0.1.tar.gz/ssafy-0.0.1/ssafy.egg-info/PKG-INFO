@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: ssafy
+Version: 0.0.1
+Summary: A package for SSAFY students
+Home-page: https://github.com/hp-hk/ssafy
+Author: djohnkang
+Author-email: john@hphk.kr
+License: UNKNOWN
+Description: # SSAFY 
+        SSAFY Test Project  
+        
+        ## 사용법
+        ```shell
+        $ ssafy
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
