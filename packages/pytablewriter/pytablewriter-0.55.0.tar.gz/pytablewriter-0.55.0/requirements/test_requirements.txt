@@ -1,0 +1,5 @@
+pytablereader[excel,sqlite]>=0.29
+pytest
+sqliteschema
+tablib
+termcolor
