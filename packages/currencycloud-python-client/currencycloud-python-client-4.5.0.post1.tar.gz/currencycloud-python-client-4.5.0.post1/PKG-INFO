@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: currencycloud-python-client
+Version: 4.5.0.post1
+Summary: Currencycloud API v2 Python client (FORK)
+Home-page: https://github.com/addario-org/currencycloud-python-client
+Author: Francesco Boffa, Ed Addario
+Author-email: francesco.boffa@currencycloud.com, eaddario@hotmail.com
+License: MIT
+Description: Fork of the official Python SDK for v2 of Currencycloud's API
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
