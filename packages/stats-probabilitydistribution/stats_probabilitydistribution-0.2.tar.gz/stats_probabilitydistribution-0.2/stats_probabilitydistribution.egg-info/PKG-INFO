@@ -1,0 +1,14 @@
+Metadata-Version: 1.2
+Name: stats-probabilitydistribution
+Version: 0.2
+Summary: Gaussian & Binomial distributions
+Home-page: UNKNOWN
+Author: Shubham Kumar
+Author-email: shubham01kumar1@gmail.com
+License: UNKNOWN
+Description-Content-Type: UNKNOWN
+Description: This package helps to calculate mean, standard deviation, Probability distribution function for Gaussian distribution and Binomial Distribution.Through the use of this package we can also plot the distribution to visualize these function and data for better understanding.Also we can Add two functions directly using method calling.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
