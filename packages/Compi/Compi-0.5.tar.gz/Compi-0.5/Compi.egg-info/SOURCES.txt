@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+Compi.egg-info/PKG-INFO
+Compi.egg-info/SOURCES.txt
+Compi.egg-info/dependency_links.txt
+Compi.egg-info/top_level.txt
+source/GaussKronrod.cpp
+source/IntegrandFunctionWrapper.cpp
+source/compi.c
+source/exp_sinh.cpp
+source/sinh_sinh.cpp
+source/tanh_sinh.cpp
+source/trapezoid.cpp
