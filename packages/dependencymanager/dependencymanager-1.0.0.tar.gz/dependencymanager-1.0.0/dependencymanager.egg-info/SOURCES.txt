@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+release_note.md
+setup.cfg
+setup.py
+dependecymanager/__init__.py
+dependecymanager/__main__.py
+dependecymanager/dmexceptions.py
+dependecymanager/dmutils.py
+dependecymanager/tree.py
+dependecymanager/utils.py
+dependencymanager.egg-info/PKG-INFO
+dependencymanager.egg-info/SOURCES.txt
+dependencymanager.egg-info/dependency_links.txt
+dependencymanager.egg-info/top_level.txt
