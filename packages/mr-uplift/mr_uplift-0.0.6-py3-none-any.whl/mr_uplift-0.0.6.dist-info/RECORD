@@ -1,0 +1,17 @@
+examples/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mr_uplift/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mr_uplift/calibrate_uplift.py,sha256=ELT9VhZKaEYWRTA8uGAdhk6Cuhk-QsAk0L3e6MXpwAI,4930
+mr_uplift/erupt.py,sha256=fiiMl4PCgziNyV7Dy9ZDDljuifLqzX6KzcCHEosj36M,5492
+mr_uplift/keras_model_functionality.py,sha256=dxfV4srh66KgNBXh6twpHYx6dN3iAZtIc8nvWjthneQ,15301
+mr_uplift/mr_uplift.py,sha256=6kyQmTvQ6WLWst2iq8PR6Nh-tfJf0bwRq4REmrzJ4vQ,16890
+mr_uplift/dataset/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mr_uplift/dataset/data_simulation.py,sha256=PN8NfIDTiLme1JflpX4UffEMPAIiP5VYijOPzEWEKHY,3511
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_calibrate.py,sha256=qs3mtGqaBdecIR5PpPN-ybasMkpNhBRKoaXTBZjLyKY,1484
+tests/test_ibotta_uplift.py,sha256=UFe7hdsfkGz8JEf_XEuxXVkoWZdUuhquJKP1MTLAZW4,4404
+mr_uplift-0.0.6.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+mr_uplift-0.0.6.dist-info/METADATA,sha256=7m4RW_Tl0YrMmBeKvsy_VlsV7Q3Sn59g40vfAV-iM78,5953
+mr_uplift-0.0.6.dist-info/NOTICE,sha256=KK3cFvDdenfRdlhwPpWmK3ukyHRu6zltCJXaEMHna6Y,305
+mr_uplift-0.0.6.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+mr_uplift-0.0.6.dist-info/top_level.txt,sha256=7qEauLsEtU4-eHnZvKQNTogJz8mH0On_qb6nsIYRncc,25
+mr_uplift-0.0.6.dist-info/RECORD,,
