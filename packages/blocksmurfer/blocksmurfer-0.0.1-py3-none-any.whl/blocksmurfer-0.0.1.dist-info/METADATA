@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: blocksmurfer
+Version: 0.0.1
+Summary: Bitcoin blockchain explorer
+Home-page: http://github.com/1200wd/blocksmurfer
+Author: 1200wd
+Author-email: info@1200wd.com
+License: GNU3
+Keywords: bitcoin blockchain explorer transactions keys blocks utxos inputs outputs scripts
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Information Technology
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Security :: Cryptography
+Classifier: Topic :: Office/Business :: Financial :: Accounting
+Requires-Dist: Flask-Limiter
+Requires-Dist: Flask (==1.1.2)
+Requires-Dist: WTForms (==2.3.1)
+Requires-Dist: Werkzeug (==1.0.1)
+Requires-Dist: bitcoinlib (>=0.4.17)
+Requires-Dist: flask-babel (==1.0.0)
+Requires-Dist: flask-qrcode (==3.0.0)
+Requires-Dist: flask-restful (==0.3.8)
+Requires-Dist: flask-wtf (==0.14.3)
+
+Blocksmurfer
+============
+
+.. image:: https://travis-ci.org/1200wd/blocksmurfer.svg?branch=master
+    :target: https://travis-ci.org/1200wd/blocksmurfer
+    :alt: Travis
+.. image:: https://coveralls.io/repos/github/1200wd/blocksmurfer/badge.svg?branch=master
+    :target: https://coveralls.io/github/1200wd/blocksmurfer?branch=master    
+
+Install and run a local block explorer.
+
+Bitcoin blockchain explorer based on Python Bitcoinlib (https://github.com/1200wd/bitcoinlib).
+Search the blockchain for addresses, transactions, blocks, unspent outputs, etc.
+
+This software currently runs on https://blocksmurfer.io
+
+Data will be retrieved from various service providers such as Blockchair, Blockchain.info or Blockstream.
+Blocksmurfer can also receive data from a local bcoin or bitcoind server.
+
+.. image:: https://blocksmurfer.io/static/images/blocksmurfer-localhost-transaction.png
+    :alt: Run a bitcoin block explorer locally
+
+
