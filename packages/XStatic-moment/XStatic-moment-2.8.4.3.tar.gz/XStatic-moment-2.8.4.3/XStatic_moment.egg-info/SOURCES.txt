@@ -1,0 +1,14 @@
+MANIFEST.in
+README.txt
+setup.py
+XStatic_moment.egg-info/PKG-INFO
+XStatic_moment.egg-info/SOURCES.txt
+XStatic_moment.egg-info/dependency_links.txt
+XStatic_moment.egg-info/namespace_packages.txt
+XStatic_moment.egg-info/not-zip-safe
+XStatic_moment.egg-info/top_level.txt
+xstatic/__init__.py
+xstatic/pkg/__init__.py
+xstatic/pkg/moment/__init__.py
+xstatic/pkg/moment/data/moment-with-locales.min.js
+xstatic/pkg/moment/data/moment.min.js
