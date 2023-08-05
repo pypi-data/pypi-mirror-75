@@ -1,0 +1,113 @@
+Metadata-Version: 2.1
+Name: pyfylo
+Version: 1.2.0
+Summary: Fylo Edu package
+Home-page: UNKNOWN
+Author: HighGreat
+Author-email: highgreat@hg-fly.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Education
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pyserial (==3.4)
+
+# pyfylo
+Fylo python编程依赖包。  
+A Python pack used by Fylo.
+
+## 安装 / Installing
+在终端执行如下指令以安装pyfylo。   
+Input the following code in powershell(cmd.exe) to install pyfylo. 
+```
+pip install pyfylo
+```
+
+## 激活 / Activating
+pyfylo使用前需要使用激活工具进行激活。请联系作者，获得对应的激活工具与相关文档。  
+pyfylo needs to be activated before it can be used. Contact with the author to get the activator and documents.
+
+## 查看版本 / Checking version
+* 在控制终端执行pip list 进行查看  
+Input "pip list" in powershell(cmd.exe) to get pyfylo's verison
+
+* 在程序中执行  
+Using the following code.
+```
+import pyfylo
+ver = pyfylo.get_version()
+print(ver)
+```
+
+## 使用 / Usage
+使用以下代码获取一个UserApi实例后，可以通过UserApi所提供的接口对fylo无人机进行控制。接口说明请查看doc/html/中文/index.html文件。  
+Use the following codes to create a userApi instance. Its interfaces can be used to control fylo plane. Go to doc/html/English/index.html to see the interface specification.
+```
+import pyfylo
+api = pyfylo.UserApi()
+```
+
+# 更新内容 / Update
+
+## v 1.2.0
+
+1. 更新了仿真软件  
+Update simulator software
+
+## v 1.1.1
+
+1. 支持新的基站定位模式  
+Station support new location mode
+
+2. 对串口冲突进行处理  
+Handle serial port conflict
+
+3. 更新了文档说明  
+Update some documents
+
+4. 修复了一些bug  
+Fix other bugs
+
+## v 1.1.0
+
+1. 支持使用pip管理包  
+Pip can be used to manage the lib packages
+
+2. 增加日志管理功能  
+Add log management
+
+3. 增加了飞机固件版本检测功能  
+Add plane version check
+
+4. 增加FyloTools程序，以激活pyfylo和获取文档更新  
+Add FyloTools to activate pyfylo and download pyfylo's documents
+
+5. 仿真软件支持英文  
+Add English version of simulator software
+
+6. 增加了中英说明文档  
+Add Chinese/English documents
+
+7. 限制实时控制等函数在舞步飞行过程中的调用  
+Restrict the use of real-time functions during dance show
+
+8. 修复仿真软件在中文路径和有空格的路径下无法正常打开舞步的问题  
+Fix the bug that simulator software cannot be opened when its path includes Chinese strings or blankspace
+
+9. 修复当电脑串口号大于10无法连接基站的问题  
+Fix the bug that the computer's serial port can not connect to station, when its number is bigger than 10. 
+
+10. 修复了一些其他问题  
+Fix other bugs
+
+## v 1.0.0
+
+1. 初始版本  
+Initial version
+
