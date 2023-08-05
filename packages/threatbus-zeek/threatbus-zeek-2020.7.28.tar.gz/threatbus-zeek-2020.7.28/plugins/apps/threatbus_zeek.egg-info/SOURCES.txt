@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+plugins/apps/threatbus_zeek/__init__.py
+plugins/apps/threatbus_zeek/message_mapping.py
+plugins/apps/threatbus_zeek/plugin.py
+plugins/apps/threatbus_zeek/setup.py
+plugins/apps/threatbus_zeek/test_message_mapping.py
+plugins/apps/threatbus_zeek.egg-info/PKG-INFO
+plugins/apps/threatbus_zeek.egg-info/SOURCES.txt
+plugins/apps/threatbus_zeek.egg-info/dependency_links.txt
+plugins/apps/threatbus_zeek.egg-info/entry_points.txt
+plugins/apps/threatbus_zeek.egg-info/requires.txt
+plugins/apps/threatbus_zeek.egg-info/top_level.txt
