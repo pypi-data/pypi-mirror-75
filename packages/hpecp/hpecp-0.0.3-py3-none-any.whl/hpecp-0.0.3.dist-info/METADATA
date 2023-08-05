@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: hpecp
+Version: 0.0.3
+Summary: HPE Container Platform client
+Home-page: https://github.com/hpe-container-platform-community/hpecp-python-library
+Author: Chris Snow
+Author-email: chsnow123@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: future
+Requires-Dist: requests
+Requires-Dist: tabulate
+Requires-Dist: six
+Requires-Dist: polling
+Requires-Dist: pyyaml
+Requires-Dist: fire
+Requires-Dist: jmespath
+Requires-Dist: jinja2
+Requires-Dist: wrapt
+Requires-Dist: enum34 ; python_version == "2.7"
+Requires-Dist: configparser ; python_version == "2.7"
+
+UNKNOWN
+
+
