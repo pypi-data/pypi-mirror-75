@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: asciidoxy
+Version: 0.6.1
+Summary: AsciiDoxy generates API documentation from Doxygen XML output to AsciiDoc.
+Home-page: https://asciidoxy.org
+Author: Rob van der Most
+Author-email: Rob.vanderMost@TomTom.com
+License: Apache 2.0
+Project-URL: Documentation, https://asciidoxy.org
+Project-URL: Bug Tracker, https://github.com/tomtom-international/asciidoxy/issues
+Project-URL: Source Code, https://github.com/tomtom-international/asciidoxy
+Keywords: asciidoxy
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Documentation
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: mako (~=1.1)
+Requires-Dist: aiohttp (~=3.6)
+Requires-Dist: aiodns
+Requires-Dist: cchardet
+Requires-Dist: toml (~=0.10)
+Requires-Dist: tqdm (~=4.46)
+Requires-Dist: packaging (~=20.3)
+
+```
+    ___              _ _ ____
+   /   |  __________(_|_) __ \____  _  ____  __
+  / /| | / ___/ ___/ / / / / / __ \| |/_/ / / /
+ / ___ |(__  ) /__/ / / /_/ / /_/ />  </ /_/ /
+/_/  |_/____/\___/_/_/_____/\____/_/|_|\__, /
+                                      /____/
+```
+
+[ [Home](https://asciidoxy.org) |
+[What is AsciiDoxy?](https://asciidoxy.org/about.html) |
+[Usage](https://asciidoxy.org/usage.html) |
+[Examples](https://asciidoxy.org/examples.html) |
+[Contributing](https://asciidoxy.org/contributing.html) |
+[Changelog](CHANGELOG.adoc) |
+[GitHub](https://github.com/tomtom-international/asciidoxy) ]
+
+[![License](https://img.shields.io/badge/License-Apache%202.0-green.svg)](LICENSE)
+[![pip downloads](https://img.shields.io/pypi/dm/asciidoxy)](https://pypi.org/project/asciidoxy)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/asciidoxy)](https://pypi.org/project/asciidoxy)
+[![PyPI](https://img.shields.io/pypi/v/asciidoxy)](https://pypi.org/project/asciidoxy)
+
+AsciiDoxy generates API documentation from [Doxygen](https://doxygen.nl) XML output to AsciiDoc.
+
+Supported languages:
+- C++
+- Java
+- Objective C
+- Python (using [doxypypy](https://github.com/Feneric/doxypypy))
+
+Features:
+
+- API documentation generation.
+- Collecting API reference information from remote and local sources.
+- Single and multi page HTML output.
+- Single page PDF output.
+
+
+## Credits
+
+Inspiration for creating AsciiDoxy was found in this article by Sy Brand:
+https://devblogs.microsoft.com/cppblog/clear-functional-c-documentation-with-sphinx-breathe-doxygen-cmake/
+
+Before going public on GitHub, several people inside [TomTom](https://www.tomtom.com) contributed to
+the internal version of AsciiDoxy. Many thanks to:
+
+- Andy Salter
+- Arkadiusz Skalski
+- Lukasz Glowcyk
+- Nebojsa Mrmak
+- Niels van der Schans
+- Robert Gernert
+- Tomasz Maj
+
+The python package was created with [Cookiecutter](https://github.com/audreyr/cookiecutter) and the
+[audreyr/cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage) project template.
+
+
