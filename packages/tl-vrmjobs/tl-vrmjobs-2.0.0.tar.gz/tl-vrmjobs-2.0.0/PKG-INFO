@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: tl-vrmjobs
+Version: 2.0.0
+Summary: Job classes used in VRM cloudless system
+Home-page: https://github.com/thanhledev/vrmjobs
+Author: Thanh Le
+Author-email: thanhledev@gmail.com
+License: MIT
+Description: 
+        ## Virtual Resource Management in Cloudless System
+        
+        List of system jobs encapsulated in UDP packets which will be exchanged
+        between worker and coordinator hosts inside an SDN environment.
+        
+        - ProbeInit: sent by coordinator host.
+        - ProbeAck: sent by worker host.
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
