@@ -1,0 +1,3 @@
+[isort.formatters]
+example=example_isort_formatting_plugin:black_format_import_section
+

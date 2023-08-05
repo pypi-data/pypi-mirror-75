@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: example-isort-formatting-plugin
+Version: 0.0.1
+Summary: An example plugin that modifies isort formatting using black.
+License: MIT
+Author: Timothy Crosley
+Author-email: timothy.crosley@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: black (>=19.10b0,<20.0)
+Requires-Dist: isort (>=5.1.4,<6.0.0)
