@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: claudio-requirements-sorter
+Version: 0.6.0
+Summary: Sort requirements file for python 
+Home-page: https://github.com/1elie21356/claudio-requirements-sorter
+Author: Elie
+Author-email: 1elie21356@gmail.com
+License: MIT license
+Keywords: claudio_requirements_sorter
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Requires-Dist: click (==7.1.2)
+
+# claudio-requirements-sorter
+
+## The way requirements files should look 
+
+### Install
+`pip install claudio_requirements_sorter`
+
+### Usage
+To use this tool simply pass the requirements file to sort as the first argument and the output file as the second argument:
+
+`claudio_requirements_sorter requirements.txt requirements.txt`
+
+### Example output of how the requirements will be sorted:
+```
+Flask==1.1.2
+Flask-Migrate==2.5.3
+Flask-SQLAlchemy==2.4.3
+SQLAlchemy==1.3.18
+black==19.10b0
+flask-restx==0.2.0
+gunicorn==20.0.4
+pre-commit==2.6.0
+psycopg2==2.8.5
+pytest==5.4.3
+pytest-cov==2.10.0
+python-dotenv==0.14.0
+```
+

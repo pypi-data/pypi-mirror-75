@@ -1,0 +1,3 @@
+[console_scripts]
+claudio_requirements_sorter = claudio_requirements_sorter.cli:main
+
