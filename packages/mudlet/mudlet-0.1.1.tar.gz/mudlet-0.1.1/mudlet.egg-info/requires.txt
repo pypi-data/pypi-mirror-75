@@ -1,0 +1,3 @@
+hypercorn>=10.2
+quart-trio
+trio>=0.16
