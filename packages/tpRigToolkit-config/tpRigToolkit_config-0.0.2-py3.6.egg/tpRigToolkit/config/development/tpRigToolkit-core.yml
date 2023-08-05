@@ -1,0 +1,14 @@
+#  Configuration file for tpRigToolkits-core
+
+tools:
+  - namemanager
+  - renamer
+  - jointorient
+  - controlrig
+  - symmesh
+  - rigtoolbox
+  - rigscript
+  - rigbuilder
+  - rignode
+  - spaceswitcher
+  - jointfacialrig
