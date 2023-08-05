@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+README.rst
+setup.py
+texproject/__init__.py
+texproject/__main__.py
+texproject/command.py
+texproject/filesystem.py
+texproject/template.py
+texproject.egg-info/PKG-INFO
+texproject.egg-info/SOURCES.txt
+texproject.egg-info/dependency_links.txt
+texproject.egg-info/entry_points.txt
+texproject.egg-info/not-zip-safe
+texproject.egg-info/requires.txt
+texproject.egg-info/top_level.txt
