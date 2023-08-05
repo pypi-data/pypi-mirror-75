@@ -1,0 +1,3 @@
+[console_scripts]
+bysh = bysh.__main__:console_run
+
