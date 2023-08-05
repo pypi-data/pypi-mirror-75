@@ -1,0 +1,55 @@
+Metadata-Version: 2.0
+Name: cral
+Version: 0.2.1
+Summary: CRAL: Library for CNNs
+Home-page: UNKNOWN
+Author: T Pratik
+Author-email: pratik@segmind.com
+License: Apache License 2.0
+Keywords: CNN,Deep Learning,classification,object detection,segmentation,keras,tensorflow-keras
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Programming Language :: Python :: 3.6
+Provides-Extra: extras
+Provides-Extra: sqlserver
+Requires-Dist: alembic
+Requires-Dist: click (>=7.0)
+Requires-Dist: cloudpickle
+Requires-Dist: requests (>=2.17.3)
+Requires-Dist: six (>=1.10.0)
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: python-dateutil
+Requires-Dist: protobuf (>=3.6.0)
+Requires-Dist: gitpython (>=2.1.0)
+Requires-Dist: pyyaml
+Requires-Dist: querystring-parser
+Requires-Dist: simplejson
+Requires-Dist: xxhash
+Requires-Dist: entrypoints
+Requires-Dist: sqlparse
+Requires-Dist: sqlalchemy (==1.3.13)
+Requires-Dist: gorilla
+Requires-Dist: boto3
+Requires-Dist: mlflow
+Requires-Dist: google-api-core (==1.16.0)
+Requires-Dist: tqdm
+Requires-Dist: albumentations (==0.4.5)
+Requires-Dist: jsonpickle
+Requires-Dist: GPUtil
+Provides-Extra: extras
+Requires-Dist: boto3 (>=1.7.12); extra == 'extras'
+Requires-Dist: mleap (>=0.8.1); extra == 'extras'
+Requires-Dist: azure-storage; extra == 'extras'
+Requires-Dist: google-cloud-storage; extra == 'extras'
+Provides-Extra: extras
+Requires-Dist: scikit-learn (==0.20); python_version < "3.5" and extra == 'extras'
+Provides-Extra: extras
+Requires-Dist: scikit-learn; python_version >= "3.5" and extra == 'extras'
+Provides-Extra: sqlserver
+Requires-Dist: mlflow-dbstore; extra == 'sqlserver'
+
+UNKNOWN
+
+

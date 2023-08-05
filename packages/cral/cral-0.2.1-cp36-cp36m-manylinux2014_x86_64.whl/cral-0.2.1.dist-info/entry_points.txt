@@ -1,0 +1,3 @@
+[console_scripts]
+cral = cral.cral_cli:cli
+
