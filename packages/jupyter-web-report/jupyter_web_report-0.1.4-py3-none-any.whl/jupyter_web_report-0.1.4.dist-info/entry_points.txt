@@ -1,0 +1,3 @@
+[console_scripts]
+jwr = jupyter_web_report.jupyter_web_report:main
+
