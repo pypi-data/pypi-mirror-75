@@ -1,0 +1,10 @@
+absl-py
+numpy
+requests
+packaging
+
+[fairseq]
+fairseq>=0.9.0
+
+[torch]
+torch>=1.4.0

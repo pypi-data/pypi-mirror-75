@@ -1,0 +1,3 @@
+[console_scripts]
+fastseq-generate = fastseq_cli.generate:cli_main
+
