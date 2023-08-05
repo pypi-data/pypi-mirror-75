@@ -1,0 +1,72 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+qhub_ops/__init__.py
+qhub_ops/__main__.py
+qhub_ops/deploy.py
+qhub_ops/utils.py
+qhub_ops.egg-info/PKG-INFO
+qhub_ops.egg-info/SOURCES.txt
+qhub_ops.egg-info/dependency_links.txt
+qhub_ops.egg-info/entry_points.txt
+qhub_ops.egg-info/requires.txt
+qhub_ops.egg-info/top_level.txt
+qhub_ops/cli/__init__.py
+qhub_ops/cli/deploy.py
+qhub_ops/cli/render.py
+qhub_ops/provider/__init__.py
+qhub_ops/provider/terraform.py
+qhub_ops/provider/cloud/__init__.py
+qhub_ops/provider/cloud/amazon_web_services.py
+qhub_ops/provider/cloud/digital_ocean.py
+qhub_ops/provider/cloud/google_cloud.py
+qhub_ops/provider/dns/__init__.py
+qhub_ops/provider/dns/cloudflare.py
+qhub_ops/provider/oauth/__init__.py
+qhub_ops/provider/oauth/auth0.py
+qhub_ops/render/__init__.py
+qhub_ops/render/jinja.py
+qhub_ops/template/cookiecutter.json
+qhub_ops/template/hooks/post_gen_project.py
+qhub_ops/template/hooks/pre_gen_project.py
+qhub_ops/template/hooks/prompt_gen_project.py
+qhub_ops/template/{{ cookiecutter.repo_directory }}/.gitignore
+qhub_ops/template/{{ cookiecutter.repo_directory }}/README.md
+qhub_ops/template/{{ cookiecutter.repo_directory }}/.github/workflows/image-pr.yaml
+qhub_ops/template/{{ cookiecutter.repo_directory }}/.github/workflows/image.yaml
+qhub_ops/template/{{ cookiecutter.repo_directory }}/.github/workflows/jupyterhub-pr.yaml
+qhub_ops/template/{{ cookiecutter.repo_directory }}/.github/workflows/jupyterhub.yaml
+qhub_ops/template/{{ cookiecutter.repo_directory }}/.github/workflows/qhub-ops.yaml
+qhub_ops/template/{{ cookiecutter.repo_directory }}/docs/configuration.md
+qhub_ops/template/{{ cookiecutter.repo_directory }}/docs/infrastructure.md
+qhub_ops/template/{{ cookiecutter.repo_directory }}/docs/installation.md
+qhub_ops/template/{{ cookiecutter.repo_directory }}/docs/maintenance.md
+qhub_ops/template/{{ cookiecutter.repo_directory }}/docs/theming.md
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/Dockerfile.dask-worker
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/Dockerfile.jupyterhub
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/Dockerfile.jupyterlab
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/README.md
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/dask-worker/environment.yaml
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/dask-worker/postBuild
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/jupyterlab/apt.txt
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/jupyterlab/environment.yaml
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/jupyterlab/ipython_config.py
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/jupyterlab/postBuild
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/scripts/install-apt.sh
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/scripts/install-conda-environment.sh
+qhub_ops/template/{{ cookiecutter.repo_directory }}/image/scripts/install-conda.sh
+qhub_ops/template/{{ cookiecutter.repo_directory }}/infrastructure/aws.tf
+qhub_ops/template/{{ cookiecutter.repo_directory }}/infrastructure/dask-gateway.yaml
+qhub_ops/template/{{ cookiecutter.repo_directory }}/infrastructure/do.tf
+qhub_ops/template/{{ cookiecutter.repo_directory }}/infrastructure/gcp.tf
+qhub_ops/template/{{ cookiecutter.repo_directory }}/infrastructure/jupyterhub.yaml
+qhub_ops/template/{{ cookiecutter.repo_directory }}/infrastructure/kubernetes.tf
+qhub_ops/template/{{ cookiecutter.repo_directory }}/infrastructure/locals.tf
+qhub_ops/template/{{ cookiecutter.repo_directory }}/infrastructure/outputs.tf
+qhub_ops/template/{{ cookiecutter.repo_directory }}/infrastructure/state.tf
+qhub_ops/template/{{ cookiecutter.repo_directory }}/infrastructure/variables.tf
+qhub_ops/template/{{ cookiecutter.repo_directory }}/scripts/00-guided-install.sh
+qhub_ops/template/{{ cookiecutter.repo_directory }}/terraform-state/main.tf
+tests/__init__.py
+tests/test_render.py
