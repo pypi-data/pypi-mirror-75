@@ -1,0 +1,3 @@
+[console_scripts]
+cnvpytor = cnvpytor.__main__:main
+
