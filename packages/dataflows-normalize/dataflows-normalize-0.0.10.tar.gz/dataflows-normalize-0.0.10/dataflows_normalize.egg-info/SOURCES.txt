@@ -1,0 +1,16 @@
+MANIFEST.in
+Makefile
+README.md
+setup.cfg
+setup.py
+tox.ini
+dataflows_normalize/VERSION
+dataflows_normalize/__init__.py
+dataflows_normalize/log.py
+dataflows_normalize/normalize.py
+dataflows_normalize.egg-info/PKG-INFO
+dataflows_normalize.egg-info/SOURCES.txt
+dataflows_normalize.egg-info/dependency_links.txt
+dataflows_normalize.egg-info/not-zip-safe
+dataflows_normalize.egg-info/requires.txt
+dataflows_normalize.egg-info/top_level.txt
