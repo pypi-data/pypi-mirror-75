@@ -1,0 +1,274 @@
+[
+  {
+    "networkDomain": [
+      {
+        "name": "tf_networkDomain",
+        "type": "ENTERPRISE",
+        "snatIpv4Address": "165.180.33.131",
+        "outsideTransitVlanIpv4Subnet": {
+          "address": "100.101.32.48",
+          "prefixSize": 28
+        },
+        "outsideTransitVlanIpv6Subnet": {
+          "address": "2607:f480:9901:514:0:0:0:0",
+          "prefixSize": 64
+        },
+        "ipv4CpncGatewayAddress": "100.101.32.55",
+        "ipv6CpncGatewayAddress": "2607:f480:9901:514:0:0:0:7",
+        "ipv4InternetGatewayAddress": "100.101.32.49",
+        "ipv6InternetGatewayAddress": "2607:f480:9901:514:0:0:0:1",
+        "baselineStaticRouteConfiguration": true,
+        "baselineSnatExclusionConfiguration": true,
+        "createTime": "2019-10-21T08:46:33.000Z",
+        "state": "NORMAL",
+        "id": "5e5b29ef-860c-42d5-8631-eb2f2049a01d",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      },
+      {
+        "name": "dermot_networkDomain",
+        "type": "ADVANCED",
+        "snatIpv4Address": "165.180.33.141",
+        "outsideTransitVlanIpv4Subnet": {
+          "address": "100.101.32.208",
+          "prefixSize": 28
+        },
+        "outsideTransitVlanIpv6Subnet": {
+          "address": "2607:f480:9901:524:0:0:0:0",
+          "prefixSize": 64
+        },
+        "ipv4CpncGatewayAddress": "100.101.32.215",
+        "ipv6CpncGatewayAddress": "2607:f480:9901:524:0:0:0:7",
+        "ipv4InternetGatewayAddress": "100.101.32.209",
+        "ipv6InternetGatewayAddress": "2607:f480:9901:524:0:0:0:1",
+        "baselineStaticRouteConfiguration": true,
+        "baselineSnatExclusionConfiguration": true,
+        "createTime": "2019-11-04T11:44:08.000Z",
+        "state": "NORMAL",
+        "id": "326f4e65-7455-4d1f-ba0e-287b747acd29",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      },
+      {
+        "name": "dermotNetworkDomain",
+        "type": "ADVANCED",
+        "snatIpv4Address": "165.180.35.88",
+        "outsideTransitVlanIpv4Subnet": {
+          "address": "100.101.69.128",
+          "prefixSize": 28
+        },
+        "outsideTransitVlanIpv6Subnet": {
+          "address": "2607:f480:9901:1009:0:0:0:0",
+          "prefixSize": 64
+        },
+        "ipv4CpncGatewayAddress": "100.101.69.135",
+        "ipv6CpncGatewayAddress": "2607:f480:9901:1009:0:0:0:7",
+        "ipv4InternetGatewayAddress": "100.101.69.129",
+        "ipv6InternetGatewayAddress": "2607:f480:9901:1009:0:0:0:1",
+        "baselineStaticRouteConfiguration": true,
+        "baselineSnatExclusionConfiguration": true,
+        "createTime": "2019-11-04T15:43:13.000Z",
+        "state": "NORMAL",
+        "id": "83c9e255-3759-40d3-b9b8-2fdac1178680",
+        "datacenterId": "DEV_GEO1_2_GALWAY"
+      },
+      {
+        "name": "JOL Network Domain",
+        "description": "JOL Network Domain for UI Work",
+        "type": "ENTERPRISE",
+        "snatIpv4Address": "165.180.33.143",
+        "outsideTransitVlanIpv4Subnet": {
+          "address": "100.101.32.240",
+          "prefixSize": 28
+        },
+        "outsideTransitVlanIpv6Subnet": {
+          "address": "2607:f480:9901:526:0:0:0:0",
+          "prefixSize": 64
+        },
+        "ipv4CpncGatewayAddress": "100.101.32.247",
+        "ipv6CpncGatewayAddress": "2607:f480:9901:526:0:0:0:7",
+        "ipv4InternetGatewayAddress": "100.101.32.241",
+        "ipv6InternetGatewayAddress": "2607:f480:9901:526:0:0:0:1",
+        "baselineStaticRouteConfiguration": true,
+        "baselineSnatExclusionConfiguration": true,
+        "createTime": "2019-11-05T15:19:53.000Z",
+        "state": "NORMAL",
+        "id": "7fe41015-0c71-4083-bfe7-60f643fe8b59",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      },
+      {
+        "name": "kasia_ND",
+        "description": "for testing",
+        "type": "ADVANCED",
+        "snatIpv4Address": "165.180.33.144",
+        "outsideTransitVlanIpv4Subnet": {
+          "address": "100.101.33.0",
+          "prefixSize": 28
+        },
+        "outsideTransitVlanIpv6Subnet": {
+          "address": "2607:f480:9901:527:0:0:0:0",
+          "prefixSize": 64
+        },
+        "ipv4CpncGatewayAddress": "100.101.33.7",
+        "ipv6CpncGatewayAddress": "2607:f480:9901:527:0:0:0:7",
+        "ipv4InternetGatewayAddress": "100.101.33.1",
+        "ipv6InternetGatewayAddress": "2607:f480:9901:527:0:0:0:1",
+        "baselineStaticRouteConfiguration": true,
+        "baselineSnatExclusionConfiguration": true,
+        "createTime": "2019-11-08T12:58:23.000Z",
+        "state": "NORMAL",
+        "id": "489f7511-f305-4ce2-9ab3-bfed877b92da",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      }
+    ],
+    "pageNumber": 1,
+    "pageCount": 12,
+    "totalCount": 12,
+    "pageSize": 250
+  },
+  {
+    "networkDomain": [
+      {
+        "name": "networkDomainOne",
+        "type": "ADVANCED",
+        "snatIpv4Address": "165.180.36.232",
+        "outsideTransitVlanIpv4Subnet": {
+          "address": "100.101.102.128",
+          "prefixSize": 28
+        },
+        "outsideTransitVlanIpv6Subnet": {
+          "address": "2607:4f80:9901:1155:0:0:0:0",
+          "prefixSize": 64
+        },
+        "ipv4CpncGatewayAddress": "100.101.102.135",
+        "ipv6CpncGatewayAddress": "2607:4f80:9901:1155:0:0:0:7",
+        "ipv4InternetGatewayAddress": "100.101.102.129",
+        "ipv6InternetGatewayAddress": "2607:4f80:9901:1155:0:0:0:1",
+        "baselineStaticRouteConfiguration": true,
+        "baselineSnatExclusionConfiguration": true,
+        "createTime": "2019-11-18T10:27:52.000Z",
+        "state": "NORMAL",
+        "id": "c72ee2fb-9532-4435-8aaf-285f235e21d1",
+        "datacenterId": "DEV_GEO1_3_LIMERICK"
+      },
+      {
+        "name": "nd7test",
+        "type": "ESSENTIALS",
+        "snatIpv4Address": "165.180.33.149",
+        "outsideTransitVlanIpv4Subnet": {
+          "address": "100.101.33.80",
+          "prefixSize": 28
+        },
+        "outsideTransitVlanIpv6Subnet": {
+          "address": "2607:f480:9901:532:0:0:0:0",
+          "prefixSize": 64
+        },
+        "ipv4CpncGatewayAddress": "100.101.33.87",
+        "ipv6CpncGatewayAddress": "2607:f480:9901:532:0:0:0:7",
+        "ipv4InternetGatewayAddress": "100.101.33.81",
+        "ipv6InternetGatewayAddress": "2607:f480:9901:532:0:0:0:1",
+        "baselineStaticRouteConfiguration": true,
+        "baselineSnatExclusionConfiguration": true,
+        "createTime": "2019-11-20T16:18:12.000Z",
+        "state": "NORMAL",
+        "id": "a863fef6-683a-460d-8716-ef7aab05bff6",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      },
+      {
+        "name": "ndtest3",
+        "type": "ESSENTIALS",
+        "snatIpv4Address": "165.180.33.147",
+        "outsideTransitVlanIpv4Subnet": {
+          "address": "100.101.33.48",
+          "prefixSize": 28
+        },
+        "outsideTransitVlanIpv6Subnet": {
+          "address": "2607:f480:9901:530:0:0:0:0",
+          "prefixSize": 64
+        },
+        "ipv4CpncGatewayAddress": "100.101.33.55",
+        "ipv6CpncGatewayAddress": "2607:f480:9901:530:0:0:0:7",
+        "ipv4InternetGatewayAddress": "100.101.33.49",
+        "ipv6InternetGatewayAddress": "2607:f480:9901:530:0:0:0:1",
+        "baselineStaticRouteConfiguration": true,
+        "baselineSnatExclusionConfiguration": true,
+        "createTime": "2019-11-20T18:28:45.000Z",
+        "state": "NORMAL",
+        "id": "77d8782d-40e2-4c3e-ba99-6df99c8aac32",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      },
+      {
+        "name": "martin_test_network",
+        "type": "ENTERPRISE",
+        "snatIpv4Address": "165.180.33.150",
+        "outsideTransitVlanIpv4Subnet": {
+          "address": "100.101.33.96",
+          "prefixSize": 28
+        },
+        "outsideTransitVlanIpv6Subnet": {
+          "address": "2607:f480:9901:533:0:0:0:0",
+          "prefixSize": 64
+        },
+        "ipv4CpncGatewayAddress": "100.101.33.103",
+        "ipv6CpncGatewayAddress": "2607:f480:9901:533:0:0:0:7",
+        "ipv4InternetGatewayAddress": "100.101.33.97",
+        "ipv6InternetGatewayAddress": "2607:f480:9901:533:0:0:0:1",
+        "baselineStaticRouteConfiguration": true,
+        "baselineSnatExclusionConfiguration": true,
+        "createTime": "2019-12-05T13:03:04.000Z",
+        "state": "NORMAL",
+        "id": "abdde960-4203-4930-976d-13fccd9a4c95",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      },
+      {
+        "name": "JH Network Domain",
+        "description": "Test network domain created by John Haran",
+        "type": "ADVANCED",
+        "snatIpv4Address": "165.180.33.151",
+        "outsideTransitVlanIpv4Subnet": {
+          "address": "100.101.33.112",
+          "prefixSize": 28
+        },
+        "outsideTransitVlanIpv6Subnet": {
+          "address": "2607:f480:9901:534:0:0:0:0",
+          "prefixSize": 64
+        },
+        "ipv4CpncGatewayAddress": "100.101.33.119",
+        "ipv6CpncGatewayAddress": "2607:f480:9901:534:0:0:0:7",
+        "ipv4InternetGatewayAddress": "100.101.33.113",
+        "ipv6InternetGatewayAddress": "2607:f480:9901:534:0:0:0:1",
+        "baselineStaticRouteConfiguration": true,
+        "baselineSnatExclusionConfiguration": true,
+        "createTime": "2019-12-10T09:26:56.000Z",
+        "state": "NORMAL",
+        "id": "0d1b5e30-b9bf-448c-a8bf-02368c1a161b",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      },
+      {
+        "name": "JimPSDomain",
+        "type": "ADVANCED",
+        "snatIpv4Address": "165.180.33.135",
+        "outsideTransitVlanIpv4Subnet": {
+          "address": "100.101.32.112",
+          "prefixSize": 28
+        },
+        "outsideTransitVlanIpv6Subnet": {
+          "address": "2607:f480:9901:518:0:0:0:0",
+          "prefixSize": 64
+        },
+        "ipv4CpncGatewayAddress": "100.101.32.119",
+        "ipv6CpncGatewayAddress": "2607:f480:9901:518:0:0:0:7",
+        "ipv4InternetGatewayAddress": "100.101.32.113",
+        "ipv6InternetGatewayAddress": "2607:f480:9901:518:0:0:0:1",
+        "baselineStaticRouteConfiguration": true,
+        "baselineSnatExclusionConfiguration": true,
+        "createTime": "2020-01-28T12:31:41.000Z",
+        "state": "NORMAL",
+        "id": "ede0333b-dfd6-4e7a-968c-ae5a388b31e0",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      }
+    ],
+    "pageNumber": 1,
+    "pageCount": 12,
+    "totalCount": 12,
+    "pageSize": 250
+  }
+]
