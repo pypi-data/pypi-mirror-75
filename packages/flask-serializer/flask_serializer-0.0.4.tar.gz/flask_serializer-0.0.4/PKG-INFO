@@ -1,0 +1,49 @@
+Metadata-Version: 1.2
+Name: flask_serializer
+Version: 0.0.4
+Summary: A Flask serializer built with marshmallow and flask-sqlalchemy
+Home-page: https://github.com/ZinkLu
+Author: ZinkLu
+Author-email: zinkworld@live.cn
+Maintainer: zinklu
+Maintainer-email: zinkworld@live.cn
+License: MIT
+Download-URL: https://github.com/ZinkLu/Flask-Serializer/archive/0.0.1.tar.gz
+Project-URL: Code, https://github.com/ZinkLu/Flask-Serializer
+Description: # Flask-Serializer
+        
+        一个帮助你快速书写Restful的序列化器工具
+        
+        [toc]
+        
+        ## 简介
+        
+        后端程序员, 最最基础的就是定义模型进行增删改查,
+        
+        ## 安装
+        
+        ## 使用
+        
+        ## 进阶
+        
+        ## 已知问题
+        
+        1. DetailMixin不能兼容sqlite, sqlite不支持批量更新
+        
+        ## TODO
+        
+        1. 从metadata中读取Columns信息, 自动根据Columns生成Schema, 同时增加配置, 让Query, Filter, Foreign能够融入
+Keywords: Flask,extension,serializer,marshmallow,flask-sqlalchemy
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires-Python: >=2.7
