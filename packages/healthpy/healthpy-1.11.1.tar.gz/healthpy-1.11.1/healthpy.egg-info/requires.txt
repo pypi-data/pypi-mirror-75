@@ -1,0 +1,7 @@
+
+[testing]
+pytest-responses==0.4.*
+pytest-httpx==0.2.*
+redis==3.*
+starlette==0.13.*
+pytest-cov==2.*
