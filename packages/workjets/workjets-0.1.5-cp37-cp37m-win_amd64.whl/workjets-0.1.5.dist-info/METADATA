@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: workjets
+Version: 0.1.5
+Summary: A common using tools library for work efficiently.
+Home-page: https://github.com/geekac/workjets
+Author: geekac
+Author-email: geekac@163.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Description-Content-Type: text/markdown
+Requires-Dist: medpy (>=0.4.0)
+Requires-Dist: torch (>=1.0.1)
+Requires-Dist: numpy
+
+# workjets
+A common using tools library for work efficiently.
+
+
