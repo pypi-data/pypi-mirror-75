@@ -1,0 +1,247 @@
+Metadata-Version: 2.1
+Name: xingapi
+Version: 1.2.14
+Summary: python version of xingapi
+Home-page: https://github.com/jeakwon/xingapi
+Author: Jea Kwon
+Author-email: onlytojay@gmail.com
+License: UNKNOWN
+Keywords: xingapi
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Requires-Dist: pywin32
+Requires-Dist: pandas
+
+# xingapi for python users
+
+## Installation
+```
+pip install xingapi
+```
+
+## eBest xingAPI com guide
+[이베스트 xingAPI 가이드(링크)](http://www.ebestsec.co.kr/apiguide/guide.jsp?cno=200)
+
+## Requirements
+- python 32bit environment
+- xingAPI installation
+- DevCenter installation
+- Download res files
+
+## Usage
+
+### 1. Session
+#### 1) 기본사용법
+```python
+import xingapi as xa
+
+session = xa.Session()
+session.login(id='아이디', pw='비밀번호', cert='공인인증비밀번호')
+```
+
+#### 2) account.txt를 활용하는법
+account.txt를 아래와같이 생성하여 현재터미널위치에 두고
+```
+아이디
+비밀번호
+공인인증비밀번호
+```
+
+아래스크립트를 실행
+```python
+import xingapi as xa
+
+with open('account.txt') as f:
+    id, pw, cert = f.read().split()
+
+session = xa.Session()
+session.login(id, pw, cert)
+```
+
+### 2. Query 사용법
+#### 1) 기본적인 사용예시
+삼성전자(005930)의 주식 분별 주가 조회('t1302)를 예로 들어보겠다
+```python
+query = xa.Query('t1302')
+data = query(shcode='005930', cnt=900)
+```
+xa.Query 오브젝트 생성시 trcode를 입력
+오브젝트를 다시 `__call__`할 때, 필드이름과, 필드값을 keyword=value 페어로 전달한다
+반환된 데이터는 { 블록이름1 : 블록데이터1, 블록이름2 : 블록데이터2 } 의 `dict` 형태로 
+반환되고, 블록데이터는 `pandas.DataFrame` 오브젝트이다.
+
+#### 2) 한줄로도 가능
+```python
+df = xa.Query('t1302')(shcode='005930', cnt=900)['t1302OutBlock1']
+```
+
+#### 3) 조회/연속조회
+```python
+query = xa.Query('t1302')
+data1 = query.call(shcode='005930', cnt=100).data
+data2 = query.nextcall(
+    cts_time=data1['t1302OutBlock']['시간CTS'][0]
+).data
+
+query = xa.Query('t1302')
+data3 = query.call(shcode='005930', cnt=100).data
+data4 = query.nextcall(
+    shcode='005930', 
+    cnt=100, 
+    cts_time=cts_time=data1['t1302OutBlock']['시간CTS'][0]
+).data
+```
+DevCenter에서 TR 확인창을 사용하면 조회버튼/다음조회버튼이 있다
+`xa.Query.call(**input_kwargs)`함수는 조회버튼에 해당하며, 오브젝트 자신을 반환한다.
+`xa.Query.nextcall(**input_kwargs)`함수는 다음조회버튼에 해당하며, 역시 오브젝트 자신을 반환한다.
+
+nextcall(다음조회)의 경우 `data3`처럼 call(조회)에 사용한 키값과 함께 사용해도 되지만,
+call(조회)를 한 경우엔 `data2`처럼 다음조회 에사용할 새로운 키값만 입력해도 동작한다.
+
+#### 4) 연속조회 (자동 끝까지)
+```python
+query = xa.Query('t1302')
+data = query.call(shcode='005930', cnt=100).next(keypairs={'time':'cts_time'})
+```
+위에서 사용한 `call(조회)`, `nextcall(연속조회)`를 조합한 `next`함수를 이용하면
+`query.isnext` 가 False가 될때까지 스스로 반복한다.
+여기서 keypairs란 InBlock에 다시 넣어줄 필드이름과, OutBlock에서 가져올 필드 값의 필드이름을 이야기한다. 예를들어 `t1302`의 경우 InBlock의 `time`key 에 OutBlock의 `cts_time`의 value를 가져와야하므로 keypairs={'time':'cts_time'} 로전달한다.
+
+#### 5) 연속조회 (자동 주어진 횟수만큼만)
+```python
+query = xa.Query('t1302')
+data = query.call(shcode='005930', cnt=100).next(keypairs={'time':'cts_time'}, total=5)
+```
+`total`을 명시해주면 다음조회의 반복회수를 몇번까지 할 것인지 정해준다.
+과거 데이터가 양이 너무 많은 경우, dataframe객체 안에 담지 못하고 Out of memory가 발생
+할 수 있으므로 그런경우 유용하게 사용가능하다.
+
+### Real 사용법
+
+
+### 4. App 사용법
+#### 로그인 방법
+```python
+app = xa.App('../account.txt')
+```
+```python
+app = xa.App('아이디', '패스워드', '공인인증패스워드')
+```
+```python
+app = xa.App(id='아이디', pw='패스워드', cert='공인인증패스워드')
+```
+#### 종목코드조회
+* 종목코드 전체(코스피+코스닥) 리스트로 받아오기
+```python
+app.종목코드.전체
+```
+* 종목코드 코스피 리스트로 받아오기
+```python
+app.종목코드.코스피
+```
+* 종목코드 투자주의 리스트로 받아오기
+```python
+app.종목코드.투자주의
+```
+* 종목명으로 코드 검색하기
+```python
+app.종목코드.종목명으로검색('삼성전자')
+```
+
+* 종목코드로 종목명 검색하기
+```python
+app.종목코드.종목코드로검색('005930')
+```
+
+* 간편검색
+```python
+app.종목코드('삼성전자')
+app.종목코드('005930')
+```
+
+#### 종목정보조회
+* 일/월/주봉조회
+```python
+# 일봉 500개 조회
+app.종목정보('005930').일봉(500)
+# 주봉 100개 조회
+app.종목정보('005930').주봉(100)
+# 월봉 끝까지(가능한데이터) 전부 조회
+app.종목정보('005930').월봉() # 일봉 끝까지(데이터 허용되는 데까지) 조회
+```
+일/월/주봉의 경우 request 한번에 300개씩 요청하므로 300개 단위로 끊어서 요청하면 효율적이다
+일/월/주봉은 동작방식이 같지만 분봉은 동작방식이 다름
+
+* 분봉조회 (30초/1분/3분/5분/10분/30분/60분 가능)
+```python
+app.종목정보('005930').분봉() # 30초봉
+app.종목정보('005930').분봉(1) # 1분봉
+app.종목정보('삼성전자').분봉(2) # 3분봉
+app.종목정보('삼성전자').분봉(5) # 30분봉
+```
+
+* 체결조회
+```python
+# 당일체결조회 (전일: 구분=1)
+app.종목정보('005930').체결(구분=0) 
+# 9시30분에서 10시30분까지 데이터
+app.종목정보('005930').체결(종료시간='103000', 개수=1000)
+```
+
+* 호가조회 (30초/1분/3분/5분/10분/30분/60분 가능)
+```python
+app.종목정보('005930').호가() # 30초봉
+app.종목정보('005930').호가(1) # 1분봉
+app.종목정보('삼성전자').호가(2) # 3분봉
+app.종목정보('삼성전자').호가(5) # 30분봉
+```
+
+* 테마
+```python
+app.종목정보('005930').테마 # 30초봉
+```
+
+* 신호조회
+```python
+app.종목정보('삼성전자').신호조회(30)
+```
+
+* 매물대
+```python
+app.종목정보('삼성전자').매물대() # 당일
+app.종목정보('삼성전자').매물대(2) # 전일
+app.종목정보('삼성전자').매물대(3) # 당일+전일
+```
+
+* 분별/일별 체결강도
+```python
+app.종목정보('삼성전자').분별체결강도() # 당일, 380개 이하
+app.종목정보('005930').일별체결강도(2500) # 2500개, 약 10년치
+```
+
+* 틱차트/분차트
+```python
+# 오늘날짜조회
+app.종목정보('삼성전자').틱차트(N틱=1) # 오늘날짜 1틱차트
+app.종목정보('005930').분차트(N분=3) # 오늘날짜 3분차트
+
+# 기간조회
+app.종목정보('삼성전자').틱차트(N틱=10, 시작일='20200503') # 10틱 '20200503'부터 오늘까지 조회
+app.종목정보('삼성전자').분차트(시작일='20200501', 종료일='20200504') # 1분봉 시작일부터 종료일까지조회
+```
+
+* 일차트/주차트/봉차트
+```python
+app.종목정보('삼성전자').일차트(시작일='20200503') # 일차트 '20200503'부터 오늘까지 조회
+app.종목정보('삼성전자').주차트(시작일='20190101', 종료일='20191231') # 주차트 2019년도 조회
+app.종목정보('삼성전자').월차트(시작일='20000101', 종료일='20191231') # 월차트 2000년부터 2019년까지 조회
+```
+
