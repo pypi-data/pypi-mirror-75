@@ -1,0 +1,3 @@
+[console_scripts]
+checkpwd = checkpwd.run:main
+
