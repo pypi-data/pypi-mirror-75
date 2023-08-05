@@ -1,0 +1,15 @@
+babel
+jinja2>=2.10
+json5
+jsonschema>=3.0.1
+notebook>=4.2.0
+packaging
+requests
+
+[test]
+codecov
+pytest
+pytest-cov
+requests
+strict-rfc3339
+wheel
