@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: Mahanalobis-Detection-Outliers
+Version: 1.0
+Summary: 
+            Detection of outlier with mahanalobis distance 
+            which have access of the parameters (means and precision matrice) with algo GMM or Bayesian GMM provide by sklearn
+            
+Home-page: https://github.com/JonathanNdambaPro/MDO
+Author: Jonathan Ndamba
+Author-email: jonathan.ndamba.pro@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
