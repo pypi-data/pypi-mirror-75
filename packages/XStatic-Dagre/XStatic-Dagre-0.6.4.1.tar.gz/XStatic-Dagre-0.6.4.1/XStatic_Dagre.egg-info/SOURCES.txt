@@ -1,0 +1,17 @@
+MANIFEST.in
+README.txt
+setup.cfg
+setup.py
+XStatic_Dagre.egg-info/PKG-INFO
+XStatic_Dagre.egg-info/SOURCES.txt
+XStatic_Dagre.egg-info/dependency_links.txt
+XStatic_Dagre.egg-info/namespace_packages.txt
+XStatic_Dagre.egg-info/not-zip-safe
+XStatic_Dagre.egg-info/top_level.txt
+xstatic/__init__.py
+xstatic/pkg/__init__.py
+xstatic/pkg/dagre/__init__.py
+xstatic/pkg/dagre/data/dagre.core.js
+xstatic/pkg/dagre/data/dagre.core.min.js
+xstatic/pkg/dagre/data/dagre.js
+xstatic/pkg/dagre/data/dagre.min.js
