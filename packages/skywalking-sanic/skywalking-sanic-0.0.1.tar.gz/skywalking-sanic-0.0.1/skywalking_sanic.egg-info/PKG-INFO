@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: skywalking-sanic
+Version: 0.0.1
+Summary: Skywalking Sanic Support.
+Home-page: https://gitee.com/parkerzhu/skywalking-sanic
+Author: Parker Zhu
+Author-email: 806000178@qq.com
+License: UNKNOWN
+Description: # Skywalking Sanic
+        
+        Skywalking support for sanic.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
