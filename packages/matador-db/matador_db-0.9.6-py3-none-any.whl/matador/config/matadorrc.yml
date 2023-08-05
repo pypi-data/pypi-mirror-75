@@ -1,0 +1,15 @@
+mongo:
+    host: localhost
+    port: 27017
+    db: crystals
+    default_collection: repo
+    default_collection_file_path: ~/matador-db
+
+plotting:
+    default_style: matador
+    element_colours: vesta_elements.ini
+
+run3:
+    castep_executable: castep
+    optados_executable: optados
+    scratch_prefix: .
