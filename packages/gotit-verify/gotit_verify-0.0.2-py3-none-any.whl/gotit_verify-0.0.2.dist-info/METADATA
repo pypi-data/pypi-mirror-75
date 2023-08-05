@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: gotit-verify
+Version: 0.0.2
+Summary: A Verify SDK for confirming identity of GotIt authenticated apps
+Home-page: https://github.com/xoxwaw/
+Author: Phi Nguyen
+Author-email: phi@gotitapp.co
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: coverage (==5.2.1)
+Requires-Dist: marshmallow (==3.7.1)
+Requires-Dist: PyJWT (==1.7.1)
+Requires-Dist: pytest (==5.4.3)
+Requires-Dist: pytest-cov (==2.10.0)
+Requires-Dist: pytest-mock (==3.2.0)
+Requires-Dist: python-dotenv (==0.14.0)
+Requires-Dist: requests (==2.24.0)
+Requires-Dist: requests-mock (==1.8.0)
+
+# GotIt Verify SDK
+
+## Description
+This SDK is used to verify the identity of an app that 
+attempts to access Got It APIs. The client of the app
+needs to provide an environment name, app key an app secret
+to use the SDK.
+
+## Installation 
+
+
+## Usage
+
+    from gotit_verify import Verify
+    verify = Verify(env, app_key, app_secret)
+
+    new_auth = verify.create_verification(
+                            channel, template_name, to, 
+                            subject_params={}, body_params = {}
+                            )
+
+    check_auth = verify.check_verification(channel, to, code)
+
+The two respective variables will contain the content as followed:
+
+    check_auth: Dict{
+                    id:int, 
+                    channel: str, 
+                    to: str, 
+                    code: str, 
+                    status: str, 
+                    denied_reasons: str
+                   }
+
+    new_auth: Dict{ 
+                    id: int,
+                    channel: str,
+                    template_name: str,
+                    subject_params: dict,
+                    body_params: dict,
+                    code: str,
+                    expiration_date: str,
+                    status: str 
+                  }
+
+## LICENSE
+
