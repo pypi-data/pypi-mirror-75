@@ -1,0 +1,3 @@
+[console_scripts]
+dropkick = dropkick.__main__:main
+
