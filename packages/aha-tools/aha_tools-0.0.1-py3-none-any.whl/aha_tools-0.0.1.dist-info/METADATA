@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: aha-tools
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: https://github.com/StanfordAHA/aha
+Author: Teguh Hofstee
+Author-email: thofstee@stanford.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Requires-Dist: docker
+Requires-Dist: genesis2
+Requires-Dist: gitpython
+Requires-Dist: networkx
+Requires-Dist: packaging
+Requires-Dist: pydot
+Requires-Dist: requirements-parser
+Requires-Dist: tabulate
+
+UNKNOWN
+
+
