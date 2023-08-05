@@ -1,0 +1,12 @@
+Pillow!=7.2.0,>=5.2.0
+pilkit>=1.1.6
+
+[all]
+face_recognition
+pillow-stackblur
+
+[facedetection]
+face_recognition
+
+[stackblur]
+pillow-stackblur
