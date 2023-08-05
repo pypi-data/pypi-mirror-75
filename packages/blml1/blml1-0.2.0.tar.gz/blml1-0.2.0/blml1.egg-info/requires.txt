@@ -1,0 +1,9 @@
+
+[dev]
+mypy
+pyflakes
+black
+pylint
+wheel
+twine
+pytype
