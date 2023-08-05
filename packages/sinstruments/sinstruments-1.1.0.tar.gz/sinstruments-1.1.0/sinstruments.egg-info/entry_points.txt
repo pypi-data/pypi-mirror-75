@@ -1,0 +1,3 @@
+[console_scripts]
+sinstruments-server = sinstruments.simulator:main
+
