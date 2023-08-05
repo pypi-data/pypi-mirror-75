@@ -1,0 +1,19 @@
+Metadata-Version: 1.2
+Name: RachioPy
+Version: 0.1.4
+Summary: A Python module for the Rachio API.
+Home-page: https://github.com/rfverbruggen/rachiopy
+Author: Robbert Verbruggen
+Author-email: rfverbruggen@icloud.com
+License: MIT
+Download-URL: https://github.com/rfverbruggen/rachiopy/archive/0.1.4.tar.gz
+Project-URL: Bug Reports, https://github.com/rfverbruggen/rachiopy/issues
+Description: UNKNOWN
+Platform: Cross Platform
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development
