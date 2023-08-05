@@ -1,0 +1,14 @@
+sdh.cdn-1.1.9-py3.8-nspkg.pth,sha256=n6gE1e--qSVDYRtC-aE0DFR1wdunhMy6fp53X97VsjE,524
+sdh/cdn/__init__.py,sha256=Sj0YbgT3sBU1qwxTCW2HJVlD7ZT1GDHAi1n9CrYW0f4,82
+sdh/cdn/apps.py,sha256=7qR4awSV2GlH3GYSAWlPyDiyU7F2ElNC4XaFQsvKUaQ,121
+sdh/cdn/storages.py,sha256=NNyYtQtubf9KYGfhsBmFzsJHdOeEcC_k4yElf-wIVIc,1751
+sdh/cdn/management/commands/migrate_images.py,sha256=WvlJK4G2WQcgimaTbQHDCUzsOHe7ki07FOCortLmsTU,2941
+sdh/cdn/templatetags/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sdh/cdn/templatetags/sdh_cdn.py,sha256=iMnZC9pGyrpoOznd02KBzroAvlXeZ-2e39SqmWjtD60,796
+sdh.cdn-1.1.9.dist-info/LICENSE,sha256=MZo94cJd5gT0wqE-3TJctV-NRBOTxwNaS-UxgwZokD0,1522
+sdh.cdn-1.1.9.dist-info/METADATA,sha256=HJBKxPOQWjvXC-KbbZpAKTcf1h4pM7ojI-iWzxgX7Hs,959
+sdh.cdn-1.1.9.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+sdh.cdn-1.1.9.dist-info/eager_resources.txt,sha256=bjsdVz0gOELFxF35EXozv5wvwbAXz4-UpgU6lk5ABHg,4
+sdh.cdn-1.1.9.dist-info/namespace_packages.txt,sha256=bjsdVz0gOELFxF35EXozv5wvwbAXz4-UpgU6lk5ABHg,4
+sdh.cdn-1.1.9.dist-info/top_level.txt,sha256=bjsdVz0gOELFxF35EXozv5wvwbAXz4-UpgU6lk5ABHg,4
+sdh.cdn-1.1.9.dist-info/RECORD,,
