@@ -1,0 +1,4 @@
+#!python
+
+import pytracepath
+pytracepath.main()
