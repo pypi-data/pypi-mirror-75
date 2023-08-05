@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: dhwani
+Version: 0.0.2
+Summary: English to Indic language phonetic conversion engine
+Home-page: https://github.com/ndyashas/Dhwani
+Author: Yashas ND
+Author-email: ndyashas@gmail.com
+License: Apache License, Version 2.0
+Keywords: Indic,Phonetic,Dhwani
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Text Processing
+Description-Content-Type: text/markdown
+Requires-Dist: PyYAML (>=5.3<6)
+
+# Dhwani
+English to Indic language phonetic conversion engine
+
+
