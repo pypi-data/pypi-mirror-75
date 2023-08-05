@@ -1,0 +1,68 @@
+2020-07-25/18:23:49		Entered the remove_columns method of the Preprocessor class
+2020-07-25/18:23:49		Column removal Successful.Exited the remove_columns method of the Preprocessor class
+2020-07-25/18:23:49		Entered into impute_missing_values method.
+2020-07-25/18:23:49		Non-empty DataFrame object Identified
+2020-07-25/18:23:49		my_flag found True Imputing Dataframe.
+2020-07-25/18:23:49		Imputed DataFrame Returned Successfully
+2020-07-25/18:23:49		Entered the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:23:49		DataFrame Load Successful of the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:23:49		X y created in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:23:49		Class Imbalance Process Starts in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:23:49		No of Classes is 2 in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:23:49		Threshold satisfied in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:23:49		OverSampling minority classes data having 2 classes in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:23:49		Class Imbalance Process Ends in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:23:49		Entered the separate_label_feature method of the Preprocessor class
+2020-07-25/18:23:49		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2020-07-25/18:23:49		Entered the remove_columns_with_minimal_variance method of the DataPreprocessor class
+2020-07-25/18:43:07		Entered the remove_columns method of the Preprocessor class
+2020-07-25/18:43:07		Column removal Successful.Exited the remove_columns method of the Preprocessor class
+2020-07-25/18:43:07		Entered into impute_missing_values method.
+2020-07-25/18:43:07		Non-empty DataFrame object Identified
+2020-07-25/18:43:07		my_flag found True Imputing Dataframe.
+2020-07-25/18:43:07		Imputed DataFrame Returned Successfully
+2020-07-25/18:43:07		Entered the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:43:07		DataFrame Load Successful of the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:43:07		X y created in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:43:07		Class Imbalance Process Starts in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:43:07		No of Classes is 2 in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:43:07		Threshold satisfied in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:43:07		OverSampling minority classes data having 2 classes in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:43:07		Class Imbalance Process Ends in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:43:07		Entered the separate_label_feature method of the Preprocessor class
+2020-07-25/18:43:07		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2020-07-25/18:43:07		Entered the remove_columns_with_minimal_variance method of the DataPreprocessor class
+2020-07-25/18:57:43		Entered the remove_columns method of the Preprocessor class
+2020-07-25/18:57:43		Column removal Successful.Exited the remove_columns method of the Preprocessor class
+2020-07-25/18:57:43		Entered into impute_missing_values method.
+2020-07-25/18:57:43		Non-empty DataFrame object Identified
+2020-07-25/18:57:43		my_flag found True Imputing Dataframe.
+2020-07-25/18:57:43		Imputed DataFrame Returned Successfully
+2020-07-25/18:57:43		Entered the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:57:43		DataFrame Load Successful of the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:57:43		X y created in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:57:43		Class Imbalance Process Starts in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:57:43		No of Classes is 2 in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:57:43		Threshold satisfied in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:57:43		OverSampling minority classes data having 2 classes in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:57:43		Class Imbalance Process Ends in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/18:57:43		Entered the separate_label_feature method of the Preprocessor class
+2020-07-25/18:57:43		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2020-07-25/18:57:43		Entered the remove_columns_with_minimal_variance method of the DataPreprocessor class
+2020-07-25/19:04:49		Entered the remove_columns method of the Preprocessor class
+2020-07-25/19:04:49		Column removal Successful.Exited the remove_columns method of the Preprocessor class
+2020-07-25/19:04:49		Entered into impute_missing_values method.
+2020-07-25/19:04:49		Non-empty DataFrame object Identified
+2020-07-25/19:04:49		my_flag found True Imputing Dataframe.
+2020-07-25/19:04:49		Imputed DataFrame Returned Successfully
+2020-07-25/19:04:49		Entered the remove_imbalance method of the DataPreprocessor class
+2020-07-25/19:04:49		DataFrame Load Successful of the remove_imbalance method of the DataPreprocessor class
+2020-07-25/19:04:49		X y created in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/19:04:49		Class Imbalance Process Starts in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/19:04:49		No of Classes is 2 in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/19:04:49		Threshold satisfied in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/19:04:49		OverSampling minority classes data having 2 classes in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/19:04:49		Class Imbalance Process Ends in the remove_imbalance method of the DataPreprocessor class
+2020-07-25/19:04:49		Entered the separate_label_feature method of the Preprocessor class
+2020-07-25/19:04:49		Label Separation Successful. Exited the separate_label_feature method of the Preprocessor class
+2020-07-25/19:04:49		Entered the remove_columns_with_minimal_variance method of the DataPreprocessor class
