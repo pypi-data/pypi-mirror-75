@@ -1,0 +1,12 @@
+{% for app_name, links in urls.items %}
+<li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+        {{app_name}}
+    </a>
+    <div class="dropdown-menu">
+        {% for link_name, reverse_link in links %}
+        <a class="dropdown-item" href="{% url reverse_link %}">{{link_name}}</a>
+        {% endfor%}
+    </div>
+</li>
+{% endfor %}
