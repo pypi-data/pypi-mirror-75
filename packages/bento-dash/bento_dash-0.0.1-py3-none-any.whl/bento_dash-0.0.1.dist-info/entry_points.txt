@@ -1,0 +1,3 @@
+[console_scripts]
+bento-test-gen = bento.test_gen:main
+
