@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: extensiveautomation_agent_plugin_sikulix
+Version: 1.0.0
+Summary: SikuliX plugin for extensiveautomation agent
+Home-page: https://www.extensiveautomation.org/
+Author: Denis MACHARD
+Author-email: d.machard@gmail.com
+License: UNKNOWN
+Description: # Sikulix plugin for ExtensiveAutomation Agent
+        
+        Installing from pypi
+        --------------------
+        
+        1. Run the following command
+        
+            ```bash
+            pip install extensiveautomation_agent_plugin_sikulix
+            ```
+            
+        2. Now you can deploy this plugin with the option `--sikulix`
+        
+        
+            ```bash
+            extensiveautomation_agent  --remote=[your_ea_ip] --name=sikulix01 --sikulix
+            ```
+        
+Keywords: extensiveautomation agent plugin sikulix
+Platform: any
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Testing :: Acceptance
+Description-Content-Type: text/markdown
