@@ -1,0 +1,11 @@
+README.md
+setup.py
+docker_entrypoint.egg-info/PKG-INFO
+docker_entrypoint.egg-info/SOURCES.txt
+docker_entrypoint.egg-info/dependency_links.txt
+docker_entrypoint.egg-info/entry_points.txt
+docker_entrypoint.egg-info/requires.txt
+docker_entrypoint.egg-info/top_level.txt
+entrypoint/__init__.py
+entrypoint/debug.py
+entrypoint/main.py
