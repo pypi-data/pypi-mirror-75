@@ -1,0 +1,1 @@
+b=tuple('																																																																								Ya'.split('	'))

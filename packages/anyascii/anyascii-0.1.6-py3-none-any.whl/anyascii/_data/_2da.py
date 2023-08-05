@@ -1,0 +1,1 @@
+b=tuple('																																																																																										Yi	Men																					Fa																						Zhua																																																										Kui																									Di'.split('	'))

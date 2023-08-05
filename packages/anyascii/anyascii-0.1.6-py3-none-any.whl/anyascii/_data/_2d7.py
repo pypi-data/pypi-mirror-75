@@ -1,0 +1,1 @@
+b=tuple('																																																																											Ling																																Khan																									Ai'.split('	'))

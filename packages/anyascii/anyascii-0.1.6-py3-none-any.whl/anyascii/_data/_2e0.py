@@ -1,0 +1,1 @@
+b=tuple('																																				Lao						Gun								Geng'.split('	'))

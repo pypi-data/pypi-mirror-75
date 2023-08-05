@@ -1,0 +1,1 @@
+b=tuple('																																																																										Yin	Du																																																																																																																																												Tang'.split('	'))
