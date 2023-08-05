@@ -1,0 +1,13 @@
+[setup]
+workdir         = /opt/tmaxapp/compile
+$OFCOBCPY       = $OFCOBCPY:/opt/tmaxapp/copybook
+
+[ofcob]
+$OF_COMPILE_OUT = $OF_COMPILE_BASE.so
+option          = -g -x -o $OF_COMPILE_OUT $OF_COMPILE_IN
+
+[deploy]
+file            = $OF_COMPILE_BASE.so
+dataset         = SYS1.USERLIB:SYS1.TEMPLIB
+#region         = OSCOIVP1
+#tdl            = $TMAXDIR

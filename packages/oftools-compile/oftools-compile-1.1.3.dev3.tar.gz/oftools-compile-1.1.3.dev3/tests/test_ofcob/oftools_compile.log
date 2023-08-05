@@ -1,0 +1,13 @@
+2020-05-18 09:58:21,955 [INFO | Log.py:40] > Run SetupJob
+2020-05-18 09:58:21,955 [INFO | Log.py:40] > add01.cob
+2020-05-18 09:58:21,955 [INFO | Log.py:40] > SetupJob Completed
+2020-05-18 09:58:21,955 [INFO | Log.py:40] > add01.cob
+2020-05-18 09:58:21,956 [INFO | Log.py:40] > Run CompileJob
+2020-05-18 09:58:21,956 [INFO | Log.py:40] > in_file: add01.cob
+2020-05-18 09:58:21,956 [INFO | Log.py:40] > Command: ofcob -g -x -o add01.ofcob add01.cob
+2020-05-18 10:00:12,661 [INFO | Log.py:40] > Run SetupJob
+2020-05-18 10:00:12,661 [INFO | Log.py:40] > create directory /opt/tmaxapp/listing/add01.cob_20200518_100012
+2020-05-18 10:00:12,662 [INFO | Log.py:40] > SetupJob Completed
+2020-05-18 10:00:12,662 [INFO | Log.py:40] > Run CompileJob
+2020-05-18 10:00:12,662 [INFO | Log.py:40] > in_file: add01.cob
+2020-05-18 10:00:12,662 [INFO | Log.py:40] > Command: ofcob -g -x -o add01.ofcob add01.cob

@@ -1,0 +1,50 @@
+CHANGES
+=======
+
+* RM#3131: fix setup.cfg and remove pyc files
+* RM#3130: change license and remove docs folder Why: Since we are moving oftools projects into public github, we have to change our license policy. Also, since we have a separate project just for documenting oftools product, it is good to remove docs folder in this project
+* RM#3016: remove option -e / --export Why: let the report file get generated all the time
+
+1.1.2
+-----
+
+* RM#3016-4: fix profile to filter based on source name Why: Customer wants an example how to filter based on source name
+* RM#3016-3: introduce -t or --tag option
+* RM#3106-2: Allow mutiple sources and profiles Why: For mass compile
+
+1.1.0
+-----
+
+* RM#3019: Utilize pbr library to automatically assign version Why: To identify which version of code is used for given package release
+* #RM2975-18
+* RM#2795: standardizing compilers
+* RM#2985: Create compilation documentation
+* add missing
+* RM#2985: Create compilation documentation
+* RM#2795: Standardizing compilers
+* RM#2795: Standardizing compilers
+* RM#2985: Create Compilation documentation
+* RM#2795: standardizing compilers
+* RM#2795-14: Standarazing compiler
+* RM#2795: Standardizing compilers
+* RM#2795: Standardizing compilers
+* add missing ones
+* RM##2795: implement oftools\_compile
+* #RM2795-13 Modify Logger.py to match style of https://gist.github.com/huklee/cea20761dd05da7c39120084f52fcc7c
+* #RM 2795-12
+* #2795-11
+* #RM2795-10 Change code for OpenFrame environment
+* What: Change /home/mkoziel to ~/Gitlab in ok.prof
+* #RM2795-9
+* #RM2795-8 Change config to be passed to JobFactory.py
+* #RM2795-7 First Draft Setup.py
+* RM#2795-6: rename isFine & remove unnecessary trys
+* RM#2795-6: Implement skeleton code
+* RM#2872-8: Apply yapf arg changes
+* ignore .vscode & .pytest\_cache fix markdown syntax erros
+* add dummies to test teams webhook
+* make \_\_init\_\_.py as blank and move contents to Main.py
+* Added
+* add testcase
+* add initial
+* Add new file

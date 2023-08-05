@@ -1,0 +1,37 @@
+[tool]
+oftool = compile
+
+[directory]
+openframe_home = $OPENFRAME_HOME
+default_volume = volume_default
+listing_home = $OPENFRAME_HOME/cob_listing
+
+[database]
+db_sid = TVSAM
+db_type = Tibero
+db_port = 8629
+db_user = tibero
+db_pass = tmax
+
+[ofcbpp]
+fix_periods = True
+
+[tbpcb]
+option = argument
+
+[osccblpp]
+option = argument
+
+[db2]
+option = argument
+    [db2prep]
+    option = argument
+
+    [db2bind]
+    option = argument
+
+[ofcob]
+option = argument
+
+[tbdb2cblcv]
+option = argument
