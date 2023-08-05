@@ -1,0 +1,4 @@
+[console_scripts]
+k3testdocumentation-generate-coverage = k3testdocumentation_generator.main.gen_coverage_cli:main
+k3testdocumentation-generator = k3testdocumentation_generator.main.cli:main
+

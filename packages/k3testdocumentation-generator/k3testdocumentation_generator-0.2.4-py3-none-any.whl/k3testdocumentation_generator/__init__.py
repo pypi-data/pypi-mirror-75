@@ -1,0 +1,3 @@
+from k3testdocumentation_generator.api_impl import generate_json_from_file_system, render_doc_template_with_dict, generate_pdf_document_from_html, generate_pdf_document_from_latex, get_dict_from_file_system, generate_coverage_evalution
+from k3testdocumentation_generator._version import __version__
+
