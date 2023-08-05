@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: torchglyph
+Version: 0.1.1
+Summary: Data Processor Combinators for Natural Language Processing
+Home-page: https://speedcell4.github.io/torchglyph
+Author: speedcell4
+Author-email: speedcell4@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: tqdm
+Requires-Dist: numpy
+Requires-Dist: einops
+Provides-Extra: ctx
+Requires-Dist: transformers ; extra == 'ctx'
+Requires-Dist: allennlp ; extra == 'ctx'
+Requires-Dist: elmoformanylangs ; extra == 'ctx'
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: hypothesis ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: mkdocs ; extra == 'docs'
+Requires-Dist: mkdocs-alabaster ; extra == 'docs'
+
+UNKNOWN
+
+
