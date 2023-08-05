@@ -1,0 +1,19 @@
+from yqn_config.base_config import BaseConfig
+
+
+class ${class_name}Config(BaseConfig):
+    def __init__(self,
+                 project_path,
+                 resource_path,
+                 output_path,
+                 switch_flag):
+        super(${class_name}Config, self).__init__(project_path,
+                                                 resource_path,
+                                                 output_path,
+                                                 switch_flag)
+
+    def get_config_file(self):
+        return "./${module_name}/config/${module_name}_config.cfg"
+
+    def modify_config(self):
+        super().modify_config()

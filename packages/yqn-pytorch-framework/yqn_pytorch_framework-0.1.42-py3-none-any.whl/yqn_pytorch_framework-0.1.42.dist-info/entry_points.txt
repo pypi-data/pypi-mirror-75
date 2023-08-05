@@ -1,0 +1,4 @@
+[console_scripts]
+yqn-model = yqn_ops.download_resource:main
+yqn-module = yqn_cli.init_model:main
+

@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: yqn-pytorch-framework
+Version: 0.1.42
+Summary: YQN Pytorch Framework
+Home-page: https://www.google.com
+Author: James Guo
+Author-email: james.guo89@gmail.com
+License: Proprietary
+Keywords: pytorch framework
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Communications :: Email
+Classifier: Topic :: Office/Business
+Classifier: Topic :: Software Development :: Bug Tracking
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python (==4.2.0.32)
+Requires-Dist: numpy (>=1.18.2)
+Requires-Dist: torch (==1.4.0)
+Requires-Dist: torchvision (==0.5.0)
+Requires-Dist: nvidia-ml-py3 (>=7.352.0)
+Requires-Dist: setuptools (>=41.2.0)
+Requires-Dist: oss2 (>=2.9.1)
+Requires-Dist: Pillow (>=6.2.0)
+Requires-Dist: jieba (>=0.39)
+Requires-Dist: pynvml (>=8.0.4)
+Requires-Dist: PyYAML (>=5.3)
+Requires-Dist: requests (>=2.18.4)
+
+# pytorch_development_framework
+
+pytorch 开发框架
+

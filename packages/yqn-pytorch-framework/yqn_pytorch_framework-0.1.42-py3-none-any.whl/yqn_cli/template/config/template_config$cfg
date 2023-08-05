@@ -1,0 +1,38 @@
+[Base]
+config_name = ${module_name}
+
+[Model]
+
+[Data]
+shuffle_batch = True
+epochs_shuffle = True
+with_random = False
+repeat_count = 1
+
+
+[Save]
+model_name = ${module_name}
+rm_model = True
+split_date = True
+write_image = False
+write_scalar = True
+
+[Train]
+retrain = True
+epsilon = 1e-6
+train = True
+test = False
+num_epochs = 60
+early_max_patience = 10
+batch_size = 8
+summary_freq = 100
+progress_freq = 1000
+save_freq = 2000
+
+[Optimizer]
+optimizer = adam
+learning_rate = 0.0001
+use_lr_decay = True
+lr_rate_decay = 0.0001
+min_lr_rate = 0.00005
+max_patience = 1
