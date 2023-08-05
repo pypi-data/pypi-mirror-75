@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+Flask_Sharp.egg-info/PKG-INFO
+Flask_Sharp.egg-info/SOURCES.txt
+Flask_Sharp.egg-info/dependency_links.txt
+Flask_Sharp.egg-info/requires.txt
+Flask_Sharp.egg-info/top_level.txt
+sharp/__init__.py
+sharp/codegen.py
+sharp/error.py
+sharp/js/class.js
+sharp/js/function.js

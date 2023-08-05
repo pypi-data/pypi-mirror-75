@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: Flask-Sharp
+Version: 0.0.2
+Summary: An automatic code API generator for Flask and JS.
+Home-page: https://github.com/revalo/sharp
+Author: Shreyas Kapur
+Author-email: sharp-dev@mit.edu
+Maintainer: Shreyas Kapur
+Maintainer-email: sharp-dev@mit.edu
+License: MIT
+Project-URL: Documentation, https://github.com/revalo/sharp/README.md
+Project-URL: Code, https://github.com/revalo/sharp
+Project-URL: Issue tracker, https://github.com/revalo/sharp/issues
+Description: # Sharp
+        
+        Sharp is an automatic API generation library for Python Flask and JavaScript. You just define functions in the backend, and they are magically available to you on the frontend, with type checking built-in.
+        
+        ## Example
+        
+        Server-side code,
+        
+        ```python
+        app = Flask(__name__)
+        sharp = Sharp(app)
+        
+        @sharp.function()
+        def add(a: int, b: int):
+            return {
+                "result": a + b,
+            }
+        ```
+        
+        And magically on your front-end,
+        
+        ```js
+        const result = await API.add(4, 3);
+        ```
+        
+        Sharp can be combined with a modern frontend framework and any web asset bundler, the code-gen is emmitted to a standalone JavaScript file,
+        
+        ```python
+        sharp.generate("src/js/sharp.gen.js")
+        ```
+        
+        All Sharp messages are in plain JSON, producing human-readable messages and API routes.
+        
+        For a more fully fledged example, please see the `example/` directory.
+        
+        ## License
+        
+        Copyright (c) 2020 Shreyas Kapur. Released under MIT License.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Flask
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI :: Application
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
