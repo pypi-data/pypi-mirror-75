@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- Default is UTF-8, but this is required for the PDF generation! -->
+<meta charset="utf-8">
+
+<style type="text/css">
+.break_before { page-break-before: always; }
+.ctable  {border-collapse:collapse;border-color:#9ABAD9; table-layout:fixed;}
+.ctable td{sans-serif;font-size:14px;padding:1px 1px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#444;background-color:#EBF5FF;}
+.ctable th{sans-serif;font-size:14px;font-weight:normal;padding:1px 1px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#9ABAD9;color:#fff;background-color:#409cff;}
+.ctable .cell{border-color:inherit;text-align:left;vertical-align:middle}
+.ctable .topcell{border-color:inherit; height: 200px; width: 20px; overflow: hidden;}
+.ctable .topcomment {vertical-align:middle}
+.vtext {
+transform: rotate(-90deg);
+width: 20px;
+}
+.ctable .leftcell{border-color:inherit;text-align:left;vertical-align: middle;}
+</style>
+
+</head>
+
+<body>
+<h2"> Test Coverage </h2>
+<table class="ctable">
+  <tr>
+    <th class="leftcell">Requirement</th>
+    {% set testIdList = input_dict.tests|sort %}
+    {% for testId in testIdList%}
+    <th class="topcell"> <div class="vtext"> {{ testId }} </div> </th>
+    {% endfor %}
+    <th class="topcomment">Comment</th>
+  </tr>
+  {% for requirement in input_dict.requirements %}
+  <tr>
+    <th class="leftcell">{{ requirement }}</th>
+    {% for testId in testIdList %}
+      {% if testId in input_dict.requirement_coverage[requirement]["fully_tested_by"] %}
+    	<td class="cell">C</td>
+      {% elif testId in input_dict.requirement_coverage[requirement]["partially_tested_by"] %}
+        <td class="cell">P</td>
+      {% else %}
+        <td class="cell"></td>
+      {% endif %}
+    {% endfor %}
+  {% if requirement in input_dict.requirement_comments %}
+	<td class="cell">{{ input_dict.requirement_comments[requirement] }}</td>
+  {% else %}
+    <td class="cell"></td>
+  {% endif %}
+  </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>
