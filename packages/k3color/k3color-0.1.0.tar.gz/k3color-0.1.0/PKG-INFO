@@ -1,0 +1,57 @@
+Metadata-Version: 2.1
+Name: k3color
+Version: 0.1.0
+Summary: create colored text on terminal
+Home-page: https://github.com/drmingdrmer/k3color
+Author: Zhang Yanpo
+Author-email: drdr.xp@gmail.com
+License: MIT
+Description: # k3color
+        
+        [![Build Status](https://travis-ci.com/pykit3/k3color.svg?branch=master)](https://travis-ci.com/pykit3/k3color)
+        [![Documentation Status](https://readthedocs.org/projects/k3color/badge/?version=stable)](https://k3color.readthedocs.io/en/stable/?badge=stable)
+        [![Package](https://img.shields.io/pypi/pyversions/k3color)](https://pypi.org/project/k3color)
+        
+        create colored text on terminal
+        
+        k3color is a component of [pykit3] project: a python3 toolkit set.
+        
+        
+        # Install
+        
+        ```
+        pip install k3color
+        ```
+        
+        # Synopsis
+        
+        ```python
+        # output text in blue:
+        >>> blue('I am blue')
+         '\x01\x1b[38;5;67m\x02I am blue\x01\x1b[0m\x02'
+        
+        ```
+        
+        #   Author
+        
+        Zhang Yanpo (张炎泼) <drdr.xp@gmail.com>
+        
+        #   Copyright and License
+        
+        The MIT License (MIT)
+        
+        Copyright (c) 2015 Zhang Yanpo (张炎泼) <drdr.xp@gmail.com>
+        
+        
+        [pykit3]: https://github.com/pykit3
+Keywords: console,terminal,color
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
