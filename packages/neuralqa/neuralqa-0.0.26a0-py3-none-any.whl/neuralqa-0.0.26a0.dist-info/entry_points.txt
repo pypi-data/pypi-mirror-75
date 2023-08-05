@@ -1,0 +1,3 @@
+[console_scripts]
+neuralqa = neuralqa.cli:cli
+
