@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+IPToolz/IPToolz.py
+IPToolz/__init__.py
+IPToolz.egg-info/PKG-INFO
+IPToolz.egg-info/SOURCES.txt
+IPToolz.egg-info/dependency_links.txt
+IPToolz.egg-info/top_level.txt
+IPToolz/CBit/errors.py
+IPToolz/CBit/mo.py
