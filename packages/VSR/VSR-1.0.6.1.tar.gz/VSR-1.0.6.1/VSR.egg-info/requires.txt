@@ -1,0 +1,12 @@
+numpy
+scipy
+scikit-image
+matplotlib
+pillow
+pypng
+pytest
+PyYAML
+psutil
+tqdm
+h5py
+easydict>=1.9
