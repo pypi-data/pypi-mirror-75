@@ -1,0 +1,9 @@
+pandas>=1.0.0
+oauth2client
+pytz
+requests
+requests-ntlm
+PyJWT
+retrying
+bs4
+lxml
