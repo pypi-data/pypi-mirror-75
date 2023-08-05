@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: geneeval
+Version: 0.1.0a0
+Summary: A Python library for evaluating gene embeddings
+Home-page: https://github.com/BaderLab/GeneEval
+License: Apache-2.0
+Author: johngiorgi
+Author-email: johnmgiorgi@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Typing :: Typed
+Requires-Dist: overrides (>=3.1.0,<4.0.0)
+Requires-Dist: pandas (>=1.1.0,<2.0.0)
+Requires-Dist: skorch (>=0.8.0,<0.9.0)
+Requires-Dist: typer[all] (>=0.3.1,<0.4.0)
+Project-URL: Repository, https://github.com/BaderLab/GeneEval
+Description-Content-Type: text/markdown
+
+![build](https://github.com/BaderLab/GeneEval/workflows/build/badge.svg)
+
+# GeneEval
