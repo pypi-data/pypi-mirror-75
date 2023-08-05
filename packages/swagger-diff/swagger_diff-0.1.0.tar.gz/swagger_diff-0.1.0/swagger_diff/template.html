@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="utf-8" />
+  <title>Changelog</title>
+  <script type="text/javascript">function showHide(id){if(document.getElementById(id).style.display=='none'){document.getElementById(id).style.display='block';document.getElementById('btn_'+id).innerHTML='&uArr;';}else{document.getElementById(id).style.display='none';document.getElementById('btn_'+id).innerHTML='&dArr;';}return true;}</script>
+<!--  <link rel="stylesheet" href="http://deepoove.com/swagger-diff/stylesheets/demo.css" />-->
+ <style type="text/css">
+  *{margin: 0;padding: 0;list-style: none;}
+
+/** 清除内外边距 **/
+body, h1, h2, h3, h4, h5, h6, hr, p, blockquote, /* structural elements 结构元素 */
+dl, dt, dd, ul, ol, li, /* list elements 列表元素 */
+pre, /* text formatting elements 文本格式元素 */
+form, fieldset, legend, button, input, textarea, /* form elements 表单元素 */
+th, td /* table elements 表格元素 */ {
+  margin: 0;
+  padding: 0;
+}
+
+/** 设置默认字体 **/
+body,
+button, input, select, textarea /* for ie */ {
+  font: 16px/1.5 sans-serif, tahoma, arial, \5b8b\4f53;
+  font-family:Monaco, Bitstream Vera Sans Mono, Lucida Console, Terminal;
+  font-weight: normal;
+}
+h1, h2, h3, h4, h5, h6 { font-size: 100%; }
+address, cite, dfn, em, var { font-style: normal; } /* 将斜体扶正 */
+code, kbd, pre, samp { font-family: courier new, courier, monospace; } /* 统一等宽字体 */
+small { font-size: 14px; } /* 小于 12px 的中文很难阅读，让 small 正常化 */
+
+/** 重置列表元素 **/
+ul, ol { list-style: none; }
+
+/** 重置文本格式元素 **/
+a { text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+
+/** 重置表单元素 **/
+legend { color: #000; } /* for ie6 */
+fieldset, img { border: 0; } /* img 搭车：让链接里的 img 无边框 */
+button, input, select, textarea { font-size: 100%; } /* 使得表单元素在 ie 下能继承字体大小 */
+/* 注：optgroup 无法扶正 */
+
+/** 重置表格元素 **/
+table { border-collapse: collapse; border-spacing: 0; }
+
+/* 清除浮动 */
+.ks-clear:after, .clear:after {
+  content: '\20';
+  display: block;
+  height: 0;
+  clear: both;
+}
+.ks-clear, .clear {
+  *zoom: 1;
+}
+
+
+header {
+	background-color: #009688;
+	height: 138px;
+	line-height: 68px;
+	padding: 0 20px;
+	color: #fff;
+	position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-weight: 400;
+}
+
+header h1 {
+	font-size: 28px;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-weight: 700;
+	border: 1px solid #ddd;
+	display: inline-block;
+	border-radius: 2px;
+	padding: 0px 4px;
+
+}
+
+.article {
+	padding: 20px;
+	max-width: 960px;
+	margin: 0px auto;
+	box-shadow: 0px 0px 4px #ccc;
+	background: #fff;
+	margin-top: 80px;
+}
+
+.article>div {
+	padding: 10px 10px;
+}
+
+.POST, .post, .get, .GET, .put, .PUT,.delete, .DELETE, .patch, .PATCH {
+	color: #fff;
+	padding: 4px;
+	border-radius: 2px;
+	font-size: 8px;
+	margin: 0 4px;
+	width: 40px;
+    display: inline-block;
+    text-align: center;
+}
+.POST, .post{
+	background-color: #49cc90;
+}
+.get, .GET {
+	background-color: #61affe;
+}
+.put, .PUT {
+	background-color: #fca130;
+}
+.delete, .DELETE {
+	background-color: #F44336;
+}
+.patch, .PATCH{
+    background-color: #50e3c2;
+}
+hr {
+	color: #dfdfdf;
+}
+
+ol>li {
+	margin: 24px;
+}
+
+ol>li>ul {
+	background-color: #504949;
+	color: #fff;
+	padding: 8px 16px;
+}
+
+ul.change>li {
+	margin: 10px 20px;
+}
+
+ul {
+	margin: 10px 0;
+}
+
+ul>li {
+	margin: 10px 0;
+}
+
+.comment {
+	color: #d8fa3c;
+	margin-left: 16px;
+	font-size: 14px;
+}
+
+.missing>s, .missing>del {
+	padding: 0 4px;
+}
+
+s, del, .missing, del.comment {
+	color: #F44336;
+}
+
+.missing>.comment {
+	color: #F44336;
+}
+
+/* Class for link show/hide article */
+.showhide {
+    color: #3e373785;
+    text-decoration: none;
+    padding: 2px;
+    font-size: 12px;
+    float: right;
+}
+ </style>
+ </head>
+ <body>
+  <header>
+   <h1>Changelog</h1>
+  </header>
+  <div class="article">
+   <div>
+    <h2>Versions<a id="btn_versions" class="showhide" href="#" onclick="javascript:showHide('versions');">⇑</a></h2>
+    <hr />
+    <p id="versions">Changes from {{ SwaggerDiffReport.old_version }} to {{ SwaggerDiffReport.new_version }}.</p>
+   </div>
+   <div>
+    <h2>What's New<a id="btn_new" class="showhide" href="#" onclick="javascript:showHide('new');">⇑</a></h2>
+    <hr />
+    {% if SwaggerDiffReport.added_details %}
+    <ol id="new">
+    {% for added_details in SwaggerDiffReport.added_details %}
+     <li><span class="{{ added_details.method.value }}">{{ added_details.method.value }}</span>{{ added_details.path }} <span>{{ added_details.summary }}</span></li>
+     {% endfor %}
+     </ol>
+    {% endif %}
+   </div>
+   <div>
+    <h2>What's Deprecated<a id="btn_deprecated" class="showhide" href="#" onclick="javascript:showHide('deprecated');">⇑</a></h2>
+    <hr />
+    {% if SwaggerDiffReport.removed_details %}
+    <ol id="deprecated">
+    {% for removed_details in SwaggerDiffReport.removed_details %}
+     <li><span class="{{ removed_details.method.value }}">{{ removed_details.method.value }}</span>{{ removed_details.path }} <span>{{ removed_details.summary }}</span></li>
+     {% endfor %}
+     </ol>
+    {% endif %}
+   </div>
+   <div>
+    <h2>What's Changed<a id="btn_changed" class="showhide" href="#" onclick="javascript:showHide('changed');">⇑</a></h2>
+    <hr />
+    {% if SwaggerDiffReport.changed_details %}
+    <ol id="changed">
+    {% for changed_details in SwaggerDiffReport.changed_details %}
+     <li><span class="{{ changed_details.method.value }}">{{ changed_details.method.value }}</span>{{ changed_details.path }} <span>{{ changed_details.summary }}</span>
+      <ul class="detail">
+       {% if changed_details.parameters %}
+       <li><h3>Parameter</h3>
+        <ul class="change param">
+         {% for parameter in changed_details.parameters %}
+         {% if parameter.status == 'remove' %}
+         <li class="missing"><span>Delete</span>
+          <del>
+           {{ parameter.name }}
+          </del><span class="comment">//{{ parameter.description }}</span></li>
+         {% else %}
+         <li>{{ parameter.status }} {{ parameter.name }}<span class="comment">//{{ parameter.description }}</span></li>
+         {% endif %}
+         {% endfor %}
+        </ul></li>
+       {% endif %}
+      </ul>
+     {% endfor %}
+     </ol>
+    {% endif %}
+   </div>
+  </div>
+ </body>
+</html>
