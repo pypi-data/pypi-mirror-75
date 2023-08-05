@@ -1,0 +1,3 @@
+[console_scripts]
+slr = slr_parser.slr_parser:main
+
