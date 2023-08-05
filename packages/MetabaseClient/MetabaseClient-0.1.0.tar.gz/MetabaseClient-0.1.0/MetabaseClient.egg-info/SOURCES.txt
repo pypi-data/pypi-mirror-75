@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+MetabaseClient/Client.py
+MetabaseClient/__init__.py
+MetabaseClient.egg-info/PKG-INFO
+MetabaseClient.egg-info/SOURCES.txt
+MetabaseClient.egg-info/dependency_links.txt
+MetabaseClient.egg-info/top_level.txt
+MetabaseClient/Addon/Migrate.py
+MetabaseClient/Addon/SearchCard.py
+MetabaseClient/Addon/__init__.py
+MetabaseClient/Core/Authenticate.py
+MetabaseClient/Core/Card.py
+MetabaseClient/Core/Dashboard.py
+MetabaseClient/Core/__init__.py
