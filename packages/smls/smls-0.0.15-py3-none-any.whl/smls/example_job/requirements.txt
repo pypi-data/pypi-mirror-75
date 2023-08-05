@@ -1,0 +1,4 @@
+# By default Seamless Cloud will install requirements from `requirements.txt` file
+# You can specify a different name using the --requirements flag
+yfinance
+lxml
