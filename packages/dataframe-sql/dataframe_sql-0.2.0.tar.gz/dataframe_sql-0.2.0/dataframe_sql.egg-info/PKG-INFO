@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: dataframe-sql
+Version: 0.2.0
+Summary: A package for querying dataframes using SQL
+Home-page: https://github.com/zbrookle/dataframe_sql
+Maintainer: Zach Brookler
+Maintainer-email: zachb1996@yahoo.com
+License: UNKNOWN
+Download-URL: https://github.com/zbrookle/dataframe_sql/archive/master.zip
+Project-URL: Source Code, https://github.com/zbrookle/dataframe_sql
+Project-URL: Bug Tracker, https://github.com/zbrookle/dataframe_sql/issues
+Project-URL: Documentation, https://github.com/zbrookle/dataframe_sql
+Description: Coming soon...
+Keywords: pandas,data,dataframe,sql
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.6.1
+Description-Content-Type: text/markdown
