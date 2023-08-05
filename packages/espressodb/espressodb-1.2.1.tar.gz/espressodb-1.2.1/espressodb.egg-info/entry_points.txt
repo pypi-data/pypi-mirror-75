@@ -1,0 +1,3 @@
+[console_scripts]
+espressodb = espressodb.manage:main
+
