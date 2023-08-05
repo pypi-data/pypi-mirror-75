@@ -1,0 +1,3 @@
+[console_scripts]
+redisweb = redisweb.main:create_app
+
