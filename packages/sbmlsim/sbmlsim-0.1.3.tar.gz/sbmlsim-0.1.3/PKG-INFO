@@ -1,0 +1,29 @@
+Metadata-Version: 1.2
+Name: sbmlsim
+Version: 0.1.3
+Summary: SBML simulation made easy
+Home-page: https://github.com/matthiaskoenig/sbmlsim
+Author: Matthias König
+Author-email: konigmatt@googlemail.com
+License: LGPLv3
+Description: sbmlsim: SBML simulation made easy
+        ==================================
+        
+        ``sbmlsim`` contains helpers for simulation experiments with SBML models.
+        
+        Documentation is available at https://sbmlsim.readthedocs.io
+        
+        © 2019-2020 Matthias König
+        
+Keywords: SBML,simulation
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.7
