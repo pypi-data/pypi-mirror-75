@@ -1,0 +1,6 @@
+darker
+
+[test]
+pytest
+pytest-black
+pytest-isort
