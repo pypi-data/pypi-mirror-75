@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: VDupgrade
+Version: 1.2.0
+Summary: None
+Home-page: UNKNOWN
+Author: Joyphy
+License: UNKNOWN
+Description: 1.2.0版新增了网页登录功能, 支持VIPcookies登录, 需要在VIPsupport.py中修改具体支持VIP网站相关信息.
+        目前问题就是不能直接在浏览器中直接退出, 这样会导致cookies失效, 具体怎么解决, 以后再看!
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
