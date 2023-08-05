@@ -1,0 +1,3 @@
+[console_scripts]
+hca-util = ait.commons.util.__main__:main
+
