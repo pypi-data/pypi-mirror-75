@@ -1,0 +1,14 @@
+README.md
+setup.py
+kotka/__init__.py
+kotka.egg-info/PKG-INFO
+kotka.egg-info/SOURCES.txt
+kotka.egg-info/dependency_links.txt
+kotka.egg-info/top_level.txt
+kotka/lipogram/__init__.py
+kotka/lipogram/rules.py
+kotka/shredder/__init__.py
+kotka/utils/__init__.py
+kotka/utils/dictionary.py
+kotka/utils/hangul.py
+kotka/yaminizer/__init__.py
