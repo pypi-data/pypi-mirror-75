@@ -1,0 +1,7 @@
+torchfields>=0.0.5
+torch>=1.5
+pyjnius
+imageio
+imglyb
+numpy>=1.19.0
+scikit-image>=0.17.2
