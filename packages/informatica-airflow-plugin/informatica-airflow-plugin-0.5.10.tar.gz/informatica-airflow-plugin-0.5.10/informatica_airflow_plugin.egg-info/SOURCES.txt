@@ -1,0 +1,16 @@
+README.md
+setup.py
+informatica_airflow_plugin.egg-info/PKG-INFO
+informatica_airflow_plugin.egg-info/SOURCES.txt
+informatica_airflow_plugin.egg-info/dependency_links.txt
+informatica_airflow_plugin.egg-info/requires.txt
+informatica_airflow_plugin.egg-info/top_level.txt
+plugins/__init__.py
+plugins/InformaticaPlugin/__init__.py
+plugins/InformaticaPlugin/blueprints/__init__.py
+plugins/InformaticaPlugin/blueprints/trigger_dag.py
+plugins/InformaticaPlugin/operators/__init__.py
+plugins/InformaticaPlugin/operators/execute_mapping.py
+plugins/InformaticaPlugin/operators/execute_profile.py
+plugins/InformaticaPlugin/operators/execute_scorecard.py
+plugins/InformaticaPlugin/operators/execute_workflow.py
