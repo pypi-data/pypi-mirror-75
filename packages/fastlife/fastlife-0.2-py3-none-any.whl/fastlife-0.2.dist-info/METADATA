@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: fastlife
+Version: 0.2
+Summary: Benchmarks for implementations of Conway's Game of Life
+Home-page: https://fastlife.readthedocs.io/en/latest/
+Author: Benjamin Bengfort
+Author-email: benjamin@bengfort.com
+License: BSD 3-Clause
+Download-URL: https://github.com/bbengfort/fastlife/tarball/v0.2
+Project-URL: Documentation, https://fastlife.readthedocs.io/en/latest/
+Project-URL: Download, https://github.com/bbengfort/fastlife/tarball/v0.2
+Project-URL: Source, https://github.com/bbengfort/fastlife
+Project-URL: Tracker, https://github.com/bbengfort/fastlife/issues
+Keywords: cython,game of life,cellular automata,parallel processing,benchmarks
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Life
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.4, <4
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (==1.19.1)
+Requires-Dist: matplotlib (==3.3.0)
+Requires-Dist: memory-profiler (==0.57.0)
+Requires-Dist: tqdm (==4.48.0)
+
+# Fast Life
+
+[![Build Status](https://travis-ci.com/bbengfort/fastlife.svg?branch=master)](https://travis-ci.com/bbengfort/fastlife)
+[![codecov](https://codecov.io/gh/bbengfort/fastlife/branch/master/graph/badge.svg)](https://codecov.io/gh/bbengfort/fastlife)
+[![Documentation Status](https://readthedocs.org/projects/fastlife/badge/?version=latest)](https://fastlife.readthedocs.io/en/latest/?badge=latest)
+
+Fast Life is an experiment in Python simulation performance. Python has many excellent simulation frameworks including [SimPy](https://simpy.readthedocs.io/en/latest/) and [MESA](https://mesa.readthedocs.io/en/master/index.html), which make it easy to conduct simulations for research and experimental purposes. Fast Life is not intended to be a simulation framework in the same way, instead Fast Life is designed to answer the question: "Can Python be used to create extremely large scale simulations"? To this end, Fast Life implements a seemingly simple simulation: [Conway's Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) -- but scales it up to massive proportions. We then explore several different implementations including:
+
+1. Pure Python Sequential
+2. Pure Python Multiprocessing
+3. C-bindings Sequential
+4. C-bindings Parallel
+
+Each of these implementations will be benchmarked with significantly sized worlds and the same random seeds to determine how their performance scales. Please see [fastlife.readthedocs.io](https://fastlife.readthedocs.io/en/latest/) for more details and the complete write up on the documentation.
+
+## Quick Start
+
+Install the package and the command line tool using the Python package manager as follows:
+
+```
+$ pip install fastlife
+```
+
+Alternatively, if you're interested in development, you can download the repository, cd into it and install locally with:
+
+```
+$ git clone https://github.com/bbengfort/fastlife.git
+$ cd fastlife
+$ pip install -e .
+```
+
+Note that if you're developing, you should probably set up a virtualenv and all of that good stuff before doing this step. Once done, you should have a CLI script `fastlife` installed on your path, check it out as follows:
+
+```
+$ fastlife --help
+```
+
+To run a simulation and see the animated action, you would use `fastlife run -a` - you can play with the various settings and commands to see different implementations of the simulation.
+
+
