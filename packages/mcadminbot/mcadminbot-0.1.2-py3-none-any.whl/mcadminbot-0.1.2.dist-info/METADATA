@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: mcadminbot
+Version: 0.1.2
+Summary: A Discord bot used to manage a Minecraft server.
+Home-page: https://github.com/mcbobke/mcadminbot
+License: GPL-3.0-only
+Keywords: minecraft,discord
+Author: Matt Bobke
+Author-email: mcbobke@gmail.com
+Requires-Python: >=3.6,<3.7
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Games/Entertainment
+Requires-Dist: PyYAML (>=5.3.1,<6.0.0)
+Requires-Dist: discord.py (>=1.3.4,<2.0.0)
+Requires-Dist: loguru (>=0.5.1,<0.6.0)
+Requires-Dist: mctools (>=1.0.0,<2.0.0)
+Requires-Dist: systemd (>=0.16.1,<0.17.0)
+Project-URL: Repository, https://github.com/mcbobke/mcadminbot
+Description-Content-Type: text/markdown
+
+# mcadminbot
+
+[![PyPI](https://img.shields.io/pypi/v/mcadminbot?style=plastic)](https://pypi.org/project/mcadminbot/)
+[![PyPI - Python Version](https://img.shields.io/pypi/pyversions/mcadminbot?style=plastic)](https://pypi.org/project/mcadminbot/)
+
+A Discord bot that allows permitted server members and roles to administrate a Minecraft server over RCON through chat messages.
+
+## Docmentation
+
+Visit the [official documentation](https://mcadminbot.readthedocs.io/en/latest/) for detailed installation and usage instructions.
+
+## Todo
+
+* [ ] Implement more Minecraft commands
+* [ ] Write tests and implement automated testing of branches
+* [ ] Implement proper semantic versioning and CI/CD
+
