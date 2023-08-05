@@ -1,0 +1,12 @@
+.gitignore
+README.md
+clloct_table.png
+prettytimer.py
+setup.cfg
+setup.py
+test.py
+__pycache__/prettytimer.cpython-36.pyc
+prettytimer.egg-info/PKG-INFO
+prettytimer.egg-info/SOURCES.txt
+prettytimer.egg-info/dependency_links.txt
+prettytimer.egg-info/top_level.txt
