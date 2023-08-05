@@ -1,0 +1,5 @@
+[console_scripts]
+whatstk-generate-chat = whatstk.scripts.generate_chats:main
+whatstk-graph = whatstk.scripts.graph:main
+whatstk-to-csv = whatstk.scripts.txt_to_csv:main
+
