@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: dnx-mysql-replication
+Version: 0.21.2
+Summary: Pure Python Implementation of MySQL replication protocol build on top of PyMYSQL.
+Home-page: https://github.com/DNXLabs/dnx-mysql-replication
+Author: DNX Solutions
+Author-email: contact@dnx.solutions
+License: Apache 2
+Platform: UNKNOWN
+Requires-Dist: pymysql
+Provides-Extra: test
+
+UNKNOWN
+
+
