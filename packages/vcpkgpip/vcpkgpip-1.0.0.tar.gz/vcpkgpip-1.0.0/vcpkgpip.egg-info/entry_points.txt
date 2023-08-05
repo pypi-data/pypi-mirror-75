@@ -1,0 +1,4 @@
+[console_scripts]
+vcpkg = vcpkgpip.__main__:main
+vcpkg-bootstrap = vcpkgpip.__main__:bootstrap
+

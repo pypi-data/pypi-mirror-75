@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: vcpkgpip
+Version: 1.0.0
+Summary: a python wrapper for vcpkg
+Home-page: https://github.com/AlyShmahell/vcpkgpip
+Author: Aly Shmahell
+Author-email: 
+License: UNKNOWN
+Description: # vcpkgpip
+        a python wrapper for vcpkg
+        
+        ## installation
+        ```sh
+        pip install vcpkgpip
+        ```
+        
+        ## usage
+        #### bootstrap vcpkg
+        ```sh
+        vcpkg-bootstrap
+        ```
+        #### search for package
+        ```sh
+        vcpkg search [search term]
+        ```
+        #### install package
+        ```sh
+        vcpkg install [packages to install]
+        ```
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
