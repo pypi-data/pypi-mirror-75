@@ -1,0 +1,3 @@
+[console_scripts]
+proxmox-hetzner-autoconfigure=proxmox_hetzner_autoconfigure.main:run
+
