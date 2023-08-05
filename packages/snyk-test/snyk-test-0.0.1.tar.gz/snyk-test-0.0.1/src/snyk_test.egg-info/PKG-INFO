@@ -1,0 +1,116 @@
+Metadata-Version: 1.2
+Name: snyk-test
+Version: 0.0.1
+Summary: A package that wraps pysnyk library for easier usage from cli interfaces
+Home-page: https://github.com/avishayil/python-snyk-test
+Author: Avishay Bar
+Author-email: avishay.il@gmail.com
+License: MIT
+Project-URL: Documentation, https://python-snyk-test.readthedocs.io/
+Project-URL: Changelog, https://python-snyk-test.readthedocs.io/en/latest/changelog.html
+Project-URL: Issue Tracker, https://github.com/avishayil/python-snyk-test/issues
+Description: ========
+        Overview
+        ========
+        
+        
+        
+        A package that wraps pysnyk library for easier usage from cli interfaces
+        
+        * Free software: MIT license
+        
+        Installation
+        ============
+        
+        ::
+        
+            $ brew reinstall readline xz # OSX only
+            If you're using pyenv, reinstall it # OSX only
+        
+        Then install the package using ``pip``
+        
+        ::
+        
+            pip install snyk-test --no-deps && pip install snyk-test
+        
+        You can also install the in-development version with::
+        
+            pip install https://github.com/avishayil/python-snyk-test/archive/master.zip
+        
+        
+        Documentation
+        =============
+        
+        First, before using ``snyk-test`` you must authenticate with ``snyk`` using ``snyk auth``
+        Then, alter your ``$HOME/.config/configstore/snyk.json`` and add the ``org_id`` parameter to the JSON file using the following command::
+        
+            $ snyk config set org_id=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx # Your organization ID
+        
+        The JSON file will look as follows::
+        
+            {
+        	    "api": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+        	    "org_id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+            }
+        
+        Then, after all the prerequisites are met, run the the following command from your terminal::
+        
+            snyk-test package@version
+        
+        For Example::
+        
+            $ snyk-test channels-redis@2.4.2
+        
+        
+        Documentation
+        =============
+        
+        
+        https://python-snyk-test.readthedocs.io/
+        
+        
+        Development
+        ===========
+        
+        To run all the tests run::
+        
+            tox
+        
+        Note, to combine the coverage data from all the tox environments run:
+        
+        .. list-table::
+            :widths: 10 90
+            :stub-columns: 1
+        
+            - - Windows
+              - ::
+        
+                    set PYTEST_ADDOPTS=--cov-append
+                    tox
+        
+            - - Other
+              - ::
+        
+                    PYTEST_ADDOPTS=--cov-append tox
+        
+        
+        Changelog
+        =========
+        
+        0.0.1 (2020-07-29)
+        ------------------
+        
+        * First release on PyPI.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
