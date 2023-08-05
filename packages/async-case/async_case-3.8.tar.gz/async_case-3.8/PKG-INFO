@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: async_case
+Version: 3.8
+Summary: Backport of Python 3.8's unittest.async_case
+Home-page: https://github.com/nvllsvm/async_case
+Author: Andrew Rabert
+Author-email: ar@nullsum.net
+License: UNKNOWN
+Description: # async_case
+        Backport of Python 3.8's unittest.async_case
+        
+        See [upstream](https://github.com/python/cpython/blob/3.8/Lib/unittest/async_case.py) for more usage.
+        
+        
+        ```
+        pip install async_case
+        ```
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
