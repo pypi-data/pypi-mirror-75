@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        entrypoint=entrypoint.main:main
+    
