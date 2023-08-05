@@ -1,0 +1,145 @@
+Metadata-Version: 2.1
+Name: django-apiview
+Version: 0.3.4
+Summary: A set of django tools to help you create JSON service..
+Home-page: https://github.com/zencore-cn/zencore-issues
+Author: zencore
+Author-email: dobetter@zencore.cn
+License: MIT
+Description: # django-apiview
+        
+        A set of django tools to help you create JSON service.
+        
+        ## Install
+        
+            pip install django-apiview
+        
+        ## Installed Decorators
+        
+        - @apiview
+        - @requires(*parameter_names)
+        - @choices(field, choices, allow_none=False)
+        - @between(field, min, max, include_min=True, include_max=True, annotation=Number, allow_none=False)
+        - @rsa_decrypt(field, private_key_instance)
+        
+        **Note:**
+        
+        - apiview = Apiview(SimpleJsonPacker())
+        
+        ## Usage
+        
+        
+        **Note:**
+        
+        - You DON'T need to put django_apiview into INSTALLED_APPS.
+        - Apiview always set csrf_exempt=True.
+        - @apiview decorator must be the first decorator.
+        - Return raw data without serialized.
+        
+        **app/views.py**
+        
+        ```python
+        import time
+        from django_apiview.views import apiview
+        from django_apiview.views import requires
+        from django_apiview.views import choices
+        from django_apiview.views import between
+        
+        @apiview
+        def ping():
+            return "pong"
+        
+        @apiview
+        def timestamp():
+            return int(time.time())
+        
+        @apiview
+        @requires("msg")
+        def echo(msg: str):
+            return msg
+        
+        @apiview
+        def getBooleanResult(value : bool):
+            return value
+        
+        @apiview
+        def getIntegerResult(value: int):
+            return value
+        
+        @apiview
+        def getBytesResult(value: bytes):
+            return value
+        
+        @apiview
+        @choices("op", ["+", "-", "*", "/"])
+        @between("a", 2, 10, include_min=False)
+        @between("b", 2, 10, include_max=False)
+        def calc(a: int, op: str, b: int):
+            if op == "+":
+                return a + b
+            if op == "-":
+                return a - b
+            if op == "*":
+                return a * b
+            if op == "/":
+                return a / b
+        ```
+        
+        ## Bug report
+        
+        Please report any issues at https://github.com/zencore-cn/zencore-issues.
+        
+        ## Releases
+        
+        ### v0.3.4 2020/07/26
+        
+        - Fix BizError class check problem.
+        
+        ### v0.3.3 2020/07/24
+        
+        - Add rsa_decrypt decorator.
+        
+        ### v0.3.2 2020/07/18
+        
+        - Add Apiview class based implementation.
+        - Add setup_result_packer api.
+        - Rename simple_json_result_packer to simple_result_packer.
+        
+        ### v0.3.1 2020/07/01
+        
+        - Change app name from `apiview` to `django_apiview`.
+        - Add parameter validators.
+        - `WARN`: NOT backward compatible.
+        
+        ### v0.2.0
+        
+        - Using fastutils.typingutils for annotation cast.
+        - Add result pack mechanism.
+        - Move example views from the main app to example app and the example app is not include in published package.
+         
+        ### v0.1.3
+        
+        - Add logging while getting result failed in @apiview.
+        - Add Map, List annotations.
+        
+        ### v0.1.2
+        
+        - Fix form process problem.
+        
+        ### v0.1.1
+        
+        - Add PAYLOAD injection, PAYLOAD field has low priority.
+        
+        ### v0.1.0
+        
+        - First release,
+        
+Keywords: django-apiview
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
