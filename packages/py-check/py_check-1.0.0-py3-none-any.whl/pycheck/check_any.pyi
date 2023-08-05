@@ -1,0 +1,33 @@
+from typing import Any
+
+
+class CheckAny:
+    @staticmethod
+    def integer(*args: Any) -> bool: ...
+
+    @staticmethod
+    def float(*args: Any) -> bool: ...
+
+    @staticmethod
+    def boolean(*args: Any) -> bool: ...
+
+    @staticmethod
+    def string(*args: Any) -> bool: ...
+
+    @staticmethod
+    def list(*args: Any) -> bool: ...
+
+    @staticmethod
+    def dictionary(*args: Any) -> bool: ...
+
+    @staticmethod
+    def set(*args: Any) -> bool: ...
+
+    @staticmethod
+    def tuple(*args: Any) -> bool: ...
+
+    @staticmethod
+    def none(*args: Any) -> bool: ...
+
+    @staticmethod
+    def function(*args: Any) -> bool: ...
