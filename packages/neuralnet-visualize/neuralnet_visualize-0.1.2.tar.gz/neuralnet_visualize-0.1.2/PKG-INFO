@@ -1,0 +1,105 @@
+Metadata-Version: 2.1
+Name: neuralnet_visualize
+Version: 0.1.2
+Summary: Generate a neural network architecture Image
+Home-page: https://github.com/AnuragAnalog/nn_visualize
+Author: Anurag Peddi
+Author-email: anurag.peddi1998@gmail.com
+License: Apache License 2.0
+Download-URL: https://pypi.org/project/neuralnet-visualize/
+Description: # Neural Network Visualizer
+        
+        ## General Description
+        
+        A module which creates a neural network with the given architecture(only Dense layers)
+        
+        ## Installation
+        
+        ### Before installation
+        
+        Before installing the module, run the below command at your prompt to install the graphviz
+        ```shell
+        $ sudo apt install graphviz
+        ```
+        
+        ### Normal installation
+        ```shell
+        $ sudo pip3 install neuralnet-visualize
+        ```
+        
+        ### Development installation
+        ```shell
+        $ git clone https://github.com/AnuragAnalog/nn_visualize.git
+        $ cd nn_visualize
+        ```
+        
+        ### After installation
+        
+        After installing the module, if you want to upgrade the module, run the below command.
+        ```shell
+        sudo pip3 install neuralnet-visualize --upgrade
+        ```
+        
+        ## Future Works
+        
+        * Add Convolutional layers, Maxpooling, Flatten layers, LSTM's
+        * Specific colors for activation functions
+        * Specific colors for types of layers
+        
+        
+        # Neural Network Visualizer Version History
+        
+        ### 0.1.2
+        
+        * Added Conv layer, with kernel size parameter
+        * Refactored add_layer function
+        * Added Conv layer to from_tensorflow
+        
+        ### 0.1.1
+        
+        * Added some possible exceptions
+        * Restructred basic functions in while initial import
+        
+        ## 0.1.0
+        
+        * Added documentation
+        
+        ### 0.0.4
+        
+        * Refactored summarize function
+        * Added a code part which colors output layer to red
+        * Added from_tensorflow method
+        
+        ### 0.0.3
+        
+        * Added more display orientations
+        * Refactored the build network and add layer code
+        * Added some more file extensions to which image can be saved
+        * Added summarize function
+        
+        ### 0.0.2
+        
+        * Added colors to type of layers
+        * Added Dense layers
+        
+        ### 0.0.1
+        
+        Intial Version
+        
+        * Starting code
+Keywords: Deep,Visualizer,Neural,Network,Visualize,Graphviz,Python
+Platform: UNKNOWN
+Classifier: Natural Language :: English
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
