@@ -1,0 +1,3 @@
+[console_scripts]
+monopolion-evaluator = monopolion_evaluator.cli:main
+
