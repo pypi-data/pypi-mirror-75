@@ -1,0 +1,12 @@
+Metadata-Version: 1.2
+Name: SherlockDistribution
+Version: 1.1
+Summary: Gaussian and Binomial distributions
+Home-page: UNKNOWN
+Author: Swapnil Jha
+Author-email: swapniljha001@gmail.com
+License: UNKNOWN
+Project-URL: Author LinkedIn, https://www.linkedin.com/in/swapniljha001
+Description-Content-Type: UNKNOWN
+Description: This is a simple package to be able to initialize and use Gaussian and Binomial Distributions.     This package also defines magic methods to enable the user to add two or more distributions.         Working on addition of binomial distributions with unequal probabilities.
+Platform: UNKNOWN
