@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: tmval
+Version: 0.0.0
+Summary: Time Value of Money
+Home-page: https://github.com/genedan/TmVal
+Author: Gene Dan
+Author-email: genedan@gmail.com
+License: UNKNOWN
+Description: # TmVal
+        Time Value of Money
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.8.2
+Description-Content-Type: text/markdown
