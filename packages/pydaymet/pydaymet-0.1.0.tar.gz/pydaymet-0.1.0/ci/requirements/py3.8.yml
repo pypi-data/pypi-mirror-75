@@ -1,0 +1,9 @@
+name: pydaymet
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - setuptools
+  - py3dep
+  - lxml
+
