@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: seldon-core
+Version: 1.2.2
+Summary: Seldon Core client and microservice wrapper
+Home-page: https://github.com/SeldonIO/seldon-core
+Author: Seldon Technologies Ltd.
+Author-email: hello@seldon.io
+License: Apache 2.0
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: Flask (<2.0.0)
+Requires-Dist: jsonschema (<4.0.0)
+Requires-Dist: Flask-cors (<4.0.0)
+Requires-Dist: redis (<4.0.0)
+Requires-Dist: requests (<3.0.0)
+Requires-Dist: numpy (<2.0.0)
+Requires-Dist: flatbuffers (<2.0.0)
+Requires-Dist: protobuf (<4.0.0)
+Requires-Dist: grpcio (<2.0.0)
+Requires-Dist: Flask-OpenTracing (<1.2.0,>=1.1.0)
+Requires-Dist: opentracing (<2.4.0,>=2.2.0)
+Requires-Dist: jaeger-client (<4.4.0,>=4.1.0)
+Requires-Dist: grpcio-opentracing (<1.2.0,>=1.1.4)
+Requires-Dist: PyYAML (<5.4)
+Requires-Dist: gunicorn (<20.1.0,>=19.9.0)
+Requires-Dist: minio (<6.0.0,>=4.0.9)
+Requires-Dist: setuptools (>=41.0.0)
+Requires-Dist: prometheus-client (<0.9.0,>=0.7.1)
+Provides-Extra: all
+Requires-Dist: tensorflow ; extra == 'all'
+Requires-Dist: google-cloud-storage (>=1.16.0) ; extra == 'all'
+Requires-Dist: azure-storage-blob (<3.0.0,>=2.0.1) ; extra == 'all'
+Provides-Extra: azure
+Requires-Dist: azure-storage-blob (<3.0.0,>=2.0.1) ; extra == 'azure'
+Provides-Extra: gcs
+Requires-Dist: google-cloud-storage (>=1.16.0) ; extra == 'gcs'
+Provides-Extra: tensorflow
+Requires-Dist: tensorflow ; extra == 'tensorflow'
+
+UNKNOWN
+
+
