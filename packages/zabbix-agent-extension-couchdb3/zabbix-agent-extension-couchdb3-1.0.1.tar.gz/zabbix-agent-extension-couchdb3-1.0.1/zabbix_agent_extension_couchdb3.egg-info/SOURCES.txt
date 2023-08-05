@@ -1,0 +1,14 @@
+README.rst
+setup.py
+zabbix_agent_extension_couchdb3/__init__.py
+zabbix_agent_extension_couchdb3/__main__.py
+zabbix_agent_extension_couchdb3/cli.py
+zabbix_agent_extension_couchdb3/couchdb.py
+zabbix_agent_extension_couchdb3/template.py
+zabbix_agent_extension_couchdb3/zabbix.py
+zabbix_agent_extension_couchdb3.egg-info/PKG-INFO
+zabbix_agent_extension_couchdb3.egg-info/SOURCES.txt
+zabbix_agent_extension_couchdb3.egg-info/dependency_links.txt
+zabbix_agent_extension_couchdb3.egg-info/entry_points.txt
+zabbix_agent_extension_couchdb3.egg-info/requires.txt
+zabbix_agent_extension_couchdb3.egg-info/top_level.txt

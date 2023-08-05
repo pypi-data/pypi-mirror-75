@@ -1,0 +1,3 @@
+[console_scripts]
+zabbix-agent-extension-couchdb3 = zabbix_agent_extension_couchdb3.__main__:main
+
