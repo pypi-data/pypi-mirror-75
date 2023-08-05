@@ -1,0 +1,3 @@
+[console_scripts]
+download-statements = modern_slavery_statements_research.download_corpus:main
+
