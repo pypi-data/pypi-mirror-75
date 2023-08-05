@@ -1,0 +1,17 @@
+xt_models/models/__init__.py,sha256=clKjTvk9svrAu2v5qxUOrdJNTeREkKtjuBYTQ0KUMx0,139
+xt_models/models/ses.py,sha256=T1TnnfM15Q9OQmWykIkGsibzBXdPtvwmINT8LMS2YU0,3468
+xt_models/models/object_detection/__init__.py,sha256=34oVI6NtfL8f4YLo_rnoqpG-LYDx3Xw0z_1dJAP9gQE,33
+xt_models/models/object_detection/models.py,sha256=0rX9RY6KyC4PTBkuVJm2x83Qki6qzDXpOrrFzfwSDaU,17649
+xt_models/models/object_detection/utils.py,sha256=eVk1ohViWCYea5iUSYcwzRX9a5XiuaDI_G75-W-XZso,9029
+xt_models/models/semantic_segmentation/__init__.py,sha256=kRev6sJtckvbpvnzXVS33auB4zhH5xcHHG7XiaRY2Es,53
+xt_models/models/semantic_segmentation/hrnet.py,sha256=MrfxkTm4Dxi6g7HDTyf3gF3I1LlUgU_QErDSxqCsHKg,16793
+xt_models/models/semantic_segmentation/mobilenet.py,sha256=_bVLnGs0h9_DaPzULNmVNBHRuWD6-GCqWAf0i7voqDE,4919
+xt_models/models/semantic_segmentation/models.py,sha256=GAuWjVBEvpyi64hvcKFa35F1WO367xZA7DddDGegdY0,20415
+xt_models/models/semantic_segmentation/resnet.py,sha256=VwNOgwgMuu3gRA6OPi1cRRBg-tnn1yAUhOtgs5mQxxw,6752
+xt_models/models/semantic_segmentation/resnext.py,sha256=W0RYezdNjYQJIIBInIuDvObmhRk1COvU5HDQ4yCN39o,5349
+xt_models/models/semantic_segmentation/utils.py,sha256=Vaj0Emm-KMF-RW5a4fJGv3E1R2Vznc7KHkW-zVjLpeI,577
+xt_models/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+xt_models-0.4.0.dist-info/METADATA,sha256=DTQVfMkM2yyTJA9yvPonnmBdI6yHPLV_9D3D2qSaYkA,2972
+xt_models-0.4.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+xt_models-0.4.0.dist-info/top_level.txt,sha256=5dI0xG97hPdqyG9P3mY2Bx5r0UKEK4kZcXXEZGJm-Dw,10
+xt_models-0.4.0.dist-info/RECORD,,
