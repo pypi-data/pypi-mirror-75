@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: darkest
+Version: 0.1.0
+Summary: Apply Black formatting for specified lines
+Home-page: UNKNOWN
+Author: Alexander Tishin
+Author-email: 1079805+Mystic-Mirage@users.noreply.github.com
+License: MIT
+Project-URL: Source Code, https://github.com/Mystic-Mirage/darkest
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: darker
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-black ; extra == 'test'
+Requires-Dist: pytest-isort ; extra == 'test'
+
+# darkest
+Apply Black formatting for specified lines
+
+## Install
+`pip install darkest`
+
+## Setup PyCharm
+Add to External Tools:
+* Name: `Darkest`
+* Program: `<path_to_darkest_script>`
+* Arguments: `--from=$SelectionStartLine$ --to=$SelectionEndLine$ $FilePath$`
+
+
