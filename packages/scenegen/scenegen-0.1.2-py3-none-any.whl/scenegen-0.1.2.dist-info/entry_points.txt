@@ -1,0 +1,3 @@
+[console_scripts]
+testscene=scenegen.console:testscene_cli
+

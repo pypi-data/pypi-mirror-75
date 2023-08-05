@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: scenegen
+Version: 0.1.2
+Summary: A scene generator
+Home-page: https://gitlab.com/kahara/python-scenegen
+License: MIT
+Author: Joni Kähärä
+Author-email: joni.kahara@async.fi
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.1,<8.0.0)
+Requires-Dist: pillow (>=7.0.0,<8.0.0)
+Description-Content-Type: text/markdown
+
+# scenegen
+
+An animated scene generator. May be useful for testing video motion detectors.
+
+## Scene description
+
+FIXME: describe how to create scenes.
+
+## Development
+
+Create and activate a Python 3.7 virtualenv:
+
+```
+$ python3.7 -m venv .venv && . .venv/bin/activate
+```
+
+Change to a branch:
+
+```
+$ git checkout -b my_branch
+```
+
+Install Poetry: https://python-poetry.org/docs/#installation
+
+Install project deps and pre-commit hooks:
+
+```
+$ poetry install
+$ pre-commit install
+$ pre-commit run --all-files
+```
+
+Remember to activate your virtualenv whenever working on the repo, this is needed
+because pylint and mypy pre-commit hooks use the "system" python for now (because reasons).
+
