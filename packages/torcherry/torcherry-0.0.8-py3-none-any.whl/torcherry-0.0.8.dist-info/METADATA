@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: torcherry
+Version: 0.0.8
+Summary: torcherry: a higher framework for pytorch.
+Home-page: https://github.com/perryuu/torcherry
+Author: Perry
+Maintainer: Perry
+License: GPLv3
+Platform: any
+Requires-Dist: torch (>=1.0.0)
+
+Make training models more easy.
+
+
