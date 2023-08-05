@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+VERSION
+setup.cfg
+setup.py
+jupyterlab_sparkmonitor.egg-info/PKG-INFO
+jupyterlab_sparkmonitor.egg-info/SOURCES.txt
+jupyterlab_sparkmonitor.egg-info/dependency_links.txt
+jupyterlab_sparkmonitor.egg-info/not-zip-safe
+jupyterlab_sparkmonitor.egg-info/requires.txt
+jupyterlab_sparkmonitor.egg-info/top_level.txt
+sparkmonitor/__init__.py
+sparkmonitor/kernelextension.py
+sparkmonitor/listener.jar
+sparkmonitor/serverextension.py
