@@ -1,0 +1,9 @@
+pandas>=0.24.0
+loguru
+xlrd
+
+[Additional support for parsing files]
+beautifulsoup4
+
+[To run tests]
+pytest
