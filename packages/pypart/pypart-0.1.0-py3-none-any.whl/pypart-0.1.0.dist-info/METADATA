@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: pypart
+Version: 0.1.0
+Summary: 
+Author: Benjamin Murauer
+Author-email: b.murauer@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pipelinehelper (>=0.7.6,<0.8.0)
+Requires-Dist: sklearn (>=0.0,<0.1)
