@@ -1,0 +1,3 @@
+[console_scripts]
+helm-upgrade = helm_upgrade.cli:main
+
