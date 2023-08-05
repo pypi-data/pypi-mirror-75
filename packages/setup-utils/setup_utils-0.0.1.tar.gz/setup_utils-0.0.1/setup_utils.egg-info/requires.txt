@@ -1,0 +1,7 @@
+
+[:python_version < "3.7"]
+aiocontextvars>=0.2.0
+
+[:sys_platform == "win32"]
+colorama>=0.3.4
+win32-setctime>=1.0.0
