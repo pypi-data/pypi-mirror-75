@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: pneuro
+Version: 1.0.0
+Summary: Template python package
+Home-page: UNKNOWN
+Author: Punit Nanda
+Author-email: punit.nanda01@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: APScheduler
+Requires-Dist: certifi
+Requires-Dist: click
+Requires-Dist: colorhash
+Requires-Dist: configparser
+Requires-Dist: cycler
+Requires-Dist: Flask
+Requires-Dist: Flask-Cors
+Requires-Dist: Flask-MonitoringDashboard
+Requires-Dist: imbalanced-learn
+Requires-Dist: imblearn
+Requires-Dist: itsdangerous
+Requires-Dist: Jinja2
+Requires-Dist: joblibkiwisolver
+Requires-Dist: MarkupSafe
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: patsy
+Requires-Dist: pymongo
+Requires-Dist: pyparsing
+Requires-Dist: python-dateutil
+Requires-Dist: pytz
+Requires-Dist: retrying
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Requires-Dist: seaborn
+Requires-Dist: six
+Requires-Dist: SQLAlchemy
+Requires-Dist: statsmodels
+Requires-Dist: threadpoolctl
+Requires-Dist: tzlocal
+Requires-Dist: Werkzeug
+Requires-Dist: wincertstore
+Requires-Dist: xgboost
+
+pneuro Library
+
+
