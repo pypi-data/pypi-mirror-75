@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: angr
+Version: 8.20.7.27
+Summary: A multi-architecture binary analysis toolkit, with the ability to perform dynamic symbolic execution and various static analyses on binaries
+Home-page: https://github.com/angr/angr
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Provides-Extra: AngrDB
