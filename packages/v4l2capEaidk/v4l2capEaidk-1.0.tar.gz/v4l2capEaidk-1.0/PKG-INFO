@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: v4l2capEaidk
+Version: 1.0
+Summary: Capture video with video4linux2
+Home-page: http://eaidk.openailab.com
+Author: Fredrik Portstrom
+Author-email: byan@openailab.com
+License: Public Domain
+Description: python-v4l2capture is a slim and easy to use Python extension for capturing video with video4linux2.
+Platform: UNKNOWN
+Classifier: License :: Public Domain
+Classifier: Programming Language :: C
