@@ -1,0 +1,15 @@
+setup.py
+PyTextSort/__init__.py
+PyTextSort/_fileMerge.py
+PyTextSort/_fileSort.py
+PyTextSort/_fileSplit.py
+PyTextSort/_utils.py
+PyTextSort/config.py
+PyTextSort.egg-info/PKG-INFO
+PyTextSort.egg-info/SOURCES.txt
+PyTextSort.egg-info/dependency_links.txt
+PyTextSort.egg-info/top_level.txt
+PyTextSort/handler/__init__.py
+PyTextSort/handler/_base.py
+PyTextSort/handler/_jsonFileHandler.py
+PyTextSort/handler/_textFileHandler.py
