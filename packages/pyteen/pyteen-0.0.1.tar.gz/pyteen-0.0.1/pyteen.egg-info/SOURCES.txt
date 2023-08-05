@@ -1,0 +1,15 @@
+README.rst
+setup.cfg
+setup.py
+pyteen/__init__.py
+pyteen/core.py
+pyteen/exceptions.py
+pyteen.egg-info/PKG-INFO
+pyteen.egg-info/SOURCES.txt
+pyteen.egg-info/dependency_links.txt
+pyteen.egg-info/top_level.txt
+pyteen/snippets/__init__.py
+pyteen/snippets/tests/__init__.py
+pyteen/snippets/tests/test_fibonacci_rec_long.py
+pyteen/snippets/tests/test_fibonacci_rec_short.py
+pyteen/snippets/tests/test_sieve_eratosthenes.py
