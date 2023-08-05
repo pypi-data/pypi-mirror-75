@@ -1,0 +1,3 @@
+[console_scripts]
+pnadc = pnadc.cli:main
+
