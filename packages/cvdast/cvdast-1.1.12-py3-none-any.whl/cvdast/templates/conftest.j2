@@ -1,0 +1,57 @@
+
+import json
+import pytest
+import requests
+import random
+import os
+#from pytest_cases import fixture_plus
+
+def get_params_from_file(param):
+    with open(os.path.join(os.path.dirname(os.path.abspath(__file__)),"params_captured.json")) as fobj:
+        params = json.load(fobj)
+    for api, params_info in params.items():
+        if param in params_info:
+            values = params[api][param]
+            if None in values:
+                values.remove(None)
+            if values:
+                return random.choice(values)
+            else:
+                return None
+            #return values
+
+def pytest_addoption(parser):
+    parser.addoption("--host", action="store", default="")
+    {% for input in AUTH_INPUTS %}
+    parser.addoption("--{{ input }}", action="store", default="")
+    {% endfor %}
+
+{% for input in AUTH_INPUTS %}
+@pytest.fixture(scope="session", autouse=True)
+def {{ input }}(pytestconfig):
+    return pytestconfig.getoption("{{ input }}")
+{% endfor %}
+
+{% if AUTH_API %}
+@pytest.fixture(scope="session", autouse=True)
+def access_token({{ AUTH_INPUTS | join(", ") }}):
+    resp = requests.post("{{ AUTH_API }}",
+                    headers={ {% for k, v in AUTH_API_HEADERS.items() %}{% if v in AUTH_INPUTS %}'{{ k }}':{{ v }}{% else %}'{{ k }}':'{{ v }}'{% endif %},{% endfor %} },
+                    data=json.dumps({{ AUTH_API_PAYLOAD }}))
+    if resp.status_code == 200:
+        os.environ["CVDAST_ACCESS_TOKEN"] = resp.json()["{{ AUTH_RESP_KEY }}"]
+        return resp.json()["{{ AUTH_RESP_KEY }}"]
+    else:
+        print("AUTHENTICATION is not successful, please check the creds!")
+        raise SystemExit
+{% endif %}
+
+{% set params_covered = [] %}{% for api,params in api_info.items() %}{% for param,values in params.items() %}{% if param not in params_covered %}
+@pytest.fixture(scope="session", autouse=True)
+#@fixture_plus(params=get_params_from_file("{{ param }}"))
+def {{ param }}(request):
+    #return request.param
+    return get_params_from_file("{{ param }}")
+{% set params_covered = params_covered.append(param) %}
+{% endif %}{% endfor %}{% endfor %}
+
