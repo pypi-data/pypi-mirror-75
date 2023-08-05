@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: moonstone
+Version: 0.1.0
+Summary: Utilities for metagenomics data analysis using machine learning.
+Home-page: UNKNOWN
+Author: Kenzo-Hugo Hillion, Agnès Baud, Mariela Furstenheim, Sean Kennedy
+Author-email: kehillio@pasteur.fr
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pandas (==1.0.1)
+Requires-Dist: scikit-learn (==0.21.3)
+Requires-Dist: matplotlib
+Requires-Dist: plotly
+Requires-Dist: statsmodels
+Requires-Dist: python-slugify
+Requires-Dist: pyaml
+Requires-Dist: numpy (==1.18.1)
+
+UNKNOWN
+
+
