@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: build-sqli-url
+Version: 0.1.0
+Summary: Build SQLi URL Helper.
+Author: Sergey M
+Author-email: tz4678@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
