@@ -1,0 +1,3 @@
+[console_scripts]
+covdata = covdata.cli:main
+
