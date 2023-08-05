@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: graphtage
+Version: 0.2.1
+Summary: A utility to diff tree-like files such as JSON and XML.
+Home-page: https://github.com/trailofbits/graphtage
+Author: Trail of Bits
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Requires-Dist: colorama
+Requires-Dist: intervaltree
+Requires-Dist: json5 (==0.9.5)
+Requires-Dist: PyYAML
+Requires-Dist: scipy (>=1.4.0)
+Requires-Dist: tqdm
+Requires-Dist: typing-extensions (>=3.6.5)
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: Sphinx ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: sphinx-rtd-theme (==0.4.3) ; extra == 'dev'
+
+UNKNOWN
+
+
