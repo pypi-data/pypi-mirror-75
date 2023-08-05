@@ -1,0 +1,11 @@
+name: cf_xarray
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - matplotlib
+  - netcdf4
+  - pip
+  - xarray
+  - pip:
+    - git+https://github.com/xarray-contrib/cf-xarray
