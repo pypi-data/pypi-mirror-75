@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: amazon-ad
+Version: 0.0.1b4
+Summary: Amazon Advertising SDK
+Home-page: UNKNOWN
+Author: joshzda
+Author-email: joshzda@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: appnope (==0.1.0)
+Requires-Dist: arrow (==0.12.1)
+Requires-Dist: backcall (==0.1.0)
+Requires-Dist: certifi (==2018.10.15)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: decorator (==4.4.2)
+Requires-Dist: idna (==2.7)
+Requires-Dist: ipython (==7.2.0)
+Requires-Dist: ipython-genutils (==0.2.0)
+Requires-Dist: jedi (==0.17.0)
+Requires-Dist: parso (==0.7.0)
+Requires-Dist: pexpect (==4.8.0)
+Requires-Dist: pickleshare (==0.7.5)
+Requires-Dist: prompt-toolkit (==2.0.1)
+Requires-Dist: ptyprocess (==0.6.0)
+Requires-Dist: Pygments (==2.6.1)
+Requires-Dist: python-dateutil (==2.7.5)
+Requires-Dist: requests (==2.20.1)
+Requires-Dist: six (==1.11.0)
+Requires-Dist: traitlets (==4.3.3)
+Requires-Dist: urllib3 (==1.24.1)
+Requires-Dist: wcwidth (==0.1.9)
+
+UNKNOWN
+
+
