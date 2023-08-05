@@ -1,0 +1,3 @@
+[console_scripts]
+ragnar = ragnar.cli:main
+
