@@ -1,0 +1,3 @@
+[console_scripts]
+at16k-convert=at16k.bin.speech_to_text:main
+
