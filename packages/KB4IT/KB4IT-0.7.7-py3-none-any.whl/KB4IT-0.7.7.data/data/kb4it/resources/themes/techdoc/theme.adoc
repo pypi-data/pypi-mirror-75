@@ -1,0 +1,17 @@
+{
+    "id": "techdoc",
+    "name": "Technical documentation",
+    "author": "[Tomás Vírseda]",
+    "email": "[tomasvirseda@gmail.com]",
+    "website": "http://github.com/kb4it-themes",
+    "description": "Theme for technical documentation with capabilities for blog posts, events, and tasks",
+    "version": "0.0.5",
+    "kb4it": ">=0.7.5",
+    "events": ["Change", "Email", "Incident", "Message", "Meeting", "Note", "Post", "Reminder", "Report", "Task"],
+    "ignored_keys": ["Published"],
+    "date_attributes": ["Published"],
+    "git_server": "<server>",
+    "git_user": "<user>",
+    "git_repo": "<repo>",
+    "git_branch": "<branch>"
+}
