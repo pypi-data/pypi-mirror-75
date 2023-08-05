@@ -1,0 +1,131 @@
+Metadata-Version: 1.2
+Name: gnt
+Version: 0.2.5
+Summary: Python packcage for caidentifying Genetic iNTeractions from combinatorial screening data.
+Home-page: https://github.com/gpp-rnd/gnt
+Author: Peter C. DeWeirdt
+Author-email: petedeweirdt@gmail.com
+License: MIT license
+Description: ===
+        gnt
+        ===
+        
+        
+        .. image:: https://img.shields.io/pypi/v/gnt.svg
+                :target: https://pypi.python.org/pypi/gnt
+        
+        .. image:: https://api.travis-ci.com/gpp-rnd/gnt.svg
+                :target: https://travis-ci.com/gpp-rnd/gnt
+        
+        .. image:: https://readthedocs.org/projects/gnt/badge/?version=latest
+                :target: https://gnt.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        
+        
+        Python package for identifying Genetic iNTeractions from combinatorial screening data.
+        
+        
+        * Free software: MIT license
+        * Documentation: https://gnt.readthedocs.io.
+        
+        
+        Tutorial
+        --------
+        To install::
+        
+            $ pip install gnt
+        
+        Basic command line usage
+        ^^^^^^^^^^^^^^^^^^^^^^^^
+        ::
+        
+            $ gnt "https://raw.githubusercontent.com/PeterDeWeirdt/bigpapi/master/data/processed/bigpapi_lfcs.csv" example_output --control CD81 --control "HPRT intron"
+        
+        
+        Basic python usage
+        ^^^^^^^^^^^^^^^^^^
+        ::
+        
+            import gnt
+            import pandas as pd
+            lfcs = pd.read_csv('https://raw.githubusercontent.com/PeterDeWeirdt/bigpapi/master/data/processed/bigpapi_lfcs.csv')
+            guide_residuals, model_info = gnt.get_guide_residuals(lfcs, ['CD81', 'HPRT intron'], scale=True)
+            gene_scores = gnt.get_gene_residuals(guide_residuals, 'scaled_residual_z')
+        
+        
+        TODO
+        ----
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2020-06-29)
+        ------------------
+        
+        * First release on PyPI.
+        
+        0.1.1 (2020-07-09)
+        ------------------
+        
+        * Automated release
+        
+        0.1.2 (2020-07-09)
+        ------------------
+        
+        * Travis bug fix
+        
+        0.2.0 (2020-07-13)
+        ------------------
+        
+        * Add columns to guide and gene output for base LFC of pairs
+        * Check inputs, removing guides without the right number of pairs or control pairs
+        
+        
+        0.2.1 (2020-07-13)
+        ------------------
+        
+        * Update basic usage notebook
+        
+        0.2.2 (2020-07-15)
+        ------------------
+        
+        * Aggregate guide scores that are in data multiple times in different orientations
+        
+        0.2.3 (2020-07-15)
+        ------------------
+        
+        * Deduplicate repeat guide pairs in anchor df
+        
+        0.2.4 (2020-07-22)
+        ------------------
+        
+        * Add model coefficients to guide residual ouput
+        * Update delta-LFC functions
+        
+        0.2.5 (2020-07-27)
+        ------------------
+        
+        * Add base LFC to dLFC output
+        
+Keywords: gnt
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
