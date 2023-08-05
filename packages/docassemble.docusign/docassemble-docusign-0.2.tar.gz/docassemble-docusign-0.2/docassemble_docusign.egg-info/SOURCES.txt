@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+docassemble/__init__.py
+docassemble/docusign/__init__.py
+docassemble/docusign/da_docusign.py
+docassemble_docusign.egg-info/PKG-INFO
+docassemble_docusign.egg-info/SOURCES.txt
+docassemble_docusign.egg-info/dependency_links.txt
+docassemble_docusign.egg-info/requires.txt
+docassemble_docusign.egg-info/top_level.txt
