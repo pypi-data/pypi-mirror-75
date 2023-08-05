@@ -1,0 +1,4 @@
+#!/bin/bash
+# My example bash script
+cd "$(dirname "$0")"
+while true; do echo -n "Running TDGUI"; python -c "from tdcsm.tdgui import coa;c=coa(approot='/opt/git/coa/1Dev')" ; sleep 1; done
