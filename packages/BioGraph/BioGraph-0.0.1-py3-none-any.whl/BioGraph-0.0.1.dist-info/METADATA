@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: BioGraph
+Version: 0.0.1
+Summary: Molecular graphs and the neural networks to embed them.
+Home-page: https://github.com/sooheon/BioGraph
+Author: Soo Heon Kim
+Author-email: sooheon.k@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# BioGraph
+Molecular graphs and the neural networks to embed them
+
+
