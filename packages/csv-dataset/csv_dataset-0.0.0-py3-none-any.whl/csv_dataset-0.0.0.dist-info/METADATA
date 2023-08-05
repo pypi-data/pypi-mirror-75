@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: csv-dataset
+Version: 0.0.0
+Summary: csv-dataset helps to read csv files and create descriptive and efficient input pipelines for deep learning in a streaming fashion
+Home-page: https://github.com/kaelzhang/python-csv-dataset
+Author: kaelzhang
+Author-email: 
+License: MIT
+Keywords: csv-dataset
+Platform: UNKNOWN
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+[![](https://travis-ci.org/kaelzhang/python-csv-dataset.svg?branch=master)](https://travis-ci.org/kaelzhang/python-csv-dataset)
+[![](https://codecov.io/gh/kaelzhang/python-csv-dataset/branch/master/graph/badge.svg)](https://codecov.io/gh/kaelzhang/python-csv-dataset)
+[![](https://img.shields.io/pypi/v/csv-dataset.svg)](https://pypi.org/project/csv-dataset/)
+[![](https://img.shields.io/pypi/l/csv-dataset.svg)](https://github.com/kaelzhang/python-csv-dataset)
+
+# csv-dataset
+
+csv-dataset helps to read csv files and create descriptive and efficient input pipelines for deep learning in a streaming fashion
+
+## Install
+
+```sh
+$ pip install csv-dataset
+```
+
+## Usage
+
+```py
+import csv_dataset
+```
+
+## License
+
+[MIT](LICENSE)
+
+
