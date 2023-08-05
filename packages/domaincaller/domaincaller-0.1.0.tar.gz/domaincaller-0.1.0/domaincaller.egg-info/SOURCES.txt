@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+domaincaller/__init__.py
+domaincaller/chromLev.py
+domaincaller/genomeLev.py
+domaincaller.egg-info/PKG-INFO
+domaincaller.egg-info/SOURCES.txt
+domaincaller.egg-info/dependency_links.txt
+domaincaller.egg-info/top_level.txt
+scripts/domaincaller
