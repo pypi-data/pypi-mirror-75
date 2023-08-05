@@ -1,0 +1,6 @@
+[console_scripts]
+gflick-dev=gflick:dev
+gflick-google=gflick:google
+gflick-prod=gflick:prod
+gflick-raw=gflick:raw
+
