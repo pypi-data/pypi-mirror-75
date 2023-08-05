@@ -1,0 +1,3 @@
+[console_scripts]
+pegtree = pegtree.main:main
+
