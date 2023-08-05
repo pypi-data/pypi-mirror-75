@@ -1,0 +1,17 @@
+cerberus
+ctypescrypto
+dkimpy
+dnspython
+jinja2
+pyyaml
+
+[dev]
+mkdocs
+mkdocs-material
+mkdocstrings
+
+[install]
+setuptools_scm
+
+[test]
+pytest
