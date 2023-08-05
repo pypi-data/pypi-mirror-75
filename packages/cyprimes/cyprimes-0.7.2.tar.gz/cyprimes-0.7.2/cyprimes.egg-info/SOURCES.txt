@@ -1,0 +1,10 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+cyprimes.egg-info/PKG-INFO
+cyprimes.egg-info/SOURCES.txt
+cyprimes.egg-info/dependency_links.txt
+cyprimes.egg-info/top_level.txt
+src/cyprimes.c
+src/cyprimes.pyx
