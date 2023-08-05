@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: elk-waveform
+Version: 0.12
+Summary: A Python package for managing and interacting with gravitational waveform catalogues.
+Home-page: https://github.com/transientlunatic/elk
+Author: Daniel Williams
+Author-email: daniel.williams@ligo.org
+License: MIT license
+Keywords: elk
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: lalsuite
+Requires-Dist: pycbc
+
+===============================
+Elk: A Waveform Catalogue Tool
+===============================
+
+.. image:: https://badge.fury.io/py/elk-waveform.svg
+	   :target: https://badge.fury.io/py/elk-waveform
+
+.. image:: https://img.shields.io/travis/transientlunatic/elk.svg
+           :target: https://travis-ci.org/transientlunatic/elk
+
+.. image:: https://pyup.io/repos/github/transientlunatic/elk/shield.svg
+	   :target: https://pyup.io/repos/github/transientlunatic/elk/
+	   :alt: Updates
+
+
+A Python package for managing and interacting with gravitational waveform catalogues.
+Elk was initially designed to make working with numerical relativity catalogues easier.
+These are normally distributed as directories full of HDF5 files, and can be a bit cumbersome to deal with.
+Elk browses the contents of these directories and can assemble a catalogue based on the files in it.
+
+
+
+* Free software: MIT license
+* Documentation: https://code.daniel-williams.co.uk/elk/
+
+
+Features
+--------
+
+
+Credits
+---------
+
+
+=======
+History
+=======
+
+0.11.3 (2019-08-23)
+-------------------
+
+* First release on PyPI.
+
+
