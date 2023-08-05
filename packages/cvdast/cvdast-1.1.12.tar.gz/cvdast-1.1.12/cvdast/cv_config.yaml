@@ -1,0 +1,58 @@
+
+# APIShark/CloudVector-EE environment details
+ce_setup:
+  ce_host: http://10.243.126.62:32691
+  ce_username: kalpana.ponakanti@tivo.com
+
+# API to use to authenticate the session
+authentication:
+  api_url: https://api-aps-ts-unified-cdvrqe1.dev.tivoservice.com/provisioning/v1/loginCert
+  headers:
+      Origin-RequestId: 374687-3186
+      Authorization: [jwt_token]
+  payload: {
+               "deviceConfiguration": {
+               "locale": "en_US",
+               "friendlyName": "SharedVirtualCubiDevice",
+               "softwareVersion": "UNKNOWN",
+               "osVersion": "linux-3.14.28-1.23",
+               "deviceType": "managedCubiTv",
+               "timezoneName": "AUTO",
+               "macAddress": "00:A1:79:E5:41:68",
+               "manufacturer": "Arion",
+               "productName": "arion7584a1"
+               }
+              }
+  response_key: authToken
+
+input_params_values: []
+
+#static_headers:
+
+custom_validations:
+    request_params:
+          hardwareSerialNumber:
+                  missing:
+                        code: 1001
+                        message: "missing serial number"
+          partnerCustomerId:
+                  missing:
+                        code: 1001
+                        message:
+                  invalid:
+                        code: 1006
+                        message:
+          partnerId:
+                  missing:
+                        code: 1001
+                        message:
+          dummy:
+                  missing:
+                        code: 1001
+                        message:
+                  invalid:
+                        code: 9999
+                        message: "hi"
+          client_id:
+                  missing:
+                        code: 1005
