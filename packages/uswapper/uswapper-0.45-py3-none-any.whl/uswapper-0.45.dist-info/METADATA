@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: uswapper
+Version: 0.45
+Summary: Simple wrapper for uniswap graphql api
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: python-graphql-client
+Requires-Dist: urllib3
+
+UNKNOWN
+
+
