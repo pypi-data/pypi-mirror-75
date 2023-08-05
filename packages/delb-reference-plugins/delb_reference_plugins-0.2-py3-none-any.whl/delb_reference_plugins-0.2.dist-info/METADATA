@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: delb-reference-plugins
+Version: 0.2
+Summary: A package with spare non-sense plugins for delb as developer's reference.
+License: AGPL-3.0
+Author: Frank Sachsenheim
+Author-email: funkyfuture@riseup.net
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: delb[https-loader] (==0.2)
