@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+dir-tree.png
+setup.cfg
+setup.py
+selfusepy/__init__.py
+selfusepy/jsonparse.py
+selfusepy/log.py
+selfusepy/utils.py
+selfusepy.egg-info/PKG-INFO
+selfusepy.egg-info/SOURCES.txt
+selfusepy.egg-info/dependency_links.txt
+selfusepy.egg-info/top_level.txt
