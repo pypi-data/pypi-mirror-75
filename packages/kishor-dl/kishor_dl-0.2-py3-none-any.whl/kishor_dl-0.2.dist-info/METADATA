@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: kishor-dl
+Version: 0.2
+Summary: Download 150+ Kishorekantha PDF in one command!
+Home-page: http://github.com/nahid18/kishor-dl
+Author: Abdullah Al Nahid
+Author-email: nahidpatwary1@gmail.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: beautifulsoup4
+
+Kishor-dl is a downloader script for kishorkantha magazine. It uses web scrapping to download more than 150 volumes of the magazine.
+
+
