@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: unicaps
+Version: 0.0.1
+Summary: Universal CAPTCHA Solver for humans
+Home-page: https://github.com/sergey-scat/unicaps
+Author: Sergey Totmyanin
+Author-email: STotmyanin@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+<p align="center">
+  <img src="https://i.imgur.com/8aQf6On.png" />
+</p>
+
+# Unicaps
+[![](https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8%20-blue.svg)](https://www.python.org/downloads/release/python-3611/)
+
+Unicaps is a unified Python API for CAPTCHA solving services.
+
+## Key Features
+ - A unified Python interface that is independent of the service used
+ - Supports 9 types of CAPTCHAs
+ - Supports 3 CAPTCHA solving services
+ - Uses Pythonic code and is intended for humans
+
+## Simple Usage Example
+```python
+>>> from unicaps import CaptchaSolver
+>>> solver = CaptchaSolver("2captcha.com", api_key="xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx")
+>>> solver.get_balance()
+2.84161
+>>> solved = solver.solve_image_captcha(open("captcha.jpg", "rb"), is_phrase=False, is_case_sensitive=True)
+>>> solved.solution.answer
+'w93Bx'
+>>> solved.cost
+0.00078
+>>> solved.report_good()
+True
+```
+
+## Supported CAPTCHAs / Services
+| CAPTCHAвћЎ \ Serviceв¬‡| Image | Text | [reCAPTCHA v2](https://developers.google.com/recaptcha/docs/display) | [reCAPTCHA v3](https://developers.google.com/recaptcha/docs/v3) | [FunCaptcha](https://funcaptcha.com/fc/api/nojs/?pkey=69A21A01-CC7B-B9C6-0F9A-E7FA06677FFC) | [KeyCAPTCHA](https://www.keycaptcha.com/) | [Geetest](https://www.geetest.com/en/demo) | [hCaptcha](https://www.hcaptcha.com/) | [Capy](https://www.capy.me/) |
+| ------------- | :---: | :---:	| :---:	| :---:	| :---:	| :---:	| :---:	| :---:	| :---:	|
+| ***2captcha.com*** 	| вњ… | вњ… | вњ… | вњ… | вњ… | вњ… | вњ… | вњ… | вњ… |
+| ***anti-captcha.com*** 	| вњ… | вќЊ | вњ… | вњ… | вњ… | вќЊ | вњ… | вњ… | вќЊ |
+| ***deathbycaptcha.com*** 	| вњ… | вќЊ | вњ… | вњ… | вњ… | вќЊ | вќЊ | вќЊ | вќЊ |
+| ***rucaptcha.com*** 	| вњ… | вњ… | вњ… | вњ… | вњ… | вњ… | вњ… | вњ… | вњ… |
+
+
