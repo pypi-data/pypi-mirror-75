@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: tilt
+Version: 0.0.1
+Summary: A python language binding for the Transparancy Information Language and Toolkit (TILT)
+Home-page: https://github.com/Transparency-Information-Language/python-tilt
+Author: Elias Grünewald
+Author-email: gruenewald@tu-berlin.de
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
