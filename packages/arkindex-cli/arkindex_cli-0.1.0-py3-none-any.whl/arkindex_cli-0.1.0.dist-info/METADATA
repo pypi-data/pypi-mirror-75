@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: arkindex-cli
+Version: 0.1.0
+Summary: Arkindex CLI client easy and sexy to use
+Home-page: https://arkindex.teklia.com
+Author: Teklia
+Author-email: contact@teklia.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: arkindex-client (==1.0)
+Requires-Dist: PyYAML (==5.1)
+Requires-Dist: rich (==4.0.0)
+
+UNKNOWN
+
+

@@ -1,0 +1,3 @@
+[console_scripts]
+arkindex = arkindex_cli.cli:main
+
