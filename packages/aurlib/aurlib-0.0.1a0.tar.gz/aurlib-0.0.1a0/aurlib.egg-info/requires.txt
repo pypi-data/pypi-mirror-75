@@ -1,0 +1,7 @@
+httpx
+
+[dev]
+black
+pylint
+isort
+mypy
