@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block styles %}
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'minutes/css/main.business.css' %}">
+{% endblock %}
+
+{% block app %}
+<script type="text/javascript" src="{% static 'minutes/js/main.business.js' %}"></script>
+{% endblock %}
