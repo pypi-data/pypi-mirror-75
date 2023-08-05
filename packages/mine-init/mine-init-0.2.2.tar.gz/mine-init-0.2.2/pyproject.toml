@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "mine-init"
+version = "0.2.2"
+description = "A docker friendly startup routine for Minecraft servers."
+homepage = "https://gitlab.routh.io/minecraft/tools/mine-init"
+repository = "https://gitlab.routh.io/minecraft/tools/mine-init"
+authors = ["Chris Routh <chris@routh.io>"]
+license = "MIT"
+readme = "README.rst"
+
+[tool.poetry.dependencies]
+# These packages are mandatory and form the core of this package’s distribution.
+python = ">=3.6"
+packmaker = "0.4.3"
+
+[tool.poetry.scripts]
+mine-init = "mine_init:main"
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
