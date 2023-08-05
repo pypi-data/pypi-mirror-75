@@ -1,0 +1,22 @@
+{% extends 'utilities/obj_edit.html' %}
+{% load form_helpers %}
+
+{% block form %}
+<div class="panel panel-default">
+ <div class="panel-heading"><strong>Lifecycle</strong></div>
+ <div class="panel-body">
+  {% render_field form.device %}
+  {% render_field form.date %}
+  {% render_field form.user %}
+  {% render_field form.action_type %}
+  {% render_field form.comments %}
+ </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading"><strong>Tags</strong></div>
+  <div class="panel-body">
+     {% render_field form.tags %}
+  </div>
+</div>
+{% endblock %}
