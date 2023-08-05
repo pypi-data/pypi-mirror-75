@@ -1,0 +1,107 @@
+Metadata-Version: 1.2
+Name: igem-wikisync
+Version: 0.0.4
+Summary: Automatically deploy iGEM Wikis.
+Home-page: https://github.com/igembitsgoa/igem-wikisync
+Author: Pranav Ballaney
+Author-email: ballaneypranav@gmail.com
+License: MIT
+Project-URL: Documentation, https://igem-wikisync.readthedocs.io/
+Project-URL: Changelog, https://igem-wikisync.readthedocs.io/en/latest/changelog.html
+Project-URL: Issue Tracker, https://github.com/igembitsgoa/igem-wikisync/issues
+Description: ========
+        Overview
+        ========
+        
+        
+        
+        Automatically deploy iGEM Wikis.
+        
+        * Free software: MIT license
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install igem-wikisync
+        
+        You can also install the in-development version with::
+        
+            pip install https://github.com/igembitsgoa/igem-wikisync/archive/master.zip
+        
+        
+        Documentation
+        =============
+        
+        
+        https://igem-wikisync.readthedocs.io/
+        
+        
+        Development
+        ===========
+        
+        To run the all tests run::
+        
+            tox
+        
+        Note, to combine the coverage data from all the tox environments run:
+        
+        .. list-table::
+            :widths: 10 90
+            :stub-columns: 1
+        
+            - - Windows
+              - ::
+        
+                    set PYTEST_ADDOPTS=--cov-append
+                    tox
+        
+            - - Other
+              - ::
+        
+                    PYTEST_ADDOPTS=--cov-append tox
+        
+        
+        Changelog
+        =========
+        
+        0.0.4 (2020-07-25)
+        ------------------
+        
+        * Drop jsmin.
+        * Add version specifiers to dependencies.
+        
+        0.0.3 (2020-07-25)
+        ------------------
+        
+        * Ensures that directories exist before writing files.
+        
+        0.0.2 (2020-07-25)
+        ------------------
+        
+        * Assets are also written to disk in build_dir.
+        
+        0.0.1 (2020-07-25)
+        ------------------
+        
+        * Build directory doesn't get cleared on every run.
+        
+        0.0.0 (2020-07-25)
+        ------------------
+        
+        * First release on PyPI.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6, <=3.8
