@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+DInk.egg-info/PKG-INFO
+DInk.egg-info/SOURCES.txt
+DInk.egg-info/dependency_links.txt
+DInk.egg-info/requires.txt
+DInk.egg-info/top_level.txt
+dink/__init__.py
+dink/charts.py
+dink/client.py
+dink/exceptions.py
+dink/resources.py
