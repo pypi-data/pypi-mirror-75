@@ -1,0 +1,1 @@
+from fandomanime.getanime import *
