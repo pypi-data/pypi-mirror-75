@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: rpmvenv-macros
+Version: 0.0.1
+Summary: Macros extension for rpmvenv
+Home-page: UNKNOWN
+Author: Dan Foster
+Author-email: dan@zem.org.uk
+License: MIT
+Platform: any
+Requires-Dist: rpmvenv
+
+Macros extension for rpmvenv
+
+
