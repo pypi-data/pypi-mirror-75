@@ -1,0 +1,13 @@
+Metadata-Version: 1.2
+Name: experiment-tracker
+Version: 0.0.8
+Summary: Simple tool to track experiments by writing parameters and corresponding results into an SQL database.
+Home-page: https://github.com/MarkusZopf/ExperimentTracker
+Author: Markus Zopf
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6.7
