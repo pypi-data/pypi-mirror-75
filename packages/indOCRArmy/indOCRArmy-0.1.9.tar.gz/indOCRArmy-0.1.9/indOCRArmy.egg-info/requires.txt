@@ -1,0 +1,8 @@
+requests
+numpy
+opencv-contrib-python
+pandas
+Pillow
+torchvision
+torch==1.5.1
+matplotlib
