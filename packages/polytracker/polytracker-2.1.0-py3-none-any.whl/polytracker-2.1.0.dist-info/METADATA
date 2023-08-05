@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: polytracker
+Version: 2.1.0
+Summary: API and Library for operating and interacting with PolyTracker
+Home-page: https://github.com/trailofbits/polytracker
+Author: Trail of Bits
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7
+Requires-Dist: graphviz
+Requires-Dist: matplotlib
+Requires-Dist: networkx
+Requires-Dist: pygraphviz
+Requires-Dist: pydot
+Requires-Dist: tqdm
+Requires-Dist: typing-extensions
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+
+UNKNOWN
+
+
