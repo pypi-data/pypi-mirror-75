@@ -1,0 +1,83 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="">
+
+  <body>
+    <metal:content-title fill-slot="content-title">
+      <metal:content-title define-macro="content-title">
+        <h1 class="documentFirstHeading">Migration results</h1>
+      </metal:content-title>
+    </metal:content-title>
+    <metal:content-core fill-slot="content-core">
+      <metal:content-core define-macro="content-core"
+        tal:define="results view/get_results">
+        <div class="pat-autotoc autotabs"
+          data-pat-autotoc="levels:h2;">
+          <section>
+            <h2>Results</h2>
+            <h3>Contents migrated</h3>
+            <table class="listing" summary="Results">
+              <tbody>
+                <tr>
+                    <th>In</th>
+                    <th>Out</th>
+                </tr>
+                <tr>
+                    <td>${results/in_count}</td>
+                    <td>${results/out_count}</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="errors" tal:condition="not:results/same_results">
+              <h3>Contents not migrated [${python:len(results.get('not_migrated', 0))}]</h3>
+              <table class="listing" summary="Results">
+                <tbody>
+                  <tr>
+                    <th>Type</th>
+                    <th>Title</th>
+                    <th>Path</th>
+                    <th>Reason</th>
+                  </tr>
+                  <tr tal:repeat="item results/not_migrated">
+                    <td>${item/portal_type|nothing}</td>
+                    <td>${item/title|nothing}</td>
+                    <td>${item/path|nothing}</td>
+                    <td>${item/reason|nothing}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <p class="discreet">
+                <ul>
+                  <li>Reason <strong>404</strong> means that we didn't find that content on source website.</li>
+                  <li>A content not migrated, could has been skipped in some section for some reason.</li>
+                </ul>
+              </p>
+            </div>
+          </section>
+          <section tal:define="broken_links results/broken_links">
+            <h2>Broken links</h2>
+            <p class="discreet">List of contents with some broken internal links in tinymce fields.</p>
+            <p tal:condition="not:broken_links">No broken links found.</p>
+            <ul tal:condition="broken_links">
+              <li tal:repeat="link broken_links"><a href="${link}">${link}</a></li>
+            </ul>
+          </section>
+          <section tal:define="noreference_links results/noreference_links">
+            <h2>No references links</h2>
+            <p class="discreet">List of links without any references.</p>
+            <p tal:condition="not:noreference_links">No orphan links found.</p>
+            <ul tal:condition="noreference_links">
+              <li tal:repeat="link noreference_links"><a href="${link}">${link}</a></li>
+            </ul>
+          </section>
+        </div>
+
+      </metal:content-core>
+    </metal:content-core>
+  </body>
+</html>

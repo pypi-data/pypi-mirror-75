@@ -1,0 +1,22 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:transmogrifier="http://namespaces.plone.org/transmogrifier"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="redturtle.importer.base">
+
+  <adapter
+      factory=".transmogrifier.Transmogrifier"
+      provides="redturtle.importer.base.interfaces.ITransmogrifier"
+      />
+      
+  <include package=".blueprints" />
+  <include package=".deserializers" />
+
+  <!-- types mapping -->
+  <subscriber factory=".types_mapping.LinkMapping"
+    provides="redturtle.importer.base.interfaces.IPortalTypeMapping"/>
+  <subscriber factory=".types_mapping.CollectionMapping"
+    provides="redturtle.importer.base.interfaces.IPortalTypeMapping"/>
+
+</configure>

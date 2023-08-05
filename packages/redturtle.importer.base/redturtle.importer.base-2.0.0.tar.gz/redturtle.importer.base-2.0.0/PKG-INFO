@@ -1,0 +1,337 @@
+Metadata-Version: 2.1
+Name: redturtle.importer.base
+Version: 2.0.0
+Summary: Imports contents from a json source
+Home-page: https://pypi.python.org/pypi/redturtle.importer.base
+Author: RedTurtle
+Author-email: sviluppoplone@redturtle.it
+License: GPL version 2
+Description: =======================
+        RedTurtle importer base
+        =======================
+        
+        Tool to migrate contents between Plone sites based on transmogrifier.
+        
+        This tool works in addition with `redturtle.exporter.base`__
+        
+        __ https://pypi.org/project/redturtle.exporter.base
+        
+        
+        Dependencies
+        ============
+        
+        This product is made over other useful tools:
+        
+        * `collective.jsonmigrator`__
+        * `collective.transmogrifier`__
+        * `transmigrify.dexterity`__
+        
+        __ https://github.com/collective/collective.jsonmigrator
+        __ https://github.com/collective/collective.transmogrifier
+        __ https://github.com/collective/transmogrify.dexterity
+        
+        These tools are not yet actively maintained, so we moved useful parts into this
+        project to have a working Python 3 importer based on transmogrifier.
+        
+        
+        Features
+        ========
+        
+        - Handle migration for basic content-types
+        - Discussions migration
+        - Customizable import procedure via blueprints
+        - Extensible with more specific blueprints
+        - Possibility to customize specific step options with custom adapters
+        - Review view after migration with process results
+        
+        Installation
+        ============
+        
+        Install redturtle.importer.base by adding it to your buildout::
+        
+            [buildout]
+        
+            ...
+        
+            eggs =
+                redturtle.importer.base
+        
+        
+        and then running ``bin/buildout``
+        
+        You don't have to install it. In this way, after the data migration, you can
+        remove it from the buildout and everything is clean.
+        
+        
+        Usage
+        =====
+        
+        Migration view
+        --------------
+        To start a migration, you only need to call `@@data-migration` view on site root.
+        
+        In this view you can see the blueprint configuration (base and overrided), and start the process.
+        
+        Pipelines customization
+        -----------------------
+        
+        This tool is based on transmogrifier and works with blueprints.
+        A blueprint is basically a config file that lists all the steps needed for the migration.
+        
+        This product has a `default blueprint`__ for basic migrations, that can be used as is.
+        
+        Default blueprint can be easily customized using a `.migrationconfig.cfg` file located in buildout root folder.
+        
+        In this file you can override already present parts/variables (like `pipelines` into `[transmogrifier]` section) or 
+        add new ones (for example a new step).
+        
+        For example, catalogsource step can be configured with some queries like this::
+        
+            [catalogsource]
+            catalog-query = {'portal_type': ['Document', 'Event', 'News Item']}
+            ...
+        
+        In `.migrationconfig.cfg` file, under `[catalogsource]` section, you also need to set some settings about how to retrieve data on source site::
+        
+            [catalogsource]
+            ...
+            remote-url = http://localhost:8080
+            remote-root = /Plone
+            catalog-path = /Plone/portal_catalog
+            remote-username = username
+            remote-password = password
+            ...
+        
+        
+        Before running a migration, you can check the final configuration in `@@data-migration` view.
+        
+        
+        __ https://github.com/RedTurtle/redturtle.importer.base/blob/python3/src/redturtle/importer/base/transmogrifier/redturtleplone5.cfg
+        
+        
+        Custom types mapping
+        --------------------
+        
+        *contentsmapping* is the section that allows to convert one portal_type to another before object creation.
+        
+        There is a plugin system based on subscribers that allows plugins to add custom mappings.
+        
+        You need to register a subscriber for `IPortalTypeMapping` like this::
+        
+            <subscriber
+                factory=".types_mapping.MyCustomMapping"
+                provides="redturtle.importer.base.interfaces.IPortalTypeMapping"/>
+        
+        And then you need to create the class::
+        
+            @adapter(IPloneSiteRoot, IBrowserRequest)
+            @implementer(IPortalTypeMapping)
+            class MyCustomMapping(object):
+                order = 100
+        
+                def __init__(self, context, request):
+                    self.context = context
+                    self.request = request
+        
+                def __call__(self, item, typekey):
+                    """
+                    """
+                    portal_type = item[typekey]
+                    if portal_type == "Type-A":
+                        item[typekey] = "Type-B"
+                        ...
+                    return item
+        
+        
+        Custom steps for specific portal types
+        --------------------------------------
+        
+        If you are migrating a content-type that needs some manual fixes after the creation, you can do it with an adapter.
+        
+        You only need to register an adapter for your content-type like this::
+        
+            <adapter
+              for="my.product.interfaces.IMyInterface"
+              provides="redturtle.importer.base.interfaces.IMigrationContextSteps"
+              factory=".steps.MyTypeSteps"
+            />
+        
+        
+        And then you need to provide a "doSteps" method in the class::
+        
+            from redturtle.importer.base.interfaces import IMigrationContextSteps
+            from zope.interface import implementer
+        
+            @implementer(IMigrationContextSteps)
+            class MyTypeSteps(object):
+        
+                def __init__(self, context):
+                    self.context = context
+        
+                def doSteps(self):
+                    """
+                    do something here
+                    """
+        
+        Example specific importers
+        ==========================
+        
+        There are some per-project importers that we used to migrate some projects and you can use them as a starting point
+        to develop new ones.
+        
+        They are basically packages that you need to include in your buildout and provides some custom steps for specific types:
+        
+        - `redturtle.importer.rer`__
+        - `redturtle.importer.volto`__
+        
+        __ https://github.com/RedTurtle/redturtle.importer.rer
+        __ https://github.com/RedTurtle/redturtle.importer.volto
+        
+        
+        Import Users and groups
+        =======================
+        
+        You can also import users and groups from source site.
+        
+        You only need to add a section to your migration config file like this::
+        
+            [users_and_groups]
+            import-users = True
+            import-groups = True
+        
+        The tool will call two views from source site and will use the settings 
+        (remote-url, remote-root and credentials) from *[catalogsource]* section.
+        
+        This import is performed after transmogrifier steps.
+        
+        
+        Contribute
+        ==========
+        
+        - Issue Tracker: https://github.com/RedTurtle/redturtle.importer.base/issues
+        - Source Code: https://github.com/RedTurtle/redturtle.importer.base
+        
+        Credits
+        =======
+        
+        This product has been developed with some help from
+        
+        .. image:: https://kitconcept.com/logo.svg
+           :alt: kitconcept
+           :width: 300
+           :height: 80
+           :target: https://kitconcept.com/
+        
+        License
+        =======
+        
+        The project is licensed under the GPLv2.
+        
+        
+        Contributors
+        ============
+        
+        - RedTurtle, sviluppoplone@redturtle.it
+        
+        
+        Changelog
+        =========
+        
+        2.0.0 (2020-07-28)
+        ------------------
+        
+        - Heavy refactoring for python3 compatibility.
+          [cekk]
+        - Allow to import users and groups.
+          [cekk]
+        - Remove unmaintained dependencies and move needed code here.
+          [cekk]
+        
+        1.0.5 (2019-03-19)
+        ------------------
+        
+        - fixed fix_link_noreference function.
+          [eikichi18]
+        
+        
+        1.0.4 (2019-02-08)
+        ------------------
+        
+        - Added fix for links without any references. Added dedicated report after migration.
+          [daniele]
+        
+        - Added check in schemaupdater for leave field empty when value is empty.
+          [eikichi18]
+        
+        - Fix broken links generation list.
+          [cekk]
+        
+        
+        1.0.3 (2018-10-18)
+        ------------------
+        
+        - Added json item to adapters methods.
+          [daniele]
+        
+        
+        1.0.2 (2018-10-11)
+        ------------------
+        
+        - Fixed mapping for link internal/external link.
+          [eikichi18]
+        
+        
+        1.0.1 (2018-10-09)
+        ------------------
+        
+        - Fix uudi matcher after migration.
+          [eikichi18]
+        
+        
+        1.0.0 (2018-10-04)
+        ------------------
+        
+        - Add check if Plone Site element was indexed.
+        - Add support for specific context steps with adapters.
+          [cekk]
+        
+        
+        1.0a4 (2018-09-03)
+        ------------------
+        
+        - Handle cases where exlude-type is not set.
+          [cekk]
+        - Generate a list of broken links in tinymce after migration,
+          and expose them in final report view.
+          [cekk]
+        
+        1.0a3 (2018-07-19)
+        ------------------
+        
+        - Added check for element's father data.
+          [eikichi18]
+        
+        
+        1.0a2 (2018-07-03)
+        ------------------
+        
+        - Break migration if doesn't find a content types.
+          [eikichi18]
+        
+        
+        1.0a1 (2018-06-19)
+        ------------------
+        
+        - Initial release.
+          [eikichi18]
+        
+Keywords: Python Plone
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: 5.0
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Provides-Extra: test
