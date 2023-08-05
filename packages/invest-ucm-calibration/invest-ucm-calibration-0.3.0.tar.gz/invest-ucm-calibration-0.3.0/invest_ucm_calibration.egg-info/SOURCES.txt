@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+invest_ucm_calibration/__init__.py
+invest_ucm_calibration/settings.py
+invest_ucm_calibration.egg-info/PKG-INFO
+invest_ucm_calibration.egg-info/SOURCES.txt
+invest_ucm_calibration.egg-info/dependency_links.txt
+invest_ucm_calibration.egg-info/entry_points.txt
+invest_ucm_calibration.egg-info/requires.txt
+invest_ucm_calibration.egg-info/top_level.txt
+invest_ucm_calibration/cli/__init__.py
+invest_ucm_calibration/cli/main.py
