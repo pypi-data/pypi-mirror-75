@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: spantools
+Version: 0.2.3
+Summary: a python template
+Home-page: UNKNOWN
+Author: Billy Peake
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pymongo
+Requires-Dist: marshmallow (>=3.0.0rc7)
+Requires-Dist: pyyaml
+Requires-Dist: python-rapidjson
+Requires-Dist: googleapis-common-protos
+Requires-Dist: protobuf
+Provides-Extra: build
+Requires-Dist: twine ; extra == 'build'
+Requires-Dist: wheel ; extra == 'build'
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: autopep8 ; extra == 'dev'
+Requires-Dist: mypy-protobuf ; extra == 'dev'
+Requires-Dist: grpcio-tools ; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: sphinx ; extra == 'doc'
+Requires-Dist: sphinx-autodoc-typehints ; extra == 'doc'
+Requires-Dist: sphinx-data-fields ; extra == 'doc'
+Requires-Dist: sphinx-rtd-theme ; extra == 'doc'
+Provides-Extra: lint
+Requires-Dist: black ; extra == 'lint'
+Requires-Dist: flake8 ; extra == 'lint'
+Requires-Dist: mypy ; extra == 'lint'
+Provides-Extra: test
+Requires-Dist: pytest-sugar ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-html ; extra == 'test'
+Requires-Dist: grahamcracker ; extra == 'test'
+
+UNKNOWN
+
+
