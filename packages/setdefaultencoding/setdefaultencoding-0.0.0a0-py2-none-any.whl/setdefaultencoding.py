@@ -1,0 +1,1 @@
+def setdefaultencoding(*args, **kwargs): raise Exception("setdefaultencoding.pth file was not installed/run!")
