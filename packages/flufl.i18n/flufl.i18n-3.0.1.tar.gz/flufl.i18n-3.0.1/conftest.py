@@ -1,0 +1,38 @@
+import os
+
+from sybil import Sybil
+from doctest import ELLIPSIS, REPORT_NDIFF, NORMALIZE_WHITESPACE
+from contextlib import ExitStack
+from sybil.parsers.doctest import DocTestParser
+from sybil.parsers.codeblock import CodeBlockParser
+
+
+class DoctestNamespace:
+    def __init__(self):
+        self._resources = ExitStack()
+
+    def setup(self, namespace):
+        namespace['cleanups'] = self._resources
+        # Ensure that environment variables affecting translation are
+        # neutralized.
+        for envar in ('LANGUAGE', 'LC_ALL', 'LC_MESSAGES', 'LANG'):
+            if envar in os.environ:
+                del os.environ[envar]
+
+    def teardown(self, namespace):
+        self._resources.close()
+
+
+namespace = DoctestNamespace()
+
+DOCTEST_FLAGS = ELLIPSIS | NORMALIZE_WHITESPACE | REPORT_NDIFF
+
+
+pytest_collect_file = Sybil(
+    parsers=[
+        DocTestParser(optionflags=DOCTEST_FLAGS),
+        CodeBlockParser(),
+        ],
+    pattern='*.rst',
+    setup=namespace.setup,
+    ).pytest()
