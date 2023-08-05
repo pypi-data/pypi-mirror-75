@@ -1,0 +1,3 @@
+[console_scripts]
+math_base = math_base.cli:main
+
