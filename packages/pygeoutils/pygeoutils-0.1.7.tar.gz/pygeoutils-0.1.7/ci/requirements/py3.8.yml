@@ -1,0 +1,12 @@
+name: pygeoutils
+channels:
+  - conda-forge
+dependencies:
+  - python=3.8
+  - setuptools
+  - pygeoogc
+  - xarray
+  - geopandas
+  - rasterio
+  - shapely
+  - simplejson
