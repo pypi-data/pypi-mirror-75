@@ -1,0 +1,72 @@
+Metadata-Version: 1.2
+Name: astrophysics_toolset
+Version: 0.2.3
+Summary: Python package with some astrophysics-related stuff
+Home-page: https://github.com/cphyc/astrophysics_toolset
+Author: Corentin Cadiou
+Author-email: c.cadiou@ucl.ac.uk
+License: MIT license
+Description: ====================
+        Astrophysics toolset
+        ====================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/astrophysics_toolset.svg
+                :target: https://pypi.python.org/pypi/astrophysics_toolset
+        
+        .. image:: https://img.shields.io/travis/cphyc/astrophysics_toolset.svg
+                :target: https://travis-ci.com/cphyc/astrophysics_toolset
+        
+        .. image:: https://readthedocs.org/projects/astrophysics-toolset/badge/?version=latest
+                :target: https://astrophysics-toolset.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        .. image:: https://pyup.io/repos/github/cphyc/astrophysics_toolset/shield.svg
+             :target: https://pyup.io/repos/github/cphyc/astrophysics_toolset/
+             :alt: Updates
+        
+        
+        
+        Python package with some astrophysics-related stuff
+        
+        
+        * Free software: MIT license
+        * Documentation: https://astrophysics-toolset.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2020-04-21)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: astrophysics_toolset
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
