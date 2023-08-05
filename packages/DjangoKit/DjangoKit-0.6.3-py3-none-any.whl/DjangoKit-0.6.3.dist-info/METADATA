@@ -1,0 +1,85 @@
+Metadata-Version: 2.1
+Name: DjangoKit
+Version: 0.6.3
+Summary: DjangoKit is a set of extensions for Django.
+Home-page: https://gitlab.com/djbaldey/djangokit/
+Author: Grigoriy Kramarenko
+Author-email: root@rosix.ru
+License: BSD License
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Natural Language :: Russian
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: WSGI
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.5
+Requires-Dist: django (>=2.2)
+Requires-Dist: pillow (>=6.2.1)
+Requires-Dist: pycryptodome (>=3.9.0)
+Requires-Dist: pytz (>=2019)
+Requires-Dist: unidecode (>=1.1.1)
+Provides-Extra: markdown
+Requires-Dist: markdown (>=3.1.1) ; extra == 'markdown'
+Provides-Extra: pygments
+Requires-Dist: pygments (>=2.5.2) ; extra == 'pygments'
+
+=========
+DjangoKit
+=========
+
+DjangoKit is a set of extensions for Django. They have been assembled into 
+this Django app from many complex and similar projects. The reason for building
+this application is as follows:
+
+    "I don't find it necessary to push most of these things into the 
+    framework code, but a dedicated library for them over all these years of 
+    different development has just become an urgent necessity. We need to take
+    the common code out, not move it from project to project every time."
+
+    -- Grigoriy Kramarenko.
+
+Maybe you will find for yourself here the things you need. Just look at the
+`source code`_ or documentation (when it's ready).
+
+.. _source code: https://gitlab.com/djbaldey/djangokit/
+
+Installation
+------------
+
+.. code-block:: shell
+
+    pip3 install djangokit
+    # or
+    pip3 install git+https://gitlab.com/djbaldey/djangokit.git@master#egg=DjangoKit
+
+
+Quick start
+-----------
+
+1. If you want to use templatetags and locales from this library,
+   then add "djangokit" to your INSTALLED_APPS setting like this::
+
+    INSTALLED_APPS = [
+        ...
+        'djangokit',
+    ]
+
+
+
+
