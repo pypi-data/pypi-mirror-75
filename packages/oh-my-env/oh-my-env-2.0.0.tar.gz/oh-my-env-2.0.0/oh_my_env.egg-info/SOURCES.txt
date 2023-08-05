@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+oh_my_env/__init__.py
+oh_my_env/backends.py
+oh_my_env/base.py
+oh_my_env/utils.py
+oh_my_env.egg-info/PKG-INFO
+oh_my_env.egg-info/SOURCES.txt
+oh_my_env.egg-info/dependency_links.txt
+oh_my_env.egg-info/entry_points.txt
+oh_my_env.egg-info/not-zip-safe
+oh_my_env.egg-info/requires.txt
+oh_my_env.egg-info/top_level.txt
