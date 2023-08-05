@@ -1,0 +1,438 @@
+@media screen {
+    /*Elemental*/
+    #elemental {
+        $inneri: url("dclouds.png");
+        /* Water */
+        // $outerc: #212945;
+        // $outer: url("water.png");
+        // $inner: $inneri #212945;
+        // $accent: #6090f8;
+        // $text: aliceblue;
+        // $hbar: url("waterh.png");
+        // $link: #aabddf;
+        // $visited: #dcbdff;
+        // $active: #ffffff;
+        // $arrowlink: #aabddf;
+        // $arrowvisited: #dcbdff;
+        // $arrowactive: #ffffff;
+        // $shadow: #001;
+
+        /* Fire */
+        // $outerc: #491A18;
+        // $outer: url("lava.png");
+        // $inner: $inneri #491A18;
+        // $accent: #f7de34;
+        // $text: seashell;
+        // $hbar: url("lavah.png");
+        // $link: #FFC08A;
+        // $visited: #dcbdff;
+        // $active: #ffffff;
+        // $arrowlink: #FFC08A;
+        // $arrowvisited: #dcbdff;
+        // $arrowactive: #ffffff;
+        // $shadow: #100;
+
+        /* Earth */
+        // $outerc: #372825;
+        // $outer: url("grass.png");
+        // $inner: $inneri #372825;
+        // $accent: #47cd47;
+        // $text: honeydew;
+        // $hbar: url("grassh.png");
+        // $link: #5BD25B;
+        // $visited: #D1A8FF;
+        // $active: #ffffff;
+        // $arrowlink: #5BD25B;
+        // $arrowvisited: #D1A8FF;
+        // $arrowactive: #ffffff;
+        // $shadow: #111;
+
+        /* Air */
+        // $outerc: LemonChiffon;
+        // $outer: url("gold.png");
+        // $inner: LemonChiffon;
+        // $accent: DodgerBlue;
+        // $text: #351E08;
+        // $hbar: url("goldh.png");
+        // $link: #19348C;
+        // $visited: #6B22BF;
+        // $active: #61451F;
+        // $arrowlink: #aabddf;
+        // $arrowvisited: #dcbdff;
+        // $arrowactive: #ffffff;
+        // $shadow: #ffe;
+
+        /* Spirit */
+        $outerc: #271C36;
+        $outer: url("spirit.png");
+        $inner: $inneri #271C36;
+        $accent: #7B6DA0;
+        $text: lavender;
+        $hbar: url("spirith.png");
+        $link: #aabddf;
+        $visited: #dcbdff;
+        $active: #ffffff;
+        $arrowlink: #aabddf;
+        $arrowvisited: #dcbdff;
+        $arrowactive: #ffffff;
+        $shadow: #101;
+
+        /* Default (small) screens */
+        * {
+            box-sizing: content-box;
+        }
+
+        body {
+            background-color: $outerc;
+            background-image: $outer;
+            background-attachment: fixed;
+            color: $text;
+            text-align: center;
+            font-size: 1.5em;
+            font-family: sans-serif;
+            display: grid;
+            grid-template-areas: 'skippy' 'header' 'main' 'footer';
+            grid-template-columns: auto;
+            margin: 0;
+        }
+
+        footer {
+            background: $inner;
+            border-top: ridge medium $accent
+        }
+
+        main, header h1, nav ul li {
+            margin-left: 0;
+            padding-left: 0;
+            background: $inner;
+            color: $text;
+            border: ridge medium $accent;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        figure {
+            padding: 1em 0;
+            text-align: center;
+            border: none;
+            margin: 0;
+        }
+
+        figcaption {
+            padding: 1em 1em 0.5em;
+        }
+
+        .main ul {
+            padding: 0;
+        }
+
+        .main ul li {
+            border: solid medium $accent;
+            list-style-type: none;
+            padding: 1em;
+            margin: 0.5em;
+        }
+
+        .cominavbox {
+            display: grid;
+            grid-template-columns: repeat(4, auto);
+            grid-template-rows: auto;
+            align-items: end;
+            li {
+                list-style-type: none;
+                & a {
+                    &:link img {
+                        background: $arrowlink;
+                    };
+                    &:visited img {
+                        background: $arrowvisited;
+                    };
+                    &:active img, &:hover img, &:focus img {
+                        background: $arrowactive
+                    };
+                };
+                & a img {
+                    border: ridge medium $accent;
+                }
+            };
+            padding-left: 0;
+        }
+
+        li + li,
+        p + p {
+            margin-top: 0.5em;
+        }
+        /*TODO: Fix the skip link hiding method*/
+        #skippy {
+            text-align: left;
+            grid-area: skippy;
+        }
+
+        #skippy a,
+        #skippy a:hover,
+        #skippy a:visited {
+            position: absolute;
+            left: -10000px;
+            top: auto;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
+
+        #skippy a:active,
+        #skippy a:focus {
+            position: static;
+            height: auto;
+            width: auto;
+            font-size: 1em;
+            margin-top: 0;
+            color: #0000ff;
+        }
+
+        main {
+            grid-area: main;
+            margin-top: 1em;
+        }
+
+        ol {
+            line-height: 2em;
+            padding: 0 1em;
+        }
+
+        header {
+            grid-area: header;
+        }
+
+        nav ul {
+            max-width: 99vw;
+            padding: 0 1em;
+
+            li {
+                display: inline-block;
+                list-style-type: none;
+                padding: 1em;
+            }
+        }
+
+        #commentary,
+        #transcript {
+            text-align: left;
+        }
+
+        .statline {
+            font-weight: bold;
+        }
+
+        a:link {
+            color: $link;
+            text-decoration: underline
+        }
+
+        a:visited {
+            color: $visited;
+        }
+
+        a:hover, a:focus, a:active {
+            color: $active;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            grid-area: footer;
+            margin: 1em 0 0;
+            text-align: left;
+            padding: 1em 0.5em 0;
+        }
+
+        main > section {
+            text-align: left;
+        }
+
+        embed,
+        img,
+        object,
+        video {
+            max-width: 99vw;
+        }
+
+        .action {
+            font-weight: bold;
+        }
+
+        .charname {
+            font-weight: bold;
+        }
+
+        .char {
+            display: grid;
+            grid-gap: 1em;
+            margin-left: 0.5em;
+            justify-items: start;
+            align-items: start;
+            text-align: left;
+            grid-template-areas: "cname cname" "portrait traits" "description description";
+        }
+
+        .charname {
+            grid-area: cname;
+        }
+
+        .charimg {
+            grid-area: portrait;
+            border: ridge medium $accent;
+        }
+
+        .chartraits {
+            grid-area: traits;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            display: grid;
+            grid-auto-flow: row;
+            justify-content: center;
+            overflow-wrap: break-word;
+
+            dd, dt {
+                margin: 0;
+                padding: 0;
+            };
+
+            dt {
+                grid-column-start: 1;
+                margin: 0;
+                padding: 0.5em;
+                text-align: right;
+                line-height: 1.5em;
+                font-weight: bold;
+
+                &:after {
+                    content: ":";
+                }
+            };
+
+            dd {
+                grid-column-end: 3;
+                margin: 0;
+                padding: 0.5em;
+                line-height: 1.5em;
+                text-align: left;
+            }
+        }
+
+        .chartext {
+            grid-area: description;
+            text-align: left;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .chapterarch,
+        .tagslist {
+            list-style-type: none;
+        }
+
+        .char + .char {
+            background: $hbar top center no-repeat;
+        }
+
+        .allchars {
+            text-align: center;
+        }
+        /*Medium screens*/
+        @media screen and (min-width: 1024px) {
+
+            main {
+                padding: 1em 0em;
+                width: auto;
+                margin: 1em 10%;
+            }
+
+            header h1 {
+                padding: 0.5em 0em;
+                width: auto;
+                margin: 1em 10% 1em 10%;
+            }
+            main, header h1, footer {
+                box-shadow: 0em 0em 0.5em 0.5em $shadow
+            }
+            main > div, main > section {
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+
+            div + div {
+                margin-bottom: 0;
+                margin-top: 0;
+            }
+
+            nav ul, main {
+                margin-top: 0em;
+            }
+
+            .cominavbox {
+                margin: 1em 0;
+            }
+
+            figure + .cominavbox {
+                margin-top: 0;
+            }
+
+            figure img {
+                max-width: 100%;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            h2 {
+                font-size: 1.2em;
+            }
+
+            h3 {
+                font-size: 1em;
+            }
+
+            .statline {
+                font-size: 0.8em;
+                text-align: right;
+            }
+
+            footer p {
+                font-size: 0.7em;
+            }
+
+            main > section {
+                margin-left: 1em;
+                margin-right: 1em;
+                padding-left: 1em;
+                padding-right: 1em;
+            }
+
+            .main {
+                padding: 0.5em;
+                margin: auto;
+                // max-width: 60%;
+                text-align: center;
+
+                & p {
+                    margin-left: 0;
+                }
+            }
+
+            main > section .tagslist {
+                padding-left: 0em;
+                & li {
+                    margin-top: 0em;
+                    display: inline-block;
+                    padding: 0.5em;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,66 @@
+@media screen { /*Crystal*/
+  #crystal { /* Default (small) screens */ /*TODO: Fix the skip link hiding method*/ /*Medium screens*/ }
+  #crystal * { box-sizing: content-box; }
+  #crystal body { background-color: #000000; color: mistyrose; text-align: center; font-size: 1.5em; font-family: sans-serif; display: grid; grid-template-areas: 'skippy' 'header' 'main' 'footer'; grid-template-columns: auto; margin: 0; background: url("vcrystal.png") top -50px right 1em, url("vcrystal.png") top -50px left 1em #000000; background-repeat: no-repeat; }
+  #crystal footer { background: url("vcrystal.png") bottom -50px right 1em; background-repeat: no-repeat; }
+  #crystal figure, #crystal main { margin-left: 0; padding-left: 0; }
+  #crystal h1 { margin: 0; }
+  #crystal figure { padding: 1em 0; text-align: center; border: none; margin: 0; }
+  #crystal figcaption { padding: 1em 1em 0.5em; }
+  #crystal .main ul { padding: 0; }
+  #crystal .main ul li { border: solid medium lavender; list-style-type: none; padding: 1em; margin: 0.5em; }
+  #crystal .cominavbox { display: grid; grid-template-columns: repeat(4, auto); grid-template-rows: auto; align-items: end; padding-left: 0; }
+  #crystal .cominavbox li { list-style-type: none; }
+  #crystal li + li, #crystal p + p { margin-top: 0.5em; }
+  #crystal #skippy { text-align: left; grid-area: skippy; }
+  #crystal #skippy a, #crystal #skippy a:hover, #crystal #skippy a:visited { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+  #crystal #skippy a:active, #crystal #skippy a:focus { position: static; height: auto; width: auto; font-size: 1em; margin-top: 0; color: #0000ff; }
+  #crystal main { grid-area: main; margin-top: 1em; }
+  #crystal ol { line-height: 2em; padding: 0 1em; }
+  #crystal header { grid-area: header; }
+  #crystal nav ul { max-width: 99vw; padding: 0 1em; }
+  #crystal nav ul li { display: inline-block; list-style-type: none; padding: 1em; }
+  #crystal #commentary, #crystal #transcript { text-align: left; }
+  #crystal .statline { font-weight: bold; }
+  #crystal a:link { color: #7c7cff; text-decoration: underline; }
+  #crystal a:visited { color: #b97cff; }
+  #crystal a:hover, #crystal a:focus, #crystal a:active { color: #ffffff; }
+  #crystal a:hover { text-decoration: underline; }
+  #crystal footer { grid-area: footer; margin: 1em 0 0; text-align: left; padding: 1em 0.5em 0; }
+  #crystal main > section { text-align: left; }
+  #crystal embed, #crystal img, #crystal object, #crystal video { max-width: 99vw; }
+  #crystal .action { font-weight: bold; }
+  #crystal .charname { font-weight: bold; }
+  #crystal .char { display: grid; grid-gap: 1em; margin-left: 0.5em; justify-items: start; align-items: start; text-align: left; grid-template-areas: "cname cname" "portrait traits" "description description"; }
+  #crystal .charname { grid-area: cname; }
+  #crystal .charimg { grid-area: portrait; border: solid medium lavender; }
+  #crystal .chartraits { grid-area: traits; margin: 0; padding: 0; width: 100%; display: grid; grid-auto-flow: row; justify-content: center; overflow-wrap: break-word; }
+  #crystal .chartraits dd, #crystal .chartraits dt { margin: 0; padding: 0; }
+  #crystal .chartraits dt { grid-column-start: 1; margin: 0; padding: 0.5em; text-align: right; line-height: 1.5em; font-weight: bold; }
+  #crystal .chartraits dt:after { content: ":"; }
+  #crystal .chartraits dd { grid-column-end: 3; margin: 0; padding: 0.5em; line-height: 1.5em; text-align: left; }
+  #crystal .chartext { grid-area: description; text-align: left; margin-top: 0; margin-bottom: 0; }
+  #crystal .chapterarch, #crystal .tagslist { list-style-type: none; }
+  #crystal .char + .char { background: url("hcrystal.png") top center no-repeat; }
+  #crystal figure { background: url("hcrystal.png") top center no-repeat, url("hcrystal.png") bottom center no-repeat; }
+  #crystal .allchars { text-align: center; } }
+@media screen and (min-width: 1024px) { #crystal main > div, #crystal main > section { padding: 0.5em 1em; width: 80%; margin: 1em 10%; box-shadow: 0em 0em 1em 0.5em lavender; }
+  #crystal div + div, #crystal section + section { margin-bottom: 3em; margin-top: 3em; }
+  #crystal nav ul, #crystal main { margin-top: 0em; }
+  #crystal #topbox { margin: 0em 0em 3em 0em; }
+  #crystal #botbox { margin: 3em 0em; }
+  #crystal figure#comic { box-shadow: 0em 0em 1em 0.5em lavender; padding: 2em 0em; background: url("hcrystal.png") top 1em center no-repeat, url("hcrystal.png") bottom 1em center no-repeat; }
+  #crystal figure img { max-width: 100%; }
+  #crystal .char + .char { background: url("hcrystal.png") top 0.5em center no-repeat; }
+  #crystal h1 { font-size: 1.5em; margin-bottom: 2em; }
+  #crystal h2 { font-size: 1.2em; }
+  #crystal h3 { font-size: 1em; }
+  #crystal .statline { font-size: 0.8em; text-align: right; }
+  #crystal footer p { font-size: 0.7em; }
+  #crystal main > section { margin-left: 1em; margin-right: 1em; padding-left: 1em; padding-right: 1em; }
+  #crystal .main { padding: 0.5em; margin: auto; text-align: center; }
+  #crystal .main p { margin-left: 0; }
+  #crystal main > section .tagslist { padding-left: 0em; }
+  #crystal main > section .tagslist li { margin-top: 0em; display: inline-block; padding: 0.5em; } }
+
+/*# sourceMappingURL=style.css.map */

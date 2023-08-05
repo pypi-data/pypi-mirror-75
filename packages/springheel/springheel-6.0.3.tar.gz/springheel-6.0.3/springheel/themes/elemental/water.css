@@ -1,0 +1,70 @@
+@media screen { /*Elemental*/
+  #elemental { /* Water */ /* Fire */ /* Earth */ /* Air */ /* Spirit */ /* Default (small) screens */ /*TODO: Fix the skip link hiding method*/ /*Medium screens*/ }
+  #elemental * { box-sizing: content-box; }
+  #elemental body { background-color: #212945; background-image: url("water.png"); background-attachment: fixed; color: aliceblue; text-align: center; font-size: 1.5em; font-family: sans-serif; display: grid; grid-template-areas: 'skippy' 'header' 'main' 'footer'; grid-template-columns: auto; margin: 0; }
+  #elemental footer { background: url("dclouds.png") #212945; border-top: ridge medium #6090f8; }
+  #elemental main, #elemental header h1, #elemental nav ul li { margin-left: 0; padding-left: 0; background: url("dclouds.png") #212945; color: aliceblue; border: ridge medium #6090f8; }
+  #elemental h1 { margin: 0; }
+  #elemental figure { padding: 1em 0; text-align: center; border: none; margin: 0; }
+  #elemental figcaption { padding: 1em 1em 0.5em; }
+  #elemental .main ul { padding: 0; }
+  #elemental .main ul li { border: solid medium #6090f8; list-style-type: none; padding: 1em; margin: 0.5em; }
+  #elemental .cominavbox { display: grid; grid-template-columns: repeat(4, auto); grid-template-rows: auto; align-items: end; padding-left: 0; }
+  #elemental .cominavbox li { list-style-type: none; }
+  #elemental .cominavbox li a:link img { background: #aabddf; }
+  #elemental .cominavbox li a:visited img { background: #dcbdff; }
+  #elemental .cominavbox li a:active img, #elemental .cominavbox li a:hover img, #elemental .cominavbox li a:focus img { background: #ffffff; }
+  #elemental .cominavbox li a img { border: ridge medium #6090f8; }
+  #elemental li + li, #elemental p + p { margin-top: 0.5em; }
+  #elemental #skippy { text-align: left; grid-area: skippy; }
+  #elemental #skippy a, #elemental #skippy a:hover, #elemental #skippy a:visited { position: absolute; left: -10000px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+  #elemental #skippy a:active, #elemental #skippy a:focus { position: static; height: auto; width: auto; font-size: 1em; margin-top: 0; color: #0000ff; }
+  #elemental main { grid-area: main; margin-top: 1em; }
+  #elemental ol { line-height: 2em; padding: 0 1em; }
+  #elemental header { grid-area: header; }
+  #elemental nav ul { max-width: 99vw; padding: 0 1em; }
+  #elemental nav ul li { display: inline-block; list-style-type: none; padding: 1em; }
+  #elemental #commentary, #elemental #transcript { text-align: left; }
+  #elemental .statline { font-weight: bold; }
+  #elemental a:link { color: #aabddf; text-decoration: underline; }
+  #elemental a:visited { color: #dcbdff; }
+  #elemental a:hover, #elemental a:focus, #elemental a:active { color: #ffffff; }
+  #elemental a:hover { text-decoration: underline; }
+  #elemental footer { grid-area: footer; margin: 1em 0 0; text-align: left; padding: 1em 0.5em 0; }
+  #elemental main > section { text-align: left; }
+  #elemental embed, #elemental img, #elemental object, #elemental video { max-width: 99vw; }
+  #elemental .action { font-weight: bold; }
+  #elemental .charname { font-weight: bold; }
+  #elemental .char { display: grid; grid-gap: 1em; margin-left: 0.5em; justify-items: start; align-items: start; text-align: left; grid-template-areas: "cname cname" "portrait traits" "description description"; }
+  #elemental .charname { grid-area: cname; }
+  #elemental .charimg { grid-area: portrait; border: ridge medium #6090f8; }
+  #elemental .chartraits { grid-area: traits; margin: 0; padding: 0; width: 100%; display: grid; grid-auto-flow: row; justify-content: center; overflow-wrap: break-word; }
+  #elemental .chartraits dd, #elemental .chartraits dt { margin: 0; padding: 0; }
+  #elemental .chartraits dt { grid-column-start: 1; margin: 0; padding: 0.5em; text-align: right; line-height: 1.5em; font-weight: bold; }
+  #elemental .chartraits dt:after { content: ":"; }
+  #elemental .chartraits dd { grid-column-end: 3; margin: 0; padding: 0.5em; line-height: 1.5em; text-align: left; }
+  #elemental .chartext { grid-area: description; text-align: left; margin-top: 0; margin-bottom: 0; }
+  #elemental .chapterarch, #elemental .tagslist { list-style-type: none; }
+  #elemental .char + .char { background: url("waterh.png") top center no-repeat; }
+  #elemental .allchars { text-align: center; } }
+@media screen and (min-width: 1024px) { #elemental main { padding: 1em 0em; width: auto; margin: 1em 10%; }
+  #elemental header h1 { padding: 0.5em 0em; width: auto; margin: 1em 10% 1em 10%; }
+  #elemental main, #elemental header h1, #elemental footer { box-shadow: 0em 0em 0.5em 0.5em #001; }
+  #elemental main > div, #elemental main > section { padding-left: 1em; padding-right: 1em; }
+  #elemental div + div { margin-bottom: 0; margin-top: 0; }
+  #elemental nav ul, #elemental main { margin-top: 0em; }
+  #elemental .cominavbox { margin: 1em 0; }
+  #elemental figure + .cominavbox { margin-top: 0; }
+  #elemental figure img { max-width: 100%; }
+  #elemental h1 { font-size: 1.5em; }
+  #elemental h2 { font-size: 1.2em; }
+  #elemental h3 { font-size: 1em; }
+  #elemental .statline { font-size: 0.8em; text-align: right; }
+  #elemental footer p { font-size: 0.7em; }
+  #elemental main > section { margin-left: 1em; margin-right: 1em; padding-left: 1em; padding-right: 1em; }
+  #elemental .main { padding: 0.5em; margin: auto; text-align: center; }
+  #elemental .main p { margin-left: 0; }
+  #elemental main > section .tagslist { padding-left: 0em; }
+  #elemental main > section .tagslist li { margin-top: 0em; display: inline-block; padding: 0.5em; } }
+
+/*# sourceMappingURL=style.css.map */
