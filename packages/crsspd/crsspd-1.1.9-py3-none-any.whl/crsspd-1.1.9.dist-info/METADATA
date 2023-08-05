@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: crsspd
+Version: 1.1.9
+Summary: This is my personal toolkit.
+Home-page: https://github.com/wsywddr
+Author: Chris Chen
+Author-email: wsywddr@163.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: beautifulsoup4 (==4.7.1)
+Requires-Dist: fake-useragent (==0.1.11)
+
+UNKNOWN
+
+
