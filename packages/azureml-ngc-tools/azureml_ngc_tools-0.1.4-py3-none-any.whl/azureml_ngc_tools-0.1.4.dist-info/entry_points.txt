@@ -1,0 +1,4 @@
+
+    [console_scripts]
+    azureml-ngc-tools=azureml_ngc_tools.cli.azureml_ngc:go
+    
