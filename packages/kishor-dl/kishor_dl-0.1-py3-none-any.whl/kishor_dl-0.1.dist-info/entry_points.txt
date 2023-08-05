@@ -1,0 +1,3 @@
+[console_scripts]
+kishor_dl = kishor_dl.download:kishor
+
