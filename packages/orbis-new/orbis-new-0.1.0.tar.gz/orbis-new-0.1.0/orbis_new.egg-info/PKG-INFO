@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: orbis-new
+Version: 0.1.0
+Summary: Real time Electron flux data
+Home-page: https://github.com/donglai96/ORBIS_new
+Author: Donglai Ma
+Author-email: dma96@atmos.ucla.edu
+License: MIT
+Description: # ORBIS_new
+        ORBIS model to predict/nowcast the radiation belt flux in different channel
+        
+Keywords: predict radiation-belt
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
