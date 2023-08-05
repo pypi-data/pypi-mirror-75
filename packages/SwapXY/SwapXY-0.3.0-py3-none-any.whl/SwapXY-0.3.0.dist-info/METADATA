@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: SwapXY
+Version: 0.3.0
+Summary: Swap and/or reverse the X and Y axes used by the jog controls
+Home-page: https://gitlab.com/wolframmfg/octoprint-swapxy
+Author: Andy Castille
+Author-email: andy.castille@wolframmfg.com
+License: GPLv3
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Manufacturing
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown
+Requires-Dist: OctoPrint
+
+# SwapXY
+
+An OctoPrint plugin to swap the X and Y axes used by the jog controls.
+
+## Setup
+
+Install via the plugin manager by searching for [SwapXY](https://plugins.octoprint.org/plugins/swapxy/).
+
+As long as the plugin is enabled, the jog buttons for X and Y will
+drive the other axis instead.
+
+To drive one or both of these axes in the opposite direction (negative/positive), enable the reverse option for that axis.
+
+## Config
+
+These options can also be changed from the web UI settings window.
+
+Default config:
+
+```yaml
+plugins:
+    swapxy:
+        reverse:
+            X: false
+            Y: false
+```
+
+# Advanced
+
+Archive URL: https://gitlab.com/wolframmfg/octoprint-swapxy/-/archive/main/octoprint-swapxy-main.zip
+
+PyPI package: https://pypi.org/project/SwapXY/
+
+---
+
+Developed by
+
+[![Wolfram Manufacturing](https://gitlab.com/wolframmfg/octoprint-swapxy/-/raw/main/wolframmfg.png)](https://wolframmfg.com/)
+
+
