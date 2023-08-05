@@ -1,0 +1,8 @@
+future
+numpy
+scipy
+matplotlib
+
+[docs]
+Sphinx==1.4
+sphinx_rtd_theme
