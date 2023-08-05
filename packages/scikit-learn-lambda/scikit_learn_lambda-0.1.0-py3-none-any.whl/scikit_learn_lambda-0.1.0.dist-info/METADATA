@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: scikit-learn-lambda
+Version: 0.1.0
+Summary: A handler for scikit learn models on AWS Lambda
+Home-page: https://www.modelzoo.dev
+Author: Model Zoo, Inc.
+Author-email: contact@modelzoo.dev
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6
+Requires-Dist: scikit-learn
+Requires-Dist: joblib
+Requires-Dist: boto3
+
+UNKNOWN
+
+
