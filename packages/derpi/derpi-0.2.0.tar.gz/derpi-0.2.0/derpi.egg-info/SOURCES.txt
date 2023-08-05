@@ -1,0 +1,15 @@
+README.md
+setup.py
+derpi/__init__.py
+derpi.egg-info/PKG-INFO
+derpi.egg-info/SOURCES.txt
+derpi.egg-info/dependency_links.txt
+derpi.egg-info/requires.txt
+derpi.egg-info/top_level.txt
+derpi/asyncrounous/__init__.py
+derpi/asyncrounous/client.py
+derpi/asyncrounous/models.py
+derpi/syncrounous/__init__.py
+derpi/syncrounous/client.py
+derpi/syncrounous/models.py
+derpi/syncrounous/search.py
