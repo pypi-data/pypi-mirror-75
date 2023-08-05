@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+pyilluminate/__init__.py
+pyilluminate/_version.py
+pyilluminate/illuminate.py
+pyilluminate.egg-info/PKG-INFO
+pyilluminate.egg-info/SOURCES.txt
+pyilluminate.egg-info/dependency_links.txt
+pyilluminate.egg-info/requires.txt
+pyilluminate.egg-info/top_level.txt
