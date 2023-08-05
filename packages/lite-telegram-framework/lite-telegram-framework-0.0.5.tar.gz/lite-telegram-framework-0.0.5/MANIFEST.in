@@ -1,0 +1,9 @@
+include README.md LICENSE VERSION
+
+global-exclude *.py[co]
+global-exclude __pycache__
+global-exclude .pytest_cache
+
+exclude tasks.py tests tmp pypi.sh publish.sh
+
+prune .git venv
