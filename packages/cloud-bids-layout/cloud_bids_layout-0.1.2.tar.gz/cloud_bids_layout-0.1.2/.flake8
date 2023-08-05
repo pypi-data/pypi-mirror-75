@@ -1,0 +1,4 @@
+[flake8]
+max-line-length = 88
+exclude = setup.py,build,dist,docs,examples,cloud_bids_layout/version.py
+
