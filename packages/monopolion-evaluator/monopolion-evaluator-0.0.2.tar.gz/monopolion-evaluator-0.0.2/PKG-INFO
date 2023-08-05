@@ -1,0 +1,100 @@
+Metadata-Version: 1.2
+Name: monopolion-evaluator
+Version: 0.0.2
+Summary: Neural net to predict winning probability in Monopoly
+Home-page: https://github.com/miermans/monopolion-evaluator
+Author: Matt Miermans
+Author-email: m.miermans@gmail.com
+License: MIT
+Project-URL: Documentation, https://monopolion-evaluator.readthedocs.io/
+Project-URL: Changelog, https://monopolion-evaluator.readthedocs.io/en/latest/changelog.html
+Project-URL: Issue Tracker, https://github.com/miermans/monopolion-evaluator/issues
+Description: ========
+        Overview
+        ========
+        
+        
+        
+        Neural net to predict winning probability in Monopoly
+        
+        * Free software: MIT license
+        
+        Installation
+        ============
+        
+        ::
+        
+            pip install monopolion-evaluator
+        
+        You can also install the in-development version with::
+        
+            pip install https://github.com/miermans/monopolion-evaluator/archive/master.zip
+        
+        
+        Documentation
+        =============
+        
+        
+        https://monopolion-evaluator.readthedocs.io/
+        
+        
+        Development
+        ===========
+        
+        To run all the tests run::
+        
+            tox
+        
+        Note, to combine the coverage data from all the tox environments run:
+        
+        .. list-table::
+            :widths: 10 90
+            :stub-columns: 1
+        
+            - - Windows
+              - ::
+        
+                    set PYTEST_ADDOPTS=--cov-append
+                    tox
+        
+            - - Other
+              - ::
+        
+                    PYTEST_ADDOPTS=--cov-append tox
+        
+        
+        Changelog
+        =========
+        
+        0.0.2 (2020-07-26)
+        ------------------
+        
+        * Parses GameOutcome protobuf
+        * Converts protobuf to Pandas DataFrame
+        
+        0.0.1 (2020-07-25)
+        ------------------
+        
+        * Removed requirements.io to let build pass on Travis.
+        * Removed support for Python <= 3.5.
+        
+        0.0.0 (2020-07-24)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: monopoly,ai,machine learning,neural network,deep learning
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6, <4
