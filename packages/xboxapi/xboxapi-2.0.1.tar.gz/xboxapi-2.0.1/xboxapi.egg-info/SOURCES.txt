@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+xboxapi/VERSION
+xboxapi/__init__.py
+xboxapi/client.py
+xboxapi/gamer.py
+xboxapi.egg-info/PKG-INFO
+xboxapi.egg-info/SOURCES.txt
+xboxapi.egg-info/dependency_links.txt
+xboxapi.egg-info/requires.txt
+xboxapi.egg-info/top_level.txt
