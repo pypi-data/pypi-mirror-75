@@ -1,0 +1,1 @@
+from likert_plot.likert_plot import plot_likert_scales

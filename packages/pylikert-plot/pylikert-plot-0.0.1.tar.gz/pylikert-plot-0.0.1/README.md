@@ -1,0 +1,1 @@
+Plot likert questions in stacked distributed plot style
