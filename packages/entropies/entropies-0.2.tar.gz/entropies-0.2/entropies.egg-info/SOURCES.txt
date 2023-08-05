@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+entropies/__init__.py
+entropies/main.py
+entropies.egg-info/PKG-INFO
+entropies.egg-info/SOURCES.txt
+entropies.egg-info/dependency_links.txt
+entropies.egg-info/requires.txt
+entropies.egg-info/top_level.txt
+test/test_entropies.py
