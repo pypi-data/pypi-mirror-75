@@ -1,0 +1,17 @@
+.gitignore
+LICENSE.txt
+README.rst
+setup.cfg
+setup.py
+katversion/__init__.py
+katversion/build.py
+katversion/version.py
+katversion.egg-info/PKG-INFO
+katversion.egg-info/SOURCES.txt
+katversion.egg-info/dependency_links.txt
+katversion.egg-info/entry_points.txt
+katversion.egg-info/not-zip-safe
+katversion.egg-info/pbr.json
+katversion.egg-info/top_level.txt
+katversion/test/test_version.py
+scripts/kat-get-version.py
