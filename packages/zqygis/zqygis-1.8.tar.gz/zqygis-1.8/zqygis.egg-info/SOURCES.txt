@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.py
+zqygis/__init__.py
+zqygis/getcity.py
+zqygis/getpoi.py
+zqygis.egg-info/PKG-INFO
+zqygis.egg-info/SOURCES.txt
+zqygis.egg-info/dependency_links.txt
+zqygis.egg-info/requires.txt
+zqygis.egg-info/top_level.txt
