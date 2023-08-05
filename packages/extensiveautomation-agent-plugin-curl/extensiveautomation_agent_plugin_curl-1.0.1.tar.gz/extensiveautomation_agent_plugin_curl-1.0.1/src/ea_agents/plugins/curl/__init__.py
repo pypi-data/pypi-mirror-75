@@ -1,0 +1,1 @@
+from ea_agents.plugins.curl.agent_curl import initialize
