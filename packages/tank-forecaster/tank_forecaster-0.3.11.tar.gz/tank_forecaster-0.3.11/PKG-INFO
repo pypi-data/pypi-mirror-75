@@ -1,0 +1,53 @@
+Metadata-Version: 1.2
+Name: tank_forecaster
+Version: 0.3.11
+Summary: small package for generating forecasts for gas tanks
+Home-page: https://www.capspire.com
+Author: Jim Vogel
+Author-email: james.vogel@capspire.com
+License: UNKNOWN
+Description: ===============
+        Tank Forecaster
+        ===============
+        
+        
+        
+        
+        
+        
+        small package for generating forecasts for gas tanks
+        
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2020-05-11)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: tank_forecaster
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
