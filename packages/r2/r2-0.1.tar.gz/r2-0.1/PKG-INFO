@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: r2
+Version: 0.1
+Summary: Software 'r2' is designed to record and play responses (to mock) from REST API services
+Home-page: https://github.com/NexSabre/r2
+Author: Nex Sabre
+Author-email: nexsabre@protonmail.com
+License: UNKNOWN
+Description: # r2
+        Request-Replay is simple tool to record your requests on specific target and later replay it to automate your daily tasks
+        
+        This version is still Work In Progress. Record/Replay function should work with no problems, but it is lack of features. 
+        
+        ## TODO
+        - Implement an option to parse arguments ex `http://127.0.0.1:5000/search?q=title:DNA`. Actual version will pass 
+        everything on the right side of the `?` and save a file under `search`.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
