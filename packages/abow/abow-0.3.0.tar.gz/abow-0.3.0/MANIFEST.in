@@ -1,0 +1,18 @@
+# Include the docs and the LICENSE
+include changelog.md LICENSE.md README.md usage.md welcome.md
+
+# Include the bottle templates
+recursive-include abow/views *.tpl
+
+# Include the static assets
+recursive-include abow/static *.css *.js *.svg *.png
+
+# Include the translations
+recursive-include abow/locale *.mo
+include abow/locale/abow.pot
+
+# Include the configuration example
+include config.example
+
+# Include the tests
+recursive-include tests *.py
