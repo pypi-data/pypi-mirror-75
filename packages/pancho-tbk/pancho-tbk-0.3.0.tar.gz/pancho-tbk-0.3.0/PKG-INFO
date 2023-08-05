@@ -1,0 +1,204 @@
+Metadata-Version: 2.1
+Name: pancho-tbk
+Version: 0.3.0
+Summary: Unofficial TBK Web Services Python SDK
+Home-page: https://github.com/cornershop/python-tbk
+License: MIT
+Keywords: payments,python,transbank,chile
+Author: Cornershop
+Author-email: tech@cornershopapp.com
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, !=3.5.*
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: typing (>=3.6); python_version >= "2.7" and python_version < "2.8"
+Requires-Dist: xmlsec (>=0.6.1)
+Requires-Dist: zeep (>=3.0.0)
+Project-URL: Repository, https://github.com/cornershop/python-tbk
+Description-Content-Type: text/x-rst
+
+======================================
+Unofficial TBK Web Services Python SDK
+======================================
+
+.. image:: https://circleci.com/gh/cornershop/python-tbk/tree/master.svg?style=svg
+    :target: https://circleci.com/gh/cornershop/python-tbk/tree/master
+
+.. image:: https://badge.fury.io/py/python-tbk.svg
+    :target: https://pypi.org/project/python-tbk/
+
+Requirements
+============
+
+* python: ~2.7, ^3.6
+* libxml2 >= 2.9.1
+* libxmlsec1 >= 1.2.14
+
+----------
+
+🇬🇧
+
+Installation
+============
+
+Just run::
+
+    $ pip install python-tbk
+
+
+Usage
+=====
+
+As simple as call (snakecased) webpay api methods::
+
+    >>> from tbk.services import WebpayService
+    >>> from tbk.commerce import Commerce
+    >>> from tbk import INTEGRACION
+    >>> commerce = Commerce(commerce_code, key_data, cert_data, tbk_cert_data, INTEGRACION)
+    >>> webpay = WebpayService(commerce)
+    >>> transaction = webpay.init_transaction(amount, buy_order, return_url, final_url)
+    >>> print(transaction['token'])
+    e87df74f7af4dcfdc1d17521b07413ff9a004a7b423dc47ad09f6a8166a73842
+
+
+Conventions
+===========
+
+This library use a snake cased naming convention for webservices and params for a more pythonic implementation. Every camelcased name in the webpay API was transformed to snakecase::
+
+    initTransaction(amount, buyOrder, returnURL, finalURL, sessionId)
+
+became::
+
+    init_transaction(amount, buy_order, return_url, final_url, session_id)
+
+
+Oneclick Mall Service
+=====================
+
+A list of :code:`tbk.services.StoreInput` input is expected as :code:`wsOneClickMulticodeStorePaymentInput` for :code:`stores_input` parameter on :code:`authorize` method.
+
+Documentation
+=============
+
+You can refer to http://www.transbankdevelopers.cl/?m=api for official API documentation. This library documentation is on the way.
+
+
+Loggers
+=======
+
+There are two levels of loggers::
+
+    tbk.services
+    tbk.soap
+
+Specific service logger are defined by class name::
+
+    tbk.services.WebpayService
+
+
+Bugs?
+=====
+
+Issues are welcome at https://github.com/cornershop/python-tbk/issues
+
+
+🇪🇸
+
+Instalación
+===========
+
+Ejecuta::
+
+    $ pip install python-tbk
+
+
+Uso
+===
+
+Tan simple como llamar los métodos del API de Webpay (pero snakecased)::
+
+    >>> from tbk.services import WebpayService
+    >>> from tbk.commerce import Commerce
+    >>> from tbk import INTEGRACION
+    >>> commerce = Commerce(commerce_code, key_data, cert_data, tbk_cert_data, INTEGRACION)
+    >>> webpay = WebpayService(commerce)
+    >>> transaction = webpay.init_transaction(amount, buy_order, return_url, final_url)
+    >>> print(transaction['token'])
+    e87df74f7af4dcfdc1d17521b07413ff9a004a7b423dc47ad09f6a8166a73842
+
+
+Convenciones
+============
+
+La librería usa una convención de nombres snakecased para ser más pythonica. Cada nombre camelcased en el API de Webpay se transformó a snakecased::
+
+    initTransaction(amount, buyOrder, returnURL, finalURL, sessionId)
+
+se traduce en::
+
+    init_transaction(amount, buy_order, return_url, final_url, session_id)
+
+
+Servicio Oneclick Mall
+======================
+
+El método :code:`authorize` espera una lista de :code:`tbk.services.StoreInput` en el parámetro :code:`stores_input` que se corresponde con la definición de :code:`wsOneClickMulticodeStorePaymentInput`.
+
+
+Documentación
+=============
+
+La documentación oficial se encuentra disponible en http://www.transbankdevelopers.cl/?m=api. La documentación de esta librería está en desarrollo.
+
+
+Loggers
+=======
+
+Se encuentran definidos dos niveles de logger::
+
+    tbk.services
+    tbk.soap
+
+El logger específico de un servicio está definido por su nombre de clase::
+
+    tbk.services.WebpayService
+
+
+
+----------
+
+
+Testing cards / Tarjetas de prueba
+==================================
+
+Credit / Crédito
+
++----------------+------------------+------------------+
+| Marca          | VISA             | MASTERCARD       |
++================+==================+==================+
+| No de Tarjeta  | 4051885600446623 | 5186059559590568 |
++----------------+------------------+------------------+
+| Año Expiración | Cualquiera       | Cualquiera       |
++----------------+------------------+------------------+
+| CVV            | 123              | 123              |
++----------------+------------------+------------------+
+| Resultado      | APROBADO         | RECHAZADO        |
++----------------+------------------+------------------+
+
+Debit / Débito
+
++----------+------------------+------------------+
+|          | APRUEBA          | RECHAZA          |
++==========+==================+==================+
+| TARJETA  | 4051885600446620 | 5186059559590560 |
++----------+------------------+------------------+
+| RUT      | 11.111.111-1     | 11.111.111-1     |
++----------+------------------+------------------+
+| PASSWORD | 123              | 123              |
++----------+------------------+------------------+
+
