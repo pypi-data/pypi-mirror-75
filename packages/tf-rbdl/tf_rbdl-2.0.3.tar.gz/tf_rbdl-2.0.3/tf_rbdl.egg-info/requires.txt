@@ -1,0 +1,13 @@
+numpy>=1.16.0
+setuptools>=41.0.0
+
+[examples]
+pybullet
+gym
+tqdm
+
+[tf]
+tensorflow>=2.0.0
+
+[tf_gpu]
+tensorflow-gpu>=2.0.0
