@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "cooperative_dataclasses"
+version = "0.2.2"
+description = "Cooperative dataclasses."
+license = "MIT"
+authors = ["Neil Girdhar <mistersheik@gmail.com>"]
+readme = "README.rst"
+repository = "https://github.com/NeilGirdhar/cooperative_dataclasses"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+
+[tool.isort]
+line_length = 100
+known_first_party = []
+known_third_party = []
+multi_line_output = 0
+skip_glob = [".pytype/*.py"]
+skip = []
+
+[tool.pycodestyle]
+max-line-length = 100
+exclude = ["__init__.py", "__pycache__", "README.rst"]
+
+[tool.pytest]
+norecursedirs = "backup"
+
+[tool.pytype]
+disable = "ignored-abstractmethod"
+exclude = ["**/*_test.py", "**/test_*.py'"]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
