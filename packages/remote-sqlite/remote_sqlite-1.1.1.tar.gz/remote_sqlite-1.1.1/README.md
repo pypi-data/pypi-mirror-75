@@ -1,0 +1,192 @@
+
+# RemoteSqlite
+
+RemoteSqlite is a way to easily access a remote Sqlite database and perform queries, including SELECT and INSERT operations
+
+The remote database is referenced through a [PyFilesystem2](https://docs.pyfilesystem.org/en/latest/) url, such as:
+
+- `osfs://path/to/file`
+- `s3://path/to/file`
+
+You can perform `pull` and `push` operations that transfer the database to a local temp directory
+
+See below for examples of how to use
+
+
+```python
+from remote_sqlite import RemoteSqlite
+db = RemoteSqlite('osfs:///Users/vbalasubramaniam/Downloads/Northwind_large.sqlite', always_download=True)
+db.get_counts()
+```
+
+
+
+
+    [{'Employee': 9},
+     {'Category': 8},
+     {'Customer': 91},
+     {'Shipper': 3},
+     {'Supplier': 29},
+     {'Order': 16818},
+     {'Product': 77},
+     {'OrderDetail': 621883},
+     {'CustomerCustomerDemo': 0},
+     {'CustomerDemographic': 0},
+     {'Region': 4},
+     {'Territory': 53},
+     {'EmployeeTerritory': 49},
+     {'posts': 0},
+     {'posts_data': 2},
+     {'posts_idx': 0},
+     {'posts_content': 0},
+     {'posts_docsize': 0},
+     {'posts_config': 1},
+     {'order_search': 16818},
+     {'order_search_data': 226},
+     {'order_search_idx': 474},
+     {'order_search_content': 16818},
+     {'order_search_docsize': 16818},
+     {'order_search_config': 1}]
+
+
+
+
+```python
+db.select("""SELECT * FROM Shipper""")
+```
+
+
+
+
+    [{'Id': 1, 'CompanyName': 'Speedy Express', 'Phone': '(503) 555-9831'},
+     {'Id': 2, 'CompanyName': 'United Package', 'Phone': '(503) 555-3199'},
+     {'Id': 3, 'CompanyName': 'Federal Shipping', 'Phone': '(503) 555-9931'}]
+
+
+
+
+```python
+new_records = [{'Id': 4, 'CompanyName': 'Speedy Express', 'Phone': '(503) 555-9831'},
+ {'Id': 5, 'CompanyName': 'United Package', 'Phone': '(503) 555-3199'},
+ {'Id': 6, 'CompanyName': 'Federal Shipping', 'Phone': '(503) 555-9931'}]
+```
+
+
+```python
+db.insert('Shipper', new_records)
+```
+
+
+```python
+db.con.execute('DELETE FROM Shipper WHERE Id >3')
+```
+
+
+
+
+    <sqlite3.Cursor at 0x10535bab0>
+
+
+
+
+```python
+create_statement = """CREATE TABLE test (
+  id INTEGER PRIMARY KEY AUTOINCREMENT,
+  name TEXT,
+  t TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+)"""
+```
+
+
+```python
+db.con.execute(create_statement)
+```
+
+
+
+
+    <sqlite3.Cursor at 0x1053a43b0>
+
+
+
+
+```python
+db.insert('test', [{'name': 'John'},{'name':'Matt'}])
+```
+
+
+```python
+db.select('SELECT * FROM test')
+```
+
+
+
+
+    [{'id': 1, 'name': 'John', 't': datetime.datetime(2020, 3, 7, 22, 12, 45)},
+     {'id': 2, 'name': 'Matt', 't': datetime.datetime(2020, 3, 7, 22, 12, 45)}]
+
+
+
+
+```python
+db.con.execute('DROP TABLE test')
+```
+
+
+
+
+    <sqlite3.Cursor at 0x1053a42d0>
+
+
+
+
+```python
+db.generate_create_table('Shipper2', [{'Id': 1, 'CompanyName': 'Speedy Express', 'Phone': '(503) 555-9831'},
+ {'Id': 2, 'CompanyName': 'United Package', 'Phone': '(503) 555-3199'},
+ {'Id': 3, 'CompanyName': 'Federal Shipping', 'Phone': '(503) 555-9931'}])
+```
+
+
+
+
+    'CREATE TABLE "Shipper2" ("Id" TEXT, "CompanyName" TEXT, "Phone" TEXT)'
+
+
+
+
+```python
+db.con.execute('CREATE TABLE "Shipper2" ("Id" TEXT, "CompanyName" TEXT, "Phone" TEXT)')
+```
+
+
+
+
+    <sqlite3.Cursor at 0x1053a4340>
+
+
+
+
+```python
+db.insert('Shipper2', [{'Id': 1, 'CompanyName': 'Speedy Express', 'Phone': '(503) 555-9831'},
+ {'Id': 2, 'CompanyName': 'United Package', 'Phone': '(503) 555-3199'},
+ {'Id': 3, 'CompanyName': 'Federal Shipping', 'Phone': '(503) 555-9931'}])
+```
+
+
+```python
+db.select('SELECT * FROM Shipper2')
+```
+
+
+
+
+    [{'Id': '1', 'CompanyName': 'Speedy Express', 'Phone': '(503) 555-9831'},
+     {'Id': '2', 'CompanyName': 'United Package', 'Phone': '(503) 555-3199'},
+     {'Id': '3', 'CompanyName': 'Federal Shipping', 'Phone': '(503) 555-9931'}]
+
+
+
+
+```python
+
+```
