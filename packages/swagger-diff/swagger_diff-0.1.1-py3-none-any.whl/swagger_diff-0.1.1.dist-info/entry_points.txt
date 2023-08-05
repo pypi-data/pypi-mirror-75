@@ -1,0 +1,3 @@
+[console_scripts]
+swagger-diff=swagger_diff.main:main
+
