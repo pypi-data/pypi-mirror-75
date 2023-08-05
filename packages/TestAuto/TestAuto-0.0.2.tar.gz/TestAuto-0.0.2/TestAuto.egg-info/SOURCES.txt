@@ -1,0 +1,12 @@
+setup.py
+TestAuto/__init__.py
+TestAuto/create_project.py
+TestAuto/handle_path.py
+TestAuto/management.py
+TestAuto/run_test.py
+TestAuto.egg-info/PKG-INFO
+TestAuto.egg-info/SOURCES.txt
+TestAuto.egg-info/dependency_links.txt
+TestAuto.egg-info/entry_points.txt
+TestAuto.egg-info/requires.txt
+TestAuto.egg-info/top_level.txt
