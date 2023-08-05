@@ -1,0 +1,7 @@
+dataflows>=0.0.51
+kvfile>=0.0.7
+psycopg2-binary
+
+[develop]
+pylama
+tox
