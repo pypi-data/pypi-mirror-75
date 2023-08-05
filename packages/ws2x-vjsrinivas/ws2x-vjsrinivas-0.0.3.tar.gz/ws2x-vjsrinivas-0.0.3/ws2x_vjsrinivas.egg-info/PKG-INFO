@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: ws2x-vjsrinivas
+Version: 0.0.3
+Summary: A simple simulator for WS2812B-style LED strips
+Home-page: https://github.com/vjsrinivas/ws2x-strip
+Author: Vijay Rajagopal
+Author-email: vijaythinks@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/vjsrinivas/ws2x-strip/archive/0.0.1.tar.gz
+Description: LEDStrip
+        ========
+        
+        Python simulation of WS2812 (or probably other WS-type LEDs) LED strips commonly used by NeoPixel API.
+        
+        
+        ## Example 
+        ```
+        from led import LEDSim
+        import cv2
+        import numpy as np
+        
+        pixel = LEDSim()
+        pixel.fill((0,0,0))
+        
+        p = 0
+        for r in range(1,6):
+        	for g in range(1,6):
+        		for b in range(1,6):
+        			pixel[p] = (r,g,b)
+        			p += 1
+        
+        pixel.visualize()
+        ```
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Multimedia :: Graphics :: Editors :: Raster-Based
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
