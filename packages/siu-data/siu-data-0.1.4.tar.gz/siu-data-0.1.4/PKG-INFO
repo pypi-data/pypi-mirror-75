@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: siu-data
+Version: 0.1.4
+Summary: SIU data
+Home-page: https://github.com/avdata99/pySIUdata
+Author: Andres Vazquez
+Author-email: andres@data99.com.ar
+License: MIT
+Description: [![Build Status](https://travis-ci.org/avdata99/pySIUdata.svg?branch=master)](https://travis-ci.org/avdata99/pySIUdata)
+        
+        # py SIU data
+        Obtener datos de sistemas SIU
+        
+        Instalar
+        
+        ```
+        pip install siu-data
+        ```
+        
+        ## Portal de Transparencia
+        
+        Obtención de datos del portal de transparencia.
+        
+        Ejemplo de uso
+        
+        ``` python
+        from siu_data.portal_data import SIUPoratlTransparenciaData
+        s = SIUPoratlTransparenciaData(base_url='http://wichi.siu.edu.ar/pentaho/plugin/cda/api/doQuery',
+                                       username='usuario_transparencia',
+                                       password='clave_transparencia')
+        s.load_all_data()
+        s.save_metadata('lala.csv')
+        ```
+Keywords: SIU
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Description-Content-Type: text/markdown
