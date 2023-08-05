@@ -1,0 +1,13 @@
+requests
+tqdm
+humanize
+cache_decorator
+dict_hash>=1.1.10
+
+[test]
+pytest
+pytest-cov
+coveralls
+validate_version_code
+codacy-coverage
+dict_hash
