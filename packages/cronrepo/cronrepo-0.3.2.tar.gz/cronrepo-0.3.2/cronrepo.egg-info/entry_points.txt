@@ -1,0 +1,4 @@
+[console_scripts]
+cronrepo = cronrepo.__main__:cronrepo_mgr
+cronrepo_run = cronrepo.__main__:cronrepo_run
+
