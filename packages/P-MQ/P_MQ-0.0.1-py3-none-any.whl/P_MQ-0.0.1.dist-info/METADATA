@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: P-MQ
+Version: 0.0.1
+Summary: Automatically register models in the admin interface in a smart way.
+Home-page: https://github.com/Sonicoms/MQTT/blob/master/
+Author: Sonicom
+Author-email: 1030973627@qq.com
+License: MIT
+Keywords: python P-MQ admin autoregister
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Provides-Extra: test
+
+UNKNOWN
+
+
