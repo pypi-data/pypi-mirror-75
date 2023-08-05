@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: omi-cache-manager
+Version: 0.1.3
+Summary: An async cache manager implemented with [asyncio] and backends
+Home-page: https://github.com/limccn/omi_cache_manager
+Author: limccn
+Author-email: limccn@me.com
+License: Apache License 2.0
+Description: An async cache manager implemented with [asyncio] and backends,                         supports redis, plain dictionary, null cache and etc.                         redis cache is implemented with aredis and aio_redis.                         Notes: Install aio_redis or aredis when use redis cache
+Keywords: omi,cache_manager,asyncio,aredis,aio_redis
+Platform: any
