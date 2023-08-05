@@ -1,0 +1,8 @@
+[fyler.providers]
+anidb = fyler.providers.anidb:AniDBProvider
+anilist = fyler.providers.anilist:AniListProvider
+thetvdb = fyler.providers.thetvdb:TheTVDBProvider
+
+[gui_scripts]
+fyler = fyler.__main__:main
+
