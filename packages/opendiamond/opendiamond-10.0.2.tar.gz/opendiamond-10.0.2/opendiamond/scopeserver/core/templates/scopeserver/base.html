@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>{% block title %}Eureka Scopeserver{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'scopeserver/base.css' %}" />
+    <link rel="stylesheet" href="{% static 'scopeserver/style.css' %}" />
+    {% block head %}{% endblock %}
+</head>
+<body>
+    <h1>{% block pagetitle %}Eureka Scopeserver{% endblock %}</h1>
+    <div style="float: right">
+{% if user.is_authenticated %}
+    Welcome {{ user.username }}
+    <a href="{% url 'logout' %}?next={% url 'scopeserver:index' %}">Logout</a></li>
+{% else %}
+    <a href="{% url 'login' %}">Login</a></li>
+{% endif %}
+    </div>
+    <div id="sidebar">
+    {% block sidebar %}
+    <ul>
+        <li><a href="{% url 'scopeserver:index' %}">Home</a></li>
+{% url 'gatekeeper:index' as gatekeeper %}
+{% if gatekeeper %}
+    {% if user.is_staff or user.collection_set.all.count %}
+        <li><a href="{{ gatekeeper }}">Gatekeeper</a></li>
+    {% endif %}
+{% endif %}
+
+{% url 'cocktail:index' as cocktail %}
+{% if cocktail %}
+    {% if user.is_staff or user.cocktailbase_set.all.count %}
+        <li><a href="{{ cocktail }}">Cocktail</a></li>
+    {% endif %}
+{% endif %}
+
+{% url 'metadata:index' as metadata %}
+{% if metadata %}
+    {% if user.is_staff or user.metadatacollection_set.all.count %}
+        <li><a href="{{ metadata }}">Metadata</a></li>
+    {% endif %}
+{% endif %}
+
+{% url 'flickr:index' as flickr %}
+{% if flickr %}
+    {% if user.is_staff or perms.flickr.search %}
+        <li><a href="{{ flickr }}">Flickr</a></li>
+    {% endif %}
+{% endif %}
+
+{% url 'mirage:index' as mirage %}
+{% if mirage %}
+    {% if user.is_staff or perms.mirage.search %}
+        <li><a href="{{ mirage }}">Mirage</a></li>
+    {% endif %}
+{% endif %}
+
+{% url 'gigapan:index' as gigapan %}
+{% if gigapan %}
+    {% if user.is_staff or perms.gigapan.search %}
+	<li><a href="{{ gigapan }}">GigaPan</a></li>
+    {% endif %}
+{% endif %}
+
+{% if user.is_staff %}
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+{% endif %}
+    </ul>
+    {% endblock %}
+    </div>
+
+    <div id="content">
+    {% block content %}{% endblock %}
+    </div>
+    <script type="text/javascript" src="{% static 'scopeserver/jquery.js' %}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>
+

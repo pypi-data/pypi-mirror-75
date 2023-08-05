@@ -1,0 +1,54 @@
+#!/usr/bin/env python
+#
+#  The OpenDiamond Platform for Interactive Search
+#
+#  Copyright (c) 2011 Carnegie Mellon University
+#  All rights reserved.
+#
+#  This software is distributed under the terms of the Eclipse Public
+#  License, Version 1.0 which can be found in the file named LICENSE.
+#  ANY USE, REPRODUCTION OR DISTRIBUTION OF THIS SOFTWARE CONSTITUTES
+#  RECIPIENT'S ACCEPTANCE OF THIS AGREEMENT
+#
+
+import argparse
+import os
+from opendiamond.bundle import bundle_generic, parse_manifest, BUNDLE_NS_PFX
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(
+        description='Package an OpenDiamond predicate or codec.'
+    )
+    parser.add_argument('-o', '--outfile', help='path to output file')
+    parser.add_argument(
+        '--portable', dest='portable', action="store_true", default=False,
+        help='Create predicate containing all filter code and blob dat')
+    parser.add_argument('manifest', help="xml bundle description")
+    parser.add_argument('files', nargs="*", help="additional files to include")
+    args = parser.parse_args()
+
+    try:
+        with open(args.manifest, 'rb') as f:
+            buf = f.read()
+        element = parse_manifest(buf)
+        if element.tag == BUNDLE_NS_PFX + 'predicate':
+            suffix = '.pred'
+        elif element.tag == BUNDLE_NS_PFX + 'codec':
+            suffix = '.codec'
+        else:
+            raise Exception('Unknown root element ' + element.tag)
+
+        outfile = args.outfile
+        if outfile is None:
+            manifest_file = os.path.basename(args.manifest)
+            outfile = os.path.splitext(manifest_file)[0] + suffix
+
+        filemap = dict((os.path.basename(a), a) for a in args.files)
+
+        bundle_generic(
+           outfile, element, filemap,
+           os.path.dirname(args.manifest) if args.portable else None
+        )
+    except Exception as e:
+        parser.error(str(e))

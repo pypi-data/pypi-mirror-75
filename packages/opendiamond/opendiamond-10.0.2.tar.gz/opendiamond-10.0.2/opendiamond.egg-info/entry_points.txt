@@ -1,0 +1,5 @@
+[console_scripts]
+blaster = opendiamond.blaster.__main__:run [blaster]
+dataretriever = opendiamond.dataretriever.__main__:run [dataretriever]
+diamondd = opendiamond.server.__main__:run [diamondd]
+
