@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: bysh
+Version: 0.0.2
+Summary: The unstable bash
+Home-page: https://github.com/haytek/bysh
+Author: haytek
+Author-email: haytek34@gmail.com
+License: UNKNOWN
+Description: # Bysh
+        
+        ![tests](https://github.com/Haytek/bysh/workflows/tests/badge.svg)
+        
+        Bash interpreter in Python
+        
+        Continuation of <https://github.com/idank/bashlex>. The bashlex files may have been modified.
+        
+        ## Installation
+        
+        ```shell
+        $py -3 -m venv venv && venv/scripts/activate.bat
+        $pip install git+https://github.com/haytek/bysh
+        $python -m bysh
+        ```
+        
+        ## External libraries
+        
+        Embedded in bysh.lib:
+        - [bashlex](https://github.com/idank/bashlex)
+        - [colorama](https://github.com/tartley/colorama)
+        
+        
+        ## Notes
+        
+        ### alpha
+        
+        For now the builtins and commands does not try to mimic the exact posix/bash behavior.
+        The goal is to have a working core, and then correct details.
+        
+        ### tkt
+        
+        || & && ; ;; ( ) | \n
+        
+        - Simple Command
+            - Noms separes par des espaces (+redirections) + control operator
+        - Pipeline
+            - Simple commands sÃ©parÃ©es par des pipes
+        - List
+            - pipelines sÃ©parÃ©es par des control operators
+        - Compound Commands
+            - list mais avec des infos en plus
+                - {} -> execute dans current shell
+                - () -> execute subshell
+                - (()) -> arithmetic
+                - [[ ]] -> tests
+        - Shell functions
+            - fonctions
+        
+        ### stdin
+        
+        Plus tard il faudra  
+        msvcrt.getche() in (b'\x00', b'\xe0'):  
+        <https://docs.microsoft.com/en-us/cpp/c-runtime-library/reference/getch-getwch?view=vs-2019>
+        
+        ## TODO
+        
+        Separate builtins from commands like $?
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
