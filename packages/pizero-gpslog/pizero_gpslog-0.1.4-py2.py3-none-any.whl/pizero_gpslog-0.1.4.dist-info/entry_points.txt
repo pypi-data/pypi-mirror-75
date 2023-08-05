@@ -1,0 +1,6 @@
+
+    [console_scripts]
+    pizero-gpslog = pizero_gpslog.runner:main
+    pizero-gpslog-install = pizero_gpslog.installer:main
+    pizero-gpslog-convert = pizero_gpslog.converter:main
+    
