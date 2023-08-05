@@ -1,0 +1,169 @@
+#!/usr/bin/env python
+import magic, os, sys, shutil, requests
+from bs4 import BeautifulSoup as bso
+from pathlib import Path
+from unrar import rarfile
+from zipfile import ZipFile
+from subcaretin import providers
+from subcaretin import filtros
+from subcaretin import guess
+import argparse
+
+def Argumentos():
+    parser = argparse.ArgumentParser(prog='subcaretin', description='descarga \
+                                     subtítulos de forma automática o manual desde \
+                                     Subdivx y Argenteam')
+    parser.add_argument("VIDEO",
+                        help="el archivo de video de referencia")
+    parser.add_argument("-m", action="store_true",
+                        help="activar el modo manual (desactivado por defecto)")
+    parser.add_argument("-l", metavar="int", type=int,
+                        help="el límite de resultados (ilimitado por defecto)")
+    parser.add_argument("-p", metavar="int", type=int, default=3,
+                        help="puntaje mínimo para descargar subtítulos \
+                        automáticamente (3 por defecto)")
+    parser.add_argument("-f", action="store_true",
+                        help="de existir, sobrescribir subtítulo descargado\
+                        (desactivado por defecto)")
+    return parser.parse_args()
+
+argu = Argumentos()
+movie_name = argu.VIDEO
+wo_ext = Path(movie_name).with_suffix('')
+
+if os.path.isfile('%s.es.srt' % (str(wo_ext))):
+    if not argu.f:
+        print('Ya existe un subtítulo descargado')
+        sys.exit()
+
+def entrada():
+    name = input("\nIntroduce el nombre de la película y su año:\n- ")
+    name = name.replace(" ", "+")
+
+    if not name:
+        print('Inválido')
+        sys.exit()
+    else:
+        print('\nBuscando subtítulos...')
+        return name
+
+
+def elegir(mode, total, titulos, descripciones, links):
+    if mode == "manual":
+        if argu.l == None:
+            limiteRes = len(total)
+        else:
+            limiteRes = argu.l
+
+        for each in range(limiteRes):
+            print(total[each])
+        eleccion = int(input("\nElige el número a descargar: \n- "))
+    else:
+        eleccion = 0
+
+    if "argenteam.net" in links[eleccion]:
+        print('Bajando: \n%s [%s]' % (titulos[eleccion], descripciones[eleccion]))
+        comprimido = requests.get(links[eleccion], allow_redirects=True)
+        open(r'/tmp/subs', 'wb').write(comprimido.content)
+    else:
+        print('Bajando: \n%s [%s]' % (titulos[eleccion], descripciones[eleccion]))
+        elegido = requests.get(links[eleccion])
+        sopa = bso(elegido.content, 'html.parser')
+        descargar = sopa.find('a', class_='link1')['href']
+        comprimido = requests.get(descargar, allow_redirects=True)
+        open(r'/tmp/subs', 'wb').write(comprimido.content)
+
+
+def descomprimir(mode):
+    tipo = magic.from_file('/tmp/subs')
+
+    def archivos(mode):
+        if mode == "manual":
+            print('\nArchivos a extraer:')
+            for d in range(len(nombre)):
+                print('%s: %s' % (d, nombre[d]))
+        
+            eleccion1 = int(input("\nElige el número del archivo a extraer:\n- "))
+        else:
+            eleccion1 = 0
+
+        return eleccion1
+
+    def direcciones():
+        source = '/tmp/%s' % (nombre[eleccion1])
+        dest = '%s.es.srt' % (wo_ext)
+        return source, dest
+
+    if 'Zip' in tipo:
+        zip1 = ZipFile(r'/tmp/subs')
+        nombre = zip1.namelist()
+        eleccion1 = archivos(mode)
+        source, dest = direcciones()
+        try:
+            zip1.extract(nombre[eleccion1],r'/tmp/')
+            shutil.move(source, dest)
+        except:
+            print('Error al extraer. Prueba con otro subtítulo')
+    else:
+        rar = rarfile.RarFile(r'/tmp/subs')
+        nombre = rar.namelist()
+        eleccion1 = archivos(mode)
+        source, dest = direcciones()
+        try:
+            rar.extract(nombre[eleccion1], r'/tmp/')
+            shutil.move(source, dest)
+        except:
+            print('Error al extraer. Prueba con otro subtítulo')
+
+    if os.stat(dest).st_size == 0:
+        try:
+            os.remove(dest)
+            print('Hubo un error. Intenta de nuevo')
+        except:
+            print('Hubo un error. Intenta de nuevo')
+    else:
+        print('Subtítulo descargado correctamente: %s' % (dest))
+
+
+def manual():
+    name = entrada()
+    total, titulos, descripciones, links = providers.arg_subd(name)
+    elegir('manual', total, titulos, descripciones, links)
+    descomprimir('manual')
+
+def automatico():
+    try:
+        paraBuscar, year, source, codec, audio, resolution = \
+            guess.Adivinar(movie_name)
+    except:
+        paraBuscar, source, codec, audio, resolution = \
+            guess.Adivinar(movie_name)
+
+    sourceList, codecList, audioList, resolutionList = \
+        guess.palabrasClave(source, codec, audio, resolution)
+
+    print('Buscando mejor subtítulo...')
+
+    total, titulos, descripciones, links = providers.arg_subd(paraBuscar)
+
+    filtrado, coincidencias, titulosFilt, descripcionesFilt, linksFilt \
+        = filtros.SubFiltro(titulos, descripciones, \
+        links, sourceList, codecList, audioList, resolutionList)
+
+    if argu.p > int(coincidencias[0]):
+        print('Sin puntaje suficiente')
+        sys.exit()
+
+    elegir('automatico', filtrado, titulosFilt, descripcionesFilt, linksFilt)
+    print('Puntaje: ' + coincidencias[0])
+
+    descomprimir('automatico')
+
+def main():
+    if argu.m:
+        manual()
+    else:
+        automatico()
+
+if __name__ == "__main__":
+    sys.exit(main())
