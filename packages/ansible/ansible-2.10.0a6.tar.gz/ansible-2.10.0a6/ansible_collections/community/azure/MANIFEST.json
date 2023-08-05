@@ -1,0 +1,30 @@
+{
+ "collection_info": {
+  "description": null, 
+  "repository": "https://github.com:ansible-collections/community.azure", 
+  "tags": [], 
+  "dependencies": {}, 
+  "authors": [
+   "Ansible (github.com/ansible)"
+  ], 
+  "issues": "https://github.com:ansible-collections/community..azure/issues", 
+  "name": "azure", 
+  "license": [
+   "GPL-3.0-or-later"
+  ], 
+  "documentation": "https://github.com/ansible-collection-migration/community.azure/tree/master/docs", 
+  "namespace": "community", 
+  "version": "0.1.0", 
+  "readme": "README.md", 
+  "license_file": "COPYING", 
+  "homepage": "https://github.com:ansible-collections/community..azure"
+ }, 
+ "file_manifest_file": {
+  "format": 1, 
+  "ftype": "file", 
+  "chksum_sha256": "fce910e1a02a200071e4aeb96a781c6da037292768d2f759f078a607018dd07f", 
+  "name": "FILES.json", 
+  "chksum_type": "sha256"
+ }, 
+ "format": 1
+}

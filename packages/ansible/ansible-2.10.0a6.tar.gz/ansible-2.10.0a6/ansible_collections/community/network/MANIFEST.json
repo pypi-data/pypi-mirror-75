@@ -1,0 +1,37 @@
+{
+ "collection_info": {
+  "namespace": "community",
+  "name": "network",
+  "version": "0.2.1",
+  "authors": [
+   "Ansible (https://github.com/ansible)"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "community",
+   "network"
+  ],
+  "description": null,
+  "license": [],
+  "license_file": "COPYING",
+  "dependencies": {
+   "ansible.netcommon": ">=0.0.1",
+   "cisco.mso": ">=0.0.1",
+   "cisco.aci": ">=0.0.1",
+   "check_point.mgmt": ">=0.1.0",
+   "fortinet.fortios": ">=0.1.0"
+  },
+  "repository": "https://github.com/ansible-collections/community.network",
+  "documentation": null,
+  "homepage": "https://github.com/ansible-collections/community.network",
+  "issues": "https://github.com/ansible-collections/community.network/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "68deb20f547e2d0fbd1bbdcf4a0d300e96f504c4f895a353308998096a4d7f40",
+  "format": 1
+ },
+ "format": 1
+}

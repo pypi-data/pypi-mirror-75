@@ -1,0 +1,124 @@
+{
+ "files": [
+  {
+   "name": ".",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "CONTRIBUTING.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d61725d614410e2ee0a900fb0f6b6d742ad8fb689ae27c4d6a3a7f89e82fc791",
+   "format": 1
+  },
+  {
+   "name": "plugins",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/exoscale.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d19526ed63128d2b18c0a8ce75091a8ba48ec9dc1bfa8c4541a321a623eb5728",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/exo_dns_record.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a44eaebc7c6d9147a00b87b4913b7750e513d973f8a331150c4cff4b72fa5533",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/exo_dns_domain.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5059e79e3ef333468adb063caa6ed8c260fd308beb8888ffb5c1f1e250e52f35",
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments/exoscale.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c484b770aa74ea4fbd70bf2f673af2e7f469ad732e818223152a356a5b9fd861",
+   "format": 1
+  },
+  {
+   "name": "README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "476a74dcdd9be0337c38135c7ab2f0f65de2ab4fdff679ceaa66b04f3e844811",
+   "format": 1
+  },
+  {
+   "name": ".github",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".github/workflows",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": ".github/workflows/publish.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c529e2810ae1f02ea98dcae1b78241d21a5988496ed5389b2ce8c37395323756",
+   "format": 1
+  },
+  {
+   "name": ".github/workflows/integration.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "296799536714b6af63dd28d71cc2a5546050aad6c4293443a304299f38730c2d",
+   "format": 1
+  }
+ ],
+ "format": 1
+}
