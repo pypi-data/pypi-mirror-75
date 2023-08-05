@@ -1,0 +1,90 @@
+Metadata-Version: 2.1
+Name: qlua
+Version: 1.0.2
+Summary: Quik Lua RPC API.
+Home-page: https://gitlab.com/abrosimov.a.a/qlua
+Author: Anton Abrosimov
+Author-email: anton@abrosimov.online
+License: Apache Software License
+Project-URL: Bug Tracker, https://gitlab.com/abrosimov.a.a/qlua/-/issues
+Project-URL: Documentation, https://gitlab.com/abrosimov.a.a/qlua
+Project-URL: Source Code, https://gitlab.com/abrosimov.a.a/qlua
+Keywords: quik,quik-lua-rpc
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Communications
+Classifier: Topic :: Office/Business :: Financial
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.5.0
+Description-Content-Type: text/x-rst
+Requires-Dist: protobuf (~=3.6.1)
+Requires-Dist: pyzmq
+
+quik-lua-rpc-python (qlua)
+==========================
+
+Python API-клиент для quik-lua-rpc_
+
+Почему :code:`qlua`?
+  Сгенерированный код из файлов :code:`*.proto` ссылается на глобальный модуль :code:`qlua`.
+  Т.ч. можно назвать так весь проект, либо патчить исходный/сгенерированный код, либо занимать два глобальных имени.
+Почему :code:`protobuf` версии :code:`3.6.1`?
+  Входит в поставку Debian Stable.
+
+Установка
+---------
+
+.. code:: sh
+
+  pip install qlua
+
+Сборка
+------
+
+Если вы уже выполнили установку через :code:`pip install qlua`, то вам не надо ничего собирать.
+
+0. Подготовьте среду сборки:
+    1. Установите scons_. Есть в репозиториях большинства дистрибутивов Linux.
+
+    #. Создайте и активируйте виртуальное окружение Python:
+        .. code:: sh
+
+          python3 -m venv venv
+          source venv/bin/activate
+
+    #. Задайте нужную вам версию :code:`protobuf` в файле: :code:`requirements.txt`
+
+    #. Установите зависимости:
+        .. code:: sh
+
+          pip install -r requirements.txt
+
+#. Склонируйте репозиторий:
+    .. code:: sh
+
+      git clone --recursive "https://gitlab.com/abrosimov.a.a/qlua"
+
+    * Вы можете изменить репозиторий исходников в каталоге :code:`src`.
+
+#. Сгенерируйте код Python:
+    .. code:: sh
+
+      python3 /usr/bin/scons
+
+    * В зависимости от ОС, путь к scons_ может отличаться.
+    * Будет загружен protoc_ версии установленного :code:`protobuf`.
+
+#. Соберите whl пакет:
+    .. code:: sh
+
+      python3 setup.py bdist_wheel
+
+
+.. _quik-lua-rpc: https://github.com/Enfernuz/quik-lua-rpc
+.. _scons: https://scons.org/pages/download.html
+.. _protoc: https://github.com/protocolbuffers/protobuf/releases
+
+
