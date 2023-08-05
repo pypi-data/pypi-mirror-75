@@ -1,0 +1,107 @@
+Metadata-Version: 1.2
+Name: exa
+Version: 0.5.25
+Summary: A framework for data engineering and science
+Home-page: UNKNOWN
+Author: The Exa Analytics development team
+Author-email: exa.data.analytics@gmail.com
+License: Apache License Version 2.0
+Project-URL: Bug Tracker, https://github.com/exa-analytics/exa/issues
+Project-URL: Documentation, https://exa-analytics.github.io/exa/
+Project-URL: Source Code, https://github.com/exa-analytics/exa
+Description: |exa logo|
+        
+        *A framework for data engineering and science*
+        
+        Installation
+        ============
+        
+        | |conda Badge|
+        | |pypi badge|
+        | Exa is available through
+          `anaconda <https://www.continuum.io/downloads>`__
+        
+        ::
+        
+           $ conda install -c exaanalytics exa
+        
+        or `pypi <https://pypi.python.org/pypi>`__.
+        
+        ::
+        
+           $ pip install exa
+        
+        Getting Started
+        ===============
+        
+        See `docs <https://exa-analytics.github.io/exa/>`__ for usage.
+        
+        Building the docs requires
+        `sphinx <http://www.sphinx-doc.org/en/stable>`__. On Linux or Mac:
+        
+        ::
+        
+           $ ./make-docs.sh
+        
+        On Windows:
+        
+        ::
+        
+           $ make-docs.bat
+        
+        Development
+        ===========
+        
+        |Travis-CI|
+        
+        |AppVeyor|
+        
+        |Coveralls|
+        
+        |Codacy Badge|
+        
+        For a development ready installation:
+        
+        ::
+        
+           $ git clone https://github.com/exa-analytics/exa.git
+           $ cd exa
+           $ python setup.py develop
+        
+        Reference
+        =========
+        
+        |DOI|
+        
+        Legal
+        =====
+        
+        | |Apache License 2.0|
+        | Copyright (c) 2015-2020, Exa Analytics Development Team
+        | Distributed under the terms of the Apache License 2.0
+        
+        .. |exa logo| image:: docs/source/static/logo.png
+           :target: https://exa-analytics.github.io
+        .. |conda Badge| image:: https://anaconda.org/exaanalytics/exa/badges/installer/conda.svg
+           :target: https://conda.anaconda.org/exaanalytics
+        .. |pypi badge| image:: https://badge.fury.io/py/exa.svg
+           :target: https://badge.fury.io/py/exa
+        .. |Travis-CI| image:: https://travis-ci.org/exa-analytics/exa.svg?branch=master
+           :target: https://travis-ci.org/exa-analytics/exa
+        .. |AppVeyor| image:: https://ci.appveyor.com/api/projects/status/9ufeeu5p623sifmr/branch/master?svg=true
+           :target: https://ci.appveyor.com/project/avmarchenko/exa/branch/master
+        .. |Coveralls| image:: https://coveralls.io/repos/github/exa-analytics/exa/badge.svg
+           :target: https://coveralls.io/github/exa-analytics/exa
+        .. |Codacy Badge| image:: https://app.codacy.com/project/badge/Grade/ed53a521ec4f46fbb62abee528b8b4bc
+           :target: https://www.codacy.com/gh/exa-analytics/exa?utm_source=github.com&utm_medium=referral&utm_content=exa-analytics/exa&utm_campaign=Badge_Grade
+        .. |DOI| image:: https://zenodo.org/badge/23807/exa-analytics/exa.svg
+           :target: https://zenodo.org/badge/latestdoi/23807/exa-analytics/exa
+        .. |Apache License 2.0| image:: http://img.shields.io/:license-apache-blue.svg?style=flat-square
+           :target: http://www.apache.org/licenses/LICENSE-2.0
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Natural Language :: English
