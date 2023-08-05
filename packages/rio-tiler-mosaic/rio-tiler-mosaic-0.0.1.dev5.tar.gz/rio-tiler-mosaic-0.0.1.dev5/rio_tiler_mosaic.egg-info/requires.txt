@@ -1,0 +1,12 @@
+rio-tiler~=2.0a
+
+[dev]
+pytest
+pytest-cov
+pytest-benchmark
+pre-commit
+
+[test]
+pytest
+pytest-cov
+pytest-benchmark
