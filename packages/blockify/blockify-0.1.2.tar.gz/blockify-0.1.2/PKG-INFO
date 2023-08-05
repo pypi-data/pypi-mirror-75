@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: blockify
+Version: 0.1.2
+Summary: Fast and optimal genome segmentation with Bayesian blocks
+Home-page: https://github.com/arnavm/blockify
+Author: Arnav Moudgil
+Author-email: amoudgil@wustl.edu
+License: UNKNOWN
+Description: # blockify
+        
+        Fast, mathematically optimal genome segmentation with Bayesian blocks
+        
+Keywords: genomics,segmentation,bayesian
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable 
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
