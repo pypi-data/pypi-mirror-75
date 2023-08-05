@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: skm-pyutils
+Version: 0.1.2
+Summary: skm_pyutils: Python Utilities
+Home-page: https://github.com/seankmartin/PythonUtils
+Author: Sean Martin
+Author-email: martins7@tcd.ie
+Maintainer: Sean Martin
+Maintainer-email: martins7@tcd.ie
+License: UNKNOWN
+Download-URL: https://github.com/seankmartin/PythonUtils/archive/0.1.2.tar.gz
+Description: # PythonUtils
+        [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+        [![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+        
+        A module containing common scripts that I use in my research.
+        Documentation available at https://seankmartin.github.io/PythonUtils/html/skm_pyutils/index.html.
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Description-Content-Type: text/markdown
