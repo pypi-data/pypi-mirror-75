@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite errors="0" failures="1" hostname="lumipyry" name="pytest" skipped="0" tests="1" time="0.296" timestamp="2020-04-29T13:56:50.402156"><testcase classname="miio.tests.test_vacuum" file="miio/tests/test_vacuum.py" line="206" name="test_model_autodetect" time="0.001"><failure message="KeyError: &apos;miIO.info&apos;">device = &lt;miio.tests.test_vacuum.DummyVacuum object at 0x7f13380df5e0&gt;
+
+    def test_model_autodetect(device):
+&gt;       device._autodetect_model()
+
+tests/test_vacuum.py:208: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+vacuum.py:445: in _autodetect_model
+    info = self.info()
+device.py:180: in info
+    return DeviceInfo(self._protocol.send(&quot;miIO.info&quot;))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;miio.tests.dummies.DummyMiIOProtocol object at 0x7f13380df6a0&gt;
+command = &apos;miIO.info&apos;, parameters = None, retry_count = 3
+extra_parameters = None
+
+    def send(self, command: str, parameters=None, retry_count=3, extra_parameters=None):
+        &quot;&quot;&quot;Overridden send() to return values from `self.return_values`.&quot;&quot;&quot;
+&gt;       return self.dummy_device.return_values[command](parameters)
+E       KeyError: &apos;miIO.info&apos;
+
+tests/dummies.py:13: KeyError</failure></testcase></testsuite></testsuites>
