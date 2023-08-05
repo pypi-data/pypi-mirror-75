@@ -1,0 +1,3 @@
+[console_scripts]
+gooise = gooise.__main__:main
+
