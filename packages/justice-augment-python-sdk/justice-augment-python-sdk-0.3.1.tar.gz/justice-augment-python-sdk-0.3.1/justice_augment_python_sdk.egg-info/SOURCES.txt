@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+datastore/__init__.py
+datastore/mongodb.py
+justice/__init__.py
+justice/justice.py
+justice/session.py
+justice/statistic.py
+justice/wallet.py
+justice_augment_python_sdk.egg-info/PKG-INFO
+justice_augment_python_sdk.egg-info/SOURCES.txt
+justice_augment_python_sdk.egg-info/dependency_links.txt
+justice_augment_python_sdk.egg-info/requires.txt
+justice_augment_python_sdk.egg-info/top_level.txt
