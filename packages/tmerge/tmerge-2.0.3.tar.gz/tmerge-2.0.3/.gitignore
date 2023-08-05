@@ -1,0 +1,7 @@
+.installed.cfg
+*.egg-info
+.vscode
+*.pyc
+__pycache__
+build/
+dist/
