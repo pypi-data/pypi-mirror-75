@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: pyffprobe
+Version: 1.0.2
+Summary: A wrapper around ffprobe command to extract metadata from media files.
+Home-page: https://github.com/VerenigingCampusKabel/pyffprobe
+Author: Vereniging Campus Kabel
+Author-email: info@vck.utwente.nl
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: ffmpeg,ffprobe,mpeg,mp4
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Natural Language :: English
+Classifier: Topic :: Multimedia :: Video
+Classifier: Topic :: Software Development :: Libraries
