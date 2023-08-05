@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: dask-remote
+Version: 0.0.1a2
+Summary: Dask cluster based on a Kubernetes-native Deployment
+Home-page: https://github.com/octoenergy/dask-remote
+License: MIT
+Author: Octopus Energy
+Author-email: tech@octopus.energy
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Typing :: Typed
+Provides-Extra: deployment
+Provides-Extra: runner
+Requires-Dist: distributed (>=2.21.0,<3.0.0)
+Requires-Dist: fastapi; extra == "runner"
+Requires-Dist: kubernetes_asyncio (>=10.0,<11.0); extra == "deployment"
+Requires-Dist: requests
+Requires-Dist: typing_extensions
+Requires-Dist: uvicorn; extra == "runner"
