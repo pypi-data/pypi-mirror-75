@@ -1,0 +1,16 @@
+auth0_mgr/__init__.py,sha256=daEdpEyAJIa8b2VkCqSKcw8PaExcB6Qro80XNes_sHA,2
+auth0_mgr/tokens.py,sha256=2K6p49x0iotip2hdui90-D3jUYYduYAjPggDQhXy4o8,1392
+auth0_mgr/misc/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+auth0_mgr/misc/keycloak.py,sha256=epqKDyW6haZUYWY_82m39-DD-82uuWcc_z8dgIxj_jQ,2585
+auth0_mgr/models/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+auth0_mgr/models/user.py,sha256=U5VGiZ4NE7lU_x0f5jN25OHmGOI83RKyq_x6MfsCaYc,7350
+auth0_mgr/scripts/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+auth0_mgr/scripts/get_logs.py,sha256=0mboBneCN20ffbDH-j2SPDDu3LC_BUVi9C-BeMANtco,557
+auth0_mgr/scripts/import_users_from_keycloak_db.py,sha256=qKjYXXQVenMYiMZjvIgWZoDIZZMvyQe8ctAizmOEjWk,112
+auth0_mgr/scripts/update_users_from_json.py,sha256=MqSAT7S8mb4L76Mz7FSMiyH0Lo_whJb1R14xtZJCtrk,954
+auth0_mgr/users/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+auth0_mgr/users/user_manager.py,sha256=h9wA3JF4BfArvkUwFpL378GgTakwltD3TFLOEzCeqvY,2143
+presalytics_auth0_management_extensions-0.1.1.dist-info/METADATA,sha256=cGuOJ_36QW5for9xG5PWdlOmal6wisGk2C3YvXrzUdg,628
+presalytics_auth0_management_extensions-0.1.1.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+presalytics_auth0_management_extensions-0.1.1.dist-info/top_level.txt,sha256=7irgh3hiBmfV37xUgMXqTmzjaYO-Z597T4SDpSO4QAI,10
+presalytics_auth0_management_extensions-0.1.1.dist-info/RECORD,,

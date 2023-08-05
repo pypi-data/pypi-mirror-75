@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: presalytics-auth0-management-extensions
+Version: 0.1.1
+Summary: Presalytics Auth0 Management Extensions
+Home-page: https://presalytics.io/docs
+Author-email: inquiries@presalytics.io
+License: UNKNOWN
+Keywords: Presalytics,Auth0
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: auth0-python (>=3.9.2)
+Requires-Dist: environs (>=7.4.0)
+
+# Auth 0 Management Extensions
+
+Extensions for the Auth0 Management API.  Includes utilties updating users and bulk uplaods of user data from json files.
+
+install via pip:
+
+~~~~python
+pip install presalytics-auth0-management-extensions
+~~~~
+
