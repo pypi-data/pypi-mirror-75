@@ -1,0 +1,8 @@
+{
+    "properties": {
+        "CONFIG_PATH": "/.wow/",
+        "DATABASE_FILENAME": "database.json",
+        "CREDENTIALS_FILENAME": "credentials.json",
+        "LOG_LEVEL": "ERROR"
+    }
+}

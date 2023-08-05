@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: wowtool
+Version: 0.1.28
+Summary: Wowza python management tool - wowtool
+Home-page: https://github.com/d4n13lbc/wowtool
+Author: Daniel Barragan
+Author-email: dbarragan1331@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: setuptools
+Requires-Dist: click
+Requires-Dist: wowpy
+Requires-Dist: tinydb
+Requires-Dist: Pygments
+Requires-Dist: click-option-group
+Requires-Dist: pyyaml
+Requires-Dist: boltons
+
+# WowTool
+
+## Description
+
+This is a python3 cli for wowza cloud
+
+## Usage
+
+```
+pip install wowtool
+```
+
