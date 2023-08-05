@@ -1,0 +1,15 @@
+hdrhistogram
+
+[mpi]
+mpi4py
+
+[ray]
+ray
+pyarrow
+
+[test]
+pytest>=4.6
+coverage
+pytest-cov
+pytest-sugar
+coveralls
