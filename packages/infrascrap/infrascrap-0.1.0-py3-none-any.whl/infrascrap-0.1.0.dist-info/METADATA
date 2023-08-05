@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: infrascrap
+Version: 0.1.0
+Summary: Scraping infrastructure
+Author: Sivan Becker
+Author-email: sivanbecker@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: keyring (>=21.2.1,<22.0.0)
+Requires-Dist: python-telegram-bot (>=12.8,<13.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Requires-Dist: selenium (>=3.141.0,<4.0.0)
+Requires-Dist: toml (>=0.10.1,<0.11.0)
