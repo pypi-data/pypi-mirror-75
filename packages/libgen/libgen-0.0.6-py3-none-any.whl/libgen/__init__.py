@@ -1,0 +1,1 @@
+from libgen.scraper import Scraper
