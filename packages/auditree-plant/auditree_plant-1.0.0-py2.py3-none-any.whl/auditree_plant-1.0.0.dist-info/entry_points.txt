@@ -1,0 +1,3 @@
+[console_scripts]
+plant = plant.cli:run
+
