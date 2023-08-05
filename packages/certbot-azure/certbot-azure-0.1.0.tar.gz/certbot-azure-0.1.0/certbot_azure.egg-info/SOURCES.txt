@@ -1,0 +1,16 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+certbot_azure/__init__.py
+certbot_azure/azure_agw.py
+certbot_azure/azure_agw_test.py
+certbot_azure/dns_azure.py
+certbot_azure/dns_azure_test.py
+certbot_azure.egg-info/PKG-INFO
+certbot_azure.egg-info/SOURCES.txt
+certbot_azure.egg-info/dependency_links.txt
+certbot_azure.egg-info/entry_points.txt
+certbot_azure.egg-info/requires.txt
+certbot_azure.egg-info/top_level.txt

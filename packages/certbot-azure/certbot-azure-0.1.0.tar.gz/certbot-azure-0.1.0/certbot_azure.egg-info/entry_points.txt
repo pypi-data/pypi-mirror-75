@@ -1,0 +1,4 @@
+[certbot.plugins]
+azure-agw = certbot_azure.azure_agw:Installer
+dns-azure = certbot_azure.dns_azure:Authenticator
+
