@@ -1,0 +1,30 @@
+Metadata-Version: 1.1
+Name: repository-updater
+Version: 0.5.1
+Summary: UNKNOWN
+Home-page: https://github.com/hassio-addons/repository-updater
+Author: Franck Nijhof
+Author-email: frenck@addons.community
+License: MIT
+Download-URL: https://github.com/hassio-addons/repository-updater/archive/0.5.1.tar.gz
+Description: 
+        Community Home Assistant Add-ons Repository Updater.
+        
+        Reads remote add-on repositories, determines versions and generates
+        changelogs to update the add-on repository fully automated.
+        
+        Mainly used by the Community Home Assistant Add-ons project.
+        
+        Please note, this program cannot be used with the general documented
+        Home Assistant add-on repository approach.
+        
+Keywords: addons,repository,home assistant,home-assistant,add-ons,frenck
+Platform: any
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Utilities
