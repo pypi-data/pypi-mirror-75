@@ -1,0 +1,6 @@
+[console_scripts]
+ppnet_chat = ppnet.ppchat:main
+
+[gui_scripts]
+
+
