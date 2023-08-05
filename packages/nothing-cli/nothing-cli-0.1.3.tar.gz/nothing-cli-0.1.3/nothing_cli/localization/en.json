@@ -1,0 +1,80 @@
+{
+  "step_prefix": "Step",
+  "context_prompt": "Please provide a value for {}",
+  "completion_message": "All done!",
+  "undefined_variable_warn":"Undefined variable in step {step_number}",
+
+  "default_title": "'Empty' Procedure",
+  "default_description": "The procedure you pass when you pass `--empty`",
+  "default_context_name_name": "weather_today",
+  "default_context_name_prompt": "Type anything anything here",
+  "default_knowns_name": "tau",
+  "default_knowns_value": "2π",
+  "default_steps": "Put steps here...\n\nand here.\nAnd use multiple lines if you want.\n\nUse context variables like 'weather_today' --which you said was '{weather_today}'.\nAnd knowns like the value of tau, {tau}, which is hard coded in the procedure...",
+
+  "easter_steps":"Take 3 deep breaths, {name}.\n\nFind a comfortable position in your seat.\n\nBegin to breathe lightly and slowly, as if you're going to sleep.\n\nClose your eyes and count 10 of your gentle breaths.",
+  "easter_title":"Do Nothing",
+  "easter_description": "Literally do not do anything",
+  "easter_context_var_name": "name",
+  "easter_context_var_prompt": "What's your name?",
+
+  "cwd": "cwd",
+  "home": "home",
+  "both": "both",
+
+  "help": "Nothing helps coder be more smarter & less dumber.",
+  "file_written": "{filename} written to {destination}",
+  "filename_prompt": "What is the new name for the file? 📝",
+  "file_edited": "Edited {name}",
+  "copied": "Copy of {name} written to {destination}",
+  "dropped": "'{name}' permanetly deleted from:\n    {location} ☠️",
+  "home_dot_nothing_exists_warn": "There is already a .nothing dir in your home",
+  "cwd_dot_nothing_exists_warn": "There is already a .nothing dir in your cwd",
+  "made_cwd_dot_nothing_dir": "Created ./.nothing/",
+  "made_sample_procedure": "Created a sample Procdure called 'nothing' for you in {directory} 💖",
+  "delete_suggestion":"    For a clean start, delete and run this command again.",
+
+  "init_help":"Create ./.nothing if it doesn't exist.",
+  "sample_help": "Create a sample Procedure called 'nothing' in ./.nothing if it exists, otherwise in ~/.nothing",
+
+  "nag": "Press enter to continue...",
+
+  "new_description_prompt": "A short description",
+  "new_title_prompt": "The title of your Procedure",
+  "new_name_prompt": "The name of the file",
+  "new_extension_prompt": "Extension",
+  "new_destination_prompt": "Destination directory",
+  "new_open_editor_prompt": "Open $EDITOR now?",
+
+  "new_help": "Create a new Procedure. Interactive when called without arguments (recommended).",
+  "new_procedure_name_option_help": "The name of the Procedure you're making. No extension, just the name.",
+  "new_extension_option_help": "The extension to apply to the generated file",
+  "new_global_option_help":"Create the new file in ~/.nothing even if ./.nothing exists.",
+  "new_empty_option_help":"Create the Procedure without prompting for values instead using default placeholders. Must be called with --name",
+  "new_edit_after_option_help":"Open $EDITOR after the command completes",
+  "new_overwrite_option_help":"If a Procedure with the given name exists, overwrite it or don't.",
+  "new_empty_callback_warning": "Can't use --empty/-E without --name/-N specified",
+
+  "edit_name_prompt": "New Procedure name",
+  "edit_title_prompt": "New Procedure title",
+  "edit_destination_prompt": "Destination dir for copy",
+  "edit_extension_prompt": "Extension for new Procedure",
+  "edit_open_editor_prompt": "Edit after write?",
+
+  "GLOBAL": "GLOBAL",
+  "LOCAL": "LOCAL",
+
+  "overwrite_warn": "🤔 Procedure '{name}' appears to exist already\nWould you like to overwrite it?",
+  "drop_warn": "😬 Are you sure you want to permanently delete '{name}'?",
+  "stylish_interjection": "Success! 🙌",
+  "missing_file_warn": "😕 It doesn't look like there's a spec for '{name}'.",
+
+  "title_descriptor": "Title",
+  "description_descriptor": "Description",
+  "context_vars_descriptor": "Context vars",
+  "step_count_descriptor": "# Steps",
+  "full_path_descriptor": "Full path",
+  "last_modified_descriptor": "Last modified",
+  "last_accessed_descriptor": "Last accessed",
+  "no_context_to_display_placeholder": "[ context not used ]"
+}
