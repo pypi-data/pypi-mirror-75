@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: GraphFloris
+Version: 0.13
+Summary: Graph represented wind farm power simulator
+Home-page: https://github.com/Junyoungpark/GraphFloris
+Author: Junyoung Park
+Author-email: Junyoungpark@kaist.com
+License: UNKNOWN
+Download-URL: https://github.com/Junyoungpark/GraphFloris
+Keywords: floris,graph
+Platform: UNKNOWN
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Requires-Dist: floris
+Requires-Dist: torch
+Requires-Dist: dgl
+Requires-Dist: networkx
+Requires-Dist: matplotlib
+
+# GraphFloris
+
+GraphFloris is a graph represented wind farm simulator. GraphFloris utilize [Floris](https://floris.readthedocs.io/en/master/)
+for computing power generation of each wind turbines. Details of graph formulation can be found from the [link](https://www.sciencedirect.com/science/article/pii/S0360544219315555)
+
+## Dependencies
+1. Floris (v2.1.1)
+2. dgl
+3. networkx
+4. matplotlib
+5. pytorch
+
+## Installation
+```bash
+pip install GraphFloris 
+```
+
