@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pytest-databricks
+Version: 0.0.2
+Summary: Pytest plugin for remote Databricks notebooks testing
+Home-page: https://github.com/ivangeorgiev/pytest-databricks
+Author: Ivan Georgiev
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Pytest
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pydbr
+Requires-Dist: pytest
+
+# pytest-databricks
+Pytest plugin for testing Databricks notebooks
+
+
