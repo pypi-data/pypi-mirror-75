@@ -1,0 +1,279 @@
+# py-check
+
+![build](https://github.com/arlenxuzj/py-check/workflows/build/badge.svg)
+[![codecov](https://codecov.io/gh/arlenxuzj/py-check/branch/master/graph/badge.svg)](https://codecov.io/gh/arlenxuzj/py-check)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=arlenxuzj_py-check&metric=alert_status)](https://sonarcloud.io/dashboard?id=arlenxuzj_py-check)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/py-check)
+[![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
+
+
+A general-purpose check library for python. **This is a python implementation of part of [is.js](https://github.com/arasatasaygin/is.js)**.
+
+## Installation
+
+```shell script
+pip install py-check
+```
+
+## Usage
+
+```python
+from pycheck import check
+
+check.integer(...)
+check.any.integer(...)
+check.all.integer(...)
+```
+
+## Type Checks
+
+#### check.integer(value: Any)
+
+**Checks if the given value(s) type is integer**
+
+interface: all, any
+
+```python
+check.integer(123) => True
+
+check.integer(True) => False
+
+check.all.integer(1, 'a') => False
+
+check.any.integer(1, 'a') => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.integer([1, 2, 3]) => True
+```
+
+### check.float(value: Any)
+
+**Checks if the given value(s) type is float**
+
+interface: all, any
+
+```python
+check.float(0.2) => True
+
+check.all.float(0.2, math.inf) => True
+
+check.any.float(0.2, 'a') => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.float([1.1, 1.2, 2]) => False
+```
+
+### check.boolean(value: Any)
+
+**Checks if the given value(s) type is boolean**
+
+interface: all, any
+
+```python
+check.boolean(1) => False
+
+check.all.boolean(True, 1) => False
+
+check.any.boolean(False, 'a') => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.boolean([True, False]) => True
+```
+
+### check.string(value: Any)
+
+**Checks if the given value(s) type is string**
+
+interface: all, any
+
+```python
+check.string('') => True
+
+check.all.string(True, 'a') => False
+
+check.any.string(False, 'a') => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.string(['True', '1']) => True
+```
+
+### check.char(value: Any)
+
+**Checks if the given value(s) type is char**
+
+interface: all, any
+
+```python
+check.char('s') => True
+
+check.all.char(True, 'a') => False
+
+check.any.char(False, 'a') => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.char(['s', '1']) => True
+```
+
+### check.list(value: Any)
+
+**Checks if the given value(s) type is list**
+
+interface: all, any
+
+```python
+check.list([1, 'a']) => True
+
+check.all.list(1, [1, 'a']) => False
+
+check.all.list([1, 2, 3]) => False
+
+check.any.list([], 1) => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.list([1, [1, 2, 3]]) => False
+```
+
+### check.dictionary(value: Any)
+
+**Checks if the given value(s) type is dictionary**
+
+interface: all, any
+
+```python
+check.dictionary({}) => True
+
+check.all.dictionary({'a': 1}, 'a') => False
+
+check.any.dictionary({'a': 1}, 'a')
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.dictionary([{'a': 1}, 'a']) => False
+```
+
+### check.set(value: Any)
+
+**Checks if the given value(s) type is set**
+
+interface: all, any
+
+```python
+check.set(set({})) => True
+
+check.set({}) => False
+
+check.all.set({1, 2, 3}, [1, 2, 3]) => False
+
+check.any.set({1 ,2, 3}, 'a') => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.set([{1, 2, 3}, [1, 2, 3]]) => False
+```
+
+### check.tuple(value: Any)
+
+**Checks if the given value(s) type is tuple**
+
+interface: all, any
+
+```python
+check.tuple((1, 2)) => True
+
+check.all.tuple({1, 2}, (1, 2)) => False
+
+check.any.tuple((), 'a') => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.tuple([{1, 2}, (1, 2)]) => False
+```
+
+### check.none(value: Any)
+
+**Checks if the given value(s) type is None**
+
+interface: all, any
+
+```python
+check.none(None) => True
+
+check.all.none({1, 2}, None) => False
+
+check.any.none(None, 'a') => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.none([{1, 2}, None]) => False
+```
+
+### check.function(value: Any)
+
+**Checks if the given value(s) type is function**
+
+interface: all, any
+
+```python
+check.function(foo) => True
+
+check.all.function({1, 2}, foo) => False
+
+check.any.function(foo, 'a') => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.function([{1, 2}, foo]) => False
+```
+
+### check.date(value: Any)
+
+**Checks if the given value(s) type is date**
+
+interface: all, any
+
+```python
+check.date(datetime.date(2020, 7, 1)) => True
+
+check.all.date({1, 2}, datetime.date(2020, 7, 1)) => False
+
+check.any.date(datetime.date(2020, 7, 1), 'a') => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.date([{1, 2}, datetime.date(2020, 7, 1)]) => False
+```
+
+### check.date_string(value: Any, string_pattern: str = '%Y-%m-%d')
+
+**Checks if the given value(s) type is date by string pattern**
+
+interface: all, any
+
+```python
+check.date('2020-7-1') => True
+check.date('2020/7/1', string_pattern='%Y/%m/%d') => True
+
+check.all.date('2020-7-1', '2020-8-1') => True
+
+check.any.date('2020-7-1', 1) => True
+
+# 'all' and 'any' interfaces can also take argument of list type
+check.all.date(['2020-7-1', '2020-8-1', 1]) => False
+```
+
+
+## Todo
+- [ ] Type Checks
+    - [x] ~~check.date~~
+    - [ ] check.same_type
+- [ ] Presence Checks
+    - [ ] check.empty
+    - [ ] check.truthy
+    - [ ] check.falsy
+- [ ] String Checks
+    - [ ] check.uppercase
+    - [ ] check.lowercase
+    - [ ] check.capitalized
+- [ ] Integer Checks
+    - [ ] check.even
+    - [ ] check.odd
+    - [ ] check.positive
+    - [ ] check.negative
+
+
+
+
