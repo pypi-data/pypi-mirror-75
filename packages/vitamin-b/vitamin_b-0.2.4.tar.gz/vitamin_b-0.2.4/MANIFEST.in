@@ -1,0 +1,3 @@
+include README_pypi.md
+include LICENSE.md
+recursive-include *.py *.par
