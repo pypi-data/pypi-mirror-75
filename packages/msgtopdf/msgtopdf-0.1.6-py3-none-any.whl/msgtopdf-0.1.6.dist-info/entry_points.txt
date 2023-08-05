@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        msg2pdf=msgtopdf.scripts.msg2pdf:cli
+    
