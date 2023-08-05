@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: antx
+Version: 0.0.1
+Summary: Transfer annotations from source text to destination using diff match patch.
+Home-page: https://github.com/Esukhia/annotation_transfer
+Author: Ngawang Thrinley, Tenzin Kaldan
+Author-email: esukhiadev@gmail.com
+License: Apache2
+Description: # antx - Annotation Transfer
+        Transfer annotations from source text to destination using diff match patch.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
