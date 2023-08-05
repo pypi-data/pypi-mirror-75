@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "gsc"
+version = "1.0.2"
+description = "Git for Scientists practical exercise helper."
+authors = ["Daniel Tipping <daniel@gitscientist.com>"]
+license = "GPL-3.0-only"
+readme = "README.md"
+homepage = "https://www.gitscientist.com"
+repository = "https://github.com/git-scientist/gsc"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+typer = "^0.1.1"
+requests = "^2.23.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+mypy = "^0.770"
+pytype = {version = "^2020.4.1", python = ">=3.6,<3.8"}
+
+[tool.poetry.scripts]
+gsc = "gsc.cli:main"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
