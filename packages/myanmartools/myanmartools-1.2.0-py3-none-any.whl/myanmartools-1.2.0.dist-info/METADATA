@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: myanmartools
+Version: 1.2.0
+Summary: Tools for processing font encodings used in Myanmar
+Home-page: https://github.com/google/myanmar-tools
+Author: William (Wai Yan) Zhu
+Author-email: williamzhu345@gmail.com
+License: Apache License, Version 2.0
+Keywords: burmese,encoding,myanmar,nlp,unicode,zawgyi
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Text Processing
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+Requires-Dist: numpy (>=1.18)
+
+Myanmar Tools Python Documentation
+==================================
+
+This documentation is python specific usage of Myanmar Tools.
+For general documentation, see `the top-level README`_.
+
+Installation
+------------
+
+From PyPI
+*********
+
+``$ pip install myanmartools``
+
+From GitHub
+***********
+
+``$ pip install 'git+https://github.com/google/myanmar-tools@master#egg=myanmartools&subdirectory=clients/python'``
+
+Usage Examples
+--------------
+
+To detect Zawgyi, create an instance of ZawgyiDetector,
+and call ``get_zawgyi_probability`` with a string::
+
+    from myanmartools import ZawgyiDetector
+
+    detector = ZawgyiDetector()
+    score = detector.get_zawgyi_probability('မ္း')
+    # score is now 0.999772 (very likely Zawgyi)
+
+
+For Zawgyi-to-Unicode conversion, you can use the ICU library. Install it
+using ``pip install PyICU``.
+
+To convert Zawgyi to Unicode, create an instance of ICU Transliterator with
+the transform ID "Zawgyi-my", and call ``transiliterate`` with a string::
+
+    from icu import Transliterator
+
+    converter = Transliterator.createInstance('Zawgyi-my')
+    output = converter.transliterate('မ္း')
+    # output is now 'မ်း'
+
+.. _`the top-level README`: https://github.com/google/myanmar-tools/blob/master/README.md
+
+
