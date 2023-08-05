@@ -1,0 +1,64 @@
+Metadata-Version: 2.1
+Name: HLTV
+Version: 0.2.0
+Summary: A python library that functions as a HLTV API to use in your code
+Home-page: UNKNOWN
+Author: Rushil Shah
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+This python library functions as an HLTV API to extract, parse, and format data from [HLTV.org](https://www.hltv.org/). This library allows for real time data extraction to use in your code. This library is still in its beta stages and is being rapidly updated/altered with new features still being added/adjusted.
+
+# Installation 
+
+    pip install HLTV
+
+# Dependencies
+
+```
+pip install bs4
+
+pip install lxml
+```
+
+# Usage
+
+**Importing**
+
+```python
+from HLTV import *
+```
+
+**FUNCTIONS**
+
+    get_live_matches()
+        returns a list of all LIVE matches on HLTV along with the maps being played and the star ratings
+
+    get_upcoming_matches()
+        returns a list of all upcoming matches on HLTV
+
+    get_important_upcoming_matches(star_rating=1)
+        returns a list of all upcoming matches on HLTV with the star rating argument (should be between 0 and 5)
+
+    get_match_results(offset=0)
+        returns a list of results from past 100 matches on HLTV starting from the offset param
+
+    get_important_match_results(star_rating=1, offset=0)
+        returns a list of 100 past matches on HLTV with or above the star rating param starting from the offset
+
+    get_top_teams()
+        returns a list of the top 30 teams
+
+    get_best_players(time_filter=30)
+        returns a list of the top players within a certain time frame (ex: 30 days ago until today)
+
+# Uninstallation
+
+    pip uninstall HLTV
+
+
