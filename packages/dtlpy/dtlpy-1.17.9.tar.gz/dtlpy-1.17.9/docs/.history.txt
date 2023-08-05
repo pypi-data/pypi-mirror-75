@@ -1,0 +1,9 @@
+
+# 2019-12-25 09:19:37.968938
++api setenv --env prod
+
+# 2019-12-25 09:20:44.230729
++items download --project-name "zzz" --dataset-name "test" --annotation-options "mask, json, instance" --without-binaries
+
+# 2019-12-25 12:06:55.388417
++exit
