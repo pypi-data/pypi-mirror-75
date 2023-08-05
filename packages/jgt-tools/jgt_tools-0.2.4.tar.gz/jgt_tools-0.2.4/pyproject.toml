@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "jgt_tools"
+version = "0.2.4"
+description = "A collection of tools for commmon package scripts"
+authors = ["Brad Brown <brad@bradsbrown.com>"]
+license = "MIT"
+readme = "README.rst"
+homepage = "https://jolly-good-toolbelt.github.io/jgt_tools/"
+documentation = "https://jolly-good-toolbelt.github.io/jgt_tools/"
+repository = "https://github.com/jolly-good-toolbelt/jgt_tools"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+tomlkit = "^0.5.3"
+sphinx = {version = "^2.1", optional = true}
+sphinx-rtd-theme = {version = "^0.4.3", optional = true}
+ghp-import = {version = "^0.5.5", optional = true}
+
+[tool.poetry.dev-dependencies]
+pre-commit = "^1.15"
+flake8 = "^3.7"
+flake8-builtins = "^1.4"
+flake8-comprehensions = "^2.1"
+flake8-docstrings = "^1.3"
+flake8-tuple = "^0.4.0"
+flake8-quotes = "^2.0"
+pep8-naming = "^0.8.2"
+sphinx = "^2.1"
+sphinx-rtd-theme = "^0.4.3"
+ghp-import = "^0.5.5"
+pytest = "^5.0"
+
+[tool.poetry.extras]
+build_docs = ["sphinx", "sphinx-rtd-theme", "ghp-import"]
+
+[tool.poetry.scripts]
+run-tests = "jgt_tools.run_tests:main"
+self-check = "jgt_tools.self_check:main"
+env-setup = "jgt_tools.env_setup:main"
+check-version = "jgt_tools.check_version:check_version"
+build-docs = {callable = "jgt_tools.docs.build_docs:build", extras = ["build_docs"]}
+build-and-push-docs = {callable = "jgt_tools.docs.build_docs:build_and_push", extras = ["build_docs"]}
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

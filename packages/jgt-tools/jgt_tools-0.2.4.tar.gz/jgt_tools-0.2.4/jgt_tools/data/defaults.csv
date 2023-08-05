@@ -1,0 +1,6 @@
+env_setup_commands,poetry run pip install --upgrade pip<19
+env_setup_commands,poetry install
+env_setup_commands,poetry run pre-commit install
+self_check_commands,poetry run pre-commit run -a
+run_tests_commands,poetry run python -m pytest -vvv
+doc_build_types,api
