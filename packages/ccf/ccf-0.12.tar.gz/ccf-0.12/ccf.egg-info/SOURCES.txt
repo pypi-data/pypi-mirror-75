@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.py
+ccf/__init__.py
+ccf/clients.py
+ccf/commit.py
+ccf/ledger.py
+ccf/proposal_generator.py
+ccf/tx_status.py
+ccf.egg-info/PKG-INFO
+ccf.egg-info/SOURCES.txt
+ccf.egg-info/dependency_links.txt
+ccf.egg-info/requires.txt
+ccf.egg-info/top_level.txt
+utils/keygenerator.sh
+utils/scurl.sh
+utils/submit_recovery_share.sh
