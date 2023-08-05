@@ -1,0 +1,3 @@
+[console_scripts]
+fdfs = fdfs_client.cli:main
+
