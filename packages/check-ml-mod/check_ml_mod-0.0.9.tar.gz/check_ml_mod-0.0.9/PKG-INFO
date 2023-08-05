@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: check_ml_mod
+Version: 0.0.9
+Summary: CLI tool.
+Home-page: https://github.com/aieater/python_check_ml_mod
+Author: Pegara, Inc.
+Author-email: info@pegara.com
+License: MIT
+Description: https://github.com/aieater/python_check_ml_mod
+        
+        # check_ml_mod
+        
+        
+        
+        ```
+        check_ml_mod
+        ```
+        
+        ### just check modules.
+        
+        ```
+        check_ml_mod --check
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown

@@ -1,0 +1,239 @@
+#!/usr/bin/env python3
+import subprocess
+import platform
+import argparse
+try:
+    import cselector
+except ImportError:
+    proc = subprocess.Popen(['pip3', 'install', '--user', 'cselector'])
+    ret = proc.communicate()
+    import cselector
+
+
+
+parser = argparse.ArgumentParser()
+parser.add_argument("--check", action='store_true')
+args = parser.parse_args()
+JUST_CHECK = args.check
+
+CRED='\033[0;31m'
+CRESET='\033[0m'
+CCYAN='\033[0;36m'
+CGREEN='\033[0;32m'
+
+if JUST_CHECK:
+    SUDO = ""
+else:
+    if platform.system() == "Darwin":
+        SUDO = ""
+    else:
+        if cselector.yes_or_no("Use sudo?"):
+            SUDO = "sudo"
+        else:
+            SUDO = ""
+
+PIP = "pip3"
+
+
+package_list = [
+    
+    {'name':'yaml','install':[[SUDO,PIP,'install','pyyaml']]},
+    {'name':'xmltodict','install':[[SUDO,PIP,'install','xmltodict']]},
+    {'name':'import_ipynb','install':[[SUDO,PIP,'install','import_ipynb']]},
+    {'name':'tqdm','install':[[SUDO,PIP,'install','tqdm']]},
+    {'name':'service_identity','install':[[SUDO,PIP,'install','service_identity']]},
+    {'name':'cython','install':[[SUDO,PIP,'install','cython']]},
+    {'name':'numpy','install':[[SUDO,PIP,'install','numpy']]},
+    {'name':'mss','install':[[SUDO,PIP,'install','mss']]},
+    {'name':'easydict','install':[[SUDO,PIP,'install','easydict']]},
+    {'name':'progress','install':[[SUDO,PIP,'install','progress']]},
+    {'name':'scipy','install':[[SUDO,PIP,'install','scipy']]},
+    {'name':'requests','install':[[SUDO,PIP,'install','requests']]},
+    {'name':'sklearn','install':[[SUDO,PIP,'install','sklearn']]},
+    {'name':'editdistance','install':[[SUDO,PIP,'install','editdistance']]},
+    {'name':'pandas','install':[[SUDO,PIP,'install','pandas']]},
+    {'name':'portpicker','install':[[SUDO,PIP,'install','portpicker']]},
+    {'name':'PIL','install':[[SUDO,PIP,'install','pillow']]},
+    {'name':'psutil','install':[[SUDO,PIP,'install','psutil']]},
+    {'name':'OpenSSL','install':[[SUDO,PIP,'install','pyopenssl']]},
+    {'name':'typing','install':[[SUDO,PIP,'install','typing']]},
+    {'name':'hypothesis','install':[[SUDO,PIP,'install','hypothesis']]},
+    {'name':'twisted','install':[[SUDO,PIP,'install','twisted']]},
+    {'name':'tensorboardX','install':[[SUDO,PIP,'install','tensorboardX']]},
+    {'name':'skimage','install':[[SUDO,PIP,'install','scikit-image']]},
+    {'name':'umap','install':[[SUDO,PIP,'install','umap-learn']]},
+
+    {'name':'moviepy','install':[[SUDO,PIP,'install','moviepy']]},
+    {'name':'h5py','install':[
+        [SUDO,'apt','install','-y','python3-h5py',';',SUDO,PIP,'install','h5py'],
+        ['brew','install','-y','python3-h5py',';',SUDO,PIP,'install','h5py'],
+        ]},
+    {'name':'tkinter','install':[
+        [SUDO,'apt','install','-y','python3.7-tk'],
+        ['brew','install','-y','python3.7-tk'],
+        ]},
+    {'name':'cairocffi','install':[
+        [SUDO,'apt','install','-y','libffi-dev','libcairo2',';', SUDO, PIP,'install','cairocffi'],
+        ['brew','install','cairo',';', SUDO, PIP,'install','cairocffi'],
+        ]},
+    {'name':'matplotlib','install':[
+        [SUDO,PIP,'install','matplotlib'],
+        [SUDO,'apt','install','-y','python3-matplotlib']
+        ]},
+    {'name':'numba','install':[
+        [SUDO,PIP,'install','numba'],
+        [SUDO,'apt','install','-y','pythyon3-numba'],
+        ]},
+
+    {'name':'cv2','install':[[SUDO,PIP,'install','opencv-python'],[SUDO,'apt','install','-y','python3-opencv', ';', SUDO, 'apt', 'install' ,'-y', 'libsm6','libxrender1','libxext-dev']]},
+    {'name':'aimage','install':[[SUDO,PIP,'install','aimage']]},
+    {'name':'acapture','install':[[SUDO,PIP,'install','acapture']]},
+    {'name':'pyglview','install':[[SUDO,PIP,'install','pyglview']]},
+]
+
+
+package_list2 = [
+    {'name':'tensorflow','install':[
+        [SUDO,PIP,'install','tensorflow'],
+        [SUDO,PIP,'install','tensorflow-rocm'],
+        [SUDO,PIP,'install','tensorflow-gpu'],
+    ]},
+    {'name':'torch','install':[
+        [SUDO, PIP, "install", "torch", "torchvision"],
+        [SUDO, PIP, "install", "http://install.aieater.com/libs/pytorch/rocm3.3/gfx906/torch-1.6.0a0+d83509e-cp35-cp35m-linux_x86_64.whl", "torchvision"]
+    ]},
+    {'name':'keras','install':[[SUDO,PIP,'install','Keras']]},
+    {'name':'onnx','install':[[SUDO,PIP,'install','onnx']]},
+    {'name':'onnxruntime','install':[
+        [SUDO,PIP,'install','onnxruntime-gpu'],
+        [SUDO,PIP,'install','onnxruntime'],
+        ]},
+    {'name':'onnxconverter_common','install':[
+        [SUDO,PIP,'install','onnxconverter-common'],
+        [SUDO,PIP,'install','-U','git+https://github.com/microsoft/onnxconverter-common.git'],
+        ]},
+    {'name':'keras2onnx','install':[
+        [SUDO,PIP,'install','keras2onnx'],
+        [SUDO,PIP,'install','-U','git+https://github.com/onnx/keras-onnx.git'],
+        ]},
+]
+
+
+failed_list = []
+for m in package_list:
+    m["Option"] = False
+    try:
+        exec('import ' + m['name'])
+        print(CGREEN,"State:OK " + m['name'],CRESET)
+    except:
+        print(CRED,"State:-- " + m['name'],CRESET)
+        failed_list.append(m)
+
+for m in package_list2:
+    m["Option"] = True
+    try:
+        exec('import ' + m['name'])
+        print(CGREEN,"State:OK " + m['name'],CRESET)
+    except:
+        print(CRED,"State:-- " + m['name'],CRESET)
+        failed_list.append(m)
+
+
+cmd_list = [
+    {'name':'jupyter','command':['jupyter','--version'],'install':[[SUDO, PIP, 'install', 'jupyter']]},
+    {'name':'pycodestyle','command':['pycodestyle','--version'],'install':[[SUDO, PIP, 'install', 'pycodestyle']]},
+    {'name':'pylint3','command':['pylint3','--version'],'install':[[SUDO, PIP, 'install', 'pylint']]},
+    {'name':'flake8','command':['flake8','--version'],'install':[[SUDO, PIP, 'install', 'flake8']]},
+    {'name':'autopep8','command':['autopep8','--version'],'install':[[SUDO, PIP, 'install', 'autopep8']]},
+    {'name':'black','command':['black','--version'],'install':[[SUDO, PIP, 'install', 'black']]},
+    {'name':'yapf','command':['yapf','--version'],'install':[[SUDO, PIP, 'install', 'yapf']]},
+    {'name':'pyflakes','command':['pyflakes','--version'],'install':[[SUDO, PIP, 'install', 'pyflakes']]},
+    {'name':'jupyter-lab','command':['jupyter-lab','--version'],'install':[[SUDO, PIP, 'install', 'jupyterlab']]},
+    {'name':'ffmpeg','command':['ffmpeg','-version'],'install':[
+        [SUDO, 'apt', '-y', 'install', 'ffmpeg'],
+        ['brew', 'install', 'ffmpeg'],
+    ]},
+]
+
+if platform.system() != "Darwin":
+    cmd_list += [{'name':'nmon','command':['nmon','-V'],'install':[
+        [SUDO, 'apt', '-y', 'install', 'nmon'],
+    ]}]
+    cmd_list += [{'name':'jtop','command':['jtop','--version'],'install':[
+        [SUDO, PIP, 'install', 'jetson-stats'],
+    ]}]
+
+
+
+for m in cmd_list:
+    m["Option"] = False
+    try:
+        subprocess.call(m['command'])
+        print(CGREEN,"State:OK " + m['name'],CRESET)
+    except:
+        print(CRED,"State:-- " + m['name'],CRESET)
+        failed_list.append(m)
+
+
+if JUST_CHECK is False:
+    for m in failed_list:
+        try:
+            opts = [" ".join(s).strip() for s in m["install"]]
+            if m["Option"]:
+                opts += ["None"]
+            if platform.system() == "Darwin":
+                opts = [o for o in opts if "apt" not in o]
+            else:
+                opts = [o for o in opts if "brew" not in o]
+            if len(opts) > 0:
+                index, name = cselector.selector(opts)
+                if name != "None":
+                    ccmd = name.split(" ")#m["install"][index]
+                    ccmd = [c for c in ccmd if c != ""]
+                    mcmds = [[]]
+                    for c in ccmd:
+                        if c == ";":
+                            mcmds.append([])
+                        else:
+                            mcmds[-1].append(c)
+
+                    for cmd in mcmds:
+                        print(" ".join(cmd))
+                        proc = subprocess.Popen(cmd)
+                        ret = proc.communicate()
+        except Exception as e:
+            print(CRED, e, CRESET)
+
+
+print("\n\n\n\n")
+print("=================================================================")
+print("Check TensorFlow GPU Device")
+print("=================================================================")
+try:
+    from tensorflow.python.client import device_lib; device_lib.list_local_devices()
+except Exception as e:
+    print(e)
+
+print("\n\n\n\n")
+print("=================================================================")
+print("Check PyTorch GPU(CUDA/HIP) Device")
+print("=================================================================")
+try:
+    import torch;
+    print("GPU:",torch.cuda.is_available())
+    print("DeviceID:",str(torch.cuda.current_device()))
+    print("DeviceName:",str(torch.cuda.get_device_name(torch.cuda.current_device())))
+except Exception as e:
+    print(e)
+
+
+
+try:
+    print("\n\n\n\n")
+    print("=================================================================")
+    print("Check EdgeTPU Device")
+    print("=================================================================")
+    from edgetpu.basic import edgetpu_utils;print(edgetpu_utils.ListEdgeTpuPaths(edgetpu_utils.EDGE_TPU_STATE_NONE));
+except:
+    print("No EdgeTPU")
+    
