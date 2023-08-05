@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: GracefulKiller
+Version: 0.1
+Summary: module for process SIGTERM and SIGINT signals gracefully
+Home-page: https://github.com/MaxMaxoff/GracefulKiller
+Author: Maxim Toropov
+Author-email: maxim.vt@gmail.com
+License: MIT
+Download-URL: https://github.com/MaxMaxoff/GracefulKiller/archive/v_01.tar.gz
+Description: UNKNOWN
+Keywords: SIGTERM,SIGINT,GracefulKiller,Killer,Graceful
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
