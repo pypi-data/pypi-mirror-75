@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+avro_validator/__init__.py
+avro_validator/avro_types.py
+avro_validator/cli.py
+avro_validator/schema.py
+avro_validator.egg-info/PKG-INFO
+avro_validator.egg-info/SOURCES.txt
+avro_validator.egg-info/dependency_links.txt
+avro_validator.egg-info/entry_points.txt
+avro_validator.egg-info/requires.txt
+avro_validator.egg-info/top_level.txt
