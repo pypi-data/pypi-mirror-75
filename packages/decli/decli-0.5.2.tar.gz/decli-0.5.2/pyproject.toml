@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "decli"
+version = "0.5.2"
+description = "Minimal, easy-to-use, declarative cli tool"
+authors = ["Santiago Fraire <santiwilly@gmail.com>"]
+license = "MIT"
+readme = 'README.rst'
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+
+[tool.poetry.dev-dependencies]
+ipython = "^7.16"
+ipdb = "^0.13"
+pytest = "^5.4"
+flake8 = "^3.8"
+black = "^19.10b0"
+mypy = "^0.782"
+pytest-cov = "^2.10"
+pyparsing = "^2.4"
+codecov = "^2.1"
+
+
+[tool.black]
+line-length = 79
+py36 = true
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+  | profiling
+)/
+'''
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "0.5.2"
+files = [
+    "decli/__init__.py:__version",
+    "pyproject.toml:version"
+]
+tag_format = "v$version"
