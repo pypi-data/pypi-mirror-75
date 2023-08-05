@@ -1,0 +1,68 @@
+[tool.poetry]
+name = "django-partisan"
+version = "1.5.0"
+description = "Framework to allow creating background tasks in django without MQ"
+authors = ["Ilya Chichak <ilyachch@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/ilyachch/django-partisan"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Framework :: Django",
+    "Intended Audience :: Developers",
+    "Programming Language :: Python :: 3 :: Only",
+    "Typing :: Typed"
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+Django = "^1.9 || ^2 || ^3"
+psycopg2-binary = "2.8.2"
+pytz = "2019.1"
+setproctitle = "1.1.10"
+sqlparse = "0.3.0"
+pydantic = "^1.6.1"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+mypy = "^0.770"
+django-stubs = "^1.5.0"
+coverage = {version = "^5.1", extras = ["toml"]}
+
+# Black section
+
+[tool.black]
+exclude = """
+(
+    migrations
+)
+"""
+
+# Coverage section
+
+[tool.coverage.run]
+source = [
+    'django_partisan',
+]
+omit = [
+    'django_partisan/tests/*',
+    'django_partisan/migrations/*',
+    'django_partisan/apps.py',
+    'django_partisan/settings.py',
+]
+
+[tool.coverage.html]
+directory = '.coverage_html'
+
+[tool.coverage.report]
+fail_under = 100
+
+exclude_lines = [
+    '# pragma: no cover',
+]
+
+# Build section
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
