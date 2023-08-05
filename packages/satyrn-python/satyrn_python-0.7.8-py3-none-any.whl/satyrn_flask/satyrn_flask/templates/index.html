@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Satyrn</title>
+    <link rel="stylesheet" href="../static/jquery-ui.css">
+    <link rel="stylesheet" href="../static/index.style.css">
+    <link rel="stylesheet" href="../static/bootstrap.min.css">
+    <link rel="icon" type="image/png" href="../static/icon.png">
+</head>
+
+<body id="idx_body" >
+    <script src='panzoom.min.js'></script>
+    <script src="jquery-1.12.4.js"></script>
+    <script src="jquery-ui.js"></script>
+
+    <input id="file-input" type="file" name="name" style="display: none;" accept=".SATX, .satx"/>
+
+    <div class="title-bar">
+        <div style="width: 25%; display: inline-block;">
+            <img src="../static/cover.png" height="50%" width="50%">
+        </div>
+
+        <div style="display: inline-block; margin-top: 25px;">
+            <p id="graph_name_p" style="color: white; border-color: #19ceda; border-width: 2px; background-color: transparent; resize: none;">Untitled.SATX</p>
+        </div>
+
+        <div style="display: inline-block; margin-left: 20px; margin-top: 20px; float: right;">
+            <button style="border-radius: 5px;" class="shutdown">Shutdown</button>
+        </div>
+
+        <div style="display: inline-block; margin-top: 25px; float: right;">
+            <p id="connected_p" style="color: white; border-color: #19ceda; border-width: 2px; background-color: transparent; resize: none;">Connected</p>
+        </div>
+    </div>
+
+    <nav style="border-radius: 10px;">
+        <ul class="main-menu">
+            <li> <a>File <i class="fa fa-caret-down"></i> </a>
+                <ul class="sub-menu">
+                    <li> <a action="new_graph">New Graph</a> </li>
+                    <li> <a action="load_graph">Load Graph</a> </li>
+                    <li> <a action="copy_graph">Make a Copy...</a> </li>
+                    <li> <a action="save_graph_as">Save as...</a> </li>
+                    <li> <a action="rename">Rename...</a> </li>
+                    <li> <a action="close_halt_graph">Close and Halt</a> </li>
+                </ul>
+            </li>
+
+            <li> <a>Edit <i class="fa fa-caret-down"></i> </a>
+                <ul class="sub-menu">
+                    <li> <a action="cut_cell">Cut Cell</a> </li>
+                    <li> <a action="dupe_cell">Duplicate Cell</a> </li>
+                    <li> <a action="delete_cell">Delete Cell</a> </li>
+                </ul>
+            </li>
+
+            <li> <a>Cell <i class="fa fa-caret-down"></i> </a>
+                <ul class="sub-menu">
+                    <li> <a action="run_all">Run All</a> </li>
+                    <li> <a action="run_cell">Run Cell</a> </li>
+                    <li> <a action="set_as_md">Set as MD</a> </li>
+                    <li> <a action="set_as_py">Set as Py</a> </li>
+                </ul>
+            </li>
+
+            <li> <a>Kernel <i class="fa fa-caret-down"></i> </a>
+                <ul class="sub-menu">
+                    <li> <a action="interrupt">Interrupt</a> </li>
+                    <li> <a action="reset_runtime">Reset Runtime</a> </li>
+                    <li> <a action="reset_graph">Reset Graph</a> </li>
+                    <li> <a action="reset_run_all">Reset & Run All</a> </li>
+                    <li> <a action="shutdown">Shutdown</a> </li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div>
+        <iframe id="canvas" src="canvas.html" name="targetframe" allowTransparency="false" scrolling="yes" frameborder="0" height="1000" style="border-radius: 10px; width: 75%;"></iframe>
+        <textarea id="dynamic_code_output" style="height: 994px; width: 24.1%; border-radius: 10px;" spellcheck="false" frameborder="0" readonly></textarea>
+    </div>
+
+    <script src="./codemirror/lib/codemirror.js"></script>
+    <script src="../static/python.js"></script>
+    <script src="../static/markdown.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>
