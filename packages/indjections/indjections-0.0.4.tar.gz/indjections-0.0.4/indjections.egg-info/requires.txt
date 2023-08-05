@@ -1,0 +1,12 @@
+toml
+colorama
+
+[dev]
+pytest
+ipython
+pytest-cov
+pytest-django
+django
+djangorestframework
+indjections
+pytest-pythonpath
