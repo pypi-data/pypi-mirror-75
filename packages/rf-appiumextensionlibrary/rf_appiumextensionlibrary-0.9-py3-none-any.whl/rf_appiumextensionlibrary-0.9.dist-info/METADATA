@@ -1,0 +1,101 @@
+Metadata-Version: 2.1
+Name: rf-appiumextensionlibrary
+Version: 0.9
+Summary: serhatbolsu's AppiumLibrary Extension
+Home-page: https://github.com/MainSystemDev/rf-appiumextensionlibray
+Author: Shiela Buitizon
+Author-email: shiela.buitizon@mnltechnology.com
+License: MIT License
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Testing
+Classifier: Framework :: Robot Framework
+Classifier: Framework :: Robot Framework :: Library
+Description-Content-Type: text/markdown
+Requires-Dist: pycodestyle
+Requires-Dist: robotframework-appiumlibrary (==1.5.0.6)
+
+AppiumExtensionLibrary
+================
+
+
+
+Authors:
+* __Shiela Buitizon | email:shiela.buitizon@mnltechnology.com__ 
+* __Joshua Kim Rivera | email:joshua.rivera@mnltechnology.com__
+
+Company: [__Spiralworks Technologies Inc.__](http://www.spiralwrks.com/)
+
+
+##### Contents:
+- [Introduction](#introduction)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Generating Local Documentation](#generating-local-documentation)
+- [Dependencies](#dependencies)
+
+
+
+### Introduction
+**ApppiumExtensionLibrary** is an extension of the [AppiumLibrary](https://github.com/serhatbolsu/robotframework-appiumlibrary) by [serhatbolsu](https://github.com/serhatbolsu).  
+
+![PyPI](https://img.shields.io/pypi/v/rf-appiumextensionlibrary?style=for-the-badge)
+![PyPI - Downloads](https://img.shields.io/pypi/dd/rf-appiumextensionlibrary?style=for-the-badge)
+![PyPI - License](https://img.shields.io/pypi/l/rf-appiumextensionlibrary?style=for-the-badge)
+
+![PyPI](https://img.shields.io/pypi/v/robotframework-appiumlibrary?label=AppiumLibrary&style=for-the-badge)
+### Installation
+**Option 1**  
+Install this project using pypi, run:
+```bash
+pip install rf-appiumextensionlibrary
+```
+**Option 2**  
+With recent version of `pip`, it is possible to install directly from GitHub repository. To Install latest source
+from the master branch, use this command:
+```bash
+pip install git+https://github.com/MainSystemDev/rf-appiumextensionlibrary.git
+```
+Please note that using installation option 2 will take some time, because ``pip`` will
+clone the [AppiumExtensionLibrary](https://github.com/MainSystemDev/rf-appiumextensionlibrary) project to a temporary directory and then
+perform the installation.
+
+
+### Usage
+To use AppiumExtensionLibrary in Robot Framework test(s), the library needs to
+first be imported using the `Library` setting as any other library.
+
+
+```robotframework
+*** Settings ***
+Documentation                           Simple example using AppiumExtensionLibrary
+Library                                 AppiumExtensionLibrary
+
+*** Variables ***
+${sample_variable}
+
+*** Test Cases ***
+Test Case Sample One
+    ${url}                              Get URL
+    Log To Console                      ${url}
+
+```
+
+### Keyword Documentation  
+View the latest keyword [documentation here](https://mainsystemdev.github.io/rf-appiumextensionlibrary/) for more information about this library.
+
+
+### Generating Local Documentation
+
+
+To Generate the keyword Documentation, simply run:
+```bash
+python -m robot.libdoc AppiumExtensionLibrary documentation.html
+```
+Where: documentation.html is the output file.
+Note that the library must first be installed before generating a documentation.
+
+
