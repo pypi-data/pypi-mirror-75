@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: fj
+Version: 0.0.4
+Summary: Pool installations of Python projects
+Home-page: https://pypi.org/project/fj/
+Author: sinoroc
+Author-email: sinoroc.code+python@gmail.com
+License: Apache-2.0
+Project-URL: GitHub, https://github.com/sinoroc/fj
+Project-URL: GitLab, https://gitlab.com/sinoroc/fj
+Project-URL: Documentation, https://fj.readthedocs.io/
+Description: ..
+        
+        
+        Introduction
+        ============
+        
+        Pool installations of Python projects
+        
+        
+        Documentation
+        -------------
+        
+        * https://fj.readthedocs.io/
+        
+        
+        Repositories
+        ------------
+        
+        Distributions:
+        
+        * https://pypi.org/project/fj/
+        
+        
+        Source code:
+        
+        * https://gitlab.com/sinoroc/fj
+        * https://github.com/sinoroc/fj
+        
+        
+        .. EOF
+        
+Platform: UNKNOWN
+Requires-Python: ~=3.8
+Description-Content-Type: text/x-rst
+Provides-Extra: full
+Provides-Extra: plugin_tox
+Provides-Extra: plugin_virtualenv
+Provides-Extra: dev_doc
+Provides-Extra: dev_package
+Provides-Extra: dev_test
