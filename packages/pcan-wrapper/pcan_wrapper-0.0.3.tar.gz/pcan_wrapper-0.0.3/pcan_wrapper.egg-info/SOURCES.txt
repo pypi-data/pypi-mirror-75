@@ -1,0 +1,10 @@
+MANIFEST.in
+setup.py
+pcan/PCANBasic.dll
+pcan/PCANBasic.py
+pcan/__init__.py
+pcan/wrapper.py
+pcan_wrapper.egg-info/PKG-INFO
+pcan_wrapper.egg-info/SOURCES.txt
+pcan_wrapper.egg-info/dependency_links.txt
+pcan_wrapper.egg-info/top_level.txt
