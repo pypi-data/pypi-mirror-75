@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+src/aio_pydispatch/__init__.py
+src/aio_pydispatch/signal.py
+src/aio_pydispatch/utils.py
+src/aio_pydispatch.egg-info/PKG-INFO
+src/aio_pydispatch.egg-info/SOURCES.txt
+src/aio_pydispatch.egg-info/dependency_links.txt
+src/aio_pydispatch.egg-info/not-zip-safe
+src/aio_pydispatch.egg-info/top_level.txt
