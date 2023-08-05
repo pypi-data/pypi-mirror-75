@@ -1,0 +1,5 @@
+[console_scripts]
+fetch_datasets = face_engine.fetching:fetch_datasets
+fetch_images = face_engine.fetching:fetch_images
+fetch_models = face_engine.fetching:fetch_models
+
