@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: gpwebpay
+Version: 0.1.0
+Summary: GPWebPay Gateway access with python
+Author: Filipa Andrade
+Author-email: filipa.andrade@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: cryptography (==2.8)
+Requires-Dist: invoke (>=1.4.1,<2.0.0)
+Requires-Dist: python-dotenv (>=0.13.0,<0.14.0)
+Requires-Dist: requests (==2.23)
+Requires-Dist: tox (>=3.17.1,<4.0.0)
