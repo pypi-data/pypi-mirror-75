@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: deepak-test-mypackage
+Version: 0.0.2
+Summary: demo package
+Home-page: http://github.com/deepakkochhar11/mypackage
+Author: Deepak Kochhar
+Author-email: deepakkochhar11@gmail.com
+License: MIT
+Download-URL: https://github.com/deepakkochhar11/mypackage/archive/0.0.2.tar.gz
+Description: mypackage
+Keywords: core package
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
