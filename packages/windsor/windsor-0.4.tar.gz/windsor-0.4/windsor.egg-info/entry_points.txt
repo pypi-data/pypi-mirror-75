@@ -1,0 +1,3 @@
+[console_scripts]
+windsor = windsor.cli:run
+
