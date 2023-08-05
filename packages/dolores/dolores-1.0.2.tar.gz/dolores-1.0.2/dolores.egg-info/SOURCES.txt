@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+dolores/__init__.py
+dolores/dolores.py
+dolores/version.py
+dolores.egg-info/PKG-INFO
+dolores.egg-info/SOURCES.txt
+dolores.egg-info/dependency_links.txt
+dolores.egg-info/top_level.txt
+tests/__init__.py
+tests/conftest.py
+tests/test_dolores.py
