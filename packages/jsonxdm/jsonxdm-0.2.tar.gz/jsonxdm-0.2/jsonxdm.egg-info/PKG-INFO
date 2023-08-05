@@ -1,0 +1,19 @@
+Metadata-Version: 1.2
+Name: jsonxdm
+Version: 0.2
+Summary: Convert between JSON and XML following the XDM schema of XSLT 3.0
+Home-page: https://bitbucket.org/ebcore/jsonxdm/
+Author: Pim van der Eijk
+Author-email: pvde@sonnenglanz.net
+License: UNKNOWN
+Project-URL: Documentation, https://bitbucket.org/ebcore/jsonxdm/
+Project-URL: Source Code, https://bitbucket.org/ebcore/jsonxdm/src/master/
+Description: 
+        The *jsonxdm* library provides Python functions to convert JSON data to XML following a simple XML schema called XDM.  
+        XDM is a low-level intermediate XML-based format that can be used for up-conversion of JSON to other XML formats 
+        that conform to higher-level XML schemas for specific domains or applications.  It can also be used in the reverse 
+        direction as intermediate format in down-conversion to JSON.  
+        
+Keywords: xdm,xslt,json,xml,xsd
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
