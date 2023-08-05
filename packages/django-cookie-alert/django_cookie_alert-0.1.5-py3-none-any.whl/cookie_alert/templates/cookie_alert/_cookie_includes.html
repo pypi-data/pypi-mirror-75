@@ -1,0 +1,13 @@
+{% load cms_tags static sekizai_tags cookie_alert i18n %}
+
+{% addtoblock "css" %}<link href="{% static 'cookie_alert/css/cookie_alert.css' %}" rel="stylesheet" type="text/css" />{% endaddtoblock %}
+{% addtoblock "js" %}<script src="{% static 'cookie_alert/js/cookie_alert.js' %}" type="text/javascript"></script>{% endaddtoblock %}
+
+{# if not request.COOKIES.cookies_confirmed #}
+    {# if not request.current_page.reverse_id == 'privacy-policy' #}
+        {# render_cookie_alert 'cookie_alert/modal.html' #}
+    {# endif #}
+{# endif #}
+
+{# if request.COOKIES.analysis_confirmed and request.META.HTTP_HOST == 'www.example.com' #}
+{# endif #}

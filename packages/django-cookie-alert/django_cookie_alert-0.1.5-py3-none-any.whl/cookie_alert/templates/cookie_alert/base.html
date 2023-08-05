@@ -1,0 +1,41 @@
+{% load cms_tags i18n cookie_alert %}
+{% block cookie_content %}
+  <div id="cookie-alert" class="cookie-alert {% block cookie_classes %}{% endblock %}">
+    <div class="cookie-alert--container">
+      <div class="cookie--text">
+        {% block cookie_text %}
+        <p>
+        {% trans "We use cookies, see: " %}
+        <a href="{% page_url "privacy-policy" %}">{% trans "our privacy policy" %}</a>
+        {% trans "to learn more." %}
+        </p>
+        {% endblock %}
+      </div>
+
+      <div class="cookie--form">
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+
+
+        {% block cookie_choices %}
+
+          <label for="cookie-alert-technical-checkbox" class="pr-3">
+            {% block technical_text %}{% trans "Technically&nbsp;essential&nbsp;" %}{% endblock %}
+            <input id="cookie-alert-technical-checkbox" disabled type="checkbox" name="analysis" checked>
+          </label>
+
+          {% if with_analysis_choice %}
+            <label for="cookie-alert-analysis-checkbox" class="pr-3">
+              {% block analysis_text %}{% trans "Analysis&nbsp;" %}{% endblock %}
+              <input id="cookie-alert-analysis-checkbox" type="checkbox" name="analysis" checked>
+            </label>
+          {% endif %}
+        {% endblock %}
+
+        {% block cookie_btn %}
+          <button type="submit" class="btn btn-primary cookie--accept">{% trans 'Accept' %}</button>
+        {% endblock %}
+
+      </div>
+    </div>
+  </div>
+{% endblock %}
