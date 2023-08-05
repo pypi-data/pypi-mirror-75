@@ -1,0 +1,10 @@
+{% if perms.lifecycles.lifecycles_edit %}
+    <a href="{% url 'plugins:lifecycles:lifecycle_edit' pk=record.id %}?return_url={{ request.path }}" class="btn btn-xs btn-warning" title="Edit ation type">
+        <i class="glyphicon glyphicon-pencil" aria-hidden="true"></i>
+    </a>
+{% endif %}
+{% if perms.lifecycles.lifecycles_delete %}
+    <a href="{% url 'plugins:lifecycles:lifecycle_delete' pk=record.id %}?return_url={{ request.path }}" class="btn btn-danger btn-xs" title="Delete action type">
+        <i class="glyphicon glyphicon-trash" aria-hidden="true"></i>
+    </a>
+{% endif %}
