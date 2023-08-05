@@ -1,0 +1,5 @@
+[console_scripts]
+hume = hume:run
+humeconfig = humeconfig:run
+humed = humed:main
+

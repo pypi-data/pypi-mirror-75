@@ -1,0 +1,42 @@
+Metadata-Version: 2.0
+Name: humed
+Version: 1.2.22
+Summary: Agnostic sysadmin/devops instrumentation tool. Includes hume and humed.
+Home-page: https://github.com/buanzo/hume
+Author: Arturo "Buanzo" Busleiman
+Author-email: buanzo@buanzo.com.ar
+License: MIT License
+Keywords: hume,humed,logstash,slack,syslog,kant,fluentd,devops,sysadmin,agnostic,prometheus
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6
+Requires-Dist: pid (==3.0.3)
+Requires-Dist: psutil (==5.7.0)
+Requires-Dist: requests (>=2.20.0)
+Requires-Dist: python-logstash-async (==1.6.4)
+Requires-Dist: confuse (==1.1.0)
+Requires-Dist: pyzmq (==19.0.1)
+Requires-Dist: webhook-listener (>=0.0.3)
+Requires-Dist: Jinja2 (>=2.10.1)
+
+TL;DR: Add hume commands inside your scripts to better report to a central
+location.  Currently supporting Slack, syslog, remote-syslog, logstash, etc
+
+Imagine this: You have some cron scripts.  They need to run correctly, and
+you need to know if anything happens.  You usually check logs via email or
+some cool dashboard.  Yeah.  But it gets boring, repetitive and you end up
+not checking the logs.  It is a well known sysadmin syndrome.
+
+Hume client works and can be used in bash scripts, or during a screen
+session, to provide real time updates to your managers, customers, etc.
+
+So, for instance write those scripts adding hume commands in them:
+
+
