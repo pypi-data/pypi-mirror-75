@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: qx-rest
+Version: 0.0.2
+Summary: Simple REST interface to the Phabrix Qx
+Home-page: https://github.com/UndyingScroll
+Author: Kevin Pulley
+Author-email: kpulley@imaginecommunications.com
+License: UNKNOWN
+Description: # qx-rest Package
+        
+        This is a simple Phabrix Qx REST interface package.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
