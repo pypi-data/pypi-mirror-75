@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: ecmtool
+Version: 0.1.7
+Summary: Calculates elementary conversion modes (Urbanczik & Wagner, 2005) of metabolic networks.
+Home-page: https://github.com/tjclement/ecmtool
+Author: Tom Clement
+Author-email: mr@tomclement.nl
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: sympy
+Requires-Dist: python-libsbml
+Requires-Dist: cbmpy
+Requires-Dist: psutil
+Requires-Dist: sklearn
+
+UNKNOWN
+
+
