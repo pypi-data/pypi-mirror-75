@@ -1,0 +1,62 @@
+Metadata-Version: 2.1
+Name: matflow-defdap
+Version: 0.1.2
+Summary: Matflow extension for the Deformation Data Analysis in Python (DefDAP) package.
+Home-page: UNKNOWN
+Author: Adam J. Plowman, Michael D. Atkinson
+Author-email: adam.plowman@manchester.ac.uk
+License: MIT license
+Project-URL: GitHub, https://github.com/LightForm-group/matflow-defdap
+Keywords: matflow,materials-science,computational-workflow
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: matflow
+Requires-Dist: black
+Requires-Dist: autopep8
+
+# matflow-defdap
+
+[![PyPI version](https://img.shields.io/pypi/v/matflow_defdap.svg)](https://pypi.python.org/pypi/matflow_defdap)
+
+Matflow extension for the Deformation Data Analysis in Python ([DefDAP](https://github.com/MechMicroMan/DefDAP)) package.
+
+This extension generates Python scripts that require the following Python packages to be installed:
+
+- [DefDAP](https://github.com/MechMicroMan/DefDAP)
+- [hickle](https://github.com/telegraphic/hickle) (version 3.4.6)
+
+
+# Change Log
+
+## [0.1.2] - 2020.07.28
+
+### Added
+
+- Add filtering of "bad" voxels in `get_DIC_image` snippet.
+
+### Fixed
+
+- A new `main_func` decorator has been introduced, which allow snippets to contain utility functions, in addition to a main `@main_func`-decoration function, whose inputs and outputs will be parsed for generating the wrapper script.
+
+## [0.1.1] - 2020.06.26
+
+### Fixed
+
+- Fix issue with including snippets in package data.
+
+## [0.1.0] - 2020.06.26
+
+Initial release.
+
+
