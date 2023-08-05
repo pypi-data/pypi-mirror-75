@@ -1,0 +1,15 @@
+Metadata-Version: 1.2
+Name: pysubnettree
+Version: 0.34
+Summary: 
+The PySubnetTree package provides a Python data structure SubnetTree
+that maps subnets given in CIDR notation (incl. corresponding IPv6
+versions) to Python objects. Lookups are performed by longest-prefix
+matching.
+
+Home-page: https://github.com/zeek/pysubnettree
+Maintainer: The Zeek Project
+Maintainer-email: info@zeek.org
+License: BSD
+Description: UNKNOWN
+Platform: UNKNOWN
