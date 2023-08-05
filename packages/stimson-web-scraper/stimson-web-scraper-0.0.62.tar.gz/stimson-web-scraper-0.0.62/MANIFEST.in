@@ -1,0 +1,1 @@
+include requirements.txt README.md LICENSErecursive-include scraper *recursive-exclude * __pycache__recursive-exclude * *.py[co]
