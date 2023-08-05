@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: jcopvision
+Version: 0.1.0
+Summary: J.COp Vision consists of helper tools for computer vision
+Home-page: https://github.com/WiraDKP/jcopvision
+Author: Wira Dharma Kencana Putra
+Author-email: wiradharma_kencanaputra@yahoo.com
+License: UNKNOWN
+Description: # J.COp Vision
+        J.COp Vision is a computer vision toolkit to complement opencv workflow. It includes a lot of helper tools for computer vision.
+        
+        The project started in July 2020 as a tool to teach computer vision for beginner.
+        
+        # User Installation Guide
+        ```
+        pip install jcopvision
+        ```
+Keywords: computer vision dl jcop indonesia
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Natural Language :: Indonesian
+Classifier: Natural Language :: English
+Requires-Python: >=3.6.7
+Description-Content-Type: text/markdown
