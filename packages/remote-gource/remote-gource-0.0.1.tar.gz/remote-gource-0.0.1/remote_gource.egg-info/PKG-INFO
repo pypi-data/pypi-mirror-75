@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: remote-gource
+Version: 0.0.1
+Summary: A wrapper around Gource which can read commits from third parties (Github etc)
+Home-page: https://github.com/pypa/remote-gource
+Author: Andrew van Rooyen
+Author-email: wraith.andrew@gmail.com
+License: UNKNOWN
+Description: # Remote Gource
+        
+        This is a wrapper around [Gource](https://gource.io/) which pulls commit data from a remote source (e.g. Github, Bitbucket etc).
+        
+        This makes it easier to generate multi-repo Gource outputs based on a team workspace/organisation.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
