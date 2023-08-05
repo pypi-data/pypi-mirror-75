@@ -1,0 +1,10 @@
+README.md
+setup.py
+markdown_word_count.egg-info/PKG-INFO
+markdown_word_count.egg-info/SOURCES.txt
+markdown_word_count.egg-info/dependency_links.txt
+markdown_word_count.egg-info/entry_points.txt
+markdown_word_count.egg-info/top_level.txt
+mwc/__init__.py
+mwc/cli.py
+mwc/counter.py
