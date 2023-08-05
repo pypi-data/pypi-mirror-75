@@ -1,0 +1,5 @@
+optimizers:
+  generator_optimizer:
+    Adam:
+      lr: 0.000001
+      weight_decay: 0.0001
