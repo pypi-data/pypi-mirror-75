@@ -1,0 +1,12 @@
+Metadata-Version: 1.0
+Name: remote-sqlitedict
+Version: 0.4.1
+Summary: Remote sqlitedict
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Description:     This package allows for a remote access to SQLite backed dictionary for data persistence   # noqa: E501
+            
+Keywords: sqlitedict,rpyc,remote
+Platform: UNKNOWN
