@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: gsc
+Version: 1.0.2
+Summary: Git for Scientists practical exercise helper.
+Home-page: https://www.gitscientist.com
+License: GPL-3.0-only
+Author: Daniel Tipping
+Author-email: daniel@gitscientist.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests (>=2.23.0,<3.0.0)
+Requires-Dist: typer (>=0.1.1,<0.2.0)
+Project-URL: Repository, https://github.com/git-scientist/gsc
+Description-Content-Type: text/markdown
+
+# gsc
+
+Git for Scientists practical exercise helper.
+
+See https://www.gitscientist.com for more.
+
