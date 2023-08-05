@@ -1,0 +1,13 @@
+Flask
+Flask-Script
+Flask-Migrate
+Flask-SQLAlchemy
+Flask-Testing
+Flask-Injector
+Flask-JWT-Extended
+Flask-WTF
+WTForms
+email-validator
+Werkzeug==0.16.1
+PyYAML
+psycopg2-binary

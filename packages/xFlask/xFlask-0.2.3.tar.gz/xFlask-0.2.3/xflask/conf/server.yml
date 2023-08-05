@@ -1,0 +1,43 @@
+### FLASK ###
+APP_NAME: xflask-server
+
+HOST: localhost
+PORT: 8000
+
+DEBUG: true
+ENV: development
+
+SECRET_KEY: AAAAAA
+
+STATIC_DIR: webapp/public
+
+TEMPLATE_DIR: webapp/view
+
+### XFLASK ###
+MODEL:
+    - main.model
+
+COMPONENT:
+    - main.dao
+    - main.service
+
+CONTROLLER:
+    - main.web.controller.mvc
+    - main.web.controller.rest
+
+MIGRATION:
+    DIR: migration
+    MODEL:
+        - main.model
+
+LOGGING: true
+LOGGING_CONF_FILE: ${XFLASK_HOME}/conf/logging.yml
+
+### JWT ###
+JWT_SECRET_KEY: BBBBBB
+JWT_BLACKLIST_ENABLED: true
+JWT_BLACKLIST_TOKEN_CHECKS: ['access', 'refresh']
+
+### SQLALCHEMY ###
+SQLALCHEMY_TRACK_MODIFICATIONS: true
+SQLALCHEMY_ECHO: true
