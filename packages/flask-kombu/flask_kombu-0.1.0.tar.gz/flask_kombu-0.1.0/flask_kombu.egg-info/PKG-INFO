@@ -1,0 +1,72 @@
+Metadata-Version: 1.2
+Name: flask-kombu
+Version: 0.1.0
+Summary: Flask and Kombu integration.
+Home-page: https://github.com/tchalupnik/flask_kombu
+Author: Tomasz Chalupnik
+Author-email: tchalupnik@gmail.com
+License: MIT license
+Description: ===========
+        Flask Kombu
+        ===========
+        
+        
+        .. image:: https://img.shields.io/pypi/v/flask_kombu.svg
+                :target: https://pypi.python.org/pypi/flask_kombu
+        
+        .. image:: https://img.shields.io/travis/tchalupnik/flask_kombu.svg
+                :target: https://travis-ci.com/tchalupnik/flask_kombu
+        
+        .. image:: https://readthedocs.org/projects/flask-kombu/badge/?version=latest
+                :target: https://flask-kombu.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        .. image:: https://pyup.io/repos/github/tchalupnik/flask_kombu/shield.svg
+             :target: https://pyup.io/repos/github/tchalupnik/flask_kombu/
+             :alt: Updates
+        
+        
+        
+        Flask and Kombu integration.
+        
+        
+        * Free software: MIT license
+        * Documentation: https://flask-kombu.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2020-07-29)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: flask_kombu
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
