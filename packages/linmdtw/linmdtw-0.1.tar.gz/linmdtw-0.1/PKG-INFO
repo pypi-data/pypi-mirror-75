@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: linmdtw
+Version: 0.1
+Summary: A linear memory, exact, parallelizable algorithm for dynamic time warping in arbitrary Euclidean spaces
+Home-page: UNKNOWN
+Author: Anonymous
+Author-email: ctralie@alumni.princeton.edu
+License: Apache2
+Description: [![Build Status](https://api.travis-ci.org/ctralie/linmdtw.svg?branch=master)](https://api.travis-ci.org/ctralie/linmdtw)
+        [![codecov](https://codecov.io/gh/ctralie/linmdtw/branch/master/graph/badge.svg)](https://codecov.io/gh/ctralie/linmdtw/)
+        
+        # Parallelizable Dynamic Time Warping with Linear Memory
+        
+        ## Dependencies
+        * cython
+        * numba
+        * librosa
+        * pycuda
+        
+        To get started, type
+        ~~~~~ bash
+        python setup.py build_ext --inplace
+        ~~~~~
+        
+        Run the file Orchestral.py to download and run all alignment experiments
+Keywords: dynamic time warping,fast dtw,synchronization
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: testing
+Provides-Extra: docs
+Provides-Extra: examples
