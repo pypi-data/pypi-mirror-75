@@ -1,0 +1,12 @@
+docopt
+matplotlib
+nibabel
+numpy
+pandas
+PyYaml
+seaborn
+scipy
+pillow
+nilearn
+scikit-learn
+pybids>=0.7.0

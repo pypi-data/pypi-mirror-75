@@ -1,0 +1,23 @@
+[console_scripts]
+cifti_vis_PINT = ciftify.bin.cifti_vis_PINT:main
+cifti_vis_fmri = ciftify.bin.cifti_vis_fmri:main
+cifti_vis_map = ciftify.bin.cifti_vis_map:main
+cifti_vis_recon_all = ciftify.bin.cifti_vis_recon_all:main
+ciftify_PINT_vertices = ciftify.bin.ciftify_PINT_vertices:main
+ciftify_clean_img = ciftify.bin.ciftify_clean_img:main
+ciftify_dlabel_report = ciftify.bin.ciftify_dlabel_report:main
+ciftify_dlabel_to_vol = ciftify.bin.ciftify_dlabel_to_vol:main
+ciftify_falff = ciftify.bin.ciftify_falff:main
+ciftify_groupmask = ciftify.bin.ciftify_groupmask:main
+ciftify_meants = ciftify.bin.ciftify_meants:main
+ciftify_peaktable = ciftify.bin.ciftify_statclust_report:main
+ciftify_postPINT1_concat = ciftify.bin.ciftify_postPINT1_concat:main
+ciftify_postPINT2_sub2sub = ciftify.bin.ciftify_postPINT2_sub2sub:main
+ciftify_recon_all = ciftify.bin.ciftify_recon_all:main
+ciftify_seed_corr = ciftify.bin.ciftify_seed_corr:main
+ciftify_statclust_report = ciftify.bin.ciftify_statclust_report:main
+ciftify_subject_fmri = ciftify.bin.ciftify_subject_fmri:main
+ciftify_surface_rois = ciftify.bin.ciftify_surface_rois:main
+ciftify_vol_result = ciftify.bin.ciftify_vol_result:main
+extract_nuisance_regressors = ciftify.bin.extract_nuisance_regressors:main
+
