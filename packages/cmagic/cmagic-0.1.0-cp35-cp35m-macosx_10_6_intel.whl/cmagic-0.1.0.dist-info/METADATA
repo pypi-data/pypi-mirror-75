@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: cmagic
+Version: 0.1.0
+Summary: Python wrapper for libmagic
+Home-page: UNKNOWN
+Author: Dmitry Orlov <me@mosquito.su>
+Author-email: me@mosquito.su
+License: Apache Software License
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.5.*, <4
+Provides-Extra: develop
+Requires-Dist: pytest ; extra == 'develop'
+Requires-Dist: pytest-cov ; extra == 'develop'
+
+pycno
+=====
+
+.. _libcno: https://github.com/pyos/libcno
+
+Socketless http2 connection implementation using `libcno`_.
+
+
