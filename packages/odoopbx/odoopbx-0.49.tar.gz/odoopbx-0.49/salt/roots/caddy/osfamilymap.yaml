@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
+Debian:
+  pkgs: ['libcap2-bin']
+RedHat:
+  pkgs: ['libcap']

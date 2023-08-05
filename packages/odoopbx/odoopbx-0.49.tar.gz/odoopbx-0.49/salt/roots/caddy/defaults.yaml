@@ -1,0 +1,10 @@
+# -*- coding: utf-8 -*-
+# vim: ft=yaml
+caddy:
+  service:
+    name: caddy
+  user: www-data
+  force_update: False
+  bindir: /usr/local/bin
+  service_enable: True
+  platform: amd64

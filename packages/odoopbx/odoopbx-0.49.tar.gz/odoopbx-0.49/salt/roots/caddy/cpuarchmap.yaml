@@ -1,0 +1,7 @@
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
+x86_64:
+  platform: amd64
+armv7l:
+  platform: arm7
