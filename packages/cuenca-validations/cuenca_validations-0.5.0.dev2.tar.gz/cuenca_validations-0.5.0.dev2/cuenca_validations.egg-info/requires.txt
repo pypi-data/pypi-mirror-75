@@ -1,0 +1,13 @@
+clabe==1.2.2
+pydantic==1.6.1
+
+[:python_version < "3.7"]
+dataclasses>=0.6
+
+[test]
+pytest==5.4.3
+pytest-cov==2.10.0
+black==19.10b0
+isort[pipfile]==4.3.21
+flake8==3.8.3
+mypy==0.782
