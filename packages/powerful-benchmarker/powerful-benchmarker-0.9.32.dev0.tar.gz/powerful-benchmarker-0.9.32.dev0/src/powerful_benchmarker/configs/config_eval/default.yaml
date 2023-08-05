@@ -1,0 +1,27 @@
+tester:
+  GlobalEmbeddingSpaceTester:
+    reference_set: compared_to_self
+    normalize_embeddings: True
+    use_trunk_output: False
+    batch_size: 32
+    dataloader_num_workers: 2
+    pca: null
+    accuracy_calculator:
+      AccuracyCalculator:
+    label_hierarchy_level: 0
+
+
+aggregator:
+  MeanAggregator:
+
+ensemble:
+  ConcatenateEmbeddings:
+    normalize_embeddings: True
+    use_trunk_output: False
+
+
+hook_container:
+  HookContainer:
+    primary_metric: mean_average_precision_at_r
+    validation_split_name: val
+    
