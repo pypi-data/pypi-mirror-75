@@ -1,0 +1,12 @@
+README.md
+setup.py
+rsgis/__init__.py
+rsgis/landsat.py
+rsgis/main.py
+rsgis/metadata.py
+rsgis.egg-info/PKG-INFO
+rsgis.egg-info/SOURCES.txt
+rsgis.egg-info/dependency_links.txt
+rsgis.egg-info/top_level.txt
+tests/__init__.py
+tests/metadata_test.py
