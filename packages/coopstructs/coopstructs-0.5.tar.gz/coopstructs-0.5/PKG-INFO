@@ -1,0 +1,21 @@
+Metadata-Version: 1.2
+Name: coopstructs
+Version: 0.5
+Summary: Basic data structs commonly used by various applications
+Home-page: https://github.com/tylertjburns/coopstructs
+Author: tburns
+Author-email: tyler.tj.burns@gmail.com
+License: MIT
+Description: # coopstructs
+         Basic Data Structures used commonly across multiple projects
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Requires-Python: >3.5
