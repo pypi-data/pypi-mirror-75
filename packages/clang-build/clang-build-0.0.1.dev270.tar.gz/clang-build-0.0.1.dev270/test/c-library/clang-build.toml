@@ -1,0 +1,7 @@
+name = "mainproject"
+
+subprojects = ["qhull"]
+
+[myexe]
+    target_type = "executable"
+    dependencies = ["qhull.qhullcpp", "qhull.qhullstatic_r"]
