@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+src/xirr/__init__.py
+src/xirr/math.py
+src/xirr.egg-info/PKG-INFO
+src/xirr.egg-info/SOURCES.txt
+src/xirr.egg-info/dependency_links.txt
+src/xirr.egg-info/not-zip-safe
+src/xirr.egg-info/requires.txt
+src/xirr.egg-info/top_level.txt
+tests/__init__.py
+tests/test_math.py
