@@ -1,0 +1,10 @@
+---
+- name: Ensure network is setup
+  hosts: all
+  become: true
+
+  tasks:
+    - name: configure hotplug interfaces
+      shell: |
+        set -ex
+        ifup --allow=hotplug eth1 || true

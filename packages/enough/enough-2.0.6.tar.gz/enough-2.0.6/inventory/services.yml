@@ -1,0 +1,161 @@
+---
+essential-service-hosts:
+  children:
+    bind-service-group:
+    postfix-service-group:
+    icinga-service-group:
+    wazuh-service-group:
+
+bind-service-group:
+  hosts:
+    bind-host:
+
+bind-service-hosts:
+  children:
+    bind-service-group:
+
+bind-client-group:
+  children:
+    all-hosts:
+
+postfix-service-group:
+  hosts:
+    postfix-host:
+
+postfix-client-group:
+  children:
+    all-hosts:
+
+icinga-service-group:
+  hosts:
+    icinga-host:
+
+icinga-client-group:
+  children:
+    all-hosts:
+
+wazuh-service-group:
+  hosts:
+    wazuh-host:
+
+wazuh-client-group:
+  children:
+    all-hosts:
+
+cloud-service-group:
+  hosts:
+    cloud-host:
+
+cloud-service-hosts:
+  children:
+    cloud-service-group:
+    essential-service-hosts:
+
+gitlab-service-group:
+  hosts:
+    gitlab-host:
+
+gitlab-runner-service-group:
+  hosts:
+    runner-host:
+
+gitlab-service-hosts:
+  children:
+    gitlab-service-group:
+    gitlab-runner-service-group:
+    essential-service-hosts:
+
+weblate-service-group:
+  hosts:
+    weblate-host:
+
+weblate-service-hosts:
+  children:
+    weblate-service-group:
+    essential-service-hosts:
+
+packages-service-group:
+  hosts:
+    packages-host:
+
+packages-service-hosts:
+  children:
+    packages-service-group:
+    essential-service-hosts:
+
+chat-service-group:
+  hosts:
+    chat-host:
+
+chat-service-hosts:
+  children:
+    chat-service-group:
+    essential-service-hosts:
+
+forum-service-group:
+  hosts:
+    forum-host:
+
+forum-service-hosts:
+  children:
+    forum-service-group:
+    essential-service-hosts:
+
+website-service-group:
+  hosts:
+    website-host:
+
+website-service-hosts:
+  children:
+    website-service-group:
+    essential-service-hosts:
+
+api-service-group:
+  hosts:
+    api-host:
+
+api-service-hosts:
+  children:
+    api-service-group:
+    gitlab-service-hosts:
+    essential-service-hosts:
+
+wekan-service-group:
+  hosts: {}
+
+wekan-service-hosts:
+  children:
+    wekan-service-group:
+    essential-service-hosts:
+
+pad-service-group:
+  hosts: {}
+
+pad-service-hosts:
+  children:
+    pad-service-group:
+    essential-service-hosts:
+
+openvpn-service-group:
+  hosts: {}
+
+openvpn-service-hosts:
+  children:
+    openvpn-service-group:
+    essential-service-hosts:
+
+backup-service-group:
+  hosts: {}
+
+backup-service-hosts:
+  children:
+    backup-service-group:
+    essential-service-hosts:
+
+securedrop-service-group:
+  hosts: {}
+
+securedrop-service-hosts:
+  children:
+    securedrop-service-group:
+    essential-service-hosts:

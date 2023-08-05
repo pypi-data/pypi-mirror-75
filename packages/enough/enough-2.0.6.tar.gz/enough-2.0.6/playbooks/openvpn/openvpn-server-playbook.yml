@@ -1,0 +1,22 @@
+---
+- name: firewall for openvpn
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - include_role:
+        name: firewall
+      vars:
+        firewall_server: "{{ item }}"
+        firewall_clients: [ 0.0.0.0/0 ]
+        firewall_protocols: [ udp ]
+        firewall_ports: [ 1194 ]
+      when: hostvars[item].ansible_host is defined
+      with_items: "{{ groups['openvpn-service-group'] | default([]) }}"
+
+- name: install openvpn
+  hosts: openvpn-service-group
+  become: true
+
+  roles:
+    - role: openvpn
