@@ -1,0 +1,11 @@
+attrs==19.1.0
+cmd2==0.9.15
+colorama==0.4.1
+frida<13.0.0,>=12.6.17
+frida-tools==3.0.0
+pyperclip==1.7.0
+pyreadline==2.1
+pywin32>=224
+tabulate==0.8.3
+toml==0.10.0
+wcwidth==0.1.7

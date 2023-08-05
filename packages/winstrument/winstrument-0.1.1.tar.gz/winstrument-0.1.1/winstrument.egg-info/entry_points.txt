@@ -1,0 +1,3 @@
+[console_scripts]
+winstrument = winstrument.cmdline:main
+
