@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+AntiCP2.egg-info/PKG-INFO
+AntiCP2.egg-info/SOURCES.txt
+AntiCP2.egg-info/dependency_links.txt
+AntiCP2.egg-info/requires.txt
+AntiCP2.egg-info/top_level.txt
+anticp2/__init__.py
+anticp2/anticp2mod.py

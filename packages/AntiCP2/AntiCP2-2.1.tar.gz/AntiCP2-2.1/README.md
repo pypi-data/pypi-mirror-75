@@ -1,0 +1,43 @@
+# anticp2
+# Introduction
+The current study describes a method "AntiCP 2.0" which predicts and design novel Anti-Cancer Peptides (ACPs). Anticancer peptides (ACPs) are part of the antimicrobial peptide group which exhibits anticancer activity. These are small cationic peptides 5-50 amino acids in length. Mostly they possess alpha helix as the secondary structure or folds into beta sheet.
+
+Models: In this program, two models have beeen incorporated;  i) Model1 for classification of Anti-Cancer and Anti-Microbial peptides; ii) Model2 for classification of Anti-Cancer and Non-Anticalcer peptides. In both models positise dataset contain Anti-Cancer peptides, in case of negative dataset Model1 have Anti-Microbial Peptides and Model2 have non-Anticancer peptide.
+
+Modules/Jobs: This program implement three modules (job types); i) Predict: for predictin anticancer peptides, ii) Design: for generating all possible peptides and computing Anti-Cancer potential (score) of peptides, iii) Scan: for creating all possible overlapping peptides of given length (window) and computing Anti-Cancer potential (score) of overlapping peptides.
+
+Minimum USAGE: Minimum ussage is "anticp2 -i sample.fasta" where sample.fasta is a input fasta file. This will predict Anti-Cancer potential of sequence  in fasta format. It will user other parameters by default. It will save output in "outfile.csv" in CSV (comma seperated variables).
+
+Full Usage: Following is complete list of all options, you may get these options by "anticp.py -h" 
+
+anticp.py [-h] -i INPUT [-o OUTPUT] [-j {1,2,3}] [-t THRESHOLD]
+                  [-m {1,2}]
+                  [-w {5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29}]
+                  [-d {1,2}]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -i INPUT, --input INPUT
+                        Input: protein or peptide sequence in FASTA format
+  -o OUTPUT, --output OUTPUT
+                        Output: File for output by default outfile.csv
+  -j {1,2,3}, --job {1,2,3}
+                        Job Type: 1:predict, 2:design and 3:scan, by default 1
+  -t THRESHOLD, --threshold THRESHOLD
+                        Threshold: Value between 0 to 1 by default 0.5
+  -m {1,2}, --model {1,2}
+                        Model: 1: ACP/AMP, 2: ACP/non-ACP, by default 1
+  -w {5,6,7,..,30}, --winleng
+                        Window Length: 5 to 30 (scan mode only), by default 10
+  -d {1,2}, --display {1,2}
+                        Display: 1:Anticancer peptide, 2: All peptides, by default 1
+
+
+Input File: It allow users to provide input in two format; i) FASTA format (standard) and ii) Simple Format. In case of sample format, file should have one one peptide sequence in a single line in single letter code. Please note in case of predict and design module (job) length of peptide should be upto 50 amino acids, if more than 50, program will take first 50 residues. In case of of scan module, minimum length of protein/peptide sequence should be more than equal to window length (pattern). Please note program will ignore peptides having length less than 5 residues.
+
+Output File: Program will save result in CSV format, in case user do not provide output file name, it will be stored in outfile.csv.
+
+Threshold: User should provide threshold between 0 and 1, please note score is propotional to anti-cancer potential of peptide.
+
+
+
