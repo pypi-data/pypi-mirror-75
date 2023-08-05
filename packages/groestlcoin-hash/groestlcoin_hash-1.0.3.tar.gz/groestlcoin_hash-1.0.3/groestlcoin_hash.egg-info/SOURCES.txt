@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+groestl.c
+groestlcoinmodule.c
+setup.cfg
+setup.py
+sph_groestl.h
+sph_types.h
+groestlcoin_hash.egg-info/PKG-INFO
+groestlcoin_hash.egg-info/SOURCES.txt
+groestlcoin_hash.egg-info/dependency_links.txt
+groestlcoin_hash.egg-info/top_level.txt
