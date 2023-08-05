@@ -1,0 +1,6 @@
+Pillow!=7.1.0,!=7.1.1,>=6.2.0
+PyGObject
+numpy>=1.17.0
+ocrd
+opencv-python-headless
+python-magic
