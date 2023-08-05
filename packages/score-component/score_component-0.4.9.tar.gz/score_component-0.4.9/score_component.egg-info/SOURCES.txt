@@ -1,0 +1,26 @@
+LICENSE
+MANIFEST.in
+README.md
+package.json
+setup.py
+score_component/Edit.py
+score_component/Masking.py
+score_component/Orchestration functional no update.py
+score_component/Orchestration.py
+score_component/Pianoinput.py
+score_component/Pianoroll.py
+score_component/Range - working Copy without colors.py
+score_component/Range.py
+score_component/ScoreComponent.py
+score_component/Stave.py
+score_component/__init__.py
+score_component/_imports_.py
+score_component/metadata.json
+score_component/package-info.json
+score_component/score_component.min.js
+score_component/score_component.min.js.map
+score_component/stave.py
+score_component.egg-info/PKG-INFO
+score_component.egg-info/SOURCES.txt
+score_component.egg-info/dependency_links.txt
+score_component.egg-info/top_level.txt

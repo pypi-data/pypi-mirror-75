@@ -1,0 +1,7 @@
+include score_component/score_component.min.js
+include score_component/score_component.min.js.map
+include score_component/metadata.json
+include score_component/package-info.json
+include README.md
+include LICENSE
+include package.json

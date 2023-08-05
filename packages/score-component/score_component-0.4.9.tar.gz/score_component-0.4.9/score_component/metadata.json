@@ -1,0 +1,796 @@
+{
+  "src/lib/components/Edit.js": {
+    "description": "",
+    "displayName": "Edit",
+    "methods": [
+      {
+        "name": "setup",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "refresh",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "check",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "note": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "60",
+          "computed": false
+        }
+      },
+      "dyn": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'mf'",
+          "computed": false
+        }
+      },
+      "scale": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "1.5",
+          "computed": false
+        }
+      },
+      "accidental_margin": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "55",
+          "computed": false
+        }
+      },
+      "hide_toolbar": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/Masking.js": {
+    "description": "",
+    "displayName": "Masking",
+    "methods": [
+      {
+        "name": "setupScore",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "masking_notevalues": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "A label that will be printed when this component is rendered."
+      },
+      "masking_notesizes": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": ""
+      },
+      "masking_colors": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": ""
+      },
+      "target_notevalues": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": ""
+      },
+      "target_notesizes": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": ""
+      },
+      "target_colors": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/Orchestration.js": {
+    "description": "",
+    "displayName": "Orchestration",
+    "methods": [
+      {
+        "name": "setupScore",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "orchClick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "notes": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "A label that will be printed when this component is rendered."
+      },
+      "target": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": ""
+      },
+      "instruments": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": ""
+      },
+      "highlights": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "400",
+          "computed": false
+        }
+      },
+      "t_score_y": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "110",
+          "computed": false
+        }
+      },
+      "b_score_y": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "target_color": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'red'",
+          "computed": false
+        }
+      },
+      "text_space": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "120",
+          "computed": false
+        }
+      },
+      "indexing": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "onClick": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/Pianoinput.js": {
+    "description": "",
+    "displayName": "Pianoinput",
+    "methods": [
+      {
+        "name": "setup",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "check",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "note": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "60",
+          "computed": false
+        }
+      },
+      "scale": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0.7",
+          "computed": false
+        }
+      },
+      "keywidth": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "40",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/Pianoroll.js": {
+    "description": "",
+    "displayName": "Pianoroll",
+    "methods": [
+      {
+        "name": "setupScore",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "check",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "checkclick",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "cleardiv",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "event",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "A label that will be printed when this component is rendered."
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "stave_spacing": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": ""
+      },
+      "scale": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "1",
+          "computed": false
+        }
+      },
+      "bar_offset": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "0",
+          "computed": false
+        }
+      },
+      "onHover": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "onClick": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": ""
+      },
+      "stave_list": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "A Array containing object to hold bars as [[bar1],[bar2] etc..].\r\nBars containing staves as {clef:'string', name:'string', 'notes':[array or nested array of notenames], colors:[array that matches notes-array]}"
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/Range.js": {
+    "description": "",
+    "displayName": "Range",
+    "methods": [
+      {
+        "name": "setupScore",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "100",
+          "computed": false
+        }
+      },
+      "staffY": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "30",
+          "computed": false
+        }
+      },
+      "notes": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": ""
+      },
+      "clefs": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "colors": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[[]]",
+          "computed": false
+        }
+      },
+      "annotations": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "[]",
+          "computed": false
+        }
+      },
+      "draw_lines": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "true",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/ScoreComponent.react.js": {
+    "description": "ExampleComponent is an example component.\r\nIt takes a property, `label`, and\r\ndisplays it.\r\nIt renders an input with the property `value`\r\nwhich is editable by the user.",
+    "displayName": "ScoreComponent",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "label": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "A label that will be printed when this component is rendered."
+      },
+      "value": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The value displayed in the input."
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  },
+  "src/lib/components/Stave.js": {
+    "description": "",
+    "displayName": "Stave",
+    "methods": [
+      {
+        "name": "setup",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "makeSystem",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "vf",
+            "type": null
+          },
+          {
+            "name": "width",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID used to identify this component in Dash callbacks."
+      },
+      "notes": {
+        "type": {
+          "name": "string"
+        },
+        "required": true,
+        "description": "A label that will be printed when this component is rendered."
+      },
+      "clef": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "'treble'",
+          "computed": false
+        }
+      },
+      "width": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "200",
+          "computed": false
+        }
+      },
+      "height": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "150",
+          "computed": false
+        }
+      },
+      "scale": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "1",
+          "computed": false
+        }
+      },
+      "padding": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "",
+        "defaultValue": {
+          "value": "30",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\r\nto Dash, to make them available for callbacks."
+      }
+    }
+  }
+}
