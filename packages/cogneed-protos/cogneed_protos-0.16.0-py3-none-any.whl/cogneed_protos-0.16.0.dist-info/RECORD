@@ -1,0 +1,17 @@
+cogneed_protos/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cogneed_protos/cogneed_ks/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cogneed_protos/cogneed_ks/services/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cogneed_protos/cogneed_ks/services/audio_prediction_pb2.py,sha256=wljl9j3efYItQ0rxgcLV0XeMEjzF7EcHp3WaKVFuoFc,8211
+cogneed_protos/cogneed_ks/services/audio_prediction_pb2_grpc.py,sha256=0kXOZhKvPbl-3_u_YMPwAE12TWW7wWGvKQGOVIqsoFA,1903
+cogneed_protos/cogneed_ks/services/opus_decoder_pb2.py,sha256=L_YJFEPkgoi5YVaCgv9lFGl0PONa4BKcGm0vQfSnkMo,4364
+cogneed_protos/cogneed_ks/services/opus_decoder_pb2_grpc.py,sha256=EPAzNWx81zOb1rvea5fc39ZaUQqBp-LTAdu66q7O5gU,1810
+cogneed_protos/cogneed_ks/services/public_api_pb2.py,sha256=qapu0WyEus4KTgeyHzgIX1Sm_cdR3Cpf-kk6X2C1UNs,15661
+cogneed_protos/cogneed_ks/services/public_api_pb2_grpc.py,sha256=FiFPdO0URhp004MficGiMv85HTNWhtp8klBD4t5PQ64,1840
+cogneed_protos/cogneed_ks/services/record_audio_pb2.py,sha256=AZ1dmcNt5rP4RvdOJaGooKsWSDxBVgrkCRth0-daSXs,6654
+cogneed_protos/cogneed_ks/services/record_audio_pb2_grpc.py,sha256=_n9WluSkKj1lo-1GotGC1_sry_4Wym0JFvmzTc2SGPg,2751
+cogneed_protos/cogneed_ks/services/stream_audio_pb2.py,sha256=NoVUOHUCunw3jkfnPo_FX4_Rhdao2s14zmssLTGM2GQ,31063
+cogneed_protos/cogneed_ks/services/stream_audio_pb2_grpc.py,sha256=5F1ysIVSUl3TY3NbtiVJmcgwktxJI9vwl2g75XTu2GM,6493
+cogneed_protos-0.16.0.dist-info/METADATA,sha256=TitsObQ-GxKhkquqZLzs8kv0Ve-BqmJP-NxfsQsRa8k,207
+cogneed_protos-0.16.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+cogneed_protos-0.16.0.dist-info/top_level.txt,sha256=K_BemgMKJ-kF15eDRJ65iqX9MsbsuMP_yQJaB14q2Ro,15
+cogneed_protos-0.16.0.dist-info/RECORD,,
