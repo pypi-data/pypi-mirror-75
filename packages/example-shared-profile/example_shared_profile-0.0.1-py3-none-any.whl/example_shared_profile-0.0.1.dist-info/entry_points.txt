@@ -1,0 +1,3 @@
+[isort.profiles]
+example=example_shared_profile:PROFILE
+
