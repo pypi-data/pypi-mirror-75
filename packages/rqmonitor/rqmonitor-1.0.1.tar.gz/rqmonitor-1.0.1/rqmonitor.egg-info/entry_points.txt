@@ -1,0 +1,3 @@
+[console_scripts]
+rqmonitor = rqmonitor.cli:main
+
