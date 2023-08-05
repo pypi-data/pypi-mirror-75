@@ -1,0 +1,71 @@
+.TH "opentrep-dbmgr" 1 "Sun Jul 26 2020" "Version 0.07.7" "OpenTREP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+opentrep-dbmgrInteractive command-line utility to manage the SQL database (SQLite3 or MySQL)
+.SH "SYNOPSIS"
+.PP
+\fBopentrep-dbmgr\fP \fC[--prefix] [-v|--version] [-h|--help] [-p|--porfile <POR-file-path>] [-d|--xapiandb <Xapian-travel-database-path>] [-t|--sqldbtype <SQL-database-type>] [-s|--sqldbconx <SQL-database-connection-string>] [-l|--log <path-to-output-log-file>]\fP
+.SH "DESCRIPTION"
+.PP
+\fIopentrep-dbmgr\fP is a small program to manage the relational (SQL) database\&. For now, only SQLite3 and MariaDB/MySQL databases are supported\&. The file with the list of the OPTD-maintained POR (points of reference) may be parsed, and the corresponding content inserted into the SQL database\&. At the prompt, launch the 'help' or 'tutorial' command to heva more details\&.
+.PP
+\fIopentrep-dbmgr\fP accepts the following options:
+.PP
+\fB--prefix\fP 
+.br
+ Show the Opentrep installation prefix\&.
+.PP
+\fB-v\fP, \fB--version\fP 
+.br
+ Print the currently installed version of Opentrep on the standard output\&.
+.PP
+\fB-h\fP, \fB--help\fP 
+.br
+ Produce that message and show usage\&.
+.PP
+\fB-p\fP, \fB--porfile\fP <POR-file-path>
+.br
+ Path (directory and file name) of the file of POR (points of reference)\&. Usually, the file is optd_por_public\&.csv, for which the latest version may be found in the OpenTravelData project on GitHub: https://github.com/opentraveldata/opentraveldata/tree/master/opentraveldata
+.PP
+\fB-d\fP, \fB--xapiandb\fP <Xapian-travel-database-path>
+.br
+ Path (directory) to the Xapian travel database\&. The indexer creates, or overwrites it when it already exists, the Xapian database\&. It materialises as a collection of data files within a directory usually named 'traveldb'\&.
+.PP
+\fB-t\fP, \fB--sqldbtype\fP <SQL-database-type>
+.br
+ SQL database type, e\&.g\&., nosql (no SQL database), sqlite, mysql
+.PP
+\fB-s\fP, \fB--sqldbconx\fP <SQL-database-connection-string>
+.br
+ SQL database connection string, e\&.g\&., ~/tmp/opentrep/sqlite_travel\&.db (for SQLite3), 'db=trep_trep user=trep password=trep' (for MySQL)
+.PP
+\fB-l\fP, \fB--log\fP <path-to-output-log-file>
+.br
+ Path (absolute or relative) of the output log file\&.
+.PP
+See the output of the \fC`opentrep-dbmgr --help'\fP command for default options\&.
+.PP
+Once the program is launched, just type the 'help' command to get the full list of all the possible commands and their parameters\&. Note that that program features the auto-completion of commands\&.
+.SH "EXAMPLES"
+.PP
+\fBWith\fP SQLite3
+.br
+ opentrep-dbmgr -t sqlite -s /tmp/opentrep/sqlite_travel\&.db
+.PP
+\fBWith\fP MySQL
+.br
+ opentrep-dbmgr -t mysql -s 'db=trep_trep user=trep password=trep'
+.SH "SEE ALSO"
+.PP
+\fBopentrep-indexer\fP(1), \fBopentrep-searcher\fP(1), \fBopentrep-config\fP(1), \fBopentrep-library\fP(3)
+.SH "SUPPORT"
+.PP
+Please report any bugs to http://github.com/trep/opentrep/issues
+.SH "COPYRIGHT"
+.PP
+Copyright © 2009-2019 Denis Arnaud
+.PP
+See the COPYING file for more information on the (LGPLv2+) license, or directly on Internet:
+.br
+ http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html 

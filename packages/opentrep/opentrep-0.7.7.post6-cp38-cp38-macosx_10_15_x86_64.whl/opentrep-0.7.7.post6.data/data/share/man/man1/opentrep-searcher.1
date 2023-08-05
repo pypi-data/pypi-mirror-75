@@ -1,0 +1,68 @@
+.TH "opentrep-searcher" 1 "Sun Jul 26 2020" "Version 0.07.7" "OpenTREP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+opentrep-searcherCommand-line utility to parse travel requests
+.SH "SYNOPSIS"
+.PP
+\fBopentrep-searcher\fP \fC[--prefix] [-v|--version] [-h|--help] [-e|--error < spelling error>] [-d|--xapiandb <Xapian-travel-database-path>] [-t|--sqldbtype <SQL-database-type>] [-s|--sqldbconx <SQL-database-connection-string>] [-l|--log <path-to-output-log-file>] [-y|--type <search-type>] [-q|--query <search-query>]\fP
+.SH "DESCRIPTION"
+.PP
+\fIopentrep-searcher\fP is a small program to parse a travel request and search through a Xapian-index
+.PP
+\fIopentrep-searcher\fP accepts the following options:
+.PP
+\fB--prefix\fP 
+.br
+ Show the Opentrep installation prefix\&.
+.PP
+\fB-v\fP, \fB--version\fP 
+.br
+ Print the currently installed version of Opentrep on the standard output\&.
+.PP
+\fB-h\fP, \fB--help\fP 
+.br
+ Produce that message and show usage\&.
+.PP
+\fB-e\fP, \fB--error\fP 
+.br
+ Allowed spelling error distance (e\&.g\&., 3)\&.
+.PP
+\fB-d\fP, \fB--xapiandb\fP <Xapian-travel-database-path>
+.br
+ Path (directory) to the Xapian travel database\&. The indexer creates, or overwrites it when it already exists, the Xapian database\&. It materialises as a collection of data files within a directory usually named 'traveldb'\&.
+.PP
+\fB-t\fP, \fB--sqldbtype\fP <SQL-database-type>
+.br
+ SQL database type, e\&.g\&., nosql (no SQL database), sqlite, mysql
+.PP
+\fB-s\fP, \fB--sqldbconx\fP <SQL-database-connection-string>
+.br
+ SQL database connection string, e\&.g\&., ~/tmp/opentrep/sqlite_travel\&.db (for SQLite3), 'db=trep_trep user=trep password=trep' (for MySQL)
+.PP
+\fB-l\fP, \fB--log\fP <path-to-output-log-file>
+.br
+ Path (absolute or relative) of the output log file\&.
+.PP
+\fB-y\fP, \fB--type\fP <search-type>
+.br
+ Type of search request (0 = full text, 1 = coordinates)\&.
+.PP
+\fB-q\fP, \fB--query\fP <search-query>
+.br
+ Travel query word list (e\&.g\&. sna francicso rio de janero lso anglese reykyavki), which should be located at the end of the command line (otherwise, the other options would be interpreted as part of that travel query word list)\&.
+.PP
+See the output of the \fC`opentrep-searcher --help'\fP command for the default options\&.
+.SH "SEE ALSO"
+.PP
+\fBopentrep-indexer\fP(1), \fBopentrep-dbmgr\fP(1), \fBopentrep-config\fP(1), \fBopentrep-library\fP(3), \fBpyopentrep(1)\fP 
+.SH "SUPPORT"
+.PP
+Please report any bugs to http://github.com/trep/opentrep/issues
+.SH "COPYRIGHT"
+.PP
+Copyright © 2009-2019 Denis Arnaud
+.PP
+See the COPYING file for more information on the (LGPLv2+) license, or directly on Internet:
+.br
+ http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html 

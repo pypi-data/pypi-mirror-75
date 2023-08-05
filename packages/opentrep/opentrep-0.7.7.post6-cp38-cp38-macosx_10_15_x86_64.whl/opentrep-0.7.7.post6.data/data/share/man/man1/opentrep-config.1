@@ -1,0 +1,68 @@
+.TH "opentrep-config" 1 "Sun Jul 26 2020" "Version 0.07.7" "OpenTREP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+opentrep-configConfiguration Script for the C++ Travel Request Parsing (TREP) Library
+.SH "SYNOPSIS"
+.PP
+\fBopentrep-config\fP \fC[--prefix] [--version] [--libs] [--cflags]\fP
+.SH "DESCRIPTION"
+.PP
+\fIopentrep-config\fP is a tool that is used by configure to determine the compiler and linker flags that should be used to compile and link programs that use \fIOpentrep\fP\&. It is also used internally by the \&.m4 macros, that are included with \fIOpentrep\fP, for GNU autoconf\&.
+.SH "OPTIONS"
+.PP
+\fIopentrep-config\fP accepts the following options:
+.PP
+\fB--help\fP 
+.br
+ Display this help and exit
+.PP
+\fB--prefix\fP 
+.br
+ Show the Opentrep installation prefix\&.
+.PP
+\fB--version\fP 
+.br
+ Print the currently installed version of Opentrep on the standard output\&.
+.PP
+\fB--libs\fP 
+.br
+ Print the linker flags that are necessary to link with the Opentrep library\&.
+.PP
+\fB--cflags\fP 
+.br
+ Print the compiler flags that are necessary to compile with the Opentrep library\&.
+.PP
+\fB--sampledir\fP 
+.br
+ Show where the (StdAir CSV) sample files are located\&.
+.PP
+\fB--mandir\fP 
+.br
+ Show where the manual pages are located\&.
+.PP
+\fB--infodir\fP 
+.br
+ Show where the information pages are located\&.
+.PP
+\fB--docdir\fP 
+.br
+ Show the documentation base directory\&.
+.PP
+\fB--htmldocpath\fP 
+.br
+ Show where the HTML documentation is located\&.
+.PP
+\fB--refmanpath\fP 
+.br
+ Show where the PDF documentation is located\&.
+.SH "SEE ALSO"
+.PP
+\fBopentrep-indexer\fP(1), \fBopentrep-dbmgr\fP(1), \fBopentrep-searcher\fP(1), \fBboost-config\fP(1), \fBopentrep-library\fP(3)
+.SH "COPYRIGHT"
+.PP
+Copyright © 2009-2019 Denis Arnaud
+.PP
+See the COPYING file for more information on the (LGPLv2+) license, or directly on Internet:
+.br
+ http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html 

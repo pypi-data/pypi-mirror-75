@@ -1,0 +1,38 @@
+.TH "opentrep-library" 3 "Sun Jul 26 2020" "Version 0.07.7" "OpenTREP" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+opentrep-libraryC++ Travel Request Parsing (TREP) Library
+.SH "SYNOPSIS"
+.PP
+.PP
+.nf
+#include <opentrep/\&.\&.\&.>
+.fi
+.PP
+.SH "DESCRIPTION"
+.PP
+OpenTREP aims at providing a clean API, and the corresponding C++ implementation, for parsing travel-focused requests (e\&.g\&., 'washington dc beijing monday a/r +aa -ua 1 week 2 adults 1 dog')\&.
+.PP
+OpenTREP uses Xapian (http://www.xapian.org) for the Information Retrieval part, on freely available travel-related data (e\&.g\&., country names and codes, city names and codes, airline names and codes, etc\&.), mainly to be found in the OpenTravelData project (https://github.com/opentraveldata/opentraveldata): https://github.com/opentraveldata/opentraveldata/tree/master/opentraveldata
+.PP
+OpenTREP exposes a simple, clean and object-oriented, API\&. For instance, the static Parse() method takes, as input, a string containing the travel request, and yields, as output, the list of the recognised terms as well as their corresponding types\&. As an example, the travel request 'washington dc beijing monday a/r +aa -ua 1 week 2 adults 1 dog' would give the following list: Origin airport: Washington, DC, USA Destination airport: Beijing, China Date of travel: next Monday Date of return: 1 week after next Monday Preferred airline: American Airlines; non-preferred airline: United Airlines Number of travellers: 2 adults and a dog
+.PP
+The output can then be used by other systems, for instance to book the corresponding travel or to visualise it on a map and calendar and to share it with others\&.
+.PP
+OpenTREP makes an extensive use of existing open-source libraries for increased functionality, speed and accuracy\&. In particular the Boost (C++ Standard Extensions: http://www.boost.org) library is used\&.
+.PP
+Note that OpenTREP currently only recognises points of reference (POR), as to be found in the ori_por_public\&.csv file: http://github.com/opentraveldata/optd/blob/trunk/refdata/ORI/ori_por_public.csv A good complementary tool is GeoBase (http://opentraveldata.github.io/geobases/), a Python-based software able to access to any travel-related data source\&.
+.SH "SEE ALSO"
+.PP
+\fBopentrep-indexer\fP(1), \fBopentrep-dbmgr\fP(1), \fBopentrep-searcher\fP(1), \fBopentrep-config\fP(1)
+.SH "SUPPORT"
+.PP
+Please report any bugs to https://github.com/trep/opentrep/issues
+.SH "COPYRIGHT"
+.PP
+Copyright © 2009-2013 Denis Arnaud
+.PP
+See the COPYING file for more information on the (LGPLv2+) license, or directly on Internet:
+.br
+ http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html 
