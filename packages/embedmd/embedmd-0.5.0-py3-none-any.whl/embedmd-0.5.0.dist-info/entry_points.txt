@@ -1,0 +1,3 @@
+[console_scripts]
+embedmd = embedmd.core:embedmd
+
