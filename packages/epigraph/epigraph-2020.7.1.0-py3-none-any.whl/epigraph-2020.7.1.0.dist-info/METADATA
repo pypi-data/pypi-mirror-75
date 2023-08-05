@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: epigraph
+Version: 2020.7.1.0
+Summary: Python API for graphql
+Home-page: https://github.com/CHIMEFRB/epigraph
+License: MIT
+Author: Shiny Brar
+Author-email: charanjotbrar@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: graphqlclient (>=0.2,<0.3)
+Project-URL: Documentation, https://github.com/CHIMEFRB/epigraph
+Project-URL: Repository, https://github.com/CHIMEFRB/epigraph
+Description-Content-Type: text/markdown
+
+# epigraph
+Automated GraphQL API
+
+###Installation
+```
+pip install epigraph
+```
+
+###Running the API
+```python
+In [1]: from epigraph import graphql_api
+
+In [2]: API = graphql_api.GraphQLAPI(url="https://swapi.graph.cool/")
+
+In [3]: API.query('Planet', args={'name': "Earth"}).fetch(['climate'])
+Out[3]: {'data': {'Planet': None}}
+
+```
+
