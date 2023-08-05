@@ -1,0 +1,3 @@
+[console_scripts]
+locstats = locstats.__main__:main
+
