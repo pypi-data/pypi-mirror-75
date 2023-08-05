@@ -1,0 +1,4 @@
+[console_scripts]
+lsi = ls_improved.lsi:main
+mkdiri = ls_improved.mkdiri:main
+
