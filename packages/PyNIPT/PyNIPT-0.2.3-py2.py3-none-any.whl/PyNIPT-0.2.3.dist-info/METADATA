@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: PyNIPT
+Version: 0.2.3
+Summary: Python NeuroImaging Pipeline Tools
+Home-page: https://github.com/dvm-shlee/pynipt
+Author: SungHo Lee
+Author-email: shlee@unc.edu
+License: GNLv3
+Keywords: Python NeuroImaging Pipeline Tools
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Jupyter
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: pandas (>=1.0.0)
+Requires-Dist: tqdm (>=4.40.0)
+Requires-Dist: psutil (>=5.5.0)
+Requires-Dist: paralexe (>=0.1.0)
+Requires-Dist: shleeh (>=0.0.6)
+
+UNKNOWN
+
+
