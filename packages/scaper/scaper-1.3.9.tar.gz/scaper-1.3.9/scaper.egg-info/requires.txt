@@ -1,0 +1,13 @@
+sox>=1.3.3
+jams>=0.3.2
+numpy>=1.13.3
+pysoundfile
+
+[docs]
+sphinx
+sphinx_rtd_theme
+sphinx_issues
+
+[tests]
+backports.tempfile
+pysoundfile
