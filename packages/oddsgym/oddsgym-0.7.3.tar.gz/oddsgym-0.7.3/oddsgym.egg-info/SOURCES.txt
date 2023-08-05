@@ -1,0 +1,15 @@
+README.md
+setup.cfg
+setup.py
+oddsgym/__init__.py
+oddsgym.egg-info/PKG-INFO
+oddsgym.egg-info/SOURCES.txt
+oddsgym.egg-info/dependency_links.txt
+oddsgym.egg-info/requires.txt
+oddsgym.egg-info/top_level.txt
+oddsgym/envs/__init__.py
+oddsgym/envs/base.py
+oddsgym/envs/base_percentage.py
+oddsgym/envs/daily_bets.py
+oddsgym/envs/footballdata.py
+oddsgym/envs/soccer.py
