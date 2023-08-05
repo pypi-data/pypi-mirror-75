@@ -1,0 +1,15 @@
+vercel/__init__.py,sha256=t2aaWKemmyP_hU0AXRagpJq1pmm96sqCv1jqpj3U5vg,62
+vercel/exceptions.py,sha256=jJyPpvVxlW9010gDUxdmrWSb2N2cYRdVssOLcJheIvk,155
+vercel/resources/__init__.py,sha256=Fc7TdYyfvVYOpcYaxDCzIAS4iFBKhC27FQXU7K-R26M,409
+vercel/resources/aliases.py,sha256=4isOeFu78_LsAtxvKb96W048kZXy9Ca5N3LeVNAKRpw,1713
+vercel/resources/base.py,sha256=TIZyb0EomGq50F-BWCNKjGDWGuEIuwKnMS0i6HvvEvU,1556
+vercel/resources/certificates.py,sha256=wu1RWpjnSnrnahwFv7jo5A9dWP5BxR2MmVmtD2qffiA,1630
+vercel/resources/deployments.py,sha256=GKx3E0PxsKLoLV7uPL7ndeYzTl6K3IHJw_lQkLvj5vY,3600
+vercel/resources/dns.py,sha256=g4C-QJo3qsz7w7K0T8Jk87WAmnt9P0Rs3qmyHyfTCaQ,1177
+vercel/resources/domains.py,sha256=Blm6qz851ueD_2jVgCiXb8SBL7DDR9HOaNXFrOyInRs,3385
+vercel/resources/projects.py,sha256=y7M1C4hb_s0zQGly_FbGh5UiTD7ljo_q1cY_NgguBmU,5802
+vercel/resources/secrets.py,sha256=42z_lhBpBcmEwwYEGNKqkcQJwIh3by9Cor5Fl-GkzQs,1769
+vercel/resources/teams.py,sha256=iY5Wm6bLBt-C1tPmh8uzI_qc8w2oCm2FIRz9wTFicY4,2164
+vercel-0.1.5.dist-info/WHEEL,sha256=xSvaL1DM8LOHfdyo0cCcwjZu1tC6CnCsRGWUgazvlbM,83
+vercel-0.1.5.dist-info/METADATA,sha256=yLU6V9iUmncVf-a4mfGP7JBBBKuZ2IAHyPtbmeZw7Zs,404
+vercel-0.1.5.dist-info/RECORD,,
