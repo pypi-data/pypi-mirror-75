@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>POLITICO Minutes | Verticals</title>
+{% endblock %}
+
+{% block styles %}
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'minutes/css/main.vertical-list.css' %}">
+{% endblock %}
+
+{% block app %}
+<script type="text/javascript" src="{% static 'minutes/js/main.vertical-list.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>POLITICO Minutes | Edition</title>
+{% endblock %}
+
+
+{% block api %}
+  {{ block.super }}
+  <meta name="VERTICAL" content="{{ vertical }}">
+  <meta name="EDITION" content="{{ edition }}">
+{% endblock %}
+
+{% block styles %}
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'minutes/css/main.edition.css' %}">
+{% endblock %}
+
+{% block app %}
+<script type="text/javascript" src="{% static 'minutes/js/main.edition.js' %}"></script>
+{% endblock %}
