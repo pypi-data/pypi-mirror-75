@@ -1,0 +1,17 @@
+Metadata-Version: 1.2
+Name: mandala
+Version: 1.0.1
+Summary: A RBAC auth framework for django
+Home-page: https://github.com/TomTsong/mandala
+Author: Tom Tsong
+Author-email: congdaxia@126.com
+License: UNKNOWN
+Description: Easy to use for not only developers but also normal user&admin.
+Keywords: django rbac auth framework
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
