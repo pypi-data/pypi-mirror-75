@@ -1,0 +1,12 @@
+setuptools
+libpy
+
+[benchmark]
+pytest-benchmark
+orjson
+python-rapidjson
+pysimdjson
+ujson
+
+[test]
+pytest
