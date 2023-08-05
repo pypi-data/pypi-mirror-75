@@ -1,0 +1,24 @@
+[console_scripts]
+SCDotNetBuild = ScriptCollection.core:SCDotNetBuild_cli
+SCDotNetBuildExecutableAndRunTests = ScriptCollection.core:SCDotNetBuildExecutableAndRunTests_cli
+SCDotNetBuildNugetAndRunTests = ScriptCollection.core:SCDotNetBuildNugetAndRunTests_cli
+SCDotNetCreateExecutableRelease = ScriptCollection.core:SCDotNetCreateExecutableRelease_cli
+SCDotNetCreateNugetRelease = ScriptCollection.core:SCDotNetCreateNugetRelease_cli
+SCDotNetReference = ScriptCollection.core:SCDotNetReference_cli
+SCDotNetReleaseNuget = ScriptCollection.core:SCDotNetReleaseNuget_cli
+SCDotNetRunTests = ScriptCollection.core:SCDotNetRunTests_cli
+SCDotNetsign = ScriptCollection.core:SCDotNetsign_cli
+SCGenerateSnkFiles = ScriptCollection.core:SCGenerateSnkFiles_cli
+SCGenerateThumbnail = ScriptCollection.core:SCGenerateThumbnail_cli
+SCKeyboardDiagnosis = ScriptCollection.core:SCKeyboardDiagnosis_cli
+SCMergePDFs = ScriptCollection.core:SCMergePDFs_cli
+SCOrganizeLinesInFile = ScriptCollection.core:SCOrganizeLinesInFile_cli
+SCPythonBuild = ScriptCollection.core:SCPythonBuild_cli
+SCPythonBuildWheelAndRunTests = ScriptCollection.core:SCPythonBuildWheelAndRunTests_cli
+SCPythonCreateWheelRelease = ScriptCollection.core:SCPythonCreateWheelRelease_cli
+SCPythonReleaseWheel = ScriptCollection.core:SCPythonReleaseWheel_cli
+SCPythonRunTests = ScriptCollection.core:SCPythonRunTests_cli
+SCReplaceSubstringsInFilenames = ScriptCollection.core:SCReplaceSubstringsInFilenames_cli
+SCSearchInFiles = ScriptCollection.core:SCSearchInFiles_cli
+SCShow2FAAsQRCode = ScriptCollection.core:SCShow2FAAsQRCode_cli
+
