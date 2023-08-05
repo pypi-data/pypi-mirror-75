@@ -1,0 +1,7 @@
+include PyHand-Earth
+include PyHand-Earth/tyler/*
+include PyHand-Earth/tyler/testing
+include PyHand-Earth/tyler/testing/new/*.png
+include PyHand-Earth/tyler/testing/new/*
+include PyHand-Earth/john
+include PyHand-Earth/john/new_docstrings/*
