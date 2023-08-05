@@ -1,0 +1,3 @@
+[console_scripts]
+traindex_cli = src.traindex_cli:main
+
