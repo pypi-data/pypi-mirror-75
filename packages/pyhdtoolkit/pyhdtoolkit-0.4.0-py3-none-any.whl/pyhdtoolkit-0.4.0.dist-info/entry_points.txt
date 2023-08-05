@@ -1,0 +1,4 @@
+[console_scripts]
+ac_dipole=pyhdtoolkit.scripts.ac_dipole.sext_ac_dipole_tracking:main
+triplet_errors=pyhdtoolkit.scripts.triplet_errors.algo:main
+
