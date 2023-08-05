@@ -1,0 +1,2 @@
+from mypackage.exceptions import ObjectNotFound
+from mypackage.exceptions import InvalidOperation
