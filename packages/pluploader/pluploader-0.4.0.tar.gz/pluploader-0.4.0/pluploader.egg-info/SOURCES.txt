@@ -1,0 +1,13 @@
+README.md
+setup.py
+pluploader/__init__.py
+pluploader/pathutil.py
+pluploader/upmapi.py
+pluploader.egg-info/PKG-INFO
+pluploader.egg-info/SOURCES.txt
+pluploader.egg-info/dependency_links.txt
+pluploader.egg-info/entry_points.txt
+pluploader.egg-info/requires.txt
+pluploader.egg-info/top_level.txt
+scripts/__init__.py
+scripts/pluploader.py
