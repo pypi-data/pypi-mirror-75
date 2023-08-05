@@ -1,0 +1,52 @@
+{
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "contributors": [
+    {
+      "login": "EiffL",
+      "name": "Francois Lanusse",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/861591?v=4",
+      "profile": "http://flanusse.net",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "santiagocasas",
+      "name": "Santiago Casas",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/6987716?v=4",
+      "profile": "http://www.cosmostat.org/people/santiago-casas",
+      "contributions": [
+        "bug",
+        "code"
+      ]
+    },
+    {
+      "login": "austinpeel",
+      "name": "Austin Peel",
+      "avatar_url": "https://avatars0.githubusercontent.com/u/17024310?v=4",
+      "profile": "https://github.com/austinpeel",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "minaskar",
+      "name": "Minas Karamanis",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/23280751?v=4",
+      "profile": "https://minaskaramanis.com",
+      "contributions": [
+        "code"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7,
+  "projectName": "jax_cosmo",
+  "projectOwner": "DifferentiableUniverseInitiative",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "skipCi": true
+}
