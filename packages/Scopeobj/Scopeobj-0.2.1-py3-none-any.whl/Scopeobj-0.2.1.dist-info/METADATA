@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: Scopeobj
+Version: 0.2.1
+Summary: Scope object in Python
+Home-page: https://github.com/usr8820/PyScope/
+Author: Frank Lin
+Author-email: W_126mail@126.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+
+Scopeobj is a Python module. You can use it as a scope.
+For example:
+>>> from scopeobj import Scope
+>>> s = Scope()
+>>> s.exec("x = 3")
+>>> s.eval("x ** 2")
+9
+>>> s.clear()
+>>> s.getitem("x")
+None
+
