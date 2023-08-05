@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: lite-telegram-framework
+Version: 0.0.5
+Summary: Lite framework for writing telegram bots
+Home-page: http://github.com/codeomatic/lite-telegram-framework
+Author: Denis Nikolskiy
+License: MIT
+Project-URL: Source, https://github.com/codeomatic/lite-telegram-framework
+Keywords: telegram api telegrambot
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+
+# Lite Telegram Framework
+A very lite wrapper around Telegram bot API.
+
+
