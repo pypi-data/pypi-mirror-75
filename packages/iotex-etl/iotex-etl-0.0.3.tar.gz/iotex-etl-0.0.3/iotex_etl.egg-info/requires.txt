@@ -1,0 +1,17 @@
+blockchain-etl-common==1.3.0
+requests==2.20.0
+python-dateutil==2.7.0
+click==7.0
+pycryptodome==3.9.8
+eth-hash==0.2.0
+bech32==1.2.0
+protobuf==3.12.2
+grpcio==1.30.0
+
+[dev]
+pytest~=4.3.0
+pytest-timeout~=1.3.3
+
+[streaming]
+timeout-decorator==0.4.1
+google-cloud-pubsub==0.39.1

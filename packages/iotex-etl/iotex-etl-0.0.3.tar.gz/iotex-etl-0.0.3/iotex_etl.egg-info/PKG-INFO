@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: iotex-etl
+Version: 0.0.3
+Summary: Tools for exporting IoTeX blockchain data to JSON
+Home-page: https://github.com/blockchain-etl/iotex-etl
+Author: Evgeny Medvedev
+Author-email: evge.medvedev@gmail.com
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/blockchain-etl/iotex-etl/issues
+Project-URL: Source, https://github.com/blockchain-etl/iotex-etl
+Description: # IoTeX ETL
+        
+        [![Build Status](https://travis-ci.org/blockchain-etl/iotex-etl.png)](https://travis-ci.org/blockchain-etl/iotex-etl)
+        
+        Example actions:
+        - Execution: https://iotexscan.io/action/87dc614c88d8f02d0f6f92532ea9c8c4d1aab02ce65cb5db15159251ca5aeda5
+        - Transfer: https://iotexscan.io/action/28271edf75e641f8ddd5794fc4f775206054ba75b30289822a62d2e0abb45ed0
+        
+Keywords: IoTeX
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6.0,<3.8.0
+Description-Content-Type: text/markdown
+Provides-Extra: streaming
+Provides-Extra: dev
