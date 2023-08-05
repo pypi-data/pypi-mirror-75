@@ -1,0 +1,230 @@
+CHANGES
+=======
+
+* Fix markdown text type in setup.cfg
+* Improved error handling
+* Improved C++ standard detection
+* Removed redundant argument
+* Cleaned up old environment file
+* Adding new compiler module
+* Minor design fixes in project.py. - made \`\_get\_project\` less confusing, as the working\_directory parameter was not actually needed - fixed logic duplication in \`Project.\_parse\_subprojects\`
+* Improved Target's handling of download directory
+* Bugfix to Project.add\_targets. Also fixed comments and a superfluous call to \_check\_for\_circular\_dependencies
+* Minor improvements. - improvements of scripting docs - fixed Project docstrings to be imperative - moved api.get\_project to project.py - removed ApiError
+* Updated and added documentation
+* Removed unused imports
+* Some fixes for the recent changes. - improved the setting of the \`only\_target\` property and removed the need to pass it on construction of a \`TargetDescription\` - commented out unused imports in single\_source.py - improved the construction of unnamed and unconfigured \`TargetDescription\`s - fixed test/py-api/directory and test/py-api/subproject/mylib - fixed root\_directory of TargetDescription for the case of downloaded sources
+* Changed project creation API. - simplified Project creation:   - the main clang\_build file now simply uses Project.from\_directory, which is what actually happens   - Project.\_\_init\_\_ now takes other arguments and initializes a valid Project   - Project.from\_directory now works for folders containing toml or python project files, as well as folders without project file   - Project.from\_config can be used to initialize directly from a dictionary   - moved setting of \`only\_target\` property to the \`add\_target\` method, which should now be the only way to add targets to a project   - Project and TargetDescription now expose a \`get\_sources\` method, which is intended to be optionally overridden in the usage of the API - TargetDescription now uses a \`parent\` again, instead of paths needing to be passed - fixed uniqueness of link flags, which were previously made unique before the full list of flags was known - moved Environment class to its own file - moved download\_sources function from project.Project and target.TargetDescription to git\_tools and added logger parameter to make log messages more consistent - using slashes instead of \`joinpath\` on \`pathlib.Path\`s - updated test/py-api/subproject
+* Fixed py-api/directory test. Also added a little bit of code functionality
+* Fixed fetching needed project sources. Instead of requiring TargetDescription to carry a parent reference, the project graph is used to find the parent projects of the targets to be built
+* Renamed Python API module from to "clang-build". This means naming is now consistent between clang-build.toml and clang-build.py
+* Removed external scripts feature and amended tests
+* Add two tests for Python API
+* Initial Python API for project creation. - clang\_build\_project.py can now be used instead of clang-build.toml, and the python-file takes precedence - added from\_directory and from\_targets classmethods to Project - added api.py which defines how a Project instance is to be returned from the Python-script - a log message is printed if there are no targets to be built, i.e. the project is empty - TargetDescription no longer takes a parent, in order to enable creating targets and then a project from those targets. However, this prevents downloading sources of required subprojects if needed
+* Cleanup and re-added bundling and redistributables. - removed unneeded code from clang\_build.py and added missing exception catching - re-added bundling and redistributable bundling to \`Project.build\` method - fixed catching errors in \`Target.bundle\` and \`Target.redistributable\` - re-added test/multi\_target\_external (using \`--bundle\`) to tests
+* Added more documentation to target.py. Also removed some unused imports
+* Fixed accidentally duplicated tests. Note the tests in test/configuration\_errors/test.py were erroneous, as only those in test/test.py were updated
+* Made use of \_\_str\_\_ and \_\_repr\_\_ more consistent. - Project, TargetDescription and Target now give their class name and name for \`\_\_repr\_\_\` and their name in the correct number of square brackets for \`\_\_str\_\_\` - Circle now uses \`repr(item)\` in its \`\_\_repr\_\_\` and \`str(item)\` in its \`\_\_str\_\_\` - logger classes now use \`\_\_str\_\_\` for their messages
+* CI: increased shell file open limit on OSX
+* Fixed a path in test\_c\_library
+* Fixed missing version checkout when downloading
+* Fixed external sources directory for Target
+* Fixed \`Project.\_get\_targets\_to\_build\`. Was still using some networkx functions from previous versions which are not present anymore. Also made the code more compact
+* Fixed error message for circular dependencies
+* Remove test\_me.py and finally fix test regex. test\_me.py was presumably committed by accident
+* Enabled projects with external sources. - added \`\_download\_sources\` to Project, so that external sources can be used (see e.g. test/c-library) - moved setting project directories to an earlier point so that targets can have paths relative to external sources of a project - updated test/c-library to new subproject syntax
+* Fixed test regex
+* Added raising of compile and link errors to Target. Moved the compilation error test and added a link error test
+* Changed some build paths to fix tests. - if a target is the only one in a project and there are no subprojects, it's name won't appear in the build path - if an unconfigured project is the only one, it is now simply called "project" - if an unconfigured target is the only one in a project, it is now simply called "target" - disabled a shared library test because bundling and rpaths are not currently functional
+* Subproject fixes. - fixed dependency graph generation - added dependency dotfile writing to root project - removed the root project name from the build directory - fixed subproject test
+* removed unused imports
+* Shorter tree code
+* Adapted to new networkX API 2.4
+* Fixed wrong target calls
+* Shorter names for flag attributes
+* Added missing \_\_repr\_\_ to TargetDescription. Note the representation is required to match that of Target for the dependency graph to work correctly
+* Removed duplicated code
+* Moved platform specific flags to platform.py
+* Moved bundling flags to flags.py
+* Tiny clutter reduction
+* Moved flags code to flags.py
+* Fixed missing build\_type passing in flags
+* Moved file name resolution to io tools
+* Moved directories code to directories.py
+* Moved more flags code to flags.py
+* Log message improvements. - Project and Target classes now have their own \_\_repr\_\_ methods, where Target gives "[targetname]" and Project gives "[[projectname]]" - TreeEntry now uses the identifier instead of \_\_repr\_\_ - some minor log message improvements
+* Got the most important cases running again. - fixed git url check in git\_tools and set the logger messages from info to debug - added linking stage to Project.build - added download of sources in Project.\_target\_from\_description - fixed logger in TargetDescription
+* Fixes for latest changes. - fixed some bugs due to naming inconsistencies - fixed some missing imports - added target properties for public and interface flags for compiling and linking - added \_get\_default\_flags method on HeaderOnly target - targets now use their \_directories and \_build\_flags members correctly
+* Latest changes
+* Latest changes
+* Fixed a tree lookup error
+* Added missing joinpath
+* Adapted boost example
+* New project structure
+* Replaced rst readme with markdown. Should work better with PyPI. RST makes sense for docs, as it allows more complex structures, but for the readme, a readable markdown makes more sense
+* Added error checking to bundle and redistributable
+* Made contradicting cla's mutually exclusive
+* Improved error messages for circular dependencies
+* Fixed unused imports. Also fixed a 'dir' variable name
+* Improved default include and source searches. - Added include directories which depend on the target name, so that no directory needs to be specified with the same name as the target - Include directories are now checked for existance, potentially saving some unnecessary flags - added missing '-Wno-shadow' flag to multi\_target\_external test
+* Cleanup and minor bugfixes. - fixed removal of target from base\_set, which might not contain the named target - moved clang, clangpp and other variables into environment, which is now passed through all targets - slightly changed how include\_directories are used by Target internally - formatting changes to Target creations - moved 'parse\_flags\_options' function into io\_tools
+* Added documentation describing bundling
+* Fix warning in test using Eigen
+* Minor stylistic improvements around "if not"
+* Improved bundling and creating redistributables. The bundling is now recursive and the redistributable now correctly gathers its dependencies. Should now even work with indirect dependencies (e.g. executable -> static library -> shared library)
+* Added sanitizer flags to debug build. Added address and undefined behaviour sanitizers, which are generally available. This will make debug executables slower, but significantly increase the quality of output if an error is encountered
+* Got coverage test running. Added necessary linker flags to executable
+* Set default debug optimization flag to '-Og'
+* Added test for different build types. This should hopefully catch bugs with default flags
+* Changed default and debug flags. - added '-Wshadow' to default flags - added widely available sanitizers to debug flags: '-fno-optimize-sibling-calls' and '-fno-omit-frame-pointer'
+* Fixed parsing flags containing whitespace. It should now work fine to specify flags such as '-framework Cocoa'
+* Removed redundant apply public flag for HeaderOnly
+* Added \`--redistributable\` flag. This feature now works to generate an app bundle on OSX
+* Removed unused import
+* Fixed missing Windows libraries for bundle. The .exp and .lib files are now also copied. Also fixed the shared library test config file
+* Re-added multi target test with shared library. This test now uses bundling in order to be able to run the test without additional manual effort
+* Added Linux rpath flag for bundling
+* Improved binary bundling. - got some cases working on macOS - added a \`--bundle\` flag - restructured target to take environment in constructor instead of multiple environment options
+* First step towards bundling binaries. Shared libraries and executables will copy their immediate shared library dependencies into their own binary folders after building
+* Removed "thirdparty" default folder from mwe test
+* Removed "thirdparty" folder from default includes. Also amended Readme to reflect this and made some minor improvements to its formatting
+* Removed "thirdparty" folder from trees in docs
+* Fixed messed up flag handling
+* Removed more set mangling
+* Merged with master
+* Merged with latest changes from master
+* added python requirements >= 3.7
+* Added recursive cloning of git submodules. Also added a corresponding deactivation flag '--no-recursive-clone'
+* Fix the ordering of own and dependencies' flags. This slightly changes the inheritance rules, as documented
+* CI: maybe fix missing llvm in osx build on Travis
+* CI: attempt to clean up Travis osx build
+* CI: fixed incorrect Python 3.7 in Travis (Linux)
+* CI: hopefully fix OSX problems on Travis
+* CI: updated osx image on Travis
+* CI: updated osx image on Travis
+* CI: updated osx image on Travis
+* CI: updated osx image on Travis
+* Fixed keeping order of existing lists
+* Removed unnecessary list creation
+* Removed unnecessary file system calls
+* Removed all need to check class types
+* Simplified more code in io\_tools
+* More simplified if statements
+* Removed unused imports
+* Added dict instead of manual if statement-chain
+* Improved documentation. - description of what clang-build it not designed for in Readme - minor updates in customisations - fixes in defaults - added platform\_dependence and inheritance
+*  Merge branch 'master' into documentation
+* Re-added OpenMP test. Also added error output when an executable could not be run. Fixed Travis CI to run OpenMP tests
+* Improved include directories and improved dependency parsing. - added public include directories, which are used and forwarded by dependent targets - added unique identifiers to project and target classes, which enable better parsing and graphing of dependencies - dependencies are now searched recursively through subprojects and nested subprojects now seem to work
+* Added a mechanism for inheritance of compile and link flags. Added "interface-flags" and "public-flags" next to the default "flags", which now means private flags. Interface-flags are inherited by the dependent target, while public flags are also applied to the target itself. Regular flags are now applied only to the target itself
+* Improved platform-specific config. - added include\_directories and sources to the supported platform-dependent options - re-ordered the keywords, so it is now target.platform.flags instead of target.flags.platform - re-fixed the order of compile flags
+* Added platform-specific subcategories for flags. For any category of flags, one can now specify additional corresponding flags specifically for the platforms linux, osx and windows. Also added corresponding test
+* Minor bugfix and added some log messages. force\_rebuild is now consistently called force\_build everywhere. The force\_build command line argument is now correctly passed to the default executable if no project config was supplied. Improved test\_hello\_world\_rebuild, checking separately if "is already compiled" and "needs to build" (when forced) are both hit. Unfortunately, these tests for some reason do not work under coverage runs. They are therefore commented out for now
+* Added missing build types and updated their config keywords. RelWithDebInfo and Coverage are now supported and have default flags. Additional flags for these build types can be set with "compile\_relwithdebinfo" and "compile\_coverage". The previous keywords were changed from "compileDebug" and "compileRelease" to "compile\_debug" and "compile\_release"
+* Fixed depfile parsing by using regex. The rare case when multiple files are specified in one line is now correctly parsed
+* Added optional version key to subproject config. This is used in the c-library (qhull) test, where now the output from the qhull executable is checked
+* Changed argument parsing to try and fix CI on OSX. Other minor improvements: - fixed buggy subproject searching, which did not work if multiple subprojects were defined - changed creation of build directories to happen only when they are actually needed
+* Added ".cc" and ".m" file extensions to non-clang++ builds. The .m ending is for Objective C, which clang can also build. Also changed the -Og flag back to -O0 for debug builds, as clang actually does not implement this flag, in contrast to gcc
+* Improved output messages by using project names. Also added some apostrophes around file names in output messages
+* Improved log messages of target compile and link. Also fixed a bug in the test/c-library project file
+* Fixed logger and test calls in test.py
+* Extended Qhull project file and added test for building all targets. Also added test of forced rebuild
+* Fixed a bug in subproject parsing and added C-library test using Qhull. - "url" was missing from the exclusion list for the project dict - added "c-library" test using Qhull, managed by using an external subproject
+* Restructured boost example into subproject, fixed some warnings. Removed the argc and argv from main functions where they were not used. Also fixed the entry point in setup.cfg
+* Fixed bugs in unit testing. - moved setup of logger to \_main function, as it should only be called once - updated exception handling in test.py
+* Removed unneeded '-p' flags from test calls to clean up the output. Also turned a log exception into an error and re-ordered the compilable link flags to be easier to read
+* Added '-Wextra' and '-Wpedantic' to default flags. Had to change test/mwe/hello.cpp accordingly (remove unused parameters). Also changed '-O0' to '-Og' for debug flags, which should improve the debugging experience. Also renamed Target.linkFlags to Target.link\_flags
+* Removed unneeded find\_roots function
+* Fixed that a subproject's name has to be specified. It has to be specified either in its config or the parent project
+* Improved which targets to build and added dependency dotfile generation. dotfile generation can be deactivated with --no-graph. The graph colors the targets which should be built in red. By going through the descendants of the root targets which should be built, now all unneeded targets are excluded
+* Started adding support for building C objects. The compiler is now chosen according to file ending (clang if ending is '.c', else clangpp). The compiler dialect flag is not added if compiling a C object. Linking shared objects is still done exclusively with clangpp
+* Added -t/--targets and -f/--force-rebuild options. - -t target1,target2 limits the build to the specified targets (and of course their dependencies) - -f forces a rebuild (this only includes those targets which are checked) - if -a is passed, -t cannot be passed
+* Changed executable as linking dependency to be an exception. Due to the implicit mechanisms of clang-build this can appear frequently and the user should not be able to still build everything. Also improved some other error messages of project
+* Reworked specifying sources. - [targetname.sources] is no longer needed - renamed things to \`headers\_exclude\` and \`sources\_exclude\`, which take glob patterns - \`sources\` now accepts patterns, instead of taking folders through \`source\_directories\`
+* Added ability to not build all targets. - added -a/--all option to build all targets, where by default targets, which are not depended on, are not built - so far, only root nodes of the dependency graph are then not built - fixed ability to name a project inside it's own toml, instead of having to specify it in the consuming project file
+* Started working on exclude patterns. target.sources.include\_exclude and target.sources.source\_exclude arrays can be used to set folders, which are excluded from the include and source directories
+* Fix rst errors and add documentation toc to Readme.rst
+* Added MWE gif to first\_steps.rst
+* Fix some rst errors in multiple\_projects.rst
+* Updated docs, mainly subproject-related. Improved test/boost-filesystem by using subprojects. Also added real-world example section of boost-filesystem to main Readme. Also improved a few logging statements
+* Fixed target directories and bad print statement in project.py
+* Removed dev releases from non-master branches
+* Fixed "dir" variable namings. They are now spelled out as "directory" or "directories"
+* Fixed some renamings and renamed some more. Homogenising the naming convention throughout the code
+* Fixed target directories and bad print statement in project.py. - Fixed target root directories being incorrect for all except Executable - Removed debug print statement, which was breaking the log messages and progress bar - Also fixed a comment in single\_source.py - Also improved namings, mainly in target and single\_source
+* Added "version" property for external targets. When version is specified, clang-build will try to checkout that tag. Also fixed a minor bug in the error message for circular dependencies. Minor fixes to some paths in Readme
+* Moved documentation of defaults and subprojects. Also made some minor improvements to those two files
+* Removed non-working pybind11 test
+* Improvement of pybind11 test. Though the test requires some platform-dependent flags, in this form it can now run on Windows. However, the file ending of the resulting .dll has to be changed to .pyd. Also improved some comments in project.py and single\_source.py
+* Removed sys.exit calls in clang\_build.py
+* Added rtd theme
+* Added first draft of first chapter of documentation
+* Added if name main guard to setup.py for multiprocessing on Windows
+* Fixed some log messages
+* Improved download of target sources and setup of paths. - target sources are now downloaded before a target is created, so that sources can be searched for correctly - improved the search for headers and sources: the root directory is now searched non-recursively, and only when there is no specified or "src" directory - improved setup of source directories
+* Removed error-prone output parsing and improved flag passing. Removing the output parsing removes some potential for bugs. The include and library flags are now passed as ['-I', str(dir)] etc, instead of one single long command. pybind11 test is not yet working, as some standard library functions are not linked correctly (strdup)
+* Added files for a pzbind11 build test
+* Moved download of external target sources and fixed include command. The sources are now downloaded before the target source directory is parsed. The include command was not working on directories containing spaces. Also now using absolute paths
+* Fixed depfile parsing and parsing of compile output. The depfiles were potentially not parsed correctly in the case of spaces in the path. If the compile output cannot be parsed, it will now be printed
+* Fixed bugs in clang\_build.py - depfile\_message was used instead of depfile\_report - unsuccessful\_link was checked on HeaderOnly targets
+* Removed unnecessary comments. Also replaced two sys.exit with raise RuntimeError. Also removed messages, which are for the ProgressBar, from the Environment class
+* Added missing subproject test. Also fixed a mistake in the subproject build config file
+* Improved tests by wrapping build calls in try/except and removed openmp test. The OpenMP test will currently not work on OSX or Linux, so it is commented out for now
+* Fixed bugs with testing
+* Removed some trivially unnecessary code and comment
+* Merged master into feature-subprojects
+* Removed parsing of link errors
+* Added better logging of linking errors. So far, linking error messages were not printed properly. Note, the current process of logging them is more complicated than necessary..
+* Improved compile error messages, removed redundant error logging. The error messages are now only logged once. The messages are now formatted instead of being printed as a dict. Also, the log message now shows the complete file name with path and uses standard format for line and column of the error
+* Added better depfile error support
+* Removed "external" keyword from targets, enabled external projects. The "external" keyword was unnecessary. Projects can now have a "url", analogous to a target
+* Fixed target working directories given by project and link commands. The project now correctly uses a target's directory, as specified in the toml, as the working directory when creating a target. Targets now correctly generate their link command, where executables and shared libraries need library search directories, but a static library of course does not
+* Added error checking tests and some more error handling
+* Added OpenMP test
+* Added some test output to gitignore
+* Removed eigen copy in test and replaced with dummy lib
+* Added some subprojects documentation to docs folder
+* Fixed project to be able to build correctly and added test. Dependencies are now also searched for inside subprojects of a current project. The project now returns the proper list of targets including those of all subprojects (recursively). Current limitation: some dependency searches will only go one layer deep
+* Further work towards subprojects. Added "subproject" keyword to toml parsing
+* Fixed test calls (new build function)
+* Added Environment and Project classes. The main build function now initially creates a Project, which will later in turn create it's own subprojects. The initially created environment will serve as a container for the general variables, such as build type, calling directory, logger etc
+* Updated CI scripts to use codecov. (#32)
+* Moved depfile generation into compilation step. This fixes two problems: 1. the depfile is now only generated if necessary (i.e. if the object needs to be re-built anyways) 2. the before\_compile script is executed also before depfiles are generated
+* Updated badges in Readme.rst
+* Added test for external scripts to test.py
+* Added functionality to execute additional scripts. - before\_compile - before\_link - after\_build Also added corresponding test
+* Added codacy badge and fixed formatting issues in readme
+* Improved documentation of defaults
+* Removed some unused imports and added circular dependency detection
+* Updated Readme.rst. Tried to modify it according to new project setup. Updated and simplified config file examples. Moved defaults "documentation" to docs/Defaults.md
+* Added skip\_cleanup to travis.yml
+* Fixed another typo in travis.yml
+* Fixed syntax error in travis.yml
+* Added coverage support
+* Tried to fix the appveyor test
+* Added python 3.6 requirement to setup
+* Changed target types and removed non-working test. The target types now have spaces, i.e. "shared library" etc. One can now also specify "executable" and "header only", where the latter will warn the user if sources are found
+* Removed Python2 from travis
+* Added tqdm and colorama to requirements.txt
+* Removed pathlib2 and enum34 from requirements. Replaced usage of pathlib2 with pathlib
+* add rst for pypi index
+* Silenced git clone command
+* Bugfix: added missing dialect flag in Target. Also made some paths absolute to prevent potential bugs
+* Added progressbar. Disable does not work, yet
+* Bugfix: updated multi-target test toml
+* Cleaned up parsing of targets, added support for external scripts. Added \`[targetname.scripts]\` with sub-elements \`before\_compile\`, \`before\_link\`, \`after\_build\`. Added new \`Environment\` class to contain all the information such as build type, calling directory etc
+* Improved generation of flags. The flags are now currently propagated up the dependency chain, as each target will include the flags of its dependencies. Also fixed the fact that a target was not including it's own (non-default) release and debug flags
+* Fixed execution paths in CIs to fit new build folder structure
+* Improved build directory paths and usage of build type
+* Fixed usage of subprocess.call using lists instead of single strings
+* Removed shell=True from subprocess calls
+* Fixed search for supported dialects by padding with zeros. Also added verbose output stating supported dialects
+* Created a basic pip setup configuration
+* Fixed bug in generation of flags in Target. The default flags were not correctly prepended to the list of target flags when not using a build config file
+* Updated Readme for new GitHub repo location
+* Added License file
+* Fixed bugs with processpool and default flags
+* Added multiprocess build, added Buildable class to try and simplify. multiprocessing.Pool is now used to trace dependencies and compile in parallel. The Buildable class now contains all information related to a single source file. This is useful  for parallelisation. At some point either the target should contain a minimal amount of information, or the Buildable should contain a reference to the Target it belongs to (probably the latter), in order to avoid unnecessary data duplication
+* Only build objects which need to be updated. Now, the object and source modification dates are checked to determine if it needs rebuilding. This is also done for everything listed in an automatically generated depfile
+* Updated Readme
+* Bugfix for "linking" of header-only libraries. Also improved platform-specific flags. Added -Xclang -flto-visibility-public-std to the platform\_extra\_flags\_... for Windows, which should suppress a warning and prevent possible problems. The platform-specific flags are now more granular (exe, shared, static)

@@ -1,0 +1,7 @@
+name = "myproject"
+
+subprojects = ["boost_dependencies"]
+
+[myexe]
+target_type = "executable"
+dependencies = ["boost.filesystem"]
