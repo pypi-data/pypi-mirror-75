@@ -1,0 +1,15 @@
+aiojson/__init__.py,sha256=3fAXcCaHSZ60D4CrQxBeyh0Qs6yybYAejJc_qjyXdCs,50
+aiojson/exception.py,sha256=y2LsFk6zLrPlrC_0UO5CF2O8BCHOp5lhoyMYpZ8n69Y,411
+aiojson/middleware.py,sha256=HkDHQuOd_yNArv9kRaQGwHiSDxqmqJPazH2zxXPxiP8,816
+aiojson/response.py,sha256=GdGYbrj7gDwPQT9S5851Cjx8W3nk-7z4h4aww8Svi7o,632
+aiojson/routes.py,sha256=Kx46RiQen_qCVSMShebG6VzGfVV3gfIa7v2FwAzrgNo,1659
+aiojson/template.py,sha256=_yJ1fEXzIde9TW-t5FbQAPzSsHPGpMKEKyhj9iMcGzg,4836
+tests/functional/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/pytest/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/pytest/test_middleware.py,sha256=U-GVw78X-qyke5rvj0iST_Y2kN3DiWCT7AhXMnA2520,418
+tests/pytest/test_responses.py,sha256=kWKaC5cYt5lWpxAkJqzWsI0mXqJ_OceECfpspzB51Rw,1653
+tests/pytest/test_templates.py,sha256=XSdMPW1He0kZQF5dJIfy5s7h6llYpTquDg8x1GESuIg,3607
+aiojson-0.3.1595805233.dist-info/METADATA,sha256=WXd6iNlUBS3pEuyCBXHwwWIWDR2rxK5X9vzcjGSiMBM,1061
+aiojson-0.3.1595805233.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+aiojson-0.3.1595805233.dist-info/top_level.txt,sha256=opUsOaIDL62kFxlx9snyO8IIwLL4rY-w7G0yUC_pL6M,14
+aiojson-0.3.1595805233.dist-info/RECORD,,
