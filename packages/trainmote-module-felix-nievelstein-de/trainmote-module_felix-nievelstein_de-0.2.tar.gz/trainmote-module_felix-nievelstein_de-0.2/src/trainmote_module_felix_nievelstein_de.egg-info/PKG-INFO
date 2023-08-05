@@ -1,0 +1,32 @@
+Metadata-Version: 1.2
+Name: trainmote-module-felix-nievelstein-de
+Version: 0.2
+Summary: Application to create a bluetooth server to control a model train environment
+Home-page: https://github.com/FelixNievelstein/Trainmote-Server
+Author: Felix Nievelstein
+Author-email: app@felix-nievelstein.de
+License: UNKNOWN
+Description: 
+        
+        # TRAINMOTE SERVER #
+        
+        
+        ## Install Trainmote server ##
+        - Install git 
+        - git clone
+        - mkdir content
+        - sudo pip3 install adafruit-circuitpython-ads1x15
+        - sudo apt-get install bluetooth libbluetooth-dev
+        - sudo python3 -m pip install pybluez
+        - pip3 install RPI.GPIO
+        - pip3 install adafruit-blinka
+        - Edit /lib/systemd/system/bluetooth.service and add '-C' after 'bluetoothd'. Reboot.
+        
+        # NOTE:
+        Project based on python3. Always start project with python3. 
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3, <4
