@@ -1,0 +1,22 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "toc2md"
+dist-name = "toc2md"
+description-file = "README.md"
+author = "Carlo Alessandro Verre"
+author-email = "carlo.alessandro.verre@gmail.com"
+home-page = "https://pypi.org/project/toc2md"
+classifiers = ["Programming Language :: Python :: 3",
+               "Programming Language :: Python :: 3.7",
+               "Development Status :: 5 - Production/Stable",
+               "Environment :: Console",
+               "Intended Audience :: End Users/Desktop",
+               "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+               "Operating System :: POSIX :: Linux",]
+requires-python = ">=3.7"
+
+[tool.flit.scripts]
+toc2md = "toc2md.__main__:main"

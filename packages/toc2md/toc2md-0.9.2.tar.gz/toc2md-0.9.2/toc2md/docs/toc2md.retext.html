@@ -1,0 +1,391 @@
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+<style type="text/css">
+td, th { border: 1px solid #c3c3c3; padding: 0 3px 0 3px; }
+table { border-collapse: collapse; }
+img { max-width: 100%; }
+</style>
+<meta name="generator" content="ReText 7.1.0">
+<title>toc2md</title>
+<style type="text/css">
+</style>
+</head>
+<body>
+<style>@media print{h2{page-break-before:always}}</style>
+
+<p><br><br><br><br><br><br><br><br><br><br><br><br><center></p>
+<h1><code>toc2md</code> User Guide</h1>
+<p><strong>Version 0.9.1</strong></p>
+<p><a href="https://pypi.org/project/toc2md/">https://pypi.org/project/toc2md/</a></p>
+<p><strong>Carlo Alessandro Verre</strong></p>
+<p><a href="mailto:carlo.alessandro.verre@gmail.com">carlo.alessandro.verre@gmail.com</a></p>
+<p><strong>july 6, 2020</strong>
+</center></p>
+<h2>Contents</h2>
+<ul>
+<li><a href="#1.">1. Before Usage</a><ul>
+<li><a href="#1.1.">1.1. Introduction</a></li>
+<li><a href="#1.2.">1.2. Installation</a></li>
+</ul>
+</li>
+<li><a href="#2.">2. Usage</a><ul>
+<li><a href="#2.1.">2.1. Format</a></li>
+<li><a href="#2.2.">2.2. Logic</a></li>
+<li><a href="#2.3.">2.3. Example</a></li>
+<li><a href="#2.4.">2.4. Errors</a></li>
+</ul>
+</li>
+<li><a href="#3.">3. After Usage</a><ul>
+<li><a href="#3.1.">3.1. PDF From ReText</a></li>
+<li><a href="#3.2.">3.2. PDF From Firefox</a></li>
+<li><a href="#3.3.">3.3. PDF From LibreOffice Writer</a></li>
+</ul>
+</li>
+<li><a href="#4.">4. Appendices</a><ul>
+<li><a href="#4.1.">4.1. Documentation</a></li>
+<li><a href="#4.2.">4.2. Acronyms</a></li>
+<li><a href="#4.3.">4.3. Credits</a></li>
+</ul>
+</li>
+</ul>
+<h2><a name="1.">1. Before Usage</a></h2>
+<h3><a name="1.1.">1.1. Introduction</a></h3>
+<p>toc2md is a small CLI utility written in Python 3, aimed to insert or update a
+nested chapter numbering and a linked table of contents (TOC) into a Markdown
+(MD) file.</p>
+<p>"Nested chapter numbering" means level 1 chapters gets 1-item numbering (1. 2.
+...), level 2 chapters gets 2-item numbering (1.1. 1.2. ...) and so on.</p>
+<p>"Linked table of contents" means that if we click on a chapter title in the table of contents then (under given conditions) we jump to chapter body.</p>
+<p>To read this document you only need a minimum knowledge of MD and HTML.</p>
+<p>In <a href="#2.">2. Usage</a> we show by rules and examples how to use toc2md, alone or as
+a coroutine together with ReText MD editor.</p>
+<p>In <a href="#3.">3. After Usage</a> we discuss three ways to get a PDF document from a MD file.</p>
+<h3><a name="1.2.">1.2. Installation</a></h3>
+<p>Be sure you got last <code>pip</code> version typing at terminal (without <code>sudo</code>):</p>
+<pre><code>    $ python3 -m pip install --user --upgrade pip
+</code></pre>
+
+<p>Now you can install <code>toc2md</code> typing (without <code>sudo</code>):</p>
+<pre><code>    $ python3 -m pip install toc2md
+</code></pre>
+
+<h2><a name="2.">2. Usage</a></h2>
+<h3><a name="2.1.">2.1. Format</a></h3>
+<p>Usage: <code>toc2md [-h] [-H] [-V] [file]</code></p>
+<p>Positional argument:</p>
+<ul>
+<li><code>file</code> - MD file to be backed up, read, processed and rewritten</li>
+</ul>
+<p>Optional arguments:</p>
+<ul>
+<li><code>-h, --help</code> - show a help message and exit</li>
+<li><code>-H, --user-guide</code> - open User Guide in PDF format and exit</li>
+<li><code>-V, --version</code> - show program's version number and exit</li>
+</ul>
+<h3><a name="2.2.">2.2. Logic</a></h3>
+<p>If we type at terminal:</p>
+<pre><code>    $ toc2md example.md
+</code></pre>
+
+<p>toc2md program:</p>
+<ul>
+<li>copies <code>example.md</code> into a timestamped backup file <code>example-YYYY.mm.dd-HH:MM:SS.md</code></li>
+<li>writes on standard output something like:</li>
+</ul>
+<pre><code>    file '/home/xxxx/example.md' has been backed up
+    into '/home/xxxx/example-2020.06.05-18.19.07.md'
+</code></pre>
+
+<ul>
+<li>reads example.md</li>
+<li>checks correct heading sequence (see below)</li>
+<li>deletes old chapter numbering (if any) and old TOC (if any)</li>
+<li>inserts new nested chapter numbering and new linked TOC</li>
+<li>rewrites the updated version into example.md</li>
+<li>writes on standard output something like:</li>
+</ul>
+<pre><code>    file '/home/xxxx/example.md' has been updated
+</code></pre>
+
+<p>There is neither configuration file nor options. Logic has been kept as simple
+as possible, but the file to be processed must obey some rule, as follows.</p>
+<p>toc2md processing is driven by headings in input file. A heading for us is a line
+which starts with a '#' character. The heading level is the number of leading '#'
+characters, between 1 and 6. So a heading is made by:</p>
+<ul>
+<li>a string of 1 to 6 '#' characters</li>
+<li>a blank</li>
+<li>a title</li>
+</ul>
+<p>Title must start with an alphabetic character.</p>
+<p>'#' characters after the sixth are silently discarded.</p>
+<p>The blank after '#' characters if not present is silently inserted.</p>
+<p>Any line not starting with '#' is treated as normal text, including MD headings as:</p>
+<pre><code>    Something
+    ===
+</code></pre>
+
+<p>or HTML headings like:</p>
+<pre><code>    &lt;h3&gt;Something Else&lt;/h3&gt;
+</code></pre>
+
+<p>which are anyway deprecated and <strong>must</strong> be avoided.</p>
+<p>Titles in headings are:</p>
+<ul>
+<li>level 1 heading: title of the whole document</li>
+<li>first level 2 heading: title of the TOC</li>
+<li>following level 2 headings: titles of level 1 chapters (as 1. 2. ...)</li>
+<li>level 3 headings: titles of level 2 chapters (as 1.1. 1.2. ...)</li>
+<li>level 4 headings: titles of level 3 chapters (as 1.1.1. 1.1.2. ...)</li>
+<li>level 5 headings: titles of level 4 chapters (as 1.1.1.1. 1.1.1.2. ...)</li>
+<li>level 6 headings: titles of level 5 chapters (as 1.1.1.1.1. 1.1.1.1.2. ...)</li>
+</ul>
+<p>So the input file <strong>must</strong> contain the following headings, freely intermixed with
+normal text, but in this order:</p>
+<ul>
+<li>one level 1 heading with title of the whole document</li>
+<li>one level 2 heading with title of the TOC</li>
+<li>one level 2 heading with title of the first level 1 chapter (1.)</li>
+<li>zero or more level 2..6 headings with titles of level 1..5 chapters</li>
+</ul>
+<p><strong>Beware: no</strong> heading can <strong>ever</strong> have a level higher than that of the previous
+heading plus one.</p>
+<p>Each non-heading line in input is transcribed as it is into output, except for
+those between the first and second level 2 headings. These lines are supposed to
+be the old TOC and hence are deleted and replaced in output by the new TOC.</p>
+<p>Chapter numbering in input headings is deleted and replaced in output by the new
+chapter numbering.</p>
+<h3><a name="2.3.">2.3. Example</a></h3>
+<p>An example will make everything clearer. As MD editor we will use ReText.</p>
+<p><strong>Beware</strong>: from another MD editor you could get a different behavior.</p>
+<p>We open a terminal window and type:</p>
+<pre><code>    $ retext example.md &amp;
+</code></pre>
+
+<p>The '&amp;' forks ReText as a separate process allowing us to use concurrently the
+terminal window and the ReText window.</p>
+<p>In ReText window we write:</p>
+<p><img alt="example0.md.png" src="example0.md.png"></p>
+<p>We save (by clicking <strong>File &#8594; Save</strong>, or typing <strong>Ctrl+S</strong>, or clicking the <strong>[&#8595;]</strong> button), then on terminal window we run:</p>
+<pre><code>    $ toc2md example.md
+</code></pre>
+
+<p>and the text in ReText window magically becomes:</p>
+<p><img alt="example1.md.png" src="example1.md.png"></p>
+<p>Note in the newly created TOC the links pointing to chapter headings.</p>
+<p><strong>Beware</strong>: if after running '<code>toc2md example.md</code>' ReText opens a dialog sub-window
+like this:</p>
+<p><img alt="error.png" src="error.png"></p>
+<p>don't click <strong>[Reload]</strong>! The sub-window means you forgot to save! Click
+<strong>[X Cancel]</strong> (maybe twice) on sub-window, save ReText window, and run '<code>toc2md
+example.md</code>' in the terminal window again.</p>
+<p>Now we realize Cats eat Mice, Frogs like Rains, and after Rains the Sun comes,
+so we insert Mice in Cats, Frogs between Cats and Dogs, and Sun after Rains.</p>
+<p><img alt="example2.md.png" src="example2.md.png"></p>
+<p>As before, we save ReText window and we run '<code>toc2md example.md</code>' in terminal window,
+so the text in ReText window becomes:</p>
+<p><img alt="example3.md.png" src="example3.md.png"></p>
+<p>Done!</p>
+<h3><a name="2.4.">2.4. Errors</a></h3>
+<p>toc2md can fail with one of the following error messages:</p>
+<pre><code>    ERROR: no file
+    ERROR: file '...' has no '.md' extension
+    ERROR: file '...' not found
+    ERROR: heading sequence error in line ... '#...'
+</code></pre>
+
+<h2><a name="3.">3. After Usage</a></h2>
+<p>As an example, we will use this same User Manual you are reading, born as <code>toc2md.md</code>, edited and processed concurrently by Retext and toc2md.</p>
+<p><img alt="toc2md.md.png" src="toc2md.md.png"></p>
+<p>If we export <code>toc2md.md</code> from Retext by <strong>File &rarr; Export &rarr; HTML</strong> into,
+say, <code>toc2md.retext.html</code> and we open it by Firefox (or any other HTML browser)
+links in our TOC work fine as we expected, we click a line in TOC and we
+jump on the desired chapter.</p>
+<p><img alt="toc2md.retext.html.png" src="toc2md.retext.html.png"></p>
+<p>Now we will explore three different ways to obtain a PDF document from our MD file:</p>
+<ul>
+<li>exporting directly from ReText</li>
+<li>exporting from Firefox via HTML format</li>
+<li>exporting from LibreOffice Writer via HTML format</li>
+</ul>
+<p>As you can expect, from a more complex procedure we will get a higher degree of
+control and a better final quality.</p>
+<h3><a name="3.1.">3.1. PDF From ReText</a></h3>
+<p>We can directly export <code>toc2md.md</code> from ReText by
+<strong>File &rarr; Export &rarr; PDF</strong> into a file, say <code>toc2md.retext.pdf</code></p>
+<p>We get a not-indexed PDF file with page numbers in page bottom right corners and nothing else.</p>
+<p>Procedure is instantaneous, control on final result is absent, quality is
+suitable for a quick-and-dirty draft:</p>
+<ul>
+<li>links in table of contents do not work</li>
+<li>no way to insert page breaks</li>
+<li>no way to manually format the final result</li>
+</ul>
+<p><img alt="toc2md.retext.pdf.png" src="toc2md.retext.pdf.png"></p>
+<p>By the way, if we print directly from ReText by <strong>File &rarr; Print</strong> we obtain
+on paper the same result.</p>
+<h3><a name="3.2.">3.2. PDF From Firefox</a></h3>
+<p>In order to force page breaks in given points of the final PDF document we can insert a line:</p>
+<pre><code>    &lt;p style=&quot;break-after:page&quot;&gt;&lt;/p&gt;
+</code></pre>
+
+<p>in all corresponding places of our MD file. Alternatively, we can force a page
+break for each heading of a given level by a single line, for example if we
+insert:</p>
+<pre><code>    &lt;style&gt;@media print{h2{page-break-before:always}}&lt;/style&gt;
+</code></pre>
+
+<p>as first line of our MD file, then we get a page break before each level 2 heading (level 1 chapter).</p>
+<p><strong>Beware:</strong> These tricks work with Firefox only, while they do not work exporting
+our PDF file from ReText or from LibreOffice Writer.</p>
+<p>We proceed as follows:</p>
+<ol>
+<li>we export <code>toc2md.md</code> from Retext by <strong>File &rarr; Export &rarr; HTML</strong> into
+<code>toc2md.retext.html</code></li>
+<li>we open toc2md.retext.html HTML file by Firefox</li>
+<li>optionally we control page headers and footers via
+<strong>[&#8801;] button &rarr; Print...&rarr; Print... &rarr; Options &rarr; Header and Footer</strong></li>
+<li>optionally we control paper size and other print parameters via
+<strong>[&#8801;] button &rarr; Print... &rarr; Print... &rarr; Page Setup</strong></li>
+<li>finally we export into toc2md-firefox.pdf by
+<strong>[&#8801;] button &rarr; Print... &rarr; Print... &rarr; General &rarr; Print to File &rarr; Print</strong></li>
+</ol>
+<p>Procedure is fast, control of result and final quality are good for printing but not for web publishing:</p>
+<ul>
+<li>as before, links in table of contents do not work</li>
+<li>as before, resulting PDF file is not indexed</li>
+</ul>
+<p><img alt="toc2md.firefox.pdf.png" src="toc2md.firefox.pdf.png"></p>
+<p>By the way, if we print directly from Firefox by
+<strong>File &rarr; Print... &rarr; Print... &rarr; Print</strong> we obtain on paper the same
+result.</p>
+<h3><a name="3.3.">3.3. PDF From LibreOffice Writer</a></h3>
+<p>We proceed as follows:</p>
+<ol>
+<li>we export <code>toc2md.md</code> from Retext by <strong>File &rarr; Export &rarr; HTML</strong> into
+<code>toc2md.retext.html</code></li>
+<li>we replace in <code>toc2md.retext.html</code> each string <strong><code>'&lt;table&gt;'</code></strong> with string <strong><code>'&lt;table border=1&gt;'</code></strong> and we write result in <code>toc2md.sed.html</code>, in order to maintain visibility of table borders (see for instance the table in <a href="#4.2.">4.2. Acronyms</a>)</li>
+<li>open <code>toc2md.sed.html</code> by LibreOffice Writer</li>
+<li>make changes at our taste (for instance change text font or alignment,
+insert page breaks by <strong>Ctrl-Enter</strong>, insert headers and/or footers with page number, resize or move pictures, or whatever else...)</li>
+<li>finally export from Writer into <code>toc2md.writer.pdf</code> by
+<strong>File &rarr; Export As &rarr; Export Directly As PDF</strong></li>
+</ol>
+<p>Step 2. can be performed typing at terminal:</p>
+<pre><code>    $ sed 's/&lt;table&gt;/&lt;table border=1&gt;/' &lt;toc2md.retext.html &gt;toc2md.sed.html
+</code></pre>
+
+<p>Procedure is a bit cumbersome, control of final result is maximum, result is an indexed, professional-looking PDF file, good for printing and web publishing.</p>
+<p>If we open <code>toc2md.writer.pdf</code> by a PDF browser:</p>
+<ul>
+<li>the toc2md-generated links in TOC jump perfectly to chapters</li>
+<li>the file is said "indexed" because in the side pane on the left we can view
+the "Index", which is a Writer-generated TOC which matches one-to-one the
+toc2md-generated TOC and remains visible when we scroll down along the file</li>
+</ul>
+<p><img alt="toc2md.writer.png" src="toc2md.writer.pdf.png" title="toc2md.writer.pdf.png"></p>
+<p><strong>Beware:</strong> Writer can not distinguish '#'-headings from the others, so the
+two TOCs (the Writer-generated at left and the toc2md-generated in the text)
+they will only have a one-to-one match if we have avoided entering MD headings
+as:</p>
+<pre><code>    Something
+    ===
+</code></pre>
+
+<p>or HTML headings as:</p>
+<pre><code>    &lt;h3&gt;Something Else&lt;/h3&gt;
+</code></pre>
+
+<p>in our MD file.</p>
+<h2><a name="4.">4. Appendices</a></h2>
+<h3><a name="4.1.">4.1. Documentation</a></h3>
+<p>If we type at terminal:</p>
+<pre><code>    $ cd ~/.local/lib/python3.*/site-packages/toc2md/docs
+</code></pre>
+
+<p>we can find all versions of the <code>toc2md</code> User Guide discussed in <a href="#3.">3. After Usage</a>:</p>
+<ul>
+<li><code>toc2md.md</code> - original file edited by ReText and toc2md</li>
+<li><code>toc2md.retext.html</code> - exported by ReText, in input to FireFox</li>
+<li><code>toc2md.sed.html</code> - toc2md.retext.html modified by sed, in input to Writer</li>
+<li><code>toc2md.retext.pdf</code> - directly exported by ReText (low quality)</li>
+<li><code>toc2md.firefox.pdf</code> - exported by FireFox from toc2md.retext.html (medium quality)</li>
+<li><code>toc2md.writer.pdf</code> - exported by Writer from toc2md.sed.html (high quality)</li>
+</ul>
+<p>Anyway the "official" version of the <code>toc2md</code> User Guide is
+<code>toc2md.writer.pdf</code>. We can view it typing at terminal:</p>
+<pre><code>    $ toc2md -H
+</code></pre>
+
+<h3><a name="4.2.">4.2. Acronyms</a></h3>
+<p><p></p></p>
+<table>
+<thead>
+<tr>
+<th>INITIALS</th>
+<th>MEANING</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CLI</td>
+<td>Command Language Interface</td>
+</tr>
+<tr>
+<td>HTML</td>
+<td>HyperText Markup Language</td>
+</tr>
+<tr>
+<td>MD</td>
+<td>MarkDown</td>
+</tr>
+<tr>
+<td>ODT</td>
+<td>Open Document Text</td>
+</tr>
+<tr>
+<td>PDF</td>
+<td>Page Description Format</td>
+</tr>
+<tr>
+<td>PyPI</td>
+<td>Python Package Index</td>
+</tr>
+<tr>
+<td>TOC</td>
+<td>Table Of Contents</td>
+</tr>
+<tr>
+<td>toc2md</td>
+<td>Table Of Contents to MarkDown</td>
+</tr>
+</tbody>
+</table>
+<h3><a name="4.3.">4.3. Credits</a></h3>
+<p>The <code>toc2md</code> project has been:</p>
+<ul>
+<li>developed in <a href="http://www.python.org">Python</a> 3.8.2</li>
+<li>by <a href="https://docs.python.org/3/library/idle.html">Idle</a> 3.8.2</li>
+<li>built and published on PyPI thanks to <a href="https://pypi.org/project/flit">flit</a> 2.3.0</li>
+<li>on <a href="https://xubuntu.org">Linux Xubuntu</a> 20.04 LTS</li>
+</ul>
+<p>This toc2md.pdf file has been:</p>
+<ul>
+<li>written by <a href="https://pypi.org/project/ReText">ReText</a> 7.1.0</li>
+<li>processed by <a href="https://pypi.org/project/toc2md">toc2md</a> 0.9.1</li>
+<li>exported from ReText in HTML format and translated into PDF format by
+<a href="https://www.mozilla.org/en-US/firefox">Firefox</a> 76.0.1</li>
+</ul>
+<p>During tests we used:</p>
+<ul>
+<li><a href="https://pypi.org/project/ReText">ReText</a> 7.1.0 to write MD, HTML and PDF files</li>
+<li><a href="https://www.mozilla.org/en-US/firefox">Firefox</a> 76.0.1 and
+<a href="https://www.libreoffice.org">LibreOffice Writer</a> 6.4.3.2 to translate HTML
+files into PDF format</li>
+<li><a href="https://atril.com">Atril</a> 1.24.0 to check PDF files</li>
+</ul>
+
+</body>
+</html>
