@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: fourmat
+Version: 0.6.3
+Summary: A library for batteries-included linting and autoformatting
+Home-page: https://github.com/4Catalyzer/fourmat
+Author: Giacomo Tagliabue
+Author-email: giacomo@gmail.com
+License: MIT
+Description: # Fourmat
+        
+        A library for batteries-included linting and autoformatting.
+        
+        ## Installation and Usage
+        
+        Install fourmat through pip:
+        
+        ```sh
+        $ pip install fourmat
+        ```
+        
+        Create a `.fourmat` file to specify the directories and files to check.
+        
+        ```sh
+        $ fourmat check
+        
+        $ fourmat fix
+        ```
+        
+        ## Adding Fourmat as a pre-commit hook
+        
+        Install the pre-commit package:
+        
+        ```sh
+        $ pip install pre-commit
+        ```
+        
+        Create a `.pre-commit-config.yaml` containing:
+        
+        ```yaml
+        repos:
+        - repo: https://github.com/4Catalyzer/fourmat
+          rev: master  # or specify a version
+          hooks:
+            - id: fourmat
+        ```
+        
+        then install the hook:
+        
+        ```
+        $ pre-commit install
+        ```
+        
+Keywords: lint autoformat black flake8 isort
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
