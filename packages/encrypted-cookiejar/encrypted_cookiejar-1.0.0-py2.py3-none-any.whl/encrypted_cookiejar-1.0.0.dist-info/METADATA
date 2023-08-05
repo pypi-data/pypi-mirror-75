@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: encrypted-cookiejar
+Version: 1.0.0
+Summary: Fernet-encrypted cookie jar
+Home-page: http://github.com/andreax79/python-encrypted-cookiejar
+Author: Andrea Bonomi
+Author-email: andrea.bonomi@gmail.com
+License: MIT
+Keywords: cookiejar
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: cryptography
+
+python-encrypted-cookiejar is a Python library for storing cookie jar encrypted with Fernet.
+
+
