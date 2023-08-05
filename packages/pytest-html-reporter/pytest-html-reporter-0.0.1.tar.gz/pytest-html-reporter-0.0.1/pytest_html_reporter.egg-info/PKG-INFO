@@ -1,0 +1,30 @@
+Metadata-Version: 1.2
+Name: pytest-html-reporter
+Version: 0.0.1
+Summary: Generates a static html report based on pytest framework
+Home-page: https://github.com/prashanth-sams/pytest-html-reporter
+Author: Prashanth Sams
+Author-email: sams.prashanth@gmail.com
+Maintainer: Prashanth Sams
+Maintainer-email: sams.prashanth@gmail.com
+License: MIT
+Description: # pytest-html-reporter
+        [![Build Status](https://travis-ci.com/prashanth-sams/pytest-html-reporter.svg?branch=master)](https://travis-ci.com/prashanth-sams/pytest-html-reporter)
+        
+        > Generates a static html report based on `pytest` framework
+        
+        <div align="center"><img src="./PHR.png" width="200"/></div>
+        
+        
+        #### develop
+        ```shell script
+        pip3 install -e .
+        ```
+Keywords: pytest,py.test,html,reporter,report
+Platform: UNKNOWN
+Classifier: Framework :: Pytest
+Classifier: Topic :: Software Development :: Testing
+Classifier: Programming Language :: Python
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.5
