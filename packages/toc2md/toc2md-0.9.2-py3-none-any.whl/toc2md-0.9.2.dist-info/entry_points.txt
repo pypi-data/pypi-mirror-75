@@ -1,0 +1,3 @@
+[console_scripts]
+toc2md=toc2md.__main__:main
+
