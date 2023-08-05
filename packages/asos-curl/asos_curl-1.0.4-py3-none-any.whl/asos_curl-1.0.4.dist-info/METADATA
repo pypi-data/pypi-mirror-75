@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: asos-curl
+Version: 1.0.4
+Summary: ASOS executor plugin for HTTP(s) requests
+Home-page: https://github.com/python-asos/
+Author: Pavel Kim
+Author-email: hello@pavelkim.ru
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# asos-curl
+ASOS executor plugin for HTTP(s) requests
+
+## Parameters
+
+You can configure the executor by setting the following parameters in the task:
+
+```json
+{
+	"url": "https://example.com/",
+	"method": "GET",
+	"get_params": {"param": "value"},
+	"post_data": {"item": "content"},
+	"no_dump": true
+}
+```
+
+Supported methods: GET, POST, PUT, PATCH, OPTIONS
+
+## ASOS Task example
+
+```json
+{
+  "url": "https://example.com/api/dance",
+  "task_type": "curl",
+  "get_params": {
+    "page": 1,
+    "perPage": 8,
+    "filter": true
+  },
+  "request_type": "GET",
+  "task_interval": 60
+}
+```
+
+
