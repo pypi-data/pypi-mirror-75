@@ -1,0 +1,15 @@
+Metadata-Version: 2.0
+Name: pyworxcloud
+Version: 1.2.18
+Summary: Worx Landroid API library
+Home-page: https://github.com/mtrab/pyworxcloud
+Author: Morten Trab
+Author-email: morten@trab.dk
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: paho-mqtt (==1.5.0)
+Requires-Dist: pyOpenSSL (==17.5.0)
+
+UNKNOWN
+
+
