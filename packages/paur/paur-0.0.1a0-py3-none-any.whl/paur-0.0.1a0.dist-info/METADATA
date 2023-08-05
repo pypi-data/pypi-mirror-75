@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: paur
+Version: 0.0.1a0
+Summary: A python wrapper pacman with the ability to interact with Arch User Repository
+Home-page: https://github.com/tonybenoy/paur
+Author: Tony Benoy
+Author-email: me@tonybenoy.com
+License: UNKNOWN
+Keywords: Arch Linux AUR Arch User Repository pacman
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Development Status :: 2 - Pre-Alpha
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: typer
+Requires-Dist: shellingham
+Requires-Dist: aurlib
+Requires-Dist: aorlib
+Requires-Dist: aiosqlite
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+
+# paur
+<p>
+    <a href="https://www.python.org/downloads/"><img src="https://img.shields.io/badge/python-3.6+-blue.svg" alt="Python version" height="17"></a>
+    <a href="https://github.com/tonybenoy/paur/blob/master/LICENSE"><img src="https://img.shields.io/github/license/tonybenoy/paur" alt="License" height="17"></a>
+    <a href="https://github.com/psf/black">
+        <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Codestyle Black" height="17">
+    </a>
+</p>
+<p>
+    <a href="https://github.com/tonybenoy/paur/actions">
+        <img src="https://github.com/tonybenoy/paur/workflows/mypy/badge.svg" alt="Test Status" height="20">
+    </a>
+</p>
+Arch User Repository Helper for Arch Linux based on Python</br>.Install packages from Arch User Repository and Offical Repositories. Search for packages in AUR and Official Repositories. Uninstall locally installed packages. 
+
+
