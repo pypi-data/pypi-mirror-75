@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: fyler
+Version: 0.1.1
+Summary: An application to help organize TV Shows/Anime/Movies
+Home-page: UNKNOWN
+Author: Alex Gonzales
+License: UNKNOWN
+Description: # Fyler
+         An Open-Source bulk renaming desktop app. Select a number of files, then match them to media by searching with a provider (currently AniDB/TheTVDB). Files can be renamed/symlinked/hardlinked based on a number of template variables: title, episode number, season number, etc.
+        
+        This project was heavily inspired by Filebot and attempts to have a similar interface with similar template variables. That said, this project does not intend to replicate all features of Filebot, only the renaming of files. Even then, there's some differences: for example, Fyler currently doesn't perform any introspection of the media being renamed, so certain template variables are completely unavailable.
+        
+        These are all of the variables currently supported:
+        
+        |Variable|Description|
+        |--------|-----------|
+        |db|Database name, e.g. 'AniDB'|
+        |id|ID specific to that database|
+        |t|Title|
+        |y|Release year|
+        |n|Series title (for episodes)|
+        |s|Season number|
+        |e|Episode number|
+        |sxe|Season number with zero padded episode number, e.g. '2x04'|
+        |s00e00|Zero padded season and episode number, e.g. 'S02E0'|
+        |e00|Zero padded episode number, e.g. '04'|
+        
+        To use this, download the executable for your platform from the releases tab.
+        Alternatively, you can install `fyler` from PyPI. Note that fyler requires Python3.8.
+        
+        
+        And here's some screenshots for Linux and OSX:
+        ![linux](https://i.imgur.com/E0eNzOp.png)
+        ![osx](https://i.imgur.com/Ll1EtPY.png)
+        
+        
+        Attributions:
+        
+        The project is not affiliated with any of the metadata providers. More specifically,
+        
+        TheTVDB: Per api docs, "[some] TV information and images are provided by [TheTVDB.com](https://thetvdb.com), but we are not endorsed or certified by [TheTVDB.com](https://thetvdb.com) or its affiliates."
+        
+Platform: UNKNOWN
+Requires-Python: >=3.8.0
+Description-Content-Type: text/markdown
