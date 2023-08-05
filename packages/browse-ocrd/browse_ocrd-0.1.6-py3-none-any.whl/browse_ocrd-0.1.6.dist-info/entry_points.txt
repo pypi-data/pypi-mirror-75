@@ -1,0 +1,7 @@
+[console_scripts]
+browse-ocrd = ocrd_browser.main:main
+
+[ocrd_browser_view]
+images = ocrd_browser.views:ViewImages
+xml = ocrd_browser.extensions.xmlview:ViewXml
+
