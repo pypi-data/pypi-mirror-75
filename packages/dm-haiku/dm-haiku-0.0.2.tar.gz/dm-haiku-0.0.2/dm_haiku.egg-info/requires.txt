@@ -1,0 +1,8 @@
+absl-py>=0.7.1
+numpy>=1.18.0
+
+[jax]
+jax>=0.1.71
+
+[jaxlib]
+jaxlib>=0.1.49
