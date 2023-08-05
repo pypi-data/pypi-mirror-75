@@ -1,0 +1,6 @@
+heatshrink>=0.3.2
+heatshrink2>=0.9
+pyserial>=3.4
+
+[:python_version < "3.3"]
+backports.time_perf_counter
