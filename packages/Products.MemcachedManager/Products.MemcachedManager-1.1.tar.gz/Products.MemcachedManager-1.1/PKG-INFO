@@ -1,0 +1,138 @@
+Metadata-Version: 2.1
+Name: Products.MemcachedManager
+Version: 1.1
+Summary: Memcached cache manager for Zope.
+Home-page: https://github.com/collective/Products.MemcachedManager
+Author: Sidnei da Silva
+Author-email: plone-developers@lists.sourceforge.net
+License: UNKNOWN
+Description: Introduction
+        ============
+        
+        .. image:: http://img.shields.io/pypi/v/Products.MemcachedManager.svg
+            :target: https://pypi.python.org/pypi/Products.MemcachedManager
+        
+        .. image:: https://img.shields.io/travis/collective/Products.MemcachedManager/master.svg
+            :target: http://travis-ci.org/collective/Products.MemcachedManager
+        
+        .. image:: https://img.shields.io/coveralls/collective/Products.MemcachedManager/master.svg
+            :target: https://coveralls.io/r/collective/Products.MemcachedManager
+        
+        MemcachedManager is a cache similar to RAMCacheManager, using `memcached <https://memcached.org/>`_ for storage.
+        
+        Dependencies
+        ============
+        
+        `memcached`_
+        
+            This needs to be set up on a server Zope can connect to.
+            You provide the IP address in the MemcachedManager settings screen.
+        
+        
+        `pylibmc <https://pypi.python.org/pypi/pylibmc>`_
+        
+        or...
+        
+        `python-memcached <https://pypi.python.org/pypi/python-memcached>`_
+        
+        Credits
+        =======
+        
+        Thanks to Mike Solomon <mas63@cornell.edu> for key validation
+        
+        Changelog
+        =========
+        
+        1.1 (2020-07-28)
+        ----------------
+        
+        * Port to Python 3
+          [ale-rt, goibhniu, reinhardt]
+        
+        * Support pylibmc 1.2.0 and up, by not setting the removed cache_lookup
+          behaviour.
+          [mj]
+        
+        * Avoid deprecation warnings for DTMLFile and md5 where possible.
+          [mj]
+        
+        * Remove deprecation warning on from Globals import InitializeClass
+          [toutpt]
+        
+        
+        1.1b2 - 2010-10-19
+        ------------------
+        
+        * Use aq_get instead of getattr for getting acquired REQUEST.
+          Thanks to Vincent Fretin for pointing it out.
+          [tesdal]
+        
+        
+        1.1b1 - 2010-10-10
+        ------------------
+        
+        * Fixed a bug with an assumption that object always has REQUEST available.
+          [tesdal]
+        
+        * Enable pylibmc compression
+          [tesdal]
+        
+        * Improve pylibmc support by handling MemcachedError.
+          [tesdal]
+        
+        
+        1.0rc2 - March 25, 2009
+        -----------------------
+        
+        * Remove cmemcache support
+          Add pylibmc support
+          Optimized cache lookup code
+          [tesdal]
+        
+        
+        1.0rc1 - Janunary 13, 2009
+        --------------------------
+        
+        * Get rid of the entry list. For invalidation we bump
+          a counter instead.
+          [tesdal]
+        
+        * Use pickle protocol 2.
+          [tesdal]
+        
+        
+        1.0b2 - August 25, 2008
+        -----------------------
+        
+        * Mirror invalidation support
+          [tesdal]
+        
+        
+        1.0b1 - June 5, 2008
+        --------------------
+        
+        * Repackage MemcachedManager as an egg.
+          [wichert]
+        
+        * Remove old style test setup and update it to current conventions.
+          [wichert]
+        
+Keywords: memcached Zope cache cachemanager
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Zope2
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Zope Public License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: pylibmc
+Provides-Extra: python-memcached
