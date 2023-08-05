@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: slipway
+Version: 0.9.1
+Summary: CLI tool for managing development containers
+License: MIT
+Author: AGhost-7
+Author-email: jonathan.boudreau.92@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: PyYAML (>=5.3,<6.0)
+Requires-Dist: docker (>=4.0.0)
