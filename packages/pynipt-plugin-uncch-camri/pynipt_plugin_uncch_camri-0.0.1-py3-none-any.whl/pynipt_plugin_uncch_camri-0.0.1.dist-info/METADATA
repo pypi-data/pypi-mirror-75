@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pynipt-plugin-uncch-camri
+Version: 0.0.1
+Summary: UNCCH standard pipeline packages for core service - pynipt plugin
+Home-page: https://github.com/dvm-shlee/pynipt-plugin
+Author: SungHo Lee
+Author-email: shlee@unc.edu
+License: GNLv3
+Keywords: pynipt,plugin,pipeline,uncch_camri,linux,mac
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Requires-Python: >3.5, <3.8
+Requires-Dist: pynipt (>=0.1.1b0)
+Requires-Dist: pynipt-plugin-uncch-core (>=0.0.1)
+Requires-Dist: slfmri (>=0.0.1)
+
+UNKNOWN
+
+
