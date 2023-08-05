@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.py
+undi/__init__.py
+undi/undi.py
+undi.egg-info/PKG-INFO
+undi.egg-info/SOURCES.txt
+undi.egg-info/dependency_links.txt
+undi.egg-info/not-zip-safe
+undi.egg-info/requires.txt
+undi.egg-info/top_level.txt
