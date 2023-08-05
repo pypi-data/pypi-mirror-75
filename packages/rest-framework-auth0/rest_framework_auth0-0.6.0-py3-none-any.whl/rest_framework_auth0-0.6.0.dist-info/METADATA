@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: rest-framework-auth0
+Version: 0.6.0
+Summary: This library let you to authenticate an specific user on DRF based on the JWT Token returned by Auth0 Javascript libraries.
+License: MIT
+Author: Marcelo Cueto
+Author-email: cueto@live.cl
+Requires-Python: >=3.6,<3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: auth0-python (>=3.12)
+Requires-Dist: cryptography (>=3)
+Requires-Dist: django (>2.2)
+Requires-Dist: pyjwt (>=1.7)
