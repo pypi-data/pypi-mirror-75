@@ -1,0 +1,41 @@
+Metadata-Version: 2.0
+Name: data-locality-system
+Version: 0.0.5
+Summary: A library and pattern for low latency applications
+Home-page: https://github.com/samsquire/data-locality-system
+Author: Samuel Michael Squire
+Author-email: sam@samsquire.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: flask
+Requires-Dist: pyyaml
+Requires-Dist: networkx
+Requires-Dist: ortools
+Requires-Dist: opentracing
+Requires-Dist: redis
+Requires-Dist: psycopg2
+
+# data-locality-system
+
+DLS is a library and pattern that tries to keep data and processing near together for latency and performance.
+
+# Usage
+
+Split up your API request handler into a series of methods with each method being responsible for some API call or processing.
+
+Automatically
+
+* OpenTracing wraps all your spans
+* Requests are routed to servers which are favourable
+* Requests run in parallel using threads.
+
+# Usage
+
+Run each DLS service using Gunicorn.
+
+
