@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: channels-binding
+Version: 1.1.0
+Summary: Channels API Bindings system
+Home-page: https://pypi.org/project/channels-binding
+Author: Damien Autrusseau
+Author-email: damien.autrusseau@gmail.com
+License: MIT
+Description: Channels Bindins API
+        ------------
+        
+        Channels Binding exposes a API Streaming system cross Websocket and Rest
+        
+        
+Keywords: channels api binding websocket rest django
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Topic :: Utilities
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
