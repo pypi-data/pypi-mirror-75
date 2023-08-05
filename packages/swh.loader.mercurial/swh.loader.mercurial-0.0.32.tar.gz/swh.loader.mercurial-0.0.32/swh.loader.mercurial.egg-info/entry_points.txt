@@ -1,0 +1,4 @@
+
+        [swh.workers]
+        loader.mercurial=swh.loader.mercurial:register
+    
