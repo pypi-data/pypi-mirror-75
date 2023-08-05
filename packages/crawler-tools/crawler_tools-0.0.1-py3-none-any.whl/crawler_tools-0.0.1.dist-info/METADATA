@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: crawler-tools
+Version: 0.0.1
+Summary: 爬虫工具
+Home-page: UNKNOWN
+Author: cw
+Author-email: 1063117365@qq.com
+License: GPL Licence
+Keywords: crawler,tools,proxy,cookies,user-agent
+Platform: any
+Requires-Python: >=3.7.*
+Requires-Dist: selenium
+Requires-Dist: requests
+Requires-Dist: APScheduler
+Requires-Dist: werkzeug (==0.15.3)
+Requires-Dist: Flask
+Requires-Dist: lxml
+Requires-Dist: PyExecJS
+Requires-Dist: click
+Requires-Dist: gunicorn (==19.9.0)
+Requires-Dist: redis
+Requires-Dist: environs (==7.2.0)
+Requires-Dist: attrs
+Requires-Dist: retrying
+Requires-Dist: aiohttp (==3.6.2)
+Requires-Dist: loguru (==0.3.2)
+Requires-Dist: pyquery
+Requires-Dist: supervisor
+
+爬虫工具集合，其中代理用的是崔庆才的代理池和jhao的代理池，而cookies和user-agent是自己的创作，总体上实在综合
+
+
