@@ -1,0 +1,10 @@
+
+[docs]
+sphinx
+sphinx_rtd_theme
+sphinx-automodapi
+
+[test]
+pytest>=2.7.0
+pytest-cov
+pytest-socket
