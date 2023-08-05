@@ -1,0 +1,116 @@
+% ---------------------------------------------------------------------------- %
+% file: disseration.tex
+% author: Michael Pilosov
+%
+% LaTeX based on work by Sarah Kreidler and Peter DeWitt
+% (github.com/dewittpe/ucd-dissertation-template)
+%
+%
+% ---------------------------------------------------------------------------- %
+
+\documentclass[english,10pt]{ucdenver-dissertation}
+\input{env/usepackages}
+\input{env/newcommands}
+\input{env/pythonenv}
+% enables the following:
+% \pythonexternal{demo.py}
+% \begin{python}-\end{python}
+% \pythoninline{import bet}
+\input{env/bashenv}
+% enables the same functions, but with bash.
+\usepackage{lipsum}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\renewcommand{\floatpagefraction}{0.7}%
+
+% Draft and Time stamp in the header and footer.
+\usepackage{fancyhdr}
+\usepackage{datetime}
+
+% ---------------------------------------------------------------------------- %
+% FRONT MATTER
+
+\makeatletter
+\title{Computational Advances in Data-Consistent Inversion: Measure-Theoretic Methods for Improving Predictions}
+\authorLast{Pilosov}
+\authorFirst{Michael}
+\authorMiddle{}
+\education{
+B.A., State University of New York: College at Geneseo, 2010 \\
+M.S., University of Colorado: Denver, 2017
+}
+\school{University of Colorado: Denver, College of Liberal Arts and Sciences}
+\program{Applied Mathematics}
+\date{2019}
+\submitDate{21 Sep 2019}
+\advisor{Dr.~Troy Butler}
+\advisorTitle{Assistant Professor}
+\committeeChair{Dr.~Stephen Billups}
+\committeeMembers{
+Dr.~Varis Carey \\
+Dr.~Jan Mandel \\
+Dr.~Jimmy Lee Kim
+}
+
+% dedication - this is also optional
+\dedication{To Jacob and Anna Ratman.}
+
+% preface
+\preface{
+\input{abstract.tex}
+\input{notation.tex}
+% \input{outline.tex}
+}
+
+% acknowledgement - this is optional
+\acknowledgements{
+  Thank you to Troy Butler, whose patient guidance got me through this grueling process.
+}
+
+\usepackage{mathtools} % for \xmapsto
+\usepackage{array}
+\renewcommand\arraystretch{0.5}
+
+\makeatother
+
+% ---------------------------------------------------------------------------- %
+% ---------------------------------------------------------------------------- %
+% Begin Document
+\begin{document}
+\chead{\small \color{red} DRAFT. Last compiled at \currenttime \ on \today }
+
+\input{chapter01}
+\input{chapter02}
+\input{chapter03}
+\input{chapter04}
+\input{chapter05}
+
+% ---------------------------------------------------------------------------- %
+\renewcommand\bibname{REFERENCES}
+\singlespacing
+
+\nocite{*}
+\bibliographystyle{ref/ucdDissertation}
+\bibliography{ref/references,ref/references-code}
+
+\doublespacing
+
+% ---------------------------------------------------------------------------- %
+% had to do some TOC shenanigans, so please use the ucdappendix command instead
+% of regular old \appendix
+\ucdappendix
+
+%\input{notation.tex}
+
+% ---------------------------------------------------------------------------- %
+% additional appendices
+\input{ch01/appendix01}
+\input{ch02/appendix02}
+% \input{ch03/appendix03}
+% \input{ch04/appendix04}
+% \input{ch05/appendix05}
+
+% ---------------------------------------------------------------------------- %
+\end{document}
+% ---------------------------------------------------------------------------- %
