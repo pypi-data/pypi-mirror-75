@@ -1,0 +1,4 @@
+[console_scripts]
+satyrn = satyrn_flask.run_frontend:run
+satyrnCLI = satyrnCLI.__main__:start
+
