@@ -1,0 +1,31 @@
+graft docs
+graft cuTWED
+graft ci
+graft tests
+
+include .bumpversion.cfg
+include .coveragerc
+
+include AUTHORS.rst
+include CHANGELOG.rst
+include CONTRIBUTING.rst
+include LICENSE
+include README.md
+include pyproject.toml
+
+include tox.ini
+include conftest.py
+include .readthedocs.yml
+include *.yml
+#.appveyor.yml .pre-commit-config.yaml
+
+include *.txt
+recursive-include reference_implementation *.c
+recursive-include reference_implementation *.h
+recursive-include reference_implementation *.py
+recursive-include src *.cu
+recursive-include src *.h
+recursive-include cuTWED *.h.i
+recursive-include tests
+
+global-exclude *.py[cod] __pycache__/* *.so *.dylib
