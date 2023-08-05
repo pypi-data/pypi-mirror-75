@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: queueless
+Version: 0.1.0
+Summary: Database-based task management for python
+License: MIT
+Author: Exhor
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: dill
+Requires-Dist: psycopg2 (>=2.8.5,<3.0.0)
+Requires-Dist: sqlalchemy
