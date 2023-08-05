@@ -1,0 +1,3 @@
+[console_scripts]
+extensiveautomation_agent = ea_agents.main:cli
+
