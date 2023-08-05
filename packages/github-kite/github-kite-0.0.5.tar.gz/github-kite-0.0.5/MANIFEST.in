@@ -1,0 +1,7 @@
+include config.ini
+prune img
+prune logs
+prune uilib
+exclude .gitignore
+exclude logging.ini
+exclude application.py
