@@ -1,0 +1,14 @@
+README.md
+setup.py
+tempmailio/__init__.py
+tempmailio/tempmailio.py
+tempmailio/tempmailio_api.py
+tempmailio.egg-info/PKG-INFO
+tempmailio.egg-info/SOURCES.txt
+tempmailio.egg-info/dependency_links.txt
+tempmailio.egg-info/requires.txt
+tempmailio.egg-info/top_level.txt
+tempmailio/models/__init__.py
+tempmailio/models/domain.py
+tempmailio/models/email.py
+tempmailio/models/email_address.py
