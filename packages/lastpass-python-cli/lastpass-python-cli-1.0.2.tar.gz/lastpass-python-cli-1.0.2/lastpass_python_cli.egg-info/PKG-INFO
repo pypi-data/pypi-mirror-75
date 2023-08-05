@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: lastpass-python-cli
+Version: 1.0.2
+Summary: Lastpass Python CLI
+Home-page: https://github.com/guilt/lastpass-python-cli
+Author: Karthik Kumar Viswanathan
+Author-email: karthikkumar@gmail.com
+License: MIT
+Description: # Lastpass Python CLI
+        
+        A minimal Python replacement for the Lastpass official CLI.
+        
+        ## Installation
+        
+        ```bash
+        pip install git+https://github.com/guilt/lastpass-python.git
+        pip install lastpass-python-cli
+        ```
+        
+Keywords: lastpass,cli
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Description-Content-Type: text/markdown
