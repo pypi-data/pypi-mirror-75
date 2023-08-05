@@ -1,0 +1,7 @@
+include *.py
+include README_py
+recursive-include attyscomm *
+include AttysComm.*
+include AttysCommBase.*
+include AttysScan.*
+include docstrings.i
