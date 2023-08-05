@@ -1,0 +1,131 @@
+Metadata-Version: 2.1
+Name: jpysocket
+Version: 1.1.3
+Summary: Connect Python And Java Sockets
+Home-page: UNKNOWN
+Author: Ganesh Jadale
+Author-email: jagdaleganesh9545@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# Connect Python And Java Sockets.
+### Establist Connection Beetween Java And Python Sockets As Well As Send And Recieveing The Data.
+**Installation :**  
+*pip install jpysocket*
+
+**Remove Package :**  
+*pip uninstall jpysocket*  
+
+**Import Library :**  
+*import jpysocket*
+
+
+**Connect Python Server And Java Client.**  
+**Connect Python Client And Java Server.**  
+**Send Python Socket Massage To Java Socket.**  
+**Recieve Massage From Java Socket in Python Sockete.**  
+
+
+
+*****************************************
+## The Followings Are The Some Example Of jpysocket Librery
+*****************************************
+ #### Python Server :  
+```python
+import jpysocket
+
+host='localhost' #Host Name
+port=12345    #Port Number
+s=jpysocket.jpysocket() #Create Socket
+s.bind((host,port)) #Bind Port And Host
+s.listen(5) #Socket is Listening
+print("Socket Is Listening....")
+connection,address=s.accept() #Accept the Connection
+print("Connected To ",address)
+msgsend=jpysocket.jpyencode("Thank You For Connecting.") #Encript The Msg
+connection.send(msgsend) #Send Msg
+msgrecv=connection.recv(1024) #Recieve msg
+msgrecv=jpysocket.jpydecode(msgrecv) #Decript msg
+print("From Client: ",msgrecv)
+s.close() #Close connection
+print("Connection Closed.")
+```  
+
+  #### Java Client : 
+   Client.java
+  ```java
+   import java.io.*;  
+    import java.net.*; 
+    public class Client {
+    public static void main(String[] args) {  
+    try{      
+    Socket soc=new Socket("localhost",12345);  
+    DataOutputStream dout=new DataOutputStream(soc.getOutputStream());  
+    DataInputStream in = new DataInputStream(soc.getInputStream());
+    String msg=(String)in.readUTF();
+    System.out.println("Server: "+msg);
+    dout.writeUTF("Ok Boss");
+    dout.flush();
+    dout.close();
+    soc.close();
+    }
+    catch(Exception e)
+    {
+        e.printStackTrace(); 
+    }}}  
+  ```
+
+
+  #### Python Client :
+```python
+import jpysocket
+
+host='localhost' #Host Name
+port=12345    #Port Number
+s=jpysocket.jpysocket() #Create Socket
+s.connect((host,port)) #Connect to socket
+print("Socket Is Connected....")
+msgrecv=s.recv(1024) #Recieve msg
+msgrecv=jpysocket.jpydecode(msgrecv) #Decript msg
+print("From Server: ",msgrecv)
+msgsend=jpysocket.jpyencode("Ok Boss.") #Encript The Msg
+s.send(msgsend) #Send Msg
+s.close() #Close connection
+print("Connection Closed.")
+```  
+
+  #### Java Server :  
+  Server.java  
+
+  ```java
+
+
+import java.io.*;  
+import java.net.*; 
+public class Server {
+    public static void main(String[] args) {
+        try{ 
+        ServerSocket serverSocket = new ServerSocket(12345);
+        Socket soc = serverSocket.accept();
+        System.out.println("Receive new connection: " + soc.getInetAddress());
+        DataOutputStream dout=new DataOutputStream(soc.getOutputStream());  
+        DataInputStream in = new DataInputStream(soc.getInputStream());
+        dout.writeUTF("Thank You For Connecting.");
+        String msg=(String)in.readUTF();
+        System.out.println("Client: "+msg);
+        dout.flush();
+        dout.close();
+        soc.close();
+        }
+        catch(Exception e)
+        {
+        e.printStackTrace(); 
+    }
+    }
+    }
+  ```
+
