@@ -1,0 +1,130 @@
+Metadata-Version: 2.1
+Name: cqh-file-watcher
+Version: 0.0.33
+Summary: tools like vscode file-watcher but for command only
+Home-page: https://github.com/chen19901225/cqh_file_watcher
+Author: chenqinghe
+Author-email: 1832866299@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: Unix
+Requires-Python: >=3.6
+Requires-Dist: pyinotify
+
+cqh_file_watcher
+=============================================
+
+something like `File-Watcher` for vscode
+
+
+Usage
+-------------------------------------------------
+
+
+``cqh_file_watcher -c ***.conf``
+
+conf example
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+use pattern
+::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+.. code-block::
+
+    {"command_list":[
+        {
+            "pattern": "*.py",
+            "command": "sudo supervisorctl restart redis"
+        }
+    ]
+    "directory": "/home/vagrant/code/code1"
+    }
+
+no pattern
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+.. code-block::
+
+
+    {"command_list":[
+
+        {
+            "command": "echo things changed"
+        }
+    ]
+    "directory": "/home/vagrant/code/code1"
+    }
+
+directory for command
+::::::::::::::::::::::::::::::::::::::::::::
+
+
+.. code-block::
+
+    {"command_list":[
+        {
+            "pattern": "*.py",
+            "command": "sudo supervisorctl restart redis"
+            "directory":  "/home/vagrant"
+        }
+    ]
+    "directory": "/home/vagrant/code/code1"
+    }
+
+
+add ignore pattern for one
+:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+.. code-block::
+
+    {"command_list":[
+        {
+            "pattern": "*.py",
+            "ignore_pattern": ["_build/.*"],
+            "command": "sudo supervisorctl restart redis"
+            "directory":  "/home/vagrant"
+        }
+    ]
+    "directory": "/home/vagrant/code/code1"
+    }
+
+add ignore pattern for multi
+:::::::::::::::::::::::::::::::::::::::
+
+
+
+.. code-block::
+
+    {"command_list":[
+        {
+            "pattern": "*.py",
+            "ignore_pattern": ["_build/.*" , "_download/.*", "^css/.*", "^_static/.*"],
+            "command": "sudo supervisorctl restart redis"
+            "directory":  "/home/vagrant"
+        }
+    ]
+    "directory": "/home/vagrant/code/code1"
+    }
+
+use DIRECTORY env
+:::::::::::::::::::::::::::::::::::::::::::::::::
+
+
+.. code-block::
+
+    {"command_list":[
+        {
+            "pattern": "*.py",
+            "ignore_pattern": ["_build/.*" , "_download/.*", "^css/.*", "^_static/.*"],
+            "command": "sudo supervisorctl restart redis"
+            "directory":  "/home/vagrant"
+        }
+    ]
+    "directory": "${DIRECTORY}"
+    }
+
