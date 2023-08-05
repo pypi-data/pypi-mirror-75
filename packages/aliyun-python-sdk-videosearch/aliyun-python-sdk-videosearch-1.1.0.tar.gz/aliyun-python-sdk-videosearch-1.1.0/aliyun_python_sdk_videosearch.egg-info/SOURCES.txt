@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+aliyun_python_sdk_videosearch.egg-info/PKG-INFO
+aliyun_python_sdk_videosearch.egg-info/SOURCES.txt
+aliyun_python_sdk_videosearch.egg-info/dependency_links.txt
+aliyun_python_sdk_videosearch.egg-info/requires.txt
+aliyun_python_sdk_videosearch.egg-info/top_level.txt
+aliyunsdkvideosearch/__init__.py
+aliyunsdkvideosearch/request/__init__.py
+aliyunsdkvideosearch/request/v20200225/AddDeletionVideoTaskRequest.py
+aliyunsdkvideosearch/request/v20200225/AddSearchVideoTaskRequest.py
+aliyunsdkvideosearch/request/v20200225/AddStorageVideoTaskRequest.py
+aliyunsdkvideosearch/request/v20200225/GetTaskStatusRequest.py
+aliyunsdkvideosearch/request/v20200225/__init__.py
