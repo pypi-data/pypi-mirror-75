@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: shaloop
+Version: 0.0.1a23
+Summary: Faster crypto loops on numpy arrays
+Home-page: https://github.com/LaRiffle/shaloop
+Author: Théo Ryffel
+Author-email: theo@arkhn.com
+License: Apache-2.0
+Keywords: function secret sharing sha256 sha512 numpy array
+Platform: UNKNOWN
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security :: Cryptography
+Description-Content-Type: text/markdown
+
+# Shaloop 🚣‍
+
+C optimization to run SHA256 and SHA512 over numpy arrays.
+
+### Build locally
+```
+python setup.py build_ext --inplace
+```
+_Add the directory to your PYTHONPATH._
+
+### Test
+```
+python test/test_sha.py
+```
+
