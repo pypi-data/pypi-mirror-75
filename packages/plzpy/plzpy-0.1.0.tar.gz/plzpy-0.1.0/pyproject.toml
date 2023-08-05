@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "plzpy"
+version = "0.1.0"
+description = "zip/buildings rest API for Berlin"
+authors = ["Andrea Giacobino <no.andrea@gmail.com>"]
+license = "MIT"
+homepage = "https://github.com/noandrea/plzpy"
+repository = "https://github.com/noandrea/plzpy"
+readme = "README.md"
+keywords = []
+include = ["CHANGELOG.md"]
+classifiers = [
+    'License :: OSI Approved :: MIT',
+    'Intended Audience :: Developers',
+    'Operating System :: OS Independent',
+]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+flask = "^1.1.2"
+flask-cors = "^3.0.8"
+waitress = "^1.4.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.4.3"
+flake8 = "^3.8.3"
+pytest-cov = "^2.10.0"
+
+[build-system]
+requires = ["poetry>=1.0.1"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry.scripts]
+plzpy = "plzpy.plzpy:main"
