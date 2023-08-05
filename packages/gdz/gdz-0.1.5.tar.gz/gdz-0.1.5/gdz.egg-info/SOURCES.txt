@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+gdz/__init__.py
+gdz/gdz.py
+gdz.egg-info/PKG-INFO
+gdz.egg-info/SOURCES.txt
+gdz.egg-info/dependency_links.txt
+gdz.egg-info/requires.txt
+gdz.egg-info/top_level.txt
+gdz/types/book.py
+gdz/types/class_.py
+gdz/types/edition.py
+gdz/types/structure_entry.py
+gdz/types/subject.py
+gdz/types/task.py
