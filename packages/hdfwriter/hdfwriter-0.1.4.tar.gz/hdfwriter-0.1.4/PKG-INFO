@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: hdfwriter
+Version: 0.1.4
+Summary: Stream data to an HDF5 File
+Home-page: https://github.com/sgowda/hdfwriter
+Author: James Gao, Helene Moorman, Suraj Gowda
+Author-email: UNKNOWN
+License: MIT
+Download-URL: https://github.com/sgowda/hdfwriter/archive/v0.1.2.tar.gz
+Description: UNKNOWN
+Keywords: HDF5,Data Serialization
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
