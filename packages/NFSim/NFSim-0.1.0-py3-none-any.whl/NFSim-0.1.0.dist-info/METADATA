@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: NFSim
+Version: 0.1.0
+Summary: Neurofeedback simulation
+Home-page: https://github.com/salnat/NFSim.git
+Author: Saleh Natour
+Author-email: salnat145@gmail.com
+Maintainer: Saleh Natour
+Maintainer-email: salnat145@gmail.com
+License: MIT
+Keywords: class,attribute,boilerplate
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Dist: pep517
+Requires-Dist: twine
+Requires-Dist: pytest
+Requires-Dist: mypy
+Requires-Dist: black
+Requires-Dist: flake8
+Requires-Dist: pylint
+Requires-Dist: pygame
+Requires-Dist: numpy
+
+#NeuroFeedback Simulator
+
+
