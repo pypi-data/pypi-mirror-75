@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+docbrown/__init__.py
+docbrown/models.py
+docbrown.egg-info/PKG-INFO
+docbrown.egg-info/SOURCES.txt
+docbrown.egg-info/dependency_links.txt
+docbrown.egg-info/top_level.txt
+docbrown/storage/__init__.py
+docbrown/storage/sqlite3.py
