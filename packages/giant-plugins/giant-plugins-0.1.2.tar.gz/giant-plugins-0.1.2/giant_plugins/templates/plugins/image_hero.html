@@ -1,0 +1,14 @@
+{% load cms_tags %}
+
+<section class="hero">
+    <div class="overlay"></div>
+    <div class="wrapper wrapper--wide">
+        <div class="hero__text">
+            <h1>{{ instance.title }}</h1>
+            {% if instance.strapline %}
+                <p>{{ instance.strapline }}</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
