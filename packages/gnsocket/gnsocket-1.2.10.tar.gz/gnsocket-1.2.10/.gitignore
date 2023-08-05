@@ -1,0 +1,8 @@
+*.pyc
+.idea/
+*.pyc
+__pycache__
+./gncsocket/conf/socket_conf.py
+*.log
+*.egg-info
+*.log*
