@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: mutual-information
+Version: 0.0.3
+Summary: mutual information-based synergy between variables for one response
+Home-page: https://github.com/kingmanzhang/mutual-information
+Author: Xingmin A Zhang
+Author-email: kingmanzhang@gmail.com
+License: UNKNOWN
+Description: # mutual information
+        
+        This is a python package that calculates the synergy between two or more variables for one response.
+        
+        
+        ## installation
+        
+        install from pypi:
+        ```bash
+        pip install mutual-information
+        ```
+        
+        install from source (dev mode):
+        ```bash
+        pip install -e .[dev]
+        ```
+        
+        ## usage
+        
+        @TODO: will be added
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Provides-Extra: dev
