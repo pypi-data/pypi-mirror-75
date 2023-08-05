@@ -1,0 +1,46 @@
+ayx\_plugin\_sdk.providers.amp\_provider.repositories package
+=============================================================
+
+Submodules
+----------
+
+ayx\_plugin\_sdk.providers.amp\_provider.repositories.input\_connection\_repository module
+------------------------------------------------------------------------------------------
+
+.. automodule:: ayx_plugin_sdk.providers.amp_provider.repositories.input_connection_repository
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ayx\_plugin\_sdk.providers.amp\_provider.repositories.input\_record\_packet\_repository module
+----------------------------------------------------------------------------------------------
+
+.. automodule:: ayx_plugin_sdk.providers.amp_provider.repositories.input_record_packet_repository
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ayx\_plugin\_sdk.providers.amp\_provider.repositories.output\_record\_packet\_repository module
+-----------------------------------------------------------------------------------------------
+
+.. automodule:: ayx_plugin_sdk.providers.amp_provider.repositories.output_record_packet_repository
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ayx\_plugin\_sdk.providers.amp\_provider.repositories.singleton module
+----------------------------------------------------------------------
+
+.. automodule:: ayx_plugin_sdk.providers.amp_provider.repositories.singleton
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: ayx_plugin_sdk.providers.amp_provider.repositories
+   :members:
+   :undoc-members:
+   :show-inheritance:

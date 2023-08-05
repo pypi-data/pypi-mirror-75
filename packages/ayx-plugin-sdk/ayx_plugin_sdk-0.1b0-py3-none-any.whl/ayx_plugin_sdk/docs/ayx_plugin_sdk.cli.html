@@ -1,0 +1,457 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ayx_plugin_sdk.cli package &mdash; ayx_plugin_sdk 2020.3 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ayx_plugin_sdk.core package" href="ayx_plugin_sdk.core.html" />
+    <link rel="prev" title="ayx_plugin_sdk package" href="ayx_plugin_sdk.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ayx_plugin_sdk
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                2020.3
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">ayx_plugin_sdk</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="ayx_plugin_sdk.html">ayx_plugin_sdk package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="ayx_plugin_sdk.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">ayx_plugin_sdk.cli package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ayx_plugin_sdk.core.html">ayx_plugin_sdk.core package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="ayx_plugin_sdk.providers.html">ayx_plugin_sdk.providers package</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="ayx_plugin_sdk.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ayx_plugin_sdk.html#module-ayx_plugin_sdk.version">ayx_plugin_sdk.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ayx_plugin_sdk.html#module-ayx_plugin_sdk">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin_lifecycle.html">Lifecycle of a Plugin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plugin_code.html">Plugin Tool Execution Framework</a></li>
+<li class="toctree-l1"><a class="reference internal" href="config_xml.html">Tool Configurations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_provider.html">File Provider</a></li>
+<li class="toctree-l1"><a class="reference internal" href="differences_with_original_sdk.html">Differences Between the New and Old Python SDKs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="third_party_packages.html">Python Third Party Dependencies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example_tools.html">Example Tools</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ayx_plugin_sdk</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="modules.html">ayx_plugin_sdk</a> &raquo;</li>
+        
+          <li><a href="ayx_plugin_sdk.html">ayx_plugin_sdk package</a> &raquo;</li>
+        
+      <li>ayx_plugin_sdk.cli package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/ayx_plugin_sdk.cli.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ayx-plugin-sdk-cli-package">
+<h1>ayx_plugin_sdk.cli package<a class="headerlink" href="#ayx-plugin-sdk-cli-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-ayx_plugin_sdk.cli.environment_helpers">
+<span id="ayx-plugin-sdk-cli-environment-helpers-module"></span><h2>ayx_plugin_sdk.cli.environment_helpers module<a class="headerlink" href="#module-ayx_plugin_sdk.cli.environment_helpers" title="Permalink to this headline">¶</a></h2>
+<p>Helper methods for managing virtual environment.</p>
+<dl class="py function">
+<dt id="ayx_plugin_sdk.cli.environment_helpers.download_pip_packages">
+<code class="sig-prename descclassname">ayx_plugin_sdk.cli.environment_helpers.</code><code class="sig-name descname">download_pip_packages</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">dest_dir</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a></span></em>, <em class="sig-param"><span class="n">requirements_path</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/environment_helpers.html#download_pip_packages"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.environment_helpers.download_pip_packages" title="Permalink to this definition">¶</a></dt>
+<dd><p>Download the pip wheels and store in dest_dir.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ayx_plugin_sdk.cli.environment_helpers.environment_requires_update">
+<code class="sig-prename descclassname">ayx_plugin_sdk.cli.environment_helpers.</code><code class="sig-name descname">environment_requires_update</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">workspace</span><span class="p">:</span> <span class="n">Workspace</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/environment_helpers.html#environment_requires_update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.environment_helpers.environment_requires_update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine if the virtual environments for the tools should be updated.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ayx_plugin_sdk.cli.environment_helpers.get_alteryx_path">
+<code class="sig-prename descclassname">ayx_plugin_sdk.cli.environment_helpers.</code><code class="sig-name descname">get_alteryx_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/environment_helpers.html#get_alteryx_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.environment_helpers.get_alteryx_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the path to Alteryx Designer.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ayx_plugin_sdk.cli.environment_helpers.get_tool_family_attribute_from_config">
+<code class="sig-prename descclassname">ayx_plugin_sdk.cli.environment_helpers.</code><code class="sig-name descname">get_tool_family_attribute_from_config</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">config_xml_path</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/environment_helpers.html#get_tool_family_attribute_from_config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.environment_helpers.get_tool_family_attribute_from_config" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the ToolFamily attribute from the Config.xml file.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ayx_plugin_sdk.cli.workspace">
+<span id="ayx-plugin-sdk-cli-workspace-module"></span><h2>ayx_plugin_sdk.cli.workspace module<a class="headerlink" href="#module-ayx_plugin_sdk.cli.workspace" title="Permalink to this headline">¶</a></h2>
+<p>Configurations for managing workspace.</p>
+<dl class="py class">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace">
+<em class="property">class </em><code class="sig-prename descclassname">ayx_plugin_sdk.cli.workspace.</code><code class="sig-name descname">Workspace</code><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/workspace.html#Workspace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<p>Class wrapping all workspace configurations and handling basic workspace functions.</p>
+<dl class="py method">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace.add_tool">
+<code class="sig-name descname">add_tool</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tool_name</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a></span></em>, <em class="sig-param"><span class="n">example_tool_name</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/workspace.html#Workspace.add_tool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace.add_tool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add a tool the workspace.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace.build_yxi">
+<code class="sig-name descname">build_yxi</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">destination_dir</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a></span> <span class="o">=</span> <span class="default_value">PosixPath('.')</span></em>, <em class="sig-param"><span class="n">name_override</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">include_dependencies</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></span> <span class="o">=</span> <span class="default_value">True</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/workspace.html#Workspace.build_yxi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace.build_yxi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Build a YXI for the workspace.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace.delete_tool">
+<code class="sig-name descname">delete_tool</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">tool_name</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/workspace.html#Workspace.delete_tool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace.delete_tool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Remove a tool from the workspace.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace.designer_path">
+<code class="sig-name descname">designer_path</code><em class="property">: Optional[Path]</em><em class="property"> = None</em><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace.designer_path" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace.initialize_workspace">
+<em class="property">classmethod </em><code class="sig-name descname">initialize_workspace</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">workspace_directory</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#ayx_plugin_sdk.cli.workspace.Workspace" title="ayx_plugin_sdk.cli.workspace.Workspace">ayx_plugin_sdk.cli.workspace.Workspace</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/workspace.html#Workspace.initialize_workspace"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace.initialize_workspace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a Workspace instance wrapping the configurations for the given workspace_directory.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace.requirements_tool">
+<code class="sig-name descname">requirements_tool</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace.requirements_tool" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace.setup_workspace_directory">
+<em class="property">classmethod </em><code class="sig-name descname">setup_workspace_directory</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">workspace_directory</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/workspace.html#Workspace.setup_workspace_directory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace.setup_workspace_directory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy the base configs to the tool directory.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace.tool_family_name">
+<code class="sig-name descname">tool_family_name</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace.tool_family_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace.tools">
+<code class="sig-name descname">tools</code><em class="property">: List[WorkspaceTool]</em><em class="property"> = None</em><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace.tools" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace.workspace_dir">
+<code class="sig-name descname">workspace_dir</code><em class="property">: Path</em><em class="property"> = None</em><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace.workspace_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.workspace.Workspace.yxi_name">
+<code class="sig-name descname">yxi_name</code><em class="property">: Optional[str]</em><em class="property"> = None</em><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.Workspace.yxi_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt id="ayx_plugin_sdk.cli.workspace.copy_requirements_to_tool_and_link_wheels">
+<code class="sig-prename descclassname">ayx_plugin_sdk.cli.workspace.</code><code class="sig-name descname">copy_requirements_to_tool_and_link_wheels</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">source_directory</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a></span></em>, <em class="sig-param"><span class="n">destination_directory</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a></span></em>, <em class="sig-param"><span class="n">requirements_tool</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/workspace.html#copy_requirements_to_tool_and_link_wheels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.copy_requirements_to_tool_and_link_wheels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Copy and overwrite requirements.txt file from the source_directory to the destination_directory.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ayx_plugin_sdk.cli.workspace.create_workspace_yxi_folder">
+<code class="sig-prename descclassname">ayx_plugin_sdk.cli.workspace.</code><code class="sig-name descname">create_workspace_yxi_folder</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">workspace_directory</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a></span></em>, <em class="sig-param"><span class="n">temp_folder</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a></span></em>, <em class="sig-param"><span class="n">tools_to_exclude</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span>List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a><span class="p">]</span><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/workspace.html#create_workspace_yxi_folder"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.create_workspace_yxi_folder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a temporary yxi folder.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ayx_plugin_sdk.cli.workspace.delete_pycache_directories">
+<code class="sig-prename descclassname">ayx_plugin_sdk.cli.workspace.</code><code class="sig-name descname">delete_pycache_directories</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">root_dir</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/workspace.html#delete_pycache_directories"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.delete_pycache_directories" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete all the pycache subdirectories of a given root.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="ayx_plugin_sdk.cli.workspace.get_install_dir">
+<code class="sig-prename descclassname">ayx_plugin_sdk.cli.workspace.</code><code class="sig-name descname">get_install_dir</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/workspace.html#get_install_dir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace.get_install_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the current directory.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-ayx_plugin_sdk.cli.workspace_tool">
+<span id="ayx-plugin-sdk-cli-workspace-tool-module"></span><h2>ayx_plugin_sdk.cli.workspace_tool module<a class="headerlink" href="#module-ayx_plugin_sdk.cli.workspace_tool" title="Permalink to this headline">¶</a></h2>
+<p>Workspace tool class definition.</p>
+<dl class="py class">
+<dt id="ayx_plugin_sdk.cli.workspace_tool.WorkspaceTool">
+<em class="property">class </em><code class="sig-prename descclassname">ayx_plugin_sdk.cli.workspace_tool.</code><code class="sig-name descname">WorkspaceTool</code><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/workspace_tool.html#WorkspaceTool"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace_tool.WorkspaceTool" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">pydantic.main.BaseModel</span></code></p>
+<p>Class wrapping Ayx Plugin Tools belonging to this workspace.</p>
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.workspace_tool.WorkspaceTool.name">
+<code class="sig-name descname">name</code><em class="property">: str</em><em class="property"> = None</em><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace_tool.WorkspaceTool.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.workspace_tool.WorkspaceTool.tool_directory">
+<code class="sig-name descname">tool_directory</code><em class="property">: Path</em><em class="property"> = None</em><a class="headerlink" href="#ayx_plugin_sdk.cli.workspace_tool.WorkspaceTool.tool_directory" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ayx_plugin_sdk.cli.yxi_launcher">
+<span id="ayx-plugin-sdk-cli-yxi-launcher-module"></span><h2>ayx_plugin_sdk.cli.yxi_launcher module<a class="headerlink" href="#module-ayx_plugin_sdk.cli.yxi_launcher" title="Permalink to this headline">¶</a></h2>
+<p>Wrappers to handle interactions with yxi installer.</p>
+<dl class="py class">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiCommands">
+<em class="property">class </em><code class="sig-prename descclassname">ayx_plugin_sdk.cli.yxi_launcher.</code><code class="sig-name descname">YxiCommands</code><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/yxi_launcher.html#YxiCommands"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiCommands" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
+<p>YXI Executable commands.</p>
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiCommands.Install">
+<code class="sig-name descname">Install</code><em class="property"> = 'install-yxis'</em><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiCommands.Install" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiCommands.Uninstall">
+<code class="sig-name descname">Uninstall</code><em class="property"> = 'uninstall-yxis'</em><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiCommands.Uninstall" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes">
+<em class="property">class </em><code class="sig-prename descclassname">ayx_plugin_sdk.cli.yxi_launcher.</code><code class="sig-name descname">YxiInstallTypes</code><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/yxi_launcher.html#YxiInstallTypes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></a>, <a class="reference external" href="https://docs.python.org/3/library/enum.html#enum.Enum" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">enum.Enum</span></code></a></p>
+<p>YXI Executable Install Types.</p>
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes.Admin">
+<code class="sig-name descname">Admin</code><em class="property"> = 'Admin'</em><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes.Admin" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes.Alteryx">
+<code class="sig-name descname">Alteryx</code><em class="property"> = 'Alteryx'</em><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes.Alteryx" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes.User">
+<code class="sig-name descname">User</code><em class="property"> = 'User'</em><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes.User" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiLauncher">
+<em class="property">class </em><code class="sig-prename descclassname">ayx_plugin_sdk.cli.yxi_launcher.</code><code class="sig-name descname">YxiLauncher</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">yxi_paths</span><span class="p">:</span> <span class="n">List<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a><span class="p">]</span></span></em>, <em class="sig-param"><span class="n">alteryx_path</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em>, <em class="sig-param"><span class="n">clean</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">update_conda</span><span class="p">:</span> <span class="n"><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)">bool</a></span> <span class="o">=</span> <span class="default_value">False</span></em>, <em class="sig-param"><span class="n">install_type</span><span class="p">:</span> <span class="n">Optional<span class="p">[</span><a class="reference internal" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes" title="ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes">ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes</a><span class="p">]</span></span> <span class="o">=</span> <span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/yxi_launcher.html#YxiLauncher"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiLauncher" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Class wrapping install/uninstall commands from the yxi installer executable.</p>
+<dl class="py method">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiLauncher.execute_install_command">
+<code class="sig-name descname">execute_install_command</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/yxi_launcher.html#YxiLauncher.execute_install_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiLauncher.execute_install_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Execute the install yxi command from the yxi installer executable.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiLauncher.execute_uninstall_command">
+<code class="sig-name descname">execute_uninstall_command</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/constants.html#None" title="(in Python v3.8)">None</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/yxi_launcher.html#YxiLauncher.execute_uninstall_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiLauncher.execute_uninstall_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the uninstall command from the yxi installer.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiLauncher.get_executable_path">
+<em class="property">static </em><code class="sig-name descname">get_executable_path</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.8)">pathlib.Path</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/yxi_launcher.html#YxiLauncher.get_executable_path"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiLauncher.get_executable_path" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the path to the yxi installer excutable.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt id="ayx_plugin_sdk.cli.yxi_launcher.YxiLauncher.get_static_install_type">
+<em class="property">static </em><code class="sig-name descname">get_static_install_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes" title="ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes">ayx_plugin_sdk.cli.yxi_launcher.YxiInstallTypes</a><a class="reference internal" href="_modules/ayx_plugin_sdk/cli/yxi_launcher.html#YxiLauncher.get_static_install_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#ayx_plugin_sdk.cli.yxi_launcher.YxiLauncher.get_static_install_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the install type for the yxi.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-ayx_plugin_sdk.cli">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-ayx_plugin_sdk.cli" title="Permalink to this headline">¶</a></h2>
+<p>Command line interface definitions.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ayx_plugin_sdk.core.html" class="btn btn-neutral float-right" title="ayx_plugin_sdk.core package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ayx_plugin_sdk.html" class="btn btn-neutral float-left" title="ayx_plugin_sdk package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Alteryx, Inc.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
