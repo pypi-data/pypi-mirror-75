@@ -1,0 +1,13 @@
+.card.custom {
+  display: inline-block;
+
+  a {
+    text-align: center;
+  }
+
+  .bg {
+    @include theme($themes) {
+      background: t('uks');
+    }
+  }
+}
