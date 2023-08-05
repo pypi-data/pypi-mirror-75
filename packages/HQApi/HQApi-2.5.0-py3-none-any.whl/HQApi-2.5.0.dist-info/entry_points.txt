@@ -1,0 +1,3 @@
+[console_scripts]
+HQApi = HQApi.hq_api_cli:main
+
