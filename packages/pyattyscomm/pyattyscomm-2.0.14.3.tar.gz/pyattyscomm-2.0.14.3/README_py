@@ -1,0 +1,89 @@
+========================
+Python API for the Attys
+========================
+
+Attys is a lightweight wearable bluetooth data acquisition box which can measure anything from temperature to ECG.
+
+It's cross platform and runs under Linux, Windows and macOS.
+
+It has two 24 bit analogue channels, an accelerometer and a magnetometer.
+
+http://www.attys.tech
+
+
+Required packages under Linux
+=============================
+
+For Ubuntu Linux install libbluetooth-dev::
+
+      sudo apt-get install libbluetooth-dev
+
+For other Linux flavours install them from souce:
+
+https://github.com/glasgowneuro/attys-comm
+
+
+Quick start guide
+=================
+
+Here are the basic steps how to use the API::
+
+      # load the module
+      import pyattyscomm
+
+      # Gets the AttysScan class which scans for Attys via bluetooth
+      s = pyattyscomm.AttysScan()
+
+      # Scan for Attys
+      s.scan()
+
+      # get the 1st Attys
+      c = s.getAttysComm(0)
+
+      # if an attys has been found c points to it. Otherwise it's None.
+
+      # Start data acquisition in the background
+      c.start()
+
+      # Now we just read data at our convenience in a loop or timer or thread
+      # if data is available you can read it from the ringBuffer
+
+      while (not c.hasSampleAvilabale()):
+      	    # do something else or nothing
+
+      # getting a sample (array of all Attys channels)
+      sample = c.getSampleFromBuffer()
+
+      # do something with the sample
+      print(sample)
+
+      # rinse and repeat!
+
+
+API documentation
+==================
+
+Query it via the python help system::
+
+    import pyattyscomm
+    help(pyattyscomm)
+
+
+The Python classes have been generated with SWIG. The header files AttysComm.h, AttysCommBase,h and AttysScan.h provide detailed info about the classes:
+
+https://github.com/glasgowneuro/attys-comm
+
+
+
+
+
+
+
+
+Demos
+=====
+
+On github are python examples which show you how
+to plot realtime data from the Attys:
+
+https://github.com/glasgowneuro/attys-python-examples
