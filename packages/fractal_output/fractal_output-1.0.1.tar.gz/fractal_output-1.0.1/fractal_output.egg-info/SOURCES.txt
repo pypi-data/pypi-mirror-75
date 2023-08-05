@@ -1,0 +1,13 @@
+README.rst
+setup.cfg
+setup.py
+fractal_output/__init__.py
+fractal_output/manager.py
+fractal_output/resource.py
+fractal_output/transformer.py
+fractal_output.egg-info/PKG-INFO
+fractal_output.egg-info/SOURCES.txt
+fractal_output.egg-info/dependency_links.txt
+fractal_output.egg-info/entry_points.txt
+fractal_output.egg-info/top_level.txt
+test/test_manager.py
