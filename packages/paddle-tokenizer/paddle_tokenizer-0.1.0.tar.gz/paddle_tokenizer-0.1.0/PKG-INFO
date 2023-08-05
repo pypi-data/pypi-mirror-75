@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: paddle_tokenizer
+Version: 0.1.0
+Summary: A tokenizer write in PaddlePaddle
+Home-page: https://github.com/howlandersonn/PaddleTokenizer
+Author: Xiaoquan Kong
+Author-email: u1mail2me@gmail.com
+License: AGPL license
+Description: A tokenizer write in PaddlePaddle
+Keywords: paddle_tokenizer
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7

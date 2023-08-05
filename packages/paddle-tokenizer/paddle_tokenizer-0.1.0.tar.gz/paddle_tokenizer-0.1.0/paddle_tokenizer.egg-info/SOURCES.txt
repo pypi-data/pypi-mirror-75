@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+paddle_tokenizer/__init__.py
+paddle_tokenizer/data_reader.py
+paddle_tokenizer/server.py
+paddle_tokenizer/train.py
+paddle_tokenizer.egg-info/PKG-INFO
+paddle_tokenizer.egg-info/SOURCES.txt
+paddle_tokenizer.egg-info/dependency_links.txt
+paddle_tokenizer.egg-info/not-zip-safe
+paddle_tokenizer.egg-info/requires.txt
+paddle_tokenizer.egg-info/top_level.txt
