@@ -1,0 +1,10 @@
+setup.py
+dist_soham.egg-info/PKG-INFO
+dist_soham.egg-info/SOURCES.txt
+dist_soham.egg-info/dependency_links.txt
+dist_soham.egg-info/not-zip-safe
+dist_soham.egg-info/top_level.txt
+distributions/Binomialdistribution.py
+distributions/Gaussiandistribution.py
+distributions/Generaldistribution.py
+distributions/__init__.py
