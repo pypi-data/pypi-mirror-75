@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: pyfileconf-datacode
+Version: 0.1.2
+Summary: pyfileconf plugin to support datacode operations
+Home-page: https://github.com/nickderobertis/pyfileconf-datacode
+Author: Nick DeRobertis
+Author-email: whoopnip@gmail.com
+License: MIT
+Project-URL: Code, https://github.com/nickderobertis/pyfileconf-datacode
+Project-URL: Documentation, https://nickderobertis.github.io/pyfileconf-datacode
+Description: 
+        [![](https://codecov.io/gh/nickderobertis/pyfileconf-datacode/branch/master/graph/badge.svg)](https://codecov.io/gh/nickderobertis/pyfileconf-datacode)
+        
+        # pyfileconf-datacode
+        
+        ## Overview
+        
+        pyfileconf plugin to support datacode operations
+        
+        ## Getting Started
+        
+        Install `pyfileconf-datacode`:
+        
+        ```
+        pip install pyfileconf-datacode
+        ```
+        
+        A simple example:
+        
+        ```python
+        import pyfileconf_datacode
+        
+        # Do something with pyfileconf_datacode
+        ```
+        
+        ## Links
+        
+        See the
+        [documentation here.](
+        https://nickderobertis.github.io/pyfileconf-datacode/
+        )
+        
+        ## Author
+        
+        Created by Nick DeRobertis. MIT License.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
