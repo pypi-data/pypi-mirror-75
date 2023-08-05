@@ -1,0 +1,13 @@
+[tool.black]
+line-length = 160
+target-version = ['py37']
+include = '\.py'
+exclude = '''
+(
+  /(
+    | \.git          # root of the project
+    | env
+    | \.pytest_cache
+  )/
+)
+'''
