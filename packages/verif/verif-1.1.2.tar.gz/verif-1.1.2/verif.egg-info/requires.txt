@@ -1,0 +1,10 @@
+numpy>=1.7
+matplotlib
+scipy
+netCDF4
+six
+future
+
+[test]
+coverage
+pep8
