@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: gwosc
+Version: 0.5.4
+Summary: A python interface to the GW Open Science data archive
+Home-page: https://github.com/gwpy/gwosc
+Author: Duncan Macleod
+Author-email: duncan.macleod@ligo.org
+License: MIT
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: sphinx-automodapi ; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: pytest (>=2.7.0) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-socket ; extra == 'test'
+
+# `gwosc` client API
+
+
