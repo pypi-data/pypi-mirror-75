@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: msr-kouyang
+Version: 0.1.0
+Summary: Symops coding challenge
+Home-page: https://github.com/symopsio/backend-challenge
+Author: Kevin Ouyang
+Author-email: kevinhouyang@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+This is a command-line tool that performs measurements on remote web pages. It is created for the backend coding challenge issued by SymOps.
+
+
