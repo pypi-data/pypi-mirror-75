@@ -1,0 +1,38 @@
+DATETIME_FORMAT: %Y-%m-%d %H:%M:%S
+DURATION_FORMAT: %M:%02S.%03s
+
+STAT_SUCCESS: Finished w/o errors
+STAT_ERRORS: Finished with errors
+STAT_FAILURE: Failure
+STAT_CONFIG: Configuration error
+STAT_TERMINATED: Terminated
+STAT_OTHER: Another error
+
+STATUS_OK: OK
+STATUS_ERR: ERROR
+
+SUBJECT: Job "$jobname" finished [$status]
+
+MESSAGE:
+Job "$jobname" (ID: $jobid):
+
+Start: $starttime
+End: $endtime
+Duration: $duration
+
+Info:
+  $info
+
+Source: $source
+Target: $target
+
+Logfile: $logfile
+
+$statstr:
+  $files_cnt files transferred, $src_error_cnt source error(s), $tgt_error_cnt target error(s)
+
+Exception:
+  $errormsg
+
+Files: (= is transferred, > is source error, < is target error)
+  $filelist
