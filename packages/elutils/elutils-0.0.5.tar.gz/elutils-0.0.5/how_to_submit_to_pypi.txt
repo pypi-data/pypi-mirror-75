@@ -1,0 +1,5 @@
+1) Delete exsiting dist and elutils.egg.info
+2) Update version in setup.py
+3) Update CHANGELOG.TXT
+4) $ python3 setup.py sdist
+5) $ twine upload --repository-url https://upload.pypi.org/legacy/ dist/*

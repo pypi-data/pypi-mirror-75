@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: elutils
+Version: 0.0.5
+Summary: A small package of my utities
+Home-page: UNKNOWN
+Author: Emil Elgaard
+Author-email: shivan@shivan.dk
+License: MIT
+Description: ElUtils
+            A small collection of code that I find myself reusing again and agian.
+        
+        
+        
+        Change Log
+        ===========
+        
+        0.01 (2020/07/02)
+            Initial release
+        0.04 (2020/07/11)
+            Minor additions
+        0.05 (2020/07/29)
+            Add time methods and logging
+Keywords: utilities
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3

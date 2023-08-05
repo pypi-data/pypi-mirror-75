@@ -1,0 +1,16 @@
+CHANGELOG.txt
+LICENCE.txt
+MANIFEST.in
+README.txt
+how_to_submit_to_pypi.txt
+setup.py
+elutils/__init__.py
+elutils/decorators.py
+elutils/logging.py
+elutils/osio.py
+elutils/performance.py
+elutils/utils.py
+elutils.egg-info/PKG-INFO
+elutils.egg-info/SOURCES.txt
+elutils.egg-info/dependency_links.txt
+elutils.egg-info/top_level.txt
