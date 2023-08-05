@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pytrakem
+Version: 0.0.1
+Summary: A python wrapper for TrakEM2 package
+Home-page: https://github.com/supersergiy/pytrakem
+Author: Sergiy Popovych
+Author-email: sergiy.popovich@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: torchfields (>=0.0.5)
+Requires-Dist: torch (>=1.5)
+Requires-Dist: pyjnius
+Requires-Dist: imageio
+Requires-Dist: imglyb
+Requires-Dist: numpy (>=1.19.0)
+Requires-Dist: scikit-image (>=0.17.2)
+
+UNKNOWN
+
+
