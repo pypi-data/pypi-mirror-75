@@ -1,0 +1,9 @@
+MANIFEST.in
+README.md
+setup.py
+leza_typewriter.egg-info/PKG-INFO
+leza_typewriter.egg-info/SOURCES.txt
+leza_typewriter.egg-info/dependency_links.txt
+leza_typewriter.egg-info/top_level.txt
+typewriter/__init__.py
+typewriter/typewriter.py
