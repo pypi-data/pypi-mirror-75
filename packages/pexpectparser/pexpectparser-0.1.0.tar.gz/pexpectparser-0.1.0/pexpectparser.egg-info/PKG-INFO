@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: pexpectparser
+Version: 0.1.0
+Summary: A command line bot library using the pexpect library
+Home-page: https://github.com/lorkaan/merge-pipfile.git
+Author: Laurkan Rodriguez
+Author-email: laurkan@engineer.com
+License: UNKNOWN
+Download-URL: https://github.com/lorkaan/pipfilemerge/archive/v0.0.6.tar.gz
+Description: Pexpect Parser
+        ==============
+        
+        A parser using the parsegrammar library to 
+        create automated bots for command line programs.
+        
+        Installation
+        ============
+        
+        `pip install pexpectparser`
+        
+        `pipenv shell`
+        
+        `pipenv install`
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
