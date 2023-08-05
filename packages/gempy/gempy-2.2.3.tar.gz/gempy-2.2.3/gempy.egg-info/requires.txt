@@ -1,0 +1,11 @@
+pandas
+Theano>=1.0.4
+matplotlib
+numpy
+pytest
+seaborn>=0.9
+networkx
+scikit-image>=0.17
+pyvista>=0.25
+pyvistaqt
+iPython
