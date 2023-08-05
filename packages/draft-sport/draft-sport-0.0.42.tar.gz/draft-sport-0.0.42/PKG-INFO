@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: draft-sport
+Version: 0.0.42
+Summary: Draft Sport API Library
+Home-page: https://github.com/hwjeremy/draft-sport-py
+Author: DraftSport
+Author-email: hugh@blinkybeach.com
+License: UNKNOWN
+Project-URL: Github Repository, https://github.com/hwjeremy/draft-sport-py
+Project-URL: About, https://github.com/hwjeremy/draft-sport-py
+Description: # Draft Sport Python
+        
+        A Python library providing an interface to the Draft Sport Application
+        Programming Interface (API). Python programmers may use Draft Sport Python
+        to build Draft Sport API functionality into their applications, without
+        resorting to raw HTTP requests.
+        
+        Draft Sport Python provides the API interface for https://DraftRugby.com.
+        
+        Draft Sport Python is in an early Alpha state of development. Bugs, missing
+        features and general absurdity abound. Questions, bug reports, suggestions,
+        and any other discourse are warmly welcomed.
+        
+        ## Installation
+        
+        Draft Sport Python is available via PyPi.
+        
+        ```
+        $ pip install draft-sport
+        ```
+        
+        Be sure to upgrade regularly, as Draft Sport Python is in Alpha development.
+        Things are changing rapidly!
+        
+        ```
+        $ pip install --upgrade draft-sport
+        ```
+        
+Keywords: library http api web application
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
