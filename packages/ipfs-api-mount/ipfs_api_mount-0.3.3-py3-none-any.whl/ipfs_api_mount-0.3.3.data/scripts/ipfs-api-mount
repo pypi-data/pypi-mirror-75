@@ -1,0 +1,7 @@
+#!python
+
+from ipfs_api_mount.commands import IPFSApiMountCommand
+
+
+if __name__ == '__main__':
+    IPFSApiMountCommand().run()
