@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: emailverf
+Version: 0.1
+Summary: Useful tool to verifiy email addresses and their domains.
+Home-page: https://github.com/okaysidd/emailverf
+Author: Siddhartha Sehgal
+Author-email: siddhartha.sehgal94@gmail.com
+License: MIT
+Download-URL: https://pypi.org/project/emailverf/
+Keywords: email,verify,verification
+Platform: UNKNOWN
+Requires-Dist: certifi (==2020.6.20)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: dnspython (==2.0.0)
+Requires-Dist: idna (==2.10)
+Requires-Dist: numpy (==1.19.1)
+Requires-Dist: pandas (==1.0.5)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: pytz (==2020.1)
+Requires-Dist: requests (==2.24.0)
+Requires-Dist: requests-file (==1.5.1)
+Requires-Dist: secure-smtplib (==0.1.1)
+Requires-Dist: six (==1.15.0)
+Requires-Dist: sockets (==1.0.0)
+Requires-Dist: tldextract (==2.2.2)
+Requires-Dist: urllib3 (==1.25.10)
+
+UNKNOWN
+
+
