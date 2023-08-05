@@ -1,0 +1,11 @@
+[run]
+branch = True
+source = cloud_bids_layout/*
+include = cloud_bids_layout/*
+omit = */setup.py
+    cloud_bids_layout/version.py
+    cloud_bids_layout/_meta.py
+    cloud_bids_layout/tests/*.py
+    cloud_bids_layout/data/*
+[report]
+include = cloud_bids_layout/*
