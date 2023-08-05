@@ -1,0 +1,3 @@
+[console_scripts]
+gitlabrc = gitlabrc.cli:main
+
