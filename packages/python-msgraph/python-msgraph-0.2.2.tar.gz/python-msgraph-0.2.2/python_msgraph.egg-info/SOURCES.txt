@@ -1,0 +1,16 @@
+README.md
+setup.py
+msgraph/__init__.py
+msgraph/api.py
+msgraph/base.py
+msgraph/calendar.py
+msgraph/exception.py
+msgraph/files.py
+msgraph/group.py
+msgraph/sites.py
+msgraph/user.py
+python_msgraph.egg-info/PKG-INFO
+python_msgraph.egg-info/SOURCES.txt
+python_msgraph.egg-info/dependency_links.txt
+python_msgraph.egg-info/requires.txt
+python_msgraph.egg-info/top_level.txt
