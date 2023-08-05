@@ -1,0 +1,4 @@
+[console_scripts]
+koneko = koneko.main:main
+lscat = koneko.lscat_app:main
+
