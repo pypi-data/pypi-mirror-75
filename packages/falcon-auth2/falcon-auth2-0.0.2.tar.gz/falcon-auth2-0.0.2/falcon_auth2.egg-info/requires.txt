@@ -1,0 +1,4 @@
+falcon>=2
+
+[async]
+greenlet>=0.4.16
