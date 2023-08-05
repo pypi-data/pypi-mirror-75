@@ -1,0 +1,15 @@
+
+[dev]
+pytest>=5.4.3
+black>=19.10b0
+flake8>=3.8.3
+jupyterlab>=2.2.0
+pre-commit>=2.6.0
+mkdocs>=1.1
+mkdocs-material>=4.6.3
+mkdocstrings>=0.8.0
+
+[test]
+pytest>=5.4.3
+black>=19.10b0
+flake8>=3.8.3
