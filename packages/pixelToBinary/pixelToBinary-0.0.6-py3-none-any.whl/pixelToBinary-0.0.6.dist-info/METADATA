@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pixelToBinary
+Version: 0.0.6
+Summary: A modular python library for creating Binary Images and Binary Movies, easily.
+Home-page: https://github.com/Akif-G/pixelToBinary
+Author: Akif Gultekin
+Author-email: akif.gultekin99@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6.9
+Description-Content-Type: text/markdown
+
+# PixelToBinary
+A modular python library for creating Binary Images and Binary Movies, easily.
+
+...
+## Installation
+Run the following line at your favorite terminal:
+
+```python
+pip install PixelToBinary
+```
+
+...
+## Usage
+
+...
+## Contributing 
+
+To install PixelToBinary, along with the tools you need to develop and run tests, run the folowing in your virtual environment:
+```bash
+$ pip install -e .[dev]
+```
+
+
