@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/Talnakh/SqlServerSeeder/__init__.py
+src/Talnakh/SqlServerSeeder/py.typed
+src/Talnakh/SqlServerSeeder/_jsii/__init__.py
+src/Talnakh/SqlServerSeeder/_jsii/cdk-sqlserver-seeder@0.2.3.jsii.tgz
+src/cdk_sqlserver_seeder.egg-info/PKG-INFO
+src/cdk_sqlserver_seeder.egg-info/SOURCES.txt
+src/cdk_sqlserver_seeder.egg-info/dependency_links.txt
+src/cdk_sqlserver_seeder.egg-info/requires.txt
+src/cdk_sqlserver_seeder.egg-info/top_level.txt
