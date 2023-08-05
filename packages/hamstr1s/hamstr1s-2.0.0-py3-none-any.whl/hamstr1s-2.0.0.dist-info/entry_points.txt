@@ -1,0 +1,8 @@
+[console_scripts]
+addTaxa1s = hamstr1s.addTaxaHamstr:main
+addTaxon1s = hamstr1s.addTaxonHamstr:main
+checkData1s = hamstr1s.checkDataHamstr:main
+merge1sOutput = hamstr1s.mergePhyloprofileData:main
+oneSeq = hamstr1s.runOneseq:main
+setup1s = hamstr1s.setupOneseq:main
+
