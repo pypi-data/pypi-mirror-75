@@ -1,0 +1,6 @@
+bitstruct
+humanfriendly
+argparse_addons
+
+[:platform_system == "Windows"]
+windows-curses
