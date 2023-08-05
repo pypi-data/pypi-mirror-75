@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="section">
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card chat-box" id="cmd_box">
+                    <div class="card-header">
+                        <h4>Command Mode</h4>
+                    </div>
+                    <div class="card-body chat-content">
+                    </div>
+                    <div class="card-footer chat-form">
+                        <input type="text" class="form-control" placeholder="Redis Commands e.g: GET key" id="cmd_val">
+                        <button class="btn btn-primary" id='send_cmd_btn'>
+                            <i class="far fa-paper-plane"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('redisboard.static', filename='dist/pages/command.js') }}"></script>
+{% endblock %}
