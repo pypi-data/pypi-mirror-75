@@ -1,0 +1,15 @@
+<odoo>
+  <data noupdate="1">
+    <function 
+      id="function_disable_spain_noupdate"
+      model="address.format.es.simplified"
+      name="disable_spain_noupdate" />
+    <record id="base.es" model="res.country">
+      <field eval="'%(street)s %(street2)s\n%(zip)s %(city)s'" name="address_format" />
+    </record>
+    <function 
+      id="function_enable_spain_noupdate"
+      model="address.format.es.simplified"
+      name="enable_spain_noupdate" />
+  </data>
+</odoo>
