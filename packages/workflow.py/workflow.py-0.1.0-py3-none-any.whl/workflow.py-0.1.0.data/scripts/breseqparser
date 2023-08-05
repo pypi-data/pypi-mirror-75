@@ -1,0 +1,11 @@
+from pathlib import Path
+from typing import *
+
+
+def main():
+	from isolateparser import workflow
+	workflow.main()
+
+
+if __name__ == "__main__":
+	main()
