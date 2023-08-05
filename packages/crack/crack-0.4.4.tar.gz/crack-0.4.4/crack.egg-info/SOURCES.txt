@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+crack/__init__.py
+crack/run.py
+crack/util.py
+crack.egg-info/PKG-INFO
+crack.egg-info/SOURCES.txt
+crack.egg-info/dependency_links.txt
+crack.egg-info/entry_points.txt
+crack.egg-info/requires.txt
+crack.egg-info/top_level.txt
