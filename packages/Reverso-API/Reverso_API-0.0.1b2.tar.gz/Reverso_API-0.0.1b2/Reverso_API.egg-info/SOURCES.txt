@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+Reverso_API.egg-info/PKG-INFO
+Reverso_API.egg-info/SOURCES.txt
+Reverso_API.egg-info/dependency_links.txt
+Reverso_API.egg-info/requires.txt
+Reverso_API.egg-info/top_level.txt
+reverso_api/__init__.py
+reverso_api/context.py
+reverso_api/voice.py
+tests/__init__.py
+tests/voice.py
