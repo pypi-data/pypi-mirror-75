@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: TestAuto
+Version: 0.0.2
+Summary: UNKNOWN
+Home-page: https://github.com/musen123/TestAuto
+Author: MuSen
+Author-email: musen_nmb@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Jinja2 (==2.10.1)
+
+## 一、功能设计
+
+#### 1、接口自动化
+
+- ###### HTTP协议接口
+
+#### 2、web自动化
+
+- ###### 基于selenium实现web自动化
+
+
+python setup.py sdist bdist_wheel
+
+twine upload dist/*
+
+
+# 测试版本，暂无功能实现
+
+
+
+
