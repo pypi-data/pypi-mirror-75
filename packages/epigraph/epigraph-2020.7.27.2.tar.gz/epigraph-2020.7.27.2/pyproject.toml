@@ -1,0 +1,37 @@
+[tool.poetry]
+name = "epigraph"
+version = "2020.07.27.2"
+description = "Python API for graphql"
+authors = ["Shiny Brar <charanjotbrar@gmail.com>", "Chitrang Patel <patelchi126@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/CHIMEFRB/epigraph"
+documentation = "https://github.com/CHIMEFRB/epigraph"
+classifiers = [
+	"Development Status :: 4 - Beta",
+	"Intended Audience :: Developers",
+	"Intended Audience :: Education",
+	"Intended Audience :: Science/Research",
+	"Topic :: Scientific/Engineering :: Astronomy",
+	"Topic :: Software Development :: Libraries :: Python Modules",
+	"License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7"
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+graphqlclient = "^0.2"
+[tool.poetry.dev-dependencies]
+pytest = "^4.5"
+pytest-cov = "^2.7"
+coverage = "^4.5"
+coveralls = "PyYaml"
+pyyaml = "^5.1"
+sphinx = "^2.1"
+numpydoc = "^0.9.1"
+sphinx_bootstrap_theme = "^0.7.1"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
