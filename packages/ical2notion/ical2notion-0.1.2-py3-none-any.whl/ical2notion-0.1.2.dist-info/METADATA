@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: ical2notion
+Version: 0.1.2
+Summary: iCal to Notion made simple
+Home-page: https://github.com/AlexanderDavid/ical2notion
+Author: Alex Day
+Author-email: alexday135@gmail.com
+License: MIT
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: click (==7.1.2)
+Requires-Dist: requests (==2.24.0)
+Requires-Dist: notion (==0.0.25)
+Requires-Dist: ics (==0.7)
+
+UNKNOWN
+
+
