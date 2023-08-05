@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+auditree_prune.egg-info/PKG-INFO
+auditree_prune.egg-info/SOURCES.txt
+auditree_prune.egg-info/dependency_links.txt
+auditree_prune.egg-info/entry_points.txt
+auditree_prune.egg-info/requires.txt
+auditree_prune.egg-info/top_level.txt
+prune/__init__.py
+prune/cli.py
+prune/locker.py
+test/test_cli.py
+test/test_prune_locker.py
