@@ -1,0 +1,10 @@
+{
+  title: "⏰ Warning ⏰",
+  "sounds": {
+    "0":{
+    "message": "Warning",
+    "sound_filename": "ring.mp3",
+  }},
+  "loop": 2
+}
+
