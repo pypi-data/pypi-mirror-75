@@ -1,0 +1,16 @@
+README.md
+setup.py
+mastobot/__init__.py
+mastobot/__main__.py
+mastobot/constants.py
+mastobot/html_text.py
+mastobot/structs.py
+mastobot/trigger.py
+mastobot.egg-info/PKG-INFO
+mastobot.egg-info/SOURCES.txt
+mastobot.egg-info/dependency_links.txt
+mastobot.egg-info/requires.txt
+mastobot.egg-info/top_level.txt
+tests/__init__.py
+tests/__main__.py
+tests/test_html_text.py
