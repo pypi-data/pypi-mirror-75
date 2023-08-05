@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+audio_cat.egg-info/PKG-INFO
+audio_cat.egg-info/SOURCES.txt
+audio_cat.egg-info/dependency_links.txt
+audio_cat.egg-info/entry_points.txt
+audio_cat.egg-info/requires.txt
+audio_cat.egg-info/top_level.txt
+supervisor/__init__.py
+supervisor/command_line.py
+supervisor/convenience.py
+supervisor/predictor.py
+supervisor/utils.py

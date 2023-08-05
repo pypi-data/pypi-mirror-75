@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: audio-cat
+Version: 0.0.1
+Summary: audio splitter and labeler
+Home-page: https://github.com/nathanielCherian/audio-cat
+Author: Nathaniel Cherian
+Author-email: nathaniel@sylica.com
+License: MIT
+Download-URL: https://github.com/nathanielCherian/audio-cat/archive/v0.0.1.tar.gz
+Description: # audio-cat
+        high-level api to split and categorize audio samples, intended for data collection
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
