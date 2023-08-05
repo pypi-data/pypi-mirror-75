@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: syasya-calculator
+Version: 0.0.2
+Summary: calculator
+Home-page: UNKNOWN
+Author: Syasya Putri
+License: UNKNOWN
+Description: # Syasya's Calculator
+        
+        This is an example project demonstrating how to publish a python module to PyPi.
+        
+        ```python
+        pip install syasya_calculator
+        ```
+        ## Usage
+        
+        ```python 
+        from syasya_addition import add
+        from syasya_division import divide
+        from syasya_multiplication import multiply
+        from syasya_substraction import substract
+        
+        # Generate "6"
+        add(3,3)
+        
+        # Generate "1"
+        divide(3,3)
+        
+        # Generate "9"
+        multiply(3,3)
+        
+        # Generate "0"
+        substract(3,3)
+        ```
+        ## Developing Syasya's Calculator
+        
+        To install syasya_calculator, along with the tools you need to develop and run tests, run the following in you virtualenv:
+        
+        ```bash
+        $ pip install -e .[dev]
+        ```
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
