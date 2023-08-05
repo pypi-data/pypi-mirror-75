@@ -1,0 +1,15 @@
+-c ../constraints.txt
+
+bok_choy==0.7.1
+coverage
+ddt
+mock
+pytest-django
+pytest-cov
+pytest-rerunfailures
+selenium==3.4.1           # Forcing this version fixes issues on Travis
+tox                       # Virtualenv management for tests
+tox-battery               # Makes tox aware of requirements file changes
+
+# Acid xblock
+-e git+https://github.com/edx/acid-block.git@98aecba94ecbfa934e2d00262741c0ea9f557fc9#egg=acid-xblock

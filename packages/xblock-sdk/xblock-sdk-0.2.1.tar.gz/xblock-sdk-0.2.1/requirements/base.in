@@ -1,0 +1,17 @@
+# Pinned versions here match edx-platform versions, and should be upgraded frequently
+
+-c ../constraints.txt
+
+boto
+cookiecutter
+Django
+django-pyfs
+fs-s3fs
+lxml
+lazy
+requests
+pypng
+simplejson
+web-fragments
+webob
+XBlock
