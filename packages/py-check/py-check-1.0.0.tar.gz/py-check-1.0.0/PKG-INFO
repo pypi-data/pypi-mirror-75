@@ -1,0 +1,239 @@
+Metadata-Version: 2.1
+Name: py-check
+Version: 1.0.0
+Summary: Python Micro check library
+Home-page: https://github.com/arlenxuzj/py-check
+Author: ArlenX
+Author-email: arlenxuzj@gmail.com
+License: MIT
+Description: # py-check
+        
+        A general-purpose check library for python. **This is a python implementation of part of [is.js](https://github.com/arasatasaygin/is.js)**.
+        
+        ## Installation
+        
+        ```shell script
+        pip install py-check
+        ```
+        
+        ## Usage
+        
+        ```python
+        from pycheck import check
+        
+        check.integer(...)
+        check.any.integer(...)
+        check.all.integer(...)
+        ```
+        
+        ## Type Checks
+        
+        #### check.integer(value: Any)
+        
+        **Checks if the given value(s) type is integer**
+        
+        interface: all, any
+        
+        ```python
+        check.integer(123) => True
+        
+        check.integer(True) => False
+        
+        check.all.integer(1, 'a') => False
+        
+        check.any.integer(1, 'a') => True
+        
+        # 'all' and 'any' interfaces can also take argument of list type
+        check.all.integer([1, 2, 3]) => True
+        ```
+        
+        ### check.float(value: Any)
+        
+        **Checks if the given value(s) type is float**
+        
+        interface: all, any
+        
+        ```python
+        check.float(0.2) => True
+        
+        check.all.float(0.2, math.inf) => True
+        
+        check.any.float(0.2, 'a') => True
+        
+        # 'all' and 'any' interfaces can also take argument of list type
+        check.all.float([1.1, 1.2, 2]) => False
+        ```
+        
+        ### check.boolean(value: Any)
+        
+        **Checks if the given value(s) type is boolean**
+        
+        interface: all, any
+        
+        ```python
+        check.boolean(1) => False
+        
+        check.all.boolean(True, 1) => False
+        
+        check.any.boolean(False, 'a') => True
+        
+        # 'all' and 'any' interfaces can also take argument of list type
+        check.all.boolean([True, False]) => True
+        ```
+        
+        ### check.string(value: Any)
+        
+        **Checks if the given value(s) type is string**
+        
+        interface: all, any
+        
+        ```python
+        check.string('') => True
+        
+        check.all.string(True, 'a') => False
+        
+        check.any.string(False, 'a') => True
+        
+        # 'all' and 'any' interfaces can also take argument of list type
+        check.all.string(['True', '1']) => True
+        ```
+        
+        ### check.list(value: Any)
+        
+        **Checks if the given value(s) type is list**
+        
+        interface: all, any
+        
+        ```python
+        check.list([1, 'a']) => True
+        
+        check.all.list(1, [1, 'a']) => False
+        
+        check.any.list([], 1) => True
+        
+        # 'all' and 'any' interfaces can also take argument of list type
+        check.all.list([1, [1, 2, 3]]) => False
+        ```
+        
+        ### check.dictionary(value: Any)
+        
+        **Checks if the given value(s) type is dictionary**
+        
+        interface: all, any
+        
+        ```python
+        check.dictionary({}) => True
+        
+        check.all.dictionary({'a': 1}, 'a') => False
+        
+        check.any.dictionary({'a': 1}, 'a')
+        
+        # 'all' and 'any' interfaces can also take argument of list type
+        check.all.dictionary([{'a': 1}, 'a']) => False
+        ```
+        
+        ### check.set(value: Any)
+        
+        **Checks if the given value(s) type is set**
+        
+        interface: all, any
+        
+        ```python
+        check.set(set({})) => True
+        
+        check.set({}) => False
+        
+        check.all.set({1, 2, 3}, [1, 2, 3]) => False
+        
+        check.any.set({1 ,2, 3}, 'a') => True
+        
+        # 'all' and 'any' interfaces can also take argument of list type
+        check.all.set([{1, 2, 3}, [1, 2, 3]]) => False
+        ```
+        
+        ### check.tuple(value: Any)
+        
+        **Checks if the given value(s) type is tuple**
+        
+        interface: all, any
+        
+        ```python
+        check.tuple((1, 2)) => True
+        
+        check.all.tuple({1, 2}, (1, 2)) => False
+        
+        check.any.tuple((), 'a') => True
+        
+        # 'all' and 'any' interfaces can also take argument of list type
+        check.all.tuple([{1, 2}, (1, 2)]) => False
+        ```
+        
+        ### check.none(value: Any)
+        
+        **Checks if the given value(s) type is None**
+        
+        interface: all, any
+        
+        ```python
+        check.none(None) => True
+        
+        check.all.none({1, 2}, None) => False
+        
+        check.any.none(None, 'a') => True
+        
+        # 'all' and 'any' interfaces can also take argument of list type
+        check.all.none([{1, 2}, None]) => False
+        ```
+        
+        ### check.function(value: Any)
+        
+        **Checks if the given value(s) type is function**
+        
+        interface: all, any
+        
+        ```python
+        check.function(foo) => True
+        
+        check.all.function({1, 2}, foo) => False
+        
+        check.any.function(foo, 'a') => True
+        
+        # 'all' and 'any' interfaces can also take argument of list type
+        check.all.function([{1, 2}, foo]) => False
+        ```
+        
+        
+        ## Todo
+        - [ ] Type Checks
+            - [ ] check.date
+            - [ ] check.sameType
+        - [ ] Presence Checks
+            - [ ] check.empty
+            - [ ] check.truthy
+            - [ ] check.falsy
+        - [ ] String Checks
+            - [ ] check.uppercase
+            - [ ] check.lowercase
+            - [ ] check.capitalized
+        - [ ] Integer Checks
+            - [ ] check.even
+            - [ ] check.odd
+            - [ ] check.positive
+            - [ ] check.negative
+        
+        
+        
+        
+        
+Keywords: python python3 types check checker library
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
