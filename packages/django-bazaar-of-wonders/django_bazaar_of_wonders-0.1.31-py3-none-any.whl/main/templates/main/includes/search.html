@@ -1,0 +1,425 @@
+<div class="row" style="background-color: rgba(245, 225, 215, .8); padding: 10px; border-radius: 15px; text-align: center; margin-left: 15px; margin-top: 20px;">
+    <h6 style="font:inherit; font-size: 20px; font-weight: bold; background-color: darkolivegreen; height: 35px; border-radius: 5px; font-family: Trebuchet MS; padding-top: 3px;"><b>Search for cards</b></h6>
+    <form class="col" method="GET" style="text-align: center; display: inline-block;">
+      {{ form.non_field_errors }}
+      {{ form.source.errors }}
+      {{ form.source }}
+      <table>
+          <tr>
+            <th>Search only Auction House Listings</th>
+            <td>
+              {{ form.auction_house_search.errors }}
+                <div class="switch">
+                  <label>
+                    No
+                    {% if form.auction_house_search.value == 'yes' %}
+                        <input name= "auction_house_search" type="checkbox" value="yes" checked="checked">
+                    {% else %}
+                        <input name= "auction_house_search" type="checkbox" value="yes">
+                    {% endif %}
+                    <span class="lever"></span>
+                    Yes
+                  </label>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <th>Show only Sponsored Listings </th>
+            <td>
+              {{ form.sponsored.errors }}
+                <div class="switch">
+                  <label>
+                    No
+                    {% if form.sponsored.value == 'yes' %}
+                        <input name="sponsored" type="checkbox" value="yes" checked="checked">
+                    {% else %}
+                        <input name="sponsored" type="checkbox" value="yes">
+                    {% endif %}
+                    <span class="lever"></span>
+                    Yes
+                  </label>
+                </div>
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.card_name.label_tag }}</th>
+            <td>
+              {{ form.card_name.errors }}
+              {{ form.card_name }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.card_text.label_tag }}</th>
+            <td>
+              {{ form.card_text.errors }}
+              {{ form.card_text }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.card_flavor_text.label_tag }}</th>
+            <td>
+              {{ form.card_flavor_text.errors }}
+              {{ form.card_flavor_text }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.card_keywords.label_tag }}</th>
+            <td>
+              {{ form.card_keywords.errors }}
+              {{ form.card_keywords }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.card_artist.label_tag }}</th>
+            <td>
+              {{ form.card_artist.errors }}
+              {{ form.card_artist }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.set_name.label_tag }}</th>
+            <td>
+              {{ form.set_name.errors }}
+              {{ form.set_name }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.seller_name.label_tag }}</th>
+            <td>
+              {{ form.seller_name.errors }}
+              {{ form.seller_name }}
+            </td>
+          </tr>
+          <tr>
+            <th>Price Range Picker:</th>
+            <td>
+              {{ form.minprice.errors }}
+              <br>
+              {{ form.maxprice.errors }}
+              
+              <div id="price-slider"></div>
+              <table style="width:100%">
+                <tr>
+                  <th><label for="id_minprice">Min Price:</label></th>
+                  <th><label for="id_maxprice">Max Price:</label></th> 
+                </tr>
+                <tr>
+                  <td>{{ form.minprice.errors }}</td>
+                  <td>{{ form.maxprice.errors }}</td>
+                </tr>
+                <tr>
+                  <td><input type="number" step=".01" name="minprice" value="{{ form.minprice.value }}" id="id_minprice"></td>
+                  <td><input type="number" step=".01" name="maxprice" value="{{ form.maxprice.value }}" id="id_maxprice"></td>
+                </tr>
+              </table>
+              <script>
+
+                
+
+                var priceSlider = document.getElementById('price-slider');
+                var dom_minprice = document.getElementById("id_minprice");
+                var dom_maxprice = document.getElementById("id_maxprice");
+                noUiSlider.create(priceSlider, {
+                 start: [dom_minprice.value, dom_maxprice.value],
+                 connect: true,
+                 step: .01,
+                 orientation: 'horizontal', // 'horizontal' or 'vertical'
+                 range: {
+                   'min': 0.00,
+                   'max': 1000.00
+                 },
+                 format: wNumb({
+                     decimals: 2,
+                 }),
+                 tooltips: [wNumb({decimals: 2}),wNumb({decimals: 2})]
+                });
+
+                priceSlider.noUiSlider.on('update', function (values, handle) {
+                    dom_minprice.value = values[0];
+                    dom_maxprice.value = values[1];
+
+                });
+
+                dom_minprice.addEventListener('change', function(){
+                  priceSlider.noUiSlider.set([dom_minprice.value, dom_maxprice.value]);
+                });
+
+                dom_maxprice.addEventListener('change', function(){
+                  priceSlider.noUiSlider.set([dom_minprice.value, dom_maxprice.value]);
+                });
+
+              </script>
+            </td>
+          </tr>
+          <tr>
+            <th>Converted Mana Cost Picker:</th>
+            <td>
+              {{ form.min_converted_mana_cost.errors }}
+              <br>
+              {{ form.max_converted_mana_cost.errors }}
+              
+              <div id="mana-cost-slider"></div>
+              <table style="width:100%">
+                <tr>
+                  <th><label for="id_min_converted_mana_cost">Min Price:</label></th>
+                  <th><label for="id_max_converted_mana_cost">Max Price:</label></th> 
+                </tr>
+                <tr>
+                  <td>{{ form.min_converted_mana_cost.errors }}</td>
+                  <td>{{ form.max_converted_mana_cost.errors }}</td>
+                </tr>
+                <tr>
+                  <td><input type="number" name="min_converted_mana_cost" value="{{ form.min_converted_mana_cost.value }}" id="id_min_converted_mana_cost"></td>
+                  <td><input type="number" name="max_converted_mana_cost" value="{{ form.max_converted_mana_cost.value }}" id="id_max_converted_mana_cost"></td>
+                </tr>
+              </table>
+              <script>
+
+                
+
+                var manaCostSlider = document.getElementById('mana-cost-slider');
+                var dom_min_converted_mana_cost = document.getElementById("id_min_converted_mana_cost");
+                var dom_max_converted_mana_cost = document.getElementById("id_max_converted_mana_cost");
+                noUiSlider.create(manaCostSlider, {
+                 start: [dom_min_converted_mana_cost.value, dom_max_converted_mana_cost.value],
+                 connect: true,
+                 step: 1,
+                 orientation: 'horizontal', // 'horizontal' or 'vertical'
+                 range: {
+                   'min': -1,
+                   'max': 1000000
+                 },
+                 format: wNumb({
+                     decimals: 3,
+                     thousand: '.'
+                 }),
+                 tooltips: true
+                });
+
+                manaCostSlider.noUiSlider.on('update', function (values, handle) {
+                    dom_min_converted_mana_cost.value = values[0];
+                    dom_max_converted_mana_cost.value = values[1];
+
+                });
+
+                dom_min_converted_mana_cost.addEventListener('change', function(){
+                  manaCostSlider.noUiSlider.set([dom_min_converted_mana_cost.value, dom_max_converted_mana_cost.value]);
+                });
+
+                dom_max_converted_mana_cost.addEventListener('change', function(){
+                  manaCostSlider.noUiSlider.set([dom_min_converted_mana_cost.value, dom_max_converted_mana_cost.value]);
+                });
+
+              </script>
+          </tr>
+          <tr>
+            <th>Power Picker:</th>
+            <td>
+              {{ form.min_power.errors }}
+              <br>
+              {{ form.max_power.errors }}
+              
+              <div id="power-slider"></div>
+              <table style="width:100%">
+                <tr>
+                  <th><label for="id_min_power">Min Power:</label></th>
+                  <th><label for="id_max_power">Max Power:</label></th> 
+                </tr>
+                <tr>
+                  <td>{{ form.min_power.errors }}</td>
+                  <td>{{ form.max_power.errors }}</td>
+                </tr>
+                <tr>
+                  <td><input type="number" name="min_power" value="{{ form.min_power.value }}" id="id_min_power"></td>
+                  <td><input type="number" name="max_power" value="{{ form.max_power.value }}" id="id_max_power"></td>
+                </tr>
+              </table>
+              <script>
+                var powerSlider = document.getElementById('power-slider');
+                var dom_min_power = document.getElementById("id_min_power");
+                var dom_max_power = document.getElementById("id_max_power");
+                noUiSlider.create(powerSlider, {
+                 start: [dom_min_power.value, dom_max_power.value],
+                 connect: true,
+                 step: 1,
+                 orientation: 'horizontal', // 'horizontal' or 'vertical'
+                 range: {
+                   'min': 0,
+                   'max': 100
+                 },
+                 format: wNumb({
+                     decimals: 3,
+                     thousand: '.'
+                 }),
+                 tooltips: true
+                });
+
+                powerSlider.noUiSlider.on('update', function (values, handle) {
+                    dom_min_power.value = values[0];
+                    dom_max_power.value = values[1];
+
+                });
+
+                dom_min_power.addEventListener('change', function(){
+                  powerSlider.noUiSlider.set([dom_min_power.value, dom_max_power.value]);
+                });
+
+                dom_max_power.addEventListener('change', function(){
+                  powerSlider.noUiSlider.set([dom_min_power.value, dom_max_power.value]);
+                });
+
+              </script>
+          </tr>
+          <tr>
+            <th>Toughness Picker:</th>
+            <td>
+              {{ form.min_toughness.errors }}
+              <br>
+              {{ form.max_toughness.errors }}
+              
+              <div id="toughness-slider"></div>
+              <table style="width:100%">
+                <tr>
+                  <th><label for="id_min_toughness">Min Toughness:</label></th>
+                  <th><label for="id_max_toughness">Max Toughness:</label></th> 
+                </tr>
+                <tr>
+                  <td>{{ form.min_toughness.errors }}</td>
+                  <td>{{ form.max_toughness.errors }}</td>
+                </tr>
+                <tr>
+                  <td><input type="number" name="min_toughness" value="{{ form.min_toughness.value }}" id="id_min_toughness"></td>
+                  <td><input type="number" name="max_toughness" value="{{ form.max_toughness.value }}" id="id_max_toughness"></td>
+                </tr>
+              </table>
+              <script>
+                var toughnessSlider = document.getElementById('toughness-slider');
+                var dom_min_toughness = document.getElementById("id_min_toughness");
+                var dom_max_toughness = document.getElementById("id_max_toughness");
+                noUiSlider.create(toughnessSlider, {
+                 start: [dom_min_toughness.value, dom_max_toughness.value],
+                 connect: true,
+                 step: 1,
+                 orientation: 'horizontal', // 'horizontal' or 'vertical'
+                 range: {
+                   'min': 0,
+                   'max': 100
+                 },
+                 format: wNumb({
+                     decimals: 3,
+                     thousand: '.'
+                 }),
+                 tooltips: true
+                });
+
+                toughnessSlider.noUiSlider.on('update', function (values, handle) {
+                    dom_min_toughness.value = values[0];
+                    dom_max_toughness.value = values[1];
+
+                });
+
+                dom_min_toughness.addEventListener('change', function(){
+                  toughnessSlider.noUiSlider.set([dom_min_toughness.value, dom_max_toughness.value]);
+                });
+
+                dom_max_toughness.addEventListener('change', function(){
+                  toughnessSlider.noUiSlider.set([dom_min_toughness.value, dom_max_toughness.value]);
+                });
+
+              </script>
+
+
+            </td>
+          </tr>
+
+          <tr>
+            <th>Card Color: </th>
+            <td>
+              <span>&#124;</span> 
+              <label style="border-stye: dotted;">
+                {% if form.color_black.value == 'on' %}
+                  <input type="checkbox" name="color_black" checked="checked" />
+                {% else %}
+                  <input type="checkbox" name="color_black" />
+                {% endif %}
+                <span>Black</span>
+              </label>
+              <span>&#124;</span> 
+              <label>
+                {% if form.color_red.value == 'on' %}
+                  <input type="checkbox" name="color_red" checked="checked" />
+                {% else %}
+                  <input type="checkbox" name="color_red" />
+                {% endif %}
+                <span>Red</span>
+              </label>
+              <span>&#124;</span>          
+              <label>
+                {% if form.color_white.value == 'on' %}
+                  <input type="checkbox" name="color_white" checked="checked" />
+                {% else %}
+                  <input type="checkbox" name="color_white" />
+                {% endif %}
+                <span>White</span>
+              </label>
+              <span>&#124;</span> 
+              <label>
+                {% if form.color_blue.value == 'on' %}
+                  <input type="checkbox" name="color_blue" checked="checked" />
+                {% else %}
+                  <input type="checkbox" name="color_blue" />
+                {% endif %}
+                <span>Blue</span>
+              </label>
+              <span>&#124;</span> 
+              <label>
+                {% if form.color_green.value == 'on' %}
+                  <input type="checkbox" name="color_green" checked="checked" />
+                {% else %}
+                  <input type="checkbox" name="color_green" />
+                {% endif %}
+                <span>Green</span>
+              </label>
+              <span>&#124;</span>
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.card_type.label_tag }}</th>
+            <td>
+              {{ form.card_type.errors }}
+              {{ form.card_type }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.card_rarity.label_tag }}</th>
+            <td>
+              {{ form.card_rarity.errors }}
+              {{ form.card_rarity }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.collection_number.label_tag }}</th>
+            <td>
+              {{ form.collection_number.errors }}
+              {{ form.collection_number }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.sort_by_choice.label_tag }}</th>
+            <td>
+              {{ form.sort_by_choice.errors }}
+              {{ form.sort_by_choice }}
+            </td>
+          </tr>
+          <tr>
+            <th>{{ form.sorting_order.label_tag }}</th>
+            <td>
+              {{ form.sorting_order.errors }}
+              {{ form.sorting_order }}
+            </td>
+          </tr>
+      </table>
+    
+      <input style="margin-top:10px; font:inherit; font-weight: bold; font-size: 20px; background-color: darkolivegreen; height: 35px; width: 30%; border-radius: 5px; font-family: Trebuchet MS;" type="submit" value="Go">
+    </form>
+</div>
