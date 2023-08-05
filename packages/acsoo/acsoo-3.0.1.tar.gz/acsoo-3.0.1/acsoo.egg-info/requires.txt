@@ -1,0 +1,12 @@
+appdirs
+click
+colorama
+configparser
+flake8==3.7.9
+lxml
+pip>=9.0.1
+pylint-odoo==3.1.0
+setuptools<31,>=20
+wheel>=0.29
+bumpversion
+httpx

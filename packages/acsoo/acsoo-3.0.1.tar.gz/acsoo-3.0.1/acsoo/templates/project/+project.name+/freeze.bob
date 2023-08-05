@@ -1,0 +1,8 @@
+#!/bin/bash
+set -e
+
+REQS=requirements.txt
+
+cat requirements-find-links.txt > $REQS
+
+acsoo freeze {{{ project.name }}} >> $REQS
