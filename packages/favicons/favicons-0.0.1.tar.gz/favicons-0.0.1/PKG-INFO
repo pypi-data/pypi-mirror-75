@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: favicons
+Version: 0.0.1
+Summary: Favicon generator for Python
+License: BSD-3-Clause-Clear
+Author: checktheroads
+Author-email: matt@allroads.io
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1,<8.0)
+Requires-Dist: pillow (>=7.2,<8.0)
+Requires-Dist: rich (>=3.3.2,<4.0.0)
