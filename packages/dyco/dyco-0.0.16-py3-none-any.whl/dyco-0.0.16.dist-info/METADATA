@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: dyco
+Version: 0.0.16
+Summary: A Python package to detect and compensate for shifting lag times in ecosystem time series
+Home-page: https://gitlab.ethz.ch/holukas/dyco-dynamic-lag-compensation
+Author: Lukas Hörtnagl
+Author-email: lukas.hoertnagl@usys.ethz.ch
+License: GNU General Public License v3 (GPLv3)
+Download-URL: https://pypi.org/project/dyco/
+Keywords: ecosystem,eddy covariance,fluxes,time series,lag,timeshift
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+
+## About
+todo
+
+## Installation
+todo
+
+### Via Anaconda
+todo
+
+### Via pip
+todo
+
+### Testing
+todo
+
+## Examples
+
+todo
+
+## Publications
+
+todo
+
+## Support
+
+* For bug reports and feature requests, please use the [issue tracker]
+  (https://gitlab.ethz.ch/holukas/dyco-dynamic-lag-compensation/-/issues) on GitLab.
+
