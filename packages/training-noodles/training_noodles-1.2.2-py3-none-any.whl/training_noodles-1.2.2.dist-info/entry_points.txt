@@ -1,0 +1,3 @@
+[console_scripts]
+noodles = training_noodles.noodles:main
+
