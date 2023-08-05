@@ -1,0 +1,16 @@
+astropy
+numpy
+scipy
+scikit-image
+astroquery
+matplotlib
+ccdproc
+
+[all]
+astroalign
+
+[docs]
+sphinx-astropy
+
+[test]
+pytest-astropy
