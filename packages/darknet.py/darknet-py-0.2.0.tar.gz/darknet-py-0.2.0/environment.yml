@@ -1,0 +1,49 @@
+
+name: darknet.py-dev
+channels:
+  - zeroae
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - pip
+  - pip:
+    - -e .
+
+  # Setup Requirements (setup.py:setup_requirements)
+  - compilers
+  - cython
+  - numpy
+  - setuptools_scm
+  - setuptools_scm_git_archive
+  - wheel
+
+  # Install Requirements (setup.py:requirements)
+  - click >=7.0
+  - click-plugins
+  - darknet
+  - entrypoints
+  - fsspec
+  - numpy
+  - pillow
+
+  # Zoo Optional Requirements
+  - intake
+
+  # Test Requirements (setup.py:test_requirements)
+  - pytest >=3
+  - pytest-cov
+  - pytest-mock
+
+  # Documentation Requirements (setup.py:doc_requirements)
+  - sphinx
+  - sphinx-click
+  - watchdog
+
+  # Dev Workflow requirements
+  - pre-commit
+  - jupyter
+  - black
+  - flake8
+  - keyring
+  - twine

@@ -1,0 +1,16 @@
+[run]
+branch = true
+source =
+    darknet.py
+
+[paths]
+source =
+    src
+    **/site-packages
+
+[report]
+omit =
+    setup.py
+    src/darknet/py/__main__.py
+    src/darknet/py/_version.py
+    tests/*
