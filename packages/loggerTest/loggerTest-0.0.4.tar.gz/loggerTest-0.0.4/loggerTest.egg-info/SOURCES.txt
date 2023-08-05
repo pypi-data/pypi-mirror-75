@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+loggerTest/__init__.py
+loggerTest.egg-info/PKG-INFO
+loggerTest.egg-info/SOURCES.txt
+loggerTest.egg-info/dependency_links.txt
+loggerTest.egg-info/requires.txt
+loggerTest.egg-info/top_level.txt
+loggerTest/static/README.md
+loggerTest/static/description.yaml
+loggerTest/static/index.js
