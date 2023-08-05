@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: stylefact
+Version: 0.0.1
+Summary: Toolkit for stylized facts
+Home-page: https://github.com/stakahashy/stylefact
+Author: Shuntaro Takahashi
+Author-email: shushakura@gmail.com
+License: MIT
+Keywords: stylized facts,econophysics,finance
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: numpy
+Requires-Dist: pytest
+Requires-Dist: matplotlib
+
+UNKNOWN
+
+
