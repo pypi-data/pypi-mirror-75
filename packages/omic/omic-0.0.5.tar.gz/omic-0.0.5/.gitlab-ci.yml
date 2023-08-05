@@ -1,0 +1,27 @@
+image: python:3.6-alpine
+
+stages:
+  - deploy
+
+before_script:
+  - pip install twine
+  - python setup.py sdist bdist_wheel
+
+## Set CI/CD environmental variables in dashboard Settings > CI / CD, click on Variables
+##   PRODUCTION_USERNAME: "Your PyPI username"
+##   PRODUCTION_PASSWORD: "PyPI password"
+deploy_production:
+  stage: deploy
+  variables:
+    TWINE_USERNAME: $PRODUCTION_USERNAME
+    TWINE_PASSWORD: $PRODUCTION_PASSWORD
+    TWINE_NON_INTERACTIVE: "true"
+    #OMIC_PI_VERSION: 1.0.1 ## remember to increment this if not deploying from a git tag
+  script:
+    - twine upload dist/*
+  artifacts:
+    name: "$OMIC_PI_VERSION"
+    paths:
+      - dist/
+  only:
+    - tags
