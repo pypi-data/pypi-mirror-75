@@ -1,0 +1,3 @@
+[console_scripts]
+scu = scu.__main__:main
+
