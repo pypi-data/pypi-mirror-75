@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: R0State
+Version: 0.59
+Summary: Returning interpolated R0_BOL
+Home-page: https://github.com/___empty/___empty
+Author: Lukas Merkle
+Author-email: lukas.merkle@tum.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+
+# Example Package
+
+This is a simple example package. You can use
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
+
+
