@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: gtcacs
+Version: 0.0.2
+Summary: Generative Text Compression with Agglomerative Clustering Summarization (GTCACS)
+Home-page: https://github.com/andrealenzi11/gen-text-compr-aggl-clust-sum.git
+Author: Andrea Lenzi
+Author-email: andrealenzi11@gmail.com
+License: MIT
+Download-URL: https://github.com/andrealenzi11/gen-text-compr-aggl-clust-sum/archive/0.0.1.tar.gz
+Description: UNKNOWN
+Keywords: topic,topic modeling,topic modelling,topic extraction,topics,topics modeling,topics modelling,topics extraction
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
