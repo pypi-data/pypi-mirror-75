@@ -1,0 +1,547 @@
+Metadata-Version: 2.1
+Name: guillotina
+Version: 6.0.4
+Summary: asyncio REST API Resource database
+Home-page: https://github.com/plone/guillotina
+Author: Ramon Navarro Bosch & Nathan Van Gheem
+Author-email: ramon@plone.org
+License: BSD
+Description: Introduction
+        ============
+        
+        .. image:: https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat
+           :target: http://guillotina.readthedocs.io/en/latest/
+        
+        .. image:: https://travis-ci.org/plone/guillotina.svg?branch=master
+           :target: https://travis-ci.org/plone/guillotina
+        
+        .. image:: https://codecov.io/gh/plone/guillotina/branch/master/graph/badge.svg
+           :target: https://codecov.io/gh/plone/guillotina/branch/master
+           :alt: Test Coverage
+        
+        .. image:: https://img.shields.io/pypi/pyversions/guillotina.svg
+           :target: https://pypi.python.org/pypi/guillotina/
+           :alt: Python Versions
+        
+        .. image:: https://img.shields.io/pypi/v/guillotina.svg
+           :target: https://pypi.python.org/pypi/guillotina
+        
+        .. image:: https://img.shields.io/pypi/l/guillotina.svg
+           :target: https://pypi.python.org/pypi/guillotina/
+           :alt: License
+        
+        .. image:: https://badges.gitter.im/plone/guillotina.png
+           :target: https://gitter.im/plone/guillotina
+           :alt: Chat
+        
+        .. image:: https://img.shields.io/docker/cloud/build/plone/guillotina
+           :target: https://hub.docker.com/r/guillotina/guillotina
+           :alt: Docker Cloud Build Status
+        
+        Please `read the detailed docs <http://guillotina.readthedocs.io/en/latest/>`_
+        
+        
+        This is the working project of the next generation Guillotina server based on asyncio.
+        
+        
+        Dependencies
+        ------------
+        
+        * Python >= 3.7
+        * PostgreSQL >= 9.6
+        
+        
+        Quickstart
+        ----------
+        
+        We use pip
+        
+        .. code-block:: shell
+        
+            pip install guillotina
+        
+        
+        Run PostgreSQL
+        --------------
+        
+        If you don't have a PostgreSQL server to play with, you can run one with Docker.
+        
+        Download and start the Docker container by running
+        
+        .. code-block:: shell
+        
+            make run-postgres
+        
+        
+        
+        Run the server
+        --------------
+        
+        To run the server
+        
+        .. code-block:: shell
+        
+            g
+        
+        
+        Then...
+        
+        .. code-block:: shell
+        
+            curl http://localhost:8080
+        
+        
+        Or, better yet, use `Postman <https://www.getpostman.com/>`_ to start playing with API.
+        
+        You can also navigate in your Guillotina server with its built-in web admin interface by visiting http://localhost:8080/+admin/.
+        
+        Deploy on Heroku
+        ----------------
+        
+        Read more `Guillotina-Heroku <https://github.com/guillotinaweb/guillotina-heroku>`_.
+        
+        .. image:: https://www.herokucdn.com/deploy/button.svg
+           :target: https://www.heroku.com/deploy?template=https://github.com/guillotinaweb/guillotina-heroku
+        
+        Getting started with development
+        --------------------------------
+        
+        Using pip (requires Python > 3.7)
+        
+        .. code-block:: shell
+        
+            git clone git@github.com:plone/guillotina.git
+            cd guillotina
+            python3.7 -m venv .
+            ./bin/pip install -r requirements.txt
+            ./bin/pip install -r contrib-requirements.txt
+            ./bin/pip install -e '.[test]'
+            ./bin/pre-commit install
+        
+        
+        Run tests
+        ---------
+        
+        We're using `pytest <https://docs.pytest.org/en/latest/>`_
+        
+        .. code-block:: shell
+        
+            ./bin/pytest guillotina
+        
+        and for test coverage
+        
+        .. code-block:: shell
+        
+            ./bin/pytest --cov=guillotina guillotina/
+        
+        With file watcher...
+        
+        .. code-block:: shell
+        
+            ./bin/ptw guillotina --runner=./bin/py.test
+        
+        
+        To run tests with cockroach db
+        
+        .. code-block:: shell
+        
+            USE_COCKROACH=true ./bin/pytest guillotina
+        
+        Default
+        -------
+        
+        Default root access can be done with AUTHORIZATION header : Basic root:root
+        
+        
+        Docker
+        ------
+        
+        You can also run Guillotina with Docker!
+        
+        
+        First, run PostgreSQL
+        
+        .. code-block:: shell
+        
+            docker run --rm \
+                -e POSTGRES_DB=guillotina \
+                -e POSTGRES_USER=guillotina \
+                -p 127.0.0.1:5432:5432 \
+                --name postgres \
+                postgres:9.6
+        
+        Then, run Guillotina
+        
+        .. code-block:: shell
+        
+            docker run --rm -it \
+                --link=postgres -p 127.0.0.1:8080:8080 \
+                plone/guillotina:latest \
+                g -c '{"databases": [{"db": {"storage": "postgresql", "dsn": "postgres://guillotina:@postgres/guillotina"}}], "root_user": {"password": "root"}}'
+        
+        
+        This assumes you have a config.yaml in your current working directory
+        
+        
+        Chat
+        ----
+        
+        Join us to talk about Guillotina at https://gitter.im/plone/guillotina
+        
+        
+        CHANGELOG
+        =========
+        
+        6.0.4 (2020-07-29)
+        ------------------
+        
+        - fix release
+        
+        
+        6.0.3 (2020-07-29)
+        ------------------
+        
+        - Cookiecutter: fix test_install.py
+          [masipcat]
+        
+        - test deps: unpin pytest-asyncio
+          [masipcat]
+        
+        - doc: fix md headers (h1 -> h2) and other small fixes
+          [masipcat]
+        
+        - doc: fix example app
+          [masipcat]
+        
+        - Fix sphinx-build
+          [masipcat]
+        
+        - Make sure it does not fail on empty field
+          [bloodbare]
+        
+        6.0.2 (2020-07-10)
+        ------------------
+        
+        - Set load_catalog=true in test settings
+          [masipcat]
+        
+        
+        6.0.1 (2020-07-09)
+        ------------------
+        
+        - Also allow JWT sub claim for loginid
+          [allusa]
+        
+        
+        6.0.0 (2020-06-17)
+        ------------------
+        
+        - Nothing changed yet.
+        
+        
+        6.0.0b6 (2020-06-17)
+        --------------------
+        
+        - Undo datetime object renderization on
+          guillotina_json_default. [lferran]
+        
+        - Be able to define optional requestBody [lferran]
+        
+        - Fix registry update, when type provided mismatch with the one specified
+          by the schema return an error HTTP status code instead of throwing an
+          exception.
+          [pfreixes]
+        
+        
+        6.0.0b5 (2020-06-08)
+        --------------------
+        
+        - Few fixes & improvements: [lferran]
+          - Fix JSONField validation error
+          - Add unit tests for middleware generate error response
+          - Add path_qs to Request object
+          - Add content_length to Request object
+          - Fix datetime objects renderization
+        
+        - Optimize json schema ref resolution to not make so copies of all json schema definition
+          for every validator instance
+          [vangheem]
+        
+        - Fix json schema ref resolution for nested objects
+          [vangheem]
+        
+        - Catalog subscribers conditional loading
+          [bloodbre]
+        
+        - Allow arbitrary path parameter within the path parameters
+          [dmanchon]
+        
+        
+        6.0.0b4 (2020-05-23)
+        --------------------
+        
+        - Allow to delete elements with the same id at cockroach
+          [bloodbare]
+        
+        - Split blob and objects initialization statements
+          [bloodbare]
+        
+        - Allow to ovewrite object table name and blob table name
+          [bloodbare]
+        
+        - Bug fix: handle raw strings in json payload [lferran]
+        
+        - swagger tags fixes [ableeb]
+        
+        - Move from travis to github actions [lferran]
+        
+        
+        6.0.0b3 (2020-04-24)
+        --------------------
+        
+        - Provide patch operations for json field
+          [vangheem]
+        
+        - Optimize extend operation for bucket list field
+          [vangheem]
+        
+        - `.` and `..` should be blocked as valid ids. The browser will auto translate them
+          to what current dir and parent dir respectively which gives unexpected results.
+          [vangheem]
+        
+        - Change in ISecurityPolicy that might improve performance during traversal for views
+          with permission guillotina.Public
+          [masipcat]
+        
+        - Fix Response object responding with 'default_content' when 'content' evaluates to False
+          [masipcat]
+        
+        - Change log level for conflict errors to warning and fix locating tid of conflict error
+          [vangheem]
+        
+        - Fix security policy not taking into account IInheritPermissionMap for principals
+          [masipcat,bloodbare]
+        
+        
+        - Fix use of int32 sql interpolation when it should have been bigint for tid
+          [vangheem]
+        
+        - Restore task vars after usage of Content API
+        - Zope.interface 5.0.1 upgrade
+          [bloodbare]
+        
+        
+        6.0.0b2 (2020-03-25)
+        --------------------
+        
+        - Fix move(obj) fires IBeforeObjectMovedEvent after modifying the object
+          [masipcat]
+        
+        - Error handling: ValueDeserializationError editing registry value
+          [vangheem]
+        
+        - Handle db transaction closed while acquiring transaction lock
+          [vangheem]
+        
+        - Handle db transaction closed while acquiring lock
+          [vangheem]
+        
+        - Handle connection errors on file head requests
+          [vangheem]
+        
+        - Update README
+          [psanlorenzo]
+        
+        
+        6.0.0b1 (2020-03-18)
+        --------------------
+        
+        - Use orjson instead of json/ujson
+          [masipcat]
+        
+        - AsgiStreamReader.read() can return bytes or bytearray
+          [masipcat]
+        
+        
+        6.0.0a16 (2020-03-12)
+        ---------------------
+        
+        - Changes in ICatalogUtility, DefaultSearchUtility and @search endpoints
+          [masipcat]
+        
+        - Update react-gmi v 0.4.0
+          [jordic]
+        
+        - Fix more antipatterns [lferran]
+        
+        - Fix integer query param validation [lferran]
+        
+        
+        6.0.0a15 (2020-03-02)
+        ---------------------
+        
+        - Handle http.disconnect (and other types of messages) while reading the request body
+          [masipcat]
+        
+        - Be able to have async schema invariants
+          [vangheem]
+        
+        - Provide better validation for json schema field
+          [vangheem]
+        
+        
+        6.0.0a14 (2020-02-26)
+        ---------------------
+        
+        - Change AttributeError to HTTPPreconditionFailed in FileManager
+          [masipcat]
+        
+        - Reverted "Replaced Response.content_{type,length} with Response.set_content_{type,length}".
+          Using setter to avoid breaking `Response.content_{type,length} = ...`
+          [masipcat]
+        
+        - Handle error when "None" value provided for behavior data
+          [vangheem]
+        
+        - Handle connection reset errors on file download
+          [vangheem]
+        
+        
+        6.0.0a13 (2020-02-20)
+        ---------------------
+        
+        - Changed error handling logic: Guillotina (asgi app) catches all errors and returns a
+          response for the ones that implements the handler IErrorResponseException. Otherwise
+          raises the exception and is handled by ErrorsMiddleware
+          [masipcat]
+        
+        - Add "endpoint" in scope to let sentry know the view associated to the request
+          [masipcat]
+        
+        - Request.read() can return bytes or bytesarray
+          [masipcat]
+        
+        - Replaced Response.content_{type,length} with Response.set_content_{type,length}
+          [masipcat]
+        
+        - Breaking API change: Search GET
+          Search get responds a json with items and items_total like plone rest api
+          [bloodbare]
+        
+        - Breaking Internal API change: Search
+          Catalog utility search is the public search operation that is parsed and query
+          the internal implementation
+          [bloodbare]
+        
+        - Fixing WS bugs and redis unsubscription
+          [bloodbare]
+        
+        - Add `max_ops` property to `PatchField`, `BucketListField` and `BucketDictField`
+          [vangheem]
+        
+        - Add clear action to list, dict and annotation patch fields
+          [vangheem]
+        
+        
+        6.0.0a12 (2020-02-18)
+        ---------------------
+        
+        - Fix validation authorization in case token is expired
+          [bloodbare]
+        
+        - Set content type to response in renderers
+          [masipcat]
+        
+        - Import aiohttp only when recaptcha is configured
+          [masipcat]
+        
+        - Some asyncpg settings do not work with storages
+          [vangheem]
+        
+        - Improve performance of bucket dict field
+          [vangheem]
+        
+        
+        6.0.0a11 (2020-02-09)
+        ---------------------
+        
+        - Moving validation endpoint from traversal to query param
+          [bloodbare]
+        
+        - Small improvement in asgi.py
+        - Call IIDGenerator with apply_coro
+          [masipcat]
+        
+        
+        6.0.0a10 (2020-02-07)
+        ---------------------
+        
+        - Moved the ASGI logic from ASGIResponse and ASGISimpleResponse to class Response
+          [masipcat]
+        
+        - Add mail from on email validation
+          [bloodbare]
+        
+        - Validate POST @sharing payload too [lferran]
+        
+        - Fix asyncpg integration with connection leaks on timeout
+          [vangheem]
+        
+        
+        6.0.0a9 (2020-02-04)
+        --------------------
+        
+        - Implemented endpoint @delete for IAttachments and IMultiAttachments
+          [masipcat]
+        
+        - Adding session manager support with redis backend
+          [bloodbare]
+        
+        - Registration workflow with generic validation package on contrib
+          [bloodbare]
+        
+        - Reset password workflow with generic validation package on contrib
+          [bloodbare]
+        
+        - Be able to customize pg db in test fixtures
+          [vangheem]
+        
+        - More type annotations
+          [vangheem]
+        
+        - Add pg db constraint for annotation data
+          [vangheem]
+        
+        - Fix DummyCache.set type signature to be the same as base class
+          [vangheem]
+        
+        - Jinja template engine to render on executors
+          [bloodbare]
+        
+        - Recaptcha support for public endpoints
+          [bloodbare]
+        
+        
+        ...
+        
+        You are seeing a truncated changelog.
+        
+        You can read the `changelog file <https://github.com/plone/guillotina/blob/master/CHANGELOG.rst>`_
+        for a complete list.
+        
+        
+Keywords: asyncio,REST,Framework,transactional,asgi
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.7.0
+Provides-Extra: test
+Provides-Extra: docs
+Provides-Extra: testdata
+Provides-Extra: redis
+Provides-Extra: mailer
+Provides-Extra: recaptcha
