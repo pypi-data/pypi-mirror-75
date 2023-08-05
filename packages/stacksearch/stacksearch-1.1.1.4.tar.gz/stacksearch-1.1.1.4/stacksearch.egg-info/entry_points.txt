@@ -1,0 +1,3 @@
+[console_scripts]
+stacksearch = stacksearch.__main__:main
+
