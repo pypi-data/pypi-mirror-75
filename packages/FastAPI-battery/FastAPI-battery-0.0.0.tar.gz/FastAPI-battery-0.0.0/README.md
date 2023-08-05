@@ -1,0 +1,43 @@
+#Initialization
+
+login = SPYCLogin()
+login.init_app(app)
+
+OR
+
+SPYCLogin(app)
+
+
+#Set login_handler
+
+@SPYCLogin.session_controller
+def set_user(identity=None):
+    if not identity:
+        email = 'visitor@unknown.com'
+        role = 'public'
+    if identity:
+        email = identity['email']
+        role = identity['role']
+    session['email'] = email
+    session['role'] = role
+    session['login'] = email.endswith('@school.pyc.edu.hk')
+
+
+
+
+#Login Usage
+
+https://localhost/login?redirect=https://frontend.com
+
+
+
+#Required Env
+
+SPYC_LOGIN_URL = XXXXX
+
+
+
+# Remarks
+
+1. Must have index endpoint for default redirect
+2. session_controller must define session['login'] = boolean

@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: FastAPI-battery
+Version: 0.0.0
+Summary: Some private battery for FastAPI.
+Home-page: https://github.com
+Author: d_mok
+Author-email: unknown@gmail.com
+License: MIT
+Description: #Initialization
+        
+        login = SPYCLogin()
+        login.init_app(app)
+        
+        OR
+        
+        SPYCLogin(app)
+        
+        
+        #Set login_handler
+        
+        @SPYCLogin.session_controller
+        def set_user(identity=None):
+            if not identity:
+                email = 'visitor@unknown.com'
+                role = 'public'
+            if identity:
+                email = identity['email']
+                role = identity['role']
+            session['email'] = email
+            session['role'] = role
+            session['login'] = email.endswith('@school.pyc.edu.hk')
+        
+        
+        
+        
+        #Login Usage
+        
+        https://localhost/login?redirect=https://frontend.com
+        
+        
+        
+        #Required Env
+        
+        SPYC_LOGIN_URL = XXXXX
+        
+        
+        
+        # Remarks
+        
+        1. Must have index endpoint for default redirect
+        2. session_controller must define session['login'] = boolean
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
