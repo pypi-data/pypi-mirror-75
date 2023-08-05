@@ -1,0 +1,194 @@
+#!/usr/bin/env python3
+#coding=utf8
+import os, sys, string, types, time
+from optparse import OptionParser
+from PIL import Image, ImageFont, ImageDraw
+from binascii import hexlify, unhexlify
+import binascii
+
+try:
+    # Python 2.
+    from StringIO import StringIO
+    # Python 3.
+except ImportError:
+    from io import StringIO
+
+class Text2Image(object):
+    """
+    Unsophisticated interface to a running gnuplot program.
+    https://www.cnblogs.com/wei-li/archive/2012/04/19/2456725.html
+    ImageDraw Module, https://pillow.readthedocs.io/en/stable/reference/ImageDraw.html
+    http://ascii.911cha.com/
+    关于终端：ANSI颜色转义序列列表, https://www.codenong.com/4842424/
+    ANSI escape code, https://en.wikipedia.org/wiki/ANSI_escape_code
+    控制台的艺术（附原理实现）,https://sq.163yun.com/blog/article/196337373895688192
+    echo -e "\033[31;1;4mHello\033[0m"
+    """
+
+    color_dic = {0: ("#E5E5E5", "#E5E5E5"),
+            30: ("#000000", "#7F7F7F"),
+            31: ("#CD0000", "#FF0000"),
+            32: ("#00CD00", "#00FF00"),
+            33: ("#CDCD00", "#FFFF00"),
+            34: ("#0000EE", "#5C5CFF"),
+            35: ("#CD00CD", "#FF00FF"),
+            36: ("#00CDCD", "#00FFFF"),
+            37: ("#E5E5E5", "#FFFFFF")}
+
+    def __init__(self, infile, outfile, **kwargs):
+        '''
+        '''
+        self.fontSize = 14
+        self.font = ImageFont.truetype(kwargs.get("font", "/usr/share/fonts/simsun.ttc"),
+                self.fontSize)
+        self.null_image = Image.new(mode = "RGB", size = (900, 600), color = (0, 0, 0))
+        self.null_draw = ImageDraw.Draw(self.null_image)
+
+        with open(infile, 'r') as f:
+            self.lines = f.readlines()
+        max_len = max(self.get_line_len(line) for line in self.lines)
+
+        self.image = Image.new(mode = "RGB",
+                size = (max_len, len(self.lines)*(self.fontSize)),
+                #size = (750, len(self.lines)*(self.fontSize)),
+                color = (0, 0, 0))
+        self.draw = ImageDraw.Draw(self.image)
+
+        self.cursor = [0, 0]     # 当前的光标位置
+        self.fg_color_index = 0  # 前景色index
+        self.bg_color_index = 0  # 背景色index
+        self.isBold = 0          # 前景色是否加粗
+
+
+    def log (self, message, **kwargs):
+        '''
+        '''
+        f = StringIO(message)
+        for i in f.readlines():
+            i = i.strip('[\r\n]')
+            sys.stdout.write("%s\n" %(i))
+        f.close()
+
+    def proces_control_char (self, cchar):
+        '''
+        Draw a line on the canvas and move the cursor to the start of the next
+        line.
+        '''
+        #print(cchar)
+        for c in cchar:
+            i = len(c) and int(c) or 0
+            if i >= 30 and i <= 37:
+                self.fg_color_index = i
+            elif i >= 40 and i <= 47:
+                self.bg_color_index = i-10
+            elif i == 1:
+                self.isBold = 1
+            elif i == 0:
+                self.isBold = 0
+                self.fg_color_index = 0
+                self.bg_color_index = 0
+
+    def draw_string(self, string, font, fill):
+        '''
+        Draw a string on the canvas and move the cursor to the end.
+        '''
+        text_size = self.draw.textsize(string, font = font)
+        #self.image.paste("#00CDCD",box=text_size,mask=None)	
+        if (self.bg_color_index != 0):
+            self.draw.rectangle([self.cursor[0],
+                self.cursor[1],
+                self.cursor[0] + text_size[0],
+                self.cursor[1] + text_size[1]],
+                #outline=self.color_dic[self.bg_color_index][0],
+                fill=self.color_dic[self.bg_color_index][0])
+        self.draw.text(self.cursor, string, font=font,
+                fill = self.color_dic[self.fg_color_index][self.isBold])
+        self.cursor[0] += text_size[0]
+
+    def get_line_len (self, line):
+        '''
+        Get the lenghth of the printable character in a line.
+        得到一行中可打印字符的长度.
+        '''
+        txt = line.split('\x1B[')
+        print_line = txt[0] # txt[0] don't have the control charactor
+        for i in range(1, len(txt)):
+            content = txt[i].split('m')
+            print_line += content[1]
+
+        size = self.null_draw.textsize(print_line, font = self.font)
+        return size[0]
+
+
+    def draw_line(self, line, font, fill):
+        '''
+        Draw a line on the canvas and move the cursor to the start of the next
+        line.
+        '''
+        txt = line.split('\x1B[')
+        # txt[0] don't have the control charactor
+        self.draw_string(txt[0], font = font, fill = fill)
+
+        self.log(line)
+        for i in range(1, len(txt)):
+            # content[0] is color and content[1] is the real text
+            content = txt[i].split('m')
+            self.proces_control_char(content[0].split(';'))
+            #print(content)
+            self.draw_string(content[1], font = font, fill = fill)
+        text_size = self.draw.textsize(line, font = font)
+
+        # Move the cursor to the start of the next line.
+        self.cursor[0] = 0
+        #self.cursor[1] += text_size[1] - 13
+        self.cursor[1] += self.fontSize + 0
+
+    def CreateImg(self, text, *args, **kwargs):
+        self.draw_line("test1", font=self.font, fill="#E5E5E5")
+        self.draw_line("[32;47mtest2 is a good suggestion[01;0m",
+                font=self.font, fill="#FFFFFF")
+        self.draw_line("中               [01;33m###############[01;0m",
+                font=self.font, fill="#FFFFFF")
+
+        self.image.save('output.png')
+        #im.show()
+
+    def create_from_file (self, filename, outfile, *args, **kwargs):
+        with open(filename, 'r') as f:
+            for i in f.readlines():
+                self.draw_line(i, font=self.font, fill="#E5E5E5")
+        self.image.save(outfile)
+        #im.show()
+
+if __name__ == '__main__':
+    parser = OptionParser()
+    parser.add_option('-b', "--build_topology", action="store_true",
+            help="only build the topology and return.", default=False)
+    parser.add_option('-c', "--clear", action="store_true",
+            help="clear the trace only.", default=False)
+    parser.add_option('-f', "--font",
+            action = 'store', type = "string" ,
+            help="the user defined font path.",
+            default="/usr/share/fonts/BBSFONT.ttf")
+    parser.add_option('-s', "--fontsize", help="the user defined font size.",
+            action = 'store', type = "string",
+            default='16')
+    (options, args) = parser.parse_args()
+    option_dict = vars(options)
+
+    #检查字体文件是否存在
+    if not os.access(option_dict["font"], os.R_OK):
+        print('Font %s is not readable, please give a font path, an example:\
+                \r\ntxt2img --font /usr/share/fonts/fontname.ttf input.txt output.png'
+                %(option_dict["font"]))
+        exit(-1)
+
+    if(len(args) < 2):
+        output = os.path.splitext(args[0])[0] + ".png"
+        print(output)
+    else:
+        output = args[1]
+
+    image = Text2Image(args[0], output, **vars(options))
+    image.create_from_file(args[0], output)
+
