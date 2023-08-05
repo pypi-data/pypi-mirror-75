@@ -1,0 +1,15 @@
+future
+pycondor>=0.5
+configargparse
+ligo-gracedb
+bilby>=1.0.0
+scipy>=1.2.0
+gwpy
+gwosc
+matplotlib
+numpy
+tqdm
+corner
+dynesty>=1.0.0
+pesummary>=0.2.4
+jinja2
