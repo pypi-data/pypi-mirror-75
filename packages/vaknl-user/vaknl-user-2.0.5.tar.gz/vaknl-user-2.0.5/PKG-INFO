@@ -1,0 +1,120 @@
+Metadata-Version: 2.1
+Name: vaknl-user
+Version: 2.0.5
+Summary: User class that defines a user based on clickstream data.
+Home-page: https://github.com/vakantiesnl/vaknl-PyPi.git
+Author: Merijn van Es
+Author-email: merijn.vanes@vakanties.nl
+License: UNKNOWN
+Description: # vaknl-user
+        
+        Defines the vaknl `User` dataclass. A user (here identified by a `dmp_user_id`) is an object 
+        that is defined by website clickstream data as a basis. The User class contains functions 
+        that can transform raw Firestore website clickstream data to well defined `Event` 
+        dataclasses and update the statistics of the `User` accordingly. These Event dataclasses are 
+        read and translated into user information. The `User` dataclass also includes methods to 
+        read from and write to Firestore.
+        
+        ### Authors 
+        | Date   | Name   |
+        | ------ | ------ |
+        | 2020-07-17 | Merijn van Es | 
+        
+        
+        ## Prerequisites
+        
+        Firestore read and write permissions within the Google Cloud Platform (GCP), if one wants to 
+        make use of the Firestore functionality.
+        
+        
+        ## Project structure
+        ```
+        vaknl-user
+            |__ data
+                |__ ...                                     # Data used for testing.
+            |__ tests
+                |__ event
+                    |__ __init__.py                         # Empty, but required for package.
+                    |__ test_create_event.py                # Unit testing on create_event() function.
+                    |__ test_event.py                       # Unit testing on Event and Events dataclasses.
+                    |__ test_search_page_search_query.py    # Unit testing on SearchPageSearchQuery (Event) dataclass.
+                |__ user
+                    |__ __init__.py                         # Empty, but required for package.
+                    |__ test_statistics.py                  # Unit testing on Statistics dataclass.
+                    |__ test_user.py                        # Unit testing on User dataclass.
+                |__ __init__.py
+                |__ README.md                               # Explanation on testing.
+                |__ utils.py                                # Utility functions for testing.
+            |__ vaknl_NBC                                   # Package that creates a NBC API on local data.
+                |__ __init__.py                             # Includes NBC class.
+                |__ (NBC.pkl)                               # NBC data; should not be included in distributed versions.
+            |__ vaknl_user
+                |__ event
+                    |__ __init__.py                         # Imports all package modules and contains create_event function.
+                    |__ event.py                            # Contains Event and Events dataclasses.
+                    |__ filter.py                           # Contains all filter event dataclasses.
+                    |__ other.py                            # Contains all other event dataclasses.
+                    |__ pageview.py                         # Contains all pageview event dataclasses.
+                    |__ reservation.py                      # Contains all reservation event dataclasses.
+                    |__ utils.py                            # Utility functions for testing.
+                |__ user
+                    |__ __init__.py                         # Imports all package modules.
+                    |__ statistics.py                       # Contains all statistic dataclasses and subsidiaries.
+                    |__ user.py                             # Contains User dataclass.
+                    |__ utils.py                            # Utility functions for testing.
+                |__ __init__.py                             # Empty, but required for package.
+            |__ LICENSE                                     # Licensing information.
+            |__ MANIFEST.in                                 # Adds and removes files from distribution.
+            |__ README.md                                   # Project explanation.
+            |__ setup.py                                    # Package build script.
+        ```
+        
+        
+        ## `User` dataclass
+        
+        Can be found under `vaknl_user.user.user.User` and has the following useful methods:
+        
+        ### `import_statistics(self, client: utils.firestore.Client)`
+        Imports all statistics of the `User` from Firestore.
+        
+        ### `export_statistics(self, client: utils.firestore.Client)`
+        Exports all statistics of the `User` to Firestore.
+        
+        ### `create_user_from_clickstream(self, client: firestore.Client)`
+        Imports all raw clickstream event data from Firestore and updates the `User` accordingly. 
+        Overwrites all existing statistics.
+        
+        ### `update_user_from_clickstream(self, client: firestore.Client)`
+        Imports all raw clickstream event data from Firestore with a `timestamp` greater than 
+        `statistics.general.activity_last_timestamp`and updates the `User` accordingly. Adds 
+        statistics to existing.
+        
+        
+        ## `Event` dataclass
+        
+        This dataclass has many children (can be found in the same package directory under 
+        `filer.py`, `other.py`, `pageview.py` or `reservation.py`, which represent the individual 
+        clickstream events of interest. The `Event` dataclass can be found under 
+        `vaknl_user.event.event.Event` and should, in practice, only be called through the methods 
+        of the `User` dataclass.
+        
+        
+        ## `Events` dataclass
+        
+        This dataclass contains a list of `Event` instances, but has some useful methods that make 
+        it more desirable than a plain list. The `Events` dataclass can be found under 
+        `vaknl_user.event.event.Events` and should, in practice, only be called through the methods 
+        of the `User` dataclass.
+        
+        
+        ## `create_event(data: dict)`
+        
+        The `create_event()` function is used to transform single raw clickstream event 
+        dictionaries to a instance of `Event` (and one of it child dataclasses). The 
+        `create_event()` function can be found under `vaknl_user.event.event.Event` and should, in 
+        practice, only be called through the methods of the `User` dataclass.
+        
+Keywords: vaknl,pip
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
