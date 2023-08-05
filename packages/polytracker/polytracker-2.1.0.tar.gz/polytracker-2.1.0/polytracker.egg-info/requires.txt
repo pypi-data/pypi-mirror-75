@@ -1,0 +1,12 @@
+graphviz
+matplotlib
+networkx
+pygraphviz
+pydot
+tqdm
+typing_extensions
+
+[dev]
+black
+mypy
+pytest
