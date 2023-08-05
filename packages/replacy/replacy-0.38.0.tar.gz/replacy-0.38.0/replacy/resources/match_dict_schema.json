@@ -1,0 +1,277 @@
+{
+    "title": "Schema for validation ReplaCy Match/Replace format",
+    "type": "object",
+    "definitions": {
+        "replacyAttribute": {
+            "type": "object",
+            "properties": {
+                "ORTH": {
+                    "$ref": "#/definitions/spacyValue"
+                },
+                "TEXT": {
+                    "$ref": "#/definitions/spacyValue"
+                },
+                "LEMMA": {
+                    "$ref": "#/definitions/spacyValue"
+                },
+                "LOWER": {
+                    "$ref": "#/definitions/spacyValue"
+                },
+                "LENGTH": {
+                    "$ref": "#/definitions/spacyValue"
+                },
+                "POS": {
+                    "$ref": "#/definitions/spacyValue"
+                },
+                "TAG": {
+                    "$ref": "#/definitions/spacyValue"
+                },
+                "DEP": {
+                    "$ref": "#/definitions/spacyValue"
+                },
+                "SHAPE": {
+                    "$ref": "#/definitions/spacyValue"
+                },
+                "ENT_TYPE": {
+                    "$ref": "#/definitions/spacyValue"
+                },
+                "OP": {
+                    "enum": [
+                        "!",
+                        "?",
+                        "*",
+                        "+"
+                    ]
+                },
+                "TEMPLATE_ID": {
+                    "type": "integer"
+                }
+            },
+            "patternProperties": {
+                "^IS_[A-Z]*$": {
+                    "type": "boolean"
+                }
+            }
+        },
+        "spacyOperator": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "REGEX": {
+                    "type": "string"
+                },
+                "IN": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "NOT_IN": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                },
+                "==": {
+                    "type": "number"
+                },
+                ">=": {
+                    "type": "number"
+                },
+                ">": {
+                    "type": "number"
+                },
+                "<=": {
+                    "type": "number"
+                },
+                "<": {
+                    "type": "number"
+                },
+                "OP": {
+                    "enum": [
+                        "!",
+                        "?",
+                        "*",
+                        "+"
+                    ]
+                }
+            }
+        },
+        "textOperator":{
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "IN": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "spacyValue": {
+            "oneOf": [
+                {
+                    "type": "string"
+                },
+                {
+                    "type": "integer"
+                },
+                {
+                    "$ref": "#/definitions/spacyOperator"
+                }
+            ]
+        },
+        "textValue":{
+            "oneOf":[
+                {
+                    "type": "string"
+                },
+                {
+                    "$ref": "#/definitions/textOperator"
+                }
+            ]
+        },
+        "replacySuggestionItem": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "TEXT": {
+                    "$ref": "#/definitions/textValue"
+                },
+                "FROM_TEMPLATE_ID": {
+                    "type": "integer"
+                },
+                "PATTERN_REF": {
+                    "type": "integer"
+                },
+                "INFLECTION": {
+                    "enum": [
+                        "ADJ", 
+                        "ADV", 
+                        "PROPN", 
+                        "VERB",
+                        "AUX",
+                        "JJ", 
+                        "JJR", 
+                        "JJS",
+                        "RB", 
+                        "RBR", 
+                        "RBS",
+                        "NN", 
+                        "NNS",
+                        "NNP", 
+                        "NNPS",
+                        "VB", 
+                        "VBD", 
+                        "VBG", 
+                        "VBN", 
+                        "VBP", 
+                        "VBZ", 
+                        "MD",
+                        "ALL"
+                    ]
+                }
+            }
+        },
+        "replacySuggestion": {
+            "type": "array",
+            "items": {
+                "$ref": "#/definitions/replacySuggestionItem"
+            }
+        },
+        "matchHookItem": {
+            "type": "object",
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "args": {
+                    "oneOf": [
+                        {
+                            "type": "array"
+                        },
+                        {
+                            "type": "string"
+                        },
+                        {
+                            "type": "number"
+                        },
+                        {
+                            "type": "boolean"
+                        }
+                    ]
+                },
+                "kwargs": {
+                    "type": "object"
+                },
+                "match_if_predicate_is": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "name",
+                "match_if_predicate_is"
+            ]
+        }
+    },
+    "patternProperties": {
+        "^[a-z_][A-Za-z0-9_]*$": {
+            "type": "object",
+            "properties": {
+                "patterns": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/replacyAttribute"
+                    },
+                    "minItems": 1
+                },
+                "suggestions": {
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "$ref": "#/definitions/replacySuggestion"
+                    }
+                },
+                "match_hook": {
+                    "type": "array",
+                    "minItems": 0,
+                    "items": {
+                        "$ref": "#/definitions/matchHookItem"
+                    }
+                },
+                "test": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "properties": {
+                        "positive": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        },
+                        "negative": {
+                            "type": "array",
+                            "items": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "description": {
+                    "type": "string"
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "category": {
+                    "type": "string"
+                }
+            },
+            "required": [
+                "patterns",
+                "suggestions"
+            ]
+        }
+    }
+}
