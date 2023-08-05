@@ -1,0 +1,13 @@
+setuptools
+guillotina>=5.0.0a7
+protobuf
+oauth2client
+google-cloud-storage
+gcloud
+ujson
+backoff
+
+[test]
+pytest
+pytest-docker-fixtures
+pytest-aiohttp>=0.3.0
