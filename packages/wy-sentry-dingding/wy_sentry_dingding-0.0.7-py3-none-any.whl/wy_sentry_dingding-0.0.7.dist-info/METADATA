@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: wy-sentry-dingding
+Version: 0.0.7
+Summary: send sentry messages to dingding
+Home-page: https://404.com
+Author: 404
+Author-email: 404@gmail.com
+License: MIT
+Keywords: sentry dingding
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: MIT License
+Requires-Dist: sentry (>=9.0.0)
+Requires-Dist: requests
+
+UNKNOWN
+
+
