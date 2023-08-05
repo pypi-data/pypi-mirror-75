@@ -1,0 +1,176 @@
+Metadata-Version: 2.1
+Name: captcha-harvester
+Version: 1.1.1
+Summary: Solve captchas yourself without having to pay for services like 2captcha for use in automated projects.
+Home-page: https://github.com/NoahCardoza/CaptchaHarvester
+Author: Noah Cardoza
+Author-email: noahcardoza@gmail.com
+License: UNKNOWN
+Description: # CaptchaHarvester
+        
+        > Solve captchas yourself without having to pay for services like 2captcha for use in automated projects.
+        
+        ## use cases
+        
+        This project allows you to solve Google's V2 and V3 ReCaptchas as well as
+        hCaptchas. However, since Google's V3 ReCaptchas are based on a rating
+        system of your browser and browsing habits, it's slightly less reliable.
+        
+        ## help
+        
+        If you need help or want to ask questions: checkout the harvester's dedicated [discord server](https://discord.gg/AAQrkhR).
+        
+        ## setup
+        
+        ### PyPi
+        
+        ```bash
+        pip install captcha-harvester
+        ```
+        
+        ### the `dev` branch
+        
+        Sometimes there will be updates I'm working on that won't be pushed to the master branch/PyPi
+        because I haven't had time to test them. Sometimes these patches will fix problems you experience
+        in the stable branch, but if things get buggy don't be surprised.
+        
+        ```bash
+        pip install https://github.com/NoahCardoza/CaptchaHarvester/archive/dev.zip
+        ```
+        
+        ## usage
+        
+        ## > harvester
+        
+        This will setup an HTTP server at `https://127.0.0.1:5000` by default.
+        
+        If you are running MacOS/Windows and have the [Brave Browser](https://brave.com/)
+        or [Google Chrome](https://www.google.com/chrome/), all you have to do is pass
+        the `-b/--browser` flag set to either `chrome` or `brave`. This will automatically open
+        a new instance of Brave/Chrome under a temporary profile with and map the `domain` to the
+        local server.
+        
+        **NOTE**: Without the `-b/--browser` only the server will start up, without the browser. You won't
+        be able to access the site correctly on your normal browsers because the host won't be correctly
+        mapped to the local server. This could be useful if you want to open the browser with your own
+        command line options or you already have one running from a previous session.
+        
+        > If you would like to come up with an automated solution for your OS, I am open to PR requests.
+        
+        ```text
+        > harvester -h
+        usage: harvester.py [-h] -k SITE_KEY -d DOMAIN [-H HOST] [-p PORT]
+                            [-b {chrome,brave}] [-r] [-v]
+                            {recaptcha-v2,recaptcha-v3,hcaptcha}
+        
+        CaptchaHarvester: Solve captchas yourself without having to pay for services
+        like 2captcha for use in automated projects.
+        
+        positional arguments:
+          {recaptcha-v2,recaptcha-v3,hcaptcha}
+                                the type of captcha you are want to solve
+        
+        optional arguments:
+          -h, --help            show this help message and exit
+          -k SITE_KEY, --site-key SITE_KEY
+                                the sitekey used by the captcha on page
+          -d DOMAIN, --domain DOMAIN
+                                the domain for which you want to solve captchas
+          -H HOST, --host HOST  defaults to 127.0.0.1
+          -p PORT, --port PORT  defaults to 5000
+          -b {chrome,brave}, --browser {chrome,brave}
+                                which browser to open on launch
+          -r, --restart-browser
+                                if this flag is not passed, a new instance of the
+                                browser willbe opened. this flag is most helpful when
+                                solving Googles ReCaptchasbecause if you restat your
+                                main profile you'll most likely be loggedinto Google
+                                and will be given an easier time on the captchas
+          -v, --verbose         show more logging
+        
+        For help contact @MacHacker#7322 (Discord)
+        ```
+        
+        ## ReCaptcha: V2 vs. V3
+        
+        When solving Google's v3 captchas, you should login to a Google Account first. The v3 captcha's
+        work of a raiting system of your browsing habits. They are a little finicky compared to their v2
+        predecessors. If the tokens stop working, you should start using a different Google Account or
+        wait a little bit between relaoding the captcha harvester page.
+        
+        ## accessing the tokens
+        
+        You can either access the tokens from another python project/process by using the
+        handy `fetch.token` function I included:
+        
+        ```python
+        from harvester import fetch
+        
+        server_address = ('127.0.0.1', 5000)
+        token = fetch.token(server_address)
+        print('token:', token)
+        ```
+        
+        **Alternativly**:
+        You can check out [example.py](example.py) to see how to progamatically
+        start the server and access the tokens by integrating the harvester with
+        your existsing (or new) code.
+        
+        Additionally, if your other project isn't using Python, you can call `/token` which
+        will return one token and remove it from the Queue. If no tokens exists it will return
+        HTTP error code 418 "I'm a teapot."
+        
+        **NOTE**: if you are making requests from another program, you'll get SSL errors
+        because the server isn't really who it claims to be. Make sure you configure your
+        program to ignore these errors.
+        
+        ## credits
+        
+        Inspred by [Cosmo3904/Recaptcha-Harvester-V2](https://github.com/Cosmo3904/Recaptcha-Harvester-V2).
+        
+        For help contact @`MacHacker#7322` (Discord)
+        
+        Has CaptchaHarvester saved you money on your project? Consider buying me a coffee!
+        
+        [![Buy Me A Coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/noahcardoza)
+        
+Keywords: http,proxy,http proxy server,proxy server,http server,http web server,proxy framework,web framework,Python3,catpcha,recaptcha,hcaptcha,google,cloudflare,mitm,man in the middle,web server,web scraping,botting
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: Web Environment
+Classifier: Environment :: MacOS X
+Classifier: Environment :: Plugins
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: MacOS :: MacOS 9
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Internet
+Classifier: Topic :: Internet :: Proxy Servers
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Browsers
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content :: CGI Tools/Libraries
+Classifier: Topic :: Internet :: WWW/HTTP :: HTTP Servers
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Description-Content-Type: text/markdown
