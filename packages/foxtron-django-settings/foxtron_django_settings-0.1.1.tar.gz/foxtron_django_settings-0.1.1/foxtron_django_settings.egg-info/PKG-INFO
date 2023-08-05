@@ -1,0 +1,68 @@
+Metadata-Version: 1.2
+Name: foxtron-django-settings
+Version: 0.1.1
+Summary: Tools used at Foxtron GmbH to simplify the writing of settings.py
+Home-page: https://dev.foxtron.ch/foxtron/python/foxtron_django_settings
+Author: Samuel Dolt
+Author-email: samuel.dolt@foxtron.ch
+License: MIT license
+Description: =======================
+        foxtron-django-settings
+        =======================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/foxtron_django_settings.svg
+                :target: https://pypi.python.org/pypi/foxtron_django_settings
+        
+        .. image:: https://img.shields.io/travis/samdolt/foxtron_django_settings.svg
+                :target: https://travis-ci.com/samdolt/foxtron_django_settings
+        
+        .. image:: https://readthedocs.org/projects/foxtron-django-settings/badge/?version=latest
+                :target: https://foxtron-django-settings.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        
+        
+        Tools used at Foxtron GmbH to simplify the writing of settings.py
+        
+        
+        * Free software: MIT license
+        * Documentation: https://foxtron-django-settings.readthedocs.io.
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2020-07-29)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: foxtron_django_settings
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
