@@ -1,0 +1,6 @@
+
+[test]
+tox
+tox-conda
+pytest
+coverage
