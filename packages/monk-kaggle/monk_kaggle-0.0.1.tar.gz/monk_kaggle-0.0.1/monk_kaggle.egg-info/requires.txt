@@ -1,0 +1,15 @@
+scipy
+scikit-learn
+scikit-image
+opencv-python
+pillow==7.2.0
+tqdm
+gpustat
+psutil
+pandas
+GPUtil
+pylg
+tabulate
+netron
+networkx
+matplotlib
