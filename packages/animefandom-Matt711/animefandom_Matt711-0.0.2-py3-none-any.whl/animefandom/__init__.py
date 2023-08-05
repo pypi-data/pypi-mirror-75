@@ -1,0 +1,1 @@
+from animefandom.getanime import AnimeFandom 
