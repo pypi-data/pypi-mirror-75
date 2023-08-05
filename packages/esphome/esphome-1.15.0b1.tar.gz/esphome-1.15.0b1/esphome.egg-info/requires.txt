@@ -1,0 +1,13 @@
+PyYAML==5.3.1
+click==7.1.2
+colorlog==4.2.1
+esptool==2.8
+ifaddr==0.1.7
+paho-mqtt==1.5.0
+platformio==4.3.4
+protobuf==3.12.2
+pyserial==3.4
+pytz==2020.1
+tornado==6.0.4
+tzlocal==2.1
+voluptuous==0.11.7
