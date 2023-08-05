@@ -1,0 +1,47 @@
+appname: {{appname}}
+type: web
+
+builds:
+- name: {{appname}}
+
+test:
+  builds:
+  - name: {{appname}}
+  entrypoints:
+    - script:
+        - echo test
+      # image: xxx
+      # volumes:
+      #   - /tmp:/tmp
+
+service:
+  user: root
+  replicas: {{replicas}}
+
+  mountpoints:
+    - host: {{hostname}}
+      path: /
+  ports:
+  - port: 80
+    targetPort: {{port}}
+
+  containers:
+  - name: {{appname}}
+    # image: xxxxx
+    imagePullPolicy: Always
+    # args: ["xx", "xx"]
+    # command: ['hello-world'] # 如果Dockerfile指定的CMD没问题的话，这部分可以忽略
+
+    # env:                     # environments
+    #   - ENVA=a
+    tty: false               # whether allocate tty
+    # workingDir: xxx          # working dir
+
+    ports:
+    - containerPort: {{port}}
+    readinessProbe:
+      httpGet:
+        path: /healthz
+        port: {{port}}
+      initialDelaySeconds: 10
+      timeoutSeconds: 10

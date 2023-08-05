@@ -1,0 +1,3 @@
+[console_scripts]
+kae = kae.cli:main
+

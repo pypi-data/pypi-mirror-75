@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: kae
+Version: 0.0.14
+Summary: kubernetes app engine command line tool
+Home-page: https://github.com/kaecloud/cli
+Author: Yu Yang
+Author-email: yangyu@geetest.com
+License: UNKNOWN
+Description: # KAE CLI
+        [![Build Status](https://travis-ci.org/kaecloud/cli.svg?branch=master)](https://travis-ci.org/kaecloud/cli)
+        commandline tools for KAE
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
