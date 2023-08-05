@@ -1,0 +1,17 @@
+#!/usr/bin/env python
+# coding: utf-8
+from matador.scrapers import castep_scrapers
+from matador.export import doc2cell
+from matador.utils.print_utils import print_notify, print_success, print_failure
+from sys import argv
+
+fnames = argv[1:]
+for fname in fnames:
+    print_notify('Reading ' + fname)
+    castep_dict, success = castep_scrapers.castep2dict(fname, db=False)
+    if success:
+        doc2cell(castep_dict, fname.replace('.castep', ''), copy_pspots=False, hash_dupe=True)
+        print_success('Wrote .cell file to ' + fname.replace('.castep', '') + '.res')
+    else:
+        print_failure('Unable to find final structure in ' + fname + '.')
+print_success('Completed!')
