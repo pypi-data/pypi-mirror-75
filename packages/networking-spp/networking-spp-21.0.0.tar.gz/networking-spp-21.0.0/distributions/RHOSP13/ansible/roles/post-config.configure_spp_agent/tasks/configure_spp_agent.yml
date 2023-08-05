@@ -1,0 +1,21 @@
+---
+# set SPP primary socket port
+- name: set SPP primary socket port
+  become: yes
+  shell: cd "{{ tmp_dir }}"; ./iniset.sh "{{ ml2_conf_path }}" spp primary_sock_port "{{ spp_primary_sock_port }}"
+
+# set SPP secondary socket port
+- name: set SPP secondary socket port
+  become: yes
+  shell: cd "{{ tmp_dir }}"; ./iniset.sh "{{ ml2_conf_path }}" spp secondary_sock_port "{{ spp_secondary_sock_port }}"
+
+# get hostname
+- name: get hostname
+  shell: hostname -f
+  register: spp_host
+
+# set to ETCD
+- name: set to ETCD
+  become: yes
+  shell: >
+    python {{ tmp_dir }}/spp_etcd_setting.py "{{ dpdk_port_mappings }}" {{ spp_host.stdout }} {{ etcd_host }} {{ etcd_client_port }}

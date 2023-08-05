@@ -1,0 +1,30 @@
+---
+# check existing image
+- name: check existing image
+  shell: >
+    source ~/overcloudrc;
+    openstack image show "{{ tempest_image_name }}";
+  register: exist_image
+  failed_when: false
+
+# delete image
+- name: openstack delete image
+  shell: >
+    source ~/overcloudrc;
+    openstack image delete "{{ tempest_image_name }}"
+  when: exist_image.rc == 0
+
+# check existing flavor
+- name: check existing flavor
+  shell: >
+    source ~/overcloudrc;
+    openstack flavor show "{{ tempest_flavor_name }}";
+  register: exist_flavor
+  failed_when: false
+
+# delete flavor
+- name: openstack delete flavor
+  shell: >
+    source ~/overcloudrc;
+    openstack flavor delete "{{ tempest_flavor_name }}"
+  when: exist_flavor.rc == 0

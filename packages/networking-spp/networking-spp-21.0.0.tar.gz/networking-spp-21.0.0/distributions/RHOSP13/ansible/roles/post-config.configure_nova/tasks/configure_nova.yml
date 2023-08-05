@@ -1,0 +1,13 @@
+---
+# set params to nova config
+- name: set params to nova config
+  become: yes
+  shell: cd "{{ tmp_dir }}"; ./iniset.sh "{{ nova_conf_path }}" "{{ item.section }}" "{{ item.option }}" "{{ item.value }}"
+  with_items:
+    - { section: 'DEFAULT', option: 'vcpu_pin_set', value: "{{ vcpu_pin_set }}" }
+    - { section: 'libvirt', option: 'cpu_mode',     value: "{{ cpu_mode     }}" }
+
+- name: set cpu_model to nova config if cpu_mode is "custom"
+  become: yes
+  shell: cd "{{ tmp_dir }}"; ./iniset.sh "{{ nova_conf_path }}" libvirt cpu_model "{{ cpu_model }}"
+  when: cpu_mode == "custom"

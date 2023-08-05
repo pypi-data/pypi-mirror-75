@@ -1,0 +1,20 @@
+---
+# get kernel driver of bound NIC
+# (Command:"lspci" uses "/bin/bash" as login shell. But ansible doesn't use it, uses "/bin/sh".
+#  So add "bash -lc" to the beginning of the command.)
+- name: get kernel driver of bound NIC
+  shell: > 
+    SPP_UNBIND_PCI_INFO=$(bash -lc "lspci -s {{ item.pci_address }} -k | grep 'Kernel modules:'");
+    echo ${SPP_UNBIND_PCI_INFO##*:}
+  register: kernel_driver
+  failed_when: false
+
+- name: change binding driver from DPDK to kernel
+  become: yes
+  shell: "{{ dpdk_devbind_cmd }} -b {{ kernel_driver.stdout }} {{ item.pci_address }}"
+  when: kernel_driver.stdout != ""
+
+- name: unbind NIC
+  become: yes
+  shell: "{{ dpdk_devbind_cmd }} --force -u {{ item.pci_address }}"
+  when: kernel_driver.stdout == ""

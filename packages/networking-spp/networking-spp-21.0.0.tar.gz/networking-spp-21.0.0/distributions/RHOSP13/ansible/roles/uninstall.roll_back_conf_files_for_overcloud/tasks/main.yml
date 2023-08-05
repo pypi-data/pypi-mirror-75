@@ -1,0 +1,4 @@
+---
+# roll back conf files for overcloud
+- name: roll back conf files for overcloud
+  include_tasks: roll_back_conf_files_for_overcloud.yml

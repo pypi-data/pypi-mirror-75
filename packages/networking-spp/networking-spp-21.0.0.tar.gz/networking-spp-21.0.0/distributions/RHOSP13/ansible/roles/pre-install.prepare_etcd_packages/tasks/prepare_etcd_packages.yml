@@ -1,0 +1,26 @@
+---
+# get pip installer
+- name: get pip installer
+  become: yes
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: "{{ tmp_dir }}"
+
+# install pip
+- name: install pip
+  become: yes
+  shell: "cd {{ tmp_dir }}; python get-pip.py"
+
+# pip install etcd3 etcd3gw
+- name: pip install etcd packages
+  become: yes
+  pip:
+    name: "etcd3 etcd3gw"
+    state: present
+
+# remove pip installer
+- name: remove pip installer
+  become: yes
+  file:
+    path: "{{ tmp_dir }}/get-pip.py"
+    state: absent

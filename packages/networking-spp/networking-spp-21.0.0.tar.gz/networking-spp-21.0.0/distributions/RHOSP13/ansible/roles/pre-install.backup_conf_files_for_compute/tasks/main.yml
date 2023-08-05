@@ -1,0 +1,4 @@
+---
+# backup conf files for compute
+- name: backup conf files for compute
+  include_tasks: backup_conf_files_for_compute.yml

@@ -1,0 +1,10 @@
+---
+# remove script
+- name: remove iniset script
+  become: yes
+  file:
+    path: "{{ tmp_dir }}/{{ item }}"
+    state: absent
+  with_items:
+    - iniset_append.sh
+    - iniset_overwrite.sh

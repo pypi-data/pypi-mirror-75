@@ -1,0 +1,82 @@
+---
+############################################################
+# name: compute.yml
+# description: Setting variables used in compute group. 
+############################################################
+
+######################### Edit below variables as needed #########################
+# NIC config for SPP/DPDK
+# (For devstack environment, this variable is set like "00:04.0#phys1#2#0xfe,00:05.0#phys2#2#0xfc02".)
+dpdk_port_mappings:
+  - { pci_address: '0000:86:00.0', physical_network: 'spp_net', num_vhost: 2, core_mask: '0xfe' }
+
+# hugepages used to spp
+spp_num_hugepages: 2048
+
+# mount directory for spp hugepages
+spp_hugepage_mount: /mnt/huge
+
+# hugepage environments set in the GRUB file
+grub_hugepage_setting: "isolcpus=2-23,26-47 default_hugepagesz=1GB hugepagesz=1G hugepages=32 iommu=pt intel_iommu=on user_namespace.enable=1"
+
+# spp primary socket port 
+spp_primary_sock_port: 5555
+
+# spp secondary socket port
+spp_secondary_sock_port: 6666
+
+# spp primary core mask
+spp_primary_core_mask: '0x2'
+
+# spp hugepage size for each Numa nodes
+# (Separate each value with a comma:','. Don't enter space.)
+spp_primary_socket_mem: 1024,2048
+
+# cores for CPU pining
+# (Separate each value with a comma:','. Don't enter space. If entering consecutive numbers, use a hyphen:'-'.)
+vcpu_pin_set: 12-23,36-47
+
+# CPU mode for VMs (host-model, host-passthrough, custom, none)
+# If setting "custom", also set variable:"cpu_model".
+# See cpu_mode description in "nova.conf" for details.
+cpu_mode: host-passthrough
+
+# Set the name of the libvirt CPU model the instance should use.
+# See the CPU model name from "/usr/share/libvirt/cpu_map.xml".
+# If variable:"cpu_mode" isn't set "custom", don't care this variable.
+# See cpu_model description in "nova.conf" for details.
+cpu_model: <None>
+
+# The command or executable file of "dpdk-devbind"
+dpdk_devbind_cmd: /tmp/dpdk/usertools/dpdk-devbind.py
+
+# The command or executable file of "spp_primary"
+spp_primary_cmd: /tmp/spp/src/primary/x86_64-native-linuxapp-gcc/spp_primary
+
+# The command or executable file of "spp_vf"
+spp_vf_cmd: /tmp/spp/src/vf/x86_64-native-linuxapp-gcc/spp_vf
+
+########################### Don't edit below variables ###########################
+# networking spp package info
+networking_spp_info:
+  version: 1.0.0
+  release: 1
+  architecture: noarch
+
+# nova config file path at host
+nova_conf_path: /var/lib/config-data/puppet-generated/nova_libvirt/etc/nova/nova.conf
+
+# driver module for DPDK (uio_pci_generic, vfio-pci, igb_uio)
+# If setting "igb_uio", insmod igb_uio.ko set in below variable:"igb_uio_ko_path".
+dpdk_driver_module: igb_uio
+
+# driver module file:"igb_uio.ko" actual path
+igb_uio_ko_path: /tmp/dpdk/x86_64-native-linuxapp-gcc/kmod/igb_uio.ko
+
+# flag that determines whether NIC for DPDK is already bound (true/false)
+# If it was done by RHOSP deployment etc, set true.
+is_nics_bound: false
+
+# flag that determines whether hugapage settings is already prepared (true/false)
+# If it was done by RHOSP deployment etc, set true.
+is_hugepage_prepared: false

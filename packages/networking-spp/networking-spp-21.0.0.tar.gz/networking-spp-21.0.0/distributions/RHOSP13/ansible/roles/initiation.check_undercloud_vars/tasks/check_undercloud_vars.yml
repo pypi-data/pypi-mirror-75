@@ -1,0 +1,37 @@
+---
+######################### Below variables may be edited as needed #########################
+# check unexisting flavor in tempest
+- name: check variable "tempest_flavor_name"
+  shell: >
+    source ~/overcloudrc;
+    openstack flavor show "{{ tempest_flavor_name }}";
+  register: exist_flavor
+  failed_when: exist_flavor.rc == 0
+
+# check unexisting image in tempest
+- name: check variable "tempest_image_name"
+  shell: >
+    source ~/overcloudrc;
+    openstack image show "{{ tempest_image_name }}";
+  register: exist_image
+  failed_when: exist_image.rc == 0
+
+# check existing region for tempest image
+- name: check variable "tempest_image_region"
+  shell: >
+    source ~/overcloudrc;
+    openstack region show "{{ tempest_image_region }}";
+
+######################### Below variables are not edited #########################
+# check tempest image format type
+- name: check variable "tempest_image_format"
+  local_action: >
+    shell echo "{{ tempest_image_format }}" | 
+    grep -x -e ami -e ari -e aki -e vhd -e vmdk -e raw -e qcow2 -e vhdx -e vdi -e iso -e ploop
+    || echo "tempest_image_format:{{ tempest_image_format }} is undefined."
+  register: result
+  failed_when: '"is undefined." in result.stdout'
+
+# check existing imege file for tempest
+- name: check variable "tempest_image_file_name"
+  local_action: shell echo "{{ tempest_image_file_name }}" | grep -x ".*\.{{ tempest_image_format }}"

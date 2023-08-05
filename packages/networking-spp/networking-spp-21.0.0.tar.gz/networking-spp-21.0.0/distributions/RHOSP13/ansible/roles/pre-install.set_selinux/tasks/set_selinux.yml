@@ -1,0 +1,57 @@
+---
+# install selinux-policy-devel to make pp file
+- name: install selinux-policy-devel
+  become: yes
+  local_action:
+    module: yum
+    name: selinux-policy-devel
+    state: present
+  run_once: true
+
+# make pp file
+- name: make pp file
+  become: yes
+  local_action: >
+    shell cd ./roles/pre-install.set_selinux/files/ ;
+    make -f /usr/share/selinux/devel/Makefile
+  run_once: true
+
+# uninstall selinux-policy-devel to make pp file
+- name: uninstall selinux-policy-devel
+  become: yes
+  local_action:
+    module: yum
+    name: selinux-policy-devel
+    state: absent
+  run_once: true
+
+# put qemu pp file
+- name: put qemu pp file
+  copy:
+    src: ./roles/pre-install.set_selinux/files/qemu-system-x86_64.pp
+    dest: "{{ tmp_dir }}"
+
+# semodule 'qemu-system-x86_64.pp' for SELinux
+- name: semodule qemu-system-x86_64.pp
+  become: yes
+  shell: cd "{{ tmp_dir }}"; semodule -i qemu-system-x86_64.pp
+
+# setsebool 'virt_use_xserver' on for SELinux
+- name: setsebool virt_use_xserver on
+  become: yes
+  shell: setsebool -P 'virt_use_xserver' on
+
+# remove qemu pp file at remote host
+- name: remove qemu pp file at remote host
+  become: yes
+  file:
+    path: "{{ tmp_dir }}/qemu-system-x86_64.pp"
+    state: absent
+
+# remove made files at localhost
+- name: remove made files at localhost
+  become: yes
+  local_action: >
+    shell cd ./roles/pre-install.set_selinux/files/ ;
+    rm -r $(ls | grep -v qemu-system-x86_64.te)
+  run_once: true

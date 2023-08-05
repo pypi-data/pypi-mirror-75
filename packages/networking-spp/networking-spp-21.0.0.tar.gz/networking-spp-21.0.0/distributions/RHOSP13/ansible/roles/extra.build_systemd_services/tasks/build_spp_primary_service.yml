@@ -1,0 +1,22 @@
+---
+# init local variables
+- name: init variables for SPP primary service
+  set_fact:
+    index: 0
+    all_num_vhost: 0
+
+# set total num_vhost and NICs
+- name: set total num vhost and NICs
+  set_fact:
+    all_num_vhost: "{{ all_num_vhost | int + item.num_vhost | int }}"
+    index: "{{ index | int + 1 }}"
+  with_items: "{{ dpdk_port_mappings }}"
+
+# run script
+- name: build spp primary service
+  become: yes
+  shell: >
+    "{{ tmp_dir }}"/build_spp_primary_service.sh
+    "{{ index }}" "{{ all_num_vhost }}" "{{ spp_primary_core_mask }}"
+    "{{ spp_primary_socket_mem }}" "{{ spp_hugepage_mount }}" "{{ spp_primary_sock_port }}"
+    "{{ spp_primary_cmd }}"

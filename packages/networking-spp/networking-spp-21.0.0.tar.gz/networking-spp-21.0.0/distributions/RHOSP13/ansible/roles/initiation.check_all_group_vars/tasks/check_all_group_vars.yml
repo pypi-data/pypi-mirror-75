@@ -1,0 +1,7 @@
+---
+######################### Below variables may be edited as needed #########################
+# check existing directory for temporary files
+- name: check variable "tmp_dir"
+  shell: ls "{{ tmp_dir }}"
+
+######################### Below variables are not edited #########################

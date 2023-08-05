@@ -1,0 +1,26 @@
+
+module qemu-system-x86_64 1.0;
+
+require {
+	type unconfined_t;
+	type svirt_t;
+	type container_share_t;
+	type systemd_machined_t;
+	type systemd_unit_file_t;
+	class unix_stream_socket connectto;
+	class dir write;
+	class dir add_name;
+	class dir remove_name;
+	class service stop;
+	class sock_file create;
+	class sock_file unlink;
+}
+
+#============= svirt_t ==============
+allow svirt_t unconfined_t:unix_stream_socket connectto;
+allow svirt_t container_share_t:dir write;
+allow svirt_t container_share_t:dir add_name;
+allow svirt_t container_share_t:dir remove_name;
+allow svirt_t container_share_t:sock_file create;
+allow svirt_t container_share_t:sock_file unlink;
+allow systemd_machined_t systemd_unit_file_t:service stop;

@@ -1,0 +1,5 @@
+---
+# git clone networking-spp
+- name: git clone networking-spp
+  become: yes
+  shell: cd "{{ networking_spp_dir }}"; git clone https://opendev.org/x/networking-spp.git -b "{{ networking_spp_info['version'] }}"

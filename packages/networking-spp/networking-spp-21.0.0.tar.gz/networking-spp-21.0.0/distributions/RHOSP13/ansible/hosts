@@ -1,0 +1,18 @@
+################ Edit below IP addresses or host names as needed #################
+# controller nodes
+[controller]
+XXX.XXX.XXX.XXX
+
+# compute nodes
+[compute]
+XXX.XXX.XXX.XXX
+
+# an undercloud(director) node
+[undercloud]
+127.0.0.1
+
+########################### Don't edit below variables ###########################
+# group overcloud nodes
+[overcloud:children]
+controller
+compute

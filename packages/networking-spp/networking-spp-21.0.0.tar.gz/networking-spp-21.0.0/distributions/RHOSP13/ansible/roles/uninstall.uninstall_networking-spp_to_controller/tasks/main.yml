@@ -1,0 +1,4 @@
+---
+# uninstall networking-spp to controller
+- name: uninstall networking-spp to controller
+  include_tasks: uninstall_networking-spp_to_controller.yml

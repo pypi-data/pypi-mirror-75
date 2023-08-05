@@ -1,0 +1,7 @@
+---
+# remove script
+- name: remove run_process script
+  become: yes
+  file:
+    path: "{{ tmp_dir }}/run_process.sh"
+    state: absent

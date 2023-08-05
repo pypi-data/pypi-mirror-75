@@ -1,0 +1,11 @@
+---
+# put script that set params to config files
+- name: put iniset script to compute
+  become: yes
+  copy:
+    src: "./files/{{ item }}"
+    dest: "{{ tmp_dir }}"
+    mode: "+x"
+  with_items:
+    - iniset.sh
+    - spp_etcd_setting.py

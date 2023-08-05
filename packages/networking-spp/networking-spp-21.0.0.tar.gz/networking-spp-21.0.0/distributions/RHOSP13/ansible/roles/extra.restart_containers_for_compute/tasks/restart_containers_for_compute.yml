@@ -1,0 +1,8 @@
+---
+- name: restart neutron_ovs_agent container
+  become: yes
+  shell: docker restart neutron_ovs_agent
+
+- name: restart nova containers
+  become: yes
+  shell: docker restart nova_compute

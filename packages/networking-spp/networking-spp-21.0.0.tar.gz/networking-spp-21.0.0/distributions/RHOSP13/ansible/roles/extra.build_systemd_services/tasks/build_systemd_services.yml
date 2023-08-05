@@ -1,0 +1,37 @@
+---
+# build SPP primary service
+- name: build SPP primary service
+  include_tasks: build_spp_primary_service.yml
+
+# init local variables
+- name: init variables for SPP secondary service
+  set_fact:
+    sec_id: 1
+
+# create spp secondary services for each NIC
+- name: build each one of spp vf service
+  include_tasks: build_spp_vf_service.yml
+  with_items: "{{ dpdk_port_mappings }}"
+
+# daemon-reload
+- name: daemon-reload
+  become: yes
+  systemd:
+    daemon_reload: yes
+
+# set SPP primary service
+- name: set SPP primary service
+  become: yes
+  systemd:
+    name: spp_primary.service
+    enabled: yes
+
+# init local variables
+- name: init variables for SPP secondary service
+  set_fact:
+    sec_id: 1
+
+# set SPP VF(secondary) services
+- name: set SPP secondary services
+  include_tasks: build_spp_vf_systemd_services.yml
+  with_items: "{{ dpdk_port_mappings }}"

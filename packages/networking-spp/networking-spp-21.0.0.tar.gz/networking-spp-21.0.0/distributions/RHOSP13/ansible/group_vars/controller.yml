@@ -1,0 +1,49 @@
+---
+############################################################
+# name: controller.yml
+# description: Setting variables used in controller group.
+############################################################
+
+######################### Edit below variables as needed #########################
+# directory name at container to put files
+container_tmp_dir_name: spp_tmp
+
+# path to bind container to host (except spp)
+# (This variable is used to move files from host to container.
+#  Set the path from "Binds" as the result of command: "docker inspect <container name>".)
+bind_path_except_spp:
+  host: /var/lib/config-data/puppet-generated/neutron
+  container: /var/lib/kolla/config_files/src
+
+# physical network name in flat
+flat_networks: spp_net
+
+# physical network name in vlan, and vlan ID ranges
+network_vlan_ranges: 'spp_net:70:70'
+
+########################### Don't edit below variables ###########################
+# networking spp package info
+networking_spp_info:
+  version: 1.0.0
+  release: 1
+  architecture: noarch
+
+# path to bind container to host (include spp directory)
+bind_path:
+  host: "{{ bind_path_except_spp['host'] }}/{{ container_tmp_dir_name }}"
+  container: "{{ bind_path_except_spp['container'] }}/{{ container_tmp_dir_name }}"
+
+# network types used in VMs
+type_drivers: vlan,gre,vxlan,flat
+
+# mechanism drivers
+mechanism_drivers: spp
+
+# container name to where install networking-spp
+container_name: neutron_api
+
+# ETCD config file path
+etcd_conf_path: /etc/etcd/etcd.conf
+
+# iptables config file path
+iptables_conf_path: /etc/sysconfig/iptables

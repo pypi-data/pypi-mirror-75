@@ -1,0 +1,32 @@
+---
+# check existing original ETCD config file
+- name: check existing original ETCD config file
+  become: yes
+  shell: ls "{{ etcd_conf_path }}_org_non_spp_setting"
+  register: existi_org_etcd_conf
+  failed_when: false
+
+# roll back original ETCD config file
+- name: roll back original ETCD config file
+  become: yes
+  shell: mv "{{ etcd_conf_path }}_org_non_spp_setting" "{{ etcd_conf_path }}"
+  when: existi_org_etcd_conf.rc == 0
+
+# check existing original iptables config file
+- name: check existing original iptables config file
+  become: yes
+  shell: ls "{{ iptables_conf_path }}_org_non_spp_setting"
+  register: existi_org_iptables_conf
+  failed_when: false
+
+# roll back original iptables config file
+- name: roll back original iptables config file
+  become: yes
+  shell: mv "{{ iptables_conf_path }}_org_non_spp_setting" "{{ iptables_conf_path }}"
+  when: existi_org_iptables_conf.rc == 0
+
+# daemon-reload
+- name: daemon-reload
+  become: yes
+  systemd:
+    daemon_reload: yes

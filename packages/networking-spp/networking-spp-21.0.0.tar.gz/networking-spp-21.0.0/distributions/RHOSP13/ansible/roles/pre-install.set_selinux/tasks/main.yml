@@ -1,0 +1,3 @@
+---
+- name: set selinux some settings
+  include_tasks: set_selinux.yml

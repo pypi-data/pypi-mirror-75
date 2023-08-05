@@ -1,0 +1,33 @@
+---
+# check pci_address
+# (Command:"lspci" uses "/bin/bash" as login shell. But ansible doesn't use it, uses "/bin/sh".
+#  So add "bash -lc" to the beginning of the command.)
+- name: check variable "pci_address" in "dpdk_port_mappings"
+  shell: bash -lc "lspci -s {{ item.pci_address }}"
+  register: exist_pci
+  failed_when:
+    - exist_pci.rc != 0 or exist_pci.stdout_lines[0] is undefined or exist_pci.stdout_lines[1] is defined
+
+# check physical_network
+- name: check variable "physical_network" in "dpdk_port_mappings"
+  local_action: >
+    shell echo "{{ item.physical_network }}" | grep ^[a-z]
+    || echo "item.physical_network:{{ item.physical_network }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+# check num_vhost
+- name: check variable "num_vhost" in "dpdk_port_mappings"
+  local_action: >
+    shell echo "{{ item.num_vhost }}" | grep [0-9] | grep -v [^0-9]
+    || echo "item.num_vhost:{{ item.num_vhost }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+# check core_mask
+- name: check variable "core_mask" in "dpdk_port_mappings"
+  local_action: >
+    shell echo "{{ item.core_mask }}" | grep "^0x[0-9A-Fa-f]\+$"
+    || echo "item.core_mask:{{ item.core_mask }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'

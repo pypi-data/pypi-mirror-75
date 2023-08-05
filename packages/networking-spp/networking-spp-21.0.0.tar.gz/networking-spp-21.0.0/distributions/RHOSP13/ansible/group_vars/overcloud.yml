@@ -1,0 +1,32 @@
+---
+############################################################
+# name: overcloud.yml
+# description: Setting variables used in overcloud group.
+############################################################
+
+######################### Edit below variables as needed #########################
+
+# host IP of ETCD service (Set the management network IP of Controller)
+etcd_host: XXX.XXX.XXX.XXX
+
+# client port of ETCD service
+etcd_client_port: 2379
+
+# peer port of ETCD service
+etcd_peer_port: 2380
+
+# ssh login account
+ansible_ssh_user: heat-admin
+
+########################### Don't edit below variables ###########################
+# networking-spp installation path at container
+networking_spp_dir: /opt
+
+# service name of SPP agent
+spp_agent_service_name: q-spp-agt
+
+# neutron config file path at host
+neutron_conf_path: /var/lib/config-data/puppet-generated/neutron/etc/neutron/neutron.conf
+
+# ML2 config file path at host
+ml2_conf_path: /var/lib/config-data/puppet-generated/neutron/etc/neutron/plugins/ml2/ml2_conf.ini

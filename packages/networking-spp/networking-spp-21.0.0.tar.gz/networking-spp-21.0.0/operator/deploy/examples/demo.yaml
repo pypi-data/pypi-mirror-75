@@ -1,0 +1,110 @@
+apiVersion: spp.spp/v1
+kind: Spp
+metadata:
+  name: demo
+spec:
+  ctl:
+    name: ctl
+    image: sppc/spp-ctl:18.04
+  primary:
+    name: primary
+    image: sppc/spp-ubuntu:18.04
+    eal:
+      lcores: "2"
+      socket-mem: "1024,0"
+    portmask: "0x0f"
+  vfs:
+    - name: vf:2
+      image: sppc/spp-ubuntu:18.04
+      eal:
+        lcores: "2,12,14,16,18"
+        socket-mem: "1024,0"
+      components:
+        - core: 12
+          name: "cls2-1"
+          rx_port:
+            - port: "phy:0"
+          tx_port:
+            - port: "ring:1"
+          type: "classifier"
+        - core: 14
+          name: "fwd2-1"
+          rx_port:
+            - port: "ring:2"
+          tx_port:
+            - port: "vhost:1"
+          type: "forward"
+        - core: 16
+          name: "fwd2-2"
+          rx_port:
+            - port: "vhost:1"
+          tx_port:
+            - port: "phy:0"
+          type: "forward"
+        - core: 18
+          name: "mgr2-1"
+          rx_port:
+            - port: "ring:4"
+          tx_port:
+            - port: "phy:2"
+          type: "merge"
+      classifier_table:
+        - type: "mac"
+          value: "default"
+          port: "ring:1"
+  mirrors:
+    - name: mirror:1
+      image: sppc/spp-ubuntu:18.04
+      eal:
+        lcores: "2,8,10"
+        socket-mem: "1024,0"
+      components:
+        - core: 8
+          name: "mir1-1"
+          rx_port:
+            - port: "ring:1"
+          tx_port:
+            - port: "ring:2"
+            - port: "ring:3"
+          type: "mirror"
+        - core: 10
+          name: "mir1-2"
+          rx_port:
+            - port: "ring:3"
+          tx_port:
+            - port: "phy:1"
+            - port: "ring:4"
+          type: "mirror"
+  apps:
+    - name: pipe:1
+      image: sppc/spp-ubuntu:18.04
+      command: ["pipe_test"]
+      args: ["virtio_user1"]
+      type: "vhost"
+      eal:
+        lcores: "19"
+        vdevs: [["virtio_user1", "path=/tmp/sock1,server=1"]]
+    - name: pipe:2
+      image: sppc/spp-ubuntu:18.04
+      command: ["pipe_test"]
+      args: ["--send virtio_user2"]
+      type: "vhost"
+      eal:
+        lcores: "20"
+        vdevs: [["virtio_user2", "path=/tmp/sock2,server=1"]]
+    - name: pipe:3
+      image: sppc/spp-ubuntu:18.04
+      command: ["pipe_test"]
+      args: ["net_pipe0"]
+      type: "pipe"
+      eal:
+        lcores: "5"
+        vdevs: [["net_pipe0", "rx=ring:1", "tx=ring:2"]]
+    - name: pipe:4
+      image: sppc/spp-ubuntu:18.04
+      command: ["pipe_test"]
+      args: ["--send net_pipe1"]
+      type: "pipe"
+      eal:
+        lcores: "6"
+        vdevs: [["net_pipe1", "rx=ring:3", "tx=ring:4"]]

@@ -1,0 +1,152 @@
+# Remove resources to run Tempest
+- hosts: undercloud
+  gather_facts: no
+  become: no
+  roles:
+   - { role: uninstall.remove_preparing_tempest }
+  tags:
+    - remove_preparing_tempest
+
+# Stop SPP services
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.stop_systemd_services }
+  tags:
+    - stop_systemd_services
+
+# Remove SPP services
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.remove_systemd_services }
+  tags:
+    - remove_systemd_services
+
+# SPP/DPDK unsettings
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.cleanup_spp_dpdk }
+  tags:
+    - cleanup_spp_dpdk
+
+# SPP Agent unsettings
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.unconfigure_spp_agent }
+  tags:
+    - unconfigure_spp_agent
+
+# Roll back config files for overcloud
+- hosts: overcloud
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.roll_back_conf_files_for_overcloud }
+  tags:
+    - roll_back_conf_files_for_overcloud
+
+# Roll back config files for controller
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.roll_back_conf_files_for_controller }
+  tags:
+    - roll_back_conf_files_for_controller
+
+# Roll back config files for compute
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.roll_back_conf_files_for_compute }
+  tags:
+    - roll_back_conf_files_for_compute
+
+# Restart docker containers for controller (Because related config files are rolled back.)
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.restart_containers_for_controller }
+  tags:
+    - restart_containers_for_controller
+
+# Restart docker containers for compute (Because related config files are rolled back.)
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.restart_containers_for_compute }
+  tags:
+    - restart_containers_for_compute
+
+# Uninstall networking-spp to compute
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.uninstall_networking-spp_to_compute }
+  tags:
+    - uninstall_networking-spp_to_compute
+
+# Uninstall networking-spp to controller
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.uninstall_networking-spp_to_controller }
+  tags:
+    - uninstall_networking-spp_to_controller
+
+# Uninstall pip and etcd packages
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.remove_etcd_packages }
+  tags:
+    - remove_etcd_packages
+
+# Stop etcd service
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.stop_etcd_service }
+  tags:
+    - stop_etcd_service
+
+# Unset SELinux module
+- hosts: overcloud
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.unset_selinux }
+  tags:
+    - unset_selinux
+
+# Remove for networking-spp to controller
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.remove_networking-spp_to_controller }
+  tags:
+    - remove_networking-spp_to_controller
+
+# Remove for networking-spp to compute
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: uninstall.remove_networking-spp_to_compute }
+  tags:
+    - remove_networking-spp_to_compute

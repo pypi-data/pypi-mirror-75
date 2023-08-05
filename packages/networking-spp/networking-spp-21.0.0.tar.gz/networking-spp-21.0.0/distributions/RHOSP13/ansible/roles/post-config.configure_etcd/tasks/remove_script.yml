@@ -1,0 +1,6 @@
+# remove script files
+- name: remove iniset script
+  become: yes
+  file:
+    path: "{{ tmp_dir }}/iniset.sh"
+    state: absent

@@ -1,0 +1,96 @@
+---
+# get hostname
+- name: get hostname
+  shell: hostname -f
+  register: hostname
+
+# set params to etcd config
+- name: set data dir to etcd config
+  become: yes
+  lineinfile:
+    path: "{{ etcd_conf_path }}"
+    regexp: "ETCD_DATA_DIR="
+    line: "ETCD_DATA_DIR=\"/var/lib/etcd/default.etcd\""
+
+- name: set any client URLs to etcd config 
+  become: yes
+  lineinfile:
+    path: "{{ etcd_conf_path }}"
+    regexp: "{{ item }}="
+    line: "{{ item }}=\"http://{{ etcd_host }}:{{ etcd_client_port }}\""
+  with_items:
+    - ETCD_LISTEN_CLIENT_URLS
+    - ETCD_ADVERTISE_CLIENT_URLS
+
+- name: set any peer URLs to etcd config
+  become: yes
+  lineinfile:
+    path: "{{ etcd_conf_path }}"
+    regexp: "{{ item }}="
+    line: "{{ item }}=\"http://{{ etcd_host }}:{{ etcd_peer_port }}\""
+  with_items:
+    - ETCD_LISTEN_PEER_URLS
+    - ETCD_INITIAL_ADVERTISE_PEER_URLS
+
+- name: set etcd name to etcd config
+  become: yes
+  lineinfile:
+    path: "{{ etcd_conf_path }}"
+    regexp: "ETCD_NAME="
+    line: "ETCD_NAME=\"{{ hostname.stdout }}\""
+
+- name: set initial cluster to etcd config
+  become: yes
+  lineinfile:
+    path: "{{ etcd_conf_path }}"
+    regexp: "ETCD_INITIAL_CLUSTER="
+    line: "ETCD_INITIAL_CLUSTER=\"{{ hostname.stdout }}=http://{{ etcd_host }}:{{ etcd_peer_port }}\""
+
+- name: set initial cluster token to etcd config
+  become: yes
+  lineinfile:
+    path: "{{ etcd_conf_path }}"
+    regexp: "ETCD_INITIAL_CLUSTER_TOKEN="
+    line: "ETCD_INITIAL_CLUSTER_TOKEN=\"etcd-cluster-01\""
+
+- name: set initial cluster state to etcd config
+  become: yes
+  lineinfile:
+    path: "{{ etcd_conf_path }}"
+    regexp: "ETCD_INITIAL_CLUSTER_STATE="
+    line: "ETCD_INITIAL_CLUSTER_STATE=\"new\""
+
+# set etcd service
+- name: set etcd service
+  become: yes
+  systemd:
+    daemon_reload: yes
+    name: etcd
+    enabled: yes
+    state: started
+
+# set iptables for etcd service
+- name: set iptables set for etcd client
+  become: yes
+  lineinfile:
+    path: "{{ iptables_conf_path }}"
+    state: present
+    line: "-A INPUT -p tcp -m multiport --dports {{ etcd_client_port }} -m state --state NEW -m comment --comment \"100 etcd_client ipv4\" -j ACCEPT"
+    insertafter: "-A INPUT -p tcp -m multiport --dports 22 -m state"
+
+- name: set iptables set for etcd cluster
+  become: yes
+  lineinfile:
+    path: "{{ iptables_conf_path }}"
+    state: present
+    line: "-A INPUT -p tcp -m multiport --dports {{ etcd_peer_port }} -m state --state NEW -m comment --comment \"100 etcd_cluster ipv4\" -j ACCEPT"
+    insertafter: "-A INPUT -p tcp -m multiport --dports 22 -m state"
+
+# set iptables service
+- name: set iptables service
+  become: yes
+  systemd:
+    daemon_reload: yes
+    name: iptables
+    enabled: yes
+    state: restarted

@@ -1,0 +1,35 @@
+---
+# check existing flavor
+- name: check existing flavor
+  shell: >
+    source ~/overcloudrc;
+    openstack flavor show "{{ tempest_flavor_name }}";
+  register: exist_flavor
+  failed_when: false
+
+# create flavor
+- name: openstack create flavor
+  shell: >
+    source ~/overcloudrc;
+    openstack flavor create "{{ tempest_flavor_name }}" --ram 4096 --disk 20 --vcpus 2 --public --property hw:mem_page_size=large
+  when: exist_flavor.rc != 0
+
+# check existing image
+- name: check existing image
+  shell: > 
+    source ~/overcloudrc;
+    openstack image show "{{ tempest_image_name }}";
+  register: exist_image
+  failed_when: false
+
+# build image using diskimage-builder
+- name: build image using diskimage-builder
+  shell: cd {{ tmp_dir }}; ./build_image_for_rhosp.sh {{ tmp_dir }}
+  when: exist_image.rc != 0
+
+# create image
+- name: openstack create image
+  shell: >
+    source ~/overcloudrc;
+    openstack --os-region-name="{{ tempest_image_region }}" image create "{{ tempest_image_name }}" --public --container-format bare --disk-format {{ tempest_image_format }} < "{{ tmp_dir }}"/"{{ tempest_image_file_name }}"
+  when: exist_image.rc != 0

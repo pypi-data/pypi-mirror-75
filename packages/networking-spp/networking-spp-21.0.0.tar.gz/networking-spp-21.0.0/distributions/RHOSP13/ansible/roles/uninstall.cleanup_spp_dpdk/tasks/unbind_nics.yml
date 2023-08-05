@@ -1,0 +1,5 @@
+---
+# unbind nic (one by one)
+- name: unbind nic
+  include_tasks: unbind_nic.yml
+  with_items: "{{ dpdk_port_mappings }}"

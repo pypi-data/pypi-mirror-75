@@ -1,0 +1,8 @@
+---
+# run script
+- name: build spp vf service
+  shell: "{{ tmp_dir }}/build_spp_vf_service.sh {{ sec_id }} {{ item.core_mask }} {{ spp_secondary_sock_port }} {{ spp_vf_cmd }}"
+
+- name: increment sec_id
+  set_fact:
+    sec_id: "{{ sec_id | int + 1 }}"

@@ -1,0 +1,26 @@
+---
+# stop SPP Agent (networking-spp)
+- name: stop SPP Agent (networking-spp) service
+  become: yes
+  systemd:
+    name: "{{ spp_agent_service_name }}.service"
+    state: stopped
+  failed_when: false
+
+# set variable for SPP VF(Secondary)
+- name: set variable for SPP VF(Secondary)
+  set_fact:
+    sec_id: 1
+
+# stop SPP VF(Secondary)
+- name: stop SPP VF(Secondary) services
+  include_tasks: stop_spp_vf_systemd_services.yml
+  with_items: "{{ dpdk_port_mappings }}"
+
+# stop SPP Primary
+- name: stop SPP Primary service
+  become: yes
+  systemd:
+    name: "spp_primary.service"
+    state: stopped
+  failed_when: false

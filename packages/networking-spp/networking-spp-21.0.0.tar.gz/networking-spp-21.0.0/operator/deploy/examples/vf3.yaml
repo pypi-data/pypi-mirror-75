@@ -1,0 +1,53 @@
+apiVersion: spp.spp/v1
+kind: Spp
+metadata:
+  name: vf3
+spec:
+  ctl:
+    name: ctl
+    image: sppc/spp-ctl:18.04
+  primary:
+    name: primary
+    image: sppc/spp-ubuntu:18.04
+    eal:
+      lcores: "1"
+      socket-mem: "1024"
+    portmask: "0x07"
+  vfs:
+    - name: vf:10
+      image: sppc/spp-ubuntu:18.04
+      eal:
+        lcores: "1,4-7"
+      components:
+        - core: 4
+          name: "fwd1"
+          rx_port:
+            - port: "ring:0"
+          tx_port:
+            - port: "vhost:0"
+          type: "forward"
+        - core: 5
+          name: "fwd2"
+          rx_port:
+            - port: "vhost:0"
+          tx_port:
+            - port: "ring:1"
+          type: "forward"
+        - core: 6
+          name: "classifier1"
+          rx_port:
+            - port: "phy:0"
+          tx_port:
+            - port: "ring:0"
+          type: "classifier"
+        - core: 7
+          name: "merger1"
+          rx_port:
+            - port: "ring:1"
+          tx_port:
+            - port: "phy:0"
+          type: "merge"
+      classifier_table:
+         - type: "mac"
+           value: "FA:16:3E:7D:CC:35"
+           port: "ring:0"

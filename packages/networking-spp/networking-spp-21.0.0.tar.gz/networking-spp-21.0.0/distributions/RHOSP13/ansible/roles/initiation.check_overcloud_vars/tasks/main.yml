@@ -1,0 +1,4 @@
+---
+# check overcloud variables
+- name: check overcloud variables
+  include_tasks: check_overcloud_vars.yml

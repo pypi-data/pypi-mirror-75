@@ -1,0 +1,19 @@
+---
+# check existing original Nova config file
+- name: check existing original Nova config file
+  become: yes
+  shell: ls "{{ nova_conf_path }}_org_non_spp_setting"
+  register: existi_org_nova_conf
+  failed_when: false
+
+# roll back original Nova config file
+- name: roll back original Nova config file
+  become: yes
+  shell: mv "{{ nova_conf_path }}_org_non_spp_setting" "{{ nova_conf_path }}"
+  when: existi_org_nova_conf.rc == 0
+
+# daemon-reload
+- name: daemon-reload
+  become: yes
+  systemd:
+    daemon_reload: yes

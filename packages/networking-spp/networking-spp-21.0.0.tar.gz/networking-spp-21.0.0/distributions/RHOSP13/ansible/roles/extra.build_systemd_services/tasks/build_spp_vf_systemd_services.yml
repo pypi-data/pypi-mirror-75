@@ -1,0 +1,11 @@
+---
+# build spp vf services for each NIC
+- name: build spp vf service
+  become: yes
+  systemd:
+    name: "spp_vf-{{ sec_id }}.service"
+    enabled: yes
+
+- name: increment sec_id
+  set_fact:
+    sec_id: "{{ sec_id | int + 1 }}"

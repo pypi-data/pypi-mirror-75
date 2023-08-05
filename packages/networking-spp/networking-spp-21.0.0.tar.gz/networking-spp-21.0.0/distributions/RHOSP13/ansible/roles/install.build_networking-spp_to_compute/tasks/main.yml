@@ -1,0 +1,4 @@
+---
+# install networking-spp
+- name: install networking-spp
+  include_tasks: install_networking-spp.yml

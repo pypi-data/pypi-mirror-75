@@ -1,0 +1,4 @@
+---
+# check controller variables
+- name: check controller variables
+  include_tasks: check_controller_vars.yml

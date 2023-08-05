@@ -1,0 +1,4 @@
+---
+# uninstall networking-spp to compute
+- name: uninstall networking-spp to compute
+  include_tasks: uninstall_networking-spp_to_compute.yml

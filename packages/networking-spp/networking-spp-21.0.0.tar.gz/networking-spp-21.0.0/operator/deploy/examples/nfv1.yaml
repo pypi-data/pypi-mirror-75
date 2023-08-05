@@ -1,0 +1,43 @@
+apiVersion: spp.spp/v1
+kind: Spp
+metadata:
+  name: nfv1
+spec:
+  ctl:
+    name: ctl
+    image: sppc/spp-ctl:18.04
+  primary:
+    name: primary
+    image: sppc/spp-ubuntu:18.04
+    eal:
+      lcores: "1"
+      socket-mem: "1024"
+    portmask: "0x07"
+  nfvs:
+    - name: nfv:1
+      image: sppc/spp-ubuntu:18.04
+      eal:
+        lcores: "1,2"
+        socket-mem: "1024"
+      resources: ["vhost:1", "vhost:2"]
+      patches:
+        - src: "vhost:1"
+          dst: "vhost:2"
+    - name: nfv:2
+      image: sppc/spp-ubuntu:18.04
+      eal:
+        lcores: "1,3"
+        socket-mem: "1024"
+      resources: ["vhost:3", "vhost:4"]
+      patches:
+        - src: "vhost:3"
+          dst: "vhost:4"
+    - name: nfv:3
+      image: sppc/spp-ubuntu:18.04
+      eal:
+        lcores: "1,4"
+        socket-mem: "1024"
+      resources: ["vhost:5", "vhost:6"]
+      patches:
+        - src: "vhost:5"
+          dst: "vhost:6"

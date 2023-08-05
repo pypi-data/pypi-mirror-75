@@ -1,0 +1,25 @@
+---
+# remove SPP Agent (networking-spp)
+- name: remove SPP Agent (networking-spp) service
+  become: yes
+  file:
+    path: "/etc/systemd/system/{{ spp_agent_service_name }}.service"
+    state: absent
+
+# set variable for SPP VF(Secondary)
+- name: set variable for SPP VF(Secondary)
+  set_fact:
+    sec_id: 1
+
+# remove SPP VF(Secondary) services for each NIC
+- name: remove each one of spp vf service
+  include_tasks: remove_spp_vf_service.yml
+  with_items: "{{ dpdk_port_mappings }}"
+
+# remove SPP Primary service
+- name: remove SPP Primary service
+  become: yes
+  file:
+    path: /etc/systemd/system/spp_primary.service
+    state: absent
+

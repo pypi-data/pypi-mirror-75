@@ -1,0 +1,6 @@
+---
+# remove files
+- name: remove files
+  file:
+    path: "{{ tmp_dir }}/build_image_for_rhosp.sh"
+    state: absent

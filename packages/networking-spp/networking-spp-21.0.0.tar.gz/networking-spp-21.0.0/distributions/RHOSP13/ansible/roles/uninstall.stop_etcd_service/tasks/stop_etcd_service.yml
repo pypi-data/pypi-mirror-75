@@ -1,0 +1,18 @@
+---
+# unset etcd service
+- name: unset etcd service
+  become: yes
+  systemd:
+    daemon_reload: yes
+    name: etcd
+    enabled: no
+    state: stopped
+
+# restart iptables service for non-etcd service
+- name: restart iptables service for non-etcd service
+  become: yes
+  systemd:
+    daemon_reload: yes
+    name: iptables
+    enabled: yes
+    state: restarted

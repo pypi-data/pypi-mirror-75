@@ -1,0 +1,16 @@
+---
+# get networking-spp files list
+- name: get networking-spp files list
+  become: yes
+  shell: >
+    docker exec --user 0 {{ container_name }} bash -c "cd {{ networking_spp_dir }}/networking-spp;
+    PBR_VERSION={{ networking_spp_info['version'] }} python setup.py install --record remove_files.txt"
+  failed_when: false
+
+# remove networking-spp files
+- name: remove networking-spp files
+  become: yes
+  shell: >
+    docker exec --user 0 {{ container_name }} bash -c "cd {{ networking_spp_dir }}/networking-spp;
+    cat remove_files.txt | xargs rm -rf"
+  failed_when: false

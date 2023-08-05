@@ -1,0 +1,141 @@
+---
+######################### Below variables may be edited as needed #########################
+# check exist bind directory in host
+- name: check variable "bind_path_except_spp['host']"
+  become: yes
+  shell: ls "{{ bind_path_except_spp['host'] }}"
+
+# check unexist spp temporary directory in host
+- name: check variable "container_tmp_dir_name" in "bind_path_except_spp['host']"'s path
+  become: yes
+  shell: ls "{{ bind_path_except_spp['host'] }}/{{ container_tmp_dir_name }}"
+  register: exist_spp_tmp_dir_host
+  failed_when: exist_spp_tmp_dir_host.rc == 0
+
+# check exist bind directory in container
+- name: check variable "bind_path['host']"
+  become: yes
+  shell: docker exec --user 0 {{ container_name }} ls "{{ bind_path_except_spp['container'] }}"
+
+# check unexist spp temporary directory in container
+- name: check variable "container_tmp_dir_name" in "bind_path_except_spp['container']"'s path
+  become: yes
+  shell: docker exec --user 0 {{ container_name }} ls "{{ bind_path_except_spp['container'] }}/{{ container_tmp_dir_name }}"
+  register: exist_spp_tmp_dir_container
+  failed_when: exist_spp_tmp_dir_container.rc == 0
+
+# check binding host and container
+- name: check binding host and container for "container_tmp_dir_name" and "bind_path_except_spp"
+  become: yes
+  shell: >
+    docker inspect --format="{{ '{{' }}.HostConfig.Binds{{ '}}' }}" neutron_api
+    | tr ' ' '\n'
+    | tr -d '['
+    | tr -d ']'
+    | grep "{{ bind_path_except_spp['host'] }}/\?:{{ bind_path_except_spp['container'] }}/\?"
+
+# check "flat_networks" existing flat name
+- name: check variable "flat_networks"
+  local_action: >
+    shell echo "{{ flat_networks }}" | grep ^[a-z]
+    || echo "flat_networks:{{ flat_networks }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+# check "network_vlan_ranges" existing VLAN name and ranges
+- name: Split variable "network_vlan_ranges" to check it
+  local_action: shell echo "{{ network_vlan_ranges }}" | tr ':' '\n'
+  register: network_vlan_ranges_values
+
+- name: check variable VLAN name in "network_vlan_ranges"
+  local_action: >
+    shell echo "{{ network_vlan_ranges_values.stdout_lines[0] }}" | grep ^[a-z]
+    || echo "VLAN name in network_vlan_ranges:{{ network_vlan_ranges_values.stdout_lines[0] }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+- name: check variable VLAN minimam range in "network_vlan_ranges"
+  local_action: >
+    shell echo "{{ network_vlan_ranges_values.stdout_lines[1] }}" | grep [0-9] | grep -v [^0-9]
+    || echo "VLAN minimam range in network_vlan_ranges:{{ network_vlan_ranges_values.stdout_lines[1] }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+- name: check variable VLAN maximam range in "network_vlan_ranges"
+  local_action: >
+    shell echo "{{ network_vlan_ranges_values.stdout_lines[2] }}" | grep [0-9] | grep -v [^0-9]
+    || echo "VLAN maximam range in network_vlan_ranges:{{ network_vlan_ranges_values.stdout_lines[2] }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+- name: check variable no element in "network_vlan_ranges"
+  local_action: >
+    shell echo "network_vlan_ranges:'{{ network_vlan_ranges }}' contains extra value:{{ network_vlan_ranges_values.stdout_lines[3] }}..."
+  failed_when: true
+  when: network_vlan_ranges_values.stdout_lines[3] is defined
+
+- name: check variable comparison in VLAN ranges of "network_vlan_ranges"
+  local_action: >
+    shell test "{{ network_vlan_ranges_values.stdout_lines[1] }}" -le "{{ network_vlan_ranges_values.stdout_lines[2] }}"
+    || echo "VLAN ranges in network_vlan_ranges:'{{ network_vlan_ranges_values.stdout_lines[1] }}:{{ network_vlan_ranges_values.stdout_lines[2] }}' are reversed."
+  register: result
+  failed_when: '"are reversed." in result.stdout'
+
+######################### Below variables are not edited #########################
+# check that bind_path['host'] and bind_path_except_spp['host']/container_tmp_dir_name are the same string
+- name: check variable "bind_path" at host
+  local_action: >
+    shell test {{ bind_path_except_spp['host'] }}/{{ container_tmp_dir_name }} = {{ bind_path['host'] }}
+    || echo "bind_path['host']:\"{{ bind_path['host'] }}\" and bind_path_except_spp['host']/container_tmp_dir_name:\"{{ bind_path_except_spp['host'] }}/{{ container_tmp_dir_name }}\" are unmatched."
+  register: result
+  failed_when: '"are unmatched." in result.stdout'
+
+# check that bind_path['container'] and bind_path_except_spp['container']/container_tmp_dir_name are the same string
+- name: check variable "bind_path" at container
+  local_action: >
+    shell test {{ bind_path_except_spp['container'] }}/{{ container_tmp_dir_name }} = {{ bind_path['container'] }}
+    || echo "bind_path['container']:\"{{ bind_path['container'] }}\" and bind_path_except_spp['container']/container_tmp_dir_name:\"{{ bind_path_except_spp['container'] }}/{{ container_tmp_dir_name }}\" are unmatched."
+  register: result
+  failed_when: '"are unmatched." in result.stdout'
+
+# check type_drivers
+- name: get type_drivers list to check variable "type_drivers"
+  local_action: shell echo "{{ type_drivers }}" | tr ',' '\n'
+  register: type_drivers_list
+
+- name: check variable "type_drivers" for each drivers
+  local_action: >
+    shell echo "{{ item }}" | grep [a-z] | grep -v [^a-z]
+    || echo "One of type_drivers:{{ item }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+  with_items: "{{ type_drivers_list.stdout_lines }}"
+
+# check mechanism_drivers
+- name: get mechanism_drivers list to check variable "mechanism_drivers"
+  local_action: >
+    shell echo "{{ mechanism_drivers }}" | tr ',' '\n'
+  register: mechanism_drivers_list
+
+- name: check variable "mechanism_drivers" for each drivers
+  local_action: >
+    shell echo "{{ item }}" | grep [a-z] | grep -v [^a-z]
+    || echo "One of mechanism_drivers:{{ item }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+  with_items: "{{ mechanism_drivers_list.stdout_lines }}"
+
+# check running the docker container
+- name: check variable "container_name"
+  become: yes
+  shell: docker ps | grep "{{ container_name }}"
+
+# check exist etcd config file
+- name: check variable "etcd_conf_path"
+  become: yes
+  shell: ls "{{ etcd_conf_path }}"
+
+# check exist iptables config file
+- name: check variable "iptables_conf_path"
+  become: yes
+  shell: ls "{{ iptables_conf_path }}"

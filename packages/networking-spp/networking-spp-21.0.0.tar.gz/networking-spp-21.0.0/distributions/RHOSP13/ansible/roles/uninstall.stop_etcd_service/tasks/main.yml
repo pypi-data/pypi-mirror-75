@@ -1,0 +1,4 @@
+---
+# stop etcd service
+- name: stop etcd service
+  include_tasks: stop_etcd_service.yml

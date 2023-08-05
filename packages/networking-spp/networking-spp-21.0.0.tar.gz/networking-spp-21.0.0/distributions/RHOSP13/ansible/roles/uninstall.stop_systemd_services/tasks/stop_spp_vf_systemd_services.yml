@@ -1,0 +1,12 @@
+---
+# stop SPP VF(Secondary)
+- name: stop SPP VF(Secondary) services
+  become: yes
+  systemd:
+    name: "spp_vf-{{ sec_id }}.service"
+    state: stopped
+  failed_when: false
+
+- name: increment sec_id
+  set_fact:
+    sec_id: "{{ sec_id | int + 1 }}"

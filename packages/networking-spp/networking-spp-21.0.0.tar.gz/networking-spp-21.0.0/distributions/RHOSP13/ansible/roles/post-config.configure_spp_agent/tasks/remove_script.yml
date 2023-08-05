@@ -1,0 +1,9 @@
+# remove script
+- name: remove iniset script from compute
+  become: yes
+  file:
+    path: "{{ tmp_dir }}/{{ item }}"
+    state: absent
+  with_items:
+    - iniset.sh
+    - spp_etcd_setting.py

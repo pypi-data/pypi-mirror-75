@@ -1,0 +1,5 @@
+# semodule(remove) 'qemu-system-x86_64.pp' for SELinux
+- name: semodule(remove) qemu-system-x86_64.pp
+  become: yes
+  shell: semodule -r qemu-system-x86_64
+  failed_when: false

@@ -1,0 +1,4 @@
+---
+# check undercloud variables
+- name: check undercloud variables
+  include_tasks: check_undercloud_vars.yml

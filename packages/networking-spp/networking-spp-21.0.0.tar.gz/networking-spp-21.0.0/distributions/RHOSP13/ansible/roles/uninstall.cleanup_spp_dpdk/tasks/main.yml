@@ -1,0 +1,4 @@
+---
+# cleanup spp dpdk
+- name: cleanup spp dpdk
+  include_tasks: cleanup_spp_dpdk.yml

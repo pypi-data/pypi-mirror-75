@@ -1,0 +1,4 @@
+---
+# roll back conf files for compute
+- name: roll back conf files for compute
+  include_tasks: roll_back_conf_files_for_compute.yml

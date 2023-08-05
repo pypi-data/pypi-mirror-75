@@ -1,0 +1,10 @@
+---
+# alloc hugepages for DPDK
+- name: alloc hugepages
+  include_tasks: alloc_hugepages.yml
+  when: is_hugepage_prepared == false
+
+# bind NICs for DPDK
+- name: bind NICs
+  include_tasks: bind_nics.yml
+  when: is_nics_bound == false

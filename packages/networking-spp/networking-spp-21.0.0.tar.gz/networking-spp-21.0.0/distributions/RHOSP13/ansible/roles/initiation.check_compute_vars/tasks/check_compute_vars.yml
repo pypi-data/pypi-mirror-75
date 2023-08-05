@@ -1,0 +1,170 @@
+---
+######################### Below variables may be edited as needed #########################
+# check dpdk_port_mappings
+- name: check variable "dpdk_port_mappings"
+  include_tasks: check_dpdk_port_mappings.yml
+  with_items: "{{ dpdk_port_mappings }}"
+
+# check spp_num_hugepages
+- name: check variable "spp_num_hugepages"
+  local_action: >
+    shell echo "{{ spp_num_hugepages }}" | grep [0-9] | grep -v [^0-9]
+    || echo "spp_num_hugepages:{{ spp_num_hugepages }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+# check spp_hugepage_mount
+- name: check variable "spp_hugepage_mount" when "is_hugepage_prepared" is true
+  shell: mount | grep "{{ spp_hugepage_mount }}"
+  register: is_mounted
+  failed_when: is_mounted.rc != 0
+  when: is_hugepage_prepared == true
+  args:
+    warn: no
+
+# check spp_hugepage_mount
+- name: check variable "spp_hugepage_mount" when "is_hugepage_prepared" is false
+  shell: mount | grep "{{ spp_hugepage_mount }}"
+  register: is_mounted
+  failed_when: is_mounted.rc == 0
+  when: is_hugepage_prepared == false
+  args:
+    warn: no
+
+# check grub_hugepage_setting
+- name: split variable "grub_hugepage_setting" to check it
+  local_action: shell echo "{{ grub_hugepage_setting }}" | tr ' ' '\n'
+  register: splited_grub_hugepage_setting
+
+- name: check each elements of variable "grub_hugepage_setting"
+  local_action: >
+    shell echo "{{ item }}" | grep "^[a-z]\+.*=.\+"
+    || echo "One of grub_hugepage_setting:{{ item }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+  with_items: "{{ splited_grub_hugepage_setting.stdout_lines }}"
+
+# check spp_primary_sock_port
+- name: check variable "spp_primary_sock_port"
+  local_action: >
+    shell echo "{{ spp_primary_sock_port }}" | grep [0-9] | grep -v [^0-9]
+    || echo "spp_primary_sock_port:{{ spp_primary_sock_port }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+# check spp_secondary_sock_port
+- name: check variable "spp_secondary_sock_port"
+  local_action: >
+    shell echo "{{ spp_secondary_sock_port }}" | grep [0-9] | grep -v [^0-9]
+    || echo "spp_secondary_sock_port:{{ spp_secondary_sock_port }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+# check spp_primary_core_mask
+- name: check variable "spp_primary_core_mask"
+  local_action: >
+    shell echo "{{ spp_primary_core_mask }}" | grep "^0x[0-9A-Fa-f]\+$"
+    || echo "spp_primary_core_mask:{{ spp_primary_core_mask }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+# check spp_primary_socket_mem
+- name: split variable "spp_primary_socket_mem" to check it
+  local_action: shell echo "{{ spp_primary_socket_mem }}" | tr ',' '\n'
+  register: splited_spp_primary_socket_mem
+
+- name: check each elements of variable "spp_primary_socket_mem"
+  local_action: >
+    shell echo "{{ item }}" | grep [0-9] | grep -v [^0-9]
+    || echo "One of spp_primary_socket_mem:{{ item }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+  with_items: "{{ splited_spp_primary_socket_mem.stdout_lines }}"
+
+- name: get NUMA nodes count to check spp_primary_socket_mem element counts
+  shell: >
+    SPP_CHECK_VAR_LSCPU_NUMA_NODE=$(lscpu | grep "NUMA node(s)");
+    echo ${SPP_CHECK_VAR_LSCPU_NUMA_NODE##*:}
+  register: numa_nodes
+
+- name: check element counts of variable "spp_primary_socket_mem"
+  local_action: >
+    shell echo "spp_primary_socket_mem:{{ splited_spp_primary_socket_mem.stdout_lines }}, but NUMA nodes are {{ numa_nodes.stdout | int }} counts."
+  failed_when: true
+  when: splited_spp_primary_socket_mem.stdout_lines[ numa_nodes.stdout | int ] is defined
+
+# check vcpu_pin_set
+- name: split variable "vcpu_pin_set" to check it
+  local_action: shell echo "{{ vcpu_pin_set }}" | tr ',' '\n'
+  register: splited_vcpu_pin_set
+
+- name: check check each elements of variable "vcpu_pin_set"
+  include_tasks: check_vcpu_pin_set.yml
+  with_items: "{{ splited_vcpu_pin_set.stdout_lines }}"
+
+# check cpu_mode
+- name: check variable "cpu_mode"
+  local_action: >
+    shell echo "{{ cpu_mode }}" | grep -x -e host-model -e host-passthrough -e custom -e none
+    || echo "cpu_mode:{{ cpu_mode }} is undefined."
+  register: result
+  failed_when: '"is undefined." in result.stdout'
+
+# check cpu_model(Not use local_action. Bacause it opens file:/usr/share/libvirt/cpu_map.xml in remote host.)
+- name: check variable "cpu_model"
+  shell: >
+    cat /usr/share/libvirt/cpu_map.xml 
+    | grep "model name" 
+    | sed "s/ *<model name='//" 
+    | sed "s/'>//"
+    | grep -x "{{ cpu_model }}"
+    || echo "cpu_model:{{ cpu_model }} is undefined in <model name> tags of /usr/share/libvirt/cpu_map.xml."
+  register: result
+  failed_when: '"is undefined" in result.stdout'
+  when: cpu_mode == "custom"
+
+# check the dpdk-devbind command
+- name: check variable "dpdk_devbind_cmd"
+  shell: "{{ dpdk_devbind_cmd }} --help"
+
+# check the spp_primary command
+- name: check variable "spp_primary_cmd"
+  shell: "{{ spp_primary_cmd }} --help"
+
+# check the spp_vf command
+- name: check variable "spp_vf_cmd"
+  shell: "{{ spp_vf_cmd }} --help"
+
+######################### Below variables are not edited #########################
+
+# check existing file of nova_conf_path
+- name: check variable "nova_conf_path"
+  shell: ls "{{ nova_conf_path }}"
+
+# check dpdk_driver_module name
+- name: check variable "dpdk_driver_module"
+  local_action: >
+    shell echo "{{ dpdk_driver_module }}" | grep -x -e uio_pci_generic -e vfio-pci -e igb_uio
+    || echo "dpdk_driver_module:{{ dpdk_driver_module }} is undefined."
+  register: result
+  failed_when: '"is undefined." in result.stdout'
+
+# check igb_uio_ko_path
+- name: check variable "igb_uio_ko_path"
+  shell: ls "{{ igb_uio_ko_path }}"
+
+# check is_nics_bound flag
+- name: check variable "is_nics_bound"
+  local_action: >
+    shell echo "{{ is_nics_bound }}" | grep -x -e True -e False
+    || echo "is_nics_bound:{{ is_nics_bound }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+# check is_hugepage_prepared flag
+- name: check variable "is_hugepage_prepared"
+  local_action: >
+    shell echo "{{ is_hugepage_prepared }}" | grep -x -e True -e False
+    || echo "is_nics_bound:{{ is_hugepage_prepared }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'

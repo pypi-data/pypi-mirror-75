@@ -1,0 +1,13 @@
+---
+# check existing original Nova config file
+- name: check existing original Nova config file
+  become: yes
+  shell: ls "{{ nova_conf_path }}_org_non_spp_setting"
+  register: exist_org_nova_conf
+  failed_when: false
+
+# back up Nova config file
+- name: back up Nova config file
+  become: yes
+  shell: cp -p "{{ nova_conf_path }}" "{{ nova_conf_path }}_org_non_spp_setting"
+  when: exist_org_nova_conf.rc != 0

@@ -1,0 +1,26 @@
+---
+# check existing original ETCD config file
+- name: check existing original ETCD config file
+  become: yes
+  shell: ls "{{ etcd_conf_path }}_org_non_spp_setting"
+  register: exist_org_etcd_conf
+  failed_when: false
+
+# back up ETCD config file
+- name: back up ETCD config file
+  become: yes
+  shell: cp -p "{{ etcd_conf_path }}" "{{ etcd_conf_path }}_org_non_spp_setting"
+  when: exist_org_etcd_conf.rc != 0
+
+# check existing original iptables config file
+- name: check existing original iptables config file
+  become: yes
+  shell: ls "{{ iptables_conf_path }}_org_non_spp_setting"
+  register: exist_org_iptables_conf
+  failed_when: false
+
+# back up iptables config file
+- name: back up iptables config file
+  become: yes
+  shell: cp -p "{{ iptables_conf_path }}" "{{ iptables_conf_path }}_org_non_spp_setting"
+  when: exist_org_iptables_conf.rc != 0

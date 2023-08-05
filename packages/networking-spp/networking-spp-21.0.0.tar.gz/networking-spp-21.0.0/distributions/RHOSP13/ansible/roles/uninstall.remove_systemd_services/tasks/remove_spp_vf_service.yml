@@ -1,0 +1,13 @@
+---
+# remove SPP VF(Secondary) service
+- name: remove SPP VF(Secondary) service
+  become: yes
+  file:
+    path: "/etc/systemd/system/spp_vf-{{ sec_id }}.service"
+    state: absent
+
+- name: increment sec_id
+  set_fact:
+    sec_id: "{{ sec_id | int + 1 }}"
+
+

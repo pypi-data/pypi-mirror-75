@@ -1,0 +1,17 @@
+---
+# uninstall etcd3 and pip in container (Because spp setting in ML2 config is no longer needed)
+
+- name: check installed pip
+  become: yes
+  shell: docker exec --user 0 neutron_api bash -c "pip --help"
+  register: exist_pip
+  failed_when: false
+
+- name: pip uninstall etcd3gw
+  become: yes
+  shell: docker exec --user 0 neutron_api bash -c "pip uninstall -y etcd3gw pip"
+  when: exist_pip.rc == 0
+
+- name: restart neutron_api container
+  become: yes
+  shell: docker restart neutron_api

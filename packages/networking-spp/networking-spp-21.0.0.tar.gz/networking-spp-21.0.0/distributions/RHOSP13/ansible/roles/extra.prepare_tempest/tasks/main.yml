@@ -1,0 +1,12 @@
+---
+# put image file for tempest
+- name: put image file
+  include_tasks: put_file.yml
+
+# create flavor and image for tempest
+- name: prepare tempest
+  include_tasks: prepare_tempest.yml
+
+# remove image file for tempest
+- name: remove image file
+  include_tasks: remove_file.yml

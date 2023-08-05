@@ -1,0 +1,12 @@
+---
+# put script files
+- name: put script files	
+  include_tasks: put_script.yml
+
+# run SPP agent
+- name: run SPP agent
+  include_tasks: run_spp_agent.yml
+
+# remove script files
+- name: remove script files
+  include_tasks: remove_script.yml

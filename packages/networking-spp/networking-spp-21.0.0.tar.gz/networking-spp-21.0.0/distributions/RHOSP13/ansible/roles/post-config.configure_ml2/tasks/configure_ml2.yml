@@ -1,0 +1,10 @@
+---
+# set params to ML2 config
+- name: set params to ML2 config
+  become: yes
+  shell: "cd {{ tmp_dir }}; ./{{ item.script }} {{ ml2_conf_path }} {{ item.section }} {{ item.option }} {{ item.value }}"
+  with_items:
+    - { script: 'iniset_overwrite.sh', section: 'ml2',           option: 'type_drivers',        value: "{{ type_drivers }}"        }
+    - { script: 'iniset_append.sh',    section: 'ml2',           option: 'mechanism_drivers',   value: "{{ mechanism_drivers }}"   }
+    - { script: 'iniset_append.sh',    section: 'ml2_type_flat', option: 'flat_networks',       value: "{{ flat_networks }}"       }
+    - { script: 'iniset_append.sh',    section: 'ml2_type_vlan', option: 'network_vlan_ranges', value: "{{ network_vlan_ranges }}" }

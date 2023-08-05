@@ -1,0 +1,38 @@
+---
+######################### Below variables may be edited as needed #########################
+# check etcd client port
+- name: check variable "etcd_client_port"
+  local_action: >
+    shell echo "{{ etcd_client_port }}" | grep [0-9] | grep -v [^0-9]
+    || echo "etcd_client_port:{{ etcd_client_port }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+# check etcd peer port
+- name: check variable "etcd_peer_port"
+  local_action: >
+    shell echo "{{ etcd_peer_port }}" | grep [0-9] | grep -v [^0-9]
+    || echo "etcd_peer_port:{{ etcd_peer_port }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+######################### Below variables are not edited #########################
+# check existing directory for networking-spp
+- name: check variable "networking_spp_dir"
+  shell: ls "{{ networking_spp_dir }}"
+
+# check that initial of spp_agent_service_name is any from "a" to "z"
+- name: check variable "spp_agent_service_name"
+  local_action: >
+    shell echo "{{ spp_agent_service_name }}" | grep "^[a-z]\+.*"
+    || echo "spp_agent_service_name:{{ spp_agent_service_name }} is unexpected format."
+  register: result
+  failed_when: '"is unexpected format." in result.stdout'
+
+# check existing neutron_conf_path
+- name: check variable "neutron_conf_path"
+  shell: ls "{{ neutron_conf_path }}"
+
+# check existing ml2_conf_path
+- name: check variable "ml2_conf_path"
+  shell: ls "{{ ml2_conf_path }}"

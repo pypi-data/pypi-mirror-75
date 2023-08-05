@@ -1,0 +1,12 @@
+---
+# put script
+- name: put script file
+  include_tasks: put_script.yml
+
+# unconfigure ETCD
+- name: unconfigure spp agent
+  include_tasks: unconfigure_spp_agent.yml
+
+# remove script file
+- name: remove script file
+  include_tasks: remove_script.yml

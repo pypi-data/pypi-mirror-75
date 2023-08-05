@@ -1,0 +1,4 @@
+---
+# Remove systemd services for SPP
+- name: remove systemd services
+  include_tasks: remove_systemd_services.yml

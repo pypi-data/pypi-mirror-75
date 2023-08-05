@@ -1,0 +1,4 @@
+---
+# prepare ETCD packages
+- name: prepare ETCD packages
+  include_tasks: prepare_etcd_packages.yml

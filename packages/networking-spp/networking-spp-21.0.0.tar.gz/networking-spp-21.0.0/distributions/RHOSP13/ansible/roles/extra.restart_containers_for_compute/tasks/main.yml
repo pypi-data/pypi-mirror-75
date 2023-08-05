@@ -1,0 +1,3 @@
+---
+- name: restart docker containers for compute
+  include_tasks: restart_containers_for_compute.yml

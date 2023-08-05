@@ -1,0 +1,8 @@
+---
+# put script that set params to config files
+- name: put iniset script
+  become: yes
+  copy:
+    src: ./files/iniset.sh
+    dest: "{{ tmp_dir }}"
+    mode: "+x"

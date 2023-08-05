@@ -1,0 +1,12 @@
+---
+# get hostname
+- name: get hostname
+  shell: hostname -f
+  register: spp_host
+
+# unset to ETCD
+- name: unset to ETCD
+  become: yes
+  shell: >
+    python "{{ tmp_dir }}"/spp_etcd_unsetting.py "{{ spp_host.stdout }}" "{{ etcd_host }}" "{{ etcd_client_port }}"
+  failed_when: false

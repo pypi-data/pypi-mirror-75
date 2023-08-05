@@ -1,0 +1,6 @@
+# remove script that set params to config files
+- name: remove iniset script
+  become: yes
+  file:
+    path: "{{ tmp_dir }}/iniset.sh"
+    state: absent

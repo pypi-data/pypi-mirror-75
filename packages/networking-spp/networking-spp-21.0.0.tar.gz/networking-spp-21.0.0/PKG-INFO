@@ -1,0 +1,37 @@
+Metadata-Version: 1.1
+Name: networking-spp
+Version: 21.0.0
+Summary: SPP mechanism driver
+Home-page: https://opendev.org/x/networking-spp
+Author: OpenStack
+Author-email: openstack-discuss@lists.openstack.org
+License: UNKNOWN
+Description: ===============================
+        networking-spp
+        ===============================
+        
+        This project includes two VIM (Virtual Infrastructure Manager) integrations
+        of a high speed communication platform, Soft Patch Panel (SPP).
+        
+        Neutron ML2 mechanism driver and agent under the ``/opentstack`` directory
+        enables SPP in OpenStack environments. The ``/devstack`` directory includes
+        the installation script for OpenStack.
+        
+        Kubernetes Operator for SPP is under the ``operator`` directory enables
+        SPP in Container environments.
+        
+        * Free software: Apache license
+        * Source: https://opendev.org/x/networking-spp
+        * Bugs: https://bugs.launchpad.net/networking-spp
+        
+        
+Platform: UNKNOWN
+Classifier: Environment :: OpenStack
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7

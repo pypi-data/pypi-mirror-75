@@ -1,0 +1,4 @@
+---
+# prepare etcd service
+- name: prepare etcd service
+  include_tasks: prepare_etcd_service.yml

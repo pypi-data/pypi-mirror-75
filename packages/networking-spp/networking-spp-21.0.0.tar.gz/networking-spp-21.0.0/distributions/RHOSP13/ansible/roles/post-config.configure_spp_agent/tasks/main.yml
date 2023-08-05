@@ -1,0 +1,12 @@
+---
+# put script that set params to config files
+- name: put script files
+  include_tasks: put_script.yml
+
+# set SPP primary and secondary socket port, and ETCD
+- name: configure spp agent
+  include_tasks: configure_spp_agent.yml
+
+# remove script files
+- name: remove script files
+  include_tasks: remove_script.yml

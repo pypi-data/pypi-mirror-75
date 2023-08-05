@@ -1,0 +1,29 @@
+---
+# get hugepage size
+- name: get hugepage size
+  shell: grep Hugepagesize /proc/meminfo | awk '{ print $2 }'
+  register: hugepage_size
+
+# remove directory for mount
+- name: remove directory for mount
+  become: yes
+  file:
+    path: "{{ spp_hugepage_mount }}/rtemap*"
+    state: absent
+
+# unmount hugepage directory
+- name: unmount hugepage directory
+  become: yes
+  shell: umount "{{ spp_hugepage_mount }}"
+
+# get nodes for setting hugepages
+- name: get nodes for setting hugepages
+  become: yes
+  shell: find /sys/devices/system/node/node* -name node*
+  register: nodes_path
+
+# clear hugepages to each nodes
+- name: set hugepages to each nodes
+  become: yes
+  shell: echo 0 | tee "{{ item }}"/hugepages/hugepages-"{{ hugepage_size.stdout }}"kB/nr_hugepages
+  with_items: "{{ nodes_path.stdout_lines }}"

@@ -1,0 +1,19 @@
+---
+# check networking-spp is installed in container
+- name: check networking-spp files in container
+  become: yes
+  shell: >
+    docker exec --user 0 {{ container_name }}
+    yum list installed
+    | grep networking-spp.{{ networking_spp_info['architecture'] }}
+    | grep {{ networking_spp_info['version'] }}-{{ networking_spp_info['release'] }}
+  register: exist_networking_spp
+  failed_when: false
+
+# install networking-spp in container
+- name: Install networking-spp
+  become: yes
+  shell: >
+    docker exec --user 0 {{ container_name }} bash -c "cd {{ networking_spp_dir }}/networking-spp;
+    PBR_VERSION={{ networking_spp_info['version'] }} python setup.py install;"
+  when: exist_networking_spp.rc != 0

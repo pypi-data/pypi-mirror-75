@@ -1,0 +1,35 @@
+---
+# load driver:"uio"
+- name: modprobe uio
+  become: yes
+  shell: modprobe uio
+
+# add kernel module to host
+- name: modprobe driver module
+  become: yes
+  shell: modprobe "{{ dpdk_driver_module }}"
+  when: dpdk_driver_module != 'igb_uio'
+
+# check igb_uio is loaded
+# (Command:"lsmod" uses "/bin/bash" as login shell. But ansible doesn't use it, uses "/bin/sh".
+#  So add "bash -lc" to the beginning of the command.)
+- name: check already insmod igb_uio
+  shell: bash -lc "lsmod | grep igb_uio"
+  register: exist_igb_uio
+  failed_when: false
+  when: dpdk_driver_module == 'igb_uio'
+
+# load driver:"igb_uio"
+- name: insmod igb_uio.ko
+  become: yes
+  shell: insmod "{{ igb_uio_ko_path }}"
+  when:
+    - dpdk_driver_module == 'igb_uio'
+    - exist_igb_uio.rc != 0
+
+# bind NICs for DPDK
+- name: bind NICs
+  become: yes
+  shell: "{{ dpdk_devbind_cmd }} -b {{ dpdk_driver_module }} {{ item.pci_address }}"
+  with_items: "{{ dpdk_port_mappings }}"
+

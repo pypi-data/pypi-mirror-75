@@ -1,0 +1,9 @@
+---
+# remove networking-spp files
+- name: remove networking-spp files
+  become: yes
+  shell: >
+    docker exec --user 0 "{{ container_name }}" bash -c
+    "ls {{ networking_spp_dir }}/networking-spp
+    && rm -r {{ networking_spp_dir }}/networking-spp"
+  failed_when: false

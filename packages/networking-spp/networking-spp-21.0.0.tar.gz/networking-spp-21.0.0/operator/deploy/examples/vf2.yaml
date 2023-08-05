@@ -1,0 +1,51 @@
+apiVersion: spp.spp/v1
+kind: Spp
+metadata:
+  name: vf2
+spec:
+  ctl:
+    name: ctl
+    image: sppc/spp-ctl:18.04
+  primary:
+    name: primary
+    image: sppc/spp-ubuntu:18.04
+    eal:
+      lcores: "1"
+      socket-mem: "1024"
+    portmask: "0x07"
+  vfs:
+    - name: vf:9
+      image: sppc/spp-ubuntu:18.04
+      eal:
+        lcores: "1,4-5"
+      components:
+        - core: 4
+          name: "classifier44"
+          rx_port:
+            - port: "phy:0"
+          tx_port:
+            - port: "vhost:3"
+            - port: "vhost:2"
+              vlan:
+                operation: "del"
+          type: "classifier"
+        - core: 5
+          name: "merger1"
+          rx_port:
+            - port: "vhost:3"
+            - port: "vhost:2"
+              vlan:
+                operation: "add"
+                id: 66
+                pcp: 0
+          tx_port:
+            - port: "phy:0"
+          type: "merge"
+      classifier_table:
+         - type: "mac"
+           value: "FA:16:3E:7D:CC:35"
+           port: "vhost:3"
+         - type: "vlan"
+           vlan: 44
+           value: "FA:16:3E:7D:CC:36"
+           port: "vhost:2"

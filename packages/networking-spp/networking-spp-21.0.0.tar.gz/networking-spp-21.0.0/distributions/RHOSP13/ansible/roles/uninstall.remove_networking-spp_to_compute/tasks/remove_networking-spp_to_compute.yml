@@ -1,0 +1,7 @@
+---
+# remove networking-spp files
+- name: remove networking-spp files
+  become: yes
+  file:
+    path: "{{ networking_spp_dir }}/networking-spp"
+    state: absent

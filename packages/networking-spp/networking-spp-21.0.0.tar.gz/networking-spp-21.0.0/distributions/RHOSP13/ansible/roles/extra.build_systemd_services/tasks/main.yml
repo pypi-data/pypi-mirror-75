@@ -1,0 +1,12 @@
+---
+# put script files
+- name: put script files
+  include_tasks: put_script.yml
+
+# build systemd services
+- name: build systemd services
+  include_tasks: build_systemd_services.yml
+
+# remove script files
+- name: remove script files
+  include_tasks: remove_script.yml

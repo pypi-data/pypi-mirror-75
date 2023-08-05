@@ -1,0 +1,11 @@
+---
+############################################################
+# name: all.yml
+# description: Setting variables used in all groups.
+############################################################
+
+######################### Edit below variables as needed #########################
+# directory for temporary files
+tmp_dir: /tmp
+
+########################### Don't edit below variables ###########################

@@ -1,0 +1,34 @@
+---
+# create directory to get get-pip file
+- name: create directory for pip installer
+  become: yes
+  file:
+    path: "{{ bind_path['host'] }}"
+    state: directory
+
+# get pip installer
+- name: get pip installer
+  become: yes
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: "{{ bind_path['host'] }}"
+
+# install etcd3 pip module in container (Need at spp setting in ML2 config)
+- name: install pip
+  become: yes
+  shell: docker exec --user 0 neutron_api bash -c "cd {{ bind_path['container'] }}; python get-pip.py"
+
+- name: pip install etcd3gw
+  become: yes
+  shell: docker exec --user 0 neutron_api bash -c "pip install etcd3gw"
+
+- name: restart neutron_api container
+  become: yes
+  shell: docker restart neutron_api
+
+# remove bind directory with pip installer
+- name: remove pip installer files in host
+  become: yes
+  file:
+    path: "{{ bind_path['host'] }}"
+    state: absent

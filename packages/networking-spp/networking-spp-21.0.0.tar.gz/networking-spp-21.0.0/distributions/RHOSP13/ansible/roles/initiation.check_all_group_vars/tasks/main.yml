@@ -1,0 +1,4 @@
+---
+# check all group variables
+- name: check all group variables
+  include_tasks: check_all_group_vars.yml

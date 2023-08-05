@@ -1,0 +1,4 @@
+---
+# backup conf files for overcloud
+- name: backup conf files for overcloud
+  include_tasks: backup_conf_files_for_overcloud.yml

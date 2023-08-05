@@ -1,0 +1,27 @@
+---
+############################################################
+# name: undercloud.yml
+# description: Setting variables used in undercloud group.
+############################################################
+
+######################### Edit below variables as needed #########################
+# ssh login account
+ansible_ssh_user: stack
+ansible_ssh_pass: XXXXXXXXXX
+ansible_sudo_pass: XXXXXXXXXX
+
+# flavor name used in tempest
+tempest_flavor_name: spp_test
+
+# image name used in tempest
+tempest_image_name: spp_test
+
+# region of image used in tempest
+tempest_image_region: regionOne
+
+########################### Don't edit below variables ###########################
+# file name used to create an image for tempest
+tempest_image_file_name: image.qcow2
+
+# format of image used in tempest
+tempest_image_format: qcow2

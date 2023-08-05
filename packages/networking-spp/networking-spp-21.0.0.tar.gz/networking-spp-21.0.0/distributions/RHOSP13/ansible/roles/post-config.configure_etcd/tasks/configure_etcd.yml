@@ -1,0 +1,10 @@
+---
+# set ETCD host name or IP address
+- name: set ETCD host
+  become: yes
+  shell: cd "{{ tmp_dir }}"; ./iniset.sh "{{ ml2_conf_path }}" spp etcd_host "{{ etcd_host }}"
+
+# set ETCD port
+- name: set ETCD port
+  become: yes
+  shell: cd "{{ tmp_dir }}"; ./iniset.sh "{{ ml2_conf_path }}" spp etcd_port "{{ etcd_client_port }}"

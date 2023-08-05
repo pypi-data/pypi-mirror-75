@@ -1,0 +1,3 @@
+---
+- import_playbook: install_networking-spp.yml
+- import_playbook: uninstall_networking-spp.yml

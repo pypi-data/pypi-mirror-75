@@ -1,0 +1,4 @@
+---
+# check compute vars
+- name: check compute vars
+  include_tasks: check_compute_vars.yml

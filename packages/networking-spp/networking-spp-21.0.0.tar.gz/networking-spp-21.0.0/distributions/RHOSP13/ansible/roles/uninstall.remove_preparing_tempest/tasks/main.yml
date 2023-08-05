@@ -1,0 +1,3 @@
+# remove flavor and image for tempest
+- name: remove preparing tempest
+  include_tasks: remove_preparing_tempest.yml

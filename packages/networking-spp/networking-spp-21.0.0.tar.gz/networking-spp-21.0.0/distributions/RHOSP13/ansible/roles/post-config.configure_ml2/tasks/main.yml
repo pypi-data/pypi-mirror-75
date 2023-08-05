@@ -1,0 +1,12 @@
+---
+# put iniset script
+- name: put iniset script
+  include_tasks: put_script.yml
+
+# configure ML2
+- name: configure ML2
+  include_tasks: configure_ml2.yml
+
+# remove iniset script
+- name: remove iniset script
+  include_tasks: remove_script.yml

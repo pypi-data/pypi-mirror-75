@@ -1,0 +1,21 @@
+---
+# unbind nics
+- name: unbind nics
+  include_tasks: unbind_nics.yml
+  when: is_nics_bound == false
+
+# check mounted
+- name: check already mount
+  shell: mount | grep "{{ spp_hugepage_mount }}"
+  register: is_mounted
+  failed_when: false
+  when: is_hugepage_prepared == false
+  args:
+    warn: no
+
+# free hugepages
+- name: free hugepages
+  include_tasks: free_hugepages.yml
+  when:
+    - is_hugepage_prepared == false
+    - is_mounted.rc == 0

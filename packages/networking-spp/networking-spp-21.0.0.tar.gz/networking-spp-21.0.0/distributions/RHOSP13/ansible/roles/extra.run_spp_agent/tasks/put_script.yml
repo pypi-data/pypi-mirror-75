@@ -1,0 +1,8 @@
+---
+# put script that run processes
+- name: put run_process script
+  become: yes
+  copy:
+    src: ./files/run_process.sh
+    dest: "{{ tmp_dir }}"
+    mode: "+x"

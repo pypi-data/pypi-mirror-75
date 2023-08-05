@@ -1,0 +1,4 @@
+---
+# roll back conf files for controller
+- name: roll back conf files for controller
+  include_tasks: roll_back_conf_files_for_controller.yml

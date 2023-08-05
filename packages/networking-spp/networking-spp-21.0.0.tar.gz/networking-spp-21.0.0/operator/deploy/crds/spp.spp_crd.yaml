@@ -1,0 +1,86 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  name: spps.spp.spp
+spec:
+  group: spp.spp
+  names:
+    kind: Spp
+    listKind: SppList
+    plural: spps
+    singular: spp
+  scope: Namespaced
+  subresources:
+    status: {}
+  validation:
+    openAPIV3Schema:
+      description: Spp is the Schema for the spps API
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/sig-architecture/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          description: SppSpec defines the desired state of Spp
+          type: object
+        status:
+          description: SppStatus defines the observed state of Spp
+          type: object
+      type: object
+  version: v1
+  versions:
+  - name: v1
+    served: true
+    storage: true
+  additionalPrinterColumns:
+  - name: Ctl
+    type: string
+    description: Status of ctl
+    JSONPath: .status.ctl.status
+  - name: Primary
+    type: string
+    description: Status of primary
+    JSONPath: .status.primary.status
+  - name: Nfvs
+    type: string
+    description: Status of nfvs
+    JSONPath: .status.nfvs.status
+  - name: Vfs
+    type: string
+    description: Status of vfs
+    JSONPath: .status.vfs.status
+  - name: Mirrors
+    type: string
+    description: Status of mirrors
+    JSONPath: .status.mirrors.status
+  - name: Pcaps
+    type: string
+    description: Status of pcaps
+    JSONPath: .status.pcaps.status
+  - name: Apps
+    type: string
+    description: Status of apps
+    JSONPath: .status.apps.status
+  - name: Node
+    type: string
+    description: Node
+    JSONPath: .status.node
+  - name: Service-vip
+    type: string
+    description: Service-VIP
+    JSONPath: .status.service-vip
+  - name: Age
+    type: date
+    JSONPath: .metadata.creationTimestamp
+  - name: Status
+    type: string
+    description: Status of spp resource
+    JSONPath: .status.status

@@ -1,0 +1,13 @@
+---
+# check existing original ML2 config file
+- name: check existing original ML2 config file
+  become: yes
+  shell: ls "{{ ml2_conf_path }}_org_non_spp_setting"
+  register: existi_org_ml2_conf
+  failed_when: false
+
+# roll back original ML2 config file
+- name: roll back original ML2 config file
+  become: yes
+  shell: mv "{{ ml2_conf_path }}_org_non_spp_setting" "{{ ml2_conf_path }}"
+  when: existi_org_ml2_conf.rc == 0

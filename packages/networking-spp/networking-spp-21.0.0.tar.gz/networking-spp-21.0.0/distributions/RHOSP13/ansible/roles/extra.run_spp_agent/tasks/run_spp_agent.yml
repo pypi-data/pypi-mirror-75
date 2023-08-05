@@ -1,0 +1,7 @@
+---
+# run SPP agent
+- name: run SPP agent
+  become: yes
+  shell: >
+    cd "{{ tmp_dir }}"; ./run_process.sh "{{ spp_agent_service_name }}"
+    "/usr/bin/neutron-spp-agent --config-file {{ neutron_conf_path }} --config-file {{ ml2_conf_path }}"

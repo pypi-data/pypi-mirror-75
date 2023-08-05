@@ -1,0 +1,28 @@
+---
+# set directory to copy networking-spp files
+- name: set networking-spp directory
+  become: yes
+  file:
+    path: "{{ bind_path['host'] }}"
+    state: directory
+
+# git clone networking-spp
+- name: git clone networking-spp
+  become: yes
+  shell: >
+    cd "{{ bind_path['host'] }}" ; git clone https://opendev.org/x/networking-spp.git -b "{{ networking_spp_info['version'] }}"
+
+# move networking-spp files in container from bind directory to install directory
+- name: move networking-spp files 
+  become: yes
+  shell: >
+    docker exec --user 0 {{ container_name }}
+    cp -r {{ bind_path['container'] }}/networking-spp {{ networking_spp_dir }}
+
+# remove networking-spp files in bind directory
+- name: remove networking-spp files in host
+  become: yes
+  file:
+    path: "{{ bind_path['host'] }}"
+    state: absent
+

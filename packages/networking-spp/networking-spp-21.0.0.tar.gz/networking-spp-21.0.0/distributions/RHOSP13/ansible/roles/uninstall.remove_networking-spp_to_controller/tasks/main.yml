@@ -1,0 +1,4 @@
+---
+# remove networking-spp to compute
+- name: remove networking-spp to compute
+  include_tasks: remove_networking-spp_to_controller.yml

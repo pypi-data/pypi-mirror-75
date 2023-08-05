@@ -1,0 +1,44 @@
+---
+# check already mount
+- name: check already mount
+  shell: mount | grep "{{ spp_hugepage_mount }}"
+  register: is_already_mount
+  failed_when: false
+  args:
+    warn: no
+
+# get hugepage size
+- name: get hugepage size
+  shell: grep Hugepagesize /proc/meminfo | awk '{ print $2 }'
+  register: hugepage_size
+  when: is_already_mount != 0
+
+# get nodes for setting hugepages
+- name: get nodes for setting hugepages
+  become: yes
+  shell: find /sys/devices/system/node/node* -name node*
+  register: nodes_path 
+  when: is_already_mount != 0
+
+# set hugepages to each nodes
+- name: set hugepages to each nodes
+  become: yes
+  shell: echo "{{ spp_num_hugepages }}" | tee "{{ item }}"/hugepages/hugepages-"{{ hugepage_size.stdout }}"kB/nr_hugepages
+  with_items: "{{ nodes_path.stdout_lines }}"
+  when: is_already_mount != 0
+
+# make directory for mount
+- name: make directory for mount
+  become: yes
+  file:
+    path: "{{ spp_hugepage_mount }}"
+    state: directory
+  when: is_already_mount != 0
+
+# mount for hugepages
+- name: mount for hugepages
+  become: yes
+  shell: mount -t hugetlbfs nodev "{{ spp_hugepage_mount }}"
+  when: is_already_mount != 0
+  args:
+    warn: no

@@ -1,0 +1,3 @@
+---
+- name: unset selinux some settings
+  include_tasks: unset_selinux.yml

@@ -1,0 +1,12 @@
+---
+# put script that set params to config files
+- name: put iniset script
+  include_tasks: put_script.yml
+
+# configure nova
+- name: configure nova
+  include_tasks: configure_nova.yml
+
+# remove script that set params to config files
+- name: remove iniset script
+  include_tasks: remove_script.yml

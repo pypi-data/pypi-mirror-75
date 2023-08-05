@@ -1,0 +1,9 @@
+# remove SPP scripts
+- name: remove build spp primary and vf services
+  become: yes
+  file:
+    path: "{{ tmp_dir }}/{{ item }}"
+    state: absent
+  with_items:
+    - build_spp_primary_service.sh
+    - build_spp_vf_service.sh

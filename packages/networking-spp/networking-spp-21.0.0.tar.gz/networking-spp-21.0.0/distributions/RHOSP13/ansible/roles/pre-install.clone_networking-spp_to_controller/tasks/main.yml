@@ -1,0 +1,4 @@
+---
+# clone networking-spp files
+- name: Clone networking-spp
+  include_tasks: check_networking_spp.yml

@@ -1,0 +1,12 @@
+---
+- name: check installed pip
+  shell: pip --help
+  register: exist_pip
+  failed_when: false
+
+- name: pip uninstall etcd and pip packages
+  become: yes
+  pip:
+    name: "etcd3 etcd3gw pip"
+    state: absent
+  when: exist_pip.rc == 0

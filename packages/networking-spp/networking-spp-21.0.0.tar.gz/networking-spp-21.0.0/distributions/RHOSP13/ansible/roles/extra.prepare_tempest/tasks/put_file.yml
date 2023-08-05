@@ -1,0 +1,6 @@
+# put files
+- name: put files
+  copy:
+    src: "./files/build_image_for_rhosp.sh"
+    dest: "{{ tmp_dir }}"
+    mode: +x

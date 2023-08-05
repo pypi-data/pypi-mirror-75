@@ -1,0 +1,16 @@
+---
+# check networking-spp was installed in container
+- name: check networking-spp files in container
+  become: yes
+  shell: >
+    docker exec --user 0 "{{ container_name }}"
+    yum list installed
+    | grep networking-spp."{{ networking_spp_info['architecture'] }}"
+    | grep "{{ networking_spp_info['version'] }}"-"{{ networking_spp_info['release'] }}"
+  register: exist_networking_spp
+  failed_when: false
+
+# clone networking-spp files
+- name: Clone networking-spp
+  include_tasks: clone_networking_spp.yml
+  when: exist_networking_spp.rc != 0

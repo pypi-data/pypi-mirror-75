@@ -1,0 +1,4 @@
+---
+# Stop systemd services for SPP
+- name: stop systemd services
+  include_tasks: stop_systemd_services.yml

@@ -1,0 +1,9 @@
+# put scripts that create spp primary and vf services
+- name: put scripts
+  copy:
+    src: "./files/{{ item }}"
+    dest: "{{ tmp_dir }}"
+    mode: "+x"
+  with_items:
+    - build_spp_primary_service.sh
+    - build_spp_vf_service.sh

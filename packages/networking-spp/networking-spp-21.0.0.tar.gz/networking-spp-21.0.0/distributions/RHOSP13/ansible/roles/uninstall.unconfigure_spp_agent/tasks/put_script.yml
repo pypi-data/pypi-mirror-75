@@ -1,0 +1,7 @@
+---
+# put ETCD script file
+- name: put ETCD python script
+  become: yes
+  copy:
+    src: spp_etcd_unsetting.py
+    dest: "{{ tmp_dir }}"

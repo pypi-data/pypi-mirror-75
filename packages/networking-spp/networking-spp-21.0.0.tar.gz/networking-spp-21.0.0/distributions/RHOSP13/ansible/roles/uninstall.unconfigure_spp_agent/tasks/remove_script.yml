@@ -1,0 +1,6 @@
+# remove script
+- name: remove ETCD script file
+  become: yes
+  file:
+    path: "{{ tmp_dir }}/spp_etcd_unsetting.py"
+    state: absent

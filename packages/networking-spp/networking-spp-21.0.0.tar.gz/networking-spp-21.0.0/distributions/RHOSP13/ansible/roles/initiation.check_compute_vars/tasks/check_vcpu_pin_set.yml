@@ -1,0 +1,35 @@
+---
+# split a element of variable "spp_primary_socket_mem" each hyphen:'-' to check it
+- name: split a element of variable "spp_primary_socket_mem" each hyphen:'-' to check it
+  local_action: shell echo "{{ item }}" | tr '-' '\n'
+  register: core_num_range
+
+# check unexisting extra value
+- name: check no element of "core_num_range"
+  local_action: shell echo "{{ item }}" exists multiple hyphens.
+  failed_when: true
+  when: core_num_range.stdout_lines[2] is defined
+
+# set minimam range of core
+- name: set minimam range of core
+  set_fact:
+    minimam_core: "{{ core_num_range.stdout_lines[0] }}"
+
+# set maximam range of core if "spp_primary_socket_mem" exists hyphen:'-'
+- name: set maximam range of core
+  set_fact:
+    maximam_core: "{{ core_num_range.stdout_lines[1] }}"
+  when: core_num_range.stdout_lines[1] is defined
+
+# set the same core as minimam to maximam if "spp_primary_socket_mem" doesn't exist hyphen:'-'
+- name: set the same core as minimam to maximam
+  set_fact:
+    maximam_core: "{{ minimam_core }}"
+  when: core_num_range.stdout_lines[1] is undefined
+
+# check comparing core minimam to maximam and existing cores in ranges
+- name: check existing cores in ranges
+  shell: cat /proc/cpuinfo | grep processor | grep "{{ core_num }}"
+  with_sequence: start="{{ minimam_core | int }}" end="{{ maximam_core | int }}"
+  loop_control:
+    loop_var: core_num

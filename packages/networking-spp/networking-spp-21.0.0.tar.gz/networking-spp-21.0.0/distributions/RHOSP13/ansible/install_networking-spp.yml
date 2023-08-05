@@ -1,0 +1,255 @@
+---
+######################################## initiation phase ########################################
+# Check all vars
+- hosts: all
+  gather_facts: no
+  become: no
+  roles:
+    - { role: initiation.check_all_group_vars }
+  tags:
+    - check_all_group_vars
+    - initiation
+
+# Check undercloud vars
+- hosts: undercloud
+  gather_facts: no
+  become: no
+  roles:
+    - { role: initiation.check_undercloud_vars }
+  tags:
+    - check_undercloud_vars
+    - initiation
+
+# Check overcloud vars
+- hosts: overcloud
+  gather_facts: no
+  become: no
+  roles:
+    - { role: initiation.check_overcloud_vars }
+  tags:
+    - check_overcloud_vars
+    - initiation
+
+# Check controller vars
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+    - { role: initiation.check_controller_vars }
+  tags:
+    - check_controller_vars
+    - initiation
+
+# Check compute vars
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: initiation.check_compute_vars }
+  tags:
+    - check_compute_vars
+    - initiation
+
+######################################## pre-install phase ########################################
+# Backup config files for overcloud
+- hosts: overcloud
+  gather_facts: no
+  become: no
+  roles:
+    - { role: pre-install.backup_conf_files_for_overcloud }
+  tags:
+    - backup_conf_files_for_overcloud
+    - pre-install
+
+# Backup config files for controller
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+    - { role: pre-install.backup_conf_files_for_controller }
+  tags:
+    - backup_conf_files_for_controller
+    - pre-install
+
+# Backup config files for compute
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: pre-install.backup_conf_files_for_compute }
+  tags:
+    - backup_conf_files_for_compute
+    - pre-install
+
+# Prepare for networking-spp to controller
+- hosts: overcloud
+  gather_facts: no
+  become: no
+  roles:
+    - { role: pre-install.set_selinux }
+  tags:
+    - set_selinux
+    - pre-install
+
+# Prepare for networking-spp to controller
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+    - { role: pre-install.clone_networking-spp_to_controller }
+  tags:
+    - clone_networking-spp_to_controller
+    - pre-install
+
+# Prepare for networking-spp to compute
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: pre-install.clone_networking-spp_to_compute }
+  tags:
+    - clone_networking-spp_to_compute
+    - pre-install
+
+# Prepare ETCD service for spp-agent
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+    - { role: pre-install.prepare_etcd_service }
+  tags:
+    - prepare_etcd_service
+    - pre-install
+
+# Prepare ETCD packages for spp-agent
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: pre-install.prepare_etcd_packages }
+  tags:
+    - prepare_etcd_packages
+    - pre-install
+
+######################################## install phase ########################################
+# Install networking-spp to controller
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+    - { role: install.build_networking-spp_to_controller }
+  tags:
+    - build_networking-spp_to_controller
+    - install
+
+# Install networking-spp to compute
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: install.build_networking-spp_to_compute }
+  tags:
+    - build_networking-spp_to_compute
+    - install
+
+# Prepare to run SPP/DPDK
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: install.prepare_spp_dpdk }
+  tags:
+    - prepare_spp_dpdk
+    - install
+
+######################################## post-config phase ########################################
+# SPP Agent settings
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: post-config.configure_spp_agent }
+  tags:
+    - configure_spp_agent
+    - post-config
+
+# ETCD settings
+- hosts: overcloud
+  gather_facts: no
+  become: no
+  roles:
+    - { role: post-config.configure_etcd }
+  tags:
+    - configure_etcd
+    - post-config
+
+# ML2 settings
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+    - { role: post-config.configure_ml2 }
+  tags:
+    - configure_ml2
+    - post-config
+
+# Nova settings
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+    - { role: post-config.configure_nova }
+  tags:
+    - configure_nova
+    - post-config
+
+######################################## extra phase ########################################
+# Restart docker containers for compute (Because related config files are changed.)
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+   - { role: extra.restart_containers_for_compute }
+  tags:
+    - restart_containers_for_compute
+    - extra
+
+# Create and run SPP related services
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+   - { role: extra.build_systemd_services }
+  tags:
+    - build_systemd_services
+    - extra
+
+# Run SPP Agent
+- hosts: compute
+  gather_facts: no
+  become: no
+  roles:
+   - { role: extra.run_spp_agent }
+  tags:
+    - run_spp_agent
+    - extra
+
+# Restart docker containers for controller (Because related config files are changed.)
+- hosts: controller
+  gather_facts: no
+  become: no
+  roles:
+   - { role: extra.restart_containers_for_controller }
+  tags:
+    - restart_containers_for_controller
+    - extra
+
+# Prepare resources to run Tempest
+- hosts: undercloud
+  gather_facts: no
+  become: no
+  roles:
+   - { role: extra.prepare_tempest }
+  tags:
+    - prepare_tempest
+    - extra
