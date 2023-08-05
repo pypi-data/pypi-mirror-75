@@ -1,0 +1,48 @@
+Metadata-Version: 1.2
+Name: uk-covid19
+Version: 1.0.0
+Summary: SDK for the COVID-19 API (Coronavirus Dashboard in the UK)
+Home-page: https://coronavirus.data.gov.uk/
+Author: Pouria Hadjibagheri
+Author-email: Pouria.Hadjibagheri@phe.gov.uk
+Maintainer: Public Health England - Coronavirus Dashboard Team
+Maintainer-email: covid19-tech@phe.gov.uk
+License: MIT
+Description: # Coronavirus (COVID-19) Dashboard - API Service
+        
+        ## Software Development Kit (SDK)
+        
+        This is a Python SDK for the COVID-19 API, as published by
+        Public Health England 
+        on [Coronavirus (COVID-19) in the UK](https://coronavirus.data.gov.uk)
+        dashboard.
+        
+        The API supplies the latest data for the COVID-19 outbreak in the United Kingdom. 
+        
+        The endpoint for the data provided using this SDK is:
+        
+            https://api.coronavirus.data.gov.uk/v1/data
+         
+        
+        ---
+        Developed and maintained by [Public Health England](https://www.gov.uk/government/organisations/public-health-england).
+        
+        Copyright (c) 2020, Public Health England.
+        
+Keywords: API SDK PHE COVID19 COVID-19 coronavirus data uk england wales scotland northern ireland united kingdom
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Healthcare Industry
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development
+Classifier: Topic :: Database
+Classifier: Topic :: Internet :: WWW/HTTP :: Indexing/Search
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Python: >=3.7
