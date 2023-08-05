@@ -1,0 +1,33 @@
+Metadata-Version: 1.2
+Name: styler-middleware
+Version: 0.3.0
+Summary: Utility middlewares for aiohttp web apps.
+Home-page: https://github.com/STYLER-Inc/styler-middleware
+Author: Bruno Toshio Sugano
+Author-email: bruno.sugano@styler.link
+License: MIT license
+Description: 
+        ===============================
+        HtmlTestRunner
+        ===============================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/styler_middleware.svg
+                :target: https://pypi.python.org/pypi/styler_middleware
+        
+        Utility middlewares for aiohttp web apps.
+        
+        
+        Links:
+        ---------
+        * `Github <https://github.com/STYLER-Inc/styler-middleware>`_
+        
+Keywords: styler_middleware middleware aiohttp
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.8
