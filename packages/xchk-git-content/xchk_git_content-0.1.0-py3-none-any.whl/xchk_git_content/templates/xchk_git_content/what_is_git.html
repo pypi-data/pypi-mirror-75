@@ -1,0 +1,46 @@
+{% extends 'checkerapp/course_content.html' %}
+{% load xchk_instructions %}
+{% load static %}
+{% block course_content %}
+<h1>Wat is Git?</h1>
+<p>Git is een "versiebeheersysteem", dat wil zeggen een systeem om "snapshots" van je project op een ordelijke manier bij te houden. Zonder systeem voor versiebeheer moet je voortdurend backups van oude versies van bestanden maken. Voor je het weet, heb je enorm veel schijfruimte verbruikt en weet je niet meer in welk bestand de interessantste aanpassingen gebeurd zijn. Met een goed systeem voor versiebeheer gaat dat soort werk veel efficiënter. Bovendien kan je de snapshots die je in versiebeheer plaatst ook met anderen delen, zodat teamwerk veel vlotter gaat.</p>
+
+<p>
+Enkele dingen die zonder versiebeheer heel lastig zijn en met versiebeheer erg eenvoudig worden:
+<ul>
+<li>een logboek met allerlei versies van je code bijhouden</li>
+<li>je code delen met collega's (zonder risico dat ze jouw code overschrijven)</li>
+<li>de verschillen tussen twee specifieke versies van je code bekijken</li>
+<li>experimenteren met twee oplossingen voor één probleem, zodat je achteraf de beste oplossing kan kiezen</li>
+<li>tegelijkertijd aan hetzelfde project werken als een collega en achteraf de aanpassingen samenvoegen</li>
+</ul>
+<P>
+
+<p class="alert alert-info">Meestal bestaat dat project dat je met Git beheert uit code, maar dat hoeft niet. Je kan er vanalles mee bijhouden, van tekeningen in Inkscape tot recepten. Zelfs binaire data is mogelijk, al komt versiebeheer vooral tot zijn recht voor data in een tekstformaat.</p>
+<p class="alert alert-warning">Alle informatie vanaf dit punt is getest met Git 2.20. Verder wordt verondersteld dat je geen defaultinstellingen hebt aangepast.</p>
+{% endblock %}
+
+{% block assignment %}
+<ol>
+<li>Zoek via een zoekmachine naar keuze (Google, Bing, DuckDuckGo,...) naar het adres van de officiële Git documentatie.</li>
+<li>Volg de link.</li>
+<li>Klik op de link in <a href="#official-book">de afbeelding</a> hieronder.</li>
+<li>Kies links voor de <strong>Nederlandse</strong> vertaling.</li>
+<li>Kopieer de URL uit je browserbalk.</li>
+<li>Maak een nieuw tekstbestand met de naam <filename>{{ uid }}</filename> <strong>zonder extensie</strong>. Hoe je in kladblok een bestand maakt zonder extensie, wordt <a href="https://www.techwalla.com/articles/how-to-create-a-file-without-an-extension-with-notepad" target="_blank">hier</a> uitgelegd en <a href="https://youtu.be/CIyc51xVF7U" target="_blank">hier</a> gedemonstreerd. Hoe je dat in TextEdit doet onder Mac OS, wordt <a href="https://apple.stackexchange.com/questions/297613/how-do-i-force-textedit-to-not-add-txt-extension-sierra" target="_blank">hier</a> uitgelegd.</li>
+<li>Plak de gekopieerde URL in het tekstbestand dat je net hebt gemaakt en sla op.</li>
+<li>Navigeer in je shell via <code>cd</code> naar de map die je hebt ingesteld voor het vak dat je nu aan het volgen bent. Onder Windows open je een shell door het programma <code>PowerShell</code> te starten, onder Mac OS of Linux door het programma <code>Terminal</code> te starten.</li>
+<li>Voer na elkaar uit in je PowerShell of Terminal:
+<ol>
+  <li><code>git add {{ uid }}</code></li>
+  <li><code>git commit -m "URL"</code></li>
+  <li><code>git push</code></li>
+</ol>
+</li>
+<li>Controleer onderaan op deze pagina dat je repository voor Git geselecteerd is in het dropdownmenu en klik dan op "Deze oefening controleren".</li>
+</ol>
+<figure>
+  <img src="{% static "images/officieel-boek-git.png" %}" id="official-book"/>
+  <figcaption>Officiële documentatie in boekvorm</figcaption>
+</figure>
+{% endblock %}
