@@ -1,0 +1,17 @@
+bbsearch/__init__.py,sha256=W8UV3hTAeurIPYlx0zQ-4-ik8JZ8letxhcy7NwT7iac,85
+bbsearch/api/__init__.py,sha256=jt66hNeOpjRbyu42LDYATDHssoKm_fBo80VJ5cAqsIE,59
+bbsearch/api/programs.py,sha256=2jwsh87CXeNJOU60gdOc5lNZ4ryhF3FkRUkV4tUFfDw,2627
+bbsearch/client.py,sha256=KxG1JNqB4-3xqB1yfE91NcG2NBPnz-_xGOeNNq0YuT8,585
+bbsearch/errors.py,sha256=QftuZwNO1vKvRdpPE11ACA-lpIFcQ7eXAIHbuUAiZCs,246
+bbsearch/manager.py,sha256=0rJ4nPQMo8ZhoWThy3jQr67rw7wIp9cKzD71yu9By88,1323
+bbsearch/models/__init__.py,sha256=Fqau24QTIu5q-7feN5IUpcrW-OFCU87AYbrshlga-KQ,298
+bbsearch/models/http_validation_error.py,sha256=Cd17Jf7dZE11eZTAnLvqEo9enzAF4gYwlPXkzHNh5GQ,930
+bbsearch/models/program.py,sha256=vgTaYzYa_AvkbgKZMdMydur-FQTDEWNNUYkghE44K4E,2984
+bbsearch/models/program_scope.py,sha256=JOxA-h5_k90SUs6VCtPgGVD04L7_JdeGy7LTb2gpkKQ,531
+bbsearch/models/programs.py,sha256=L9v5UBx0EgXMs0ASdpkGsVjE1v9jZPJsBPbhDY73GJs,878
+bbsearch/models/types.py,sha256=aGXzcuXPxGbvmUI6CaKdRLtkP1ejtJFy9rJj5cU6Ua0,592
+bbsearch/models/validation_error.py,sha256=CZrHgtEzclGi9QZKwZDZ2DBDddERVpUNLowyc3HlZpc,628
+bbsearch/py.typed,sha256=8ZJUsxZiuOy1oJeVhsTWQhTG_6pTVHVXk5hJL79ebTk,25
+bbsearch-0.0.0.dist-info/WHEEL,sha256=Q99itqWYDhV793oHzqzi24q7L7Kdiz6cb55YDfTXphE,84
+bbsearch-0.0.0.dist-info/METADATA,sha256=a9hOJP5tMhyYTYWaiUetFpcpo91vMvEdAgF5ALWBJYg,345
+bbsearch-0.0.0.dist-info/RECORD,,
