@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: txTrader
+Version: 1.14.6
+Summary: TxTrader Securities Trading API Controller
+Home-page: https://github.com/rstms/txTrader
+Author: Matt Krueger
+Author-email: mkrueger@rstms.net
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: twisted
+Requires-Dist: ujson
+Requires-Dist: hexdump
+Requires-Dist: pytz
+Requires-Dist: tzlocal
+Requires-Dist: Click
+Requires-Dist: txtrader-client
+Requires-Dist: txtrader-monitor
+Requires-Dist: wait-for-it
+
+UNKNOWN
+
+

@@ -1,0 +1,3 @@
+[console_scripts]
+txtraderd = txtrader.daemon:txtraderd
+
