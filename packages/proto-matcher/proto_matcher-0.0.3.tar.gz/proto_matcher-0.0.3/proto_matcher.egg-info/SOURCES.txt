@@ -1,0 +1,15 @@
+README.md
+setup.cfg
+setup.py
+proto_matcher/__init__.py
+proto_matcher.egg-info/PKG-INFO
+proto_matcher.egg-info/SOURCES.txt
+proto_matcher.egg-info/dependency_links.txt
+proto_matcher.egg-info/top_level.txt
+proto_matcher/compare/__init__.py
+proto_matcher/compare/compare.py
+proto_matcher/compare/compare_test.py
+proto_matcher/compare/iter_util.py
+proto_matcher/matcher/__init__.py
+proto_matcher/matcher/matcher.py
+proto_matcher/matcher/matcher_test.py
