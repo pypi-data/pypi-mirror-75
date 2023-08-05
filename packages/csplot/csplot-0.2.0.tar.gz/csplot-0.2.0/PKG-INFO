@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: csplot
+Version: 0.2.0
+Summary: Simple library for plotting charts from Code::Stats API
+Home-page: https://gitlab.com/grzesiek11/csplot
+Author: Grzesiek11
+Author-email: grzesiek.jedenastka@outlook.com
+License: UNKNOWN
+Description: # csplot
+        
+        Simple library for plotting charts from Code::Stats API.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: ISC License (ISCL)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
