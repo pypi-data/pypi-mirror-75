@@ -1,0 +1,10 @@
+README.md
+setup.py
+s3/__init__.py
+s3/client.py
+s3_talenttech_oss.egg-info/PKG-INFO
+s3_talenttech_oss.egg-info/SOURCES.txt
+s3_talenttech_oss.egg-info/dependency_links.txt
+s3_talenttech_oss.egg-info/requires.txt
+s3_talenttech_oss.egg-info/top_level.txt
+test/test_s3.py
