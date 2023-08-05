@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: pair-learning
+Version: 0.1.1
+Summary: The easiest way to use deep metric learning for pair data. Written in PyTorch.
+Home-page: https://github.com/rikiyasuzuki/pair_learning
+Author: Rikiya Suzuki
+Author-email: rikiyasuzuki1112@gmail.com
+License: UNKNOWN
+Description: <h1 align="center">
+          Metric Learning for Pair Data
+        </h1>
+        The easiest way to use deep metric learning for pair data. Written in PyTorch.
+        
+        # Licence
+        
+        The MIT License (MIT)
+        
+        Copyright (c) 2020 Rikiya Suzuki
+        
+Keywords: metric_learning,torch
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
