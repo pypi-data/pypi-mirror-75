@@ -1,0 +1,3 @@
+[console_scripts]
+contspy-show = contspy.cli:show
+
