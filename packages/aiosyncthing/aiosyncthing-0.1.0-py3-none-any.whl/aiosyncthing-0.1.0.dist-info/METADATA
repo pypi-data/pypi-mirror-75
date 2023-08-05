@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: aiosyncthing
+Version: 0.1.0
+Summary: Asynchronous Python client for the Syncthing REST API
+Home-page: https://github.com/zhulik/aiosyncthing
+Author: Gleb Sinyavskiy
+Author-email: zhulik.gleb@gmail.com
+License: The MIT License
+Keywords: syncthing,sync,rest,backup,api,aio,async,await
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: System :: Archiving :: Mirroring
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp (==3.6.1)
+Requires-Dist: yarl (==1.5.0)
+
+Asynchronous Python client for the Syncthing REST API
+
+
