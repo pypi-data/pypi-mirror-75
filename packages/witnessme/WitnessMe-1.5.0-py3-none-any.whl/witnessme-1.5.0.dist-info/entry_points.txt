@@ -1,0 +1,5 @@
+[console_scripts]
+witnessme=witnessme.console.witnessme:run
+wmapi=witnessme.console.wmapi:run
+wmdb=witnessme.console.wmdb:run
+
