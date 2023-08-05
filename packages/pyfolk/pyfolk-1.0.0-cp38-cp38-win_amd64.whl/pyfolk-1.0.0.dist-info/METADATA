@@ -1,0 +1,98 @@
+Metadata-Version: 2.1
+Name: pyfolk
+Version: 1.0.0
+Summary: Folk Edu package
+Home-page: UNKNOWN
+Author: HighGreat
+Author-email: highgreat@hg-fly.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Education
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (==1.18.2)
+Requires-Dist: opencv-contrib-python (==3.4.8.29)
+Requires-Dist: gevent (==20.6.1)
+
+# Folk Edu
+Folk python编程依赖包。  
+A Python package used by Folk.  
+
+## 安装 / Installing
+在终端执行如下指令以安装pyfolk。   
+Input the following code in powershell(cmd.exe) to install pyfolk.   
+```
+pip install pyfolk
+```
+
+## 激活 / Activating
+pyfolk使用前需要使用激活工具进行激活。请联系作者，获得对应的激活工具与相关文档。  
+Pyfolk needs to be activated initially. Please contact with the author to get activator and related documents.  
+
+## 查看版本 / Checking version
+* 在控制终端执行pip list 进行查看  
+Input "pip list" in powershell(cmd.exe) to get pyfolk's verison  
+
+* 在程序中执行  
+Using the following code.  
+```
+import pyfolk
+ver = pyfolk.get_version()
+print(ver)
+```
+
+## 使用 / Usage
+使用以下代码获取一个UserApi实例后，可以通过UserApi所提供的接口对folk无人机进行控制。接口说明请查看doc/html/中文/index.html文件。  
+Use the following codes to create a userApi instance. Its interfaces can be used to control folk plane. Go to doc/html/English/index.html to see the interface specification.  
+```
+import pyfolk
+api = pyfolk.UserApi()
+```
+
+## 更新说明 / Update
+
+### v 1.0.0
+首发版本  
+First version  
+
+1. 提供遥控器模式和舞步模式飞行控制接口，共44个  
+Provide flying control interfaces, a total of 44  
+
+2. 提供灯光控制接口，共5个  
+Provide light control interfaces, a total of 5  
+
+3. 提供摄像头控制接口，共4个  
+Provide camera control interfaces, a total of 4  
+
+4. 提供视频流控制接口，共21个  
+Provide video streaming control interfaces, a total of 21  
+
+5. 提供目标识别、二维码识别、手势识别、跟踪等AI功能接口，共6个  
+Provide target detection, QR detection, gesture detection, tarck interfaces, a total of 6  
+
+6. 提供飞机状态的获取接口，共7个  
+Provide equipment status getting interfaces, a total of 7  
+
+7. 提供设备创建、连接、系统设置等接口，共10个  
+Provide equipment creation, equipment connection, system config interfaces, a total of 10  
+
+8. 可使用pip进行包管理  
+Pip can be used to manage lib packages  
+
+9. 支持python3所有版本  
+Support all python3 versions  
+
+10. 提供中英双语言版本的文档  
+Provide Chinese/English documents  
+
+11. 使用FolkTools.exe进行激活和版本更新  
+Use FolkTools to activate pyfolk and download pyfolk's documents  
+
