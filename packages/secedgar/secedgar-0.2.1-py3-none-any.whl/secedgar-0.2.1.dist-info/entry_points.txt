@@ -1,0 +1,3 @@
+[console_scripts]
+secedgar = secedgar.cli:cli
+
