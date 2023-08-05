@@ -1,0 +1,3 @@
+[console_scripts]
+ppg_invariant_diff = pypipegraph.utils.invariant_diff:main
+
