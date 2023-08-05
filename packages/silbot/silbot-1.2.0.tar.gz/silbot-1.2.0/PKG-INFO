@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: silbot
+Version: 1.2.0
+Summary: This is an object oriented Telegram bot framework
+Home-page: https://github.com/SilverOS/Silbot-Py
+Author: SilverOS
+Author-email: support@silveros.it
+License: MIT
+Download-URL: https://github.com/SilverOS/Silbot-Py/archive/1.2.0.tar.gz
+Description: See on GitHub: https://github.com/SilverOS/Silbot-Py
+Keywords: telegram,bot,api,oop,getupdates,all types
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
