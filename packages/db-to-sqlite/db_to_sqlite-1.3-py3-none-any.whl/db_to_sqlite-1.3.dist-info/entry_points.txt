@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        db-to-sqlite=db_to_sqlite.cli:cli
+    
