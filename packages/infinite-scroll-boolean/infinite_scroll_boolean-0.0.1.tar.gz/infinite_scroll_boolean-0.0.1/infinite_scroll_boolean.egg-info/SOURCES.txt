@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+package.json
+setup.py
+infinite_scroll_boolean/InfiniteScrollBoolean.py
+infinite_scroll_boolean/__init__.py
+infinite_scroll_boolean/_imports_.py
+infinite_scroll_boolean/infinite_scroll_boolean.min.js
+infinite_scroll_boolean/infinite_scroll_boolean.min.js.map
+infinite_scroll_boolean/metadata.json
+infinite_scroll_boolean/package-info.json
+infinite_scroll_boolean.egg-info/PKG-INFO
+infinite_scroll_boolean.egg-info/SOURCES.txt
+infinite_scroll_boolean.egg-info/dependency_links.txt
+infinite_scroll_boolean.egg-info/top_level.txt

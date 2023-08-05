@@ -1,0 +1,34 @@
+{
+  "src/lib/components/InfiniteScrollBoolean.react.js": {
+    "description": "",
+    "displayName": "InfiniteScrollBoolean",
+    "methods": [],
+    "props": {
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "The ID of this component, used to identify dash components\nin callbacks. The ID needs to be unique across all of the\ncomponents in an app."
+      },
+      "triggered": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "boolean, indicates whether the waypoint has been triggered",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
+      "setProps": {
+        "type": {
+          "name": "func"
+        },
+        "required": false,
+        "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
+      }
+    }
+  }
+}
