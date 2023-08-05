@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: tf-complex
+Version: 0.0.2
+Summary: TensorFlow utilities for complex neural networks.
+Home-page: https://github.com/zaccharieramzi/tf-complex
+Author: Zaccharie Ramzi
+Author-email: zaccharie.ramzi@inria.fr
+License: MIT
+Download-URL: https://github.com/zaccharieramzi/tf-complex
+Description: # tf-complex
+        
+        [![Build Status](https://travis-ci.com/zaccharieramzi/tf-complex.svg?branch=master)](https://travis-ci.com/zaccharieramzi/tf-complex)
+        
+        This package was inspired by the work of Elizabeth Cole et al.: [Image Reconstruction using an Unrolled DL Architecture including Complex-Valued Convolution and Activation Functions](https://arxiv.org/abs/2004.01738).
+        Please cite their work appropriately if you use this package.
+        The code for their work is available [here](https://github.com/MRSRL/complex-networks-release).
+        
+        ## Installation
+        
+        You can install `tf-complex` using pypi:
+        
+        ```
+        pip install tf-complex
+        ```
+        
+        ## Example use
+        
+        You can define a complex convolution in the following way to use in one of your models:
+        
+        ```python
+        from tf_complex.convolutions import ComplexConv2D
+        
+        conv = ComplexConv2D(
+          16,
+          3,
+          padding='same',
+          activation='crelu',
+        )
+        ```
+        
+Keywords: complex,tensorflow
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Natural Language :: English
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
