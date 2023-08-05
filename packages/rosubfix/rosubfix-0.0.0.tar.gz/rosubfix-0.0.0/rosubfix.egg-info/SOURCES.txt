@@ -1,0 +1,15 @@
+setup.py
+rosubfix/__init__.py
+rosubfix/__main__.py
+rosubfix/error.ui
+rosubfix/main.ui
+rosubfix/process.py
+rosubfix/qt_margin_fix.py
+rosubfix/ui.py
+rosubfix/version.py
+rosubfix.egg-info/PKG-INFO
+rosubfix.egg-info/SOURCES.txt
+rosubfix.egg-info/dependency_links.txt
+rosubfix.egg-info/entry_points.txt
+rosubfix.egg-info/requires.txt
+rosubfix.egg-info/top_level.txt

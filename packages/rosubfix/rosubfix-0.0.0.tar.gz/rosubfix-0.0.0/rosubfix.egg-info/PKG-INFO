@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: rosubfix
+Version: 0.0.0
+Summary: Fix diacritics in romanian subtitles
+Home-page: https://hydra.ecd.space/eduard/rosubfix/
+Author: Eduard Christian Dumitrescu
+Author-email: eduard.c.dumitrescu@gmail.com
+License: LGPLv3
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Natural Language :: Romanian
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 3 :: Only
