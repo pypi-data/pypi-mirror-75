@@ -1,0 +1,272 @@
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+<div id="drop_zone"></div>
+
+<script>
+    function uuid() {
+
+        var s = [];
+
+        var hexDigits = "0123456789abcdef";
+
+        for (var i = 0; i < 36; i++) {
+
+            s[i] = hexDigits.substr(Math.floor(Math.random() * 0x10), 1);
+
+        }
+
+        s[14] = "4";  // bits 12-15 of the time_hi_and_version field to 0010
+
+        s[19] = hexDigits.substr((s[19] & 0x3) | 0x8, 1);  // bits 6-7 of the clock_seq_hi_and_reserved to 01
+
+        s[8] = s[13] = s[18] = s[23] = "-";
+
+
+        var uuid = s.join("");
+
+        return uuid;
+    }
+
+    class FileManger {
+        constructor(el) {
+            this.el = $(el);
+            this.files = [];
+            this.fileinfo = [];
+            this.init();
+        }
+
+        init() {
+            let html = `
+            <div class="file-input-area w-75 mx-auto px-2 mt-5" style="border: gray solid 2px;">
+    <div class="row w-100  m-2 mx-auto  text-center" style="border: gray dotted 2px; border-radius: 0.5em; height: 200px;"
+         ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
+        <div class=" my-auto col-sm-12" style="flex: 1 1;" onclick="$('#file-input-label').click();">
+            <p class="text-secondary" style="font-size: 1.5em;">点击上传文件或将文件拖至此区域</p>
+        </div>
+    </div>
+    <div class="row w-100  m-2 mx-auto">
+        <div class=" my-auto col-sm-12" style="flex: 1 1;" >
+            <input type="file" class="bg-primary file-input" id="file-input" multiple
+                   style="opacity: 0;width: 0.1px;height: 0.1px">
+            <label class="btn btn-primary" id="file-input-label" style="display:none;" for="file-input">choose a
+                file</label>
+            <progress class="progress-bar-animated progress-bar w-100" style=""></progress>
+            <div class='file-card-list'></div>
+        </div>
+
+    </div>
+     <div class="row w-100  m-2 mx-auto">
+        <div class=" my-auto col-sm-12 image-preview" style="flex: 1 1;" >
+
+        </div>
+
+    </div>
+</div>
+            `;
+            this.el.append(html);
+            this.el.find('.progress-bar').hide();
+            this.listen();
+            this.render();
+        }
+
+        newInfo(file, info) {
+            let defaultInfo = {
+                state: 'normal',
+                type: file.type,
+                link: null,
+            };
+            console.log(file);
+            info = Object.assign(defaultInfo, info || {});
+            return info;
+        }
+
+        previewImage(link) {
+            let img = `<img src='${link}' class="w-100">`;
+            this.el.find('.image-preview').html(img);
+        }
+
+        listen() {
+            let input = this.el.find('.file-input');
+            input.bind('input propertychange', () => {
+                let files = Array.from(input[0].files);
+                files.forEach((file) => {
+                    this.push(file)
+                });
+
+            });
+        }
+
+        push(file, info) {
+            this.files.push(file);
+            this.fileinfo.push(this.newInfo(file, info));
+            this.render();
+        }
+
+        remove(i) {
+            this.files.splice(i, 1);
+            this.fileinfo.splice(i, 1);
+            this.render();
+        }
+
+        render() {
+            let card_list = this.el.find('.file-card-list');
+            let styles = {
+                normal: 'bg-primary text-white',
+                uploaded: 'bg-light text-secondary',
+                link: null,
+            };
+            card_list.html('');
+            for (let i in this.files) {
+                let file = this.files[i];
+                let info = this.fileinfo[i];
+                console.log("info.link:", info.link);
+                let cls = styles[info['state']];
+                let click;
+                switch (info.state) {
+                    case 'normal':
+                        click = `FM.upload(${i});`;
+                        break;
+                    case 'uploaded':
+                        click = ``;
+                        break;
+                    default:
+                        click = `FM.upload(${i});`;
+                        break;
+                }
+                let id = uuid();
+                let file_card = `<div class="file-card ${cls}" id="file-card-${i}" file-index="${i}">
+<h6 class="">${file.name}
+<span class="fa fa-window-close p-1" target="#file-card-${i}" onclick="FM.remove(${i})"></span>
+<span class="fa fa-upload p-1" target="#file-card-${i}" onclick="${click}"></span>
+<span class="fa fa-copy btn-clipboard" id="clipboard-${id}"  data-clipboard-text="${info.link}"></span>
+</h6></div>`;
+                card_list.append(file_card);
+                let cb = new ClipboardJS('#clipboard-' + id);
+                cb.on('success', (e) => {
+                    alertify.success(`已复制到粘贴板<code>${e.text}</code>`);
+                })
+            }
+
+
+        }
+
+        upload(index) {
+            let file = this.files[index];
+            let view = this.el.find(`[file-index=${index}]`);
+            this.post(file, (data) => {
+                view.addClass('uploaded bg-light');
+                this.fileinfo[index].state = 'uploaded';
+                {#console.log('return data:', data);#}
+                alertify.success(`成功上传${file.name} ` + data.link || '');
+                if (data.link) {
+                    this.fileinfo[index]['link'] = data.link;
+                    {#console.log('fileinfo after upload.',this.fileinfo);#}
+                    {#this.previewImage(data.link);#}
+                }
+                this.render();
+            });
+
+        }
+
+        post(file, callback) {
+            file = file || this.files[0];
+            var data = new FormData();
+            console.log("file to upload:", file);
+            data.append('file', file);
+            $.ajax({
+                url: '/upload',
+                xhr: function () {
+                    var myXhr = $.ajaxSettings.xhr();
+                    if (myXhr.upload) {
+                        // For handling the progress of the upload
+                        myXhr.upload.addEventListener('progress', function (e) {
+                            if (e.lengthComputable) {
+                                $('.progress-bar').show().attr({
+                                    value: e.loaded,
+                                    max: e.total,
+                                });
+                            }
+                        }, false);
+                        myXhr.upload.addEventListener('load', function (e) {
+                            $('.progress-bar').hide();
+                        })
+                    }
+                    return myXhr;
+                },
+                data: data,
+                cache: false,
+                contentType: false,
+                processData: false,
+                method: 'POST',
+                type: 'POST', // For jQuery < 1.9
+                success: callback || function (data) {
+                    console.log(data);
+                }
+            });
+        }
+
+    }
+
+    $(document).ready(() => {
+        window.FM = new FileManger('#drop_zone');
+    });
+
+</script>
+<script>
+
+    function dropHandler(ev) {
+        console.log('File(s) dropped');
+
+        // Prevent default behavior (Prevent file from being opened)
+        ev.preventDefault();
+        {#let files = [];#}
+        if (ev.dataTransfer.items) {
+            // Use DataTransferItemList interface to access the file(s)
+            for (let i = 0; i < ev.dataTransfer.items.length; i++) {
+                // If dropped items aren't files, reject them
+                if (ev.dataTransfer.items[i].kind === 'file') {
+                    var file = ev.dataTransfer.items[i].getAsFile();
+                    {#console.log('... file[' + i + '].name = ' + file.name);#}
+                    {#console.log("file:", file);#}
+                    {#files.push(file);#}
+                    FM.push(file);
+                }
+            }
+        } else {
+            // Use DataTransfer interface to access the file(s)
+            for (var i = 0; i < ev.dataTransfer.files.length; i++) {
+                console.log('... file[' + i + '].name = ' + ev.dataTransfer.files[i].name);
+                console.log(ev.dataTransfer.files[i]);
+                {#files.push(ev.dataTransfer.files[i]);#}
+                FM.push(ev.dataTransfer.files[i]);
+            }
+        }
+        {#var data = new FormData();#}
+        {#console.log("files:", files);#}
+        {#files.forEach((file, i) => {#}
+        {#    data.append('file-' + i, file);#}
+        {#});
+    #}
+    {#$.ajax({#}
+    {#    url: '/upload',#}
+    {#    data: data,#}
+    {#    cache: false,#}
+    {#    contentType: false,#}
+    {#    processData: false,#}
+    {#    method: 'POST',#}
+    {#    type: 'POST', // For jQuery < 1.9#}
+    {#    success: function (data) {#}
+    {#        alert(data);#}
+    {#    }#}
+    {#})
+    ;
+    #}
+    }
+
+    function dragOverHandler(ev) {
+        console.log('File(s) in drop zone');
+
+        // Prevent default behavior (Prevent file from being opened)
+        ev.preventDefault();
+    }
+</script>
