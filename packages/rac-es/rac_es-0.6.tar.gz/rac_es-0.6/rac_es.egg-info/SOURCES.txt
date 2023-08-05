@@ -1,0 +1,13 @@
+README.md
+setup.py
+rac_es/__init__.py
+rac_es/analyzers.py
+rac_es/documents.py
+rac_es.egg-info/PKG-INFO
+rac_es.egg-info/SOURCES.txt
+rac_es.egg-info/dependency_links.txt
+rac_es.egg-info/not-zip-safe
+rac_es.egg-info/requires.txt
+rac_es.egg-info/top_level.txt
+tests/__init__.py
+tests/test_documents.py
