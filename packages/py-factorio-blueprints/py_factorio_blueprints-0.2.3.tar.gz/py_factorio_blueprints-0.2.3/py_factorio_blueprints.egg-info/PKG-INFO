@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: py-factorio-blueprints
+Version: 0.2.3
+Summary: A python package to help create, modify and export factorio blueprints
+Home-page: https://github.com/tzwaan/python-factorio-blueprints
+Author: Tijmen Zwaan
+Author-email: tijmen.zwaan@gmail.com
+License: MIT
+Download-URL: https://github.com/tzwaan/python-factorio-blueprints/archive/v0.2.3.tar.gz
+Description: # python-factorio-blueprints
+        
+        [![PyPI version fury.io
+        ](https://badge.fury.io/py/py-factorio-blueprints.svg)
+        ](https://pypi.python.org/pypi/py-factorio-blueprints/)
+        [![GitHub release
+        ](https://img.shields.io/github/release/tzwaan/python-factorio-blueprints.svg)
+        ](https://GitHub.com/tzwaan/python-factorio-blueprints/releases/)
+        
+        A python package for importing and editing factorio blueprint strings
+        
+        Definitely not finished, but most basic blueprint functionality is supported.
+        
+Keywords: factorio,blueprint
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Description-Content-Type: text/markdown
