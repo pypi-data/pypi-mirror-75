@@ -1,0 +1,3 @@
+[console_scripts]
+test_rt = test_release_tool.main:run
+
