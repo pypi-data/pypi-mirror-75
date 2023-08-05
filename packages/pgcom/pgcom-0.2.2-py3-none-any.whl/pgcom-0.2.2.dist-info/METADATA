@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: pgcom
+Version: 0.2.2
+Summary: PostgreSQL communication manager
+Home-page: https://github.com/viktorsapozhok/pgcom
+Author: Alex Piskun
+Author-email: piskun.aleksey@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pandas (>=0.24.0)
+Requires-Dist: psycopg2-binary (>=2.7.7)
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: sphinx-autodoc-typehints ; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: tox ; extra == 'test'
+
+# pgcom
+
+[![Build Status](https://travis-ci.org/viktorsapozhok/pgcom.svg?branch=master)](https://travis-ci.org/viktorsapozhok/pgcom)
+[![pypi](https://img.shields.io/pypi/v/pgcom.svg)](https://pypi.python.org/pypi/pgcom)
+[![Documentation Status](https://readthedocs.org/projects/pgcom/badge/?version=latest)](https://pgcom.readthedocs.io/en/latest/?badge=latest)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+Communication manager for PostgreSQL database, provides a collection of convenience
+wrappers over Psycopg adapter to simplify the usage of basic Psycopg methods in conjunction
+with Pandas DataFrames.
+
+## Installation
+
+To install the package, simply use pip:
+
+```
+$ pip install pgcom
+```
+
+## Key features
+
+* Reading from database table to Pandas DataFrame. 
+* Writing from DataFrame to a table.
+* Adaptation between DataFrames and COPY FROM.
+* Methods to resolve conflicts in DataFrame before applying COPY FROM.
+* Tools for setting asynchronous communication with database using LISTEN and NOTIFY commands.
+
+Read the [documentation](https://pgcom.readthedocs.io/en/latest/) for more.
+
+## License
+
+MIT License (see [LICENSE](LICENSE)).
+
+
