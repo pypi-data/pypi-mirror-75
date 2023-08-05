@@ -1,0 +1,24 @@
+[console_scripts]
+convert-annotations = wai.annotations.main:sys_main
+
+[wai.annotations.plugins]
+check-duplicate-filenames = wai.annotations.isp.specifiers:DuplicateFileNamesISPSpecifier
+coerce-box = wai.annotations.isp.specifiers:BoxBoundsCoercionISPSpecifier
+coerce-mask = wai.annotations.isp.specifiers:MaskBoundsCoercionISPSpecifier
+dimension-discarder = wai.annotations.isp.specifiers:DimensionDiscarderISPSpecifier
+from-adams = wai.annotations.format.specifiers:ADAMSInputFormatSpecifier
+from-coco = wai.annotations.format.specifiers:COCOInputFormatSpecifier
+from-common-voice = wai.annotations.format.specifiers:CommonVoiceInputFormatSpecifier
+from-festvox = wai.annotations.format.specifiers:FestVoxInputFormatSpecifier
+from-roi = wai.annotations.format.specifiers:ROIInputFormatSpecifier
+from-tfrecords = wai.annotations.format.specifiers:TFRecordsInputFormatSpecifier
+from-vgg = wai.annotations.format.specifiers:VGGInputFormatSpecifier
+passthrough = wai.annotations.isp.specifiers:PassThroughISPSpecifier
+to-adams = wai.annotations.format.specifiers:ADAMSOutputFormatSpecifier
+to-coco = wai.annotations.format.specifiers:COCOOutputFormatSpecifier
+to-common-voice = wai.annotations.format.specifiers:CommonVoiceOutputFormatSpecifier
+to-festvox = wai.annotations.format.specifiers:FestVoxOutputFormatSpecifier
+to-roi = wai.annotations.format.specifiers:ROIOutputFormatSpecifier
+to-tfrecords = wai.annotations.format.specifiers:TFRecordsOutputFormatSpecifier
+to-vgg = wai.annotations.format.specifiers:VGGOutputFormatSpecifier
+
