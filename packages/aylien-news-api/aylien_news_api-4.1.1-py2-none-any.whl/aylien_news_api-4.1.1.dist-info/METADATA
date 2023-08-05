@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: aylien-news-api
+Version: 4.1.1
+Summary: AYLIEN News API
+Home-page: UNKNOWN
+Author: API support
+Author-email: support@aylien.com
+License: UNKNOWN
+Keywords: OpenAPI,OpenAPI-Generator,AYLIEN News API
+Platform: UNKNOWN
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: six (>=1.10)
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+
+The AYLIEN News API is the most powerful way of sourcing, searching and syndicating analyzed and enriched news content. It is accessed by sending HTTP requests to our server, which returns information to your client.   # noqa: E501
+
+
