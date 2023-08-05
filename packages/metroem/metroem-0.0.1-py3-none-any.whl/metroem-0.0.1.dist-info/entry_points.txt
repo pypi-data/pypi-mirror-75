@@ -1,0 +1,3 @@
+[console_scripts]
+metroem-train = metroem.train:main
+
