@@ -1,0 +1,17 @@
+[Unit]
+Description=Odoo Service
+After=network.target
+
+[Service]
+Type=simple
+User={{ user }}
+ExecStart=/usr/bin/odoo --config /etc/odoo/odoo.conf --syslog
+Restart=on-failure
+RestartSec=10
+SyslogIdentifier=odoo
+StandardError=journal
+StandardOutput=journal
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target

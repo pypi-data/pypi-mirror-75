@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+# vim: ft=jinja
+
+{% import_yaml 'caddy/defaults.yaml' as defaults %}
+{% import_yaml 'caddy/osfamilymap.yaml' as osfamilymap %}
+{% import_yaml 'caddy/cpuarchmap.yaml' as cpuarchmap %}
+
+{% set caddy = salt['grains.filter_by'](
+    defaults,
+    merge=salt['grains.filter_by'](
+    osfamilymap,
+    grain='os_family',
+    merge=salt['grains.filter_by'](
+        cpuarchmap,
+        grain='cpuarch',
+        merge=salt['pillar.get']('caddy', {}),
+        ),
+    ),
+    base='caddy',
+) %}
+
+%}

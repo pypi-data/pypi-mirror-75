@@ -1,0 +1,2 @@
+test:
+  caller.test.ping
