@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<registry>
+  <record field="allowedFields"
+          interface="collective.easyform.browser.controlpanel.IEasyFormControlPanel"
+          name="easyform.allowedFields"
+  >
+    <value purge="False">
+      <element>collective.easyformplugin.fields.fields.Consent</element>
+      <element>collective.easyformplugin.fields.fields.Divider</element>
+    </value>
+  </record>
+
+  <records prefix="plone.bundles/easyformplugin.fields" interface="Products.CMFPlone.interfaces.IBundleRegistry">
+    <value key="expression"></value>
+    <value key="csscompilation">++plone++easyformplugin.fields/styles.css</value>
+    <value key="compile">False</value>
+    <value key="depends">easyform</value>
+    <value key="enabled">True</value>
+    <value key="last_compilation"></value>
+    <value key="resources"></value>
+    <value key="merge_with"></value>
+  </records>
+
+</registry>

@@ -1,0 +1,79 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:z3c="http://namespaces.zope.org/z3c"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    >
+  <class class=".widgets.ConsentWidget">
+    <require
+        permission="zope.Public"
+        interface="collective.easyformplugin.fields.interfaces.IConsentWidget"
+        />
+  </class>
+  <adapter
+      for="collective.easyformplugin.fields.interfaces.IConsent
+           *"
+      factory=".widgets.ConsentFieldWidget"
+      />
+
+  <z3c:widgetTemplate
+      template="consent_display.pt"
+      layer="collective.easyform.interfaces.IEasyFormLayer"
+      mode="display"
+      widget="collective.easyformplugin.fields.interfaces.IConsentWidget"
+      />
+  <z3c:widgetTemplate
+      template="consent_input.pt"
+      layer="collective.easyform.interfaces.IEasyFormLayer"
+      mode="input"
+      widget="collective.easyformplugin.fields.interfaces.IConsentWidget"
+      />
+  <configure package="collective.easyform.browser">
+    <z3c:widgetTemplate
+        template="empty.pt"
+        layer="collective.easyform.interfaces.IEasyFormLayer"
+        mode="hidden"
+        widget="collective.easyformplugin.fields.interfaces.IConsentWidget"
+        />
+  </configure>
+
+  <class class=".widgets.DividerWidget">
+    <require
+        permission="zope.Public"
+        interface="collective.easyformplugin.fields.interfaces.IDividerWidget"
+        />
+  </class>
+  <adapter
+      for="collective.easyformplugin.fields.interfaces.IDivider
+           *"
+      factory=".widgets.DividerFieldWidget"
+      />
+
+  <configure package="collective.easyform.browser">
+    <z3c:widgetTemplate
+        template="empty.pt"
+        layer="collective.easyform.interfaces.IEasyFormLayer"
+        mode="input"
+        widget="collective.easyformplugin.fields.interfaces.IDividerWidget"
+        />
+    <z3c:widgetTemplate
+        template="empty.pt"
+        layer="collective.easyform.interfaces.IEasyFormLayer"
+        mode="display"
+        widget="collective.easyformplugin.fields.interfaces.IDividerWidget"
+        />
+    <z3c:widgetTemplate
+        template="empty.pt"
+        layer="collective.easyform.interfaces.IEasyFormLayer"
+        mode="hidden"
+        widget="collective.easyformplugin.fields.interfaces.IDividerWidget"
+        />
+  </configure>
+  <browser:page
+      name="ploneform-render-widget"
+      for="collective.easyformplugin.fields.interfaces.IDividerWidget"
+      permission="zope.Public"
+      class=".widgets.DividerRenderWidget"
+      layer="collective.easyform.interfaces.IEasyFormLayer"
+      />
+</configure>

@@ -1,0 +1,13 @@
+.easyformplugin-fields--divider label {
+  display: block;
+  width: 100%;
+  padding: 0;
+  margin-bottom: 20px;
+  font-family: thesans, sans-serif;
+  font-size: 21px;
+  font-weight: normal;
+  line-height: inherit;
+  color: #333;
+  border: 0;
+  border-bottom: 1px solid #e5e5e5;
+}

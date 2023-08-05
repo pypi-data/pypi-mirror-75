@@ -1,0 +1,72 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:browser="http://namespaces.zope.org/browser"
+    xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+    xmlns:plone="http://namespaces.plone.org/plone"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
+    i18n_domain="collective.easyformplugin.fields"
+    >
+
+  <i18n:registerTranslations directory="locales" />
+
+  <include package="plone.browserlayer" />
+  <include package="plone.resource" />
+  <include file="widgets.zcml" />
+
+  <plone:static
+      directory="resources"
+      name="easyformplugin.fields"
+      type="plone"
+      />
+
+  <browser:page
+      name="view"
+      for="collective.easyform.interfaces.IEasyForm"
+      permission="zope2.View"
+      class=".view.SimpleFormView"
+      layer=".interfaces.IBrowserLayer"
+      />
+
+  <utility
+      name="collective.easyformplugin.fields.fields.Consent"
+      component=".fields.ConsentFactory"
+      />
+  <utility
+      name="collective.easyformplugin.fields.fields.Consent"
+      component=".fields.ConsentHandler"
+      />
+
+  <utility
+      name="collective.easyformplugin.fields.fields.Divider"
+      component=".fields.DividerFactory"
+      />
+  <utility
+      name="collective.easyformplugin.fields.fields.Divider"
+      component=".fields.DividerHandler"
+      />
+
+
+  <!-- profile setup -->
+
+  <genericsetup:registerProfile
+      name="default"
+      title="collective.easyformplugin.fields"
+      description="Installs the collective.easyformplugin.fields add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/default"
+      />
+
+  <genericsetup:registerProfile
+      name="uninstall"
+      title="collective.easyformplugin.fields (uninstall)"
+      description="Uninstalls the collective.easyformplugin.fields add-on."
+      provides="Products.GenericSetup.interfaces.EXTENSION"
+      directory="profiles/uninstall"
+      />
+
+  <utility
+      name="collective.easyformplugin.fields-hiddenprofiles"
+      factory=".setuphandlers.HiddenProfiles"
+      />
+
+</configure>

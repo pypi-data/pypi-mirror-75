@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: collective.easyformplugin.fields
+Version: 1.0b1
+Summary: Extra fields for easyform
+Home-page: https://github.com/collective/collective.easyformplugin.fields
+Author: Johannes Raggam
+Author-email: thetetet@gmail.com
+License: GPL version 2
+Project-URL: PyPI, https://pypi.python.org/pypi/collective.easyformplugin.fields
+Project-URL: Source, https://github.com/collective/collective.easyformplugin.fields
+Project-URL: Tracker, https://github.com/collective/collective.easyformplugin.fields/issues
+Description: ================================
+        collective.easyformplugin.fields
+        ================================
+        
+        Extra fields for easyform.
+        
+        
+        Features
+        --------
+        
+        - Consent field. Can be used for agreement to DSGVO, terms of service, newsletters, etc.
+          If the field is set to required it must be checked.
+        
+        - Divider field. Can be used to visually seperate parts of the form.
+        
+        
+        Contribute
+        ----------
+        
+        - Issue Tracker: https://github.com/collective/collective.easyformplugin.fields/issues
+        - Source Code: https://github.com/collective/collective.easyformplugin.fields
+        - Documentation: https://docs.plone.org/foo/bar
+        
+        
+        License
+        -------
+        
+        The project is licensed under the GPLv2.
+        
+        
+        Changelog
+        =========
+        
+        
+        1.0b1 (2020-07-28)
+        ------------------
+        
+        - Initial release.
+          [thet]
+        
+Keywords: Python Plone
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Plone
+Classifier: Framework :: Plone :: Addon
+Classifier: Framework :: Plone :: 5.2
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Requires-Python: ==2.7, >=3.6
+Provides-Extra: test

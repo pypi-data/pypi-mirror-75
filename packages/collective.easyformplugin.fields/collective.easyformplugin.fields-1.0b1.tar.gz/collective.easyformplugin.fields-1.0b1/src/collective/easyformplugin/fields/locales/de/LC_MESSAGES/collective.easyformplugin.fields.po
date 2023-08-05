@@ -1,0 +1,66 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2020-06-17 10:05+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: collective.easyformplugin.fields\n"
+
+#: ../configure.zcml:57
+msgid "Installs the collective.easyformplugin.fields add-on."
+msgstr "Installiert das Plugin collective.easyformplugin.fields"
+
+#: ../configure.zcml:65
+msgid "Uninstalls the collective.easyformplugin.fields add-on."
+msgstr "Deinstalliert das Plugin collective.easyformplugin.fields"
+
+#: ../configure.zcml:57
+msgid "collective.easyformplugin.fields"
+msgstr ""
+
+#: ../configure.zcml:65
+msgid "collective.easyformplugin.fields (uninstall)"
+msgstr ""
+
+#. Default: "Yes, I agree"
+#: ../interfaces.py:19
+msgid "consent_checkbox_label__default"
+msgstr "Ja, ich stimme zu"
+
+#. Default: "A text that will be displayed next to the checkbox, e.g. 'Yes, I agree'."
+#: ../interfaces.py:41
+msgid "consent_checkbox_label__help"
+msgstr "Text, der neben dem Bestätigungsfeld erscheint, z.B. 'Ja, ich stimme zu'."
+
+#. Default: "Checkbox Label"
+#: ../interfaces.py:40
+msgid "consent_checkbox_label__label"
+msgstr "Titel für Auswahlfeld"
+
+#. Default: "A text that will appear above the checkbox to explain the nature of the consent."
+#: ../interfaces.py:31
+msgid "consent_rich_label__help"
+msgstr "Text, der über dem Bestätigungsfeld erscheint um den Inhalt der Zustimmungserklärung zu erläutern."
+
+#. Default: "Rich Label"
+#: ../interfaces.py:30
+msgid "consent_rich_label__label"
+msgstr "Formatierbare Beschriftung"
+
+#. Default: "Consent"
+#: ../fields.py:36
+msgid "label_consent_field"
+msgstr "Einwilligung"
+
+#. Default: "Divider"
+#: ../fields.py:46
+msgid "label_divider_field"
+msgstr "Trenner"
