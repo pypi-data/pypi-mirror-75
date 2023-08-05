@@ -1,0 +1,3 @@
+recursive-include loggerTest/static *.js
+recursive-include loggerTest/static *.md
+recursive-include loggerTest/static *.yaml
