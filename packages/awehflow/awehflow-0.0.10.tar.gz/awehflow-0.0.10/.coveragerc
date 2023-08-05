@@ -1,0 +1,14 @@
+[run]
+source = awehflow
+disable_warnings = include-ignored
+include =
+        ./*.py
+	    ./*
+omit =
+     *tests*
+[report]
+exclude_lines =
+        pragma: no cover
+        if __name__ == .__main__.:
+[html]
+directory = coverage_html_report

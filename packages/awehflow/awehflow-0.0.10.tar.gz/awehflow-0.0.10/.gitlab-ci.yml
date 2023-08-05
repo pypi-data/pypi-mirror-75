@@ -1,0 +1,27 @@
+image: python:3.7
+
+variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+before_script:
+  - python -V
+  - pip install virtualenv
+  - virtualenv venv
+  - source venv/bin/activate
+  - pip install -r requirements.tests.txt
+  - pip install -r requirements.txt
+
+test:
+  script:
+    - export AIRFLOW_HOME="$(pwd)"
+    - export AIRFLOW__CORE__LOAD_EXAMPLES=False
+    - export SLUGIFY_USES_TEXT_UNIDECODE=yes
+    - airflow initdb
+    - coverage run --source awehflow -m unittest discover tests/
+    - coverage report
+  coverage: '/TOTAL.+ ([0-9]{1,3}%)/'
