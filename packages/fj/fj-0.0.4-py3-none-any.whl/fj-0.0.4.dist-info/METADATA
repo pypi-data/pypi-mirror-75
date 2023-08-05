@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: fj
+Version: 0.0.4
+Summary: Pool installations of Python projects
+Home-page: https://pypi.org/project/fj/
+Author: sinoroc
+Author-email: sinoroc.code+python@gmail.com
+License: Apache-2.0
+Project-URL: GitHub, https://github.com/sinoroc/fj
+Project-URL: GitLab, https://gitlab.com/sinoroc/fj
+Project-URL: Documentation, https://fj.readthedocs.io/
+Platform: UNKNOWN
+Requires-Python: ~=3.8
+Description-Content-Type: text/x-rst
+Provides-Extra: dev_doc
+Requires-Dist: Sphinx ; extra == 'dev_doc'
+Requires-Dist: sphinxcontrib-autoprogram ; extra == 'dev_doc'
+Provides-Extra: dev_package
+Requires-Dist: twine ; extra == 'dev_package'
+Requires-Dist: wheel ; extra == 'dev_package'
+Requires-Dist: zapp ; extra == 'dev_package'
+Provides-Extra: dev_test
+Requires-Dist: mypy ; extra == 'dev_test'
+Requires-Dist: pycodestyle ; extra == 'dev_test'
+Requires-Dist: pydocstyle ; extra == 'dev_test'
+Requires-Dist: pylint ; extra == 'dev_test'
+Requires-Dist: pytest ; extra == 'dev_test'
+Requires-Dist: pytest-mypy ; extra == 'dev_test'
+Requires-Dist: pytest-pydocstyle ; extra == 'dev_test'
+Requires-Dist: pytest-pycodestyle ; extra == 'dev_test'
+Requires-Dist: pytest-pylint ; extra == 'dev_test'
+Requires-Dist: pytest-yapf3 ; extra == 'dev_test'
+Requires-Dist: yapf ; extra == 'dev_test'
+Provides-Extra: full
+Requires-Dist: appdirs ; extra == 'full'
+Requires-Dist: mousebender ; extra == 'full'
+Requires-Dist: packaging ; extra == 'full'
+Requires-Dist: pep517 ; extra == 'full'
+Requires-Dist: pip ; extra == 'full'
+Requires-Dist: requests ; extra == 'full'
+Requires-Dist: resolvelib ; extra == 'full'
+Provides-Extra: plugin_tox
+Requires-Dist: tox ; extra == 'plugin_tox'
+Requires-Dist: appdirs ; extra == 'plugin_tox'
+Requires-Dist: mousebender ; extra == 'plugin_tox'
+Requires-Dist: packaging ; extra == 'plugin_tox'
+Requires-Dist: pep517 ; extra == 'plugin_tox'
+Requires-Dist: pip ; extra == 'plugin_tox'
+Requires-Dist: requests ; extra == 'plugin_tox'
+Requires-Dist: resolvelib ; extra == 'plugin_tox'
+Provides-Extra: plugin_virtualenv
+Requires-Dist: virtualenv ; extra == 'plugin_virtualenv'
+Requires-Dist: appdirs ; extra == 'plugin_virtualenv'
+Requires-Dist: mousebender ; extra == 'plugin_virtualenv'
+Requires-Dist: packaging ; extra == 'plugin_virtualenv'
+Requires-Dist: pep517 ; extra == 'plugin_virtualenv'
+Requires-Dist: pip ; extra == 'plugin_virtualenv'
+Requires-Dist: requests ; extra == 'plugin_virtualenv'
+Requires-Dist: resolvelib ; extra == 'plugin_virtualenv'
+
+..
+
+
+Introduction
+============
+
+Pool installations of Python projects
+
+
+Documentation
+-------------
+
+* https://fj.readthedocs.io/
+
+
+Repositories
+------------
+
+Distributions:
+
+* https://pypi.org/project/fj/
+
+
+Source code:
+
+* https://gitlab.com/sinoroc/fj
+* https://github.com/sinoroc/fj
+
+
+.. EOF
+
+

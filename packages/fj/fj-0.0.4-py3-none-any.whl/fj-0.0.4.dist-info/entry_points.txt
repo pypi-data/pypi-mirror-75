@@ -1,0 +1,9 @@
+[console_scripts]
+fj = fj.cli:main
+
+[tox]
+fj = fj.tox_plugin [plugin_tox]
+
+[virtualenv.seed]
+fj = fj.virtualenv_plugin:FjVirtualenvSeeder [plugin_virtualenv]
+
