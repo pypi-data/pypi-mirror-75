@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: helloworldsyasya
+Version: 0.0.1
+Summary: Say hello!
+Home-page: UNKNOWN
+Author: Syasya Putri
+License: UNKNOWN
+Description: # Hello World 
+        
+        This is an example peoject demonstrating how to publish a python module to PyPi.
+        
+        ```python
+        pip install helloworld
+        ```
+        ## Usage
+        
+        ```python 
+        from helloworldsyasya import say_hello
+        # Generate "Hello, World!"
+        say_hello()
+        
+        #Generate "Hello, Everybody!"
+        say_hello("Everybody")
+        ```
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
