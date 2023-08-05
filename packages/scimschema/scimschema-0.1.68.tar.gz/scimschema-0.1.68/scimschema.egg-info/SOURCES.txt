@@ -1,0 +1,37 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+./setup.py
+./scimschema/__init__.py
+./scimschema/_model/__init__.py
+./scimschema/_model/attribute.py
+./scimschema/_model/model.py
+./scimschema/_model/schema_response.py
+./scimschema/_model/scim_exceptions.py
+./scimschema/core_schemas/SCIM Core2 enterpriseuser spec.json
+./scimschema/core_schemas/SCIM Core2 error spec.json
+./scimschema/core_schemas/SCIM Core2 group spec.json
+./scimschema/core_schemas/SCIM Core2 resourcetype spec.json
+./scimschema/core_schemas/SCIM Core2 schema spec.json
+./scimschema/core_schemas/SCIM Core2 serviceproviderconfig spec.json
+./scimschema/core_schemas/SCIM Core2 user spec.json
+./scimschema/core_schemas/__init__.py
+scimschema/__init__.py
+scimschema.egg-info/PKG-INFO
+scimschema.egg-info/SOURCES.txt
+scimschema.egg-info/dependency_links.txt
+scimschema.egg-info/top_level.txt
+scimschema/_model/__init__.py
+scimschema/_model/attribute.py
+scimschema/_model/model.py
+scimschema/_model/schema_response.py
+scimschema/_model/scim_exceptions.py
+scimschema/core_schemas/SCIM Core2 enterpriseuser spec.json
+scimschema/core_schemas/SCIM Core2 error spec.json
+scimschema/core_schemas/SCIM Core2 group spec.json
+scimschema/core_schemas/SCIM Core2 resourcetype spec.json
+scimschema/core_schemas/SCIM Core2 schema spec.json
+scimschema/core_schemas/SCIM Core2 serviceproviderconfig spec.json
+scimschema/core_schemas/SCIM Core2 user spec.json
+scimschema/core_schemas/__init__.py
