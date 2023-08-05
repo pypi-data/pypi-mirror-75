@@ -1,0 +1,3 @@
+[console_scripts]
+layout_generator = layout_generator.cli:main
+
