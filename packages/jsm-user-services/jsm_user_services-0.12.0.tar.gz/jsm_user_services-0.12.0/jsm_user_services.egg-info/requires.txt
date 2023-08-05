@@ -1,0 +1,10 @@
+PyJWT
+requests
+
+[drf]
+djangorestframework
+request-id-django-log
+
+[flask]
+flask
+flask-log-request-id
