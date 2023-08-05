@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: RoboMentor_Client
+Version: 2.9.3
+Summary: Python library and framework for robomentor_client.
+Home-page: https://github.com/robomentor/RoboMentor_Client
+Author: Super Yang
+Author-email: admin@wileho.com
+License: MIT
+Description: 
+        # RoboMentor Client
+        RoboMentor Client
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Provides-Extra: python 3.6.x needs
