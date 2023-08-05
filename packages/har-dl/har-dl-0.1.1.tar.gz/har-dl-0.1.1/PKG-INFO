@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: har-dl
+Version: 0.1.1
+Summary: Utility for downloading content from .HAR files
+Home-page: https://github.com/docyx/har-dl
+Author: docyx
+License: UNKNOWN
+Description: # HAR-DL (.HAR Downloader)
+        
+        Utility for downloading content from .HAR files.
+        
+        ## Installation
+        
+        Python >=3.6 is required.
+        
+        ```
+        $ pip3 install har-dl
+        ```
+        
+        ## Usage (CLI)
+        
+        ```
+        $ har-dl <har_path> <output_path> [-h] [-p] [-q]
+        ```
+        
+        ### Options
+        
+        `-p`, `--proxy`: Enable proxy
+        `-q`, `--quiet`: Disable console output
+        
+        ## Usage (API)
+        
+        ```py
+        from har_dl import Downloader
+        
+        dl = Downloader("path/to/file.har")
+        dl.download(proxy=True)
+        ```
+        
+        ## License
+        
+        [MIT](./LICENSE)
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Classifier: Topic :: Internet
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
