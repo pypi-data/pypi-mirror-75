@@ -1,0 +1,17 @@
+{% extends 'cms/pages/_tag_page.html' %}
+{% load wagtailcore_tags %}
+
+{% block first_content %}
+    <h1>{{ page.h1 }}</h1>
+    <div class="rich-text-container">
+        {{ page.first_text|richtext }}
+    </div>
+{% endblock %}
+
+{% block main_container %}
+    <div class="articles-container">
+        {% for item in items %}
+            {% include 'cms/blocks/common/article.html' with blog=item %}
+        {% endfor %}
+    </div>
+{% endblock %}
