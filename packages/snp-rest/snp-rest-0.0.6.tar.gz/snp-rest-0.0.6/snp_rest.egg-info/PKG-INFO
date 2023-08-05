@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: snp-rest
+Version: 0.0.6
+Summary: Simple REST interface to the Selenio Network Processor
+Home-page: https://github.com/UndyingScroll
+Author: Kevin Pulley
+Author-email: kpulley@imaginecommunications.com
+License: UNKNOWN
+Description: # snp-rest Package
+        
+        This is a simple SNP REST interface package.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
