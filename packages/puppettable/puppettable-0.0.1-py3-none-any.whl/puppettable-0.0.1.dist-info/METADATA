@@ -1,0 +1,136 @@
+Metadata-Version: 2.1
+Name: puppettable
+Version: 0.0.1
+Summary: A highly scalable table backed up by Azure Table Storage, with improved functionality.
+Home-page: http://github.com/ipazc/puppettable
+Author: Iván de Paz Centeno
+Author-email: ipazc@unileon.es
+License: UNKNOWN
+Keywords: puppettable azure table storage python
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pandas (>=1.0.5)
+Requires-Dist: azure-cosmosdb-table (==1.0.6)
+Requires-Dist: nose (>=1.3.7)
+Requires-Dist: pyarrow (>=0.17.1)
+Requires-Dist: tqdm (>=4.48.0)
+
+# Puppettable
+
+
+Pupppettable is a highly-scalable remote-hosted data storage for big datasets of small samples (under 1 MB).
+It makes it easy to handle data transparently by using a Python's data structures API interface. It allows to use <b>Microsoft Azure Table Storage</b> as the backend for the data.
+
+
+
+## How to install
+
+It is available in the official PIP repository:
+
+````python
+pip install puppettable
+````
+
+## Basic usage
+
+You need to create a Storage account in Microsoft Azure. <b>Puppettable</b> requires a `connection_string` to connect to the Azure Table Storage service.
+
+````python
+>>> from puppettable import AzureTableService
+>>> tables = AzureTableService(connection_string)
+>>> tables
+Azure 5 Tables: ["dataset1", "dataset2", "dataset3", ..., "mnist"]
+````
+
+Once the object ``tables`` is instantiated, it can be used as a dictionary to create or retrieve tables from the service.
+The tables are lazy-created as soon as an element is appended. They offer the same behaviour as a Python array:
+
+````python
+>>> tables
+>>> table = tables["newDataset"]
+
+>>> table.insert("foo")
+>>> table.insert("bar")
+>>> table.append_many(["foo2", "bar2"])
+
+>>> print("The length of the table is:", len(table))
+The length of the table is 4
+>>> print("The size of the table (in Bytes) is:", table.size())
+The size of the table (in Bytes) is: 14
+````
+
+
+Every table keeps track of its internal statistics. The length and the size are computed dynamically, and the size is an estimation.
+
+````python
+>>> table = tables["dataset4"]
+>>> table
+Table: 'dataset4'; Partition: 'default'; Length: 10565; Size: 67.599,49 KB
+````
+
+Managing data inside a table follows the same API as a Python array:
+
+````python
+>>> table = tables["newDataset"]
+>>> table[0]
+foo
+>>> table[0:2]
+['foo', 'bar']
+>>> table[-1]
+bar2
+>>> table[-2:]
+['foo2', 'bar2']
+>>> table[:]
+['foo', 'bar', 'foo2', 'bar2']
+>>> table[::2]
+['foo', 'foo2']
+
+>>> table[0] = "new_foo"
+>>> table[2:4] = ["new_foo2", "new_bar2"]
+>>> table[:]
+['new_foo', 'bar', 'new_foo2', 'new_bar2']
+````
+
+
+Following the Azure distribution concepts, every table might have different partition keys for better distribution of the data. A partition key acts as an isolated group inside a table:
+
+
+````python
+>>> tables
+Azure 5 Tables: ["dataset1", "dataset2", "dataset3", ..., "mnist"]
+
+>>> table = tables["dataset4"]
+>>> table
+Table: 'dataset4'; Partition: 'default'; Length: 10565; Size: 67.599,49 KB
+>>> table.set_partition("test")
+>>> table
+Table: 'dataset4'; Partition: 'test'; Length: 0; Size: 0,0 KB
+>>> table.set_partition()
+>>> table
+Table: 'dataset4'; Partition: 'default'; Length: 10565; Size: 67.599,49 KB
+````
+
+The deletion of elements/tables follows the same principle as the dictionaries and arrays in Python. Note though that the length of the table might stay intact as it is computed based on the maximum index detected in the data. 
+This might lead to incoherent statistics due to having all the previous elements removed but having an element in a high position in the table. 
+The size and the length can only be recalculated after eliminating the latest elements in the table.
+
+
+## Supported types
+
+Puppettable supports natively the following types:
+
+ * Numpy arrays
+ * Pandas DataFrames / Series
+ * Dictionaries
+ * Arrays / Tuples
+ * Strings / Integers / Floats
+
+
+

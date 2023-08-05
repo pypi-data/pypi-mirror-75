@@ -1,0 +1,1 @@
+from puppettable.implementations.azure.azure_table_service import AzureTableService
