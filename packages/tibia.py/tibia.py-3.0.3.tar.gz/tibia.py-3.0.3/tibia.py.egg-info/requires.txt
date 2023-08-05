@@ -1,0 +1,17 @@
+beautifulsoup4
+lxml
+aiohttp
+aiohttp-socks
+html5lib
+
+[cli]
+click
+requests
+colorama
+
+[docs]
+sphinx
+
+[test]
+asynctest
+aioresponses
