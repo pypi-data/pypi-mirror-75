@@ -1,0 +1,5 @@
+[console_scripts]
+wardoff = wardoff.__main__:main
+wardoff-freeze = wardoff.__main__:freeze
+wardoff-tokenizer = wardoff.__main__:tokenizer
+
