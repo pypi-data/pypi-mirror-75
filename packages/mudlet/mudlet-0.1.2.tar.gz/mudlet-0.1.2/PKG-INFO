@@ -1,0 +1,45 @@
+Metadata-Version: 1.2
+Name: mudlet
+Version: 0.1.2
+Summary: Talk to Mudlet with
+Home-page: http://github.com/smurfix/pymudlet
+Author: Matthias Urlichs
+Author-email: matthias@urlichs.de
+License: GPLv3 or later
+Description: 
+        Assume you are really annoyed with Lua and want to use a reasonable
+        scripting language. Say, Python.
+        
+        This module lets you do that.
+        
+        It establishes a bidirectional link between Mudlet/Lua and Python and
+        exchanges structured messages between the two.
+        
+        Mudlet can do HTTP requests in the background, so we send a "long poll" PUSH
+        request to the Python server. The reply contains the incoming messages (as
+        a JSON array).
+        
+        There are a couple of optimizations to be had:
+        
+        * if "httpGET" is available, we use that instead of an empty PUSH.
+        
+        * if the platform supports Unix FIFO nodes in the file system, we use that
+          for sending to Python, as that's faster and less expensive than a HTTP
+          request per message.
+        
+        The only required parameter on the Mudlet side is the port number.
+        
+        Errors / exceptions are generally propagated to the caller.
+        
+Keywords: async,mudlet,MUD
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Framework :: Trio
+Requires-Python: >=3.6

@@ -1,0 +1,16 @@
+.gitignore
+MESSAGES.rst
+Makefile
+README.rst
+setup.py
+example/basic.py
+mpackage/config.lua
+mpackage/python.xml
+mudlet/__init__.py
+mudlet/server.py
+mudlet/util.py
+mudlet.egg-info/PKG-INFO
+mudlet.egg-info/SOURCES.txt
+mudlet.egg-info/dependency_links.txt
+mudlet.egg-info/requires.txt
+mudlet.egg-info/top_level.txt

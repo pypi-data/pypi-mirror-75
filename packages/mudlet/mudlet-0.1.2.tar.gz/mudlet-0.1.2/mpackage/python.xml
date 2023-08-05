@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MudletPackage>
+<MudletPackage version="1.001">
+	<TriggerPackage />
+	<TimerPackage />
+	<AliasPackage />
+	<ActionPackage />
+	<ScriptPackage>
+		<ScriptGroup isActive="yes" isFolder="yes">
+			<name>Python</name>
+			<packageName></packageName>
+			<script></script>
+			<eventHandlerList />
+			<Script isActive="yes" isFolder="no">
+				<name>Connector</name>
+				<packageName></packageName>
+				<script>-- This module connects Mudlet to the "mudlet" Python module,
+-- allowing you to access all of Mudlet from Python instead of Lua.
+-- 
+-- Lag per request is around a millisecond or so. You can do things in parallel.
+-- 
+
+py = py or {}
+py.action = py.action or {}
+
+function py.init(port, url)
+    assert(py.handler_id_done == nil, "Already running")
+    py.handler = py.handler or {}
+    py.callbacks = py.callbacks or {}
+    py.put_open = false
+    py.get_open = false
+    py.backoff = 0
+    py.seq = 0
+    py.connected = false
+    py.send_buf = {}
+    
+    py.url = url or "http://127.0.0.1:" .. port .. "/json"
+    
+    py._handler_id_post_done = registerAnonymousEventHandler("sysPostHttpDone", py._get_done)
+    py._handler_id_post_err = registerAnonymousEventHandler("sysPostHttpError", py._get_error)
+    py._handler_id_get_done = registerAnonymousEventHandler("sysGetHttpDone", py._get_done)
+    py._handler_id_get_err = registerAnonymousEventHandler("sysGetHttpError", py._get_error)
+    py._handler_id_put_done = registerAnonymousEventHandler("sysPutHttpDone", py._put_done)
+    py._handler_id_put_err = registerAnonymousEventHandler("sysPutHttpError", py._put_error)
+    py._send({action="init"})
+    py._do_http()
+end
+
+function py.exit()
+    if py._handler_id_post_done then
+        killAnonymousEventHandler(py._handler_id_post_done)
+        killAnonymousEventHandler(py._handler_id_post_err)
+        killAnonymousEventHandler(py._handler_id_get_done)
+        killAnonymousEventHandler(py._handler_id_get_err)
+        killAnonymousEventHandler(py._handler_id_put_done)
+        killAnonymousEventHandler(py._handler_id_put_err)
+        py._handler_id_post_done = nil
+        py._handler_id_post_err = nil
+        py._handler_id_get_done = nil
+        py._handler_id_get_err = nil
+        py._handler_id_put_done = nil
+        py._handler_id_put_err = nil
+    end
+    if py.timer then
+        killTimer(py.timer)
+        py.timer = nil
+    end
+    if py.file then
+        py.file:close()
+        py.file = nil
+    end
+    if py.connected then
+        raiseEvent("PyDisconnect", py.url)
+        py.connected = false
+    end
+    if py.handler then
+        for _,hdl in pairs(py.handler) do
+            killAnonymousEventHandler(hdl)
+        end
+        py.handler = {}
+    end
+end
+
+function py._reset_connection()
+    if py.connected then
+        py.connected = false
+        raiseEvent("PyDisconnect", py.url)
+
+        if py.file ~= nil then  -- most likely dead
+            py.file:close()
+            py.file = nil
+        end
+        py.send_buf = {}
+
+        local cbs = py.callbacks
+        py.callbacks = {}
+        for _,cb in pairs(py.callbacks) do
+            cb(false, "Disconnected")
+        end
+    end
+    if not py.get_open and not py.put_open then 
+        py._run_timer()
+    end
+end
+
+function py._run_timer()
+    if py.timer == nil then
+        py.backoff = py.backoff * 2 + 0.1
+        if py.backoff &gt; 5 then py.backoff = 5 end
+        py.timer = tempTimer(py.backoff, py._retry)
+    end
+
+end
+
+function py._do_http()
+    if #py.send_buf &gt; 0 then
+        if py.file then
+            msg = py.send_buf
+            py.send_buf = {}
+            for _,m in ipairs(msg) do
+                m = yajl.to_string(m) .. "\n"
+                py.file:write(string.len(m) .. "\n" .. m)
+            end
+            py.file:flush()
+        elseif not py.put_open then
+            py.put_open = true
+            msg = py.send_buf
+            py.send_buf = {}
+            msg = yajl.to_string(msg) .. "\n"
+            local ok,url = putHTTP(msg, py.url, {["Content-Type"]="application/json"})
+            if not ok then
+                py._put_error(nil,"PUT failed", py.url)
+                return
+            end
+        end    
+    end
+    if not py.get_open then
+        py.get_open = true
+        local ok,url
+        if getHTTP ~= nil then  -- mod by Smurf
+            ok,url = getHTTP(py.url)
+        else
+            msg = yajl.to_string({action="poll"}).."\n"
+            ok,url = postHTTP(msg, py.url, {["Content-Type"]="application/json"})
+        end
+        if not ok then
+            py._get_error(nil,"GET/POST failed", py.url)
+            return
+        end
+    end
+end
+
+function py._send(msg)
+    py.send_buf[#py.send_buf+1] = msg
+end
+
+function py._put_done(_, url, msg)
+    if url ~= py.url then return end
+    if not py.put_open then return end
+    py.put_open = false
+
+    py._do_http()
+end
+
+function py._get_done(_, url, msg)
+    if url ~= py.url then return end
+    if not py.get_open then return end
+    py.get_open = false
+    
+    msg = yajl.to_value(msg)
+    for _,m in ipairs(msg) do
+        py._process(m)
+    end
+
+    py._do_http()
+end
+
+function py._process(msg)
+    if msg.action then
+        local res = {pcall(py.action[msg.action], msg)}
+        local ok = res[1]
+        table.remove(res, 1)
+        if ok then
+            if not msg.seq then return end -- no reply expected
+            res = {result=res}
+        else
+            res = {error=res[1]}
+        end
+        res.seq = msg.seq -- no-op if missing
+        py._send(res)
+        return
+    end
+    print("PY: No idea how to handle:",msg)
+end
+
+
+function py._put_error(_, msg, url)
+    if url ~= py.url then return end
+    if not py.put_open then return end
+    py.put_open = false
+    
+    py._reset_connection()
+end
+
+function py._get_error(_, msg, url)
+    if url ~= py.url then return end
+    if not py.get_open then return end
+    py.get_open = false
+    
+    py._reset_connection()
+end
+
+function py._retry()
+    py.timer = nil
+    py._send({action="init"})
+    py._do_http()
+end
+
+-- more public methods
+
+-- call this Python method (must be registered), then
+-- call the callback with "true" and the result(s)
+--                or with "false" and the error message
+function py.call(callback, name, ...)
+    assert(py.connected, "not connected")
+    seq = py.seq+1
+    py.seq = seq
+    py.callbacks[seq] = callback
+    py._send({action="call", call=name, data={...}, cseq=seq})
+    py._do_http()
+end
+
+-- calls from python
+
+-- setup
+function py.action.init(msg)
+    if py.connected then
+        print("PY: already connected??")
+        return
+    end
+    if msg.fifo then
+        py.file = io.open(msg.fifo, "w")
+    end
+    -- otherwise use HTTP
+    py.connected = true
+    py._send({action="up"})
+    raiseEvent("PyConnect", py.url)
+    py._do_http()
+end
+
+-- keepalive
+function py.action.ping(msg)
+    return "Pong"
+end
+
+-- forward an event
+function py.action.handle(msg)
+    local evt = msg.event
+    if py.handler[evt] then return false end
+    local function hdl(...)
+        py.post({event=evt, args={...}})
+    end
+    py.handler[hdl] = registerAnonymousEventHandler(evt, hdl)
+    return true
+end
+
+-- no longer forward an event
+function py.action.unhandle(msg)
+    local evt = msg.event
+    if not py.handler[evt] then return false end
+    killAnonymousEventHandler(py.handler[hdl])
+    py.handler[hdl] = nil
+    return true
+end
+
+-- call a function or method
+-- optionally store the result
+function py.action.call(msg)
+    local args = msg.args or {}
+    local self,func = nil,_G
+    assert(#name &gt; (msg.meth and 1 or 0), "no empty name!")
+    for _,name in ipairs(msg.name) do
+        self = func
+        func = func[name]
+    end
+    if msg.meth then table.insert(args,1,self) end
+    if msg.dest then
+        assert(#msg.dest &gt; 0, "no empty name!")
+        local res = func(unpack(args))
+        local self,old = nil,_G
+        for _,name in ipairs(msg.dest) do
+            self = old
+            old = old[name]
+        end
+        self[name] = msg.value
+        return
+    end
+    return func(unpack(args))
+end
+
+-- get a value
+function py.action.get(msg)
+    assert(#msg.name &gt; 0, "no empty name!")
+    val = _G
+    for _,name in ipairs(msg.name) do
+        val = val[name]
+    end
+    return val
+end
+
+-- set a value
+function py.action.set(msg)
+    local self,old = nil,_G
+    assert(#msg.name &gt; 0, "no empty name!")
+    for _,name in ipairs(msg.name) do
+        self = old
+        old = old[name]
+    end
+    self[name] = msg.value
+    if msg.old then return old end  -- otherwise return nothing
+end
+
+-- raise an event
+function py.action.event(msg)
+    raiseEvent(msg.name, unpack(msg.args or {}))
+end
+
+-- return the result of a "py.call()"
+function py.action.result(msg)
+    local seq = msg.cseq
+    local cb = py.callbacks[seq]
+    if cb then
+        py.callbacks[seq] = nil
+        if msg.error then
+            cb(false, msg.error)
+        else
+            cb(true, unpack(msg.result))
+        end
+    end
+end
+</script>
+				<eventHandlerList />
+			</Script>
+		</ScriptGroup>
+	</ScriptPackage>
+	<KeyPackage />
+	<VariablePackage>
+		<HiddenVariables />
+	</VariablePackage>
+</MudletPackage>
