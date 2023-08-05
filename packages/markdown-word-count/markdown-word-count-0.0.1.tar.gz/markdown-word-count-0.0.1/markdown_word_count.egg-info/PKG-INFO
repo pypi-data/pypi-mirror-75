@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: markdown-word-count
+Version: 0.0.1
+Summary: Word counter for raw Markdown files
+Home-page: https://github.com/gandreadis/markdown-word-count
+Author: Georgios Andreadis
+Author-email: info@gandreadis.com
+License: UNKNOWN
+Description: # ⬇ Markdown Word Count
+        
+        [![CircleCI status](https://circleci.com/gh/gandreadis/markdown-word-count.svg?style=svg)](https://circleci.com/gh/gandreadis/markdown-word-count)
+        
+        A word counter for raw Markdown files, excluding punctuation, footnotes, and special Markdown or HTML tag syntax.
+        
+        ## 💻 Installation
+        
+        You will need...
+        
+        - 🐍 Python 3
+        - 🐑 A [clone](https://github.com/gandreadis/markdown-word-count.git) of this repo or a [single file download](https://github.com/gandreadis/markdown-word-count/blob/master/mwc.py) of the script.
+        
+        ## ▶ Usage
+        
+        To run this script, pass the file you want to have analyzed as the first parameter:
+        
+        ```
+        ./mwc.py myfile.md
+        ```
+        
+        If that doesn't work, explicitly pass the program to Python:
+        
+        ```
+        python mwc.py myfile.md
+        ```
+        
+        If this doesn't work, try `python3` instead of `python`.
+        
+        ## ⛏ Development
+        
+        Run this to execute all tests:
+        
+        ```
+        python -m unittest discover
+        ```
+        
+        ## 💬 Ports to Other Programming Languages
+        
+        * A PHP port can be found [here](https://github.com/Arcesilas/md-word-count), with thanks to [@Arcesilas](https://github.com/Arcesilas)!
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
