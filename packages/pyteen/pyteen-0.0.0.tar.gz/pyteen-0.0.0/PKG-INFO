@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: pyteen
+Version: 0.0.0
+Summary: Collection of short reusable Python code snippets.
+Home-page: https://github.com/deeplook/pyteen
+Author: Dinu Gherman
+License: MIT
+Description: Pyteen
+        ======
+        
+        .. image:: https://img.shields.io/travis/deeplook/pyteen/master.svg
+          :target: https://travis-ci.org/deeplook/pyteen
+        
+        .. image:: https://img.shields.io/pypi/pyversions/pyteen.svg
+          :target: https://pypi.org/project/pyteen
+        
+        .. image:: https://img.shields.io/pypi/v/pyteen.svg
+          :target: https://pypi.org/project/pyteen
+        
+        .. image:: https://img.shields.io/pypi/status/pyteen.svg
+          :target: https://pypi.org/project/pyteen
+        
+        .. image:: https://img.shields.io/pypi/format/pyteen.svg
+          :target: https://pypi.org/project/pyteen
+        
+        .. image:: https://img.shields.io/pypi/l/pyteen.svg
+          :target: https://pypi.org/project/pyteen
+        
+        .. image:: https://img.shields.io/lgtm/alerts/g/deeplook/pyteen.svg?logo=lgtm&logoWidth=18
+          :target: https://lgtm.com/projects/g/deeplook/pyteen/alerts/
+        
+        .. image:: https://img.shields.io/lgtm/grade/python/g/deeplook/pyteen.svg?logo=lgtm&logoWidth=18
+          :target: https://lgtm.com/projects/g/deeplook/pyteen/context:python
+        
+        .. image:: https://pepy.tech/badge/pyteen/month
+          :target: https://pepy.tech/project/pyteen/month
+        
+        More to come...
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Description-Content-Type: text/x-rst
