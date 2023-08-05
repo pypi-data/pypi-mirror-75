@@ -1,0 +1,25 @@
+# 0.0.2.3
+# Rotate 90 degree of x label in cluster.
+
+# 0.0.2.2
+# Fixed axis bug in multiBw2bed
+
+# 0.0.2.1
+# Now Mmint will report number of processed file and number of CpG sites in formdata.
+
+# 0.0.2.0
+# Fixed bugs in multibw2Bed: Only display region data legend when two types of data are given.
+
+# 0.0.1.9
+# Fixed bugs in PCA
+
+# 0.0.1.8
+# Fixed bugs in mdepth
+
+# 0.0.1.7
+## Fixed font overlapping in mCor.py
+
+# 0.0.1.5
+## 1. Migrate Mmint to python3
+## 2. Deploy Mmint to pypi
+
