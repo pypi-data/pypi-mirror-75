@@ -1,0 +1,11 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+module = "pubpack"
+author = "Frank Nostrame"
+author-email = "nostrame@gmail.com"
+home-page = "http://nostrame.com"
+classifiers = ["License :: OSI Approved :: MIT License"]
+
