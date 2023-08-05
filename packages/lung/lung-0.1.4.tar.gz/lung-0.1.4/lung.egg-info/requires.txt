@@ -1,0 +1,10 @@
+numpy
+pandas
+h5py
+
+[dev]
+timecast
+bumpversion
+pre-commit
+ipython
+jupyter
