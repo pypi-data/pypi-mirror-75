@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: wowpy
+Version: 0.1.24
+Summary: Wowza python wrapper - wowpy
+Home-page: https://github.com/d4n13lbc/wowpy
+Author: Daniel Barragan
+Author-email: dbarragan1331@gmail.com
+License: UNKNOWN
+Description: # WowPy
+        
+        ## Description
+        
+        This is a python3 wrapper for wowza cloud api calls
+        
+        ## Usage
+        
+        ```
+        pip install wowpy
+        ```
+        
+        ```
+        ➜  python3
+        >>> from wowpy.livestreams import LiveStream
+        >>> LiveStream.get_live_stream('ytzbkw49')
+        Endpoint: https://api.cloud.wowza.com/api/v1.4/live_streams/ytzbkw49, Method: get, Data: {}, Description: not description
+        Endpoint https://api.cloud.wowza.com/api/v1.4/live_streams/ytzbkw49 succesfully reached
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
