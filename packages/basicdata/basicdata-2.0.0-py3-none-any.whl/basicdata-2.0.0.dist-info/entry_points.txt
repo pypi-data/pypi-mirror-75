@@ -1,0 +1,6 @@
+[console_scripts]
+is_all_letter=basicdata:is_all_letteris_special_symbols = basicdata:is_special_symbols
+is_one_letter = basicdata:is_one_letter
+is_valid_phone_num = basicdata:is_valid_phone_num
+type_of_object = basicdata:type_of_object
+
