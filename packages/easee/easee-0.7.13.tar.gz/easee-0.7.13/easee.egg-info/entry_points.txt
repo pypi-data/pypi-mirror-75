@@ -1,0 +1,3 @@
+[console_scripts]
+easee = easee.__main__:main
+
