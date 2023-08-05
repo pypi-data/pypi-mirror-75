@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: scpscraper
+Version: 0.1.1
+Summary: A Python library designed for scraping data from the SCP wiki.
+Home-page: https://github.com/JaonHax/scp-scraper
+Author: JaonHax
+Author-email: jaonhax@gmail.com
+License: MIT
+Keywords: scp,foundation,webscraper,tensorflow,dataset
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
+Requires-Dist: beautifulsoup4 (==4.9.1)
+Requires-Dist: bs4 (==0.0.1)
+Requires-Dist: soupsieve (==2.0.1)
+Requires-Dist: tqdm (==4.48.0)
+
+# SCP Scraper
+A small Python library designed for scraping data from the SCP wiki. Allows for human-readable and AI dataset return styles for `scrape_scps`, allowing for easy retrieval of a fairly large corpus conducive to NLP model training. Currently in alpha, but future updates are planned.
+
+## Planned future updates
+Potential updates in the future to make scraping data from any website easy/viable, allowing for easy mass collection of data.
+
+
