@@ -1,0 +1,3 @@
+[console_scripts]
+nagini = nagini_translation.main:main
+
