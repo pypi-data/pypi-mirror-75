@@ -1,0 +1,15 @@
+future
+jsonschema
+numpy
+PyTango>=9.2.2
+pathlib
+pyyaml
+
+[:python_version < "3"]
+futures
+
+[docs]
+sphinx-pypi-upload
+numpydoc
+Sphinx
+mock
