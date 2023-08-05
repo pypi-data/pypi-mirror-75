@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: dorado
+Version: 0.1.0.dev2
+Summary: Digitized Observatory Resources for Automated Data Operations
+Home-page: https://github.com/Mucephie/DORADO
+Author: Mucephie
+Author-email: mucephie@my.yorku.ca
+License: BSD 3-Clause
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Requires-Dist: astropy
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: scikit-image
+Requires-Dist: astroquery
+Requires-Dist: matplotlib
+Requires-Dist: ccdproc
+Provides-Extra: all
+Requires-Dist: astroalign ; extra == 'all'
+Provides-Extra: docs
+Requires-Dist: sphinx-astropy ; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: pytest-astropy ; extra == 'test'
+
+UNKNOWN
+
+
