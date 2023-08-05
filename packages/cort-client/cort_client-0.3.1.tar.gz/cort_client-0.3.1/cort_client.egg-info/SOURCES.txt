@@ -1,0 +1,12 @@
+.gitignore
+LICENSE
+README.md
+main.c
+setup.py
+cort_client/__init__.py
+cort_client.egg-info/PKG-INFO
+cort_client.egg-info/SOURCES.txt
+cort_client.egg-info/dependency_links.txt
+cort_client.egg-info/requires.txt
+cort_client.egg-info/top_level.txt
+tests/test_cli.py
