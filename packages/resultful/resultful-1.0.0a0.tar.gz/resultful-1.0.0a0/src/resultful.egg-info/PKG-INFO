@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: resultful
+Version: 1.0.0a0
+Summary: Expect results, not exceptions!
+Home-page: https://github.com/kprzybyla/resultful
+Author: Krzysztof Przybyła
+License: UNKNOWN
+Description: Expect results, not exceptions!
+        -------------------------------
+        
+        .. image:: https://img.shields.io/badge/python-3.8-blue.svg
+        
+        Under development.
+        
+        
+        Bugs/Requests
+        -------------
+        
+        Please use the `GitHub issue tracker`_ to submit bugs or request features.
+        
+        .. _`GitHub issue tracker`: https://github.com/kprzybyla/resultful/issues
+        
+        
+        License
+        -------
+        
+        Copyright Krzysztof Przybyła, 2020.
+        
+        Distributed under the terms of the `MIT`_ license.
+        
+        .. _`MIT`: https://github.com/kprzybyla/resultful/blob/master/LICENSE
+        
+Platform: linux
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Testing
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: ~= 3.8
+Provides-Extra: black
+Provides-Extra: lint
+Provides-Extra: mypy
+Provides-Extra: test
+Provides-Extra: docs
+Provides-Extra: deploy

@@ -1,0 +1,17 @@
+LICENSE
+README.rst
+setup.py
+src/__init__.py
+src/resultful/__init__.py
+src/resultful/__version__.py
+src/resultful/py.typed
+src/resultful.egg-info/PKG-INFO
+src/resultful.egg-info/SOURCES.txt
+src/resultful.egg-info/dependency_links.txt
+src/resultful.egg-info/requires.txt
+src/resultful.egg-info/top_level.txt
+src/resultful/impl/__init__.py
+src/resultful/impl/no_result.py
+src/resultful/impl/result.py
+src/resultful/ui/__init__.py
+src/resultful/ui/result.py
