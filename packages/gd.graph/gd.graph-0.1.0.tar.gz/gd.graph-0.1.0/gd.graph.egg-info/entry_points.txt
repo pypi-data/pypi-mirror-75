@@ -1,0 +1,3 @@
+[console_scripts]
+gd.graph = gdgraph.__main__:gdgraph
+

@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+requirements.txt
+setup.py
+showcase.png
+gd.graph.egg-info/PKG-INFO
+gd.graph.egg-info/SOURCES.txt
+gd.graph.egg-info/dependency_links.txt
+gd.graph.egg-info/entry_points.txt
+gd.graph.egg-info/requires.txt
+gd.graph.egg-info/top_level.txt
+gdgraph/__init__.py
+gdgraph/__main__.py
+gdgraph/animation.py
+gdgraph/utils.py
