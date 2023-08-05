@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: dlatk-pymallet
+Version: 1.0.0
+Summary: A PyMallet implementation adapted to DLATK.
+Home-page: https://github.com/gtsherman/pymallet
+Author: David Mimno (original PyMallet), Garrick Sherman (adaptation)
+Author-email: garricks@sas.upenn.edu
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+
+# PyMallet
+
+## Acknowledgment
+
+This package is a redistributed fork of https://github.com/mimno/PyMallet. Modifications have been made to the code to enable simpler interfacing with DLATK; however, the core functionality remains unmodified.
+
+## Original README
+
+This package provides tools for extracting latent semantic representations of text, particularly probabilistic topic models.
+
+The implementation of LDA uses Gibbs sampling, which is simple but reliable. People often find the resulting models more useful than the stochastic variational algorithm used in Gensim.
+
+To compile:
+
+    python setup.py build_ext --inplace
+
+
