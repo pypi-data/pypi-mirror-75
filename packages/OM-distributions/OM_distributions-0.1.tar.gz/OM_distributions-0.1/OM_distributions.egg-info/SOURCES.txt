@@ -1,0 +1,10 @@
+setup.py
+OM_distributions.egg-info/PKG-INFO
+OM_distributions.egg-info/SOURCES.txt
+OM_distributions.egg-info/dependency_links.txt
+OM_distributions.egg-info/not-zip-safe
+OM_distributions.egg-info/top_level.txt
+distributions/Binomialdistribution.py
+distributions/Gaussiandistribution.py
+distributions/Generaldistribution.py
+distributions/__init__.py
