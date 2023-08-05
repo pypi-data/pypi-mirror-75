@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: teamscritique
+Version: 0.2
+Summary: The funniest joke in the world
+Home-page: http://github.com/storborg/funniest
+Author: Xiao Yin
+Author-email: yinxiao@microsoft.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: librosa (==0.8.0)
+Requires-Dist: soundfile
+Requires-Dist: numpy (==1.19.1)
+Requires-Dist: sklearn
+Requires-Dist: pandas
+Requires-Dist: scipy
+
+UNKNOWN
+
+
