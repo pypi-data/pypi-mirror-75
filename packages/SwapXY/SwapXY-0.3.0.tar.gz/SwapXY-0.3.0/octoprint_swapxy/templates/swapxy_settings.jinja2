@@ -1,0 +1,30 @@
+<form class="form-horizontal">
+    <div class="control-group">
+        <h2>SwapXY</h2>
+        <hr>
+
+        <h3>Swap</h3>
+        <p>{{ _("Uncheck the box below to disable this plugin's core functionality.") }}</p>        
+        <div class="controls">
+            <label class="checkbox">
+                <input type="checkbox" data-bind="checked: settings.plugins.swapxy.swap">
+                {{ _("Swap X and Y movements") }}
+            </label>
+        </div>
+
+        <h3>Reverse</h3>
+        <p>{{ _("Check the boxes below to reverse movement of an axis.") }}</p>
+        <div class="alert alert-warning">
+            <strong>{{ _("Note that this applies to the axis sent to the printer, which changes when swapping is enabled.") }}</strong>
+            {{ _("For example, If swapping is enabled and you reverse X movements, then your printer's X axis will move the opposite direction from the Y axis button you click in OctoPrint.") }}
+        </div>
+        <div class="controls">
+            {% for axis in ["X", "Y"] %}
+            <label class="checkbox">
+                <input type="checkbox" data-bind="checked: settings.plugins.swapxy.reverse.{{ axis }}">
+                {{ _("Reverse " + axis + " jog movements") }}
+            </label>
+            {% endfor %}
+        </div>
+    </div>
+</form>

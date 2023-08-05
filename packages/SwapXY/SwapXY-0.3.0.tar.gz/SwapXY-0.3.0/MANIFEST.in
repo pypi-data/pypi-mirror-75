@@ -1,0 +1,4 @@
+include README.md
+recursive-include octoprint_swapxy/templates *
+recursive-include octoprint_swapxy/translations *
+recursive-include octoprint_swapxy/static *

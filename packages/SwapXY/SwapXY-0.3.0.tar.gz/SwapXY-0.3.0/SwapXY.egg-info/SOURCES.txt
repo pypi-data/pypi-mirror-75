@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+SwapXY.egg-info/PKG-INFO
+SwapXY.egg-info/SOURCES.txt
+SwapXY.egg-info/dependency_links.txt
+SwapXY.egg-info/entry_points.txt
+SwapXY.egg-info/not-zip-safe
+SwapXY.egg-info/requires.txt
+SwapXY.egg-info/top_level.txt
+octoprint_swapxy/__init__.py
+octoprint_swapxy/templates/swapxy_settings.jinja2
