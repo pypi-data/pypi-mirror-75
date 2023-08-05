@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: peanutbuterdatatime
+Version: 0.0.1
+Summary: nlu package
+Home-page: http://nlp.johnsnowlabs.com
+Author: John Snow Labs
+License: UNKNOWN
+Keywords: NLP spark development
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+
+# nlu
+nlu package
+
+
+## Dependencies
+- sparknlp
+- pyspark==2.4.4
+
+
+
+
+
+#### Troubleshoot
+
+On manjaro :
+#### Fix missing libffi.so.6 with
+
+    yay libffi6 on manjaro
+
