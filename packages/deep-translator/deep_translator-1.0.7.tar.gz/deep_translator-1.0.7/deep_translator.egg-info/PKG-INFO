@@ -1,0 +1,143 @@
+Metadata-Version: 1.2
+Name: deep-translator
+Version: 1.0.7
+Summary: A flexible python tool to translate between different languages in a simple way.
+Home-page: https://github.com/nidhaloff/deep_translator
+Author: Nidhal Baccouri
+Author-email: nidhalbacc@gmail.com
+License: MIT license
+Description: ===============
+        deep_translator
+        ===============
+        
+        
+        .. image:: https://img.shields.io/pypi/v/deep_translator.svg
+                :target: https://pypi.python.org/pypi/deep_translator
+        
+        .. image:: https://img.shields.io/travis/nidhaloff/deep_translator.svg
+                :target: https://travis-ci.com/nidhaloff/deep_translator
+        
+        .. image:: https://readthedocs.org/projects/deep-translator/badge/?version=latest
+                :target: https://deep-translator.readthedocs.io/en/latest/?badge=latest
+                :alt: Documentation Status
+        
+        
+        
+        
+        A flexible python tool to translate between different languages in a simple way.
+        
+        
+        * Free software: MIT license
+        * Documentation: https://deep-translator.readthedocs.io.
+        
+        Motivation
+        -----------
+        I needed to translate a text using python. It was hard to find a simple way to do it.
+        There are other libraries that can be used for this task, but somehow,most of them
+        are buggy, not supported anymore or complex.
+        
+        Therefore, I decided to build this simple tool, it is clean and easy to use and provide
+        support for all languages since it uses google translate under the hood.
+        More features are coming soon, mainly support for the PONS translator and others.
+        
+        Basically, my goal is to integrate support for multiple famous translators
+        in this tool.
+        
+        Features
+        --------
+        
+        * Support for google translate
+        * Support for Pons translator (pons.com)
+        * Support for the Linguee translator
+        * Translate directly from a text file
+        * Get multiple translation for a word
+        * Automate the translation of different paragraphs in different languages
+        
+        Installation
+        =============
+        
+        Install the stable release:
+        
+        .. code-block:: console
+        
+            $ pip install deep_translator
+        
+        take a look at the docs if you want to install from source.
+        
+        Usage
+        =====
+        
+        .. code-block:: python
+        
+            from deep_translator import GoogleTranslator, PonsTranslator, LingueeTranslator
+        
+            english_text = 'happy coding'
+        
+            result_german = GoogleTranslator(source='auto', target='de').translate(text=english_text)
+        
+            # Alternatively, you can pass languages by their name:
+            translated = GoogleTranslator(source='english', target='german').translate(text=english_text)
+        
+            # or maybe you want to translate a text file ?
+            translated = GoogleTranslator(source='auto', target='german').translate_file('path/to/file')
+        
+            # or maybe you have many sentences in different languages and want to automate the translation process
+            translated = GoogleTranslator(source='auto', target='de').translate_sentences(your_list_of_sentences)
+        
+        
+        or maybe you would like to use the Pons translator: Pons.com
+        
+        
+        .. code-block:: python
+        
+            word = 'good'
+            translated_word = PonsTranslator(source='english', target='french').translate(word)
+        
+            # set the argument return_all to True if you want to get all synonyms of the word to translate
+            translated_word = PonsTranslator(source='english', target='french').translate(word, return_all=True)
+        
+        
+        Alternatively deep_translator (version >= 1.0.0) supports the Linguee translator:
+        
+        
+        .. code-block:: python
+        
+            word = 'good'
+            translated_word = LingueeTranslator(source='english', target='french').translate(word)
+        
+            # set the argument return_all to True if you want to get all synonyms of the word to translate
+            translated_word = LingueeTranslator(source='english', target='french').translate(word, return_all=True)
+        
+        The mymemory translator is also supported for version >= 1.0.2:
+        
+        .. code-block:: python
+        
+            word = 'good'
+            translated_word = MyMemoryTranslator(source='english', target='french').translate(word)
+        
+        Take a look in the examples folder for more :)
+        Please contribute and give me a feedback if you found the package useful/helpful or you are using it :)
+        
+        
+        =======
+        History
+        =======
+        
+        0.4.1 support for the linguee translator
+        ----------------------------------------
+        0.3.1 stable release
+        ---------------------
+        
+        
+Keywords: deep_translator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.0
