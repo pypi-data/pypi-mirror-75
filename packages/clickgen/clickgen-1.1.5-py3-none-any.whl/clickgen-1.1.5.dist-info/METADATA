@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: clickgen
+Version: 1.1.5
+Summary: X11 & Windows Cursor API 👷
+Home-page: https://github.com/KaizIqbal/clickgen
+Author: Kaiz Khatri
+Author-email: kaizmandhu@gmail.com
+License: UNKNOWN
+Keywords: cursor,xcursor,windows,linux,anicursorgen,xcursorgen
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: System :: Operating System
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: C
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Typing :: Typed
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: Pillow (>=7.1.2)
+
+<!-- Branding -->
+<p align="center">
+  <img src="https://imgur.com/L2IZ2MH.png" width="120" alt="clickgen" />
+  <br />
+  <img src="https://i.imgur.com/TeItlMh.png" width="200" />
+</p>
+
+<p align="center">
+  X11 & Windows Cursor API 👷
+</p>
+
+<!-- Badges -->
+<p align="center">
+  <a href="https://github.com/KaizIqbal/clickgen/actions?query=workflow%3Abuild">
+    <img alt="GitHub Action Build" src="https://github.com/KaizIqbal/clickgen/workflows/build/badge.svg?branch=master&event=push" />
+  </a>
+
+  <a href="https://badge.fury.io/py/clickgen">
+    <img src="https://badge.fury.io/py/clickgen.svg" alt="PyPI version" height="20">
+  </a>
+
+  <a href="https://www.codefactor.io/repository/github/kaiziqbal/clickgen">
+    <img src="https://www.codefactor.io/repository/github/kaiziqbal/clickgen/badge" alt="CodeFactor" />
+  </a>
+</p>
+
+
