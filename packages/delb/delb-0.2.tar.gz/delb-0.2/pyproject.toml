@@ -1,0 +1,53 @@
+[build-system]
+requires = ["poetry>=1"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "delb"
+version = "0.2"
+description = "A library that provides an ergonomic model for XML encoded text documents (e.g. with TEI-XML)."
+authors = ["Frank Sachsenheim <funkyfuture@riseup.net>"]
+license = "AGPL-3.0"
+readme = "README.rst"
+documentation = "https://delb.readthedocs.io/"
+repository = "https://github.com/funkyfuture/delb"
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+    "Topic :: Text Processing :: Markup :: XML",
+]
+keywords = ["xml", "markup", "text processing"]  # TODO two more
+packages = [
+    {include = "delb"},
+    {include = "_delb"},
+]
+include = ["_delb/py.typed", "delb/py.typed"]
+
+[tool.poetry.extras]
+https-loader = ["requests"]
+
+[tool.poetry.plugins.delb]
+https-loader = "_delb.plugins.https_loader"
+
+[tool.poetry.dependencies]
+python = "~=3.6"
+cssselect = "*"
+fastcache = "^1.1.0"
+lxml = "*"
+requests = {version = "^2.21", optional = true}
+setuptools = "*"
+
+[tool.poetry.dev-dependencies]
+autoclasstoc = "^1.1.1"
+black = {version = "*", allow-prereleases = true }
+flake8-black = "*"
+mypy = "*"
+pytest = "*"
+pytest-cov = "*"
+sphinx = "*"
+sphinxcontrib-fulltoc = "*"
+sphinx-readable-theme = "^1.3"
+typing-extensions = "*"
+xmldiff = "^2.2"
