@@ -1,0 +1,5 @@
+[console_scripts]
+manifest-delta-tool = manifesttool.delta_tool.delta_tool:entry_point
+manifest-dev-tool = manifesttool.dev_tool.dev_tool:entry_point
+manifest-tool = manifesttool.mtool.mtool:entry_point
+
