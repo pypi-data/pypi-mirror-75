@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+VERSION.txt
+setup.cfg
+setup.py
+django_stapler.egg-info/PKG-INFO
+django_stapler.egg-info/SOURCES.txt
+django_stapler.egg-info/dependency_links.txt
+django_stapler.egg-info/requires.txt
+django_stapler.egg-info/top_level.txt
+stapler/__init__.py
+stapler/forms.py
