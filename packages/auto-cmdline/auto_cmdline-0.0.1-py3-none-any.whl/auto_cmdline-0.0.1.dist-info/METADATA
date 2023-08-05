@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: auto-cmdline
+Version: 0.0.1
+Summary: Auto generate commandline for any python script
+Home-page: UNKNOWN
+Author: jarndt
+Author-email: unsupo@gmail.com
+License: MIT
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Topic :: Software Development :: Libraries
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: auto-cmdline[dev] ; extra == 'dev'
+
+# Auto Cmdline [![PyPI](https://img.shields.io/pypi/pyversions/a.svg?style=plastic)](https://github.com/google/auto-cmdline)
+
+_Auto Cmdline is a library to automatically turn any python
+file or object into a command line interface_
+
+## Installation
+
+
+
