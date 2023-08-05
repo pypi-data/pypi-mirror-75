@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: mig-meow
+Version: 0.14
+Summary: MiG based manager for event oriented workflows
+Home-page: https://github.com/PatchOfScotland/mig_meow
+Author: David Marchant
+Author-email: d.marchant@ed-alumni.net
+License: UNKNOWN
+Description: # mig_meow
+        
+        MEOW is a Manager for Event Oriented Workflows.
+        
+        It is designed to interact with the MiG 
+        (https://sourceforge.net/projects/migrid/) and provides methods for 
+        workflows to be defined and manipulated within jupyter notebooks.
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: OS Independent
