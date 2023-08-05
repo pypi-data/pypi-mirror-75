@@ -1,0 +1,3 @@
+[console_scripts]
+jaguar = jaguar.cli:main
+
