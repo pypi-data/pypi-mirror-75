@@ -1,0 +1,373 @@
+variables:
+  LIGO_SKYMAP_USE_SYSTEM_CHEALPIX: 1
+  OMP_NUM_THREADS: 4
+
+include:
+  - project: emfollow/gitlab-ci-templates
+    file: lint.yml
+
+stages:
+  - deps
+  - dist
+  - test
+  - deploy
+
+#
+# Read all requirements for the package and all extras from setup.cfg.
+#
+
+requirements:
+  stage: deps
+  image: python:slim
+  script:
+    - |
+      python >requirements.txt <<EOF
+      from configparser import ConfigParser
+      conf = ConfigParser()
+      conf.read('setup.cfg')
+      print(conf['options']['install_requires'] + ''.join(conf['options.extras_require'].values()))
+      EOF
+  artifacts:
+    paths:
+      - requirements.txt
+    expire_in: 1 day
+
+#
+# Build Python source package.
+#
+
+sdist:
+  image: python
+  stage: dist
+  script:
+    - pip install pep517
+    - python -m pep517.build -s -o . .
+  needs: []
+  artifacts:
+    paths:
+      - '*.tar.*'
+    expire_in: 1 day
+
+#
+# Build binary wheels for Linux and macOS.
+#
+
+.wheel/manylinux2014: &wheel-manylinux2014
+  # This container is derived from the official manylinux image provided by
+  # python.org (see PEP 513), and includes all of the LALSuite
+  # build-dependencies.
+  image: containers.ligo.org/leo-singer/lalsuite-manylinux/manylinux2014_x86_64:icc
+  stage: dist
+  script:
+    # Build and install LALSuite
+    - PYPREFIX=/opt/python/$(echo ${CI_JOB_NAME} | sed 's/.*\/\(.*\)-manylinux2014/\1/')
+    - ${PYPREFIX}/bin/pip install pep517
+    - ${PYPREFIX}/bin/python -m pep517.build -b .
+    - auditwheel repair dist/*.whl
+    - rm dist/*
+    - mv wheelhouse/* .
+    - echo $CI_JOB_URL/artifacts/download > ARTIFACTS_URL
+  needs: []
+  artifacts:
+    paths:
+      - '*.whl'
+      - ARTIFACTS_URL
+    expire_in: 1 day
+
+.wheel/macos: &wheel-macos
+  variables:
+    CC: gcc-mp-8
+    CXX: g++-mp-8
+  tags:
+    - macos_sierra
+  stage: dist
+  script:
+    - PYVERS=$(echo ${CI_JOB_NAME} | sed 's/.*\/cp\(.\)\(.\).*/\1.\2/')
+    # Enter virtualenv so that we have a controlled version of Numpy
+    - python${PYVERS} -m venv env
+    - source env/bin/activate
+    - pip install pep517
+    # FIXME: https://github.com/matthew-brett/delocate/pull/38
+    - pip install git+https://github.com/lpsinger/delocate@namespace-packages#egg=delocate oldest-supported-numpy
+    # Build and audit wheel
+    - python -m pep517.build -b .
+    - delocate-wheel -v -w wheelhouse dist/*.whl
+    - rm -f *.whl
+    - mv wheelhouse/* .
+  needs: []
+  artifacts:
+    paths:
+      - '*.whl'
+    expire_in: 1 day
+
+wheel/cp36-cp36m-manylinux2014:
+  <<: *wheel-manylinux2014
+wheel/cp37-cp37m-manylinux2014:
+  <<: *wheel-manylinux2014
+wheel/cp38-cp38-manylinux2014:
+  <<: *wheel-manylinux2014
+wheel/cp36-cp36m-macosx:
+  <<: *wheel-macos
+wheel/cp37-cp37m-macosx:
+  <<: *wheel-macos
+wheel/cp38-cp38-macosx:
+  <<: *wheel-macos
+
+#
+# Build Docker containers for dependencies listed in requirements.txt,
+# plus dependencies for running the unit tests, collecting coverage data,
+# and generating the docs.
+#
+
+.in-tmpdir: &in-tmpdir
+  before_script:
+    - WORKING_DIRECTORY="$(mktemp -d)"
+    - cd "${WORKING_DIRECTORY}"
+  after_script:
+    - cd "${CI_PROJECT_DIR}"
+    - rm -rf "${WORKING_DIRECTORY}"
+
+.dependencies: &dependencies
+  stage: dist
+  variables:
+    IMAGE_TAG: $CI_REGISTRY_IMAGE/$CI_JOB_NAME:$CI_COMMIT_REF_NAME
+    GIT_STRATEGY: none
+  script:
+    - docker login -u gitlab-ci-token -p $CI_JOB_TOKEN $CI_REGISTRY
+    - |
+      cat <<EOF > Dockerfile
+      FROM python:${CI_JOB_NAME#*python}
+      RUN apt-get update && apt-get -y install --no-install-recommends libchealpix-dev libgsl0-dev pkg-config && rm -rf /var/lib/apt/lists/*
+      RUN pip --no-cache-dir install pytest-cov gcovr pycobertura flake8 coverage tox
+      COPY requirements.txt .
+      RUN pip --no-cache-dir install -r requirements.txt && rm -f requirements.txt
+      EOF
+    - docker build -t $IMAGE_TAG .
+    - docker push $IMAGE_TAG
+  needs:
+    - requirements
+
+dependencies/python3.6:
+  <<: *dependencies
+
+dependencies/python3.7:
+  <<: *dependencies
+
+dependencies/python3.8:
+  <<: *dependencies
+
+#
+# Generate documentation.
+#
+
+docs:
+  image: $CI_REGISTRY_IMAGE/dependencies/python3.7:$CI_COMMIT_REF_NAME
+  stage: test
+  <<: *in-tmpdir
+  script:
+    - tar --strip-components 1 -xf ${CI_PROJECT_DIR}/*.tar.*
+    - tox -e build_docs
+    - mv docs/_build/html ${CI_PROJECT_DIR}/
+  needs:
+    - dependencies/python3.7
+    - sdist
+  artifacts:
+    paths:
+      - html/
+    expire_in: 1 day
+
+#
+# Test the wheels.
+#
+
+.test: &test
+  <<: *in-tmpdir
+  stage: test
+  script:
+    - pip install ${CI_PROJECT_DIR}/*.whl astroquery
+    - python -c 'import sys; from ligo.skymap import test; sys.exit(test(args="--doctest-plus --doctest-ufunc --mpl --omp-get-num-threads --durations=10"))'
+
+test/python3.6:
+  <<: *test
+  image: $CI_REGISTRY_IMAGE/dependencies/python3.6:$CI_COMMIT_REF_NAME
+  needs:
+    - dependencies/python3.6
+    - wheel/cp36-cp36m-manylinux2014
+
+test/python3.7:
+  <<: *test
+  image: $CI_REGISTRY_IMAGE/dependencies/python3.7:$CI_COMMIT_REF_NAME
+  needs:
+    - dependencies/python3.7
+    - wheel/cp37-cp37m-manylinux2014
+
+test/python3.8:
+  <<: *test
+  image: $CI_REGISTRY_IMAGE/dependencies/python3.8:$CI_COMMIT_REF_NAME
+  needs:
+    - dependencies/python3.8
+    - wheel/cp38-cp38-manylinux2014
+
+#
+# Measure test coverage:
+# - coverage.py for Python code
+# - gcov/gcovr for C code
+#
+# Export the results from both to Cobertura format because it's an XML format
+# that both coverage.py and gcovr can write, merge them by hand, and then
+# write HTML and text summaries.
+#
+# This would be a lot prettier if we could use coveralls or codecov.io,
+# which support multilingual test coverage. However, those products don't
+# integrate with git.ligo.org (or at least, they don't integrate for free).
+#
+
+test/coverage:
+  stage: test
+  image: $CI_REGISTRY_IMAGE/dependencies/python3.7:$CI_COMMIT_REF_NAME
+  variables:
+    # -UNDEBUG
+    #     enable C assertions
+    # -coverage
+    #     instrument C code for coverage measurement
+    # -fsanitize=undefined
+    #     enable GCC UndefinedBehaviorSanitizer
+    # -fopenmp
+    #     The -coverage breaks OpenMP detection in extension-helpers.
+    #     See https://github.com/astropy/extension-helpers/issues/1
+    CFLAGS: -UNDEBUG -coverage -fsanitize=undefined -fopenmp
+  coverage: '/^TOTAL\s+.*\s+(\d+\.?\d*)%/'
+  <<: *in-tmpdir
+  script:
+    - tar --strip-components 1 -xf ${CI_PROJECT_DIR}/*.tar.*
+    # Run tests.
+    - pip install -ve .[test]
+    - pytest --capture=sys --doctest-plus --doctest-ufunc --mpl --durations=10 --cov ligo/skymap --junit-xml=${CI_PROJECT_DIR}/junit.xml
+    # Write coverage reports in Cobertura format.
+    - gcovr build/temp*/src -r . -x -o c-coverage.xml
+    - coverage xml -o py-coverage.xml
+    # Merge coverage reports. They're just XML, after all.
+    - |
+      python - <<EOF
+      import lxml.etree
+      import copy
+
+      doc1 = lxml.etree.parse('py-coverage.xml')
+      doc2 = lxml.etree.parse('c-coverage.xml')
+      root1 = doc1.getroot()
+      root2 = doc2.getroot()
+      root1.attrib['lines-covered'] = str(
+          int(root1.attrib['lines-covered']) +
+          int(root2.attrib['lines-covered']))
+      root1.attrib['lines-valid'] = str(
+          int(root1.attrib['lines-valid']) +
+          int(root2.attrib['lines-valid']))
+      try:
+          root1.attrib['line-rate'] = str(
+              int(root1.attrib['lines-covered']) /
+              int(root1.attrib['lines-valid']))
+      except ZeroDivisionError:
+          root1.attrib['line-rate'] = '0'
+      root1.attrib['branches-covered'] = str(
+          int(root1.attrib['branches-covered']) +
+          int(root2.attrib['branches-covered']))
+      root1.attrib['branches-valid'] = str(
+          int(root1.attrib['branches-valid']) +
+          int(root2.attrib['branches-valid']))
+      try:
+          root1.attrib['branch-rate'] = str(
+              int(root1.attrib['branches-covered']) /
+              int(root1.attrib['branches-valid']))
+      except ZeroDivisionError:
+          root1.attrib['branch-rate'] = '0'
+      packages = root1.find('./packages')
+      packages.extend(root2.iterfind('./packages/package'))
+      doc1.write('coverage.xml')
+      EOF
+    # Write human-readable report.
+    - pycobertura show coverage.xml -f html -o coverage.html
+    - pycobertura show coverage.xml
+    - cp coverage.html coverage.xml ${CI_PROJECT_DIR}
+  needs:
+    - dependencies/python3.7
+    - sdist
+  artifacts:
+    paths:
+      - coverage.html
+    reports:
+      cobertura: coverage.xml
+      junit: junit.xml
+    expire_in: 1 day
+
+#
+# Run flake8 linter to enforce code style.
+#
+
+lint:
+  image: $CI_REGISTRY_IMAGE/dependencies/python3.7:$CI_COMMIT_REF_NAME
+  stage: test
+  needs:
+    - dependencies/python3.7
+
+#
+# Trigger acceptance tests.
+#
+
+tests/acceptance:
+  stage: test
+  image: python
+  only:
+    - schedules
+    - web
+  variables:
+    GIT_STRATEGY: none
+  script:
+    - >
+      curl --fail --request POST
+      --form "token=$CI_JOB_TOKEN"
+      --form "variables[TRIGGERED_ARTIFACTS_URL]=$(cat ARTIFACTS_URL)"
+      --form "ref=master"
+      "$CI_API_V4_URL/projects/lscsoft%2Fligo-skymap-acceptance-tests/trigger/pipeline"
+  needs:
+    - wheel/cp37-cp37m-manylinux2014
+
+#
+# Gather coverage reports and docs for GitLab pages and build badges.
+#
+
+pages:
+  stage: deploy
+  script:
+    - mv html public
+    - mv coverage.html public/coverage.html
+  needs:
+    - docs
+    - test/coverage
+  artifacts:
+    paths:
+      - public
+    expire_in: 30 days
+  only:
+    - master
+
+#
+# Upload to PyPI.
+#
+
+deploy/wheel:
+  stage: deploy
+  image: python:slim
+  script:
+    # TWINE_USERNAME and TWINE_PASSWORD are provided by CI secret variables
+    - pip install twine
+    - twine upload *.whl *.tar.*
+  needs:
+    - sdist
+    - wheel/cp36-cp36m-manylinux2014
+    - wheel/cp37-cp37m-manylinux2014
+    - wheel/cp38-cp38-manylinux2014
+    - wheel/cp36-cp36m-macosx
+    - wheel/cp37-cp37m-macosx
+    - wheel/cp38-cp38-macosx
+  only:
+    - tags
