@@ -1,0 +1,14 @@
+numpyro==0.3.0
+pandas<2.0.0,>=1.0.0
+
+[docs]
+sphinx~=2.4.4
+m2r
+numpydoc
+
+[test]
+black
+pytest
+pytest-cov
+codecov
+tox
