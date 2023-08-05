@@ -1,0 +1,3 @@
+[console_scripts]
+vault-ssh-renew=vault_ssh_renew.cli:renew
+
