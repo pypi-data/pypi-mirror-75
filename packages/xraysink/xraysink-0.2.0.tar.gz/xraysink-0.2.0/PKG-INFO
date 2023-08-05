@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: xraysink
+Version: 0.2.0
+Summary: Instrument asyncio Python for AWS X-Ray.
+Home-page: https://github.com/garyd203/xraysink
+Keywords: AWS,XRay,python,asyncio
+Author: Gary Donovan
+Author-email: gazza@gazza.id.au
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Web Environment
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: System :: Monitoring
+Requires-Dist: aws_xray_sdk (>=2,<3)
+Project-URL: Documentation, https://github.com/garyd203/xraysink
+Project-URL: Repository, https://github.com/garyd203/xraysink
+Description-Content-Type: text/markdown
+
+# xraysink (aka xray-asyncio)
+Extra AWS X-Ray instrumentation for asyncio Python libraries that are not
+(yet) supported by the official
+[aws_xray_sdk](https://github.com/aws/aws-xray-sdk-python)
+library.
+
+
+## Integrations Supported
+* Generic ASGI-compatible tracing middleware for *any* ASGI-compliant web
+  framework. This has been tested with:
+  - [aiohttp](https://docs.aiohttp.org/en/stable/)
+  - [fastapi](https://fastapi.tiangolo.com/)
+
+
+## Licence
+This project uses the Apache 2.0 licence, to make it compatible with
+[aws_xray_sdk](https://github.com/aws/aws-xray-sdk-python), the
+primary library for integrating with AWS X-Ray.
+
