@@ -1,0 +1,5 @@
+async_generator<2,>=1.10
+ipaddress<2,>=1.0.22
+trio>=0.11
+wsproto<0.15,>=0.14
+yarl<2,>=1.2.6
