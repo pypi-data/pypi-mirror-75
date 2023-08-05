@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "trustpilot-json-logging"
+version = "1.0.10"
+description = "oppinionated json logger"
+authors = ["sloev <johanned.valbjorn@gmail.com>","Zakaria Zajac <zak@madzak.com>"]
+license = "BSD-2-Clause"
+readme = "README.md"
+repository = "https://github.com/trustpilot/python-logging"
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8"
+]
+packages = [
+    { include = "trustpilot_json_logging" }
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+pytest = "^5.4.3"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
