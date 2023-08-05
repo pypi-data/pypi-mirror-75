@@ -1,0 +1,32 @@
+[tool.poetry]
+name = "text2excel"
+version = "0.3.1"
+description = "Converts to Excel XLSX from a TSV or CSV text file."
+license = "MIT"
+authors = ["Fredrik Mellström <11281108+harkabeeparolus@users.noreply.github.com>"]
+readme = "README.md"
+homepage = "https://github.com/harkabeeparolus/csv2xlsx"
+keywords = ["csv", "tsv", "excel", "xlsx"]
+classifiers = [
+    "Intended Audience :: Information Technology",
+    "Environment :: Console",
+    "Operating System :: OS Independent",
+    "Topic :: Text Processing",
+    "Topic :: Utilities"
+]
+
+[tool.poetry.dependencies]
+python = "^3.6.1"
+openpyxl = "^3.0.4"
+importlib-metadata = { version = "^1", python = "<3.8" }
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pylint = "^2.5.3"
+
+[tool.poetry.scripts]
+text2excel = 'text2excel.cli:main'
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"

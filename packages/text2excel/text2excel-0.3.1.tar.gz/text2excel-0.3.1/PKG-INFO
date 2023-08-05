@@ -1,0 +1,125 @@
+Metadata-Version: 2.1
+Name: text2excel
+Version: 0.3.1
+Summary: Converts to Excel XLSX from a TSV or CSV text file.
+Home-page: https://github.com/harkabeeparolus/csv2xlsx
+License: MIT
+Keywords: csv,tsv,excel,xlsx
+Author: Fredrik Mellström
+Author-email: 11281108+harkabeeparolus@users.noreply.github.com
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Utilities
+Requires-Dist: importlib-metadata (>=1,<2); python_version < "3.8"
+Requires-Dist: openpyxl (>=3.0.4,<4.0.0)
+Description-Content-Type: text/markdown
+
+# text2excel
+
+This program converts CSV Or TSV text files to Microsoft Excel format. It
+uses [openpyxl] to create Excel files.
+
+As input it takes tab-separated `*.txt` files (TSV), or any CSV files
+(Comma-Separated Values) that can be auto-detected by the Python standard
+library [csv] module.
+
+[openpyxl]: https://openpyxl.readthedocs.io/
+[csv]: https://docs.python.org/3/library/csv.html
+
+## Example
+
+```bash
+$ printf "one\ttwo\tthree\n1\t2\t3\n" | tee my_data_file.txt
+one two three
+1   2   3
+
+$ text2excel --numbers my_data_file.txt
+Saved to file: my_data_file.xlsx
+```
+
+## Installation
+
+I recommend installing *text2excel* with [pipx]:
+
+```bash
+pipx install git+https://github.com/harkabeeparolus/csv2xlsx.git
+```
+
+If you don't already have it, a guide for how to install _pipx_ is provided
+below on this page.
+
+To upgrade *text2excel* to the latest version, simply run:
+
+```bash
+pipx upgrade text2excel
+```
+
+Or `pipx upgrade-all` if you want to go crazy. 😉
+
+If you want to bundle up *text2excel* into a single, standalone executable Python
+[zipapp], I highly recommend [shiv]. For example:
+
+```bash
+shiv -o text2excel -p "/usr/bin/env python3" -c text2excel git+https://github.com/harkabeeparolus/csv2xlsx.git
+```
+
+If _shiv_ doesn't work for you for some reason, you can also use [PEX]:
+
+```bash
+pex -o text2excel -c text2excel git+https://github.com/harkabeeparolus/csv2xlsx.git
+```
+
+[pipx]: https://github.com/pipxproject/pipx/
+[shiv]: https://github.com/linkedin/shiv
+[PEX]: https://github.com/pantsbuild/pex
+[zipapp]: https://docs.python.org/3/library/zipapp.html
+
+### Installing pipx
+
+I suggest installing everything with [pipx], because it is fantastic. 🙂
+
+```bash
+python3 -m pip install --user pipx
+python3 -m pipx ensurepath
+```
+
+At this point, you may need to logout to refresh your shell `$PATH` before
+proceeding.
+
+For further details, see the official
+[pipx installation guide](https://pipxproject.github.io/pipx/installation/).
+
+### Installing shiv
+
+I recommend that you use _pipx_ to install shiv:
+
+```bash
+pipx install shiv
+```
+
+Alternatively, if you really don't want to use pipx for some reason, you can
+simply run `python3 -m pip install --user shiv`. Then, if necessary, manually
+reconfigure your shell `$PATH` to find any pip installed binaries.
+
+## News
+
+Please see the [changelog](CHANGELOG.md) for more details.
+
+## Contributing
+
+Do you want to help out with this project?
+
+* Please check the [CONTRIBUTING](CONTRIBUTING.md) guide.
+
+## Credits
+
+This project was originally based on
+[a Gist by Konrad Förstner](https://gist.github.com/konrad/4154786).
+
