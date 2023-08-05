@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: websocketbridge
+Version: 1.0.0
+Summary: A package for making a unix socket available on a websocket connection
+Home-page: https://github.com/Chinbob2515/python-socket-websocket-bridge
+Author: Ben Hack
+Author-email: benjamin.hack@balliol.ox.ac.uk
+License: UNKNOWN
+Description: # python-websocketbridge
+        
+        A simple bridge program which forwards data between a server socket and client websockets.
+        
+        This is a little bit like an echo server.
+        
+        
+        Usage:
+        
+        ```
+        python -m websocketbridge 5050 5051
+        ```
+        
+        or in a script:
+        
+        ```
+        import websocketbridge
+        
+        websocketbridge.runserver(socket_port=5050, websocket_port=5051)
+        ```
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
