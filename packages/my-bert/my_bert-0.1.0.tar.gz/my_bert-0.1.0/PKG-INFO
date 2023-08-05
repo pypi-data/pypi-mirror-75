@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: my_bert
+Version: 0.1.0
+Summary: just a bert tool
+Home-page: https://github.com/hzfei/my-bert
+Author: hzfei
+Author-email: 1027551108@qq.com
+License: UNKNOWN
+Description: 本项目完全摘自苏剑林的bert4keras！至于起名my_bert,纯属import的时候好记。
+        起因是苏剑林的bert4keras更新太频繁，我跟不上牛人的脚步，
+        于是摘下来自己慢慢研究。
+        苏剑林bert4keras地址：https://github.com/bojone/bert4keras
+        苏剑林个人博客：kexue.fm
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
