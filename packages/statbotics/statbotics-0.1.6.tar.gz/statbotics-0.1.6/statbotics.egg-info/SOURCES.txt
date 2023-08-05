@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+setup.py
+statbotics/__init__.py
+statbotics/main.py
+statbotics/validate.py
+statbotics.egg-info/PKG-INFO
+statbotics.egg-info/SOURCES.txt
+statbotics.egg-info/dependency_links.txt
+statbotics.egg-info/requires.txt
+statbotics.egg-info/top_level.txt
+tests/__init__.py
+tests/test_login.py
+tests/test_teams.py
