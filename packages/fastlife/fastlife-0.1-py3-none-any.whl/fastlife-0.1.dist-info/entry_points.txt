@@ -1,0 +1,3 @@
+[console_scripts]
+fastlife = fastlife.__main__:main
+

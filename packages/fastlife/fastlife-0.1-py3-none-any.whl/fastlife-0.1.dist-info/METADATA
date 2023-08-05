@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: fastlife
+Version: 0.1
+Summary: Benchmarks for implementations of Conway's Game of Life
+Home-page: https://fastlife.readthedocs.io/en/latest/
+Author: Benjamin Bengfort
+Author-email: benjamin@bengfort.com
+License: BSD 3-Clause
+Download-URL: https://github.com/bbengfort/fastlife/tarball/v0.1
+Project-URL: Documentation, https://fastlife.readthedocs.io/en/latest/
+Project-URL: Download, https://github.com/bbengfort/fastlife/tarball/v0.1
+Project-URL: Source, https://github.com/bbengfort/fastlife
+Project-URL: Tracker, https://github.com/bbengfort/fastlife/issues
+Keywords: cython,game of life,cellular automata,parallel processing,benchmarks
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Life
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.4, <4
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (==1.19.1)
+
+# Fast Life
+
+[![Build Status](https://travis-ci.com/bbengfort/fastlife.svg?branch=master)](https://travis-ci.com/bbengfort/fastlife)
+[![codecov](https://codecov.io/gh/bbengfort/fastlife/branch/master/graph/badge.svg)](https://codecov.io/gh/bbengfort/fastlife)
+[![Documentation Status](https://readthedocs.org/projects/fastlife/badge/?version=latest)](https://fastlife.readthedocs.io/en/latest/?badge=latest)
+
+This repository is an experiment to compare different techniques for implementing Conway's game of life to determine performance characteristics of a Python program. The implementations are as follows:
+
+1. Pure Python Sequential
+2. Pure Python Multiprocessing
+3. C-bindings Sequential
+4. C-bindings Parallel
+
+Each of these implementations will be benchmarked with significantly sized worlds and the same random seeds to determine how their performance scales.
+
+
