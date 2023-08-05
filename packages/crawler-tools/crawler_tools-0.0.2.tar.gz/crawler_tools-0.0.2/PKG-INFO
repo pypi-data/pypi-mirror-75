@@ -1,0 +1,12 @@
+Metadata-Version: 1.2
+Name: crawler_tools
+Version: 0.0.2
+Summary: 爬虫工具
+Home-page: UNKNOWN
+Author: cw
+Author-email: 1063117365@qq.com
+License: GPL Licence
+Description: 爬虫工具集合，其中代理用的是崔庆才的代理池和jhao的代理池，而cookies和user-agent是自己的创作，总体上实在综合
+Keywords: crawler,tools,proxy,cookies,user-agent
+Platform: any
+Requires-Python: >=3.7.*
