@@ -1,0 +1,5 @@
+
+        [console_scripts]
+            repository-updater=repositoryupdater.cli:repository_updater
+            repository-updater-git-askpass=repositoryupdater.cli:git_askpass
+    
