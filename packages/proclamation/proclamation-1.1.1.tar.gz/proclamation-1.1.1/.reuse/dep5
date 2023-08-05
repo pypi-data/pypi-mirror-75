@@ -1,0 +1,33 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Proclamation
+Upstream-Contact: Ryan Pavlik <ryan.pavlik@collabora.com>
+Source: https://gitlab.com/ryanpavlik/proclamation
+
+# Commented out so that reuse lint will check the files themselves
+
+#Files: proclamation/*
+#       *.py
+#Copyright: 2019, 2020, Collabora, Ltd. and the Proclamation contributors
+#License: Apache-2.0
+
+#Files: proclamation/templates/*
+#Copyright: 2020, Collabora, Ltd. and the Proclamation contributors
+#License: CC0-1.0
+
+Files: README.md
+       docs/README.md
+Copyright: 2020, Collabora, Ltd. and the Proclamation contributors
+License: CC0-1.0
+
+
+Files: CODE_OF_CONDUCT.md
+       docs/CODE_OF_CONDUCT.md
+Copyright: 2014-2020 Coraline Ada Ehmke
+License: CC-BY-4.0
+
+# There should be no files here at release time,
+# as they become part of the CHANGELOG.md file (see above)
+# but to ensure reuse lint passes, we describe them here.
+Files: changes/*
+Copyright: 2020, Collabora, Ltd. and the Proclamation contributors
+License: CC0-1.0

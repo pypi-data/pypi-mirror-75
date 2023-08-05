@@ -1,0 +1,9 @@
+# SPDX-License-Identifier: CC0-1.0
+# SPDX-FileCopyrightText: 2020 Collabora, Ltd. and the Proclamation contributors
+include README.md
+include USAGE.md
+include LICENSES
+include .proclamation.json
+include .proclamation.json.license
+include .reuse
+include proclamation/templates/*.md

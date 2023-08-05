@@ -1,0 +1,106 @@
+{
+    "#": "SPDX-FileCopyrightText: 2020 Collabora, Ltd. and the Proclamation contributors",
+    "##": "SPDX-License-Identifier: CC0-1.0",
+    "$schema": "http://json-schema.org/draft-07/schema",
+    "$id": "https://ryanpavlik.gitlab.io/proclamation/proclamation.schema.json",
+    "$comment": "",
+    "title": "Proclamation configuration file schema",
+    "description": "This schema describes the configuration file format for the Proclamation tool. The root object can either be a project_object, or contain a 'projects' key with an array of project_object",
+    "definitions": {
+        "section_object": {
+            "$id": "#/definitions/section_object",
+            "title": "Section",
+            "description": "A section contains changelog fragments. The key associated with the section is the section name.",
+            "type": "object",
+            "required": [
+                "directory"
+            ],
+            "properties": {
+                "directory": {
+                    "type": "string",
+                    "title": "Fragment Directory",
+                    "description": "Relative path to directory with changelog fragments"
+                },
+                "sort_by_prefix": {
+                    "type": "boolean",
+                    "title": "Sort by Prefix",
+                    "default": false,
+                    "description": "If true, fragments will be sorted by a colon-delimited prefix in their content (after the normal sorting by reference), or by their first word if no colon is found in the text."
+                }
+            }
+        },
+        "project_object": {
+            "$id": "#/definitions/project_object",
+            "type": "object",
+            "required": [
+                "project_name",
+                "sections"
+            ],
+            "properties": {
+                "project_name": {
+                    "type": "string",
+                    "title": "Project Name",
+                    "description": "Used in the heading of the default template"
+                },
+                "base_url": {
+                    "type": "string",
+                    "title": "Project base URL",
+                    "description": "Source code repo base URL, used by default template to construct links to issues and merge/pull requests"
+                },
+                "news_filename": {
+                    "type": "string",
+                    "title": "NEWS file filename",
+                    "default": "NEWS"
+                },
+                "insert_point_pattern": {
+                    "type": "string",
+                    "title": "Insert point pattern",
+                    "description": "Regex matching the line in your NEWS file that we should insert before.",
+                    "default": "^## .*'"
+                },
+                "sections": {
+                    "type": "object",
+                    "title": "Sections",
+                    "minProperties": 1,
+                    "propertyNames": {
+                        "title": "Section Name"
+                    },
+                    "additionalProperties": {
+                        "$ref": "#/definitions/section_object"
+                    }
+                },
+                "template": {
+                    "type": "string",
+                    "title": "NEWS file release template",
+                    "default": "base.md",
+                    "description": "A path to a Jinja2 template to use when generating new NEWS file updates. The default file is bundled with Proclamation itself."
+                },
+                "extra_data": {
+                    "type": "object",
+                    "title": "Extra Data",
+                    "description": "Any extra data you want to pass through to the template."
+                }
+            }
+        }
+    },
+    "oneOf": [
+        {
+            "$ref": "#/definitions/project_object"
+        },
+        {
+            "type": "object",
+            "required": [
+                "projects"
+            ],
+            "properties": {
+                "projects": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/project_object"
+                    },
+                    "minItems": 1
+                }
+            }
+        }
+    ]
+}
