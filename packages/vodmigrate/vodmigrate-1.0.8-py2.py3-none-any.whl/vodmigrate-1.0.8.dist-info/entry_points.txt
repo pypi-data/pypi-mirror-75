@@ -1,0 +1,3 @@
+[console_scripts]
+vodmigrate = qcloud_vod_migrate.cmd:_main
+
