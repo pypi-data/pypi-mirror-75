@@ -1,0 +1,10 @@
+README.md
+setup.py
+geotiff_crop_dataset/__init__.py
+geotiff_crop_dataset/dataset.py
+geotiff_crop_dataset.egg-info/PKG-INFO
+geotiff_crop_dataset.egg-info/SOURCES.txt
+geotiff_crop_dataset.egg-info/dependency_links.txt
+geotiff_crop_dataset.egg-info/requires.txt
+geotiff_crop_dataset.egg-info/top_level.txt
+test/test_dataset.py
