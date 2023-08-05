@@ -1,0 +1,3 @@
+[console_scripts]
+start_cerberus = cerberus.start_cerberus:start
+
