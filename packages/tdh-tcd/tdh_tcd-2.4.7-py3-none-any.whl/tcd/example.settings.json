@@ -1,0 +1,35 @@
+{
+  "version": "2.4.4",
+
+  "client_id": "jzkbprff40iqj646a697cyrvl0zt2m6",
+  "cooldown": 0,
+  "display_progress": true,
+
+  "formats": ["ass", "srt", "irc"],
+  "directory": "chats",
+  "filename_format": "{directory}/v{video_id}.{format}",
+
+  "max_width": -1,
+  "subtitle_duration": 2,
+
+  "dynamic_duration": {
+    "enabled": false,
+    "max": 5,
+    "max_length": 100
+  },
+
+  "ssa_style_format": "Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, TertiaryColour, BackColour, Bold, Italic, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, AlphaLevel, Encoding",
+  "ssa_style_default": "Style: Default,Arial,20,16777215,16777215,16777215,-2147483640,-1,0,1,3,0,1,5,0,5,0,0",
+  "ssa_events_format": "Format: Start, End, Style, Text",
+  "ssa_events_line_format": "Dialogue: {start}, {end}, Default, {user}: {message}",
+
+  "group_repeating_emotes": {
+    "enabled": false,
+    "threshold": 3,
+    "collocations": 5,
+    "collocations_threshold": 2,
+    "format": "{emote} x{count}"
+  },
+
+  "video_types": "archive"
+}
