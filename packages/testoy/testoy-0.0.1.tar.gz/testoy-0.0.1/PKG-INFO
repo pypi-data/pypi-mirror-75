@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: testoy
+Version: 0.0.1
+Summary: Test your code with countless toys!
+Home-page: https://github.com/pricelesscode/testoy
+Author: Matt Lee
+Author-email: poream3387@gmail.com
+License: MIT
+Description: # testoy
+        
+        It's a library full of toys for testing!
+        
+        It also offers functions that returns various stuff like palindromes, anagrams, and etc!
+        Or you could even make custom test cases at your service!
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6.4
+Description-Content-Type: text/markdown
