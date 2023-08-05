@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: agg
+Version: 0.1.0
+Summary: Aggregate files and data
+Home-page: https://github.com/RuedigerVoigt/agg
+Author: Rüdiger Voigt
+Author-email: projects@ruediger-voigt.eu
+License: UNKNOWN
+Description: # Agg
+        
+        ![Supported Python Versions](https://img.shields.io/pypi/pyversions/agg)
+        ![Last commit](https://img.shields.io/github/last-commit/RuedigerVoigt/agg)
+        ![pypi version](https://img.shields.io/pypi/v/agg)
+        
+        ## Example
+        
+        ```python
+        #!/usr/bin/env python3
+        # -*- coding: utf-8 -*-
+        import agg
+        
+        # tuples are ordered:
+        my_files = ('file_01.csv', 'file_02.csv')
+        
+        # Merge the CSV-files - in the specified order - into a new file called
+        # "merged_file". Meanwhile copy the header / first line only once from
+        # first file
+        agg.merge_csv(my_files, 'merged_file', True)
+        
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
