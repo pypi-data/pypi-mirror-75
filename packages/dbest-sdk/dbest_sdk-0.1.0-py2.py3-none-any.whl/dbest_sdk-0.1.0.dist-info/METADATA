@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: dbest-sdk
+Version: 0.1.0
+Summary: A Python package for remote control of DBEST (drone battery exchanger system for DJI Mavic 2 products)
+Home-page: https://github.com/PSBPOSAS/dbest_sdk
+Author: IoTDeco
+Author-email: contacto@iotdeco.com
+License: MIT license
+Keywords: dbest,sdk,dji,mavic,battery,exchanger,robotic
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Requires-Dist: janus (==0.5.0)
+Requires-Dist: grpcio (==1.30.0)
+Requires-Dist: grpcio-tools (==1.30.0)
+Requires-Dist: pyserial (==3.4)
+
+=========
+dbest_sdk
+=========
+
+
+.. image:: https://img.shields.io/pypi/v/dbest_sdk.svg
+        :target: https://pypi.python.org/pypi/dbest_sdk
+
+.. image:: https://img.shields.io/travis/PSBPOSAS/dbest_sdk.svg
+        :target: https://travis-ci.com/PSBPOSAS/dbest_sdk
+
+.. image:: https://readthedocs.org/projects/dbest-sdk/badge/?version=latest
+        :target: https://dbest-sdk.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+.. image:: https://pyup.io/repos/github/PSBPOSAS/dbest_sdk/shield.svg
+     :target: https://pyup.io/repos/github/PSBPOSAS/dbest_sdk/
+     :alt: Updates
+
+
+
+A Python package for remote control of DBEST (drone battery exchanger system for DJI Mavic 2 products)
+
+
+* Free software: MIT license
+* Documentation: https://dbest-sdk.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.0 (2020-07-27)
+------------------
+
+* First release on PyPI.
+
+
