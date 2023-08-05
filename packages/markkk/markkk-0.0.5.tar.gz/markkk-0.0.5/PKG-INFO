@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: markkk
+Version: 0.0.5
+Summary: Python convenient utilities for personal usage
+Home-page: https://github.com/MarkHershey/python-utils
+Author: Mark Huang
+Author-email: mark.h.huang@gmail.com
+License: UNKNOWN
+Description: # markkk
+        
+        Convenient Python utilities for personal usage
+        
+        ## Install
+        
+        ```bash
+        pip install markkk
+        ```
+        
+        ## Usage
+        
+        ### sub-module: check_text_encoding
+        
+        - `is_ascii`
+        - `check_non_ascii_index`
+        - `is_ascii_only_file`
+        - `check_file_by_line`
+        - `ensure_no_zh_punctuation`
+        - `replace_punc_for_file`
+        
+        *Example*:
+        
+        ```python
+        from markkk.pyutils import *
+        
+        replace_punc_for_file("test.txt")
+        is_ascii("。") # this returns false
+        ```
+        
+        
+        
+        ## Development
+        
+        ### Install package using local version
+        *clone this repo*
+        ```bash
+        git clone https://github.com/MarkHershey/python-utils.git
+        ```
+        *go to project root*
+        ```bash
+        cd python-utils
+        ```
+        
+        *create virtual env for this project*
+        ```bash
+        python3 -m venv venv
+        source venv/bin/activate
+        pip install --upgrade pip setuptools  wheel
+        pip install -r requirements.txt
+        ```
+        
+        *install this package in editable mode*
+        ```bash
+        pip install -e .[dev]
+        ```
+        
+        ### Run Unittest
+        
+        *at project root*
+        ```bash
+        tox
+        ```
+        
+        ## License
+        
+        - [MIT License]("LICENSE")
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Utilities
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Framework :: tox
+Classifier: Framework :: Pytest
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev

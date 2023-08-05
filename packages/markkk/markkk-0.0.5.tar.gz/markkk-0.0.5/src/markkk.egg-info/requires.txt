@@ -1,0 +1,6 @@
+colorlog>=4.1.0
+
+[dev]
+pytest
+tox
+wheel
