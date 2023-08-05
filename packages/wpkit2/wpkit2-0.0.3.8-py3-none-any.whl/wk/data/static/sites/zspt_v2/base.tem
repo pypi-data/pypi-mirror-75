@@ -1,0 +1,4 @@
+{% extends 'parts/base.tem' %}
+{% block head %}
+   {% include 'urls.tem' %}
+{% endblock %}
