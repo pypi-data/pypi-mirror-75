@@ -1,0 +1,4 @@
+PyYAML>=5.1.2
+pydantic>=1.5
+aiohttp>=3.6.2
+osrmfb>=0.1.0
