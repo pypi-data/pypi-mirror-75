@@ -1,0 +1,27 @@
+dist: xenial
+language: python
+cache:
+- pip
+python:
+- '3.8'
+- 3.8-dev
+before_install:
+- pip install -U pip
+- pip install -U setuptools
+- pip install -U wheel
+- pip install -r test-requirements.txt
+install:
+- pip install tox-travis .[devel]
+script:
+- tox
+- python setup.py install
+- wardoff -h
+deploy:
+  matrix:
+  - provider: pypi
+    user: 4383
+    password:
+      secure: "nF2B8HQCmr3OFRpWAaXFGOziR/tpGvyDvD21Z877A5cUc85bXRIDXmzw7Ztv9s+RFDLM2qqFrYpJdpm5X3AdIZjcx+mWnHaEmwus6F19knxYbmJK8PFZNREjgEMCt7QCqeWNk5SFtmwWm9eG0p7qcu2QApoyUu8V5iKTB3DQdUEyJbmHB7ZJQKCNCbbWXnNqMT92qR7jD/D305l3cBwykIUKNLoSQTzLLGQXaWCQylH6JAZsas/hWiThqjtG9Dlk36LQqQ/RgNlHG2l7LWY+VB+evjP9b2i3Ms0UWAjjuhKvR3i1RPfmJRi8HOFFBdUxWBiii6QN50dkVYHfCyiZ//5VKL7+jep+FBjrlN8fRwPbvi3GrDUD1oW0Q7Bia8N0qgHrVatLNSbiNUKa+ojY+KiMcLBvitKceQ5ZEGc9jCUUl9Gi+qjg6zbvTTgiyD1BXxbWbt7nF6f0s0FRoMY7Wa7TP+/HPkSuUmXf4YhhU1quFkpDcz65rXucfhCKKFQSwweF2Lwy1PEwNok+bXheoqYhF29fQKxrIbcTMZNLJykBWShVD3Xa885JauZjMg7ZUe/PmNW7h6hjIDnOn/tdXZqSoaLEUEbt47wozLTvVdZI07OF7+ltFrTE+Er9rZrS6pf54Qt+JEX2sSwXlqt5hdECH/qejhou4QwpEdTYw9M="
+    on:
+      tags: true
+    distributions: sdist bdist_wheel
