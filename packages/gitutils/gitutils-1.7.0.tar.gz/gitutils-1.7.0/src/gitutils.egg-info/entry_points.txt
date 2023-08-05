@@ -1,0 +1,11 @@
+[console_scripts]
+ActOnChanged = gitutils.__main__:ActOnChanged
+find_matching_file = gitutils.__main__:find_match
+find_missing_file = gitutils.__main__:find_missing
+gitbranch = gitutils.__main__:git_branch
+gitcheck = gitutils.__main__:git_check
+gitemail = gitutils.__main__:git_email
+gitfetch = gitutils.__main__:git_fetch
+gitpull = gitutils.__main__:git_pull
+gitstat = gitutils.__main__:git_stat
+
