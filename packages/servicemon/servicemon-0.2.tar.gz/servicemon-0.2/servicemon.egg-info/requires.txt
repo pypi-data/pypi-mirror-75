@@ -1,0 +1,10 @@
+astroquery
+requests
+pyvo
+codetiming
+
+[docs]
+sphinx-astropy
+
+[test]
+pytest-astropy
