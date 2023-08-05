@@ -1,0 +1,124 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="section">
+    <div class="section-header">
+        <h1>{{ key_details.name }}</h1>
+        <div class="section-header-button">
+            <a href="#" class="btn btn-primary" id="rename-btn">Rename</a>
+            {% set del_key_url = url_for('redisboard.key_delete', db=db, key=key_details.name|quote_plus)%}
+            <a href="#" class="btn btn-danger" data-confirm="Really?|Do you want to delete {{ key_details.name }}?"
+                data-confirm-yes="delete_key('{{ del_key_url }}')">Delete</a>
+        </div>
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item"><a href="{{url_for('redisboard.db_detail', db=db)}}">DB{{db}}</a></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-2">
+                <div class="card-icon bg-primary">
+                    <i class="far fa-building"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Type</h4>
+                    </div>
+                    <div class="card-body">
+                        {{ key_details.type }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-2">
+                <div class="card-icon bg-danger">
+                    <i class="far fa-clock"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>TTL <a href="#"><i class="far fa-edit" id="ttl-btn"></i></a></h4>
+                    </div>
+                    <div class="card-body">
+                        {{ key_details.ttl }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-2">
+                <div class="card-icon bg-warning">
+                    <i class="far fa-newspaper"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Encoding</h4>
+                    </div>
+                    <div class="card-body">
+                        {{ key_details.encoding }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+            <div class="card card-statistic-2">
+                <div class="card-icon bg-success">
+                    <i class="fas fa-circle"></i>
+                </div>
+                <div class="card-wrap">
+                    <div class="card-header">
+                        <h4>Size</h4>
+                    </div>
+                    <div class="card-body">
+                        {{ key_details.length }}
+                        {% if key_details.type == 'string' %}charcters{% else %}items{% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    {% block keydetail %}
+
+                    {% endblock keydetail %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    </div>
+</section>
+
+<form class="modal-part" id="rename-panel">
+    <div class="form-group">
+        <label>Key</label>
+        <div class="input-group">
+            <input type="text" class="form-control" name="keyname" value="{{ key_details.name }}">
+        </div>
+    </div>
+</form>
+
+<form class="modal-part" id="ttl-panel">
+    <p>Set <code>-1</code> for not expired forever</p>
+    <div class="form-group">
+        <label>Expires</label>
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text">
+                    <i class="fas fa-clock"></i>
+                </div>
+            </div>
+            <input type="text" class="form-control" name="ttl" placeholder="after * seconds">
+        </div>
+    </div>
+</form>
+{% endblock %}
+
+
+{% block js %}
+<script src="{{ url_for('redisboard.static', filename='dist/pages/keydetail.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,4 @@
+
+include LICENSE
+recursive-include redisweb/templates *.html
+recursive-include redisweb/static *
