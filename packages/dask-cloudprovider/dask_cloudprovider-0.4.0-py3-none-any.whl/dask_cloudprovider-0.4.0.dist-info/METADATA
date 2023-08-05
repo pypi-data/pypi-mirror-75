@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: dask-cloudprovider
+Version: 0.4.0
+Summary: Native Cloud Provider integration for Dask
+Home-page: https://github.com/dask/dask-cloudprovider
+License: BSD
+Keywords: dask,cloud,distributed
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Requires-Dist: aiobotocore (>=0.10.2)
+Requires-Dist: dask (>=2.2.0)
+Requires-Dist: distributed (>=2.3.1)
+Requires-Dist: azureml-sdk (>=1.0.83)
+
+UNKNOWN
+
+
