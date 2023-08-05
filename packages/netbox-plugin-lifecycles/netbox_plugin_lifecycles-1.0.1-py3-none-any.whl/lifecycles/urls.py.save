@@ -1,0 +1,10 @@
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('device_lifecycles/', views.DeviceLifecyclesView.as_view(), name='device_lifecycles'),
+    path('add_lifecycle/', views.AddLifecyclesView.as_view(), name='add_lifecycle'),
+    path('add_lifecycle_action_type/', views.AddLifecycleActionTypeView.as_view(), name='add_lifecycle_action_type'),
+    path('lifecycle_action_types/', views.LifecycleActionTypesView.as_view(), name='lifecycle_action_types'),
+    path('lifecycle_action_types/<int:id>/', views.LifecycleActionTypeView.as_view(), name='lifecycle_action_type'),
+]
