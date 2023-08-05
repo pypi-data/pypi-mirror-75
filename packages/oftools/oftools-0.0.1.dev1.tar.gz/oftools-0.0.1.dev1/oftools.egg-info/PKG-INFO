@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: oftools
+Version: 0.0.1.dev1
+Summary: Set of tools for the Openframe environment
+Home-page: http://pypi.python.org/pypi/oftools
+Author: Tmaxsoft
+Author-email: tfsadmin@tmaxsoft.com
+License: CC4.0-BY-NC-SA
+Description: # Openframe Tools
+        
+        A set of tools that is useful to use in the Openframe environment.
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: Other/Proprietary License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
