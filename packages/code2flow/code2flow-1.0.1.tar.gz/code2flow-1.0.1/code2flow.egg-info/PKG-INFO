@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: code2flow
+Version: 1.0.1
+Summary: A python project to allow generation of flow charts from a given code file.
+Home-page: https://github.com/Dheeraj1998/code2flow
+Author: Dheeraj Nair
+Author-email: nair.dheeraj@yahoo.co.in
+License: MIT
+Description: # code2flow
+        A python project to allow generation of flow charts from a given code file.
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
