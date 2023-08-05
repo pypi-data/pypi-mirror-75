@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "py-hiverunner"
+version = "0.1.3"
+description = "Python API for unittest Hive applications"
+authors = ["la9ran9e <tvauritimur@gmail.com>"]
+readme = "README.md"
+repository = "https://github.com/la9ran9e/py-hiverunner"
+keywords = ["hive", "test"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+JPype1 = "^0.7.5"
+python-dotenv = "^0.13.0"
+py4j = "^0.10.9"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+codecov = "^2.1.7"
+pytest-cov = "^2.10.0"
+pytest-env = "^0.6.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
