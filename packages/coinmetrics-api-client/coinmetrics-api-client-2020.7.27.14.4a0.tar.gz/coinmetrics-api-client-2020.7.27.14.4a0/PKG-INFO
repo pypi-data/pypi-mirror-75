@@ -1,0 +1,84 @@
+Metadata-Version: 2.1
+Name: coinmetrics-api-client
+Version: 2020.7.27.14.4a0
+Summary: Python client for Coin Metrics API v4.
+Home-page: https://github.com/coinmetrics-io/api-client-python
+License: MIT
+Keywords: coin metrics,coin,metrics,crypto,bitcoin,network-data,market-data,api,handy
+Author: Coin Metrics
+Author-email: info@coinmetrics.io
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Project-URL: Documentation, https://github.com/coinmetrics-io/api-client-python/blob/master/README.md
+Project-URL: Repository, https://github.com/coinmetrics-io/api-client-python
+Description-Content-Type: text/markdown
+
+# Coin Metrics Python API v4 client library
+
+This is an official Python API client for Coin Metrics API v4.
+
+## Installation
+To install the client you can run the following command:
+```
+pip install coinmetrics-api-client
+```
+
+
+## Introduction
+You can use this client for querying all kinds of data with your API.
+
+To initialize the client you should use your API key, and the CoinMetricsClient class like the following.
+```
+client = CoinMetricsClient(environ.get("CM_API_KEY"))
+```
+
+After that you can use the client object for getting stuff like available markets:
+```
+print(client.catalog_markets())
+```
+
+or to query all available assets along with what is available for those assets, like metrics, markets:
+
+```
+print(client.catalog_assets())
+```
+
+
+you can also use filters for the catalog endpoints like this:
+
+```
+print(client.catalog_assets(assets=['btc']))
+```
+in this case you would get all the information for btc only
+
+## Getting timeseries data
+
+For getting timeseries data you want to use methods of the client class that start with `get_`.
+
+For example if you want to get a bunch of market data trades for coinbase btc-usd pair you can run something similar to the following:
+
+```
+for trade in client.get_market_trades(markets='coinbase-btc-usd-spot', 
+                                      start_time='2020-01-01', end_time='2020-01-03'):
+    print(trade)
+```
+
+Or if you want to see daily btc asset metrics you can use something like this:
+
+```
+for metric_data in client.get_asset_metrics(assets='btc', 
+                                            metrics=['ReferenceRate', 'BlkHgt', 'AdrActCnt',  
+                                                     'AdrActRecCnt', 'FlowOutBFXUSD'], 
+                                            frequency='1d'):
+    print(metric_data)
+```
+This will print you the requested metrics for all the days where we have any of the metrics present. 
+
+
+For more information about the available methods in the client please reference [API Client Spec](api_client.md)
+
