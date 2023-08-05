@@ -1,0 +1,466 @@
+CHANGES
+=======
+
+8.0.0
+-----
+
+* Sem-Ver: api-break Optimise the standard requests session based public key retrieval by obtaining proxy information from the environment once per a public key server and setting session.trust\_env to False. As a result of this change retrieving the same public key, with caching enabled, 10,000 times takes ~ 6 seconds instead of ~ 14 seconds
+* Sem-Ver: bugfix For python 2.7 and 3.5 testing we need to pin itsdangerous to a version < 2.0.0
+
+7.1.0
+-----
+
+* Add release notes for version 7.1.0
+* Sem-Ver: bugfix When a connection error is encountered while attempting to fetch public keys in HTTPSMultiRepositoryPublicKeyRetriever continue to attempt key retrieval using other retrievers
+* Sem-Ver: feature Add a handle\_retrieval\_exception method to the HTTPSMultiRepositoryPublicKeyRetriever class
+* Sem-Ver: bugfix In CI move to using setup.py nosetests as setup.py test has been deprecated
+* Sem-Ver: bugfix Run flake8 in ci
+* Sem-Ver: bugfix Flake8 fix up - add an explicit check that the aud claim has been provided. This is not a breaking change because even if verify\_jwt was to use an audience value of None & a jwt did not have an aud claim, a KeyError would be raised
+* Sem-Ver: bugfix Fix some issues that flake8 detected
+* Sem-Ver: bugfix Fix up the name of the None algorithm auth signer
+* Sem-Ver: bugfix For python 2.7 and 3.5 testing we need to pin MarkupSafe to a version < 2.0.0
+* Sem-Ver: bugfix Add an explicit test for how none algorithm jwt are handled
+
+7.0.0
+-----
+
+* Add release notes for version 7.0.0
+* Sem-Ver: feature Log information on general exceptions in addition to specific exceptions
+* Sem-Ver: bugfix Fix some issues that flake8 detected
+* Sem-Ver: api-break Disable jti uniqueness checking by default
+* Sem-Ver: bugfix Reduce the backend verifier cache max size from 130 to 20
+* Sem-Ver: feature Add support to the various frameworks for being able to specify to not check jti uniqueness
+* Sem-Ver: feature Cache Backend verifiers
+* Sem-Ver: feature Add logging to the framework asap token checking code
+* Sem-Ver: bugfix Catch SubjectDoesNotMatchIssuerException in the frameworks
+* Sem-Ver: feature Add a SubjectDoesNotMatchIssuerException for when the subject does not match the issuer
+* Sem-Ver: bugfix Catch JtiUniquenessException and respond with a 401 inside \_process\_asap\_token
+* Sem-Ver: bugfix Deduplicate the various framework test create\_token methods
+* Sem-Ver: bugfix Fix the spelling of the duplicate jti exception (rename JtiUniqunessException to JtiUniquenessException)
+* Sem-Ver: feature Allow SettingsDict instances to be hashed
+* Sem-Ver: feature Add and use a specific exception, JtiUniqunessException, for when a JTI is used more than once
+* Sem-Ver: bugfix Switch the wsgi tests to use unittest assertions
+
+6.0.0
+-----
+
+* Add release notes for version 6.0.0
+* Sem-Ver: bugfix For python 2.7 and 3.5 testing we need to pin Jinja2 to a version < 3.0.0
+* Sem-Ver: bugfix Update CacheControl from version 0.12.5 to 0.12.6
+* Sem-Ver: feature Add support for python 3.7
+* Sem-Ver: api-break Drop support for python3.4
+
+5.0.3
+-----
+
+* Add release notes for version 5.0.3 and update the AUTHORS file
+* Sem-Ver: bugfix upgrade cryptography from using a version >= 2.7.0 < 2.8.0 to use a version >= 2.8.0 and < 2.9.0
+* Add an example on how to generate jwt using a data uri private key
+
+5.0.2
+-----
+
+* Add release notes for version 5.0.2
+* Sem-Ver: bugfix upgrade cryptography from using a version >= 2.5.0 < 2.6.0 to use a version >= 2.7.0 and < 2.8.0
+
+5.0.1
+-----
+
+* Add release notes for version 5.0.1
+* Sem-Ver: bugfix Fix the backend reference in OldStyleASAPMiddleware
+
+5.0.0
+-----
+
+* Add release notes for version 5.0.0
+* Sem-Ver: api-break Re-use verifiers in the various middlewares and add an optional verifier argument to the \_process\_asap\_token method
+* Sem-Ver: api-break Share request sessions across key retriever instances so as to use a common cache
+
+4.1.2
+-----
+
+* Add release notes for version 4.1.2 and update the AUTHORS file
+* Sem-Ver: bugfix upgrade cryptography from using a version >= 2.4.0 < 2.5.0 to use a version >= 2.5.0 and < 2.6.0
+* Sem-Ver: bugfix upgrade the version of Django used for testing to using version 1.11
+* Sem-Ver: bugfix upgrade pbr to use a version before 6.0.0
+* Sem-Ver: bugfix upgrade cryptography from using a version >= 2.3.0 < 2.4.0 to use a version >= 2.4.0 and < 2.5.0
+* Sem-Ver: bugfix upgrade the version of flask used for testing from versions below 0.12 to versions below 1.1.0
+* Sem-Ver: bugfix upgrade CacheControl from version 0.12.4 to 0.12.5
+
+4.1.1
+-----
+
+* Fix super call issue in Django middleware
+
+4.1.0
+-----
+
+* Add release notes for version 4.1.0
+* Sem-Ver: feature Reduce the time taken to generate a jwt by caching loaded private key instances
+
+4.0.2
+-----
+
+* Add release notes for version 4.0.2
+* Sem-Ver: bugfix upgrade cryptography from using a version >= 2.2.1 < 2.3.0 to use a version >= 2.3.0 and < 2.4.0
+
+4.0.1
+-----
+
+* Add release notes for version 4.0.1
+* Sem-Ver: bugfix When asap is not required and no asap token has been provided return early in \_process\_asap\_token
+* Update the changelog with more specific information on has changed with regards to the Django and Flask support
+
+4.0.0
+-----
+
+* Add release notes for version 4.0.0
+* Sem-Ver: feature Add WSGI middleware
+* Sem-Ver: api-break Rework Django and Flask support
+* Add a readme to the contrib module
+
+3.6.0
+-----
+
+* Add release notes for version 3.6.0
+* Move to using pycodestyle instead of pep8
+* Sem-Ver: feature Support disabling checking if jwt jti are unique
+* Sem-Ver: bugfix The HTTPSMultiRepositoryPublicKeyRetriever should try the next key repository upon encountering a server error (status code >= 500)
+
+3.5.0
+-----
+
+* Add release notes for version 3.5.0
+* Sem-Ver: feature Support reusing tokens
+
+3.4.0
+-----
+
+* Add release notes for version 3.4.0 and update the AUTHORS file
+* Sem-Ver: feature Support specifying if the subject should match the issue in the Django ASAPForwardedMiddleware
+* Sem-Ver: feature Support specifying if the subject should match the issue in the Django requires\_asap decorator
+* Sem-Ver: feature Add support for specifying the subject for JWTAuthSigner to use when generating claims
+
+3.3.1
+-----
+
+* Add release notes for version 3.3.1
+* Sem-Ver: bugfix Use the raw string notation when specifying the key identifier regex
+* Sem-Ver: bugfix upgrade cryptography from using a version >= 2.1.3 < 2.2.0 to use a version >= 2.2.1 and < 2.3.0
+* Sem-Ver: bugfix upgrade CacheControl from version 0.12.3 to 0.12.4
+* Refactor the flask tests
+* Sem-Ver: feature Add better Django ASAP middleware
+
+3.2.2
+-----
+
+* Add release notes for version 3.2.2 and update the AUTHORS file
+* Sem-Ver: bugfix Fix tuple assignment in wrapped exception mechanism
+
+3.2.1
+-----
+
+* Add release notes for version 3.2.1
+* Sem-Ver: bugfix upgrade cryptography from using a version >= 2.0.3 < 2.1.0 to use a version >= 2.1.3 and < 2.2.0
+* Sem-Ver: bugfix upgrade CacheControl from version 0.12.1 to 0.12.3 Signed-off-by: David Black <dblack@atlassian.com>
+
+3.2.0
+-----
+
+* Update release notes for version 3.2.0 and update the AUTHORS file
+* Cleanup responses from requires\_asap
+* Sem-Ver: bugfix Check authorization scheme in requires\_asap and also send a WWW-Authenticate header where appropriate
+* Sem-Ver: bugfix Clean up the django and flask requires\_asap decorators by sharing their code
+* Sem-Ver: bugfix HTTPSMultiRepositoryPublicKeyRetriever should raise PublicKeyRetrieverException and not KeyError when a key is not found
+* Sem-Ver: bugfix Improvements to the readme file
+* Sem-Ver: bugfix Make \_seen\_jti a ringbuffer and increase its capacity to 1000
+
+3.1.0
+-----
+
+* Update release notes for version 3.1.0 and update the AUTHORS file
+* Add release notes for version 3.1.0
+* Add Django middleware to auth forwarded clients
+* Sem-Ver: bugfix upgrade cryptography from using a version >= 1.8.1 < 1.9.0 to use a version >= 2.0.3 and < 2.1.0
+
+3.0.1
+-----
+
+* Add release notes for version 3.0.1
+* Sem-Ver: bugfix upgrade PyJWT from version 1.4.2 to use a version >= 1.5.2 but less than 2.0.0 
+
+3.0.0
+-----
+
+* Add release notes for version 3.0.0
+* Sem-Ver: feature Add a new HTTPSMultiRepositoryPublicKeyRetriever class which allows using multiple public key repositories. (#50)
+* Sem-Ver: feature Add and use library specific exceptions instead of using ValueError
+* Sem-Ver: api-break Add support for customising the value of the leeway used in the django and flask contrib code through the ASAP\_VALID\_LEEWAY setting & switch to a default leeway of 0 seconds
+
+2.11.2
+------
+
+* Add release notes for version 2.11.2
+* Sem-Ver: bugfix Fix the requires\_asap decorator for python 3 by forcing the HTTP\_AUTHORIZATION header into bytes before parsing it
+* Add .mailmap to resolve some duplicate identities
+
+2.11.1
+------
+
+* Add release notes for version 2.11.1 and update the AUTHORS file
+* Sem-Ver: bugfix Fix the default value for the auth header used in the Django requires\_asap decorator to work in Python 3
+* Sem-Ver: bugfix Warn when an import error occurs when importing aiohttp so that the tests do not fail in python >= 3.5 when aiohttp is not installed
+
+2.11.0
+------
+
+* Add release notes for version 2.11.0 and update the AUTHORS file
+* Sem-Ver: feature Provide aiohttp support
+
+2.10.2
+------
+
+* Add release notes for version 2.10.2
+* Sem-Ver: bugfix Fix the decorator for Django (#38)
+
+2.10.1
+------
+
+* Add release notes for version 2.10.1
+* Sem-Ver: bugfix upgrade cryptography from using a version >= 1.5.0 < 1.6.0 to use a version >= 1.8.1 and < 1.9.0
+* Sem-Ver: bugfix upgrade CacheControl from version 0.11.6 to 0.12.1
+
+2.10.0
+------
+
+* Add release notes for version 2.10.0 and update the AUTHORS file
+* Sem-Ver: feature support passing in additional claims to contrib.requests.JWTAuth
+
+2.9.0
+-----
+
+* Add release notes for version 2.9.0 and update the AUTHORS file
+* BBCDEV-4046 Add Django support (#35)
+
+2.8.1
+-----
+
+* Add release notes for version 2.8.1
+* Sem-Ver: bugfix upgrade cryptography from using a version >= 1.3.0 < 1.4.0 to use a version >= 1.5.0 and < 1.6.0
+
+2.8.0
+-----
+
+* Add release notes for version 2.8.0
+* Sem-Ver: feature Added ASAP\_KEY\_RETRIEVER\_CLASS to simplify Flask testing(#32)
+* Sem-Ver: bugfix HTTPSPublicKeyRetriever should raise a ValueError if the base\_url is None. (#33)
+*  Sem-Ver: bugfix Fix an issue where Flask config values were not referenced properly
+
+2.7.0
+-----
+
+* Add release notes for version 2.7.0
+* Sem-Ver: feature add to contrib flask\_app that provides a @requires\_asap decorator and PyJWT to version 1.4.2
+* Sem-Ver: bugfix upgrade PyJWT from version 1.4.0 to 1.4.1
+
+2.6.0
+-----
+
+* Add release notes for version 2.6.0
+* Sem-Ver: feature support passing through kwargs for the signer created in create\_jwt\_auth
+* Test the JWTAuthSigner with a FilePrivateKeyRetriever with both RS256 and ES256. Also generate the test keys during testing
+* Add tests to cover using the JWTAuth class using ES256 in addition to RS256
+* Generate a universal wheel
+
+2.5.2
+-----
+
+* Add release notes for version 2.5.2
+* Sem-Ver: bugfix make the DataUriPrivateKeyRetriever able to be used with a signer to generate jwt
+* Test that the DataUriPrivateKeyRetriever can be used  with a signer to generate a jwt
+* Sem-Ver: bugfix support content-type headers that contain parameters in addition to the media-type. Signed-off-by: David Black <dblack@atlassian.com>
+* Add tests for the HTTPSPublicKeyRetriever class
+
+2.5.1
+-----
+
+* Add release notes for version 2.5.1
+* Sem-Ver: bugfix upgrade cryptography from using a version >= 1.2.2 < 1.3.0 to use a version >= 1.3.0 and < 1.4.0
+
+2.5.0
+-----
+
+* Add release notes for version 2.5.0
+* Tiny style fix up
+* Add support for obtaining a key identifier and private key from a data uri. Sem-Ver: feature
+* Standardise the PrivateKeyRepository classes and add docstring to the FilePrivateKeyRepository class
+* Sem-Ver: bugfix upgrade CacheControl from version 0.11.5 to 0.11.6
+* Sem-Ver: bugfix upgrade cryptography from version 1.2.2 to use a version >= 1.2.2 and < 1.3.0
+
+2.4.0
+-----
+
+* Add release notes for version 2.4.0 and update the AUTHORS file
+* Support providing additional\_claims when generating a jwt. Sem-Ver: feature
+* Update the location of the asap specification
+* Rearranged the README and added badge for pypi
+
+2.3.0
+-----
+
+* Add release notes for version 2.3.0 and update the AUTHORS file
+* Added atlassian\_jwt\_auth.contrib.requests.JWTAuth
+* Move test requirements out of setup.py and into test-requirements.txt
+* Update pbr from version 1.0.1 to 1.8.1
+* Explicitly configure travis to not need sudo
+* Note in setup.cfg that python 3.5 is supported. Sem-Ver: feature
+* Test with python 3.5 in ci. Sem-Ver: feature
+
+2.2.0
+-----
+
+* Add release notes for 2.2.0
+* Sem-Ver: bugfix upgrade cryptography from version 1.1.1 to 1.2.1
+* Add the ability to accept JWT where the subject does not match the issuer
+
+2.1.1
+-----
+
+* Release 2.1.1
+* Sem-Ver: bugfix upgrade cryptography from version 1.1 to 1.1.1 
+* Sem-Ver: bugfix use a version of requests >= 2.8.1 but less than 3.0.0. Signed-off-by: David Black <dblack@atlassian.com>
+* Sem-Ver: bugfix upgrade cryptography from version 1.0.2 to 1.1 
+
+2.1.0
+-----
+
+* Add release notes for 2.1.0
+* Sem-Ver: feature to support leeway was added in the previous commit
+* Pass leeway param through to jwt.decode
+* Add release notes for 2.0.0
+
+2.0.0
+-----
+
+* Update the changelog file
+* Make use of new require\_iat and require\_exp options that PyJWT now accepts
+* Sem-Ver: bugfix update the PyJWT dep from 1.3.0 to 1.4.0
+* Sem-Ver: bugfix update the cryptography dep from 0.9.1 to 1.0.2
+* Update the AUTHORS and the ChangeLog files
+* Make the private key repository scanning actually work
+* Clean up imports to follow google python style guides
+* Support scanning for key file each time generate\_jwt is called
+* Sem-Ver: bugfix - update the build location information to reflect the build status of the master branch
+* Update the ChangeLog
+* Sem-Ver: bugfix - update the build location information
+* Sem-Ver: bugfix - update the installation instructions
+* release 1.0.8
+
+1.0.8
+-----
+
+* add the generated pbr changelog file changes in
+* Add authors file
+
+1.0.7
+-----
+
+* Add CI build information to the readme file
+* Merged in update\_cryptography\_from\_0.9\_to\_0.9.1 (pull request #4)
+* Merged in use\_supported\_jwt\_api\_to\_get\_header (pull request #3)
+* Use the new pyjwt api to get an verified header instead of calling their internal API
+* update cryptography from 0.9 to 0.9.1
+* Use pbr for setup configuration
+* Add a mostly-generated Changelog file
+
+1.0.6
+-----
+
+* Release version 1.0.6
+* Merged in update\_dependencies\_28\_05\_2015 (pull request #2)
+* Update PyJWT from version 1.1.0 to 1.3.0
+* Upgrade CacheControl from version 0.11.2 to 0.11.5
+* Upgrade cryptography from 0.8.2 to 0.9
+
+1.0.5
+-----
+
+* release 1.0.5
+* Merged in add\_caching\_for\_key\_retriever (pull request #1)
+* update requests from 2.6.0 to 2.7.0
+* Add caching to public key retrieval requests via cachecontrol
+
+1.0.4
+-----
+
+* specify the version in setup.py from \_\_init\_\_.py - which now contains a \_\_version\_\_ field
+
+1.0.3
+-----
+
+* bump the version to 1.0.3
+* rename the private \_key field of the JWTAuthSigner class to \_private\_key\_pem
+* s/signed\_claims/a\_jwt/ in the test code
+* http headers are case insensitive - so the content-type check should be done in a case insensitive fashion
+* pass through requests\_kwargs through to public\_key\_retriever.retrieve(...)
+* extract the key\_id obtaining code from the jwt header out into a function
+* s/verify\_claims/verify\_jwt/
+* s/get\_signed\_claims/generate\_jwt/
+* s/\_get\_claims/\_generate\_claims/
+* rename the JWTAuthSigner 'key' parameter to 'private\_key\_pem'
+* update the readme with example use of the package
+* set the pep8 version to 1.6.2 in the travis-ci file
+* Add a travis-ci yaml file
+
+0.0.2
+-----
+
+* release 0.0.2
+* s/assertNotEquals/assertNotEqual/
+* add support for python 2.7.X
+* README.md edited online with Bitbucket
+
+0.0.1
+-----
+
+* Make HTTPSPublicKeyRetriever take in and pass through keyword arguments for the requests.get(..) call
+* remove the unused get\_new\_rsa\_private\_key\_in\_pem\_format import from test\_verifier
+* pep8 fix ups
+* update the test\_signer code to use the new mixins
+* Update the test\_verifier code
+* s/get\_new\_private\_key/get\_new\_private\_key\_in\_pem\_format/ in the mixin classes
+* Add JWTAuthVerifierRSATest and JWTAuthVerifierECDSATest classes which used the new mixins. Also rename TestJWTAuthVerifier to BaseJWTAuthVerifierTest
+* Add some jwt algorithm mixins
+* Make the KeyIdentifier.key\_id field a property
+* pep8 fix up
+* Add a test to check that an jwt with a jti that has already been used is rejected
+* update the jti rejection message
+* wording change
+* minor change to test\_verify\_claims\_with\_jwt\_lasting\_gt\_max\_time
+* Add a test to check that jwt with lifetimes longer than the allowed maximum by the specification are rejected
+* add a test to cover when claims['iss'] != claims['sub']
+* if a key identifier does not contain a / then check if the key\_id is equal to the claims issuer in verify\_claims
+* add a test to cover that if key\_identifier does not start with issuer then an error is raised in verify\_claims
+* remove the superfluous 'the' in the issuer does not own the supplied public key message
+* re-factor the TestJWTAuthVerifier class
+* use the utils.get\_example\_jwt\_auth\_signer method in test\_signer
+* Add get\_example\_jwt\_auth\_signer to tests/utils
+* Add a test for the JWTAuthVerifier
+* Add a get\_public\_key\_pem\_for\_private\_key\_pem to tests/utils
+* create the JWTAuthSigner instance in get\_example\_jwt\_auth\_signer with key as a non-keyword style argument
+* s/jws/a\_jwt/ in verify\_claims
+* restructure the tests
+* Use nose for running tests
+* Add a test for JWTAuthSigner.get\_signed\_claims
+* Set test\_suite in setup.py
+* Add a test to check that the jti changes between \_get\_claims calls
+* use the timestamp of now in the jti instead of the string representation of the datetime object
+* Add some tests
+* Extract and fix getting the time in signer.py
+* Fix up some minor errors in signer.py
+* remove the unused os import from setup.py
+* '..' is not permitted in a key identifier
+* validate\_key\_identifier should never of taken in 'self' it only needs a key identifier
+* add a setup.py file
+* Add completely untested code
+* init
