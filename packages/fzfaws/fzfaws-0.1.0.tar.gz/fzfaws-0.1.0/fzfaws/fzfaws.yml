@@ -1,0 +1,128 @@
+# Configuration file for fzfaws
+
+# Use fzfaws --copy-config to copy this file to $HOME/.config/fzfaws/fzfaws.yml, it also respects $XDG_CONFIG_HOME.
+# Override the settings below to your liking.
+# All values are optional, you can freely remove any thing that you don't want to customize.
+
+# Settings priority (lowest to highest): ENV variable -> global settings -> service settings -> command line arguments
+
+# Settings for fzf behavior
+fzf:
+  # Determine which fzf executable to use.
+  #
+  # It doesn't really matter which value you choose if you have system fzf installed,
+  # if you are facing unexpected behavior of fzf, change the value to system.
+  #
+  # Default: binary
+  #
+  # Possible values:
+  #   - system: use the system installed fzf
+  #   - binary: use the fzf binary comes with fzfaws
+  executable: binary
+
+  # Customize the fzf behavior for fzfaws.
+  #
+  # For example, if you have system fzf height setting to 100%,
+  # you may want to change the height of fzf to 80% for better experience.
+  args: >-
+    --height 80%
+    --layout=reverse
+    --border
+    --cycle
+
+  # Customize the fzf keybinds for fzfaws.
+  #
+  # For a list of keybinds you could set, checkout fzf official doc.
+  # https://github.com/junegunn/fzf/blob/master/man/man1/fzf.1
+  keybinds:
+    toggle-all: alt-a
+    jump: alt-j
+    top: alt-t
+    clear-query: alt-0
+    toggle-sort: alt-s
+
+# Spinner configs
+spinner:
+  # A float value indicating spinner spin speed.
+  speed: 0.1
+
+  # Customize the pattern of the spinner.
+  #
+  # You can google some ascii spinner pattern.
+  # Example:
+  #   pattern: '⠋⠙⠸⠴⠦⠇'
+  pattern: "|/-\\"
+
+# Common settings shared for all services
+global:
+  # Global waiter config.
+  #
+  # Waiter configs are used when waiting for service to finish.
+  # E.g. when --wait flag is used, `fzfaws ec2 start --wait`
+  #
+  # Default: requesting service status every 15 seconds with maximum of 40 attempts
+  waiter:
+    delay: 15
+    max_attempts: 40
+
+  # Global settings for profile and region.
+  #
+  # Default aws credentials and region to use for all services, you can remove this
+  # part if you are happy with the profile and region to use when you run aws-cli.
+  profile: default
+  #region: us-east-1
+
+# Individual service settings
+services:
+  ec2:
+    # Path to the directory storing pem keys.
+    #
+    # fzfaws doesn't recognize env variable like $HOME, use "~" to reference home directory.
+    keypair: ~/.ssh
+
+    # Default argument for ec2 operations.
+    #
+    # Example: You always to to apply '--check' flag to ec2 start operation
+    #   default_args:
+    #     start: --check
+    default_args:
+      start: --wait
+      stop: --wait
+      terminate: --wait
+
+    #waiter:
+    #  delay: 10
+    #  max_attempts: 60
+    #profile: default
+    #region: us-east-1
+
+  s3:
+    # S3 transfer config, determines how files would be upload/download from s3.
+    #
+    # https://boto3.amazonaws.com/v1/documentation/api/latest/_modules/boto3/s3/transfer.html#TransferConfig
+    transfer_config:
+      multipart_threshold: 8
+      multipart_chunksize: 8
+      max_concurrency: 10
+      max_io_queue: 100
+      num_download_attempts: 6
+
+    #profile: default
+    #default_args:
+    #  upload: --hidden
+    #  download: --hidden
+    #  presign: -e 3600
+
+  cloudformation:
+    waiter:
+      delay: 30
+      max_attempts: 120
+
+    default_args:
+      create: --wait --extra
+      update: --wait --extra
+      delete: --wait
+      changeset: --wait
+      drift: --wait
+    #profile: root
+    #region: ap-southeast-2
