@@ -1,0 +1,7 @@
+tensorflow<2.3,>=2.2
+pillow
+rasterio
+geopandas<0.9,>=0.8
+owslib
+segmentation-models<1.1,>=1.0
+geofileops==0.0.7
