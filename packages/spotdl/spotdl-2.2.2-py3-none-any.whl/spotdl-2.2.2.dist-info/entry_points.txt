@@ -1,0 +1,3 @@
+[console_scripts]
+spotdl = spotdl.command_line.__main__:main
+
