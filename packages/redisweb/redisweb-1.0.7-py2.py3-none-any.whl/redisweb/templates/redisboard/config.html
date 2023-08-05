@@ -1,0 +1,37 @@
+{% import 'macros.html' as macros %}
+{% extends "layout.html" %}
+{% block content %}
+
+
+<section class="section">
+    <div class="section-header">
+        <h1>Current Config</h1>
+        <div class="section-header-breadcrumb">
+            <div class="breadcrumb-item">{% if config_file %}config file: {{config_file}}{% else %} running without a
+                config file
+                {% endif %}</div>
+        </div>
+    </div>
+
+    <div class="section-body">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-bordered table-md">
+                            {% for config_part, config_name in config %}
+                            {{macros.render_config_item(config_part, config_name)}}
+                            {% endfor %}
+                        </table>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block js %}
+<script src="{{ url_for('redisboard.static', filename='dist/pages/config.js') }}"></script>
+{% endblock %}

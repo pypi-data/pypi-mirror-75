@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+        <title>Flask Redis Board</title>
+
+        <link rel="stylesheet" href="{{ url_for('redisboard.static', filename='dist/css/lib.css') }}">
+        <link rel="stylesheet" href="{{ url_for('redisboard.static', filename='dist/css/style.css') }}">
+        <link rel="stylesheet" href="{{ url_for('redisboard.static', filename='dist/css/font.css') }}">
+
+    </head>
+
+    <body class="layout-3">
+        <div id="app">
+            <div class="main-wrapper container">
+                <nav class="navbar navbar-expand-lg navbar-secondary">
+                    <div class="container">
+                        <ul class="navbar-nav">
+                            <li class="nav-item {% if 'dashboard' in request.path %} active {% endif%}">
+                                <a href="{{url_for('redisboard.dashboard')}}" class="nav-link"><i
+                                        class="far fa-heart"></i><span>Dashboard
+                                    </span></a>
+                            </li>
+                            <li class="nav-item dropdown {% if 'db' in request.path %} active {% endif%}">
+                                <a href="{{url_for('redisboard.db_detail')}}" data-toggle="dropdown"
+                                    class="nav-link has-dropdown"><i class="fas fa-fire"></i><span>Connection</span></a>
+                                <ul class="dropdown-menu">
+                                    {% for db_id in databases %}
+                                    <li class="nav-item"><a href="{{url_for('redisboard.db_detail', db=db_id)}}"
+                                            class="nav-link">DB
+                                            {{db_id}}</a>
+                                    </li>
+                                    {% endfor %}
+                                </ul>
+                            </li>
+                            <li class="nav-item {% if 'command' in request.path %} active {% endif%}">
+                                <a href="{{url_for('redisboard.command')}}" class="nav-link"><i
+                                        class="fas fa-terminal"></i><span>Command</span></a>
+                            </li>
+                            <li class="nav-item {% if 'info' in request.path %} active {% endif%}">
+                                <a href="{{url_for('redisboard.info')}}" class="nav-link"><i
+                                        class="far fa-file"></i><span>Server
+                                        Info</span></a>
+                            </li>
+                            <li class="nav-item {% if 'config' in request.path %} active {% endif%}">
+                                <a href="{{url_for('redisboard.config')}}" class="nav-link"><i
+                                        class="fas fa-cogs"></i><span>Redis Config</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- Main Content -->
+                <div class="main-content">
+                    {% block content %}
+                    {% endblock content %}
+                </div>
+            </div>
+        </div>
+        <script src="{{ url_for('redisboard.static', filename='dist/js/index.js') }}"></script>
+        {% block js %}
+        {% endblock js %}
+    </body>
+
+</html>
