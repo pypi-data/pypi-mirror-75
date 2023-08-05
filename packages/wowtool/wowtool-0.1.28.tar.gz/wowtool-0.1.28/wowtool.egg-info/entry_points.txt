@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        wowtool=cli.wowtool:cli
+    
