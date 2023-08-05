@@ -1,0 +1,3 @@
+[console_scripts]
+swell = pyswell.skeleton:run
+
