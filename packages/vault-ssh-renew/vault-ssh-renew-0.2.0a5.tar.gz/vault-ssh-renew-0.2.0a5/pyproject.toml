@@ -1,0 +1,38 @@
+[build-system]
+requires = ["poetry >= 0.12, <=1.0.3"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "vault-ssh-renew"
+version = "0.2.0-alpha.5"
+description = "Vault SSH Host Key Renewal Tool"
+authors = ["Niels Grewe <niels.grewe@halbordnung.de>"]
+license = "MIT"
+packages = [
+    { include = "vault_ssh_renew" }
+]
+
+[tool.poetry.dependencies]
+click = "^6.6"
+paramiko = "^2.7.1"
+python = "^3.6"
+requests = "^2.12.4"
+
+[tool.poetry.dev-dependencies]
+coverage = "^5.2"
+pyhamcrest = "^2.0.2"
+pytest = "^5.4.3"
+pytest-datafiles = "^2.0"
+pytest-freezegun = "^0.4.2"
+pytest-mock = "^3.2.0"
+requests-mock = "^1.8.0"
+tox = "^3.17.1"
+black = "^19.10b0"
+
+[tool.poetry.scripts]
+vault-ssh-renew = 'vault_ssh_renew.cli:renew'
+
+
+[tool.black]
+line-length = 88
+target-version = ["py36", "py37", "py38"]
