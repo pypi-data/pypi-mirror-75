@@ -1,0 +1,15 @@
+Metadata-Version: 1.2
+Name: odoo12-addon-es_address_format_simplified
+Version: 12.0.0.0.3
+Summary: Address format for Spain with no country and address in one line
+Home-page: http://www.coopdevs.org
+Author: Coopdevs SCCL
+License: AGPL-3
+Description: 
+                Address format for Spain with no country and address in one line
+            
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Framework :: Odoo
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Requires-Python: >=3.5
