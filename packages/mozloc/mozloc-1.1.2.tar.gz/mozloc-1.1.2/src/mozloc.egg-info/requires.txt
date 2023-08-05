@@ -1,0 +1,12 @@
+pandas
+requests
+
+[io]
+simplekml
+
+[lint]
+flake8
+mypy
+
+[tests]
+pytest
