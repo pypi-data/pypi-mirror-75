@@ -1,0 +1,4 @@
+include README.rst
+include methylcheck/data_files/*.npy
+include methylcheck/data_files/*.gz
+include docs/*
