@@ -1,0 +1,60 @@
+*.pyc
+
+.DS_Store
+.idea
+.pypirc
+
+# C extensions
+*.so
+
+# Packages
+*.egg
+*.egg-info
+dist
+build
+_build
+eggs
+parts
+bin
+var
+sdist
+develop-eggs
+.installed.cfg
+lib
+lib64
+__pycache__
+
+# Installer logs
+pip-log.txt
+
+# Unit test / coverage reports
+.coverage
+.tox
+nosetests.xml
+
+# Translations
+*.mo
+
+# Mr Developer
+.mr.developer.cfg
+.project
+.pydevproject
+venv/
+.venv/
+
+# secrets
+.env
+
+.mypy_cache
+tests/units/ghostdriver.log
+International_Phonetic_Alphabet_chart_for_English_dialects_tEnglish consonants.tsv
+International_Phonetic_Alphabet_chart_for_English_dialects_tEnglish vowels and diphthongs.tsv
+International_Phonetic_Alphabet_chart_for_English_dialects_tOther symbols used in transcription of English pronunciation.tsv
+International_Phonetic_Alphabet_chart_for_English_dialects_t3.tsv
+International_Phonetic_Alphabet_chart_for_English_dialects_t4.tsv
+
+git_stats/
+tests/system/geckodriver.log
+
+.GOOGLE_APPLICATION_CREDENTIALS.json
+tests/fixtures/pdf/2015-09-29 Myawaddy industrial zone set for 2017 opening.en.pdf
