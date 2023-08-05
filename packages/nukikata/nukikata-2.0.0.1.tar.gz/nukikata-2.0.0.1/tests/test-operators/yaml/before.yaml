@@ -1,0 +1,8 @@
+stuff: things
+
+things:
+  type: stat
+  input:
+    - stuff
+    - things
+

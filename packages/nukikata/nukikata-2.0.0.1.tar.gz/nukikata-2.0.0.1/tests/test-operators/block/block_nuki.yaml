@@ -1,0 +1,40 @@
+stuff: things
+
+nuki_block:
+  type: block
+  merge: true
+  items:
+    blah: zz
+
+    furry:
+      type: confirm
+      message: Are our friends furry?
+    friend: dog
+
+    beer:
+      type: nukikata
+      template: .
+      chdir: fake-nuki
+      existing_context: "{{ block_nuki }}"
+
+    things:
+      type: print
+      statement: "{{ block_nuki.stuff }}"
+
+
+    test_block:
+      type: block
+      items:
+        my_dog:
+          type: stat
+          input: Penny
+          when: "{{ block_nuki.friend == 'dog' }}"
+
+    foo:
+      type: print
+      statement: bar
+
+#yaml:
+#  type: yaml
+#  contents: "{{ nuki }}"
+#  path: output.yaml

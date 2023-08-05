@@ -1,0 +1,7 @@
+shell:
+  type: shell
+  command: ls
+
+cmd:
+  type: command
+  command: ls
