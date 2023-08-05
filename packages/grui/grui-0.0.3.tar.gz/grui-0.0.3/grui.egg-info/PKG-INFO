@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: grui
+Version: 0.0.3
+Summary: An ready to use exposer from services oriented code
+Home-page: https://gitlab.com/olive007/grui
+Author: SECRET Olivier
+Author-email: pypi-package-grui@devo.live
+License: UNKNOWN
+Description: # Grui
+        
+        Generated Rest User Interface
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
