@@ -1,0 +1,5 @@
+flask<2,>=1
+pyee<8,>=7
+itsdangerous<2
+Jinja2<3
+MarkupSafe<2
