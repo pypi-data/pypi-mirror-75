@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: pjisp-diff
+Version: 0.1.10
+Summary: PJISP diff check
+License: BSD-3-Clause
+Author: Jelena Dokic
+Author-email: jrubics@hacke.rs
+Requires-Python: >=2.7,<3.0
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: click (>=7.1.2,<8.0.0)
