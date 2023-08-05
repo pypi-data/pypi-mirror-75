@@ -1,0 +1,3 @@
+include src_appender.py
+include requirements.txt
+include src/pykrete/externals/nuget.exe
