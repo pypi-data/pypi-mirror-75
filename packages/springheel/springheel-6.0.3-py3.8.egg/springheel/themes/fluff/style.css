@@ -1,0 +1,229 @@
+@media screen {
+  /*Fluff*/
+  #fluff {
+    /* Default (small) screens */
+    /*TODO: Fix the skip link hiding method*/
+    /*Medium screens*/ }
+    #fluff * {
+      box-sizing: content-box; }
+    #fluff body {
+      background-color: #f5ad4a;
+      color: #351E17;
+      text-align: center;
+      font-size: 1.5em;
+      font-family: sans-serif;
+      display: grid;
+      grid-template-areas: 'skippy' 'header' 'main' 'footer';
+      grid-template-columns: auto;
+      margin: 0; }
+    #fluff figure,
+    #fluff main {
+      margin-left: 0;
+      padding-left: 0; }
+    #fluff h1 {
+      margin: 0; }
+    #fluff figure {
+      padding: 1em 0;
+      text-align: center;
+      border: none;
+      margin: 0;
+      background: #FBD66F;
+      border: solid medium #f5ad4a;
+      border-radius: 1em; }
+    #fluff figcaption {
+      padding: 1em 1em 0.5em; }
+    #fluff .main ul {
+      padding: 0; }
+    #fluff .main ul li {
+      background: #FBD66F;
+      border: solid medium #f5ad4a;
+      border-radius: 1em;
+      list-style-type: none;
+      padding: 1em;
+      margin: 0.5em; }
+    #fluff .cominavbox {
+      display: grid;
+      grid-template-columns: repeat(4, auto);
+      grid-template-rows: auto;
+      align-items: end;
+      padding-left: 0; }
+      #fluff .cominavbox li {
+        list-style-type: none; }
+    #fluff li + li,
+    #fluff p + p {
+      margin-top: 0.5em; }
+    #fluff #skippy {
+      text-align: left;
+      grid-area: skippy; }
+    #fluff #skippy a,
+    #fluff #skippy a:hover,
+    #fluff #skippy a:visited {
+      position: absolute;
+      left: -10000px;
+      top: auto;
+      width: 1px;
+      height: 1px;
+      overflow: hidden; }
+    #fluff #skippy a:active,
+    #fluff #skippy a:focus {
+      position: static;
+      height: auto;
+      width: auto;
+      font-size: 1em;
+      margin-top: 0;
+      color: #0000ff; }
+    #fluff main {
+      grid-area: main;
+      background: url("fur_bottom.png") repeat-x bottom left, url("fur_top.png") repeat-x #B5D3FF;
+      padding-top: 1em;
+      padding-bottom: 1em;
+      margin-top: 1em; }
+    #fluff ol {
+      line-height: 2em;
+      padding: 0 1em; }
+    #fluff header {
+      grid-area: header; }
+    #fluff nav ul {
+      max-width: 99vw;
+      padding: 0 1em;
+      display: grid;
+      grid: auto-flow/repeat(auto-fit, minmax(40vw, 1fr));
+      align-items: end;
+      grid-gap: 1em; }
+      #fluff nav ul li {
+        list-style-type: none;
+        background: #B5D3FF;
+        border: solid medium #f5ad4a;
+        border-radius: 1em;
+        padding: 0.5em; }
+    #fluff #commentary,
+    #fluff #transcript {
+      text-align: left; }
+    #fluff .statline {
+      font-weight: bold; }
+    #fluff a:link {
+      color: #16079C;
+      text-decoration: underline; }
+    #fluff a:visited {
+      color: #4c056d; }
+    #fluff a:hover {
+      text-decoration: underline; }
+    #fluff a:active,
+    #fluff a:focus,
+    #fluff a:hover {
+      color: #600609; }
+    #fluff footer {
+      grid-area: footer;
+      margin: 1em 0 0;
+      text-align: left;
+      padding: 1em 0.5em 0; }
+    #fluff main > section {
+      text-align: left; }
+    #fluff embed,
+    #fluff img,
+    #fluff object,
+    #fluff video {
+      max-width: 99vw; }
+    #fluff .action {
+      font-weight: bold; }
+    #fluff .charname {
+      font-weight: bold; }
+    #fluff .char {
+      display: grid;
+      grid-gap: 1em;
+      margin-left: 0.5em;
+      justify-items: start;
+      align-items: start;
+      text-align: left;
+      grid-template-areas: "cname cname" "portrait traits" "description description"; }
+    #fluff .charname {
+      grid-area: cname; }
+    #fluff .charimg {
+      grid-area: portrait;
+      border: solid medium #f5ad4a; }
+    #fluff .chartraits {
+      grid-area: traits;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      display: grid;
+      grid-auto-flow: row;
+      justify-content: center;
+      background: #FBD66F;
+      border: solid medium #f5ad4a;
+      border-radius: 1em;
+      overflow-wrap: break-word; }
+      #fluff .chartraits dd,
+      #fluff .chartraits dt {
+        margin: 0;
+        padding: 0; }
+      #fluff .chartraits dt {
+        grid-column-start: 1;
+        margin: 0;
+        padding: 0.5em;
+        text-align: right;
+        line-height: 1.5em;
+        font-weight: bold; }
+        #fluff .chartraits dt:after {
+          content: ":"; }
+      #fluff .chartraits dd {
+        grid-column-end: 3;
+        margin: 0;
+        padding: 0.5em;
+        line-height: 1.5em;
+        text-align: left; }
+    #fluff .chartext {
+      grid-area: description;
+      text-align: left;
+      margin-top: 0;
+      margin-bottom: 0; }
+    #fluff .chapterarch,
+    #fluff .tagslist {
+      list-style-type: none; }
+    #fluff .char + .char {
+      border-top: solid medium #926245; } }
+  @media screen and (min-width: 1024px) {
+    #fluff body {
+      margin: 0; }
+    #fluff main > div,
+    #fluff main > section {
+      padding-left: 1em;
+      padding-right: 1em;
+      width: 80%;
+      margin-top: 1em; }
+    #fluff div + div {
+      margin-bottom: 0;
+      margin-top: 0; }
+    #fluff .cominavbox {
+      margin: 1em 0; }
+    #fluff figure + .cominavbox {
+      margin-top: 0; }
+    #fluff figure img {
+      max-width: 100%; }
+    #fluff h1 {
+      font-size: 1.5em; }
+    #fluff h2 {
+      font-size: 1.2em; }
+    #fluff h3 {
+      font-size: 1em; }
+    #fluff nav ul {
+      grid: auto-flow/repeat(auto-fit, minmax(10vw, 1fr)); }
+    #fluff .statline {
+      font-size: 0.8em;
+      text-align: right; }
+    #fluff footer p {
+      font-size: 0.7em; }
+    #fluff main > section {
+      margin-left: 1em;
+      margin-right: 1em;
+      padding-left: 1em;
+      padding-right: 1em; }
+    #fluff .main {
+      padding: 0.5em;
+      margin: auto;
+      max-width: 60%;
+      text-align: center; }
+      #fluff .main p {
+        margin-left: 0; } }
+
+/*# sourceMappingURL=style.css.map */

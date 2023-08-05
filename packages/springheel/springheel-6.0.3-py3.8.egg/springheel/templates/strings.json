@@ -1,0 +1,428 @@
+{
+    "home_s":{
+        "en":"Home",
+        "de":"Hauptseite",
+        "es":"Inicio",
+        "fr":"Accueil",
+        "ja":"ホーム"
+    },
+    "char_s":{
+        "en":"Characters",
+        "de":"Charakteren",
+        "es":"Personajes",
+        "fr":"Personnages",
+        "ja":"キャラクター"
+    },
+    "caption_s":{
+        "en":"Commentary",
+        "de":"Kommentar",
+        "es":"Resumen",
+        "fr":"Description",
+        "ja":"解説"
+    },
+    "transcript_s":{
+        "en":"Transcript",
+        "de":"Abschrift",
+        "es":"Transcripción",
+        "fr":"Transcription",
+        "ja":"トランスクリプト"
+    },
+    "archive_s": {
+        "en":"Archives",
+        "de":"Comicarchiv",
+        "es":"Archivo",
+        "fr":"Histoire",
+        "ja":"バックナンバー"
+    },
+    "tags_s": {
+        "en":"Tags",
+        "de":"Tags",
+        "es":"Etiquetas",
+        "fr":"Balises",
+        "ja":"タグ"
+    },
+    "extra_s":{
+        "en":"Extras",
+        "de":"Extra",
+        "es":"Extras",
+        "fr":"Bonus",
+        "ja":"おまけ"
+    },
+    "store_s":{
+        "en":"Store",
+        "de":"Shop",
+        "es":"Tienda",
+        "fr":"Boutique",
+        "ja":"関連商品"
+    },
+    "chapter_s":{
+        "en":"Chapter {chapter}: {chapter_title}",
+        "de":"Kapitel {chapter}: {chapter_title}",
+        "es":"Capítulo {chapter}: {chapter_title}",
+        "fr":"Chapitre {chapter}: {chapter_title}",
+        "ja":"第{chapter}話 「{chapter_title}」"
+    },
+    "first_s":{
+        "en":"First Page",
+        "de":"erste Seite",
+        "es":"Página primera",
+        "fr":"La première page",
+        "ja":"最初から読む"
+    },
+    "prev_s":{
+        "en":"Previous Page",
+        "de":"vorige Seite",
+        "es":"Página anterior",
+        "fr":"La page précédente",
+        "ja":"前に戻る"
+    },
+    "next_s":{
+        "en":"Next Page",
+        "de":"nächste Seite",
+        "es":"Siguiente página",
+        "fr":"La page suivante",
+        "ja":"次に進む"
+    },
+    "last_s":{
+        "en":"Last Page",
+        "de":"letzte Seite",
+        "es":"Página última",
+        "fr":"La dernière page",
+        "ja":"最新に進む"
+    },
+    "firsts_s":{
+        "en":"First",
+        "de":"erste",
+        "es":"Primera",
+        "fr":"Premier",
+        "ja":"初"
+    },
+    "prevs_s":{
+        "en":"Previous",
+        "de":"vorige",
+        "es":"Anterior",
+        "fr":"Précédent",
+        "ja":"前"
+    },
+    "nexts_s":{
+        "en":"Next",
+        "de":"nächste",
+        "es":"Siguiente",
+        "fr":"Suivant",
+        "ja":"次"
+    },
+    "lasts_s":{
+        "en":"Last",
+        "de":"letzte",
+        "es":"Última",
+        "fr":"Dernier",
+        "ja":"新"
+    },
+    "golatest_s":{
+        "en":"Go to latest page",
+        "de":"Zu die Endseite",
+        "es":"Mire la última página",
+        "fr":"Allez sur la dernière page",
+        "ja":"最新のページへ"
+    },
+    "gofirst_s":{
+        "en":"Go to first page",
+        "de":"Zu erste Seite",
+        "es":"Mire la primera página",
+        "fr":"Allez sur la première page",
+        "ja":"最初のページへ"
+    },
+    "goarchive_s":{
+        "en":"Go to archive",
+        "de":"Zu das Comicarchiv",
+        "es":"Vaya al archivo",
+        "fr":"Allez sur l'histoire",
+        "ja":"目次へ"
+    },
+    "complete_s":{
+        "en":"Complete",
+        "de":"Fertig",
+        "es":"Finalizado",
+        "fr":"Terminée",
+        "ja":"完結"
+    },
+    "inprogress_s":{
+        "en":"In-progress",
+        "de":"Laufend",
+        "es":"Activo",
+        "fr":"En cours",
+        "ja":"進行中"
+    },
+    "hiatus_s":{
+        "en":"On hiatus",
+        "de":"In die Pause",
+        "es":"Inactivo",
+        "fr":"En pause",
+        "ja":"中断中"
+    },
+    "statline_s":{
+        "en":"Posted by {author}, {date}",
+        "de":"von {author} am {date} erstellt",
+        "es":"por {author} el {date}",
+        "fr":"par {author} le {date}",
+        "ja":"【{date}】{author}に投稿されました"
+    },
+    "ccpdw":{
+        "en":"<a rel=\"license\" href=\"http://creativecommons.org/publicdomain/zero/1.0/\"></a>To the extent possible under law, <a rel=\"dct:publisher\" href=\"{site_url}\"><span property=\"dct:title\">{author}</span></a> has waived all copyright and related or neighboring rights to <span property=\"dct:title\">{site_title}</span>. This work is published from: <span property=\"vcard:Country\" datatype=\"dct:ISO3166\" content=\"{author_country}\" about=\"{site_url}\">{author_country}</span>."
+    },
+    "cc":{
+        "en":"<span xmlns:dct=\"http://purl.org/dc/terms/\" href=\"http://purl.org/dc/dcmitype/StillImage\" property=\"dct:title\" rel=\"dct:type\">{category}</span> by <a xmlns:cc=\"http://creativecommons.org/ns#\" href=\"{base_url}\" property=\"cc:attributionName\" rel=\"cc:attributionURL\">{author}</a> is licensed under a <a rel=\"license\" href=\"{license_uri}\">{clicense} License</a>.",
+        "de":"<span xmlns:dct=\"http://purl.org/dc/terms/\" href=\"http://purl.org/dc/dcmitype/StillImage\" property=\"dct:title\" rel=\"dct:type\">{category}</span> von <a xmlns:cc=\"http://creativecommons.org/ns#\" href=\"{base_url}\" property=\"cc:attributionName\" rel=\"cc:attributionURL\">{author}</a> ist lizenziert unter einer <a rel=\"license\" href=\"{license_uri}\">{license_uri}</a>.",
+        "es":"<span xmlns:dct=\"http://purl.org/dc/terms/\" href=\"http://purl.org/dc/dcmitype/StillImage\" property=\"dct:title\" rel=\"dct:type\">{category}</span> por <a xmlns:cc=\"http://creativecommons.org/ns#\" href=\"{base_url}\" property=\"cc:attributionName\" rel=\"cc:attributionURL\">{author}</a> se distribuye bajo una <a rel=\"license\" href=\"{license_uri}\">{clicense}</a>.",
+        "fr":"<span xmlns:dct=\"http://purl.org/dc/terms/\" href=\"http://purl.org/dc/dcmitype/StillImage\" property=\"dct:title\" rel=\"dct:type\">{category}</span> de <a xmlns:cc=\"http://creativecommons.org/ns#\" href=\"{base_url}\" property=\"cc:attributionName\" rel=\"cc:attributionURL\">{author}</a> est mis à disposition selon les termes de la <a rel=\"license\" href=\"{license_uri}\">{clicense}</a>.",
+        "ja":"この 作品 は <a rel=\"license\" href=\"{license_uri}\">{clicense}</a>の下に提供されています。"
+    },
+    "no_comment":{
+        "en":"The author has not provided commentary for this comic.",
+        "de":"Kein Kommentar existiert.",
+        "es":"No hay resumen.",
+        "fr":"Il n'existe pas de description.",
+        "ja":"キャプションがありません。"
+    },
+    "no_transcript":{
+        "en":"The author has not provided a transcript for this comic.",
+        "de":"Keine Abschrift existiert.",
+        "es":"No hay transcripción.",
+        "fr":"Il n'existe pas de transcription.",
+        "ja":"トランスクリプトがありません。"
+    },
+    "rss_s":{
+        "en":"RSS Feed",
+        "de":"RSS-Feed",
+        "es":"RSS Feed",
+        "fr":"Flux RSS",
+        "ja":"RSSフィード"
+    },
+    "h1_s":{
+        "en":"{category} #{page} &ldquo;{title}&rdquo;",
+        "de":"{category} #{page} &bdquo;{title}&ldquo;",
+        "es":"{category} #{page} &ldquo;{title}&rdquo;",
+        "fr":"{category} #{page} &ldquo;{title}&rdquo;",
+        "ja":"{category} 第{page}回 「{title}」"
+    },
+    "archive_l_s":{
+        "en":"#{page} &ldquo;{title}&rdquo;",
+        "de":"#{page} &bdquo;{title}&ldquo;",
+        "es":"#{page} &ldquo;{title}&rdquo;",
+        "fr":"#{page} &ldquo;{title}&rdquo;",
+        "ja":"第{page}回「{title}」"
+    },
+    "stylesheet_name_s":{
+        "en":"Standard",
+        "de":"Normal",
+        "es":"Normal",
+        "fr":"Normal",
+        "ja":"デフォルト"
+    },
+    "skip_s":{
+        "en":"Skip to main content",
+        "de":"zum Inhalt",
+        "es":"Saltar al contenido",
+        "fr":"Passer directement au contenu",
+        "ja":"内容へ"
+    },
+    "page_s":{
+        "en":"Page",
+        "de":"Seite",
+        "es":"Página",
+        "fr":"Page",
+        "ja":"ページ"
+    },
+    "meta_s":{
+        "en":"Metadata",
+        "de":"Metadaten",
+        "es":"Metadatos",
+        "fr":"Métadonnées",
+        "ja":"メタ情報"
+    },
+    "generator_s":{
+        "en":"Built with <a href=\"https://www.twinkle-night.net/Code/springheel.html\">Springheel</a>.",
+        "de":"Mit <a href=\"https://www.twinkle-night.net/Code/springheel.html\">Springheel</a> gemacht.",
+        "es":"Creada con <a href=\"https://www.twinkle-night.net/Code/springheel.html\">Springheel</a>.",
+        "fr":"Construite avec <a href=\"https://www.twinkle-night.net/Code/springheel.html\">Springheel</a>.",
+        "ja":"<a href=\"https://www.twinkle-night.net/Code/springheel.html\">Springheel</a>で作りました。"
+    },
+    "page_alt_s":{
+        "en":"Page {page}",
+        "de":"Seite {page}",
+        "es":"Página {page}",
+        "fr":"Page {page}",
+        "ja":"ページ{page}"
+    },
+    "image_s":{
+        "en":"Image: ",
+        "de":"Bild: ",
+        "es":"Imagen: ",
+        "fr":"Image: ",
+        "ja":"イメージ："
+    },
+    "jsonfeed_name":{
+        "de": "JSON Feed",
+        "en": "JSON Feed",
+        "es": "JSON feed",
+        "fr": "JSON Feed",
+        "ja": "JSONフィード"
+    },
+    "jsonfeed_descr":{
+        "de": "Mit diesem Feed können Sie in jedem Feed-Parser, der mit dem JSON-Feed Format kompatibel ist, die Einträge dieser Seite lesen. Um dieser Feed zu fügen, kopieren Sie bitte diese URL - {jsonfeedurl} - und fügen Sie sie in Ihrem Parser ein.",
+        "en": "This feed allows you to read the posts from this site in any feed reader that supports the JSON Feed format. To add this feed to your reader, copy the following URL—{jsonfeedurl}—and add it your reader.",
+        "ja":" JSONフィードをご利用されるフィードリーダーでサイトのコンテンツをごアクセスになれます。このフィードのURL({jsonfeedurl})をコピーして、フェードリーダーに追加をお願いいたします。"
+    },
+    "toc_s":{
+        "en": "Table of Contents",
+        "de": "Inhaltsverzeichnis",
+        "ja": "目次"
+    },
+    "category_chapter_s":{
+        "en":"{category} Chapter {chapter}: {chapter_title}",
+        "de":"{category} Kapitel {chapter}: {chapter_title}",
+        "es":"{category} Capítulo {chapter}: {chapter_title}",
+        "fr":"{category} Chapitre {chapter}: {chapter_title}",
+        "ja":"{category}第{chapter}話 「{chapter_title}」"
+    },
+    "alt_chapter_s":{
+        "en":"{category} Chapter {chapter}: {chapter_title}, Page #{page} &ldquo;{title}&rdquo;",
+        "de":"{category} Kapitel {chapter}: {chapter_title}, Seite #{page} &bdquo;{title}&ldquo;",
+        "es":"{category} Capítulo {chapter}: {chapter_title}, Página #{page} &ldquo;{title}&rdquo;",
+        "fr":"{category} Chapitre {chapter}: {chapter_title}, page #&ldquo;{title}&rdquo;",
+        "ja":"{category}第{chapter}話 「{chapter_title}」第{page}回「{title}」"
+    },
+    "alt_nochapter_s":{
+        "en":"{category} Page #{page} &ldquo;{title}&rdquo;",
+        "de":"{category} Seite #{page} &bdquo;{title}&ldquo;",
+        "es":"{category} Página #{page} &ldquo;{title}&rdquo;",
+        "fr":"{category} {chapter_title}, page #&ldquo;{title}&rdquo;",
+        "ja":"{category} 第{page}回「{title}」"
+    },
+    "language_names": {
+        "af": "Afrikaans",
+        "ak": "Akan",
+        "am": "አማርኛ",
+        "ar": "العربية",
+        "as": "অসমীয়া",
+        "az": "azərbaycan",
+        "be": "беларуская",
+        "bg": "български",
+        "bm": "bamanakan",
+        "bn": "বাংলা",
+        "bo": "བོད་སྐད་",
+        "br": "brezhoneg",
+        "bs": "bosanski",
+        "ca": "català",
+        "ce": "нохчийн",
+        "cs": "čeština",
+        "cy": "Cymraeg",
+        "da": "dansk",
+        "de": "Deutsch",
+        "dz": "རྫོང་ཁ",
+        "ee": "Eʋegbe",
+        "el": "Ελληνικά",
+        "en": "English",
+        "eo": "esperanto",
+        "es": "español",
+        "et": "eesti",
+        "eu": "euskara",
+        "fa": "فارسی",
+        "ff": "Pulaar",
+        "fi": "suomi",
+        "fo": "føroyskt",
+        "fr": "français",
+        "fy": "West-Frysk",
+        "ga": "Gaeilge",
+        "gd": "Gàidhlig",
+        "gl": "galego",
+        "gu": "ગુજરાતી",
+        "gv": "Gaelg",
+        "ha": "Hausa",
+        "he": "עברית",
+        "hi": "हिन्दी",
+        "hr": "hrvatski",
+        "hu": "magyar",
+        "hy": "հայերեն",
+        "ig": "Igbo",
+        "ii": "ꆈꌠꉙ",
+        "io": "Ido",
+        "is": "íslenska",
+        "it": "italiano",
+        "ja": "日本語",
+        "ka": "ქართული",
+        "ki": "Gikuyu",
+        "kk": "қазақ тілі",
+        "kl": "kalaallisut",
+        "km": "ខ្មែរ",
+        "kn": "ಕನ್ನಡ",
+        "ko": "한국어",
+        "ks": "کٲشُر",
+        "kw": "kernewek",
+        "ky": "кыргызча",
+        "la": "Lingua latina",
+        "lb": "Lëtzebuergesch",
+        "lg": "Luganda",
+        "ln": "lingála",
+        "lo": "ລາວ",
+        "lt": "lietuvių",
+        "lu": "Tshiluba",
+        "lv": "latviešu",
+        "mg": "Malagasy",
+        "mk": "македонски",
+        "ml": "മലയാളം",
+        "mn": "монгол",
+        "mr": "मराठी",
+        "ms": "Bahasa Melayu",
+        "mt": "Malti",
+        "my": "ဗမာ",
+        "nb": "norsk bokmål",
+        "nd": "isiNdebele",
+        "ne": "नेपाली",
+        "nl": "Nederlands",
+        "nn": "nynorsk",
+        "nv": "Diné bizaad",
+        "om": "Oromoo",
+        "or": "ଓଡ଼ିଆ",
+        "os": "ирон",
+        "pa": "ਪੰਜਾਬੀ",
+        "pl": "polski",
+        "ps": "پښتو",
+        "pt": "português",
+        "qu": "Runasimi",
+        "rm": "rumantsch",
+        "rn": "Ikirundi",
+        "ro": "română",
+        "ru": "русский",
+        "rw": "Kinyarwanda",
+        "se": "davvisámegiella",
+        "sg": "Sängö",
+        "sh": "Srpskohrvatski",
+        "si": "සිංහල",
+        "sk": "slovenčina",
+        "sl": "slovenščina",
+        "sn": "chiShona",
+        "so": "Soomaali",
+        "sq": "shqip",
+        "sr": "српски",
+        "sv": "svenska",
+        "sw": "Kiswahili",
+        "ta": "தமிழ்",
+        "te": "తెలుగు",
+        "th": "ไทย",
+        "ti": "ትግርኛ",
+        "to": "lea fakatonga",
+        "tr": "Türkçe",
+        "ug": "ئۇيغۇرچە",
+        "uk": "українська",
+        "ur": "اردو",
+        "uz": "o‘zbek",
+        "vi": "Tiếng Việt",
+        "vo": "Volapük",
+        "yo": "Èdè Yorùbá",
+        "zh": "中文",
+        "zh-Hans": "简体中文",
+        "zh-Hant": "繁體中文",
+        "zu": "isiZulu"
+    }
+}
