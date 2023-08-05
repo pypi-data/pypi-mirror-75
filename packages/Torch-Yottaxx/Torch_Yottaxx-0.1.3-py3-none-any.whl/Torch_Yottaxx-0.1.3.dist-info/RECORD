@@ -1,0 +1,22 @@
+autograd/__init__.py,sha256=f9NZwE8hJ3kdf-YgXPb_uzbxs2untDH7nXosSN7rbq8,130
+autograd/function.py,sha256=EaUEtEHzjnDhk9Qwav14dfdyKC4ObvI7vbleKcnD-N4,435
+autograd/module.py,sha256=g8YREgrU-aX-aFzt0zGMMrhAQIrhq3tI3SUHLNndR74,577
+autograd/optim.py,sha256=TONUSJprLsaL4pfQlADMdleV82VE6MG8NVPSw-eHQ0M,281
+autograd/parameter.py,sha256=e8zV1dlF2XN5G9Go7iL3cjsRcnWUcCzoIz_dKGzzc1Q,295
+autograd/tensor.py,sha256=Z05CZSkl5ojkdCwUJ_Gy5bz0u_XFExh4lahQNlWxOgk,9980
+autograd/tensor_ops.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+autograd/Layers/Attention.py,sha256=vpv9txNTZSdpB6KmLM4ikCXCQvbu0p6EUn_DillxWEs,578
+autograd/Layers/Linear.py,sha256=XUAFbf7kFjnjrWfnbmm821RrmyIXdYids1U5j0yijYI,493
+autograd/Layers/__init__.py,sha256=GlK4DkZbNhhnICdN2rQwrpyKlFCq16rGAp1Mu1SfHrU,96
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_tensor_add.py,sha256=_w6V1IlD946A3j9rWRXR5X79bm8Y2x4foRI0HX_t9rA,1623
+tests/test_tensor_matmul.py,sha256=QrYO_5A8RJfPp6ayn0-Rqnb1MifcZuZ--GmxVbU4qoQ,528
+tests/test_tensor_mul.py,sha256=GkAL7KI8gBcHx9FXVb1cjScmkvN5LGTWna0BSkObBNc,1448
+tests/test_tensor_sub.py,sha256=FhOp1AS3SB7G0SCfCq8z3w0TVL8UK1CW8gdnAn2QOcs,1606
+tests/test_tensor_sum.py,sha256=f2EwsxFNHpt5Hwj9gbZcY7dnaxbNeIQI9sxniI8YMQk,453
+tests/test_tensor_transpose.py,sha256=dwEvuTzg4O3HN31isEaAG2J7PS8KczOqnmO2Qx9qDok,383
+Torch_Yottaxx-0.1.3.dist-info/LICENSE.md ,sha256=ScvqG7c6VP9y_4TRadayYfnrEmlsTV1xkqaY6rRcxFI,1065
+Torch_Yottaxx-0.1.3.dist-info/METADATA,sha256=c7sfjzjTRYy0eJx5XyVq-zcQVeOasTyJ8NAzmWf4A4s,3276
+Torch_Yottaxx-0.1.3.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+Torch_Yottaxx-0.1.3.dist-info/top_level.txt,sha256=e_W52LfLvHdkSNSQfwJqARiCHxAjXlsiwbi5MkRZGLM,15
+Torch_Yottaxx-0.1.3.dist-info/RECORD,,
