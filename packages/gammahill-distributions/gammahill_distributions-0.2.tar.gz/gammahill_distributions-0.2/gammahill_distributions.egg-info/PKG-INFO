@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: gammahill-distributions
+Version: 0.2
+Summary: Gaussian distribution
+Home-page: UNKNOWN
+Author: Solomon Igori
+Author-email: igorisolomon@gmail.com
+License: UNKNOWN
+Description: # Gammahill Distribution  
+        This is a Gaussian distribution package that simplifies the creation and performing arithemtic operation on Gaussian distributions.
+        
+        ## Requirements
+        - Python 3
+        We highly recommend and only officially support the latest patch release of Python 3.
+        
+        ## Installation
+        ```
+        pip install gammahill-distribution 
+        ```
+        
+        ## How it works
+        ```python
+        from Gaussiandistribution import Gaussian
+        
+        # Initializing a Gaussian instance
+        gaussian_one = Gaussian(22, 2)
+        print(gaussian_one.mean)
+        ```
+        
+        ## Thanks
+        Thanks to [Udacity AWS foundation course](https://www.udacity.com/course/aws-machine-learning-foundations--ud090)
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
