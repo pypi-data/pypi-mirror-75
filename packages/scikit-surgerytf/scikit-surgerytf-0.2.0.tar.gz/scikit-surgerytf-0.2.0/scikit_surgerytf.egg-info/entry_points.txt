@@ -1,0 +1,5 @@
+[console_scripts]
+sksurgeryfashion = sksurgerytf.ui.sksurgery_fashion_command_line:main
+sksurgeryrgbunet = sksurgerytf.ui.sksurgery_rgbunet_command_line:main
+sksurgerysegstats = sksurgerytf.ui.sksurgery_segstats_command_line:main
+
