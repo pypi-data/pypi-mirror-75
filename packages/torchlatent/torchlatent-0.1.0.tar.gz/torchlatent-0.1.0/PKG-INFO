@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: torchlatent
+Version: 0.1.0
+Summary: High Performance Structured Prediction in PyTorch
+Home-page: https://github.com/speedcell4/torchlatent
+Author: speedcell4
+Author-email: speedcell4@gmail.com
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Provides-Extra: dev
+Provides-Extra: benchmark

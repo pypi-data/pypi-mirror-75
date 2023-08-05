@@ -1,0 +1,10 @@
+numpy
+
+[benchmark]
+aku
+pytorch-crf
+
+[dev]
+pytest
+hypothesis
+pytorch-crf
