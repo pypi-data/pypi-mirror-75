@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: deepkit
+Version: 1.0.9
+Summary: Python SDK for Deepkit
+Home-page: https://github.com/deepkit/deepkit-python-sdk
+Author: Marc J. Schmidt
+Author-email: marc@marcjschmidt.de
+License: MIT
+Download-URL: https://github.com/deepkit/deepkit-python-sdk/tarball/1.0.9
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: Pillow (>=4.0.0)
+Requires-Dist: rx (>=1.5)
+Requires-Dist: typedload (>=1.20)
+Requires-Dist: PyYAML (>=5.0.0)
+Requires-Dist: psutil (>=5.7.0)
+Requires-Dist: websockets (>=8.1)
+Provides-Extra: pytorch
+Requires-Dist: torch ; extra == 'pytorch'
+
+UNKNOWN
+
+
