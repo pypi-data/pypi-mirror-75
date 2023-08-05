@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Views and objects &#8212; pyroute2 0.5.13 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Record list filters" href="ndb_reports.html" />
+    <link rel="prev" title="NDB objects" href="ndb_init.html" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121787797-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121787797-2');
+</script>
+ 
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ndb_reports.html" title="Record list filters"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ndb_init.html" title="NDB objects"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="ndb.html" accesskey="U">NDB module</a> &#187;</li> 
+      </ul>
+        </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyroute2.ndb.objects">
+<span id="views-and-objects"></span><h1>Views and objects<a class="headerlink" href="#module-pyroute2.ndb.objects" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="structure">
+<h2>Structure<a class="headerlink" href="#structure" title="Permalink to this headline">¶</a></h2>
+<p>The NDB objects are dictionary-like structures that represent network
+objects – interfaces, routes, addresses etc. In addition to the
+usual dictionary API they have some NDB-specific methods, see the
+<cite>RTNL_Object</cite> class description below.</p>
+<p>The dictionary fields represent RTNL messages fields and NLA names,
+and the objects are used as argument dictionaries to normal <cite>IPRoute</cite>
+methods like <cite>link()</cite> or <cite>route()</cite>. Thus everything described for
+the <cite>IPRoute</cite> methods is valid here as well.</p>
+<p>See also: <a class="reference internal" href="iproute.html#iproute"><span class="std std-ref">IPRoute module</span></a></p>
+<p>E.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># create a vlan interface with IPRoute</span>
+<span class="k">with</span> <span class="n">IPRoute</span><span class="p">()</span> <span class="k">as</span> <span class="n">ipr</span><span class="p">:</span>
+    <span class="n">ipr</span><span class="o">.</span><span class="n">link</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">,</span>
+             <span class="n">ifname</span><span class="o">=</span><span class="s2">&quot;vlan1108&quot;</span><span class="p">,</span>
+             <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vlan&quot;</span><span class="p">,</span>
+             <span class="n">link</span><span class="o">=</span><span class="n">ipr</span><span class="o">.</span><span class="n">link_lookup</span><span class="p">(</span><span class="n">ifname</span><span class="o">=</span><span class="s2">&quot;eth0&quot;</span><span class="p">),</span>
+             <span class="n">vlan_id</span><span class="o">=</span><span class="mi">1108</span><span class="p">)</span>
+
+<span class="c1"># same with NDB:</span>
+<span class="k">with</span> <span class="n">NDB</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="s2">&quot;stderr&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ndb</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">ndb</span>
+     <span class="o">.</span><span class="n">interfaces</span>
+     <span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">ifname</span><span class="o">=</span><span class="s2">&quot;vlan1108&quot;</span><span class="p">,</span>
+             <span class="n">kind</span><span class="o">=</span><span class="s2">&quot;vlan&quot;</span><span class="p">,</span>
+             <span class="n">link</span><span class="o">=</span><span class="s2">&quot;eth0&quot;</span><span class="p">,</span>
+             <span class="n">vlan_id</span><span class="o">=</span><span class="mi">1108</span><span class="p">)</span>
+     <span class="o">.</span><span class="n">commit</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Slightly simplifying, if a network object doesn’t exist, NDB will run
+an RTNL method with “add” argument, if exists – “set”, and to remove
+an object NDB will call the method with “del” argument.</p>
+</div>
+<div class="section" id="accessing-objects">
+<h2>Accessing objects<a class="headerlink" href="#accessing-objects" title="Permalink to this headline">¶</a></h2>
+<p>NDB objects are grouped into “views”:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>interfaces</p></li>
+<li><p>addresses</p></li>
+<li><p>routes</p></li>
+<li><p>neighbours</p></li>
+<li><p>rules</p></li>
+<li><p>netns</p></li>
+<li><p>…</p></li>
+</ul>
+</div></blockquote>
+<p>Views are dictionary-like objects that accept strings or dict selectors:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># access eth0</span>
+<span class="n">ndb</span><span class="o">.</span><span class="n">interfaces</span><span class="p">[</span><span class="s2">&quot;eth0&quot;</span><span class="p">]</span>
+
+<span class="c1"># access eth0 in the netns test01</span>
+<span class="n">ndb</span><span class="o">.</span><span class="n">sources</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">netns</span><span class="o">=</span><span class="s2">&quot;test01&quot;</span><span class="p">)</span>
+<span class="n">ndb</span><span class="o">.</span><span class="n">interfaces</span><span class="p">[{</span><span class="s2">&quot;target&quot;</span><span class="p">:</span> <span class="s2">&quot;test01&quot;</span><span class="p">,</span> <span class="s2">&quot;ifname&quot;</span><span class="p">:</span> <span class="s2">&quot;eth0&quot;</span><span class="p">}]</span>
+
+<span class="c1"># access a route to 10.4.0.0/24</span>
+<span class="n">ndb</span><span class="o">.</span><span class="n">routes</span><span class="p">[</span><span class="s2">&quot;10.4.0.0/24&quot;</span><span class="p">]</span>
+
+<span class="c1"># same with a dict selector</span>
+<span class="n">ndb</span><span class="o">.</span><span class="n">routes</span><span class="p">[{</span><span class="s2">&quot;dst&quot;</span><span class="p">:</span> <span class="s2">&quot;10.4.0.0&quot;</span><span class="p">,</span> <span class="s2">&quot;dst_len&quot;</span><span class="p">:</span> <span class="mi">24</span><span class="p">}]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="objects-cache">
+<h2>Objects cache<a class="headerlink" href="#objects-cache" title="Permalink to this headline">¶</a></h2>
+<p>NDB create objects on demand, it doesn’t create thousands of route objects
+for thousands of routes by default. The object is being created only when
+accessed for the first time, and stays in the cache as long as it has any
+not committed changes. To inspect cached objects, use views’ <cite>.cache</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ndb</span><span class="o">.</span><span class="n">interfaces</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="go">[((&#39;target&#39;, u&#39;localhost&#39;), (&#39;tflags&#39;, 0), (&#39;index&#39;, 1)),  # lo</span>
+<span class="go"> ((&#39;target&#39;, u&#39;localhost&#39;), (&#39;tflags&#39;, 0), (&#39;index&#39;, 5))]  # eth3</span>
+</pre></div>
+</div>
+<p>There is no asynchronous cache invalidation, the cache is being cleaned up
+every time when an object is accessed.</p>
+</div>
+<div class="section" id="api">
+<h2>API<a class="headerlink" href="#api" title="Permalink to this headline">¶</a></h2>
+</div>
+<dl class="class">
+<dt id="pyroute2.ndb.objects.RTNL_Object">
+<em class="property">class </em><code class="sig-prename descclassname">pyroute2.ndb.objects.</code><code class="sig-name descname">RTNL_Object</code><span class="sig-paren">(</span><em class="sig-param">view</em>, <em class="sig-param">key</em>, <em class="sig-param">iclass</em>, <em class="sig-param">ctxid=None</em>, <em class="sig-param">load=True</em>, <em class="sig-param">master=None</em>, <em class="sig-param">auth_managers=None</em><span class="sig-paren">)</span><a class="headerlink" href="#pyroute2.ndb.objects.RTNL_Object" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="pyroute2.ndb.objects.RTNL_Object.set">
+<code class="sig-name descname">set</code><span class="sig-paren">(</span><em class="sig-param">*argv</em>, <em class="sig-param">**kwarg</em><span class="sig-paren">)</span><a class="headerlink" href="#pyroute2.ndb.objects.RTNL_Object.set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set a field specified by <cite>key</cite> to <cite>value</cite>, and return self. The
+method is useful to write call chains like that:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">interfaces</span><span class="p">[</span><span class="s2">&quot;eth0&quot;</span><span class="p">]</span>
+ <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;mtu&#39;</span><span class="p">,</span> <span class="mi">1200</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;up&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;address&#39;</span><span class="p">,</span> <span class="s1">&#39;00:11:22:33:44:55&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">commit</span><span class="p">())</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Views and objects</a><ul>
+<li><a class="reference internal" href="#structure">Structure</a></li>
+<li><a class="reference internal" href="#accessing-objects">Accessing objects</a></li>
+<li><a class="reference internal" href="#objects-cache">Objects cache</a></li>
+<li><a class="reference internal" href="#api">API</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ndb_init.html"
+                        title="previous chapter">NDB objects</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ndb_reports.html"
+                        title="next chapter">Record list filters</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ndb_objects.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ndb_reports.html" title="Record list filters"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ndb_init.html" title="NDB objects"
+             >previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="ndb.html" >NDB module</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Peter V. Saveliev.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>MPLS howto &#8212; pyroute2 0.5.13 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Netlink debug howto" href="debug.html" />
+    <link rel="prev" title="WireGuard module" href="wireguard.html" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121787797-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121787797-2');
+</script>
+ 
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="debug.html" title="Netlink debug howto"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="wireguard.html" title="WireGuard module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li> 
+      </ul>
+        </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mpls-howto">
+<span id="mpls"></span><h1>MPLS howto<a class="headerlink" href="#mpls-howto" title="Permalink to this headline">¶</a></h1>
+<p>Short introduction into Linux MPLS. Requirements:</p>
+<ul class="simple">
+<li><p>kernel &gt;= 4.4</p></li>
+<li><p>modules: <cite>mpls_router</cite>, <cite>mpls_iptunnel</cite></p></li>
+<li><p><cite>$ sudo sysctl net.mpls.platform_labels=$x</cite>, where <cite>$x</cite> – number of labels</p></li>
+<li><p><cite>pyroute2</cite> &gt;= 0.4.0</p></li>
+</ul>
+<div class="section" id="mpls-labels">
+<h2>MPLS labels<a class="headerlink" href="#mpls-labels" title="Permalink to this headline">¶</a></h2>
+<p>Possible label formats:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># int</span>
+<span class="s2">&quot;newdst&quot;</span><span class="p">:</span> <span class="mi">20</span>
+
+<span class="c1"># list of ints</span>
+<span class="s2">&quot;newdst&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">]</span>
+<span class="s2">&quot;newdst&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+
+<span class="c1"># string</span>
+<span class="s2">&quot;newdst&quot;</span><span class="p">:</span> <span class="s2">&quot;20/30&quot;</span>
+
+<span class="c1"># dict</span>
+<span class="s2">&quot;newdst&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">}</span>
+
+<span class="c1"># list of dicts</span>
+<span class="s2">&quot;newdst&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span> <span class="s2">&quot;tc&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;bos&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">},</span>
+           <span class="p">{</span><span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;tc&quot;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;bos&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;ttl&quot;</span><span class="p">:</span> <span class="mi">16</span><span class="p">}]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iproute">
+<h2>IPRoute<a class="headerlink" href="#iproute" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mpls-routes">
+<h3>MPLS routes<a class="headerlink" href="#mpls-routes" title="Permalink to this headline">¶</a></h3>
+<p>Label swap:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyroute2</span> <span class="k">import</span> <span class="n">IPRoute</span>
+<span class="kn">from</span> <span class="nn">pyroute2.common</span> <span class="k">import</span> <span class="n">AF_MPLS</span>
+
+<span class="n">ipr</span> <span class="o">=</span> <span class="n">IPRoute</span><span class="p">()</span>
+<span class="c1"># get the `eth0` interface&#39;s index:</span>
+<span class="n">idx</span> <span class="o">=</span> <span class="n">ipr</span><span class="o">.</span><span class="n">link_lookup</span><span class="p">(</span><span class="n">ifname</span><span class="o">=</span><span class="s2">&quot;eth0&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># create the request</span>
+<span class="n">req</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;family&quot;</span><span class="p">:</span> <span class="n">AF_MPLS</span><span class="p">,</span>
+       <span class="s2">&quot;oif&quot;</span><span class="p">:</span> <span class="n">idx</span><span class="p">,</span>
+       <span class="s2">&quot;dst&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+       <span class="s2">&quot;newdst&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">30</span><span class="p">]}</span>
+<span class="c1"># set up the route</span>
+<span class="n">ipr</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">req</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Please notice that “dst” can specify only one label, even being a list.
+Label push:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">req</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;family&quot;</span><span class="p">:</span> <span class="n">AF_MPLS</span><span class="p">,</span>
+       <span class="s2">&quot;oif&quot;</span><span class="p">:</span> <span class="n">idx</span><span class="p">,</span>
+       <span class="s2">&quot;dst&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+       <span class="s2">&quot;newdst&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]}</span>
+<span class="n">ipr</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">req</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>One can set up also the <cite>via</cite> field:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">socket</span> <span class="k">import</span> <span class="n">AF_INET</span>
+
+<span class="n">req</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;family&quot;</span><span class="p">:</span> <span class="n">AF_MPLS</span><span class="p">,</span>
+       <span class="s2">&quot;oif&quot;</span><span class="p">:</span> <span class="n">idx</span><span class="p">,</span>
+       <span class="s2">&quot;dst&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">,</span>
+       <span class="s2">&quot;newdst&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">30</span><span class="p">],</span>
+       <span class="s2">&quot;via&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;family&quot;</span><span class="p">:</span> <span class="n">AF_INET</span><span class="p">,</span>
+               <span class="s2">&quot;addr&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.3.4&quot;</span><span class="p">}}</span>
+<span class="n">ipr</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">req</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mpls-lwtunnel">
+<h3>MPLS lwtunnel<a class="headerlink" href="#mpls-lwtunnel" title="Permalink to this headline">¶</a></h3>
+<p>To inject IP packets into MPLS:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">req</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;dst&quot;</span><span class="p">:</span> <span class="s2">&quot;1.2.3.0/24&quot;</span><span class="p">,</span>
+       <span class="s2">&quot;oif&quot;</span><span class="p">:</span> <span class="n">idx</span><span class="p">,</span>
+       <span class="s2">&quot;encap&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;mpls&quot;</span><span class="p">,</span>
+                 <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">202</span><span class="p">,</span> <span class="mi">303</span><span class="p">]}}</span>
+<span class="n">ipr</span><span class="o">.</span><span class="n">route</span><span class="p">(</span><span class="s2">&quot;add&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">req</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="ndb">
+<h2>NDB<a class="headerlink" href="#ndb" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>basic MPLS routes management in NDB since version 0.5.11</p>
+</div>
+<p>List MPLS routes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyroute2.common</span> <span class="k">import</span> <span class="n">AF_MPLS</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndb</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="n">AF_MPLS</span><span class="p">)</span>
+<span class="go">(&#39;localhost&#39;, 0, 28, 20, 0, 0, 254, 4, 0, 1, 0, ...</span>
+<span class="go">(&#39;localhost&#39;, 0, 28, 20, 0, 0, 254, 4, 0, 1, 0, ...</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndb</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="n">AF_MPLS</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;oif&#39;</span><span class="p">,</span> <span class="s1">&#39;dst&#39;</span><span class="p">,</span> <span class="s1">&#39;newdst&#39;</span><span class="p">)</span>
+<span class="go">(40627, &#39;[{&quot;label&quot;: 16, &quot;tc&quot;: 0, &quot;bos&quot;: 1, &quot;ttl&quot;: 0}]&#39;, &#39;[{&quot;label&quot;: 500, ...</span>
+<span class="go">(40627, &#39;[{&quot;label&quot;: 40, &quot;tc&quot;: 0, &quot;bos&quot;: 1, &quot;ttl&quot;: 0}]&#39;, &#39;[{&quot;label&quot;: 40, ...</span>
+</pre></div>
+</div>
+<p>List lwtunnel routes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ndb</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">encap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+<span class="go">(&#39;localhost&#39;, 0, 2, 24, 0, 0, 254, 4, 0, 1, 16, &#39;10.255.145.0&#39;, ...</span>
+<span class="go">(&#39;localhost&#39;, 0, 2, 24, 0, 0, 254, 4, 0, 1, 0, &#39;192.168.142.0&#39;, ...</span>
+
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndb</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">encap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;dst&#39;</span><span class="p">,</span> <span class="s1">&#39;encap&#39;</span><span class="p">)</span>
+<span class="go">(&#39;10.255.145.0&#39;, &#39;[{&quot;label&quot;: 20, &quot;tc&quot;: 0, &quot;bos&quot;: 0, &quot;ttl&quot;: 0}, ...</span>
+<span class="go">(&#39;192.168.142.0&#39;, &#39;[{&quot;label&quot;: 20, &quot;tc&quot;: 0, &quot;bos&quot;: 0, &quot;ttl&quot;: 0}, ...</span>
+</pre></div>
+</div>
+<p>Create MPLS routes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">pyroute2.common</span> <span class="k">import</span> <span class="n">AF_MPLS</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndb</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">family</span><span class="o">=</span><span class="n">AF_MPLS</span><span class="p">,</span>
+<span class="go">                      dst=128,                       # label</span>
+<span class="go">                      oif=1,                         # output interface</span>
+<span class="go">                      newdst=[128, 132]).commit()    # label stack</span>
+</pre></div>
+</div>
+<p>Create lwtunnel:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ndb</span><span class="o">.</span><span class="n">routes</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">dst</span><span class="o">=</span><span class="s1">&#39;192.168.145.0/24&#39;</span><span class="p">,</span>
+<span class="go">                      gateway=&#39;192.168.140.5&#39;,</span>
+<span class="go">                      encap={&#39;type&#39;: &#39;mpls&#39;,</span>
+<span class="go">                             &#39;labels&#39;: [128, 132]}).commit()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">MPLS howto</a><ul>
+<li><a class="reference internal" href="#mpls-labels">MPLS labels</a></li>
+<li><a class="reference internal" href="#iproute">IPRoute</a><ul>
+<li><a class="reference internal" href="#mpls-routes">MPLS routes</a></li>
+<li><a class="reference internal" href="#mpls-lwtunnel">MPLS lwtunnel</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#ndb">NDB</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="wireguard.html"
+                        title="previous chapter">WireGuard module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="debug.html"
+                        title="next chapter">Netlink debug howto</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mpls.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="debug.html" title="Netlink debug howto"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="wireguard.html" title="WireGuard module"
+             >previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Peter V. Saveliev.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

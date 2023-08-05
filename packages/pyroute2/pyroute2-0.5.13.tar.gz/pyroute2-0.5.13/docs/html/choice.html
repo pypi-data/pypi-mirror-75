@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>IPRoute or NDB &#8212; pyroute2 0.5.13 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121787797-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121787797-2');
+</script>
+ 
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li> 
+      </ul>
+        </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="iproute-or-ndb">
+<span id="choice"></span><h1>IPRoute or NDB<a class="headerlink" href="#iproute-or-ndb" title="Permalink to this headline">¶</a></h1>
+<p>There are two different modules in the library, working on different
+abstraction levels and employing different approaches. But since they
+may be used to solve similar tasks, here is a short comparison that
+should help you to make the choice.</p>
+<p><a class="reference internal" href="iproute.html#iproute"><span class="std std-ref">IPRoute module</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Decent coverage of the kernel functionality</p></li>
+<li><p>Supports TC</p></li>
+<li><p>No service threads by default</p></li>
+<li><p>No additional Python objects to represent RTNL objects</p></li>
+<li><p>Low-level API</p></li>
+<li><p>No RTNL objects state synchronisation</p></li>
+<li><p>Works only with one RTNL source</p></li>
+</ul>
+</div></blockquote>
+<p><a class="reference internal" href="ndb.html#ndb"><span class="std std-ref">NDB module</span></a></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>Only a subset of RTNL functionality</p></li>
+<li><p>Doesn’t support TC</p></li>
+<li><p>Thread-based architecture</p></li>
+<li><p>Creates Python objects to reflect RTNL objects: may consume a lot of memory</p></li>
+<li><p>High-level API with state synchroniztion</p></li>
+<li><p>Objects state integrity</p></li>
+<li><p>Objects relations</p></li>
+<li><p>Aggregates multiple RTNL sources – systems, netns etc.</p></li>
+</ul>
+</div></blockquote>
+<p>While IPRoute provides better RTNL functionality coverage, it operates on
+a different level than NDB. IPRoute is a plain 1-to-1 mapping of the
+kernel RTNL API calls and notifications. You have to know the message
+structure and the notifications order to reconstruct the system state.
+IRPoute calls return as soon as the response from the kernel arrives,
+but it doesn’t mean that requested changes are already applied.</p>
+<p>NDB provides a more user-friendly API that monitors notifications and
+aggregates them, ensures RTNL objects state integrity. Creating an
+interface you can be sure that the <cite>commit()</cite> call returns only when
+the interface gets really created. Long-running NDB instance also
+provides better performance since it doesn’t list the system objects
+but accumulates the info from RTNL notifications. It comes at the cost
+of the memory and the code complexity.</p>
+<p>Shortly summarized, use <strong>IPRoute</strong> for</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>For one-shot scripts</p></li>
+<li><p>When the RTNL objects relations are not important</p></li>
+<li><p>When there’s no need to synchronize states</p></li>
+<li><p>When threads are not an option</p></li>
+</ul>
+</div></blockquote>
+<p><strong>NDB</strong>, on the other hand, is better:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>For long-running programs</p></li>
+<li><p>To build more user-friendly environments</p></li>
+<li><p>When states and relations should be ensured and synchronized</p></li>
+</ul>
+</div></blockquote>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/choice.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Peter V. Saveliev.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

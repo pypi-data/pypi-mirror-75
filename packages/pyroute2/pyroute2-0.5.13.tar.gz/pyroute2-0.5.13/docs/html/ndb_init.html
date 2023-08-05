@@ -1,0 +1,237 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>NDB objects &#8212; pyroute2 0.5.13 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Views and objects" href="ndb_objects.html" />
+    <link rel="prev" title="NDB module" href="ndb.html" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121787797-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121787797-2');
+</script>
+ 
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ndb_objects.html" title="Views and objects"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ndb.html" title="NDB module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="ndb.html" accesskey="U">NDB module</a> &#187;</li> 
+      </ul>
+        </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="ndb-objects">
+<span id="ndbinit"></span><h1>NDB objects<a class="headerlink" href="#ndb-objects" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="start">
+<h2>Start<a class="headerlink" href="#start" title="Permalink to this headline">¶</a></h2>
+<p>In the simplest case to start the DB is as easy as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ndb</span> <span class="o">=</span> <span class="n">NDB</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>There are several debug options that may be useful:</p>
+<ul class="simple">
+<li><p><cite>log=&lt;spec&gt;</cite> – controls the logging</p></li>
+<li><p><cite>rtnl_debug=&lt;True|False&gt;</cite> – create and use log tables to store RTNL events</p></li>
+<li><p><cite>libc=&lt;obj&gt;</cite> – NDB doesn’t use libc, but may pass it to RTNL sources</p></li>
+<li><p><cite>sources={&lt;spec&gt;}</cite> – RTNL sources to use</p></li>
+<li><p><cite>db_provider=&lt;spec&gt;</cite> – which DB backend to use</p></li>
+<li><p><cite>db_spec=&lt;spec&gt;</cite> – this spec will be passed to the DB provider</p></li>
+<li><p><cite>auto_netns=&lt;True|False&gt;</cite> – [experimental] discover and connect to netns</p></li>
+</ul>
+<p>Some options explained:</p>
+<div class="section" id="log">
+<h3>log<a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h3>
+<p>The simplest case is <cite>log=’on’</cite>, it turns on stdio logging.</p>
+<p>More log alternatives: <a class="reference internal" href="ndb_debug.html#ndbdebug"><span class="std std-ref">Debug and logging</span></a></p>
+</div>
+<div class="section" id="rtnl-debug">
+<h3>rtnl_debug<a class="headerlink" href="#rtnl-debug" title="Permalink to this headline">¶</a></h3>
+<p>This option tell NDB if it must create and use the log tables. Normally
+all the incoming events become aggregated, thus <cite>RTM_NEWLINK</cite> and <cite>RTM_DELLINK</cite>
+will result in zero records – an interface was created and destroyed.</p>
+<p>But in the log tables all the records will be stored, so it is what it looks
+like – the events log. The log tables are not used to create objects, they
+are not rotated. Use this option with caution.</p>
+<p>To review the event logs use SQL or <cite>ndb.schema.export()</cite></p>
+<p>See also: <a class="reference internal" href="ndb_debug.html#ndbdebug"><span class="std std-ref">Debug and logging</span></a></p>
+</div>
+<div class="section" id="sources">
+<h3>sources<a class="headerlink" href="#sources" title="Permalink to this headline">¶</a></h3>
+<dl>
+<dt>::</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sources</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;netns&#39;</span><span class="p">:</span> <span class="s1">&#39;test01&#39;</span><span class="p">},</span>
+<span class="go">               {&#39;netns&#39;: &#39;test02&#39;},</span>
+<span class="go">               {&#39;target&#39;: &#39;localhost&#39;, &#39;kind&#39;: &#39;local&#39;}]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndb</span> <span class="o">=</span> <span class="n">NDB</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="s1">&#39;on&#39;</span><span class="p">,</span> <span class="n">sources</span><span class="o">=</span><span class="n">sources</span><span class="p">)</span>
+<span class="go">2020-03-24 18:01:48,241    DEBUG pyroute2.ndb.139900805197264.sources.test01: init</span>
+<span class="go">2020-03-24 18:01:48,242    DEBUG pyroute2.ndb.139900805197264.sources.test01: starting the source</span>
+<span class="go">2020-03-24 18:01:48,242    DEBUG pyroute2.ndb.139900805197264.sources.test02: init</span>
+<span class="go">2020-03-24 18:01:48,243    DEBUG pyroute2.ndb.139900805197264.sources.test01: connecting</span>
+<span class="go">2020-03-24 18:01:48,248    DEBUG pyroute2.ndb.139900805197264.sources.test02: starting the source</span>
+<span class="go">2020-03-24 18:01:48,249    DEBUG pyroute2.ndb.139900805197264.sources.localhost: init</span>
+<span class="go">2020-03-24 18:01:48,250    DEBUG pyroute2.ndb.139900805197264.sources.test02: connecting</span>
+<span class="go">2020-03-24 18:01:48,256    DEBUG pyroute2.ndb.139900805197264.sources.localhost: starting the source</span>
+<span class="go">2020-03-24 18:01:48,259    DEBUG pyroute2.ndb.139900805197264.sources.localhost: connecting</span>
+<span class="go">2020-03-24 18:01:48,262    DEBUG pyroute2.ndb.139900805197264.sources.localhost: loading</span>
+<span class="go">2020-03-24 18:01:48,265    DEBUG pyroute2.ndb.139900805197264.sources.test01: loading</span>
+<span class="go">2020-03-24 18:01:48,278    DEBUG pyroute2.ndb.139900805197264.sources.test02: loading</span>
+<span class="go">2020-03-24 18:01:48,478    DEBUG pyroute2.ndb.139900805197264.sources.localhost: running</span>
+<span class="go">2020-03-24 18:01:48,499    DEBUG pyroute2.ndb.139900805197264.sources.test01: running</span>
+<span class="go">2020-03-24 18:01:48,537    DEBUG pyroute2.ndb.139900805197264.sources.test02: running</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The RTNL sources documenation: <a class="reference internal" href="ndb_sources.html#ndbsources"><span class="std std-ref">RTNL sources</span></a></p>
+</div>
+<div class="section" id="db-provider-db-spec">
+<h3>db_provider, db_spec<a class="headerlink" href="#db-provider-db-spec" title="Permalink to this headline">¶</a></h3>
+<dl>
+<dt>::</dt><dd><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">ndb_fs</span> <span class="o">=</span> <span class="n">NDB</span><span class="p">(</span><span class="n">db_provider</span><span class="o">=</span><span class="s1">&#39;sqlite3&#39;</span><span class="p">,</span> <span class="n">db_spec</span><span class="o">=</span><span class="s1">&#39;test.db&#39;</span><span class="p">)</span>
+<span class="gp">...</span>
+<span class="go">$ echo &#39;select f_ifla_ifname from interfaces&#39; | sqlite3 test.db</span>
+<span class="go">lo</span>
+<span class="go">enp0s31f6</span>
+<span class="go">wlp58s0</span>
+<span class="go">virbr0</span>
+<span class="go">virbr0-nic</span>
+<span class="gp">...</span>
+</pre></div>
+</div>
+</dd>
+</dl>
+<p>The database backend options: <a class="reference internal" href="ndb_schema.html#ndbschema"><span class="std std-ref">Database</span></a></p>
+</div>
+</div>
+<div class="section" id="stop">
+<h2>Stop<a class="headerlink" href="#stop" title="Permalink to this headline">¶</a></h2>
+<p>In order to get all the pending calls finished and synchronized, it is
+a good idea to explicitly close and stop the DB:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ndb</span> <span class="o">=</span> <span class="n">NDB</span><span class="p">()</span>
+<span class="o">...</span>
+<span class="n">ndb</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>NDB objects also support the context manager protocol:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">NDB</span><span class="p">()</span> <span class="k">as</span> <span class="n">ndb</span><span class="p">:</span>
+    <span class="o">...</span>
+    <span class="o">...</span>
+<span class="c1">#</span>
+<span class="c1"># ---&gt; &lt;--- here the NDB instance will be synchronized and stopped</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">NDB objects</a><ul>
+<li><a class="reference internal" href="#start">Start</a><ul>
+<li><a class="reference internal" href="#log">log</a></li>
+<li><a class="reference internal" href="#rtnl-debug">rtnl_debug</a></li>
+<li><a class="reference internal" href="#sources">sources</a></li>
+<li><a class="reference internal" href="#db-provider-db-spec">db_provider, db_spec</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#stop">Stop</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ndb.html"
+                        title="previous chapter">NDB module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ndb_objects.html"
+                        title="next chapter">Views and objects</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ndb_init.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ndb_objects.html" title="Views and objects"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ndb.html" title="NDB module"
+             >previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="ndb.html" >NDB module</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Peter V. Saveliev.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

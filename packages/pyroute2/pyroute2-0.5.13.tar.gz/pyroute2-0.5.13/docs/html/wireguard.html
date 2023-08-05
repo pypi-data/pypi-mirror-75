@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>WireGuard module &#8212; pyroute2 0.5.13 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="MPLS howto" href="mpls.html" />
+    <link rel="prev" title="NetNS module" href="netns.html" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121787797-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121787797-2');
+</script>
+ 
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mpls.html" title="MPLS howto"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="netns.html" title="NetNS module"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li> 
+      </ul>
+        </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyroute2.netlink.generic.wireguard">
+<span id="wireguard-module"></span><span id="netns"></span><h1>WireGuard module<a class="headerlink" href="#module-pyroute2.netlink.generic.wireguard" title="Permalink to this headline">¶</a></h1>
+<p>Usage:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Imports</span>
+<span class="kn">from</span> <span class="nn">pyroute2</span> <span class="k">import</span> <span class="n">IPDB</span><span class="p">,</span> <span class="n">WireGuard</span>
+
+<span class="n">IFNAME</span> <span class="o">=</span> <span class="s1">&#39;wg1&#39;</span>
+
+<span class="c1"># Create a WireGuard interface</span>
+<span class="k">with</span> <span class="n">IPDB</span><span class="p">()</span> <span class="k">as</span> <span class="n">ip</span><span class="p">:</span>
+    <span class="n">wg1</span> <span class="o">=</span> <span class="n">ip</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;wireguard&#39;</span><span class="p">,</span> <span class="n">ifname</span><span class="o">=</span><span class="n">IFNAME</span><span class="p">)</span>
+    <span class="n">wg1</span><span class="o">.</span><span class="n">add_ip</span><span class="p">(</span><span class="s1">&#39;10.0.0.1/24&#39;</span><span class="p">)</span>
+    <span class="n">wg1</span><span class="o">.</span><span class="n">up</span><span class="p">()</span>
+    <span class="n">wg1</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+<span class="c1"># Create WireGuard object</span>
+<span class="n">wg</span> <span class="o">=</span> <span class="n">WireGuard</span><span class="p">()</span>
+
+<span class="c1"># Add a WireGuard configuration + first peer</span>
+<span class="n">peer</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;public_key&#39;</span><span class="p">:</span> <span class="s1">&#39;TGFHcm9zc2VCaWNoZV9DJ2VzdExhUGx1c0JlbGxlPDM=&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;endpoint_addr&#39;</span><span class="p">:</span> <span class="s1">&#39;8.8.8.8&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;endpoint_port&#39;</span><span class="p">:</span> <span class="mi">8888</span><span class="p">,</span>
+        <span class="s1">&#39;persistent_keepalive&#39;</span><span class="p">:</span> <span class="mi">15</span><span class="p">,</span>
+        <span class="s1">&#39;allowed_ips&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;10.0.0.0/24&#39;</span><span class="p">,</span> <span class="s1">&#39;8.8.8.8/32&#39;</span><span class="p">]}</span>
+<span class="n">wg</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">IFNAME</span><span class="p">,</span> <span class="n">private_key</span><span class="o">=</span><span class="s1">&#39;RCdhcHJlc0JpY2hlLEplU2VyYWlzTGFQbHVzQm9ubmU=&#39;</span><span class="p">,</span>
+       <span class="n">fwmark</span><span class="o">=</span><span class="mh">0x1337</span><span class="p">,</span> <span class="n">listen_port</span><span class="o">=</span><span class="mi">2525</span><span class="p">,</span> <span class="n">peer</span><span class="o">=</span><span class="n">peer</span><span class="p">)</span>
+
+<span class="c1"># Add second peer with preshared key</span>
+<span class="n">peer</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;public_key&#39;</span><span class="p">:</span> <span class="s1">&#39;RCdBcHJlc0JpY2hlLFZpdmVMZXNQcm9iaW90aXF1ZXM=&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;preshared_key&#39;</span><span class="p">:</span> <span class="s1">&#39;Pz8/V2FudFRvVHJ5TXlBZXJvR3Jvc3NlQmljaGU/Pz8=&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;endpoint_addr&#39;</span><span class="p">:</span> <span class="s1">&#39;8.8.8.8&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;endpoint_port&#39;</span><span class="p">:</span> <span class="mi">9999</span><span class="p">,</span>
+        <span class="s1">&#39;persistent_keepalive&#39;</span><span class="p">:</span> <span class="mi">25</span><span class="p">,</span>
+        <span class="s1">&#39;allowed_ips&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;::/0&#39;</span><span class="p">]}</span>
+<span class="n">wg</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">IFNAME</span><span class="p">,</span> <span class="n">peer</span><span class="o">=</span><span class="n">peer</span><span class="p">)</span>
+
+<span class="c1"># Delete second peer</span>
+<span class="n">peer</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;public_key&#39;</span><span class="p">:</span> <span class="s1">&#39;RCdBcHJlc0JpY2hlLFZpdmVMZXNQcm9iaW90aXF1ZXM=&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;remove&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="n">wg</span><span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="n">IFNAME</span><span class="p">,</span> <span class="n">peer</span><span class="o">=</span><span class="n">peer</span><span class="p">)</span>
+
+<span class="c1"># Get information of the interface</span>
+<span class="n">wg</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">IFNAME</span><span class="p">)</span>
+
+<span class="c1"># Get specific value from the interface</span>
+<span class="n">wg</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">IFNAME</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">WGDEVICE_A_PRIVATE_KEY</span><span class="o">.</span><span class="n">value</span>
+</pre></div>
+</div>
+<p>NOTES:</p>
+<ul>
+<li><p>Using <cite>set</cite> method only requires an interface name.</p></li>
+<li><p>The <cite>peer</cite> structure is described as follow:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">peer_s</span> <span class="p">{</span>
+    <span class="n">public_key</span><span class="p">:</span>            <span class="c1"># Base64 public key - required</span>
+    <span class="n">remove</span><span class="p">:</span>                <span class="c1"># Boolean - optional</span>
+    <span class="n">preshared_key</span><span class="p">:</span>         <span class="c1"># Base64 preshared key - optional</span>
+    <span class="n">endpoint_addr</span><span class="p">:</span>         <span class="c1"># IPv4 or IPv6 endpoint - optional</span>
+    <span class="n">endpoint_port</span> <span class="p">:</span>        <span class="c1"># endpoint Port - required only if endpoint_addr</span>
+    <span class="n">persistent_keepalive</span><span class="p">:</span>  <span class="c1"># time in seconds to send keep alive - optional</span>
+    <span class="n">allowed_ips</span><span class="p">:</span>           <span class="c1"># list of CIDRs allowed - optional</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="netns.html"
+                        title="previous chapter">NetNS module</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mpls.html"
+                        title="next chapter">MPLS howto</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/wireguard.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="mpls.html" title="MPLS howto"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="netns.html" title="NetNS module"
+             >previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Peter V. Saveliev.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

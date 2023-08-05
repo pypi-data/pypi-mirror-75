@@ -1,0 +1,397 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Authorization plugins &#8212; pyroute2 0.5.13 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="IPDB module" href="ipdb_toc.html" />
+    <link rel="prev" title="Debug and logging" href="ndb_debug.html" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121787797-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121787797-2');
+</script>
+ 
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ipdb_toc.html" title="IPDB module"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ndb_debug.html" title="Debug and logging"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="ndb.html" accesskey="U">NDB module</a> &#187;</li> 
+      </ul>
+        </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyroute2.ndb.auth_manager">
+<span id="authorization-plugins"></span><span id="ndbauth"></span><h1>Authorization plugins<a class="headerlink" href="#module-pyroute2.ndb.auth_manager" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="aaa-concept">
+<h2>AAA concept<a class="headerlink" href="#aaa-concept" title="Permalink to this headline">¶</a></h2>
+<p>AAA refers to Authentication, Authorization and Accounting. NDB provides
+a minimalistic API to integrate Authorization routines, leaving the
+rest – Authentication and Accounting – to the user.</p>
+<p>Some of NDB routines and RTNL object methods are guarded with a
+parametrized decorator. The decorator takes the only parameter <cite>tag</cite>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nd">@check_auth</span><span class="p">(</span><span class="s1">&#39;obj:read&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+    <span class="o">...</span>
+
+<span class="nd">@check_auth</span><span class="p">(</span><span class="s1">&#39;obj:modify&#39;</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="authmanager">
+<h2>AuthManager<a class="headerlink" href="#authmanager" title="Permalink to this headline">¶</a></h2>
+<p>The tag is checked by <cite>AuthManager.check(…)</cite> routine. The routine is
+the only method that must be provided by AuthManager-compatible objects,
+and must be defined as:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+    <span class="c1"># -&gt; True: grant access to the tag</span>
+    <span class="c1"># -&gt; False: reject access</span>
+    <span class="c1"># -&gt; raise Exception(): reject access with a specific exception</span>
+    <span class="o">...</span>
+</pre></div>
+</div>
+<p>NDB module provides an example AuthManager:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyroute2</span> <span class="k">import</span> <span class="n">NDB</span>
+<span class="kn">from</span> <span class="nn">pyroute2.ndb.auth_manager</span> <span class="k">import</span> <span class="n">AuthManager</span>
+
+<span class="n">ndb</span> <span class="o">=</span> <span class="n">NDB</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="s1">&#39;debug&#39;</span><span class="p">)</span>
+
+<span class="n">am</span> <span class="o">=</span> <span class="n">AuthManager</span><span class="p">({</span><span class="s1">&#39;obj:list&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>    <span class="c1"># deny dump(), summary()</span>
+                  <span class="s1">&#39;obj:read&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>     <span class="c1"># permit reading RTNL attributes</span>
+                  <span class="s1">&#39;obj:modify&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">},</span>  <span class="c1"># permit add_ip(), commit() etc.</span>
+                 <span class="n">ndb</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s1">&#39;auth&#39;</span><span class="p">))</span>
+
+<span class="n">ap</span> <span class="o">=</span> <span class="n">ndb</span><span class="o">.</span><span class="n">auth_proxy</span><span class="p">(</span><span class="n">am</span><span class="p">)</span>
+<span class="n">ap</span><span class="o">.</span><span class="n">interfaces</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>  <span class="c1"># &lt;-- fails with PermissionError</span>
+</pre></div>
+</div>
+<p>You can implement custom AuthManager classes, the only requirement – they
+must provide <cite>.check(self, obj, tag)</cite> routine, which returns <cite>True</cite> or
+<cite>False</cite> or raises an exception.</p>
+</div>
+<div class="section" id="usecase-openstack-keystone-auth">
+<h2>Usecase: OpenStack Keystone auth<a class="headerlink" href="#usecase-openstack-keystone-auth" title="Permalink to this headline">¶</a></h2>
+<p>Say we have a public service that provides access to NDB instance via
+HTTP, and authenticates users via Keystone. Then the auth flow could be:</p>
+<ol class="arabic simple">
+<li><p>Accept a connection from a client</p></li>
+<li><p>Create custom auth manager object A</p></li>
+<li><p>A.__init__() validates X-Auth-Token against Keystone (Authentication)</p></li>
+<li><p>A.check() checks that X-Auth-Token is not expired (Authorization)</p></li>
+<li><p>The auth result is being logged (Accounting)</p></li>
+</ol>
+<p>An example AuthManager with OpenStack APIv3 support you may find in the
+<cite>/examples/ndb/</cite> directory.</p>
+<div class="literal-block-wrapper docutils container" id="keystone-auth">
+<div class="code-block-caption"><span class="caption-text">keystone_auth.py</span><a class="headerlink" href="#keystone-auth" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">A simplest example of a custom AuthManager and its usage</span>
+<span class="sd">with `AuthProxy` objects.</span>
+
+<span class="sd">Here we authenticate the auth token against Keystone and</span>
+<span class="sd">allow any NDB operations until it is expired.</span>
+
+<span class="sd">One can get such token with a curl request::</span>
+
+<span class="sd">    $ cat request.json</span>
+<span class="sd">    { &quot;auth&quot;: {</span>
+<span class="sd">        &quot;identity&quot;: {</span>
+<span class="sd">          &quot;methods&quot;: [&quot;password&quot;],</span>
+<span class="sd">          &quot;password&quot;: {</span>
+<span class="sd">            &quot;user&quot;: {</span>
+<span class="sd">              &quot;name&quot;: &quot;admin&quot;,</span>
+<span class="sd">              &quot;domain&quot;: { &quot;name&quot;: &quot;admin_domain&quot; },</span>
+<span class="sd">              &quot;password&quot;: &quot;secret&quot;</span>
+<span class="sd">            }</span>
+<span class="sd">          }</span>
+<span class="sd">        },</span>
+<span class="sd">        &quot;scope&quot;: {</span>
+<span class="sd">          &quot;project&quot;: {</span>
+<span class="sd">            &quot;id&quot;: &quot;f0af12d451fb4bccbb38217e7f9afe9a&quot;</span>
+<span class="sd">          }</span>
+<span class="sd">        }</span>
+<span class="sd">      }</span>
+<span class="sd">    }</span>
+
+<span class="sd">    $ curl -i \</span>
+<span class="sd">            -H &quot;Content-Type: application/json&quot; \</span>
+<span class="sd">            -d &quot;@request.json&quot; \</span>
+<span class="sd">            http://keystone:5000/v3/auth/tokens</span>
+
+<span class="sd">`X-Subject-Token` header in the response will be the token we need. Say we</span>
+<span class="sd">get `14080769fe05e1f8b837fb43ca0f0ba4` as `X-Subject-Token`. Then you can</span>
+<span class="sd">run::</span>
+
+<span class="sd">    $ . openstack.rc  # &lt;-- your OpenStack APIv3 RC file</span>
+<span class="sd">    $ export PYTHONPATH=`pwd`</span>
+<span class="sd">    $ python examples/ndb/keystone_auth.py 14080769fe05e1f8b837fb43ca0f0ba4</span>
+
+<span class="sd">Using this example you can implement services that export NDB via any RPC,</span>
+<span class="sd">e.g. HTTP, and use Keystone integration. Same scheme may be used for any</span>
+<span class="sd">other Auth API, be it RADIUS or like that.</span>
+
+<span class="sd">An example of a simple HTTP service you can find in /cli/pyroute2-cli.</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">dateutil.parser</span> <span class="kn">import</span> <span class="n">parse</span> <span class="k">as</span> <span class="n">isodate</span>
+<span class="kn">from</span> <span class="nn">keystoneauth1.identity</span> <span class="kn">import</span> <span class="n">v3</span>
+<span class="kn">from</span> <span class="nn">keystoneauth1</span> <span class="kn">import</span> <span class="n">session</span>
+<span class="kn">from</span> <span class="nn">keystoneclient.v3</span> <span class="kn">import</span> <span class="n">client</span> <span class="k">as</span> <span class="n">ksclient</span>
+<span class="kn">from</span> <span class="nn">keystoneclient.v3.tokens</span> <span class="kn">import</span> <span class="n">TokenManager</span>
+<span class="kn">from</span> <span class="nn">pyroute2</span> <span class="kn">import</span> <span class="n">NDB</span>
+
+
+<span class="k">class</span> <span class="nc">OSAuthManager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">token</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+        <span class="c1"># create a Keystone password object</span>
+        <span class="n">auth</span> <span class="o">=</span> <span class="n">v3</span><span class="o">.</span><span class="n">Password</span><span class="p">(</span><span class="n">auth_url</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OS_AUTH_URL&#39;</span><span class="p">),</span>
+                           <span class="n">username</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OS_USERNAME&#39;</span><span class="p">),</span>
+                           <span class="n">password</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OS_PASSWORD&#39;</span><span class="p">),</span>
+                           <span class="n">user_domain_name</span><span class="o">=</span><span class="p">(</span><span class="n">os</span>
+                                             <span class="o">.</span><span class="n">environ</span>
+                                             <span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OS_USER_DOMAIN_NAME&#39;</span><span class="p">)),</span>
+                           <span class="n">project_id</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;OS_PROJECT_ID&#39;</span><span class="p">))</span>
+        <span class="c1"># create a session object</span>
+        <span class="n">sess</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">Session</span><span class="p">(</span><span class="n">auth</span><span class="o">=</span><span class="n">auth</span><span class="p">)</span>
+        <span class="c1"># create a token manager</span>
+        <span class="n">tmanager</span> <span class="o">=</span> <span class="n">TokenManager</span><span class="p">(</span><span class="n">ksclient</span><span class="o">.</span><span class="n">Client</span><span class="p">(</span><span class="n">session</span><span class="o">=</span><span class="n">sess</span><span class="p">))</span>
+        <span class="c1"># validate the token</span>
+        <span class="n">keystone_response</span> <span class="o">=</span> <span class="n">tmanager</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">token</span><span class="p">)</span>
+        <span class="c1"># init attrs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">log</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">expire</span> <span class="o">=</span> <span class="n">isodate</span><span class="p">(</span><span class="n">keystone_response</span><span class="p">[</span><span class="s1">&#39;expires_at&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">timestamp</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+        <span class="c1">#</span>
+        <span class="c1"># totally ignore obj and tag, validate only token expiration</span>
+        <span class="c1">#</span>
+        <span class="c1"># problems to be solved before you use this code in production:</span>
+        <span class="c1"># 1. access levels: read-only, read-write -- match tag</span>
+        <span class="c1"># 2. how to deal with revoked tokens</span>
+        <span class="c1">#</span>
+        <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">expire</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> permission denied&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="p">))</span>
+            <span class="k">raise</span> <span class="n">PermissionError</span><span class="p">(</span><span class="s1">&#39;keystone token has been expired&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> permission granted&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="p">))</span>
+        <span class="k">return</span> <span class="bp">True</span>
+
+
+<span class="k">with</span> <span class="n">NDB</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="s1">&#39;debug&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ndb</span><span class="p">:</span>
+    <span class="c1"># create a utility log channel</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">ndb</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">)</span>
+
+    <span class="c1"># create an AuthManager-compatible object</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;request keystone auth&#39;</span><span class="p">)</span>
+    <span class="n">am</span> <span class="o">=</span> <span class="n">OSAuthManager</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">ndb</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s1">&#39;keystone&#39;</span><span class="p">))</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;keystone auth complete, expires </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">am</span><span class="o">.</span><span class="n">expire</span><span class="p">)</span>
+
+    <span class="c1"># create an auth proxy for this particular token</span>
+    <span class="n">ap</span> <span class="o">=</span> <span class="n">ndb</span><span class="o">.</span><span class="n">auth_proxy</span><span class="p">(</span><span class="n">am</span><span class="p">)</span>
+
+    <span class="c1"># validate access via that proxy</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">interfaces</span><span class="p">[</span><span class="s1">&#39;lo&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="usecase-radius-auth">
+<h2>Usecase: RADIUS auth<a class="headerlink" href="#usecase-radius-auth" title="Permalink to this headline">¶</a></h2>
+<div class="literal-block-wrapper docutils container" id="radius-auth">
+<div class="code-block-caption"><span class="caption-text">radius_auth.py</span><a class="headerlink" href="#radius-auth" title="Permalink to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">An example of using RADIUS authentication with NDB.</span>
+
+<span class="sd">In order to run the example you can setup a FreeRADIUS server::</span>
+
+<span class="sd">    # /etc/raddb/clients</span>
+<span class="sd">    client test {</span>
+<span class="sd">        ipaddr = 192.168.122.101  # IP addr of your client</span>
+<span class="sd">        secret = s3cr3t</span>
+<span class="sd">    }</span>
+
+<span class="sd">    # /etc/raddb/users</span>
+<span class="sd">    testing Cleartext-Password := &quot;secret&quot;</span>
+
+<span class="sd">Then setup your client::</span>
+
+<span class="sd">    # download RADIUS dictionaries</span>
+<span class="sd">    $ export GITSERVER=https://raw.githubusercontent.com</span>
+<span class="sd">    $ export DICTPATH=pyradius/pyrad/master/example</span>
+<span class="sd">    $ wget $GITSERVER/$DICTPATH/dictionary</span>
+<span class="sd">    $ wget $GITSERVER/$DICTPATH/dictionary.freeradius</span>
+
+<span class="sd">    # setup the environment</span>
+<span class="sd">    $ cat radius.rc</span>
+<span class="sd">    export RADIUS_SERVER=192.168.122.1</span>
+<span class="sd">    export RADIUS_SECRET=s3cr3t</span>
+<span class="sd">    export PYTHONPATH=`pwd`</span>
+
+<span class="sd">    $ . radius.rc</span>
+<span class="sd">    $ python examples/ndb/radius_auth.py testing secret</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">pyrad.client</span> <span class="kn">import</span> <span class="n">Client</span>
+<span class="kn">from</span> <span class="nn">pyrad.dictionary</span> <span class="kn">import</span> <span class="n">Dictionary</span>
+<span class="kn">import</span> <span class="nn">pyrad.packet</span>
+<span class="kn">from</span> <span class="nn">pyroute2</span> <span class="kn">import</span> <span class="n">NDB</span>
+
+
+<span class="k">class</span> <span class="nc">RadiusAuthManager</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">user</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">log</span><span class="p">):</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">server</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;RADIUS_SERVER&#39;</span><span class="p">),</span>
+                        <span class="n">secret</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;RADIUS_SECRET&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;ascii&#39;</span><span class="p">),</span>
+                        <span class="nb">dict</span><span class="o">=</span><span class="n">Dictionary</span><span class="p">(</span><span class="s1">&#39;dictionary&#39;</span><span class="p">))</span>
+        <span class="n">req</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">CreateAuthPacket</span><span class="p">(</span><span class="n">code</span><span class="o">=</span><span class="n">pyrad</span><span class="o">.</span><span class="n">packet</span><span class="o">.</span><span class="n">AccessRequest</span><span class="p">,</span>
+                                      <span class="n">User_Name</span><span class="o">=</span><span class="n">user</span><span class="p">)</span>
+        <span class="n">req</span><span class="p">[</span><span class="s1">&#39;User-Password&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">PwCrypt</span><span class="p">(</span><span class="n">password</span><span class="p">)</span>
+        <span class="n">reply</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">SendPacket</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">=</span> <span class="n">reply</span><span class="o">.</span><span class="n">code</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span> <span class="o">=</span> <span class="n">log</span>
+
+    <span class="k">def</span> <span class="nf">check</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+        <span class="c1">#</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> access&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="p">))</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">auth</span> <span class="o">==</span> <span class="n">pyrad</span><span class="o">.</span><span class="n">packet</span><span class="o">.</span><span class="n">AccessAccept</span>
+
+
+<span class="k">with</span> <span class="n">NDB</span><span class="p">(</span><span class="n">log</span><span class="o">=</span><span class="s1">&#39;debug&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">ndb</span><span class="p">:</span>
+    <span class="c1"># create a utility log channel</span>
+    <span class="n">log</span> <span class="o">=</span> <span class="n">ndb</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s1">&#39;main&#39;</span><span class="p">)</span>
+
+    <span class="c1"># create an AuthManager-compatible object</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;request radius auth&#39;</span><span class="p">)</span>
+    <span class="n">am</span> <span class="o">=</span> <span class="n">RadiusAuthManager</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                           <span class="n">sys</span><span class="o">.</span><span class="n">argv</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                           <span class="n">ndb</span><span class="o">.</span><span class="n">log</span><span class="o">.</span><span class="n">channel</span><span class="p">(</span><span class="s1">&#39;radius&#39;</span><span class="p">))</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;radius auth complete&#39;</span><span class="p">)</span>
+
+    <span class="c1"># create an auth proxy for these credentials</span>
+    <span class="n">ap</span> <span class="o">=</span> <span class="n">ndb</span><span class="o">.</span><span class="n">auth_proxy</span><span class="p">(</span><span class="n">am</span><span class="p">)</span>
+
+    <span class="c1"># validate access via that proxy</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">ap</span><span class="o">.</span><span class="n">interfaces</span><span class="p">[</span><span class="s1">&#39;lo&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Authorization plugins</a><ul>
+<li><a class="reference internal" href="#aaa-concept">AAA concept</a></li>
+<li><a class="reference internal" href="#authmanager">AuthManager</a></li>
+<li><a class="reference internal" href="#usecase-openstack-keystone-auth">Usecase: OpenStack Keystone auth</a></li>
+<li><a class="reference internal" href="#usecase-radius-auth">Usecase: RADIUS auth</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ndb_debug.html"
+                        title="previous chapter">Debug and logging</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ipdb_toc.html"
+                        title="next chapter">IPDB module</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ndb_auth.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ipdb_toc.html" title="IPDB module"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ndb_debug.html" title="Debug and logging"
+             >previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="ndb.html" >NDB module</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Peter V. Saveliev.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

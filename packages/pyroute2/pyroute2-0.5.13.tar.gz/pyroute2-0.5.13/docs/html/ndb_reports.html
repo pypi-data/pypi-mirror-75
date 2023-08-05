@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Record list filters &#8212; pyroute2 0.5.13 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Network interfaces" href="ndb_interfaces.html" />
+    <link rel="prev" title="Views and objects" href="ndb_objects.html" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121787797-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121787797-2');
+</script>
+ 
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ndb_interfaces.html" title="Network interfaces"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ndb_objects.html" title="Views and objects"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="ndb.html" accesskey="U">NDB module</a> &#187;</li> 
+      </ul>
+        </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyroute2.ndb.report">
+<span id="record-list-filters"></span><span id="ndbreports"></span><h1>Record list filters<a class="headerlink" href="#module-pyroute2.ndb.report" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>New in verision 0.5.11</p>
+</div>
+<p>Filtering examples:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1. get all the routes</span>
+<span class="c1"># 2. join with interfaces on route.oif == interface.index</span>
+<span class="c1"># 3. select only fields dst, gateway, ifname and mac address</span>
+<span class="c1"># 4. transform the mac address into xxxx.xxxx.xxxx notation</span>
+<span class="c1"># 5. dump the info in the CSV format</span>
+
+<span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">routes</span>
+ <span class="o">.</span><span class="n">dump</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ndb</span><span class="o">.</span><span class="n">interfaces</span><span class="o">.</span><span class="n">dump</span><span class="p">(),</span>
+       <span class="n">condition</span><span class="o">=</span><span class="k">lambda</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="n">l</span><span class="o">.</span><span class="n">oif</span> <span class="o">==</span> <span class="n">r</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;dst&#39;</span><span class="p">,</span> <span class="s1">&#39;gateway&#39;</span><span class="p">,</span> <span class="s1">&#39;oif&#39;</span><span class="p">,</span> <span class="s1">&#39;ifname&#39;</span><span class="p">,</span> <span class="s1">&#39;address&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">.</span><span class="si">%s%s</span><span class="s1">.</span><span class="si">%s%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)))</span>
+ <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;csv&#39;</span><span class="p">))</span>
+
+<span class="s1">&#39;dst&#39;</span><span class="p">,</span><span class="s1">&#39;gateway&#39;</span><span class="p">,</span><span class="s1">&#39;oif&#39;</span><span class="p">,</span><span class="s1">&#39;ifname&#39;</span><span class="p">,</span><span class="s1">&#39;address&#39;</span>
+<span class="s1">&#39;172.16.20.0&#39;</span><span class="p">,</span><span class="s1">&#39;127.0.0.2&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;lo&#39;</span><span class="p">,</span><span class="s1">&#39;0000.0000.0000&#39;</span>
+<span class="s1">&#39;172.16.22.0&#39;</span><span class="p">,</span><span class="s1">&#39;127.0.0.4&#39;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;lo&#39;</span><span class="p">,</span><span class="s1">&#39;0000.0000.0000&#39;</span>
+<span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;172.16.254.3&#39;</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;wlp58s0&#39;</span><span class="p">,</span><span class="s1">&#39;60f2.6289.400e&#39;</span>
+<span class="s1">&#39;10.250.3.0&#39;</span><span class="p">,,</span><span class="mi">39</span><span class="p">,</span><span class="s1">&#39;lxcbr0&#39;</span><span class="p">,</span><span class="s1">&#39;0016.3e00.0000&#39;</span>
+<span class="s1">&#39;10.255.145.0&#39;</span><span class="p">,</span><span class="s1">&#39;10.255.152.254&#39;</span><span class="p">,</span><span class="mi">42881</span><span class="p">,</span><span class="s1">&#39;prdc51e6d5&#39;</span><span class="p">,</span><span class="s1">&#39;4a6a.60b1.8448&#39;</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<dl class="class">
+<dt id="pyroute2.ndb.report.RecordSet">
+<em class="property">class </em><code class="sig-prename descclassname">pyroute2.ndb.report.</code><code class="sig-name descname">RecordSet</code><span class="sig-paren">(</span><em class="sig-param">generator</em>, <em class="sig-param">ellipsis=True</em><span class="sig-paren">)</span><a class="headerlink" href="#pyroute2.ndb.report.RecordSet" title="Permalink to this definition">¶</a></dt>
+<dd><p>NDB views return objects of this class with <cite>summary()</cite> and <cite>dump()</cite>
+methods. RecordSet objects are generator-based, they do not store the
+data in the memory, but transform them on the fly.</p>
+<p>RecordSet filters also return objects of this class, thus making possible
+to make chains of filters.</p>
+<dl class="method">
+<dt id="pyroute2.ndb.report.RecordSet.transform">
+<code class="sig-name descname">transform</code><span class="sig-paren">(</span><em class="sig-param">**kwarg</em><span class="sig-paren">)</span><a class="headerlink" href="#pyroute2.ndb.report.RecordSet.transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transform record fields with a provided functions:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">view</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">field_name_1</span><span class="o">=</span><span class="n">func1</span><span class="p">,</span>
+               <span class="n">field_name_2</span><span class="o">=</span><span class="n">func2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Examples, transform MAC addresses into dots-format and IEEE 802:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fmt</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s%s</span><span class="s1">.</span><span class="si">%s%s</span><span class="s1">.</span><span class="si">%s%s</span><span class="s1">&#39;</span>
+<span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">interfaces</span>
+ <span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">lladdr</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">fmt</span> <span class="o">%</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)))</span>
+
+<span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">interfaces</span>
+ <span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">lladdr</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyroute2.ndb.report.RecordSet.filter">
+<code class="sig-name descname">filter</code><span class="sig-paren">(</span><em class="sig-param">f=None</em>, <em class="sig-param">**kwarg</em><span class="sig-paren">)</span><a class="headerlink" href="#pyroute2.ndb.report.RecordSet.filter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Filter records. This function may be called in two ways. One way
+is a simple match. Select ports of <cite>br0</cite> only in the <cite>up</cite> state:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">interfaces</span>
+ <span class="o">.</span><span class="n">dump</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">master</span><span class="o">=</span><span class="n">ndb</span><span class="o">.</span><span class="n">interfaces</span><span class="p">[</span><span class="s1">&#39;br0&#39;</span><span class="p">][</span><span class="s1">&#39;index&#39;</span><span class="p">],</span>
+         <span class="n">state</span><span class="o">=</span><span class="s1">&#39;up&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>When a simple match is not a solution, one can provide a matching
+function. Select only MPLS lwtunnel routes:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">routes</span>
+ <span class="o">.</span><span class="n">dump</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">encap_type</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">x</span><span class="o">.</span><span class="n">encap</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyroute2.ndb.report.RecordSet.select">
+<code class="sig-name descname">select</code><span class="sig-paren">(</span><em class="sig-param">*argv</em><span class="sig-paren">)</span><a class="headerlink" href="#pyroute2.ndb.report.RecordSet.select" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select fields from records:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ndb</span><span class="o">.</span><span class="n">interfaces</span><span class="o">.</span><span class="n">dump</span><span class="p">()</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;index&#39;</span><span class="p">,</span> <span class="s1">&#39;ifname&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyroute2.ndb.report.RecordSet.join">
+<code class="sig-name descname">join</code><span class="sig-paren">(</span><em class="sig-param">right</em>, <em class="sig-param">condition=&lt;function RecordSet.&lt;lambda&gt;&gt;</em>, <em class="sig-param">prefix=''</em><span class="sig-paren">)</span><a class="headerlink" href="#pyroute2.ndb.report.RecordSet.join" title="Permalink to this definition">¶</a></dt>
+<dd><p>Join two reports.</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>right – a report to join with</p></li>
+<li><p>condition – filter records with a function</p></li>
+<li><p>prefix – rename the “right” fields using the prefix</p></li>
+</ul>
+</div></blockquote>
+<p>The condition function must have two arguments, left record and
+rigth record, and must return True or False. The routine discards
+joined records when the condition is False.</p>
+<p>Example, provide interface names for routes, don’t change field
+names:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">routes</span>
+ <span class="o">.</span><span class="n">dump</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ndb</span><span class="o">.</span><span class="n">interfaces</span><span class="o">.</span><span class="n">dump</span><span class="p">(),</span>
+       <span class="n">condition</span><span class="o">=</span><span class="k">lambda</span> <span class="n">l</span><span class="p">,</span> <span class="n">r</span><span class="p">:</span> <span class="n">l</span><span class="o">.</span><span class="n">oif</span> <span class="o">==</span> <span class="n">r</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s1">&#39;dst&#39;</span><span class="p">,</span> <span class="s1">&#39;gateway&#39;</span><span class="p">,</span> <span class="s1">&#39;ifname&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+<p><strong>Warning</strong>: this method loads the whole data of the <cite>right</cite> report
+into the memory.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="pyroute2.ndb.report.RecordSet.format">
+<code class="sig-name descname">format</code><span class="sig-paren">(</span><em class="sig-param">kind</em><span class="sig-paren">)</span><a class="headerlink" href="#pyroute2.ndb.report.RecordSet.format" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert report records into other formats. Supported formats are
+‘json’ and ‘csv’.</p>
+<p>The resulting report can not use filters, transformations etc.
+Thus, the <cite>format()</cite> call should be the last in the chain:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">addresses</span>
+ <span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s1">&#39;csv&#39;</span><span class="p">))</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ndb_objects.html"
+                        title="previous chapter">Views and objects</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ndb_interfaces.html"
+                        title="next chapter">Network interfaces</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ndb_reports.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ndb_interfaces.html" title="Network interfaces"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ndb_objects.html" title="Views and objects"
+             >previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="ndb.html" >NDB module</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Peter V. Saveliev.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,187 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>IP addresses management &#8212; pyroute2 0.5.13 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/graphviz.css" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css" />
+    
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Routes management" href="ndb_routes.html" />
+    <link rel="prev" title="Network interfaces" href="ndb_interfaces.html" />
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-121787797-2"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-121787797-2');
+</script>
+ 
+
+  </head><body>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ndb_routes.html" title="Routes management"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="ndb_interfaces.html" title="Network interfaces"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="ndb.html" accesskey="U">NDB module</a> &#187;</li> 
+      </ul>
+        </div>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-pyroute2.ndb.objects.address">
+<span id="ip-addresses-management"></span><h1>IP addresses management<a class="headerlink" href="#module-pyroute2.ndb.objects.address" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="using-the-view">
+<h2>Using the view<a class="headerlink" href="#using-the-view" title="Permalink to this headline">¶</a></h2>
+<p>The <cite>addresses</cite> view provides access to all the addresses registered in the DB,
+as well as methods to create and remove them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">eth0</span> <span class="o">=</span> <span class="n">ndb</span><span class="o">.</span><span class="n">interfaces</span><span class="p">[</span><span class="s1">&#39;eth0&#39;</span><span class="p">]</span>
+
+<span class="c1"># create an address</span>
+<span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">addresses</span>
+ <span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">address</span><span class="o">=</span><span class="s1">&#39;10.0.0.1&#39;</span><span class="p">,</span> <span class="n">prefixlen</span><span class="o">=</span><span class="mi">24</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">eth0</span><span class="p">[</span><span class="s1">&#39;index&#39;</span><span class="p">])</span>
+ <span class="o">.</span><span class="n">commit</span><span class="p">())</span>
+
+<span class="c1"># remove it</span>
+<span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">addresses</span><span class="p">[</span><span class="s1">&#39;10.0.0.1/24&#39;</span><span class="p">]</span>
+ <span class="o">.</span><span class="n">remove</span><span class="p">()</span>
+ <span class="o">.</span><span class="n">commit</span><span class="p">())</span>
+
+<span class="c1"># list addresses</span>
+<span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">addresses</span>
+ <span class="o">.</span><span class="n">summary</span><span class="p">())</span>  <span class="c1"># see also other view dump methods</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-interfaces">
+<h2>Using interfaces<a class="headerlink" href="#using-interfaces" title="Permalink to this headline">¶</a></h2>
+<p>One can use interface objects to inspect addresses as well:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">interfaces</span><span class="p">[</span><span class="s1">&#39;eth0&#39;</span><span class="p">]</span>
+ <span class="o">.</span><span class="n">ipaddr</span>
+ <span class="o">.</span><span class="n">summary</span><span class="p">())</span>  <span class="c1"># see also other view dump methods</span>
+</pre></div>
+</div>
+<p>Or to manage them:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ndb</span>
+ <span class="o">.</span><span class="n">interfaces</span><span class="p">[</span><span class="s1">&#39;eth0&#39;</span><span class="p">]</span>
+ <span class="o">.</span><span class="n">add_ip</span><span class="p">(</span><span class="s1">&#39;10.0.0.1/24&#39;</span><span class="p">)</span>    <span class="c1"># add a new IP address</span>
+ <span class="o">.</span><span class="n">del_ip</span><span class="p">(</span><span class="s1">&#39;172.16.0.1/24&#39;</span><span class="p">)</span>  <span class="c1"># remove an existing address</span>
+ <span class="o">.</span><span class="n">set</span><span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;up&#39;</span><span class="p">)</span>
+ <span class="o">.</span><span class="n">commit</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="accessing-one-address-details">
+<h2>Accessing one address details<a class="headerlink" href="#accessing-one-address-details" title="Permalink to this headline">¶</a></h2>
+<p>Access an address as a separate RTNL object:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">ndb</span><span class="o">.</span><span class="n">addresses</span><span class="p">[</span><span class="s1">&#39;10.0.0.1/24&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Please notice that address objects are read-only, you may not change them,
+only remove old ones, and create new.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">IP addresses management</a><ul>
+<li><a class="reference internal" href="#using-the-view">Using the view</a></li>
+<li><a class="reference internal" href="#using-interfaces">Using interfaces</a></li>
+<li><a class="reference internal" href="#accessing-one-address-details">Accessing one address details</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="ndb_interfaces.html"
+                        title="previous chapter">Network interfaces</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="ndb_routes.html"
+                        title="next chapter">Routes management</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/ndb_addresses.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="ndb_routes.html" title="Routes management"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="ndb_interfaces.html" title="Network interfaces"
+             >previous</a> |</li>
+        <li class="nav-item"><a href="http://pyroute2.org">Project home</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="index.html">pyroute2 0.5.13 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="ndb.html" >NDB module</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2013, Peter V. Saveliev.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.1.2.
+    </div>
+  </body>
+</html>
