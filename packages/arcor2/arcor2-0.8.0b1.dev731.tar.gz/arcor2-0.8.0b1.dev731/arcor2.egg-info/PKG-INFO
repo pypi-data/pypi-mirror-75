@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: arcor2
+Version: 0.8.0b1.dev731
+Summary: UNKNOWN
+Home-page: https://github.com/robofit/arcor2
+Author: Robo@FIT
+Author-email: imaterna@fit.vutbr.cz
+License: LGPL
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Natural Language :: English
+Classifier: Topic :: Scientific/Engineering
+Provides-Extra: test
+Provides-Extra: docs
