@@ -1,0 +1,3 @@
+[console_scripts]
+bacphlip = bacphlip.command_line:main
+
