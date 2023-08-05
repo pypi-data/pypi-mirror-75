@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: keyword-extraction
+Version: 0.0.1
+Summary: a tool for keyword_extraction
+Home-page: UNKNOWN
+Author: xujc
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: pandas (==0.25.3)
+Requires-Dist: jieba (==0.42.1)
+Requires-Dist: gensim (==3.8.0)
+
+UNKNOWN
+
+
