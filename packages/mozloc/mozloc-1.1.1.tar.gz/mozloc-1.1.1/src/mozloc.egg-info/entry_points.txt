@@ -1,0 +1,5 @@
+[console_scripts]
+MozLoc = mozloc.__main__:mozilla_location
+mozloc_csv2kml = mozloc.__main__:csv2kml
+mozloc_signal = mozloc.__main__:wifi_signal
+
