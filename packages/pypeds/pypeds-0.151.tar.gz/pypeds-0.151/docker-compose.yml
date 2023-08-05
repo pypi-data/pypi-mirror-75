@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  rstudio:
+    image: rocker/tidyverse
+    ports:
+      - "8787:8787"
+    environment:
+      - USER=user
+      - PASSWORD=password
+    volumes:
+      - ./:/home/rstudio/
+      
