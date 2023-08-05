@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: tamaas
+Version: 2.1.3
+Summary: A fast library for periodic elastic and elasto-plastic rough contact
+Home-page: https://c4science.ch/project/view/2036/
+Author: Lucas Frérot, Guillaume Anciaux, Valentine Rey, Son Pham-Ba, Jean-François Molinari
+Author-email: lucas.frerot@protonmail.com
+License: UNKNOWN
+Description: 
+        # Tamaas — A fast rough contact library
+        
+        [![status](https://joss.theoj.org/papers/86903c51f3c66964eef7776d8aeaf17d/status.svg)](https://joss.theoj.org/papers/86903c51f3c66964eef7776d8aeaf17d)
+        
+        Tamaas (from تماس meaning “contact” in Arabic and Farsi) is a
+        high-performance rough-surface periodic contact code based on boundary and
+        volume integral equations. The clever mathematical formulation of the underlying
+        numerical methods allows the use of the fast-Fourier Transform, a great help in
+        achieving peak performance: Tamaas is consistently two orders of magnitude
+        faster (and lighter) than traditional FEM! Tamaas is aimed at researchers and
+        practitioners wishing to compute realistic contact solutions for the study of
+        interface phenomena.
+        
+        ## Disclaimer
+        
+        This package is intended for ease of installation for Linux platforms, but comes
+        with NO WARRANTY of compatibility. If you experience any issue, please install
+        Tamaas from [source](https://c4science.ch/source/tamaas/). We provide a Docker
+        image for non-Linux systems. This package contains unsigned binary blobs: if you
+        are concerned about security, please build Tamaas from source (the commits are
+        signed).
+        
+        Tamaas is the result of a science research project. To give proper credit to
+        Tamaas and the researchers who have developed the numerical methods that it
+        implements, please cite the [JOSS
+        paper](https://joss.theoj.org/papers/86903c51f3c66964eef7776d8aeaf17d) and the
+        appropriate references therein.
+        
+        ## Dependencies
+        
+        Essentials:
+        
+        - FFTW with OpenMP support (needs to be installed separately,
+          e.g. with your system's package manager)
+        - Numpy
+        
+        Optional:
+        
+        - Scipy (for non-linear solvers)
+        - UVW (for dumpers)
+        - h5py (for dumpers)
+        - netCDF4 (for dumpers)
+        
+        To install with all dependencies (except FFTW), run ``pip install
+        tamaas[solvers,dumpers]``.
+        
+        ## Documentation
+        
+        Documentation can be found on [tamaas.readthedocs.io](https://tamaas.readthedocs.io/en/latest/).
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: POSIX :: Linux
+Description-Content-Type: text/markdown
+Provides-Extra: dumpers
+Provides-Extra: solvers

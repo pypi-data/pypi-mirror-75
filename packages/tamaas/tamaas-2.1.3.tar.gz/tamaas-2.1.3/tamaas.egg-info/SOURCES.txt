@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+tamaas/__init__.py
+tamaas/_tamaas.cpython-37m-x86_64-linux-gnu.so
+tamaas/compute.py
+tamaas/libTamaas.so.2
+tamaas.egg-info/PKG-INFO
+tamaas.egg-info/SOURCES.txt
+tamaas.egg-info/dependency_links.txt
+tamaas.egg-info/requires.txt
+tamaas.egg-info/top_level.txt
+tamaas/dumpers/__init__.py
+tamaas/dumpers/_helper.py
+tamaas/nonlinear_solvers/__init__.py

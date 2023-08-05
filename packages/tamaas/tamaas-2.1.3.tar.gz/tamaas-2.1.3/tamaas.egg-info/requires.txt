@@ -1,0 +1,9 @@
+numpy
+
+[dumpers]
+h5py
+netCDF4
+uvw
+
+[solvers]
+scipy
