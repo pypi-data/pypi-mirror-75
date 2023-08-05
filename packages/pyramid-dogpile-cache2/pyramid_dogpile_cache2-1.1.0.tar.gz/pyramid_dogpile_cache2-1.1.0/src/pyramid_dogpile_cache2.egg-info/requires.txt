@@ -1,0 +1,4 @@
+Beaker
+dogpile.cache>=1.0.0.dev0
+pyramid_dogpile_cache
+setuptools
