@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: image_processing
+Version: 0.0.1
+Summary: Image processing package using skimage
+Home-page: https://github.com/tiemi/image-processing-package
+Author: Karina Tiemi
+License: UNKNOWN
+Description: # image_processing
+        
+        Description. 
+        The package image_processing is used to:
+        	- Match histogram
+        	- Structural similarity
+        	- Resize image
+        	- Plot image
+        	- Plot histogram
+        	- Plot results
+        	- Save image
+        	- Read image
+        
+        ## Installation
+        
+        Use the package manager [pip](https://pip.pypa.io/en/stable/) to install package_name
+        
+        ```bash
+        pip install image_processing
+        ```
+        
+        ## Author
+        Karina Tiemi
+        
+        ## License
+        [MIT](https://choosealicense.com/licenses/mit/)
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
