@@ -1,0 +1,67 @@
+import requests
+import json
+import os
+from jinja2 import Template
+import pytest
+import assertions
+
+#HOST_URL = {{ host_url }}
+
+
+def _trigger_requests(req_method, url, header, data, proxies=None):
+    print("\n\nRegenerating traffic from CloudVector events....")
+    return requests.request(method=req_method, url=url, proxies=proxies, headers=header, data=data, verify=False)
+
+{% set api_name = api_name | replace("{","") | replace("}","") %}
+{% for method, api_info in apis_metadata.items() %}
+def test_{{ method | lower }}_{{ api_name | lower }}({{ api_info.get("params",[])|join(", ") }}):
+    data = {}
+    {% for param in api_info.get("params",[]) %}data["{{ param }}"] = {{ param }}
+    {% endfor %}
+    req = {
+             "data": data,
+             "headers": {{ api_info.get("header") }}
+          }
+
+    if "Authorization" in req["headers"] and req["headers"]["Authorization"] is None:
+        req["headers"]["Authorization"] = os.environ.get("CVDAST_ACCESS_TOKEN")
+    if access_token:
+        req["headers"]["Authorization"] = access_token
+
+    url = Template(host+"{{ api_info.get("url") }}").render(**data)
+    resp = _trigger_requests("{{ method }}", url,
+                      header=req["headers"],
+                      data=json.dumps(data))
+    print(resp.status_code)
+    print(resp.text)
+    assertions.assert_for_{{ api_name | lower}}(req,resp)
+{% endfor %}
+
+{% for method, api_info in apis_metadata.items() %}
+{% for validations in custom_validations %}
+{% set param_name = validations[1].split("=")[0] %}
+{% set params_list = api_info.get("params",[]) %}
+def test_{{ method | lower }}_{{ api_name | lower }}_for_{{ validations[0] | lower }}({{ params_list|join(", ") }}, host, access_token):
+    data = {}
+    {{ validations[1] }}
+    {% for param in api_info.get("params",[]) %}data["{{ param }}"] = {{ param }}
+    {% endfor %}
+    req = {
+             "data": data,
+             "headers": {{ api_info.get("header") }}
+          }
+
+    if "Authorization" in req["headers"] and req["headers"]["Authorization"] is None:
+        req["headers"]["Authorization"] = os.environ.get("CVDAST_ACCESS_TOKEN")
+    if access_token:
+        req["headers"]["Authorization"] = access_token
+
+    url = Template("{{ api_info.get("url") }}").render(**data)
+    resp = _trigger_requests(host+"{{ method }}", url,
+                      header=req["headers"],
+                      data=json.dumps(data))
+    print(resp.status_code)
+    print(resp.text)
+    assertions.assert_for_custom_response(req,resp,{{ validations[2] }})
+{% endfor %}
+{% endfor %}
