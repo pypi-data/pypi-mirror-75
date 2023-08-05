@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: bibtexentryparser
+Version: 1.0.0
+Summary: Python module to parse BibTeX entries
+Home-page: https://github.com/scythja123/python-bitexentryparser
+Author: Sonja Stuedli
+Author-email: scythja@gmail.com
+License: LGPLv3 or BSD
+Platform: any
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+
+# BibTeX entry parser
+
+This is a module to parse a single [BiBTeX](http://www.bibtex.org/) strings. 
+To be able to use this module Python 3 is required.
+Note this project is no longer backwards compatible with the original source.
+
+Original source: sciunto-org/python-bibtexparser
+
+Author:
+
+* Sonja Stuedli
+
+Based on the work from: 
+
+* markmacgillivray
+* Etienne Posthumus (epoz)
+* Francois Boulogne <fboulogne at april dot org>
+
+
+
+## Installation
+`pip install --upgrade bibtexentryparser`
+
+
+
+
