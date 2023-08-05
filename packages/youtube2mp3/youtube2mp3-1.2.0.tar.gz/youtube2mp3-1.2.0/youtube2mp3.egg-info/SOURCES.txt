@@ -1,0 +1,11 @@
+CHANGELOG.rst
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+tests/__init__.py
+tests/test.txt
+tests/test_cli.py
+youtube2mp3/__init__.py
+youtube2mp3/cli.py
+youtube2mp3/options.py
