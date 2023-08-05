@@ -1,0 +1,9 @@
+[console_scripts]
+stormlock=stormlock.cli:run
+
+[stormlock.backends]
+dynamodb=stormlock.backends.dynamodb:DynamoDB[dynamodb]
+etcd=stormlock.backends.etcd:Etcd[etcd]
+postgresql=stormlock.backends.postgresql:Postgresql[postgresql]
+redis=stormlock.backends.redis:Redis[redis]
+
