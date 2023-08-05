@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: skywalking-flask
+Version: 0.0.2
+Summary: Skywalking Flask Support.
+Home-page: https://github.com/pypa/sampleproject
+Author: Parker Zhu
+Author-email: 806000178@qq.com
+License: UNKNOWN
+Description: # Skywalking Flask
+        
+        Skywalking support for flask.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
