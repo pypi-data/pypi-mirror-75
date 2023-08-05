@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: solid-backend
+Version: 0.1.6
+Summary: Clean Django App for E-Learning apllication with 
+Home-page: https://github.com/zentrumnawi/solid-backend
+License: MIT
+Author: Christian Grossmüller
+Author-email: chgad.games@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: django (>=3.0.7,<4.0.0)
+Requires-Dist: django-cleanup (==4.0.0)
+Requires-Dist: django-mptt (==0.11.0)
+Requires-Dist: django-stdimage (>=5.1.1,<6.0.0)
+Requires-Dist: djangorestframework (==3.11.0)
+Requires-Dist: mutagen (>=1.44.0,<2.0.0)
+Requires-Dist: pillow (==7.1.2)
+Requires-Dist: psycopg2-binary (>=2.8.5,<3.0.0)
+Project-URL: Repository, https://github.com/zentrumnawi/solid-backend
+Description-Content-Type: text/markdown
+
+# S.O.L.I.D-Backend
+
+## What is S.O.L.I.D?
+
+
+## Documentation
+
+Coming soon...
+
+## Coverage
+
+Coming soon...
+
+## Try it out and local development
+
+For a How-To guide see the README in the sample_project directory.
+
+
