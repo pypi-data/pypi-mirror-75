@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: bibliobanana
+Version: 0.0.5
+Summary: Python package to quantify and normalise yearly publication rates for specific keywords on PubMed and Google Scholar
+Home-page: https://github.com/esdalmaijer/bibliobanana
+Author: Edwin Dalmaijer
+Author-email: edwin.dalmaijer@mrc-cbu.cam.ac.uk
+License: UNKNOWN
+Description: A bug in twine prevents reading Markdown files, so please read the README at https://github.com/esdalmaijer/bibliobanana
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: Microsoft :: Windows
+Description-Content-Type: text/markdown
