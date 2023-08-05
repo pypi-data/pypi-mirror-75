@@ -1,0 +1,32 @@
+0.2.4 - List Fix, Jul. 2020
+---------------------------
+
+ - When providing ACLs as a list, the permissions are now checked correctly
+   (Thanks to William for pointing out this issue)
+
+
+0.2.2 - Heartbeat, Feb. 2020
+----------------------------
+
+ - A quick reminder that this is not dead yet.
+ - Added pre-commit hook and isort for imports
+ - Some adjustments in the Makefile.
+
+
+0.2.1 - Depends
+---------------
+
+ - wrapping the result of permission_dependency_factory in Depends(),
+   simplifying the use in path operation functions
+
+
+0.2.0 - unpyramidify
+--------------------
+
+ - Removing some ideas borrowed from pyramid and some personal preference.
+
+
+0.1.0  - initial release
+------------------------
+
+ - First working implementation
