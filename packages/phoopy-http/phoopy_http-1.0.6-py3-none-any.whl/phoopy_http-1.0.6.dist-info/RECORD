@@ -1,0 +1,17 @@
+phoopy/__init__.py,sha256=jv2YF__bseklT3OWEzlqJ5qE24c4aWd5F4r0TTjOrWQ,65
+phoopy/http/__init__.py,sha256=iNeZ6LZ9iCV_ugsqAh5K1fFqbKkfU8o3NbLYBWI3m1I,22
+phoopy/http/annotations/__init__.py,sha256=MK4vyRIw9U6YY1yip02jCOVtxNzB1eW7WcMTmV-cN2A,78
+phoopy/http/annotations/errorhandler.py,sha256=a6PrCHRlBpRUhJX-Zh9rXlT-kxT0oYXweWzHoQF2zno,659
+phoopy/http/annotations/route.py,sha256=56HAp_-D3bezRA_k24QGgm1nXrAZUXEyyVs4GlpsYZw,705
+phoopy/http/core/__init__.py,sha256=iuujvjlhCILAuo28P37Td6eKgGGhZu13X5SmjjdIkAQ,44
+phoopy/http/core/application.py,sha256=OXsqq681o9LMdwZ4rT22oPQVaAFvFV0UOnpvn4jizCk,2054
+phoopy/http/http_bundle/__init__.py,sha256=3Y1HJxzf8d97xC84LsErpGX3wzY7oBQiXg13fjEC-qA,43
+phoopy/http/http_bundle/http_bundle.py,sha256=P6vIwSEPRJ8sC31ivmedo4RJs2ZwH8k0-Z4DREDNvXQ,867
+phoopy/http/http_bundle/config/services.yml,sha256=LbivQ4Me79Ii01KuwlNW_9GAWUEcz4SxIZpfea33FfE,322
+phoopy/http/http_bundle/source/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+phoopy/http/http_bundle/source/command/__init__.py,sha256=gcnnQjLCeCPUdu_mmig_5bN7h-0B1yrWIvOZxBpHkjI,60
+phoopy/http/http_bundle/source/command/server_start_command.py,sha256=mHUE6ST4LlAXGTo3B7hZ4BAjV_scSIPaDL87SqvbBQ8,1329
+phoopy_http-1.0.6.dist-info/METADATA,sha256=F9lL7KOLw1_OIXVWKivuH75nIMH11vqdiF_1aeVqDi8,1486
+phoopy_http-1.0.6.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+phoopy_http-1.0.6.dist-info/top_level.txt,sha256=xANJbBnJ4Fnr74J7-7ck4JzZQfL-XCXYg2T5_U05ZnE,7
+phoopy_http-1.0.6.dist-info/RECORD,,

@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: phoopy-http
+Version: 1.0.6
+Summary: Http library for phoopy framework
+Home-page: https://github.com/phoopy/phoopy-http
+Author: Phoopy
+Author-email: reisraff@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.2
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: CherryPy (>=18.1.0)
+Requires-Dist: Flask (>=1.0.0)
+Requires-Dist: Paste (>=3.2.0)
+
+phoopy-http
+====================================
+
+|Build Status| |Version| |Pyversions|
+
+Http library for phoopy framework
+
+`Documentation <https://github.com/phoopy/phoopy-http/blob/master/DOCUMENTATION.md>`_
+
+
+.. |Build Status| image:: https://travis-ci.org/phoopy/phoopy-http.svg
+   :target: https://travis-ci.org/phoopy/phoopy-http
+
+.. |Version| image:: https://badge.fury.io/py/phoopy-http.svg
+   :target: https://pypi.python.org/pypi/phoopy-http
+
+.. |Pyversions| image:: https://img.shields.io/pypi/pyversions/phoopy-http.svg
+   :target: https://pypi.python.org/pypi/phoopy-http
+
+
