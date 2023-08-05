@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: rtc-cafe-signaller
+Version: 0.0.2
+Summary: rtc-cafe signaller
+Home-page: https://gitlab.com/rtc-cafe/rtc-cafe-signaller
+License: UNKNOWN
+Keywords: rtc-cafe flask-socketio socketio webrtc
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: flask
+Requires-Dist: flask-socketio
+
+# rtc-cafe-signaller
+
+
+
