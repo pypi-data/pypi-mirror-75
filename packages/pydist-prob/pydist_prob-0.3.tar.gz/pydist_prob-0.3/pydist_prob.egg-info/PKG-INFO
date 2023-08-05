@@ -1,0 +1,22 @@
+Metadata-Version: 1.0
+Name: pydist-prob
+Version: 0.3
+Summary: Gaussian and binomial distributions
+Home-page: UNKNOWN
+Author: Elahi Concha
+Author-email: elijahshellsanchez@outlook.com
+License: MIT
+Description-Content-Type: text/markdown
+Description: # pydist_prob: Gaussian and Binomial Distributions
+        Functions for calculating and plotting normal and binomial distributions.
+        This project is a part of the AWS Machine Learning Course on Udacity.
+        ## Usage
+        ```python
+        from Gaussiandistribution import Gaussian
+        foo = Gaussian(25, 2)
+        round(foo.pdf(25), 5) #returns 0.19947
+        foo.plot_histogram_pdf() #plots a histogram of the probability density function
+        ```
+        ## License
+        [MIT](https://choosealicense.com/licenses/mit/)
+Platform: UNKNOWN
