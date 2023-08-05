@@ -1,0 +1,77 @@
+Metadata-Version: 1.0
+Name: gaussian_binomial_probability_distribution
+Version: 0.1
+Summary: Gaussian and Binomial distribution
+Home-page: UNKNOWN
+Author: Yittyn Ng
+Author-email: ngyittyn980518@gmail.com
+License: UNKNOWN
+Description-Content-Type: text/markdown
+Description: This package contain Gaussian distribution and Binomial distribution
+        
+        ## Gaussian Distribution
+        
+        Attributes: 
+        
+        1. mean
+        
+        2. standard deviation 
+        
+        Methods: 
+        
+        1. read_data_file(file_name) - to read in data from a txt file
+        
+        2. calculate_mean() - to calculate mean of data set
+        
+        3. calculate_stdev() - to calculate standard deviation of data set
+        
+        4. plot_histogram() - to output a histogram of the instance variable data
+        
+        5. pdf() - to calculate probability density function
+        
+        6. plot_histogram_pdf() - to plot the normalized histogram of the data and a plot of the probability density function
+        
+        
+        ## Binomial Distribution
+        
+        Attributes: 
+        
+        1. probability
+        
+        2. size of trial
+        
+        3. mean
+        
+        4. standard deviation 
+        
+        Methods: 
+        
+        1. read_data_file(file_name) - to read in data from a txt file
+        
+        2. calculate_mean() - to calculate mean from p and n
+        
+        3. calculate_stdev() - to calculate standard deviation from p and n
+        
+        4. replace_stats_with_data() - to calculate p and n from the data set
+        
+        5. plot_bar() - to output a histogram of the instance variable data
+        
+        6. pdf() - to calculate probability density function
+        
+        7. plot_bar_pdf() - to plot the pdf of the binomial distribution
+        
+        ## Installation
+        
+        ```
+        pip install gaussian-binomial-probability-distributions
+        ```
+        
+        ## How to use distribution package
+        
+        Open python environment and import the package
+        ```
+        python
+        from distributions import Gaussian
+        from distributions import Binomial
+        ```
+Platform: UNKNOWN
