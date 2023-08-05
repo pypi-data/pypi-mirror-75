@@ -1,0 +1,21 @@
+Metadata-Version: 1.2
+Name: cooplock
+Version: 0.1
+Summary:  Library of tools that allows the user to perform resource reservation and locking
+Home-page: https://github.com/tylertjburns/cooplock
+Author: tburns
+Author-email: tyler.tj.burns@gmail.com
+License: MIT
+Description: # cooplock
+         Library of tools that allows the user to perform resource reservation and locking
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Developers
+Requires-Python: >3.5
