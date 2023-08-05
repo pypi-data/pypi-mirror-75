@@ -1,0 +1,12 @@
+screed>=0.9
+pathos>=0.2.5
+pysam==0.15.3
+tqdm>=4.36.1
+numpy
+pandas>=0.24.1
+
+[test]
+pytest
+pytest-cov
+codecov
+numpy

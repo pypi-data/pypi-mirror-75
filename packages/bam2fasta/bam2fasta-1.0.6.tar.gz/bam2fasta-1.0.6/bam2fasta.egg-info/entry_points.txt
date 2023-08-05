@@ -1,0 +1,3 @@
+[console_scripts]
+bam2fasta = bam2fasta.__main__:main
+
