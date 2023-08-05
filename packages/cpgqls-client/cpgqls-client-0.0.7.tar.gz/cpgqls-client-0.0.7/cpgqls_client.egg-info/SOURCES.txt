@@ -1,0 +1,12 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+cpgqls_client/__init__.py
+cpgqls_client/client.py
+cpgqls_client/queries.py
+cpgqls_client.egg-info/PKG-INFO
+cpgqls_client.egg-info/SOURCES.txt
+cpgqls_client.egg-info/dependency_links.txt
+cpgqls_client.egg-info/requires.txt
+cpgqls_client.egg-info/top_level.txt
