@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block body %}
+    <h3><div id="feedback" align=center style="margin:1vh 1vw;">Fingers on buzzers!</div></h3>
+    <div class="mdl-textfield mdl-js-textfield" style="width:90vw;margin:1vh 5vw;font-size:xx-large;">
+        <input class="mdl-textfield__input" type="text" id="player_name" style="font-size: xx-large;">
+        <label class="mdl-textfield__label" for="player_name" style="font-size: xx-large;">Player Name</label>
+    </div>
+    <div class="mdl-textfield mdl-js-textfield" style="width:90vw;margin:1vh 5vw;font-size:xx-large;">
+        <input class="mdl-textfield__input" type="text" id="team_name" style="font-size: xx-large;">
+        <label class="mdl-textfield__label" for="team_name" style="font-size: xx-large;">Team Name</label>
+    </div>
+    <div>
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent qwa-buzzer qwa-select-disable" id="buzzer">
+            <img src="static/images/buzzer.svg" style="max-width:100%; max-height:100%;" id="buzzer-image">
+        </button>
+    </div>
+{% endblock %}
