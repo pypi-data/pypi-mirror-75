@@ -1,0 +1,31 @@
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+  <div class="sidebar-sticky">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="/projects/{{ project.id }}">
+          <span data-feather="home"></span>
+          Project <span class="sr-only"></span>
+          {{project.name}}
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/admin/nodes">
+          <span data-feather="file"></span>
+          Spiders
+        </a>
+        <ul>
+          {% for project_spider in project.spiders %}
+            <li><a href="{{ spider_url(project_spider) }}">{{project_spider.name}}</a></li>
+
+          {% end %}
+        </ul>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/{{project.id}}/settings">Settings</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/projects/{{project.id}}/package">Package</a>
+      </li>
+    </ul>
+  </div>
+</nav>
