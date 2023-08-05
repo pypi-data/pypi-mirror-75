@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: qctic
+Version: 0.12.0
+Summary: Qiskit provider to interact with the QCTIC quantum simulator platform
+Home-page: https://bitbucket.org/fundacionctic/erwin-qiskit
+Author: Andres Garcia Mangas
+Author-email: andres.garcia@fundacionctic.org
+License: UNKNOWN
+Keywords: quantum simulator qiskit
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: qiskit-aer (<1.0.0,>=0.4.0)
+Requires-Dist: marshmallow (<4.0,>=3.0)
+Requires-Dist: tornado (<7.0,>=6.0)
+Provides-Extra: dev
+Requires-Dist: autopep8 (<2.0,>=1.5) ; extra == 'dev'
+Requires-Dist: pylint (<3.0,>=2.0) ; extra == 'dev'
+Requires-Dist: rope (<1.0,>=0.16.0) ; extra == 'dev'
+Requires-Dist: pytest (<6.0,>=5.0) ; extra == 'dev'
+Requires-Dist: bumpversion (<1.0,>=0.5.3) ; extra == 'dev'
+Requires-Dist: pytest-httpserver (<1.0,>=0.3.0) ; extra == 'dev'
+Requires-Dist: coloredlogs (<15.0,>=14.0) ; extra == 'dev'
+Requires-Dist: pytest-cov (<3.0,>=2.8.1) ; extra == 'dev'
+Requires-Dist: pytest-asyncio (<1.0,>=0.10.0) ; extra == 'dev'
+Requires-Dist: notebook (<7.0,>=6.0) ; extra == 'dev'
+Provides-Extra: nest
+Requires-Dist: nest-asyncio (<2.0,>=1.4.0) ; extra == 'nest'
+
+# QCTIC Qiskit Provider
+
+A Qiskit provider based on **Qiskit Aer** that may be used to interact with the quantum simulation platform **QCTIC** located at [CTIC](https://fundacionctic.org/).
+
+Please check the `/notebooks` folder for some introductory examples of usage.
+
+
