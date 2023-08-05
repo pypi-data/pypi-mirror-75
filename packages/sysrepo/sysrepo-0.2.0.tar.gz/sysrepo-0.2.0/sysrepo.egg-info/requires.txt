@@ -1,0 +1,4 @@
+libyang>=1.5.0
+
+[:platform_python_implementation != "PyPy"]
+cffi
