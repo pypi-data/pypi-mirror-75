@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: woodchuck
+Version: 1.1.0
+Summary: A lightweight, opinionated Python logging package.
+Home-page: https://github.com/ShwinHS/woodchuck.git
+Author: Ashwin Mahadevan
+License: UNKNOWN
+Description: # Woodchuck
+        
+        A lightweight, opinionated logging package for Python.
+        
+        ## Installation
+        
+        Installation using PIP is easy!
+        
+        ```
+        pip install woodchuck
+        ```
+Platform: UNKNOWN
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
