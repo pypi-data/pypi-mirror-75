@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: aiocodeforces
+Version: 1.0.1
+Summary: An asyncio wrapper for the CodeForces API
+Home-page: https://github.com/jpark9013/aiocodeforces
+Author: Julian Park
+Author-email: jpark9013@gmail.com
+License: MIT
+Download-URL: https://github.com/jpark9013/aiocodeforces/releases/tag/v1.0.0
+Keywords: asyncio wrapper codeforces api
+Platform: UNKNOWN
+Requires-Dist: aiohttp
+
+UNKNOWN
+
+
