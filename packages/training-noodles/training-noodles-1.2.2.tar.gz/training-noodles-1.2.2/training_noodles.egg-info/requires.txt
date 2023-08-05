@@ -1,0 +1,7 @@
+oyaml==0.9
+
+[dev]
+check-manifest
+
+[test]
+coverage
