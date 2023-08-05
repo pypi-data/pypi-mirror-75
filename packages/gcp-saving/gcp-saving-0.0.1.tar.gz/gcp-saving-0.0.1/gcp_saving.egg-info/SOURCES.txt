@@ -1,0 +1,9 @@
+MANIFEST.in
+README.rst
+setup.py
+gcp_saving/__init__.py
+gcp_saving.egg-info/PKG-INFO
+gcp_saving.egg-info/SOURCES.txt
+gcp_saving.egg-info/dependency_links.txt
+gcp_saving.egg-info/top_level.txt
+tests/__init__.py
