@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: firefly-aws
+Version: 1.0.26
+Summary: AWS extension for the Firefly framework.
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Requires-Dist: boto3 (>=1.12.42)
+Requires-Dist: cognitojwt (>=1.2.2)
+Requires-Dist: dateparser (>=0.7.4)
+Requires-Dist: firefly-dependency-injection (>=1.0.0)
+Requires-Dist: firefly-framework (>=1.0.26)
+Requires-Dist: requests (>=2.23.0)
+Requires-Dist: troposphere (>=2.6.1)
+
+UNKNOWN
+
+
