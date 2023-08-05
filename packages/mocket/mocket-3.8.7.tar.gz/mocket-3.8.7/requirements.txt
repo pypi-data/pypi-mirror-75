@@ -1,0 +1,5 @@
+-i https://pypi.python.org/simple
+decorator==4.4.2
+python-magic==0.4.18
+six==1.15.0
+urllib3==1.25.10
