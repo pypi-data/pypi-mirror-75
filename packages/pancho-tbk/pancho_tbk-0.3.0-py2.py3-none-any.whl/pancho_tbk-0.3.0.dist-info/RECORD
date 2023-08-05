@@ -1,0 +1,17 @@
+LICENSE.txt,sha256=sl47-7L5XiEeLJoir5bX7WL8hps2zAwBfbxzoXTh7XA,1054
+README.rst,sha256=GxwJYBQIcuOZQpTicHvdGyktDNZBfBJnXf-AsBg5geI,4897
+tbk/__init__.py,sha256=FyBbvOmIvmv_sTGXKww2b7_dAWa6TaPbfHxGssLfaok,887
+tbk/commerce.py,sha256=r8ww1uj8dzHqwQkkma7vIiICkwOPHDSxOoAuE4q41CE,1023
+tbk/environments.py,sha256=dH7WeoxQzXpTQTt1g1t7hTe8kNmh6O6h6dBBKDshO6Y,86
+tbk/services.py,sha256=iCVuXfBn2NySIdH4XqhMru9RVPt_p74kuhyKuV2y_6g,13385
+tbk/soap/__init__.py,sha256=JU7kkQ4IAf4csUU8QorXIrYXCg3rYyovP7UfEuukIMg,615
+tbk/soap/exceptions.py,sha256=Tedeenwania7DhSfWm5qW7Mv-LhoM_n7zTBknIJ_OnE,1025
+tbk/soap/requestor.py,sha256=10o4pKbqTacXA26lm9MipjfTicLwUUbBEeEHUTfUr0I,3072
+tbk/soap/soap_client.py,sha256=3n7DayFBm5NNwjQbzSfvVbQUgwUutwSpBC1-qMKwqB0,899
+tbk/soap/utils.py,sha256=p79xrXv86bVMKEVJuUCe5jsD14sy58LwLGD1i6QbiJU,1118
+tbk/soap/wsse.py,sha256=FqkVB10DstiD8qZvqInwNW0-Sr8qRdMP12dzZCXjoi8,8717
+tbk/soap/zeep_client.py,sha256=iKp0tqo_8ofUIOe55eJ6Q7iPnil914i5CJe7S8wrd0I,3921
+pancho_tbk-0.3.0.dist-info/LICENSE.txt,sha256=sl47-7L5XiEeLJoir5bX7WL8hps2zAwBfbxzoXTh7XA,1054
+pancho_tbk-0.3.0.dist-info/WHEEL,sha256=dqElwnlLMc7-lr24lzizalXwnuKWWcPA6D2n0jC3DJ8,87
+pancho_tbk-0.3.0.dist-info/METADATA,sha256=9ZL-wM06sGmTLQaZBmsmdLp4T3Do3lsxMJV6NyZBrAQ,5835
+pancho_tbk-0.3.0.dist-info/RECORD,,
