@@ -1,0 +1,16 @@
+tqdm
+numpy
+einops
+
+[ctx]
+transformers
+allennlp
+elmoformanylangs
+
+[dev]
+pytest
+hypothesis
+
+[docs]
+mkdocs
+mkdocs-alabaster
