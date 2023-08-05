@@ -1,0 +1,17 @@
+README.md
+setup.cfg
+setup.py
+spanconsumer/__init__.py
+spanconsumer/_configuration.py
+spanconsumer/_consumer.py
+spanconsumer/_errors.py
+spanconsumer/_incoming_outgoing.py
+spanconsumer/_scribe.py
+spanconsumer/_test_client.py
+spanconsumer/_types.py
+spanconsumer/_version.py
+spanconsumer.egg-info/PKG-INFO
+spanconsumer.egg-info/SOURCES.txt
+spanconsumer.egg-info/dependency_links.txt
+spanconsumer.egg-info/requires.txt
+spanconsumer.egg-info/top_level.txt
