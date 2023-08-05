@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: easyCorpus
+Version: 2.0
+Summary: a simple corpus tool
+Home-page: https://github.com/boblus/easyCorpus
+Author: Sheng Lu, Sanjun Sun
+Author-email: lus@brandeis.edu
+License: UNKNOWN
+Description: # easyCorpus
+        
+        *easyCorpus* is a python module to process corpus data and perform statistical analysis.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
