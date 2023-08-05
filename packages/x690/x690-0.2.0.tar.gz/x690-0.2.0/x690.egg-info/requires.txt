@@ -1,0 +1,13 @@
+ipaddress
+mock
+six
+t61codec>=1.0.1
+typing
+
+[dev]
+sphinx
+sphinx-rtd-theme
+
+[test]
+pytest
+pytest-coverage
