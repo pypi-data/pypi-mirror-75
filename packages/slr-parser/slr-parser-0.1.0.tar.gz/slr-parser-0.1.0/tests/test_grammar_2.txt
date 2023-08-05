@@ -1,0 +1,5 @@
+EXPR -> EXPR + TERM
+EXPR -> TERM
+TERM -> TERM * FACTOR | FACTOR
+FACTOR -> ( EXPR )
+FACTOR -> identifier
