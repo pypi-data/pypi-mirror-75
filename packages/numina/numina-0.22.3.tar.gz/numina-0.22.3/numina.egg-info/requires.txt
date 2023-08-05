@@ -1,0 +1,31 @@
+setuptools>=39.2
+six>=1.7
+numpy
+scipy
+PyYaml
+matplotlib
+python-dateutil
+lmfit
+scikit-image
+
+[:python_version < "3"]
+astropy<3
+
+[:python_version < "3.4"]
+enum34
+
+[:python_version < "3.5"]
+contextlib2
+
+[:python_version >= "3"]
+astropy
+
+[docs]
+sphinx
+
+[docs:python_version < "3.3"]
+mock
+
+[tests]
+pytest
+pytest-remotedata
