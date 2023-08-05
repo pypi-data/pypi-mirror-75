@@ -1,0 +1,15 @@
+import torch
+import torch.nn.functional as F
+from torch import nn
+from yqn_config.base_config import BaseConfig
+
+
+class ${class_name}Acc(nn.Module):
+
+    def __init__(self, config: BaseConfig):
+        super(${class_name}Acc, self).__init__()
+        self.config = config
+
+    def forward(self, predicts, targets):
+        # TODO fill ${module_name} acc forward
+        pass

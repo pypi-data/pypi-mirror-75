@@ -1,0 +1,16 @@
+from yqn_pytorch_framework.model.base_model import BaseModel
+
+
+class ${class_name}Model(BaseModel):
+
+    def __init__(self, config):
+        super(${class_name}Model, self).__init__(config)
+        self.config = config
+
+    def forward(self, inputs):
+        # TODO fill ${module_name} model forward
+        pass
+
+    def get_default_input(self):
+        # TODO fill ${module_name} model get_default_input
+        pass
