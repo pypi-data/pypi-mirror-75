@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: coinmetrics-api-client
+Version: 2020.7.26a0
+Summary: Python client for Coin Metrics API v4.
+Home-page: https://github.com/coinmetrics-io/api-client-python
+License: MIT
+Author: Coin Metrics
+Author-email: info@coinmetrics.io
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Description-Content-Type: text/markdown
+
+# Coin Metrics Python API v4 client library
+
+This is an official Python API client for Coin Metrics API v4.
+
