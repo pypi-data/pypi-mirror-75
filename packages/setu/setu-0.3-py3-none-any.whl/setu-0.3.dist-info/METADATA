@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: setu
+Version: 0.3
+Summary: Setu's deeplink pckage
+Home-page: https://gitlab.com/setu-lobby/setu-pypi
+Author: Gandharva B
+Author-email: gandharva@setu.co
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: requests
+Requires-Dist: uuid
+Requires-Dist: PyJWT
+
+UNKNOWN
+
+
