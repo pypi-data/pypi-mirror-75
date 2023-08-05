@@ -1,0 +1,180 @@
+import unittest
+from oci.core import VirtualNetworkClient, VirtualNetworkClientCompositeOperations
+from corc.config import load_from_env_or_config, gen_config_provider_prefix
+from corc.providers.oci.helpers import new_client, get, list_entities, stack_was_deleted
+from corc.providers.oci.network import (
+    new_vcn_stack,
+    delete_vcn_stack,
+    valid_vcn_stack,
+    get_vcn_stack,
+    get_vcn_by_name,
+    equal_vcn_stack,
+    refresh_vcn_stack,
+)
+
+
+class TestVCNStack(unittest.TestCase):
+    def setUp(self):
+        # Load compartment_id from the env
+        prefix = ("oci",)
+        oci_compartment_id = load_from_env_or_config(
+            {"profile": {"compartment_id": {}}},
+            prefix=gen_config_provider_prefix(prefix),
+            throw=True,
+        )
+
+        oci_name = load_from_env_or_config(
+            {"profile": {"name": {}}},
+            prefix=gen_config_provider_prefix(prefix),
+            throw=True,
+        )
+
+        self.oci_options = {
+            "profile": {"compartment_id": oci_compartment_id, "name": oci_name}
+        }
+
+        test_name = "Test_VCN"
+        vcn_name = test_name + "_Network"
+        subnet_name = test_name + "_Subnet"
+
+        # Add unique test postfix
+        test_id = load_from_env_or_config(
+            {"test": {"id": {}}}, prefix=gen_config_provider_prefix(prefix)
+        )
+        if test_id:
+            vcn_name += test_id
+            subnet_name += test_id
+
+        self.vcn_options = dict(
+            cidr_block="10.0.0.0/16", display_name=vcn_name, dns_label="ku",
+        )
+
+        self.subnet_options = dict(display_name=subnet_name, dns_label="workers")
+
+        self.options = dict(
+            oci=self.oci_options, vcn=self.vcn_options, subnet=self.subnet_options,
+        )
+
+        self.network_client = new_client(
+            VirtualNetworkClient,
+            composite_class=VirtualNetworkClientCompositeOperations,
+            name=self.options["oci"]["profile"]["name"],
+        )
+
+    def tearDown(self):
+        # Delete all vcn with display_name
+        vcns = list_entities(
+            self.network_client,
+            "list_vcns",
+            self.options["oci"]["profile"]["compartment_id"],
+            display_name=self.vcn_options["display_name"],
+        )
+
+        for vcn in vcns:
+            deleted_stack = delete_vcn_stack(
+                self.network_client,
+                self.options["oci"]["profile"]["compartment_id"],
+                vcn=vcn,
+            )
+            self.assertTrue(stack_was_deleted(deleted_stack))
+
+    def test_vcn_stack(self):
+        # Extract the ip of the instance
+        self.vcn_stack = new_vcn_stack(
+            self.network_client,
+            self.options["oci"]["profile"]["compartment_id"],
+            vcn_kwargs=self.options["vcn"],
+            subnet_kwargs=self.options["subnet"],
+        )
+
+        self.assertTrue(valid_vcn_stack(self.vcn_stack))
+        _vcn_stack = get_vcn_stack(
+            self.network_client,
+            self.options["oci"]["profile"]["compartment_id"],
+            self.vcn_stack["id"],
+        )
+        self.assertTrue(valid_vcn_stack(_vcn_stack))
+        self.assertEqual(self.vcn_stack["id"], _vcn_stack["id"])
+        self.assertEqual(self.vcn_stack["vcn"], _vcn_stack["vcn"])
+        self.assertListEqual(
+            self.vcn_stack["internet_gateways"], _vcn_stack["internet_gateways"]
+        )
+        self.assertListEqual(self.vcn_stack["subnets"], _vcn_stack["subnets"])
+
+        new_vcn_id = get(self.network_client, "get_vcn", self.vcn_stack["id"])
+
+        self.assertEqual(self.vcn_stack["id"], new_vcn_id.id)
+        self.assertEqual(self.vcn_stack["vcn"], new_vcn_id)
+
+        # Custom equal check
+        self.assertTrue(equal_vcn_stack(self.vcn_stack, _vcn_stack))
+
+        new_vcn_name = get_vcn_by_name(
+            self.network_client,
+            self.options["oci"]["profile"]["compartment_id"],
+            self.options["vcn"]["display_name"],
+        )
+
+        self.assertEqual(self.vcn_stack["id"], new_vcn_name.id)
+        self.assertEqual(self.vcn_stack["vcn"], new_vcn_name)
+
+    def test_vcn_delete_stack(self):
+        # Extract the ip of the instance
+        self.vcn_stack = new_vcn_stack(
+            self.network_client,
+            self.options["oci"]["profile"]["compartment_id"],
+            vcn_kwargs=self.options["vcn"],
+            subnet_kwargs=self.options["subnet"],
+        )
+
+        self.assertTrue(valid_vcn_stack(self.vcn_stack))
+
+        created_vcn_stack = get_vcn_stack(
+            self.network_client,
+            self.options["oci"]["profile"]["compartment_id"],
+            self.vcn_stack["id"],
+        )
+
+        self.assertTrue(valid_vcn_stack(created_vcn_stack))
+        self.assertTrue(equal_vcn_stack(self.vcn_stack, created_vcn_stack))
+
+        deleted_stack = delete_vcn_stack(
+            self.network_client,
+            self.options["oci"]["profile"]["compartment_id"],
+            self.vcn_stack["id"],
+        )
+        self.assertTrue(stack_was_deleted(deleted_stack))
+
+    def test_vcn_refresh_stack(self):
+        # Extract the ip of the instance
+        self.vcn_stack = new_vcn_stack(
+            self.network_client,
+            self.options["oci"]["profile"]["compartment_id"],
+            vcn_kwargs=self.options["vcn"],
+            subnet_kwargs=self.options["subnet"],
+        )
+
+        self.assertTrue(valid_vcn_stack(self.vcn_stack))
+        refresh_stack = {"id": self.vcn_stack["id"]}
+
+        refreshed_vcn = refresh_vcn_stack(
+            self.network_client,
+            self.options["oci"]["profile"]["compartment_id"],
+            vcn_kwargs=refresh_stack,
+        )
+        self.assertTrue(valid_vcn_stack(refreshed_vcn))
+        self.assertTrue(equal_vcn_stack(self.vcn_stack, refreshed_vcn))
+
+        refresh_stack = {"display_name": self.vcn_stack["vcn"].display_name}
+
+        refreshed_vcn = refresh_vcn_stack(
+            self.network_client,
+            self.options["oci"]["profile"]["compartment_id"],
+            vcn_kwargs=refresh_stack,
+        )
+        self.assertTrue(valid_vcn_stack(refreshed_vcn))
+        self.assertTrue(equal_vcn_stack(self.vcn_stack, refreshed_vcn))
+
+
+if __name__ == "__main__":
+    unittest.main()
