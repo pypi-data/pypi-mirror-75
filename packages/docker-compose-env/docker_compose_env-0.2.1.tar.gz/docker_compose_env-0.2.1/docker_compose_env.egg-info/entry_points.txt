@@ -1,0 +1,4 @@
+[console_scripts]
+compile-env = docker_compose_env.compile_env:main
+docker-compose-env = docker_compose_env.__init__:main
+

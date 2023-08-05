@@ -1,0 +1,11 @@
+Metadata-Version: 1.1
+Name: docker_compose_env
+Version: 0.2.1
+Summary: Solve the problem that environment variables are not interpolated by docker-compose
+Home-page: https://github.com/mnieber/docker_compose_env
+Author: Maarten Nieber
+Author-email: hallomaarten@yahoo.com
+License: MIT
+Download-URL: https://github.com/mnieber/docker_compose_env/tarball/0.2.1
+Description: UNKNOWN
+Platform: UNKNOWN
