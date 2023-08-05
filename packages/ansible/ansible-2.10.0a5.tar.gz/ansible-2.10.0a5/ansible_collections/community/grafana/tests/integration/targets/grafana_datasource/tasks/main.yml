@@ -1,0 +1,10 @@
+---
+
+- block:
+  - include: elastic.yml
+  - include: influx.yml
+  - include: postgres.yml
+  - include: cloudwatch.yml
+  - include: thruk.yml
+
+...
