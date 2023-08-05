@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: acdecom
+Version: 2020.7.27
+Summary: A python module for acoustic wave decomposition in flow ducts
+Home-page: https://github.com/ssackMWL/acdecom/
+Author: Stefan Sack, Royal Institute of Technology, Stockholm, Sweden
+Author-email: ssack@kth.se
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Requires-Dist: numpy
+Requires-Dist: scipy
+
+UNKNOWN
+
+
