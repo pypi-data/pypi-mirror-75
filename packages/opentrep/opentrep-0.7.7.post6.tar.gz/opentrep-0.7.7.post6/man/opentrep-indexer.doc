@@ -1,0 +1,69 @@
+/*!
+\page opentrep-indexer
+      Command-line utility to Xapian-index a travel-related database text file
+
+\section sec_synopsis_indexer SYNOPSIS
+
+<b>opentrep-indexer</b> <tt>[--prefix] [-v|--version] [-h|--help] [-b|--builtin] [-p|--porfile <POR-file-path>] [-d|--xapiandb <Xapian-travel-database-path>] [-t|--sqldbtype <SQL-database-type>] [-s|--sqldbconx <SQL-database-connection-string>] [-l|--log <path-to-output-log-file>]</tt>
+
+\section sec_description_indexer DESCRIPTION
+
+\e opentrep-indexer is a small program to Xapian-index the key-words
+   appearing in the given input file.
+
+\e opentrep-indexer accepts the following options:
+
+ \b --prefix<br>
+    Show the Opentrep installation prefix.
+
+ \b -v, \b --version<br>
+    Print the currently installed version of Opentrep on the standard output.
+
+ \b -h, \b --help<br>
+    Produce that message and show usage.
+
+ \b -p, \b --porfile <POR-file-path><br>
+    Path (directory and file name) of the file of POR (points of reference).
+	Usually, the file is optd_por_public.csv, for which the latest version
+	may be found in the OpenTravelData project on GitHub:
+	https://github.com/opentraveldata/opentraveldata/tree/master/opentraveldata
+
+ \b -d, \b --xapiandb <Xapian-travel-database-path><br>
+    Path (directory) to the Xapian travel database.
+	The indexer creates, or overwrites it when it already exists,
+	the Xapian database. It materialises as a collection of data files
+	within a directory usually named 'traveldb'.
+
+ \b -t, \b --sqldbtype <SQL-database-type><br>
+    SQL database type, e.g., nosql (no SQL database), sqlite, mysql
+
+ \b -s, \b --sqldbconx <SQL-database-connection-string><br>
+    SQL database connection string, e.g.,
+    ~/tmp/opentrep/sqlite_travel.db (for SQLite3),
+    "db=trep_trep user=trep password=trep" (for MySQL)
+
+ \b -l, \b --log <path-to-output-log-file><br>
+    Path (absolute or relative) of the output log file.
+
+
+See the output of the <tt>`opentrep-indexer --help'</tt> command for default options.
+
+
+\section sec_see_also_indexer SEE ALSO
+\b opentrep-dbmgr(1), \b opentrep-searcher(1), \b opentrep-config(1), \b opentrep-library(3)
+
+
+\section sec_support_indexer SUPPORT
+
+Please report any bugs to http://github.com/trep/opentrep/issues
+
+
+\section sec_copyright_indexer COPYRIGHT
+
+Copyright © 2009-2019 Denis Arnaud
+
+See the COPYING file for more information on the (LGPLv2+) license, or
+directly on Internet:<br>
+http://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+
+*/

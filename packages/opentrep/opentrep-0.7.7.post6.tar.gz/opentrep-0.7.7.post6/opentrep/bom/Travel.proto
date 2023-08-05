@@ -1,0 +1,381 @@
+syntax = "proto3";
+
+/**
+ * Travel- and Transport-related Protocol Buffer (Protobuf, PB) interface.
+ *
+ * Mainly used in the OpenTREP project (https://github.com/trep/opentrep).
+ * Most of the data content come from the Point of Reference (POR) section
+ * of the OpenTravelData (OPTD) project
+ * (https://github.com/opentraveldata/opentraveldata), itself hevily based
+ * on Geonames open content (https://www.geonames.org).
+ *
+ * Source: https://github.com/trep/opentrep/blob/master/opentrep/bom/Travel.proto
+ * Authors: Denis Arnaud
+ *
+ * References:
+ * + OpenTREP project: https://github.com/trep/opentrep
+ *   - Location C++ structure:
+ *     + https://github.com/trep/opentrep/blob/master/opentrep/LocationKey.hpp
+ *     + https://github.com/trep/opentrep/blob/master/opentrep/Location.hpp
+ *   - Export to Travel PB from Location C++ structure:
+ *     + https://github.com/trep/opentrep/blob/master/opentrep/bom/LocationExchange.hpp
+ *     + https://github.com/trep/opentrep/blob/master/opentrep/bom/LocationExchange.cpp
+ * + OpenTravelData (OPTD): https://github.com/opentraveldata/opentraveldata
+ * + OPTD POR data files:
+ *   - https://github.com/opentraveldata/opentraveldata/blob/master/opentraveldata/optd_por_public_all.csv
+ *  - https://github.com/opentraveldata/opentraveldata/blob/master/opentraveldata/optd_por_public.csv
+ *  - https://github.com/opentraveldata/opentraveldata/blob/master/opentraveldata/optd_por_best_known_so_far.csv
+ *  - https://github.com/opentraveldata/opentraveldata/blob/master/opentraveldata/optd_por_no_longer_valid.csv
+ *  - Archives of OPTD data files: https://www2.transport-search.org/data/optd/
+ * + Geonames project: https://www.geonames.org
+ * + Geonames POR open content: http://download.geonames.org/export/dump/
+ *
+ */
+
+package treppb;
+
+message IATACode {
+  string code = 1;
+} 
+
+message ICAOCode {
+  string code = 1;
+} 
+
+message FAACode {
+  string code = 1;
+} 
+
+message UNLOCode {
+  string code = 1;
+} 
+
+message UNLOCodeList {
+  repeated UNLOCode unlocode = 1;
+} 
+
+message UICCode {
+  int32 code = 1;
+} 
+
+message UICCodeList {
+  repeated UICCode uiccode = 1;
+} 
+
+message GeonamesID {
+  int32 id = 1;
+}
+
+message EnvelopeID {
+  int32 id = 1;
+}
+
+message StateCode {
+  string code = 1;
+}
+
+message CountryCode {
+  string code = 1;
+}
+
+message AltCountryCode {
+  string code = 1;
+}
+
+message WorldAreaCode {
+  int32 code = 1;
+}
+
+message ContinentCode {
+  string code = 1;
+}
+
+message CurrencyCode {
+  string code = 1;
+}
+
+message FeatureClass {
+  string code = 1;
+}
+
+message FeatureCode {
+  string code = 1;
+}
+
+message FeatureType {
+  FeatureClass fclass = 1;
+  FeatureCode fcode = 2;
+}
+
+message Comment {
+  string text = 1;
+}
+
+message Date {
+  string date = 1;
+} 
+
+message Admin1Code {
+  string code = 1;
+} 
+
+message Admin2Code {
+  string code = 1;
+} 
+
+message Admin3Code {
+  string code = 1;
+} 
+
+message Admin4Code {
+  string code = 1;
+} 
+
+message Population {
+  int32 value = 1;
+}
+
+message Elevation {
+  int32 value = 1;
+}
+
+message GTopo30 {
+  int32 value = 1;
+}
+
+message TravelRelatedList {
+  repeated string tvl_code = 1;
+} 
+
+message TimeZone {
+  string tz = 1;
+} 
+
+message TZOffSet {
+  sint32 offset = 1;
+} 
+
+message LanguageCode {
+  string code = 1;
+} 
+
+message AltName {
+  LanguageCode lang = 1;
+  string name = 2;
+} 
+
+message AltNameList {
+  repeated AltName name = 1;
+} 
+
+message WikiLink {
+  LanguageCode lang = 1;
+  string link = 2;
+} 
+
+message WikiLinkList {
+  repeated WikiLink link = 1;
+} 
+
+message City {
+  IATACode code = 1;
+  GeonamesID geonames_id = 2;
+  string name_utf = 3;
+  string name_ascii = 4;
+}
+
+message CityList {
+  repeated City city = 1;
+}
+
+message GeoPoint {
+  double latitude = 1;
+  double longitude = 2;
+}
+
+message PageRank {
+  double rank = 1;
+}
+
+message MatchingPercentage {
+  double percentage = 1;
+}
+
+message KeywordList {
+  repeated string word = 1;
+} 
+
+message EditDistance {
+  int32 dist = 1;
+}
+
+message PlaceType {
+  enum LocationType {
+    CTY_AIRP = 0;
+    CTY_HPT = 1;
+    CTY_RSTN = 2;
+    CTY_BSTN = 3;
+    CTY_FERRY = 4;
+    CITY = 5;
+    AIRP = 6;
+    HPT = 7;
+    RSTN = 8;
+    BSTN = 9;
+    FERRY = 10;
+    OFF = 11;
+    UNKNOWN = 12;
+  }
+
+  LocationType type = 1;
+}
+
+message PlaceList {
+  repeated Place place = 1;
+}
+
+message Place {
+  /**
+   * Section 1 - Codes (IATA, ICAO, FAA, UN/LOCODE, UIC, etc)
+   */
+  IATACode tvl_code = 1;
+  ICAOCode icao_code = 2;
+  FAACode faa_code = 3;
+  UNLOCodeList unlocode_list = 4;
+  UICCodeList uiccode_list = 5;
+
+  /**
+   * Section 2 - Identification / reference
+   *
+   * The primary key of a record (also known as Point of Reference (POR)
+   * or place, or location) is made of:
+   *  + IATA 3-letter code (e.g., LON for London, UK, 
+   *    or LHR for London Heathrow airport)
+   *  + Travel-/transport-related type (e.g., 'A' for airport or 'C' for city)
+   *  + Geonames ID, when referenced by Geonames (0 otherwise)
+   * See https://github.com/trep/opentrep/blob/master/opentrep/LocationKey.hpp
+   * for more details.
+   * 
+   * The envelope ID is equivalent to a version; when it is:
+   *  + 0 (zero), the record is still active;
+   *  + strictly positive (1+), the record has been deprecated
+   *    by a more recent one, itself with an envelope ID of 0.
+   * When a record becomes deprecated, its envelope ID is updated
+   * to become the lowest available for the primary key of that record.
+   * The envelope ID will then be definitive for that primary key.
+   *
+   * For the records referenced by IATA:
+   *  - Active records (with an envelope ID of 0):
+   *    https://github.com/opentraveldata/opentraveldata/blob/master/opentraveldata/optd_por_best_known_so_far.csv
+   *  - No longer active records:
+   *    https://github.com/opentraveldata/opentraveldata/blob/master/opentraveldata/optd_por_no_longer_valid.csv
+   *
+   * All the records (active and no longer activve) are then to be found in:
+   *   - Records referenced by IATA:
+   *     https://github.com/opentraveldata/opentraveldata/blob/master/opentraveldata/optd_por_public_all.csv
+   *   - Records referenced by any code or organization (e.g., IATA, ICAO, FAA,
+   *     UN/LOCODE, UIC):
+   *     https://github.com/opentraveldata/opentraveldata/blob/master/opentraveldata/optd_por_public.csv
+   *
+   */
+  bool is_geonames = 10;
+  GeonamesID geonames_id = 11;
+  FeatureType feat_type = 12;
+  Date mod_date = 13;
+  EnvelopeID env_id = 14;
+  Date date_from = 15;
+  Date date_end = 16;
+  PlaceType loc_type = 17;
+
+  /**
+   * Section 3 - Names
+   */
+  string name_utf = 20;
+  string name_ascii = 21;
+  AltNameList alt_name_list = 22;
+
+  /**
+   * Section 4 - Geographical data (coordinates, elevation, topology reference)
+   */
+  GeoPoint coord = 30;
+  GeoPoint coord_geonames = 31;
+  Elevation elevation = 32;
+  GTopo30 gtopo30 = 33;
+
+  /**
+   * Section 5 - Administrative levels
+   */
+  CountryCode country_code = 40;
+  AltCountryCode alt_country_code = 41;
+  string country_name = 42;
+  ContinentCode continent_code = 43;
+  string continent_name = 44;
+  Admin1Code adm1_code = 45;
+  string adm1_name_utf = 46;
+  string adm1_name_ascii = 47;
+  Admin2Code adm2_code = 48;
+  string adm2_name_utf = 49;
+  string adm2_name_ascii = 50;
+  Admin3Code adm3_code = 51;
+  Admin4Code adm4_code = 52;
+  StateCode state_code = 53;
+  WorldAreaCode wac_code = 54;
+  string wac_name = 55;
+
+  /**
+   * Section 6 - General characteristics (PageRank (PR) value, population)
+   */
+  PageRank page_rank = 60;
+  Comment comment = 61;
+  Population population = 62;
+  CurrencyCode currency_code = 63;
+
+  /**
+   * Section 7 - Time-zone details
+   */
+  TimeZone tz = 70;
+  TZOffSet gmt_offset = 71;
+  TZOffSet dst_offset = 72;
+  TZOffSet raw_offset = 73;
+
+  /**
+   * Section 8 - Served cities (for a travel-/transport-related POR)
+   */
+  CityList city_list = 80;
+
+  /**
+   * Section 9 - Serving travel-/transport-related POR (for a city)
+   */
+  TravelRelatedList tvl_por_list = 81;
+
+  /**
+   * Section 10 - List of Wikipedia links
+   */
+  WikiLinkList link_list = 90;
+
+  /**
+   * Section 11 - Search-related results and initial query,
+   *              for that specific place
+   */
+  MatchingPercentage matching_percentage = 100;
+  KeywordList original_keyword_list = 101;
+  KeywordList corrected_keyword_list = 102;
+  EditDistance edit_distance_actual = 103;
+  EditDistance edit_distance_allowable = 104;
+  PlaceList extra_place_list = 105;
+  PlaceList alt_place_list = 106;
+}
+
+message UnknownKeywordList {
+  repeated string word = 1;
+}
+
+message ErrorMessage {
+  string msg = 1;
+}
+
+message QueryAnswer {
+  bool ok_status = 1;
+  ErrorMessage error_msg = 2;
+  PlaceList place_list = 3;
+  UnknownKeywordList unmatched_keyword_list = 4;
+}

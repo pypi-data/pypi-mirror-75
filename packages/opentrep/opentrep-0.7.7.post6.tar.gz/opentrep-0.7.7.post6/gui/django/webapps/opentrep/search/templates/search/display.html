@@ -1,0 +1,240 @@
+{% extends "search/base.html" %}
+{% load staticfiles %}
+
+{% block style %}
+  <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0; padding: 0 }
+    #map_canvas { margin-left: auto; text-align:center; margin-right: auto; width:100%; height:100% }
+  </style>
+{% endblock %}
+{% block jscript %}
+  <script type="text/javascript">
+    var map = null;
+	//
+	function refreshMap() {
+      var mapCenter = new google.maps.LatLng ({{coord_for_GMap_center.lat}},
+	                                          {{coord_for_GMap_center.lon}});
+      var myOptions = {
+        zoom: {{zoom_level}},
+        center: mapCenter,
+        mapTypeId: google.maps.MapTypeId.{{map_type_value}}
+      };
+      map.setOptions (myOptions);
+	}
+
+	//
+    window.initMap = function() {
+      var mapCenter = new google.maps.LatLng ({{coord_for_GMap_center.lat}},
+	                                          {{coord_for_GMap_center.lon}});
+      var myOptions = {
+        zoom: {{zoom_level}},
+        center: mapCenter,
+        mapTypeId: google.maps.MapTypeId.{{map_type_value}}
+      }
+      map = new google.maps.Map(document.getElementById("map_canvas"),myOptions);
+    
+      // Markers and map bounds
+      var bounds = new google.maps.LatLngBounds();
+{% for place in place_list %}
+      var placePoint = new google.maps.LatLng ({{place.coord.latitude}}, {{place.coord.longitude}});
+      var marker = new google.maps.Marker ({ 
+        position: placePoint,
+        title: "{{place.city_name_utf}}",
+        map: map,
+      });
+
+      var contentString = '<div id="content">'+
+	    '<div id="info_window"></div>'+
+        '<h1 id="iw_title" class="firstHeading">{{place.name_utf}}</h1>'+
+        '<div id="iw_body">'+
+        'Travel-related name: <b>{{place.name_utf}}</b><br/>'+
+        'Location (city, state, country): '+
+		  '<b>{{place.city_name_utf}}</b>'+
+{% if place.adm2_name_utf != "Z" %}
+		  ', <b>{{place.adm2_name_utf}}</b>'+
+{% endif %}
+{% if place.adm1_name_utf != "Z" %}
+		  ', <b>{{place.adm1_name_utf}}</b>'+
+{% endif %}
+		  ', <b>{{place.country_name}}</b>'+
+		  '<br/>'+
+        'PageRank: <b>{{place.page_rank.rank}}%</b><br/>'+
+        'IATA code: <b>{{place.tvl_code.code}}</b><br/>'+
+        'ICAO code: '+
+		  {% if place.icao_code.code != "ZZZZ" %}
+		  '<b>{{place.icao_code.code}}</b><br/>'+
+		  {% else %}
+		  'None<br/>'+
+		  {% endif %}
+        'Geonames ID: '+
+		  {% if place.geonames_id.id != 0 %}
+		  '<a href="https://www.geonames.org/{{place.geonames_id.id}}">'+
+		  '{{place.geonames_id.id}}</a><br/>'+
+		  {% else %}
+		  'None<br/>'+
+		  {% endif %}
+{% for wikilink in place.link_list.link %}
+        'Wikipedia: <a href="{{wikilink.link}}">{{wikilink.link}}</a>.<br/>'+
+{% endfor %}
+        'Time zone and offset (GMT, DST, raw): '+
+		  '<b>{{place.tz.tz}}</b> '+
+		  '({{place.gmt_offset.offset}}, {{place.dst_offset.offset}}, '+
+		  '{{place.raw_offset.offset}})<br/>'+
+        'Original keywords: '+
+{% for original_keyword in place.original_keywords.word %}
+          '<b>{{original_keyword}}</b>'+
+{% endfor %}
+          '<br/>'+
+{% if query_string != corrected_query_string %}
+        'Corrected keywords (distance={{place.edit_distance_actual.dist}}): '+
+  {% for corrected_keyword in place.corrected_keywords.word %}
+          '<b>{{corrected_keyword}}</b>'+
+  {% endfor %}
+          '<br/>'+
+{% endif %}
+        'Matching: <b>{{place.matching_percentage.percentage}}%</b><br/>'+
+        '</div>'+
+        '</div>';
+
+      var infowindow = new google.maps.InfoWindow ({
+        content: contentString
+      });
+
+	  // Creating a closure to retain the correct data
+	  // See https://www.svennerberg.com/2012/03/adding-multiple-markers-to-google-maps-from-json/ for the trick
+	  (function (marker, contentString) {
+	    // Attaching a click event to the current marker
+        google.maps.event.addListener (marker, 'click', function() {
+          infowindow.setContent (contentString);
+          infowindow.open (map, marker);
+        });
+
+	  })(marker, contentString)
+
+      // Attaching a closeclick event to the current marker
+	  google.maps.event.addListener (marker, 'closeclick', refreshMap());
+
+      //
+      bounds.extend (placePoint);
+{% endfor %}
+
+      // Fit the map with the newly calculated bounds
+{% if nb_of_places >= 2 %}
+      map.fitBounds (bounds);
+{% endif %}
+
+      // Polyline
+      var flightPlanCoordinates = [
+{% for place in place_list %}
+        new google.maps.LatLng ({{place.coord.latitude}}, {{place.coord.longitude}}),
+{% endfor %}
+      ];
+
+      var flightPath = new google.maps.Polyline({
+        path: flightPlanCoordinates,
+	geodesic: true,
+        strokeColor: "#FF0000",
+        strokeOpacity: 1.0,
+        strokeWeight: 2
+      });
+
+      flightPath.setMap (map);
+    }
+
+	// Create the script tag, set the appropriate attributes
+	var script = document.createElement ("script");
+	script.src = "https://maps.googleapis.com/maps/api/js?key=AINTAnActualKey&callback=initMap";
+	script.defer = true;
+	script.async = true;
+
+	// Append the script element to head
+	document.head.appendChild (script);
+  </script>
+{% endblock %}
+
+{% block title %} Travel Search {% endblock %}
+
+{% block bodyclass %}body{% endblock %}
+{% block bodyoptions %}{% endblock %}
+
+{% block content %}
+
+    <center>
+      <br clear="all" id="lgpd">
+      <img id="logo" alt="Travel Search" height="110" width="276"
+           src="{% static "search/icons/airports.gif" %}">
+      <br><br>
+      <form action="{% url 'search:index' %}" method="get"	name="search_form">
+        <table cellpadding="0" cellspacing="0">
+          <tr valign="top">
+            <td width="25%">&nbsp;</td>
+            <td align="center" nowrap>
+              <input type="text" name="q" maxlength="200" size="55"
+					 title="Airport Search" value="{{query_string}}"
+					 class="lst">
+			  <input type="hidden" name="z" value="{{zoom_level}}">
+			  <input type="hidden" name="mt" value="{{map_type_value}}">
+              <br>
+              <input name="query_text" type="submit" value="Search Airports"
+					 class="lsb">
+              <input name="show_airport" type="submit" value="Show an Airport!"
+					 class="lsb">
+              <input name="show_itinerary" type="submit" 
+					 value="Show an Itinerary!" class="lsb">
+            </td>
+            <td nowrap width="25%" align="left">&nbsp;</td>
+          </tr>
+        </table>
+		{% csrf_token %}
+      </form>
+
+	  <p>
+		Original query string: <em>{{query_string}}</em><br/>
+{% if corrected_query_string != "" and query_string != corrected_query_string %}
+		Did you mean
+		<em><b><a href="{% url 'search:index' %}?q={{corrected_query_string}}&z={{zoom_level}}&mt={{map_type_value}}">{{corrected_query_string}}</a>?</b></em>
+{% endif %}
+	  </p>
+
+{% if n_airports != 0 %}
+	  <p><font size="-1">
+ {% for place_pair in place_pair_list %}
+      {{place_pair.dep.name_utf}} (<b>{{place_pair.dep.tvl_code.code}}</b>)
+  {% if place_pair.dist != "0" %} -- {{place_pair.dist}} km -- {% endif %}
+  {% if forloop.last and place_pair.dist != "0" %}
+      {{place_pair.arr.name_utf}} (<b>{{place_pair.arr.tvl_code.code}}</b>)
+      ---- Total: {{dist_total}} km
+  {% endif %}
+ {% endfor %}
+	  </font></p>
+{% endif %}
+
+{% if n_unmatched_kw != 0 %}
+	  <p>
+		{{n_unmatched_kw}} unmatched keyword(s): 
+ {% for unmatched_keyword in unmatched_keyword_list %}
+  {% if not forloop.first %}, {% endif %}
+		{{unmatched_keyword}}
+ {% endfor %}
+	  </p>
+{% endif %}
+
+    </center>
+
+	<!-- The following HTML <div> (Google Maps API v3) must not be enclosed by
+		 <center> tags, as it would not be able to display correctly otherwise.
+	-->
+	<div id="map_canvas"
+		 style="margin-left: auto; text-align:center; margin-right: auto; width:50%; height:50%">
+	</div>
+
+    <center>
+      <p><font size="-2">
+        &copy;2009-2020 - <a href="#">Privacy</a> - 
+        <a href="#">About Travel Search</a>
+      </font>
+    </center>
+
+{% endblock %}
+

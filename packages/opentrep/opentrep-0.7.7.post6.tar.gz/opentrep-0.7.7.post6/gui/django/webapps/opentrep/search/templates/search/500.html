@@ -1,0 +1,26 @@
+{% extends "search/base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+
+{% block title %}Page unavailable{% endblock %}
+
+{% block content %}
+ <h1>Page unavailable</h1>
+
+ <p>Sorry, but the requested page is unavailable due to a server hiccup.</p>
+
+ <p>{{error_msg}}</p>
+
+ <p>Our engineers have been notified, so please check back later.</p>
+
+ <p>
+   Examples of valid searches are as following:<br/>
+   <ul>
+	<li><a href="{% url 'search:index' %}?q=sfo airport&z=12">{% url 'search:index' %}?q=sfo airport</a></li>
+	<li><a href="{% url 'search:index' %}?q=cdg&z=12">{% url 'search:index' %}?q=cdg</a></li>
+	<li><a href="{% url 'search:index' %}?q=jfk lax atl">{% url 'search:index' %}?q=jfk lax atl</a></li>
+	<li><a href="{% url 'search:index' %}?q=buenos aeres rio de janero rekjavik">{% url 'search:index' %}?q=buenos aeres rio de janero rekjavik</a></li>
+   </ul>
+ </p>
+
+{% endblock %}
