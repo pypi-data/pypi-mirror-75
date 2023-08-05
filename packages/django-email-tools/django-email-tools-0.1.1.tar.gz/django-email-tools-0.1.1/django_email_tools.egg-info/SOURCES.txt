@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+django_email_tools.egg-info/PKG-INFO
+django_email_tools.egg-info/SOURCES.txt
+django_email_tools.egg-info/dependency_links.txt
+django_email_tools.egg-info/requires.txt
+django_email_tools.egg-info/top_level.txt
+email_tools/__init__.py
+email_tools/apps.py
+email_tools/emails.py
+email_tools/settings.py
+email_tools/urls.py
+email_tools/views.py
+email_tools/templates/email_preview.html

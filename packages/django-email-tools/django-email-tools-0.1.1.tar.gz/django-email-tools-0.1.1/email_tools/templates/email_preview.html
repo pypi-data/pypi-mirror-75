@@ -1,0 +1,115 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Email Template Preview</title>
+    <style>
+        body {
+            background-color: #ccc;
+        }
+
+        #email,
+        #text-email,
+        #variables {
+            max-width: 800px;
+            background-color: white;
+            border: 1px solid #aaa;
+            margin: 15px auto;
+            font-family: sans-serif;
+            font-size: 13px;
+            padding: 15px;
+        }
+
+        #email a {
+            color: #15c;
+        }
+
+        #text-email {
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+
+        #templates {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        #templates a {
+            padding: 6px 10px;
+            border-radius: 3px;
+            text-decoration: none;
+            margin: 5px;
+            background-color: #eee;
+        }
+
+        #variables-input {
+            max-width: 800px;
+        }
+    </style>
+    <script>
+        window.addEventListener('load', e => {
+            const links = document.querySelectorAll('#email a')
+            for (const link of links) {
+                link.addEventListener('click', e => {
+                    e.preventDefault()
+                })
+            }
+            // Get variables
+            var variables = JSON.parse(document.getElementById('js_vars').textContent);
+
+            // Change instances of {{ var }} to <span class=var>
+            var d = document.getElementsByTagName("body")[0];
+            for (v in variables) {
+
+                // Regular expression to avoid replacing links
+                var replace = "(?<!href=\"[^\"]*)\{\{" + v + "\}\}"
+                var re = new RegExp(replace, "gi");
+                d.innerHTML = d.innerHTML.replace(re, "<span class=\"var_" + v + "\">{% templatetag openvariable %}" + v + "{% templatetag closevariable %}</span>");
+            }
+
+            // Set textbox value to be JSON of variables
+            document.getElementById('variables-input').value = JSON.stringify(variables, undefined, 4);
+            document.getElementById('variables-input').rows = Object.keys(variables).length + 2;
+
+            // Update text with values from the text box
+            document.getElementById('variables-input').addEventListener("input", e => {
+                var variables = JSON.parse(e.srcElement.value);
+                for (v in variables) {
+                    var elts = document.getElementsByClassName("var_" + v);
+                    for (var i = 0; i < elts.length; i++) {
+                        elts[i].textContent = variables[v];
+                    }
+
+                }
+            });
+        })
+    </script>
+    {{variables|json_script:"js_vars" }}
+</head>
+
+<body>
+    <div id="templates">
+        {% for template in templates %}
+        <a href="?email={{template}}">{{template|title}}</a>
+        {% endfor %}
+    </div>
+    <div id="email">
+        {{email}}
+    </div>
+    <div id="text-email"> {{text_email}}</div>
+    <div id="variables">
+        <b>Edit Variables</b>
+        <p>
+            <textarea id="variables-input" rows="2" cols="200"></textarea>
+        </p>
+        <b>Variables Used</b>
+        <ul>
+            {% for var, value in variables.items %}
+            <li><kbd>{{var}}</kbd> - <span class="var_{{var}}">{{value}}</span>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+
+</html>
