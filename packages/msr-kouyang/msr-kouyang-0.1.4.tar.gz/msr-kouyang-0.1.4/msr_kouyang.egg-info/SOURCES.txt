@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+setup.py
+bin/msr
+msr/VERSION
+msr/__init__.py
+msr_kouyang.egg-info/PKG-INFO
+msr_kouyang.egg-info/SOURCES.txt
+msr_kouyang.egg-info/dependency_links.txt
+msr_kouyang.egg-info/top_level.txt
