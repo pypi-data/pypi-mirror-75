@@ -1,0 +1,3 @@
+include VERSION.txt
+recursive-exclude tests *
+exclude set_version.py
