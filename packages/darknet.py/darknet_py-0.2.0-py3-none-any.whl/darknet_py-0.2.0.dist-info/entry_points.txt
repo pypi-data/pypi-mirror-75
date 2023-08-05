@@ -1,0 +1,9 @@
+[darknet.cli]
+py = darknet.py.cli:py
+
+[intake.catalogs]
+darknet = darknet.zoo:cat
+
+[intake.drivers]
+darknet = darknet.py.intake:DarknetSource
+
