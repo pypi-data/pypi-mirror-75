@@ -1,0 +1,17 @@
+/**
+ * Email Demo File
+ * Author: Kimio Kuramitsu
+ * The following is defined to demonstrate how the Nez works
+ * in JSSST/PPL2015.
+ * @see https://qiita.com/sakuro/items/1eaa307609ceaaf51123
+ */
+
+Email = { EMAIL #Email }
+
+EMAIL = LOCAL '@' DOMAIN
+LOCAL = [a-zA-Z0-9.!#$%&'*+/=?^_`{|}~\-]+
+DOMAIN = SUBDOMAIN ('.' SUBDOMAIN)+
+SUBDOMAIN = [a-zA-Z0-9\-]+
+
+example EMAIL mail@address.com
+example EMAIL mail+1@address.com

@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: pegtree
+Version: 0.9.12
+Summary: PEGTree for Python and JavaScript
+Home-page: https://github.com/KuramitsuLab/pegtree.git
+Author: Kimio Kuramitsu
+Author-email: UNKNOWN
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Text Processing
+Requires-Dist: setuptools
+
+UNKNOWN
+
+

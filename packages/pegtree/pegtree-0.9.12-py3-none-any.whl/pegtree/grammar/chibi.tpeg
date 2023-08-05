@@ -1,0 +1,77 @@
+// Chibi Functional Programming Language
+// by Kimio Kuramitsu
+
+example Program '''
+fib(n) = if n < 3 then 1 else fib(n-1)+fib(n-2)
+print(fib(4))
+'''
+
+Program = {
+  Expression*
+  #Block
+} EOF
+
+EOF = !.
+_ = [ \t\r\n]*
+
+Expression = FuncDecl / VarDecl / IfExpr / Binary
+
+FuncDecl = {
+  Name "(" Name ")" "=" Expression
+  #FuncDecl
+}
+
+VarDecl = {
+  Var "=" Expression
+  #VarDecl
+}
+
+example Expression if a == 1 then print(a) else 0
+example Expression f(a+1)
+example Expression 1+2*3
+example Expression 1*2+3
+example Expression 1-2-3
+example Expression 1+2-3
+
+IfExpr = {
+  "if" Expression 
+  "then" Expression 
+  "else" Expression
+  #IfExpr
+}
+
+Binary = 
+  / { Sum "==" Sum #Eq}
+  / { Sum "!=" Sum #Ne}
+  / { Sum "<" Sum #Lt}
+  / { Sum ">" Sum #Gt}
+  / { Sum "<=" Sum #Lte}
+  / { Sum ">=" Sum #Gte}
+  / Sum
+
+Sum = Prod ( ^{ "+" Prod #Add } / ^ { "-" Prod #Sub} )*
+Prod = Term ( ^{ "*" Term #Mul } / ^{ "/" Term #Div} )*
+
+Term = FuncApp / Name / Value / "(" Expression ")"
+
+FuncApp = {
+  Name "(" Expression ")"
+  #FuncApp
+}
+
+Name = Var
+
+Var = {
+  [A-Za-z] [A-Za-z0-9]* 
+  #Var
+} _
+
+Value = {
+  [0-9]+ 
+  #Int
+} _
+
+example Name x2
+example Value 0
+example Value 10
+
