@@ -1,0 +1,6 @@
+python-monerorpc>=0.5.12
+monero-scripts>=0.0.7
+
+[test]
+mock
+pytest
