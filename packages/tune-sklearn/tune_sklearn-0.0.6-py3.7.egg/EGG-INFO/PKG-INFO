@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: tune-sklearn
+Version: 0.0.6
+Summary: An experimental scikit-learn API on Tune
+Home-page: https://github.com/ray-project/tune-sklearn
+Author: Michael Chau/Anthony Yu
+Author-email: UNKNOWN
+License: UNKNOWN
+Description: An API enabling faster scikit-learn training using Tune parallelization and early stopping algorithms
+Platform: UNKNOWN
