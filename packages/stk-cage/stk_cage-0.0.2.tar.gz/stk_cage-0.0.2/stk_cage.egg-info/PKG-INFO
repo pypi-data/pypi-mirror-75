@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: stk-cage
+Version: 0.0.2
+Summary: build cage with STK
+Home-page: UNKNOWN
+Author: Kexin Zhang
+Author-email: secret@secret.com
+License: UNKNOWN
+Description: # 一个基于STK的专门生成cage的测试库
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
