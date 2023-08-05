@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+src/myanmartools/__init__.py
+src/myanmartools/_params.py
+src/myanmartools/zawgyi_detector.py
+src/myanmartools.egg-info/PKG-INFO
+src/myanmartools.egg-info/SOURCES.txt
+src/myanmartools.egg-info/dependency_links.txt
+src/myanmartools.egg-info/requires.txt
+src/myanmartools.egg-info/top_level.txt
+src/myanmartools/resources/__init__.py
+src/myanmartools/resources/compatibility.tsv
+src/myanmartools/resources/zawgyiUnicodeModel.dat
+tests/__init__.py
+tests/test_zawgyi_detector.py
