@@ -1,0 +1,16 @@
+kubedev/__init__.py,sha256=Y8WIG2aSUiW7VkrTcf_hLCGDK54caaj-3J9xQHNwnNo,71
+kubedev/__main__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+kubedev/command_line.py,sha256=c51WlneOVp2wWcz-GN6sNcv6BNNBdHc3KSb3kZsjEWk,3996
+kubedev/kubedev.py,sha256=J57kcKkHD4IuiO4Mw7L7j-Nw4NGIl7umhZXMk-bcq4g,18107
+kubedev/templates/helm-chart/Chart.yaml,sha256=593D1DVKH5J3L84_m6JjAjp1TIA-oR4H2CN-59KaWOk,141
+kubedev/templates/helm-chart/deployment.yaml,sha256=od5aCBWoYOgXGXdkrV_dXiZXKpMWbMKoB2VMN4W8duE,776
+kubedev/templates/helm-chart/service.yaml,sha256=Zk0VZIOcHMDsGbQTjfIiyOq5mPv_lu1sbw-UsM3pHMg,381
+kubedev/utils/__init__.py,sha256=sXb8AQXp4L-_1toi1kJD5kzSyLdY0e51LVZuvWmzgOk,100
+kubedev/utils/kubedev_config.py,sha256=bJsjN_OMIDXq0DgMn2TsbwooR_tAEvSQonx7SS-3TNU,5950
+kubedev/utils/yaml_merger.py,sha256=iInNtTGeTC39PT27MJbgou1FG21k1sf3nICdK1KmuPU,1931
+kubedev-0.5.712167185.dist-info/LICENSE,sha256=Rcdfj1ViQzJt4P95Bie1vTfCUPj0_9GvVBkD99J-UHQ,1056
+kubedev-0.5.712167185.dist-info/METADATA,sha256=ebfDoxLwVpFuLU7EKITOgbkhx-ubmHhD4Kc5Lc8kf5A,7376
+kubedev-0.5.712167185.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+kubedev-0.5.712167185.dist-info/entry_points.txt,sha256=7sQmifGgDBF-NIe3OguzKEHmKzQ2DyGHU-nkZE_Me-o,42
+kubedev-0.5.712167185.dist-info/top_level.txt,sha256=QP7AogtzlBRrUHg5jGHeA58J3bBxo990novvB-VdGGI,8
+kubedev-0.5.712167185.dist-info/RECORD,,
