@@ -1,0 +1,3 @@
+[console_scripts]
+quora-scraper = quora_scraper.scraper:main
+
