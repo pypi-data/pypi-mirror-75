@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: pytest-exploratory
+Version: 0.1
+Summary: Interactive console for pytest.
+Home-page: https://github.com/nokia/pytest-exploratory
+Author: Iwan Briquemont
+Author-email: iwan.briquemont@nokia.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Pytest
+Classifier: Framework :: IPython
+Classifier: Framework :: Jupyter
+Classifier: Topic :: Software Development :: Testing
+Requires-Python: >=3.6
+Requires-Dist: py (>=1.1.1)
+Requires-Dist: pytest (>=5.3)
+Requires-Dist: ipython
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
+UNKNOWN
+
+
