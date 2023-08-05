@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: efault
+Version: 1.0.0
+Summary: TUI for DBG.
+Home-page: https://bad-address.github.io
+Author: Di Paola Martin
+Author-email: use-github-issues@example.com
+License: GNU GPLv3
+Keywords: debugger gdb
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Debuggers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: prompt-toolkit
+
+UNKNOWN
+
+
