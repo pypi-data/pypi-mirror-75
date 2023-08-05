@@ -1,0 +1,4 @@
+[console_scripts]
+shaman-tester = shamanld.tester:main
+shaman-trainer = shamanld.trainer:main
+

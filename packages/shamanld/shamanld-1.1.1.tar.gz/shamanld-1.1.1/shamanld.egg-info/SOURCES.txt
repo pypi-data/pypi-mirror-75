@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+shamanld/__init__.py
+shamanld/shaman.py
+shamanld/tester.py
+shamanld/trainer.py
+shamanld.egg-info/PKG-INFO
+shamanld.egg-info/SOURCES.txt
+shamanld.egg-info/dependency_links.txt
+shamanld.egg-info/entry_points.txt
+shamanld.egg-info/top_level.txt
+shamanld/data/model.json.gz
