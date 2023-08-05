@@ -1,0 +1,32 @@
+Metadata-Version: 1.1
+Name: styler-identity
+Version: 0.5.0
+Summary: Simple library used to handle user data from JWT tokens
+Home-page: https://github.com/STYLER-Inc/styler-identity
+Author: Bruno Toshio Sugano
+Author-email: bruno.sugano@styler.link
+License: MIT license
+Description: 
+        ===============================
+        HtmlTestRunner
+        ===============================
+        
+        
+        .. image:: https://img.shields.io/pypi/v/styler_identity.svg
+                :target: https://pypi.python.org/pypi/styler_identity
+        
+        Simple library used to handle user data from JWT tokens
+        
+        
+        Links:
+        ---------
+        * `Github <https://github.com/STYLER-Inc/styler-identity>`_
+        
+Keywords: styler_identity
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8

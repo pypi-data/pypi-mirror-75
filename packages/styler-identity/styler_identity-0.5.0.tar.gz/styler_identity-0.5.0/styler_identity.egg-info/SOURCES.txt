@@ -1,0 +1,15 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+styler_identity/__init__.py
+styler_identity/identity.py
+styler_identity.egg-info/PKG-INFO
+styler_identity.egg-info/SOURCES.txt
+styler_identity.egg-info/dependency_links.txt
+styler_identity.egg-info/not-zip-safe
+styler_identity.egg-info/requires.txt
+styler_identity.egg-info/top_level.txt
+tests/conftest.py
+tests/test_identity.py
