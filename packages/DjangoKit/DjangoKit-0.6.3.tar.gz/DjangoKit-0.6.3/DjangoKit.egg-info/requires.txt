@@ -1,0 +1,11 @@
+django>=2.2
+pillow>=6.2.1
+pycryptodome>=3.9.0
+pytz>=2019
+unidecode>=1.1.1
+
+[markdown]
+markdown>=3.1.1
+
+[pygments]
+pygments>=2.5.2
