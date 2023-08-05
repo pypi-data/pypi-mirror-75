@@ -1,0 +1,244 @@
+Metadata-Version: 2.1
+Name: koia
+Version: 0.0.8
+Summary: Sql query builder interface
+Home-page: https://github.com/Kel0/koia
+Author: Kel0
+Author-email: rickeyfsimple@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# Koia
+
+## Installation
+Via github
+```
+git clone https://github.com/Kel0/koia.git
+pip install invoke
+inv install
+```   
+Via pip
+```
+pip install koia
+```
+
+## Methods
+```
+koia.connector.Database.generic_types() -> Tuple[
+    TypeVar("T", Dict[str, str], Dict[str, int]),
+    TypeVar("X", bool, bool)
+]
+
+koia.connector.Database.reconnect() -> None
+    reconnect to database & recreate cursor
+
+koia.connector.Database.close() -> None
+    close connection to database & close cursor
+
+koia.QueryBuilder.QueryBuilder.table(table: str) -> koia.QueryBuilder.QueryBuilder
+
+koia.QueryBuilder.QueryBuilder.where(column: str, operation: str, value: Any) -> koia.QueryBuilder.QueryBuilder
+    column = column_name
+    operation = "= | > | < | >= | <= | !=" etc etc
+    value = value    
+
+koia.QueryBuilder.QueryBuilder.whereNotNull(column: str) -> koia.QueryBuilder.QueryBuilder
+
+koia.QueryBuilder.QueryBuilder.orWhere(column: str, operation: str, value: Any) -> koia.QueryBuilder.QueryBuilder
+
+koia.QueryBuilder.QueryBuilder.orderBy(column: str, option: str) -> koia.QueryBuilder.QueryBuilder
+
+koia.QueryBuilder.QueryBuilder.take(count: int) -> koia.QueryBuilder.QueryBuilder
+
+koia.QueryBuilder.QueryBuilder.innerJoin(table: str, specification: dict) -> koia.QueryBuilder.QueryBuilder
+    .innerJoin(table="myTable2", specification={"myTable2.id": "myTable.id"})    
+
+koia.FetchBuilder.FetchBuilder.get() -> Optional[List[Any]]
+
+koia.FetchBuilder.FetchBuilder.insert(values: dict) -> None
+    values = {"col_name": "value"}    
+
+koia.FetchBuilder.FetchBuilder.update(values: dict) -> None
+    values = {"col_name": "value"}
+```
+
+## Attributes
+```
+koia.connector.ConnectorGenericTypes.T -> TypeVar("T", Dict[str, str], Dict[str, int])
+koia.connector.ConnectorGenericTypes.X -> TypeVar("X", bool, bool)
+
+koia.connector.Database.config: dict -> Your database config
+koia.connector.Database.connection: MySQLconnection -> Database connection
+koia.connector.Database.cursor: MySQLcursor -> Connection cursor
+
+koia.QueryBuilder.QueryBuilder.database: koia.connector.Database -> koia.connector.Database instance
+koia.QueryBuilder.QueryBuilder.query_conf: dict -> dict with sql attributes and params
+
+koia.FetchBuilder.FetchBuilder -> koia.FetchBuilder.FetchBuilder(koia.QueryBuilder.QueryBuilder)
+
+```
+
+
+## Code example
+
+### Get data
+```
+from typing import Dict
+
+from koia.connector import Database
+from koia.FetchBuilder import FetchBuilder
+
+database: Database = Database(config={
+    "host": "host",
+    "user": "root",
+    "password": "1234",
+    "database": "base"
+}, autocommit=False)
+fetch_builder: FetchBuilder = FetchBuilder(database=database)
+
+data: list = (
+    fetch_builder.table("myTable")
+    .where("column", "=", value)
+    .orWhere("column", "LIKE", f"%{value}%")
+    .whereNotNull("column")
+    .whereIn("column", [value1, value2])
+    .orderBy("column", "DESC")
+    .take(2)
+    .get()
+)
+```
+Some details
+```
+(
+    fetch_builder.table("myTable")
+    .where("column", "=", value)
+    .orWhere("column", "LIKE", f"%{value}%")
+    .whereNotNull("column")
+    .whereIn("column", [value1, value2])
+    .orderBy("column", "DESC")
+    .take(2)
+    .get()
+) -> SELECT * FROM myTable 
+        WHERE `column` = value 
+        OR `column` LIKE '%value%'
+        AND `column` IS NOT NULL 
+        AND `column` IN (value1, value2)
+        ORDER BY `column` DESC
+        LIMIT 2
+```
+
+### Inner join
+```
+from typing import Dict
+
+from koia.connector import Database
+from koia.FetchBuilder import FetchBuilder
+
+database: Database = Database(config={
+    "host": "host",
+    "user": "root",
+    "password": "1234",
+    "database": "base"
+}, autocommit=False)
+fetch_builder: FetchBuilder = FetchBuilder(database=database)
+
+data: list = (
+    fetch_builder.table("myTable")
+    .innerJoin(table="myTable2", specification={
+        "myTable.id": "myTable2.id", "myTable.col": "myTable2.col"
+    })
+    .innerJoin(table="myTable3", specification={
+        "myTable.id": "myTable3.id", "myTable.col": "myTable3.col"
+    })
+    .whereNotNull("column")
+    .get()
+)
+```
+Some details
+```
+data = (
+    fetch_builder.table("myTable")
+    .innerJoin(table="myTable2", specification={
+        "myTable2.id": "myTable.id", "myTable2.col": "myTable.col"
+    })
+    .innerJoin(table="myTable3", specification={
+        "myTable3.id": "myTable.id", "myTable3.col": "myTable.col"
+    })
+    .whereNotNull("column")
+    .get()
+) -> SELECT * FROM myTable 
+        INNER JOIN myTable2 ON (myTable2.id = myTable.id) and (myTable2.col = myTable.col)
+        INNER JOIN myTable2 ON (myTable3.id = myTable.id) and (myTable3.col = myTable.col)
+        WHERE `column` IS NOT NULL
+```
+
+### Insert data
+```
+from typing import Dict
+
+from koia.connector import Database
+from koia.FetchBuilder import FetchBuilder
+
+database: Database = Database(config={
+    "host": "host",
+    "user": "root",
+    "password": "1234",
+    "database": "base"
+}, autocommit=False)
+fetch_builder: FetchBuilder = FetchBuilder(database=database)
+(
+    fetch_builder.table("myTable")
+    .insert({
+        "column": "value"
+    })
+)
+```
+Some details
+```
+(
+    fetch_builder.table("myTable")
+    .insert({
+        "column": "value"
+    })
+) -> INSERT INTO myTable
+        (`column`) VALUES (value)
+```
+
+### Update data
+```
+from typing import Dict
+
+from koia.connector import Database
+from koia.FetchBuilder import FetchBuilder
+
+database: Database = Database(config={
+    "host": "host",
+    "user": "root",
+    "password": "1234",
+    "database": "base"
+}, autocommit=False)
+fetch_builder: FetchBuilder = FetchBuilder(database=database)
+(
+    fetch_builder.table("myTable")
+    .update({
+        "column": "value"
+    })
+    .where("column", "LIKE", "%{value}%")
+)
+```
+Some details
+```
+(
+    fetch_builder.table("myTable")
+    .update({
+        "column": "value"
+    })
+    .where("column", "LIKE", "%{value}%")
+) -> UPDATE myTable SET `column` = value
+        WHERE `column` LIKE '%value%'
+```
+
