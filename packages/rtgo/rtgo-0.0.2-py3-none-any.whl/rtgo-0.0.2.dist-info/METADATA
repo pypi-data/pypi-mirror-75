@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: rtgo
+Version: 0.0.2
+Summary: Quick and simple multithreading
+Home-page: https://github.com/Thomas-Rowlands/multithread
+Author: Thomas Rowlands, Emma Croot
+Author-email: thomas.s.rowlands@gmail.com, ec339@le.ac.uk
+License: LICENCE.txt
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+
+# Ready Thready Go
+Module for easily running Python functions utilising multi-threading.
+
+
