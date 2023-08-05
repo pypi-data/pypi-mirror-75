@@ -1,0 +1,8 @@
+[console_scripts]
+build-and-push-docs=jgt_tools.docs.build_docs:build_and_push[build_docs]
+build-docs=jgt_tools.docs.build_docs:build[build_docs]
+check-version=jgt_tools.check_version:check_version
+env-setup=jgt_tools.env_setup:main
+run-tests=jgt_tools.run_tests:main
+self-check=jgt_tools.self_check:main
+
