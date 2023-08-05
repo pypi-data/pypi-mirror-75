@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+src/bioconda2biocontainer/__init__.py
+src/bioconda2biocontainer/biocontainer.py
+src/bioconda2biocontainer/entry_point.py
+src/bioconda2biocontainer/entry_point_search.py
+src/bioconda2biocontainer/entry_point_update_cwl_docker.py
+src/bioconda2biocontainer/update_cwl_docker_image.py
+src/bioconda2biocontainer.egg-info/PKG-INFO
+src/bioconda2biocontainer.egg-info/SOURCES.txt
+src/bioconda2biocontainer.egg-info/dependency_links.txt
+src/bioconda2biocontainer.egg-info/entry_points.txt
+src/bioconda2biocontainer.egg-info/requires.txt
+src/bioconda2biocontainer.egg-info/top_level.txt
