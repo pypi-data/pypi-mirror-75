@@ -1,0 +1,11 @@
+lightgbm<3
+optuna<2
+
+[dev]
+mypy
+pyflakes
+black
+pylint
+wheel
+twine
+pytype
