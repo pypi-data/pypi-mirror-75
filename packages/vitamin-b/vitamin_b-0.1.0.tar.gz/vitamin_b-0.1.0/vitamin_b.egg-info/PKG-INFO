@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: vitamin-b
+Version: 0.1.0
+Summary: A user-friendly machine learning Bayesian inference library
+Home-page: https://github.com/hagabbar/vitamin_b
+Author: Hunter Gabbard, Chris Messenger, Ik Siong Heng, Francesco Tonolini, Roderick Murray-Smith
+Author-email: h.gabbard.1@research.gla.ac.uk
+License: GNU General Public License v3 (GPLv3)
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: ==3.6
