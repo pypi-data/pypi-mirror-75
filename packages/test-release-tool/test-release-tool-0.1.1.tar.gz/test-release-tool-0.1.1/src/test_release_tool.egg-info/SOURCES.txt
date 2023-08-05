@@ -1,0 +1,12 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+src/test_release_tool/__init__.py
+src/test_release_tool/main.py
+src/test_release_tool.egg-info/PKG-INFO
+src/test_release_tool.egg-info/SOURCES.txt
+src/test_release_tool.egg-info/dependency_links.txt
+src/test_release_tool.egg-info/entry_points.txt
+src/test_release_tool.egg-info/not-zip-safe
+src/test_release_tool.egg-info/top_level.txt
