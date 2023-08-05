@@ -1,0 +1,3 @@
+[console_scripts]
+tg=tg.__main__:main
+
