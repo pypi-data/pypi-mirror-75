@@ -1,0 +1,139 @@
+Metadata-Version: 2.1
+Name: django-db-queue-exports
+Version: 0.0.2
+Summary: An extension to django-db-queue for monitoring long running jobs
+Home-page: https://www.dabapps.com/
+Author: DabApps
+Author-email: engineering@dabapps.com
+License: BSD
+Project-URL: Source, https://github.com/dabapps/django-db-queue-exports
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: django-db-queue (==1.3.0)
+Requires-Dist: django-model-utils (==2.3.1)
+Requires-Dist: django-uuidfield (==0.5.0)
+Requires-Dist: jsonfield (==2.0.2)
+Requires-Dist: Django (>=2.2)
+Requires-Dist: djangorestframework (==3.9.2)
+
+# django-db-queue-exports
+
+**An extension to [django-db-queue](https://github.com/dabapps/django-db-queue) for monitoring long running task statuses.
+The aim of this extension is to simplify the execution of long running tasks, and allow for polling of tasks statuses during execution.**
+
+[![Build Status](https://travis-ci.com/dabapps/django-db-queue-exports.svg?token=gFw2G3a8PohgNBo8f8Nm&branch=master)](https://travis-ci.com/dabapps/django-db-queue-exports)
+
+Supported and tested against:
+- Django 2.2
+- django-db-queue 1.3.0
+- Python 3.6, 3.7 and 3.8
+
+## Getting started
+### Installation
+Install from PIP
+```
+pip install django-db-queue-exports
+```
+Add `django_dbq_exports` to your installed apps
+```
+INSTALLED_APPS = (
+    ...
+    'django_dbq_exports',
+)
+```
+Add `django_dbq_exports.tasks.export_task` to django-dbq JOBS list in settings.py
+```
+JOBS = {
+    ...
+    'export': {
+        'tasks': ['django_dbq_exports.tasks.export_task'],
+    },
+}
+```
+Configure the url, something like this:
+```
+urlpatterns = [
+    ...
+    url(r'^export/', include("django_dbq_exports.urls")),
+]
+```
+Remember to run your migrations
+```
+python manage.py migrate
+```
+## Usage
+### Describing your task
+A task is a standard python function. It must take an `export_params` dictionary parameter. This can be utilised for any parameters required within your task.
+The task can also optionally return a string value which will be stored in `Export.result_reference`. This is best used for file paths or URLs when you need to download or access the results of the task.
+Here's an example task:
+```
+import random
+
+def generate_example_report(export_params):
+    output_file = 'myfile.csv'
+    array_length = export_params.get("length", None)
+    x = []
+
+    for i in range(array_length if array_length else 99):
+        x.append(random.randint(1, 10))
+
+    x.sort()
+    with open(output_file, 'w') as f:
+        f.write(",".join(str(y) for y in x))
+
+    return output_file
+```
+
+Configure your task in settings.py
+```
+EXPORTS = {
+    "my_export": "my_project.tasks.generate_example_report",
+}
+```
+
+### Running the task
+Simply `POST` to the pre-configured endpoint with the following json.
+The `export_type` should map to a configured key within the `settings.EXPORTS` dictionary.
+```
+{
+    "export_type" : "my_export"
+} 
+```
+With optional parameters to be received by your previously created export task
+```
+{
+    "export_type" : "my_export",
+    "export_params" : {
+        "length": 256
+    }
+}
+```
+### Querying the task status
+Simple `GET` the same endpoint with a url parameter = to the export `id` field returned from the POST request.
+Or `GET` the same endpoint with no parameters to return a list of all exports.
+
+
+### Creating a custom view
+If you don't wish to use the built in views and urls to trigger exports, create your own! To trigger an export yourself simply create an export object like so:
+```
+Export.objects.create(export_type="my_export")
+```
+The newly created export object will handle the DBQ job creation itself. 
+
+### Overriding priority
+By default all exports will be created with a priority of 1. This is passed through to django-dbq. If you wish to override this you can do so via the POST method.
+```
+{
+    "export_type" : "my_export",
+    "priority" : 3
+} 
+```
+Or through the Export creation itself.
+```
+Export.objects.create(export_type="my_export", priority=3)
+```
+
+## Code of conduct
+
+For guidelines regarding the code of conduct when contributing to this repository please review [https://www.dabapps.com/open-source/code-of-conduct/](https://www.dabapps.com/open-source/code-of-conduct/)
+
