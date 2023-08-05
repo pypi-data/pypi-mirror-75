@@ -1,0 +1,13 @@
+pytest_databricks/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pytest_databricks/client.py,sha256=gMQms5vb2nvKmvrZ-mmBgdTMuZitDhS5s13EToBG1ns,4624
+pytest_databricks/plugin.py,sha256=UuoKss9-LlF9IJr8iDch-r8AUgX2mvxtCgkEiXTjt7s,2986
+pytest_databricks/plugin/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/conftest.py,sha256=y_KtIWg6pQwX1jHrmbXM1tbXMK-H_QmN6pTL033xs8I,739
+tests/test_basic.py,sha256=RVScONRGzKQnbcm1C037allsxLi9sn0p4C8K6np_IRE,1056
+pytest_databricks-0.0.3.dist-info/LICENSE,sha256=OXLcl0T2SZ8Pmy2_dmlvKuetivmyPd5m1q-Gyd-zaYY,35149
+pytest_databricks-0.0.3.dist-info/METADATA,sha256=2IM0uObBtF9Mf0cRTUgU7Xdi2jsSdMi8MzCcBg__Fas,596
+pytest_databricks-0.0.3.dist-info/WHEEL,sha256=YUYzQ6UQdoqxXjimOitTqynltBCkwY6qlTfTh2IzqQU,97
+pytest_databricks-0.0.3.dist-info/entry_points.txt,sha256=RDRdqnoviAocBxXfSLLvH2GBtNZmWPWbRiDquChoFSE,50
+pytest_databricks-0.0.3.dist-info/top_level.txt,sha256=yLvjL8eseKZLGuZF37QwQS76DNB7qAu26ulAGzp2YBg,24
+pytest_databricks-0.0.3.dist-info/RECORD,,
