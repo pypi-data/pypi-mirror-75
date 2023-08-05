@@ -1,0 +1,45 @@
+.. meta::
+   :description: gnuplot plotting backend for python.
+   :keywords: gnuplot, py-gnuplot, pandas, python, plot
+
+txt2img is a python tool to convert the text into a image.
+
+1. Introduction
+================
+
+Normally people read the text in the .txt file. Sometimes there are needs for
+people to render the text into an image, for example you don't want the text
+being copied, or you'd like to render the ascii art with colors, etc.
+
+2. how to use it
+================
+
+After install, you can convert a text to a picture easily::
+
+    txt2img input.txt output.png
+
+After install, you can also embed the asciiart directly into a html or pdf
+document with my developed script: sphinxcontrib-cmd2img, for examples::
+
+    .. cmd2img:: txt2img
+        :caption: a flower
+
+        .· .·.   [1;35m/╲     /|[0m
+                ·[1;35m│  \  ╱ |[0m
+           [1;35m\-.___ / \  \/ / /[0m
+            [1;35m\ __ ╲  [1;33m.,.[1;35m| ╱__[0m
+            [1;35m╱  乁  [1;33m'\|)[1;35m╱￣  ╲[0m
+        [1;35m-＜`︶╲__╱ [1;33m︶[1;35m╲    ╲ \[0m
+            [35m￣￣ /   /  ╱﹀乀 \│[0m
+                 [1;35m╲  ' /[1;30m╲  ·╲/[0m
+                   [1;35m\| /   [1;30m\  ; ｀[0m
+                    [1;35m\/     [1;30m\  ·,[0m
+        .----/[1;35m      ′      [1;30m︳  ·__,[0m
+
+More and more features are in develop.
+
+5. CHANGLOG
+=============
+
+1.0.0 Initial upload;
+
