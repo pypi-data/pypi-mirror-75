@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/NFSim.egg-info/PKG-INFO
+src/NFSim.egg-info/SOURCES.txt
+src/NFSim.egg-info/dependency_links.txt
+src/NFSim.egg-info/not-zip-safe
+src/NFSim.egg-info/requires.txt
+src/NFSim.egg-info/top_level.txt
+src/nf_sim/__init__.py
