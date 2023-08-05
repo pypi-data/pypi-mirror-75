@@ -1,0 +1,13 @@
+cloud_control_common/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+cloud_control_common/cloud_control_client.py,sha256=uD3grPaQERdNcmrFK8FQX2V164SvVhOBIw_jJgKcKtY,2923
+cloud_control_common/config.py,sha256=ULm9gqzFUjxAO7_NxDhjAzyp_n7nGEC4O7upaD93Ls8,972
+cloud_control_common/credentials.py,sha256=axSm3JRK2hUEuZKrnSNfpGannzo0iUs-7PhEXlzp0fE,500
+cloud_control_common/http_client.py,sha256=qzgjhu8ZlzQVAfTQv-5gpv003mSla_vYqPM4ulcO6GY,3736
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_cloud_control_client.py,sha256=9qgelj5MdVHmic6qKB1AogT3l4MY2Mvbj_OqqHhOG28,5233
+tests/test_http_client.py,sha256=huxGvFLmh0BQl_VrSAZucYsgYKN-VbEQUpHP-_NKiKA,4909
+cloud_control_common-0.0.1.dist-info/LICENSE,sha256=e5ik5JeNUtH4-WzK2imIMYUfYN60KTKkSu15ns012Xw,1083
+cloud_control_common-0.0.1.dist-info/METADATA,sha256=lQIXzdnsLnmCrB2H3D_5YZqF7dhJsH5xvUMiiYxtqSQ,817
+cloud_control_common-0.0.1.dist-info/WHEEL,sha256=YUYzQ6UQdoqxXjimOitTqynltBCkwY6qlTfTh2IzqQU,97
+cloud_control_common-0.0.1.dist-info/top_level.txt,sha256=aBROYpKzquFxalHx67OOsOwZvPQrQeR4jkeXDMDFI5Q,21
+cloud_control_common-0.0.1.dist-info/RECORD,,
