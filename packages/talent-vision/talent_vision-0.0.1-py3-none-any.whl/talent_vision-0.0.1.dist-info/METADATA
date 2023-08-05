@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: talent-vision
+Version: 0.0.1
+Summary: Application to deal with talent data
+Home-page: https://github.com/dcooper01/talent-vision
+License: MIT
+Author: Daniel
+Author-email: dcooper01sp@protonmail.com
+Maintainer: Daniel
+Maintainer-email: dcooper01sp@protonmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Project-URL: Repository, https://github.com/dcooper01/talent-vision
+Description-Content-Type: text/markdown
+
+# Talent Vision
+
+## Requirements
+
+Python 3.8+
+
+**Talent Vision** is an application to extract structured information from talent images
+
+## Installation
+
+<div class="termy">
+
+```console
+$ pip install talent-vision
+---> 100%
+successfully installed talent-vision
+```
+
+</div>
