@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: traefikswarm
+Version: 0.0.2
+Summary: A simple tool to manage traefik in a docker swarm
+Home-page: https://github.com/ssimek/traefikswarm
+Author: Štefan Šimek
+Author-email: simek@triaxis.sk
+License: MIT
+Description: # traefikswarm
+        
+        Simple command line tool to manage traefik serving a swarm of docker containers
+        
+        ## License
+        
+        traefikswarm is licensed under the [MIT License](./LICENSE.txt)
+        
+        Copyright (c) 2020 triaxis s.r.o.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

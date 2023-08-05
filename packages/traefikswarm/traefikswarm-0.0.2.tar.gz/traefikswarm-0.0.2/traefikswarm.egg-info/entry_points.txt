@@ -1,0 +1,3 @@
+[console_scripts]
+traefikswarm = traefikswarm.command_line:main
+
