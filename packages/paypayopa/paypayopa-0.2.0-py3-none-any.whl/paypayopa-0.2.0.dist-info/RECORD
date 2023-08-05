@@ -1,0 +1,16 @@
+paypayopa/__init__.py,sha256=CYRuxntfoKi_vFovLqpEcN31leNGFB0qNLF9om0mbFo,212
+paypayopa/client.py,sha256=FjWC5v2yeeBJkOM3ToeUwcDStpgnbr58RLm_iLwk2Ps,8214
+paypayopa/errors.py,sha256=mv1-b8UU5vI18BqFNZbtWEujapyHvrI3c8Ctg10ZkVw,304
+paypayopa/constants/__init__.py,sha256=7OdNrN51_6ibd1exs6HcYrUOUDUjcj9aPwZ5MbmoesI,183
+paypayopa/constants/error_code.py,sha256=Rj-b_XmzFUcen8LgC_c8mlLwnpOq3A713g5Ts8vQu8E,140
+paypayopa/constants/http_status_code.py,sha256=1BGrEdeQ-uzJVmFS3_v8XtZAxz2I2SUxyiyJG8fLzME,64
+paypayopa/constants/url.py,sha256=G3cI_Fbgqb5gu191wVXXZF3EVx6fku0DJwoh1c8tclo,193
+paypayopa/resources/__init__.py,sha256=wQEakD1MPECJ1vfxPHPtwbbbRrKXQ7fhQPmjZTG0epM,54
+paypayopa/resources/base.py,sha256=bL0FkjuglDeO3Zwxl7QZfh18YU1XtzK7JvxZIf1_4Ls,1101
+paypayopa/resources/code.py,sha256=sxQfEnxhtM32JKf4c_PEP1HdClYNQZL74K9Drn66EJA,5760
+paypayopa/resources/payments.py,sha256=vfPg8_5ALr0nOIDlg8hRiYtx0P4zn-umvQGg_5ypSC8,3174
+paypayopa-0.2.0.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+paypayopa-0.2.0.dist-info/METADATA,sha256=o0tqwKmVn7Wbap81cR45mJ5zwBNATD3oRatgB1uXCFk,25978
+paypayopa-0.2.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+paypayopa-0.2.0.dist-info/top_level.txt,sha256=p-J_xpyCImkNgrwz66OgQg0AgYhhVRZsTRmKXCCuB6o,10
+paypayopa-0.2.0.dist-info/RECORD,,
