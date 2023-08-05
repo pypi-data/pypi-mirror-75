@@ -1,0 +1,12 @@
+angr==8.20.7.27
+websocket-client
+qtconsole
+ipython
+pyzmq
+PySide2>5.14.2.1
+toml
+pyxdg
+jupyter-client<6
+requests
+sqlalchemy
+pyqodeng.core
