@@ -1,0 +1,10 @@
+include requirements.txt
+include LICENSE
+
+include scripts/clickgen
+include clickgen/pkginfo.json 
+
+include clickgen/xcursorgen.so
+recursive-include clickgen/linker data.json
+recursive-include clickgen/template cursor.theme
+recursive-include clickgen/template index.theme
