@@ -1,0 +1,5 @@
+robotframework>=3.0
+pillow>=5.2.0
+opencv-python>=4.0.0.21
+imageio==2.6.1
+mss>=3.2.1
