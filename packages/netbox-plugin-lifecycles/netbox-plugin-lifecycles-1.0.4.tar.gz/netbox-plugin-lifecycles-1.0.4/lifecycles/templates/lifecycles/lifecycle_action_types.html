@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% with config=settings.PLUGINS_CONFIG.netbox_animal_sounds %}
+{% for action in action_types %}
+{{ action.name }}
+{% endfor %}
+{% endwith %}
+{% endblock %}
