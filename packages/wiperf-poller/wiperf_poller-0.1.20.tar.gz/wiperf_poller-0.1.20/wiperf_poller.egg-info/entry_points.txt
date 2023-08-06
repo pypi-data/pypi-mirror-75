@@ -1,0 +1,3 @@
+[console_scripts]
+wiperf_poller = wiperf_poller.__main__:main
+
