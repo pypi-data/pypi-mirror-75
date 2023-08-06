@@ -1,0 +1,26 @@
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index ff8cc92..614ebe8 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -66,7 +66,7 @@ packaging_set_other_options (TBZ2 "TBZ2;TGZ")
+ ##            Dependencies            ##
+ ########################################
+ #
+-get_external_libs (git "python 2.6" "boost 1.48" "icu 4.2" protobuf readline
++get_external_libs (git "python 3.4" "boost 1.48" "icu 4.2" protobuf readline
+   "xapian 1.0" "soci 3.0" "sqlite 3.0" "mysql 5.1" doxygen)
+ 
+ 
+diff --git a/config/project_config_embeddable.cmake b/config/project_config_embeddable.cmake
+index 3bd7896..819f3c7 100644
+--- a/config/project_config_embeddable.cmake
++++ b/config/project_config_embeddable.cmake
+@@ -606,7 +606,7 @@ macro (get_boost)
+   set (Boost_USE_STATIC_RUNTIME OFF)
+   set (BOOST_REQUIRED_COMPONENTS_FOR_LIB
+     date_time random iostreams serialization filesystem system
+-	locale python27 python36 regex)
++	locale python34 regex)
+   set (BOOST_REQUIRED_COMPONENTS_FOR_BIN program_options)
+   set (BOOST_REQUIRED_COMPONENTS_FOR_TST unit_test_framework)
+   set (BOOST_REQUIRED_COMPONENTS ${BOOST_REQUIRED_COMPONENTS_FOR_LIB}

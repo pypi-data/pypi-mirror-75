@@ -1,0 +1,58 @@
+{% extends "search/base.html" %}
+{% load staticfiles %}
+
+{% block style %}
+  <style type="text/css">
+    html { height: 100% }
+    body { height: 100%; margin: 0; padding: 0 }
+    #map_canvas { margin-left: auto; text-align:center; margin-right: auto; width:50%; height:50% }
+  </style>
+{% endblock %}
+
+{% block title %} Travel Search {% endblock %}
+
+{% block content %}
+
+    <center>
+      <br clear="all" id="lgpd">
+      <img id="logo" alt="Travel Search" height="110" width="276"
+           src="{% static "search/icons/airports.gif" %}">
+      <br><br>
+      <form action="{% url 'search:index' %}" method="get"	name="search_form">
+        <table cellpadding="0" cellspacing="0">
+          <tr valign="top">
+            <td width="25%">&nbsp;</td>
+            <td align="center" nowrap>
+              <input type="text" name="q" maxlength="200" size="55"
+					 title="Airport Search" value="{{query_string}}"
+					 class="lst">
+			  <input type="hidden" name="z" value="{{zoom_level}}">
+			  <input type="hidden" name="mt" value="{{map_type_value}}">
+              <br>
+              <input name="query_text" type="submit" value="Search Airports"
+					 class="lsb">
+              <input name="show_airport" type="submit" value="Show an Airport!"
+					 class="lsb">
+              <input name="show_itinerary" type="submit" 
+					 value="Show an Itinerary!" class="lsb">
+            </td>
+            <td nowrap width="25%" align="left">&nbsp;</td>
+          </tr>
+        </table>
+		{% csrf_token %}
+      </form>
+    </center>
+
+    <br><br>
+
+    <center>
+      <font size=-1>
+        <a href="#">About Travel Search</a>
+      </font>
+      <p><font size=-2>
+        &copy;2009-2020 - <a href="#">Privacy</a>
+      </font></p>
+    </center>
+
+{% endblock %}
+
