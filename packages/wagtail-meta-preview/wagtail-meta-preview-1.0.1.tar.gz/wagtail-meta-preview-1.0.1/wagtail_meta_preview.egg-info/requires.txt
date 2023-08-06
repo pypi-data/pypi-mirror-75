@@ -1,0 +1,5 @@
+wagtail>=2.7
+
+[testing]
+black==19.10b0
+coverage==5.2.1
