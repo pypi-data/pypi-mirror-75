@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: msc-chart-generator
+Version: 0.0.1
+Summary: A library to generate MSC charts
+Home-page: https://github.com/anoadragon453/msc-chart-generator
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: PyGithub (>=1.51)
+Requires-Dist: plotly (>=4.7.1)
+Requires-Dist: pandas (>=1.0.3)
+Requires-Dist: psutil (>=5.7.0)
+Requires-Dist: progress (>=1.5)
+Provides-Extra: dev
+Requires-Dist: isort (==5.0.4) ; extra == 'dev'
+Requires-Dist: flake8 (==3.8.3) ; extra == 'dev'
+Requires-Dist: flake8-comprehensions (==3.2.3) ; extra == 'dev'
+Requires-Dist: black (==19.10b0) ; extra == 'dev'
+
+UNKNOWN
+
+
