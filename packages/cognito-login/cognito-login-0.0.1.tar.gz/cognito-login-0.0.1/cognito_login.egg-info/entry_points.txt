@@ -1,0 +1,3 @@
+[console_scripts]
+cognito-login = cognito_login.cli.main:main
+
