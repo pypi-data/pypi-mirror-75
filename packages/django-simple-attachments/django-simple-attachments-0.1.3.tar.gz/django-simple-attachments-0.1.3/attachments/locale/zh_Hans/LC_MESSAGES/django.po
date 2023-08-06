@@ -1,0 +1,75 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-17 15:50+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: attachments/admin.py:17
+msgid "tags"
+msgstr "标签"
+
+#: attachments/apps.py:6
+msgid "attachments"
+msgstr "图片存储"
+
+#: attachments/models.py:8
+msgid "name"
+msgstr "名称"
+
+#: attachments/models.py:10
+msgid "source"
+msgstr "资源"
+
+#: attachments/models.py:12 attachments/models.py:49
+msgid "image size"
+msgstr "大小"
+
+#: attachments/models.py:14
+msgid "image width"
+msgstr "宽度"
+
+#: attachments/models.py:16
+msgid "image height"
+msgstr "高度"
+
+#: attachments/models.py:18
+msgid "image type"
+msgstr "类型"
+
+#: attachments/models.py:19
+msgid "image desc"
+msgstr "描述"
+
+#: attachments/models.py:23
+msgid "is active"
+msgstr "激活状态"
+
+#: attachments/models.py:24
+msgid "created"
+msgstr ""
+
+#: attachments/models.py:25
+msgid "updated"
+msgstr ""
+
+#: attachments/models.py:48
+msgid "image"
+msgstr "图片"
+
+#: attachments/models.py:53 attachments/models.py:54
+msgid "attachment"
+msgstr "图片存储"
