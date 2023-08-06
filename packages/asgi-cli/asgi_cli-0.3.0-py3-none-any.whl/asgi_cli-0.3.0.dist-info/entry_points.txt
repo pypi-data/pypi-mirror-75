@@ -1,0 +1,3 @@
+[console_scripts]
+asgi-cli = asgi_cli.main:main
+
