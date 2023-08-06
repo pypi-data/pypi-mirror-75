@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: buddiEMP
+Version: 0.0.2
+Summary: Managing Employee details
+Home-page: UNKNOWN
+Author: Venkata Bhargavi S
+Author-email: bhargavi.sikhakolli@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+This is a simple Employee data manager
+
+
+# Version
+0.0.1
+## Introduction
+Enables you to display employee details and their E-Mail id.
+### Use the following to import
+- `from lib_name import Manager`
+- `from buddiEMP import Employee` to launch the Tool
+
+
+
+```sh
+- The package enables to add an employee details.
+- To remove an employee details.
+- To display an employee details.
+```
+
