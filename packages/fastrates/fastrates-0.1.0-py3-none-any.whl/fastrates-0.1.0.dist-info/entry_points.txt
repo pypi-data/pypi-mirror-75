@@ -1,0 +1,3 @@
+[console_scripts]
+fastrates=fastrates_cli.main:app
+
