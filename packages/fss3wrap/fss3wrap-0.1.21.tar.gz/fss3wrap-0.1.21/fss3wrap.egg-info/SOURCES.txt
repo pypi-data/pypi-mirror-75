@@ -1,0 +1,14 @@
+LICENSE.txt
+README.rst
+setup.cfg
+setup.py
+fss3wrap/__init__.py
+fss3wrap/abstract_fs_class.py
+fss3wrap/afs_interface.py
+fss3wrap/os_fs_class.py
+fss3wrap/s3_fs_class.py
+fss3wrap.egg-info/PKG-INFO
+fss3wrap.egg-info/SOURCES.txt
+fss3wrap.egg-info/dependency_links.txt
+fss3wrap.egg-info/requires.txt
+fss3wrap.egg-info/top_level.txt
