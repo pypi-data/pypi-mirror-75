@@ -1,0 +1,11 @@
+[console_scripts]
+checks = pyven.checks:main_checks
+drmake = pyven.drmake:main_drmake
+gclean = pyven.gclean:main_gclean
+initopt = pyven.initopt:main_initopt
+pipify = pyven.pipify:main_pipify
+release = pyven.release:main_release
+tasks = pyven.tasks:main_tasks
+tests = pyven.checks:main_tests
+travis-ci = pyven.travis_ci:main_travis_ci
+
