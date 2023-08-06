@@ -1,0 +1,11 @@
+README.md
+setup.py
+version_upper.py
+tests/__init__.py
+tests/test_version_upper.py
+version_upper.egg-info/PKG-INFO
+version_upper.egg-info/SOURCES.txt
+version_upper.egg-info/dependency_links.txt
+version_upper.egg-info/entry_points.txt
+version_upper.egg-info/requires.txt
+version_upper.egg-info/top_level.txt
