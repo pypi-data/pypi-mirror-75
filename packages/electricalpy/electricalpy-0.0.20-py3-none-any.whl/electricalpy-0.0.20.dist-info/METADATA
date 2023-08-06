@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: electricalpy
+Version: 0.0.20
+Summary: computing functions for electrical engineers
+Home-page: https://github.com/iam-abdul
+Author: iron man
+Author-email: mohammadabdulrehman739@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: sympy
+
+This library can be installed using command " pip install electricalpy "
+
+it contains various functions such as 
+	1.series 
+	2.parallel
+	3.to_polar
+	4.to_rectangular
+	5.to_star
+	6.to_delta
+
+they perfom the operation of conversion from one format. The input and output data types for above mentioned functions
+is of type " List "
+
