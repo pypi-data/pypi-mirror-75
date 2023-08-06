@@ -1,0 +1,11 @@
+Django
+django-parler>=2.0
+django-anymail
+django-mailer
+jinja2
+
+[graphql_api]
+graphene>=2.0
+graphene-django
+graphql-core<3,>=2.1
+graphql-relay<3,>=2
