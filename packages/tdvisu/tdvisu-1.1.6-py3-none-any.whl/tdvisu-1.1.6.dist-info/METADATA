@@ -1,0 +1,423 @@
+Metadata-Version: 2.1
+Name: tdvisu
+Version: 1.1.6
+Summary: Visualizing Dynamic Programming on Tree Decompositions.
+Home-page: https://github.com/VaeterchenFrost/tdvisu
+Author: Martin Röbke
+Author-email: martin.roebke@mailbox.tu-dresden.de
+License: GPLv3
+Keywords: graph visualization dynamic-programming msol-solver
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Multimedia :: Graphics :: Presentation
+Description-Content-Type: text/markdown
+Requires-Dist: graphviz
+Requires-Dist: psycopg2
+Requires-Dist: python-benedict
+Requires-Dist: PyYAML
+Provides-Extra: test
+Requires-Dist: hypothesis ; extra == 'test'
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-mock ; extra == 'test'
+
+# TdVisu
+![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)
+[![PyPI license](https://img.shields.io/pypi/l/tdvisu.svg)](https://pypi.python.org/pypi/tdvisu/)
+![Tests](https://github.com/VaeterchenFrost/tdvisu/workflows/Tests/badge.svg) 
+[![codecov](https://codecov.io/gh/VaeterchenFrost/tdvisu/branch/master/graph/badge.svg)](https://codecov.io/gh/VaeterchenFrost/tdvisu)
+
+
+![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/vaeterchenfrost/tdvisu?include_prereleases)
+[![PyPI version fury.io](https://badge.fury.io/py/tdvisu.svg)](https://pypi.python.org/pypi/tdvisu/)
+[![PyPI status](https://img.shields.io/pypi/status/tdvisu.svg)](https://pypi.python.org/pypi/tdvisu/)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/tdvisu.svg)](https://pypi.python.org/pypi/tdvisu/)
+![PyPI - Wheel](https://img.shields.io/pypi/wheel/tdvisu)
+![GitHub repo size](https://img.shields.io/github/repo-size/VaeterchenFrost/tdvisu)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/VaeterchenFrost/tdvisu)
+![GitHub commits since latest release (by SemVer)](https://img.shields.io/github/commits-since/VaeterchenFrost/tdvisu/latest)
+
+----------
+
+Visualization for [dynamic programming](https://en.wikipedia.org/wiki/Dynamic_programming) on [tree decompositions](https://en.wikipedia.org/wiki/Tree_decomposition).
+
+Create a graph object for each given graph that is of interest for the dynamic programming.
+
+The visualization generates highlights and adds solution-tables for user defined time steps.
+
+These snapshot of the graphs will be written in a graphviz-supported file-format to a folder of your choosing.
+
+For the portable and light weight '.svg' format, all graphs for a timestep can be joined together to provide a thoroughly view on the process of dynamic programming.
+
+With the '.svg' format the images are highly customizable, and even combining several timesteps together using svg [animate](https://developer.mozilla.org/en-US/docs/Web/SVG/Element/animate) would be an option in the future.
+
+----------
+
+# Using
+[Alubbock:Graphviz](https://anaconda.org/alubbock/graphviz) (or [Graphviz (>=2.38)](https://graphviz.gitlab.io/download/))
+
+[python-benedict](https://pypi.org/project/python-benedict/)
+
+[for dpdb: psycopg2 (2.8.5)](https://www.psycopg.org/docs/index.html)
+
+----------
+
+# To register the graphviz plugins
+https://gitlab.com/graphviz/graphviz/-/issues/1352
+```shell
+dot.exe -c
+```
+
+# To install
+
+In a command prompt with pip (to get *pip* see: https://pip.pypa.io/en/stable/) installed:
+Just run
+```shell
+pip install -h (for more information on install options)
+pip install tdvisu
+```
+
+# To isolate the dependencies
+
+With [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html ) on the system installed you can isolate the environment with for example:
+```shell
+virtualenv tdvisu_dir -p 3.8
+cd tdvisu_dir/bin/
+source activate
+```
+With [Conda](https://docs.conda.io/en/latest/) on the system installed the dependencies for this project can be automatically installed in a new environment:
+
+To download the latest version from the default branch:
+```shell
+git clone --depth 1 --single https://github.com/VaeterchenFrost/tdvisu
+```
+Open a *conda-command-prompt* with admin privileges and run the commands from the project folder:
+to create a new environment with basic dependencies:
+```shell
+conda env create -f .\environment.yml
+```
+to activate the environment:
+```shell
+conda activate tdvisu
+```
+
+# Install from source
+
+To clone the complete repository:
+```shell
+git clone https://github.com/VaeterchenFrost/tdvisu
+```
+
+To download only the latest version from the default branch:
+```shell
+git clone --depth 1 --single https://github.com/VaeterchenFrost/tdvisu
+```
+
+To install the project from the source folder:
+```shell
+pip install -h (for more information on install options)
+pip install .
+```
+to confirm that the visualization finds all dependencies:
+```shell
+python .\tdvisu\visualization.py -h
+```
+to run all tests:
+```shell
+pip install .[test] 
+pytest .\test\
+```
+
+----------
+
+# How to use
+
+The visualization needs input in the form of the [Json API](https://github.com/VaeterchenFrost/gpusat-VISU/blob/master/JsonAPI_v1.3.md).
+The creation of this file is exemplary implemented in *construct_dpdb_visu.py* or the fork [GPUSAT](https://github.com/VaeterchenFrost/GPUSAT) and *--visufile filename* (optionally disabling preprocessing with *-p*).
+
+Run the python file with the above dependencies installed:
+[visualization.py](https://github.com/VaeterchenFrost/gpusat-VISU/blob/master/satvisualization_repo/satvisu/visualization.py)
+
+**visualization.py** takes two parameters, the json-**infile** to read from, and optionally one **outputfolder**.
+With both arguments a call from IPython might look like this:
+
+```python
+runfile('visualization.py', 
+args='visugpusat.json examplefolder')
+```
+
+For #SAT it produces for example three different graphs suffixed with a running integer to represent timesteps:
+
++ *TDStep* the tree decomposition with solved nodes
++ *PrimalGraphStep* the primal graph with currently active variables highlighted
++ *IncidenceGraphStep* the bipartite incidence graph with active clauses/variables highlighted
+
+The graphs are images encoded in resolution independent **.svg files** (see https://www.lifewire.com/svg-file-4120603)
+
+<p align="center"><img src="https://raw.githubusercontent.com/VaeterchenFrost/tdvisu/master/doc/images/combined6DA4.svg?sanitize=true" width="70%"/></p>
+
+## How to use construct_dpdb_visu.py
+After installing the project [dp_on_dbs](https://github.com/hmarkus/dp_on_dbs) with the there listed [requirements](https://github.com/hmarkus/dp_on_dbs#requirements), we need to
+- edit the [database.ini](https://github.com/VaeterchenFrost/tdvisu/blob/master/tdvisu/database.ini) with our password to [postgresql](https://www.postgresql.org/)
+- Solve a problem with `python dpdb.py [GENERAL-OPTIONS] -f <INPUT-FILE> <PROBLEM> [PROBLEM-SPECIFIC-OPTIONS]`
+  - for the problem **VertexCover** 
+    - with flag `--gr-file` to store the htd Input (if the input was in a different format)
+  - for the problem **SharpSat**
+    - with flag `--store-formula` to store the formula in the database
+- Run 
+  - **SharpSat**: `python construct_dpdb_visu.py [PROBLEMNUMBER]`
+  - **VertexCover**: `python construct_dpdb_visu.py [PROBLEMNUMBER] --twfile [TWFILE]` 
+   with the file in DIMACS tw-format containing the edges of the graph.
+
+# Installation of the psycopg2 package 
+
+See https://www.psycopg.org/docs/install.html#build-prerequisites
+
+For example on linux today this might need
+`sudo apt install libpq-dev` 
+before completion.
+
+-----------------
+
+# New Release
+
+## Version
+- Bump `/version.py` according to the changes made
+- Change date to the release day, keep format 
+
+## Requirements
+In case dependencies have changed, or just to update some, check
+- *requirements.txt*
+- *stable-requirements.txt* (using `pip freeze`)
+- *setup.py*
+
+## Write Changelog.md
+- Add tag with link (see bottom for linking examples)
+- Add changes, maybe some are already in *Unreleased*
+- Update *Unreleased* with **(No) unreleased changes**
+
+## Review code
+- Run tests (pytest)
+- Check codestyle (pylint)
+
+## Push
+- Push changes to master
+- Wait for all automated checks! (All checks have passed...)
+
+## Create Release
+- On the GitHub page go to: Release, **[Draft a new release](https://github.com/VaeterchenFrost/tdvisu/releases/new )** 
+- Enter v'YOUR VERSION NUMBER' as the tag.
+- Add a **Release Title** (could be just the version)
+- Add some description (like in the CHANGELOG.md)
+- Click on **Publish release** on the bottom
+
+## Should automatically release to [PyPI](https://pypi.org/project/tdvisu/ )
+- For details see: [Upload Python Package](https://github.com/VaeterchenFrost/tdvisu/blob/master/.github/workflows/python-app.yml )
+
+**Now you are set for the new release :tada:**
+
+----------
+
+
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/ ), and this
+project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html ).
+
+## [Unreleased]
+- No unreleased changes yet.
+
+## [1.1.6] - 2020-08-01
+### Added
+- Added better property based testing with *hypothesis* [#29]
+- Added jobs and setups to test on macos and windows [#31]
+
+### Changed
+- *do_sort_nodes* now sorts in correct numeric order. [commit cdfcf6](https://github.com/VaeterchenFrost/tdvisu/commit/cdfcf6c332a63f05b499fe133fada4473ad7524c )
+- Fixed some import orders
+
+## [1.1.5] - 2020-07-17
+### Added
+- Added many new tests.
+- Hints for not covered code lines.
+
+### Changed
+- Simplified code to parse commandline flags while removing duplications in code.
+- Entrypoint for modules visualization and construct_dpdb_visu is now in init().
+- Some improvements in utilities.solution_node
+
+## [1.1.4] - 2020-07-14
+### Added
+- Added the possibility to specify and create multiple graph-visualizations in one file [#25]
+- Added test case *test_vc_multiple_and_join* in [commit aa31901](https://github.com/VaeterchenFrost/tdvisu/commit/aa319016ac71f9a54023474bf820cb30929c52a8 )
+- Added test cases for [construct_dpdb_visu](https://github.com/VaeterchenFrost/tdvisu/blob/master/test/test_construct_dpdb.py )
+- Add pytest-mock to tests_require
+
+### Changed
+- Simplified and refactored TDVisu.schema.json 
+- Schema now includes possibility to specify multiple instances of generalGraph and incidenceGraph 
+- Revisited doc/JsonAPI.md to now include all parameters available
+- Renamed test folder expected_images to expected_files
+- Updated stable-requirements.txt
+- Several minor improvements
+
+## [1.1.3] - 2020-07-09
+### Added
+- Added *TDVisu.schema.json* to validate the Json-API for TDVisu [#24]
+- Added 'col' to allowed formats in tw reader (default string in Mathematica)
+
+### Changed
+- Fixed error where database configuration was not found in the directory
+- Fixed missing double quotation marks in JsonAPI.md
+- Moved JsonAPI.md → *doc/JsonAPI.md*
+
+### Removed
+- Removed *generalGraph* and *incidenceGraph* from required arguments in API
+
+## [1.1.2] - 2020-06-26
+### Added
+- Tests for visualization.py using graphviz in the Github Action too
+- Tests for reader.py
+
+### Changed
+- Fixed typo that prevented joining SVG in visualization
+- Fixed cases where logging.yml was not found in the working directory
+- Now using pathlib.Path for most file-related operations
+- Unified logging configuration in utilities and made it easier to work with [#22]
+- Added more type hints and improved existing ones
+
+## [1.1.1] - 2020-06-25
+### Added
+- Added problem type **Sat** to tdvisu/construct_dpdb_visu.py 
+- Added testcases in file test/test_dijkstra.py
+
+### Changed
+- JsonAPI.md is now updated with snake_case names and consistent with visualization_data.py 
+- Fixed default value for svg-join **v_top** to *None* from *'top'*
+- Improved flexibility in several function parameters
+- Improved documentation and comments in several places
+- Fixed passing parameters to method *setup_tree_dec_graph*
+
+### Removed
+- Removed old dependency from  tdvisu/dijkstra.py on utilities
+
+## [1.1.0] - 2020-06-07
+### Added
+- Added file utilities.py with several static or shared things like
+    - Constants: CFG_EXT, LOGLEVEL_EPILOG, DEFAULT_LOGGING_CFG 
+    - Methods: 
+        - flatten
+        - read_yml_or_cfg combining yaml, json, cfg reader in one
+        - logging_cfg configure logging with file or DEFAULT_LOGGING_CFG 
+        - helper convert_to_adj from dijkstra.py
+        - add_edge_to (edges and adj list)
+        - gen_arg infinite Generator
+    - Styles:
+        - base_style, emphasise_node, style_hide_node, style_hide_edge
+    - Graph manipulation:
+        - bag_node
+        - solution_node
+
+- Added file logging.yml (and .ini) with logging configuration for the module [#20]
+- Added half the tests for utilities.py
+
+### Changed
+- Changed path of image SharpSatExample to the absolute URL for [PyPI].
+- Changed names of loggers to absolute name. Should be easy to adjust if needed.
+- Changed logging defaults and config in tdvisu/visualization.py and construct_dpdb_visu.py
+- Updated ArgumentParser help
+- Some fixes of code-style or variable names. 
+
+## [1.0.1] - 2020-06-04
+### Added
+- Codecoverage with [Codecov]
+
+### Changed
+- Changed path of image SharpSatExample to the absolute URL for [PyPI].
+
+## [1.0.0] - 2020-06-04
+### Added
+- Added svgjoin parameters to JsonAPI [#6]
+- Added call to svgjoin from visualization.py
+- Added workflow to display the sourcecode-files in [DIRECTORY]
+
+### Changed 
+- Moved JsonAPI and conda_packages to /doc
+- Updated arguments in svgjoin to be more flexible for multiple joins [#11]
+- Fixed scaling mechanism in svgjoin [#13]
+- Changed tests from unittest to pytest [#12]
+
+### Removed
+- Changelog in JsonAPI.md
+
+## [0.5.1] - 2020-06-01
+### Added
+- Added publishing Action to [PyPI] [#4]
+
+### Changed
+- Changed setup.py with more documentation and simpler functionality.
+- Updated Readme with a guide on how to use construct_dpdb_visu [#2]
+
+### Removed
+- Removed publishing Action to testpypi [#4]
+
+
+## [0.5.0-dev1] - 2020-06-01
+
+### Added
+
+- Development version; beginning of the repository [#1]
+- Added version.py
+- Added module-name to imports
+- Added README to tdvisu directly
+
+### Changed
+- Fixed usage of `__version__` in tdvisu/construct_dpdb_visu.py
+
+### Removed
+- Removed individual versioning 
+
+[#1]: https://github.com/VaeterchenFrost/tdvisu/issues/1
+[#2]: https://github.com/VaeterchenFrost/tdvisu/issues/2
+[#4]: https://github.com/VaeterchenFrost/tdvisu/issues/4
+[#6]: https://github.com/VaeterchenFrost/tdvisu/issues/6
+[#11]: https://github.com/VaeterchenFrost/tdvisu/issues/11
+[#12]: https://github.com/VaeterchenFrost/tdvisu/issues/12
+[#13]: https://github.com/VaeterchenFrost/tdvisu/issues/13
+[#20]: https://github.com/VaeterchenFrost/tdvisu/pull/20
+[#22]: https://github.com/VaeterchenFrost/tdvisu/issues/22
+[#24]: https://github.com/VaeterchenFrost/tdvisu/issues/24
+[#25]: https://github.com/VaeterchenFrost/tdvisu/pull/25
+[#29]: https://github.com/VaeterchenFrost/tdvisu/issues/29
+[#31]: https://github.com/VaeterchenFrost/tdvisu/issues/31
+
+[@VaeterchenFrost]: https://github.com/VaeterchenFrost
+[PyPI]: https://pypi.org/project/tdvisu/
+[mypy]: https://github.com/python/mypy
+[DIRECTORY]: https://github.com/VaeterchenFrost/tdvisu/blob/master/DIRECTORY.md
+[Codecov]: https://codecov.io/gh/VaeterchenFrost/tdvisu
+
+[Unreleased]: https://github.com/VaeterchenFrost/tdvisu/compare/v1.1.6...master
+[1.1.6]: https://github.com/VaeterchenFrost/tdvisu/releases/tag/v1.1.6
+[1.1.5]: https://github.com/VaeterchenFrost/tdvisu/releases/tag/v1.1.5
+[1.1.4]: https://github.com/VaeterchenFrost/tdvisu/releases/tag/v1.1.4
+[1.1.3]: https://github.com/VaeterchenFrost/tdvisu/releases/tag/v1.1.3
+[1.1.2]: https://github.com/VaeterchenFrost/tdvisu/releases/tag/v1.1.2
+[1.1.1]: https://github.com/VaeterchenFrost/tdvisu/releases/tag/v1.1.1
+[1.1.0]: https://github.com/VaeterchenFrost/tdvisu/releases/tag/v1.1.0
+[1.0.1]: https://github.com/VaeterchenFrost/tdvisu/releases/tag/v1.0.1
+[1.0.0]: https://github.com/VaeterchenFrost/tdvisu/releases/tag/v1.0.0
+[0.5.1]: https://github.com/VaeterchenFrost/tdvisu/releases/tag/v0.5.1
+[0.5.0-dev1]: https://github.com/VaeterchenFrost/tdvisu/releases/tag/v0.5.0-dev1
+
+
