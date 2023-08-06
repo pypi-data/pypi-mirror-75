@@ -1,0 +1,19 @@
+prefix=/Users/darnaud/dev/geo/opentrep/_skbuild/macosx-10.15-x86_64-3.8/cmake-install
+exec_prefix=/Users/darnaud/dev/geo/opentrep/_skbuild/macosx-10.15-x86_64-3.8/cmake-install
+libdir=/Users/darnaud/dev/geo/opentrep/_skbuild/macosx-10.15-x86_64-3.8/cmake-install/lib
+libexecdir=/Users/darnaud/dev/geo/opentrep/_skbuild/macosx-10.15-x86_64-3.8/cmake-install/libexec
+includedir=/Users/darnaud/dev/geo/opentrep/_skbuild/macosx-10.15-x86_64-3.8/cmake-install/include
+datarootdir=/Users/darnaud/dev/geo/opentrep/_skbuild/macosx-10.15-x86_64-3.8/cmake-install/share
+datadir=/Users/darnaud/dev/geo/opentrep/_skbuild/macosx-10.15-x86_64-3.8/cmake-install/share
+pkgdatadir=/Users/darnaud/dev/geo/opentrep/_skbuild/macosx-10.15-x86_64-3.8/cmake-install/share/opentrep
+sampledir=
+docdir=/Users/darnaud/dev/geo/opentrep/_skbuild/macosx-10.15-x86_64-3.8/cmake-install/share/doc/opentrep-0.07.7
+mandir=/Users/darnaud/dev/geo/opentrep/_skbuild/macosx-10.15-x86_64-3.8/cmake-install/share/man
+infodir=/Users/darnaud/dev/geo/opentrep/_skbuild/macosx-10.15-x86_64-3.8/cmake-install/share/info
+
+Name: OpenTREP
+Description: C++ library providing a clean API for parsing travel-focused requests
+Version: 0.07.7
+URL: http://www.sourceforge.net/projects/opentrep
+Libs: -L${libdir} -lopentrep  
+Cflags: -I${includedir}
