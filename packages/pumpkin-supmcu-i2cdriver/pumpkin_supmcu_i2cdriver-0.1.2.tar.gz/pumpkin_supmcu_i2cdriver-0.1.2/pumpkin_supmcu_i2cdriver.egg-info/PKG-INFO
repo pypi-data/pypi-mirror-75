@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pumpkin-supmcu-i2cdriver
+Version: 0.1.2
+Summary: A library to interface with Pumpkin SupMCU modules via I2C
+Home-page: https://gitlab.com/pumpkin-space-systems/public/pumpkin-supmcu-i2cdriver
+Author: James Womack
+Author-email: info@pumpkininc.com
+License: UNKNOWN
+Description: # pumpkin-supmcu-i2cdriver Package
+        
+        The `pumpkin-supmcu-i2cdriver` package has the following functionality:
+        
+        * Leverages business logic found in [pumpkin-supmcu](https://pumpkin-supmcu.readthedocs.io/en/latest/index.html).
+            + Please read `pumpkin-supmcu` documentation for usage, this is the implementation package for [I2C Driver](https://i2cdriver.com/)
+        * Interfaces `pumpkin-supmcu` package with the [I2C Driver](https://i2cdriver.com/)
+        
+        The documentation for the `pumpkin_supmcu` package can be [found here](https://pumpkin-supmcu-i2cdriver.readthedocs.io/en/latest/).
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
