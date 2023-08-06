@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: gc-bokeh-app-test
+Version: 0.0.1
+Summary: Testing a Bokeh app in conda
+Home-page: UNKNOWN
+Author: Greg Coyle
+Author-email: gregory.coyle@tufts.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: bokeh (>=2.1.1)
+
+Testing a Bokeh app in Anaconda
+
+
