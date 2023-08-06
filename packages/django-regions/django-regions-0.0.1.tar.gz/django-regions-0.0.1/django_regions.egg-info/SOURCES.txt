@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+django_regions.egg-info/PKG-INFO
+django_regions.egg-info/SOURCES.txt
+django_regions.egg-info/dependency_links.txt
+django_regions.egg-info/top_level.txt
+regions/__init__.py
+regions/admin.py
+regions/apps.py
+regions/models.py
+regions/tests.py
+regions/views.py
+regions/migrations/__init__.py
