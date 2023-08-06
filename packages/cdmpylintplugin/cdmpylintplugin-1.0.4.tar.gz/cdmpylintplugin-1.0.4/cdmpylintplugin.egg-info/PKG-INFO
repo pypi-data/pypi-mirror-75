@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: cdmpylintplugin
+Version: 1.0.4
+Summary: Codimension IDE pylint plugin
+Home-page: https://github.com/SergeySatskiy/cdm-pylint-plugin
+Author: Sergey Satskiy
+Author-email: sergey.satskiy@gmail.com
+License: GPLv3
+Description: cdm-pylint-plugin
+        =================
+        
+        The project is a `Codimension Python IDE <http://codimension.org>`__
+        pylint plugin.
+        
+        With this plugin the functionality of running pylint for a saved file is
+        available in the IDE.
+        
+        Installation
+        ============
+        
+        The plugin is pip installable:
+        
+        .. code:: bash
+        
+           pip install cdmpylintplugin
+        
+        There is a little value (if any) to install it without the `Codimension
+        IDE <http://codimension.org>`__.
+        
+        When installed with Codimension python IDE the following ways are
+        available to invoke the pylint analysis:
+        
+        -  Ctrl+L when the current buffer is a python file
+        -  The current buffer context menu
+        -  The main menu ``Tools->Pylint``
+        -  The buffer toolbar button
+        
+        Also, a pylintrc configuration file can be generated of edited. The
+        options are available via a buffer context menu.
+        
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
