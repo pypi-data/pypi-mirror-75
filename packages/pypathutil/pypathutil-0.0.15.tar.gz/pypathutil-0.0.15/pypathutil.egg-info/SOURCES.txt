@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+pypathutil/__init__.py
+pypathutil/common.py
+pypathutil/configs.py
+pypathutil/version.py
+pypathutil.egg-info/PKG-INFO
+pypathutil.egg-info/SOURCES.txt
+pypathutil.egg-info/dependency_links.txt
+pypathutil.egg-info/entry_points.txt
+pypathutil.egg-info/requires.txt
+pypathutil.egg-info/top_level.txt
+pypathutil/endpoints/__init__.py
+pypathutil/endpoints/group_default.py
+pypathutil/endpoints/main.py
