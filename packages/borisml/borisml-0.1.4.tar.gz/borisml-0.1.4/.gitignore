@@ -1,0 +1,8 @@
+*.ipynb
+dist
+**.egg*
+**.pyc
+**.png
+**.jpg
+outputs
+build

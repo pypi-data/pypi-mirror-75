@@ -1,0 +1,48 @@
+name: 'classification-cifar10'
+num_classes: 10
+
+training:
+  data:
+    name: cifar10
+    root: '../../../data/'
+    download: True
+    train: True
+  batch_size: 128
+
+  trainer:
+    max_epochs: 100
+    gpus: 1
+  transform:
+    input_size: 32
+    flip: True
+    normalize: True
+
+model:
+  name: 'resnet-34'
+  width: 1
+
+optimizer:
+  name: 'sgd'
+  lr: .1
+  weight_decay: 5e-4
+  lr_decay: [60, 80]
+
+criterion:
+  name: 'cross-entropy'
+
+evaluation:
+  data:
+    name: cifar10
+    root: '../../../data/'
+    download: True
+    train: False
+  batch_size: 128
+  transform:
+    input_size: 32
+    normalize: True
+  metrics:
+    - 'classification-top-1-accuracy'
+    - 'classification-top-5-accuracy'
+    - 'classification-mean-recall'
+    - 'classification-mean-precision'
+    - 'classification-per-class-accuracy'
