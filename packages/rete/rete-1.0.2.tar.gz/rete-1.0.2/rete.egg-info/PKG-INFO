@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: rete
+Version: 1.0.2
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: retenet
+Author-email: dev@exploit.design
+License: GPLv3
+Description: # rete
+        Containerized Web Browsing for Added Protection 
+        
+        ##  Install
+        
+        ```bash
+        python3 -m pip install rete
+        ```
+        
+        **NOTE** : Install requires `$USER` to be in the docker group, or sudo permissions.
+        
+Keywords: browser
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Environment :: Console
+Description-Content-Type: text/markdown
+Provides-Extra: dev
