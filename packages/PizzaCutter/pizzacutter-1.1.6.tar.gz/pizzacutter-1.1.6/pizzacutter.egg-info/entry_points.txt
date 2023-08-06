@@ -1,0 +1,3 @@
+[console_scripts]
+pizzacutter = pizzacutter.pizzacutter_cli:cli_main
+
