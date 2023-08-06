@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: client-agreement-api
+Version: 0.0.4
+Summary: A small example package
+Home-page: https://github.com/Abdullahabid3691/ClientAgreement-Api
+Author: Abdullah Abid
+Author-email: abdullahabid3691@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: connexion (==2.7.0)
+Requires-Dist: flask (==1.1.1)
+Requires-Dist: Flask-SQLAlchemy (==2.4.4)
+Requires-Dist: flask-marshmallow
+Requires-Dist: marshmallow
+Requires-Dist: marshmallow-sqlalchemy
+Requires-Dist: Werkzeug
+
+# ClientAgreement-Api
+A sample project to distribute on pypi.
+
+
