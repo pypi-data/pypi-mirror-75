@@ -1,0 +1,16 @@
+LICENSE
+README.md
+requirements.txt
+setup.cfg
+setup.py
+txtrader_monitor/__init__.py
+txtrader_monitor/channel.py
+txtrader_monitor/connection_state.py
+txtrader_monitor/monitor.py
+txtrader_monitor/version.py
+txtrader_monitor.egg-info/PKG-INFO
+txtrader_monitor.egg-info/SOURCES.txt
+txtrader_monitor.egg-info/dependency_links.txt
+txtrader_monitor.egg-info/entry_points.txt
+txtrader_monitor.egg-info/requires.txt
+txtrader_monitor.egg-info/top_level.txt
