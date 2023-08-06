@@ -1,0 +1,3 @@
+[console_scripts]
+stock-rider = krider.main:cli
+
