@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: NeatMS
+Version: v0.6
+Summary: NeatMS is an open source python package for untargeted LCMS deep learning peak curation
+Home-page: https://github.com/bihealth/NeatMS
+Author: Yoann Gloaguen
+Author-email: yoann.gloaguen@mdc-berlin.de
+License: MIT
+Download-URL: https://github.com/bihealth/NeatMS/archive/v0.6.tar.gz
+Description: UNKNOWN
+Keywords: LCMS,Classifier,Peak,Neural network
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
