@@ -1,0 +1,14 @@
+[tool.poetry]
+name = "pipetoys"
+version = "0.4.0"
+description = "Pythonic pipelines."
+license = "ISC"
+readme = "README.md"
+authors = ["SeparateRecords <me@rob.ac>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
