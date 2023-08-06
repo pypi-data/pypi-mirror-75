@@ -1,0 +1,4 @@
+[console_scripts]
+atlasreader = atlasreader.cli:atlasreader_main
+queryatlas = atlasreader.cli:queryatlas_main
+
