@@ -1,0 +1,60 @@
+# Netdata Insights
+> Netdata Insights.
+
+
+[![pypi package](https://img.shields.io/pypi/v/netdata-insights.svg)](https://pypi.python.org/pypi/netdata-insights/) 
+[![CI](https://github.com/netdata/netdata-insights/workflows/CI/badge.svg)](https://github.com/netdata/netdata-insights/actions?query=workflow%3ACI)
+
+## Install
+
+`pip install netdata_insights`
+
+## Quickstart
+
+```python
+import random 
+import pandas as pd
+import numpy as np
+
+from netdata_insights.correlations.core import run_model_dict
+from netdata_insights.data.utils import get_data_dict, get_chart_list
+
+# pick some charts
+#charts = random.sample(get_chart_list(host='london.my-netdata.io'),2)
+charts = ['system.cpu']
+
+# get some data
+dict_baseline = get_data_dict(after=-120, before=0, host='london.my-netdata.io', charts=charts)
+dict_highlight = get_data_dict(after=-560, before=-120, host='london.my-netdata.io', charts=charts)
+
+
+# run correlations
+results = run_model_dict('ks', dict_baseline, dict_highlight)
+results
+```
+
+
+
+
+    {'data': {'system.cpu': {'softirq': {'score': 0.0661},
+       'iowait': {'score': 0.0071},
+       'guest': {'score': 0.0},
+       'nice': {'score': 0.0},
+       'steal': {'score': 0.0405},
+       'system': {'score': 0.1518},
+       'irq': {'score': 0.0},
+       'guest_nice': {'score': 0.0},
+       'user': {'score': 0.2244}}},
+     'summary': {'model_level': 'dim',
+      'n_charts': 1,
+      'n_dims': 9,
+      'n_bad_data': 0,
+      'fit_success': 9,
+      'fit_default': 0,
+      'fit_fail': 0,
+      'success_rate': 1.0,
+      'bad_data_rate': 0.0,
+      'n_lags': 0,
+      'fit_manual': 0}}
+
+
