@@ -1,0 +1,209 @@
+"""Multi fastqc pipeline
+
+Author: Thomas Cokelaer
+Affiliation: Institut Pasteur @ 2019
+
+This pipeline is part of Sequana software (sequana.readthedocs.io)
+
+"""
+import sequana
+from sequana import snaketools as sm
+
+# This must be defined before the include
+configfile: "config.yaml"
+
+# Generic include of some dynamic modules
+exec(open(sequana.modules["fastqc_dynamic"], "r").read())
+
+# A convenient manager
+manager = sm.PipelineManager("fastqc", config)
+manager.setup(globals(), mode="error")
+
+
+rule pipeline:
+    input: "multiqc/multiqc_report.html", ".sequana/rulegraph.svg", "summary.png"
+
+
+# FASTQC on input data set
+__fastqc_samples__input_fastq = manager.getrawdata()
+__fastqc_samples__output_done = "samples/{sample}/{sample}.done"
+__fastqc_samples__wkdir       = "samples/{sample}" # manager.getwkdir("fastqc_samples")
+__fastqc_samples__log = "samples/%s/fastqc.log" % manager.sample
+include: fastqc_dynamic("samples", manager)
+
+
+
+comments = """<p><b>Number of samples:</b> {}    <br><b>Paired data:</b> {}<br><b>Browse files here:</b>
+<a href="../tree.html">tree</a>        """.format(
+    len(manager.samples.keys()) , manager.paired)
+
+from sequana_pipelines.fastqc import version as v2
+from sequana import version as v1
+comments += """<br><b><a href="https://sequana.readthedocs.io">Sequana version: </a></b>{}""".format(v1)
+comments += """<br><b><a href="https://github.com/sequana/sequana_fastqc">Sequana_fastqc version: </a></b>{}</p>""".format(v2)
+
+
+# Multiqc rule
+__multiqc2__input = expand(__fastqc_samples__output_done, sample=manager.samples)
+__multiqc2__logs = "multiqc/multiqc.log"
+__multiqc2__output = "multiqc/multiqc_report.html"
+
+__multiqc2__indir = config['multiqc']['indir']
+__multiqc2__outdir = "multiqc"
+__multiqc2__config = "multiqc_config.yaml"
+# do not specify fastqc itself alone, otherwise it fails (feb 2020)
+__multiqc2__modules = ""
+
+config['multiqc']['options'] = "-m fastqc " + config["multiqc"]["options"].replace("-f", " ") + \
+                               " --comment \"{}\" ".format(comments)
+
+include: sm.modules["multiqc2"]
+
+
+__rulegraph__input = manager.snakefile
+__rulegraph__output = ".sequana/rulegraph.svg"
+__rulegraph__mapper = {"multiqc2":"multiqc/multiqc_report.html"}
+include: sm.modules['rulegraph']
+localrules: rulegraph
+
+
+rule plotting_and_stats:
+    input: expand(__fastqc_samples__output_done, sample=manager.samples)
+    output: "summary.png", "summary.json"
+    run:
+        import glob
+        from sequana.fastqc import FastQC
+        from sequana.summary import Summary
+        from sequana_pipelines.fastqc import version
+        summary = Summary("fastqc", caller="sequana_fastqc", sample_name="multi samples")
+        summary.description = "summary sequana_fastqc pipeline"
+        summary.pipeline_version = version
+        filenames = glob.glob("samples/*/*.zip")
+        f = FastQC()
+        for sample in manager.samples:
+            filenames = glob.glob("samples/{}/*zip".format(sample))
+            filenames = sorted(filenames)
+            assert len(filenames) in [0, 1,2]
+            if len(filenames) != 0:
+                f.read_sample(filenames[0], sample)
+                summary.data[sample] = f.fastqc_data[sample]['basic_statistics']
+                print(f.fastqc_data[sample]['basic_statistics'])
+            else:
+                summary.data[sample] = {
+                    'Filename': 'No fastqc found', 
+                    'File type': 'Conventional base calls', 
+                    'Encoding': 'Sanger / Illumina 1.9', 
+                    'Total Sequences': 0, 
+                    'Sequences flagged as poor quality': 0.0, 
+                    'Sequence length': '0', '%GC': 0, 'total_deduplicated_percentage': 0, 
+                    'mean_quality': 0, 'avg_sequence_length': 0}
+        summary.to_json("summary.json")
+
+        f.plot_sequence_quality()
+        from pylab import savefig, gcf
+        f = gcf()
+        f.set_size_inches(10,6)
+        savefig(output[0], dpi=200)
+
+
+# Those rules takes a couple of seconds so no need for a cluster
+localrules: multiqc2, rulegraph
+
+
+onsuccess:
+    #shell("ln -f -s {} index.html".format(__multiqc2__output))
+    shell("rm -f ./samples/*/*.done")
+    shell("rm -f ./samples/*/*.log")
+    shell("chmod -R g+w .")
+
+    # Create the tree.html file with all fastqc reports
+    from sequana.utils.tree import HTMLDirectory
+    hh = HTMLDirectory(".", pattern="fastqc.html")
+    with open("tree.html", "w") as fout:
+        fout.write(hh.get_html())
+
+    from sequana import logger
+    logger.level = "INFO"
+
+    # This should create the stats plot and the Makefile
+    manager.teardown()
+    manager.clean_multiqc(__multiqc2__output)
+
+    # Now, the main HTML report
+    import pandas as pd
+    from sequana.utils.datatables_js import DataTable
+    import json
+
+    # Summary table with links towards fastqc 
+    data = json.load(open("summary.json", "r"))
+    df = pd.DataFrame(data['data'])
+    df = df.T
+    df.drop(['File type', "Encoding", "Sequences flagged as poor quality"], 
+        axis=1, inplace=True)
+    df['mean_quality'] = [int(float(x)*100)/100 for x in df['mean_quality']]
+    df['total_deduplicated_percentage'] = [int(float(x)*100)/100 for x in df['total_deduplicated_percentage']]
+    df = df.reset_index()
+    df = df.rename({
+            "index": "sample", 
+            "total_deduplicated_percentage": "duplicated (%)"}, axis=1)
+    df['link'] = ["samples/{}/{}_R1_001_fastqc.html".format(sample, sample) for sample in df['sample']]
+    datatable = DataTable(df, 'fastqc', index=False)
+    datatable.datatable.datatable_options = {'paging': 'false',
+                                              'buttons': ['copy', 'csv'],
+                                             'bSort': 'true',
+                                            'dom':"BRSPfrti"
+                                            }
+    datatable.datatable.set_links_to_column('link', 'sample')
+    js = datatable.create_javascript_function()
+    htmltable = datatable.create_datatable()
+
+    # The summary table at the top
+    from sequana_pipelines.fastqc import version as vv
+    df_general = pd.DataFrame({
+        "samples": len(manager.samples), 
+        "paired": manager.paired, 
+        "sequana_fastqc_version": vv}, index=["summary"])
+
+    datatable = DataTable(df_general.T, 'general', index=True)
+    datatable.datatable.datatable_options = {'paging': 'false',
+                                            'bFilter': 'false',
+                                             'bInfo': 'false',
+                                              'header': 'false',
+                                             'bSort': 'true'}
+    js2 = datatable.create_javascript_function()
+    htmltable2 = datatable.create_datatable(style="width: 20%; float:left" )
+
+
+    from sequana.modules_report.summary import SummaryModule2
+    data = {
+            "name": manager.name,
+            "rulegraph": __rulegraph__output,
+            "stats": "stats.txt"
+         }
+
+
+    # Here the is main HTML page report
+    contents = "<h2> General information</h2>"
+    contents += """<div style="float:left; width:30%">{}</div>""".format(js2 + htmltable2)
+
+    image = SummaryModule2.png_to_embedded_png("dummy", "summary.png", 
+                style="width:80%; height:40%")
+
+    contents += '<div style="float:right; width:65%">The following image shows the overall quality of your samples (R1 only). <br>{}</div>'.format(image)
+
+    # the main table
+    contents += """<div style="clear:both"></div>"""
+    contents += "<br><hr><div>Here is a summary for all the samples. The CSV button allows you to export the basic statistics.  {}</div>".format(js + htmltable)
+    contents += """<hr>Please look at the <b><a href="multiqc/multiqc_report.html">multiqc report</a></b> for more details about your run."""
+
+    contents += """<h2> Individual fastqc HTML reports for each sample</h2>"""
+    contents += hh.get_html()
+
+
+
+    s = SummaryModule2(data, intro=contents)
+    shell("rm -rf rulegraph")   # embedded in report
+    shell("rm -rf summary.png") # embedded in report
+
+onerror:
+    print("An error occurred. See message above.")
