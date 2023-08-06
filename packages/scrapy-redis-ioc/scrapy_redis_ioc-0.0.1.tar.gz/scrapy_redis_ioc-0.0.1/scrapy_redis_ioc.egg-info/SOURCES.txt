@@ -1,0 +1,16 @@
+README.md
+setup.py
+scrapy_redis_ioc/__init__.py
+scrapy_redis_ioc/connection.py
+scrapy_redis_ioc/defaults.py
+scrapy_redis_ioc/dupefilter.py
+scrapy_redis_ioc/picklecompat.py
+scrapy_redis_ioc/pipelines.py
+scrapy_redis_ioc/queue.py
+scrapy_redis_ioc/scheduler.py
+scrapy_redis_ioc/spiders.py
+scrapy_redis_ioc/utils.py
+scrapy_redis_ioc.egg-info/PKG-INFO
+scrapy_redis_ioc.egg-info/SOURCES.txt
+scrapy_redis_ioc.egg-info/dependency_links.txt
+scrapy_redis_ioc.egg-info/top_level.txt

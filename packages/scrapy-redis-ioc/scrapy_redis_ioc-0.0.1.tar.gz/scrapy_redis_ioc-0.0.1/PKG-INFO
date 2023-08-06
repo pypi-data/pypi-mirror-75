@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: scrapy_redis_ioc
+Version: 0.0.1
+Summary: 特定场景下使用的scrapy_redis包，支持redis-cluster
+Home-page: https://github.com/woaidapaopao/scrapy-redis-ioc
+Author: big_bubble
+Author-email: 313609467@qq.com
+License: UNKNOWN
+Description: # scrapy-redis-ioc
+        fork scrapy-redis , support redis-cluster
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
