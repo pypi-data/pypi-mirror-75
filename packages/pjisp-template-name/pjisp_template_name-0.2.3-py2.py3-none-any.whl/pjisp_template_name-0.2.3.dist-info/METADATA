@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: pjisp-template-name
+Version: 0.2.3
+Summary: PJISP get template name from repository name
+Home-page: https://github.com/JRubics/pjisp-template-name
+License: BSD-3-Clause
+Author: Jelena Dokic
+Author-email: jrubics@hacke.rs
+Requires-Python: >=2.7,<3.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Topic :: Education
+Classifier: Topic :: Utilities
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Description-Content-Type: text/markdown
+
+About
+=====
+
+Console app to chck if teachers gave the correct name to the github repository for student assignments when using https://github.com/petarmaric/pjisp-assignment-template.
+
+Installation
+============
+
+To install pjisp-template-name run::
+
+    $ pip install pjisp-template-name
+
+Console app usage
+=================
+
+    $ pjisp_template_name <template_name>
+
