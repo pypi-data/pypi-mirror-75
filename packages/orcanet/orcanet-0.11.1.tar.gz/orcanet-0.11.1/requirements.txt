@@ -1,0 +1,8 @@
+setuptools_scm
+tensorflow>=2.1
+numpy
+h5py
+matplotlib
+toml
+graphviz
+MEdgeConv @ git+https://github.com/StefReck/MEdgeConv.git#egg=MEdgeConv
