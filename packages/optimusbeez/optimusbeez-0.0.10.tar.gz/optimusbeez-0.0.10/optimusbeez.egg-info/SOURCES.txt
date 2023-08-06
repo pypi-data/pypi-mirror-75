@@ -1,0 +1,17 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+optimusbeez/PSO.py
+optimusbeez/__init__.py
+optimusbeez/evaluate.py
+optimusbeez/optimal_constants.txt
+optimusbeez.egg-info/PKG-INFO
+optimusbeez.egg-info/SOURCES.txt
+optimusbeez.egg-info/dependency_links.txt
+optimusbeez.egg-info/requires.txt
+optimusbeez.egg-info/top_level.txt
+optimusbeez/tests/__init__.py
+optimusbeez/tests/test_PSO.py
+optimusbeez/tests/test_PSO_helpers.py
+optimusbeez/tests/test_evaluate.py
