@@ -1,0 +1,244 @@
+#!/Users/yy/tools/anaconda3/bin/python
+"""Kubectl for minimalists."""
+import os
+import re
+import sys
+import json
+import yaml
+import datetime
+import platform
+from pick import pick
+from clint.textui import puts, colored, indent
+
+IS_PY3 = platform.python_version()[0] == "3"
+IS_WIN = sys.platform.startswith("win")
+if IS_WIN:
+    import pbs as sh
+else:
+    import sh
+
+
+__version__ = "0.3.1"  # has to be in sync with setup.py
+__kubectl_version__ = {"major": 1, "minor": 12}
+__url__ = "https://gitlab.com/kubic-ci/k"
+
+
+def __assert_kubectl():
+    """Validate kubectl version."""
+    str2int = lambda s: int(re.sub("[^0-9]+", "", s))
+    try:
+        if IS_WIN:
+            kubectl = sh.Command("kubectl.exe")
+        else:
+            from sh import kubectl
+        kver = kubectl.version("--client", "-o", "json")
+        kver = json.loads(str(kver))["clientVersion"]
+        kver["minor"] = "16+"
+        assert str2int(kver["major"]) >= __kubectl_version__["major"] \
+            and str2int(kver["minor"]) >= __kubectl_version__["minor"],\
+            "Wrong kubectl client version, required: {}".format(__kubectl_version__)
+    except sh.CommandNotFound:
+        kubectl = None
+    except ImportError:
+        kubectl = None
+    if not kubectl:
+        print("kubectl is not found on your PATH:\n\n{}".
+              format(os.environ["PATH"]))
+        exit()
+    return kubectl
+
+
+kubectl = __assert_kubectl()
+
+KUBE_CONFIG = os.path.expanduser("~/.kube/config")
+
+EXTENDED = {
+    # resource
+    "ev": "event",
+    "ep": "endpoints",
+    "p": "pod",
+    "s": "service",
+    "v": "volume",
+    "n": "node",
+    "dp": "deployment",
+    "st": "statefulset",
+    "in": "ingress",
+    "ns": "namespace",
+    # actions
+    "c": "create",
+    "a": "apply",
+    "d": "delete",
+    # special
+    "sn": "set-namespace",
+}
+
+ALWAYS_BACKUP = False
+
+
+if __name__ != "__main__":
+    raise Exception("run me, don't import")
+
+
+class KubeCtl(object):
+    """Work with kubectl."""
+
+    def __init__(self, use_defaults=True):
+        """Define defaults."""
+        if not use_defaults:
+            return
+        self.always_backup = ALWAYS_BACKUP
+        self.config = self.load_config()
+        self.contexts = self.load_contexts()
+
+    def load_config(self, config_path=KUBE_CONFIG):
+        """Parse and return kube config."""
+        with open(config_path) as fp:
+            return yaml.safe_load(fp)
+
+    def load_contexts(self):
+        """Load config contexts."""
+        contexts = dict()
+        for context in self.config["contexts"]:
+            name = context["name"]
+            value = context["context"]
+            contexts[name] = value
+        if not contexts:
+            print("Ups, your ~/.kube/config does not have any contexts. "
+                  "Please add some!")
+            exit(2)
+        return contexts
+
+    @property
+    def active_context_name(self):
+        """Return currently active context name."""
+        return self.config["current-context"]
+
+    def prompt(self, message):
+        """Get input from user."""
+        return str(input(message)) if IS_PY3 else str(raw_input(message))
+
+    def prompt_context(self):
+        """Switch kubectl context."""
+        # prompt
+        names = sorted(self.contexts.keys())
+        puts("Switch " + colored.white("kubectl", bold=True) +
+             " to a different context/cluster/namespace.")
+        print("Found following options to select from:")
+        choice = None
+        while choice is None:
+            with indent(4, quote=' >>> '):
+                num = 0
+                for name in names:
+                    num += 1
+                    if name == self.active_context_name:
+                        # indicate active with white and yellow
+                        puts("context: " + colored.white("[{:>1d}]".format(num), bold=True) + " " +
+                             colored.yellow(name, bold=True))
+                    else:
+                        puts("context: " + "[{:>1d}]".format(num) + " " +
+                             colored.cyan(name))
+            choice = self.prompt(' --> new num [?/q]: ')
+            if choice.lower() == "q":
+                print("Nothing changed.")
+                return
+            elif not choice:
+                choice = None
+            else:
+                try:
+                    choice = int(choice)
+                except ValueError as error:
+                    print(str(error))
+                    choice = None
+                if choice is not None and (choice < 1 or choice > len(names)):
+                    print("Choose a number between [1 - {}]".format(len(names)))
+                    choice = None
+        # Switch context based on user choice:
+        selected_context = names[choice - 1]
+        self.switch_context(context_name=selected_context)
+
+    def switch_context(self, context_name):
+        """Switch kubectl context."""
+        puts("New context: " + colored.white(context_name, bold=True))
+        self.config["current-context"] = context_name
+        # Backup original file.
+        if self.always_backup:
+            modified_time = os.path.getmtime(KUBE_CONFIG)
+            time_stamp = datetime.datetime.fromtimestamp(modified_time).strftime("%y-%b-%d--%H:%M:%S")
+            backup_filepath = KUBE_CONFIG + "_" + time_stamp
+            print("Created backup: " + backup_filepath)
+            os.rename(KUBE_CONFIG, backup_filepath)
+        # Write a new config file with changed active context.
+        with open(KUBE_CONFIG, 'w') as outfile:
+            yaml.dump(self.config, outfile, default_flow_style=False)
+
+    def can_handle(self, args):
+        """Return False if k will not handle passed args."""
+        # Will recognize arguments mentioned in EXTENDED.
+        for key in EXTENDED:
+            if args[1] == key:
+                return self.handle(args)
+        return False
+
+    def _set_ns(self, args):
+        """Set namespace."""
+        if len(args) > 2:
+            ns = args[2]
+        else:
+            cur_ns = "{}/{}".format(self.active_context_name,
+                                  self.contexts[self.active_context_name]["namespace"])
+            puts("Which namespace to set on " + colored.white(cur_ns, bold=True) +
+                 " [NAME/q]?")
+            ns = self.prompt("")
+            if (ns.lower() == "q"):
+                print("Nothing changed.")
+                return
+        puts("New namespace: " + colored.white(ns, bold=True))
+        args = ['config', 'set-context', self.active_context_name,
+                '--namespace', ns]
+        return args
+
+    def handle(self, args):
+        """Handle extended args and return True."""
+        if args[1] == "ev":
+            if len(args) == 2:
+                # by default, sort by time
+                args = ["get", "event", "--sort-by", ".lastTimestamp"]
+            else:
+                # keep and pass tail args
+                args = ["get", "event"] + args[2:]
+        elif args[1] == "sn":
+            args = self._set_ns(args)
+        elif args[1] == "a" or args[1] == "d" or args[1] == "c":
+            # handle short-hands for actions
+            key = args[1]
+            action = EXTENDED[key]
+            args = [action] + args[2:]
+        else:
+            # expand short-hands and pass tail args
+            key = args[1]
+            resource = EXTENDED[key]
+            args = ["get", resource] + args[2:]
+        if not args:
+            return
+        self.execute(args)
+
+    def execute(self, args):
+        """
+        Directly copy executable into current process and pass the control.
+
+        Equivalent to POSIX exec call.
+        """
+        if IS_WIN:
+            res = kubectl(*args)
+            print(res)
+        else:
+            return os.execvp("kubectl", ["kubectl"] + args)
+
+
+k = KubeCtl()
+if len(sys.argv) == 1:
+    # prompt for context switch
+    k.prompt_context()
+elif k.can_handle(sys.argv) is False:
+    # pass all the params to the original kubectl
+    k.execute(sys.argv[1:])
