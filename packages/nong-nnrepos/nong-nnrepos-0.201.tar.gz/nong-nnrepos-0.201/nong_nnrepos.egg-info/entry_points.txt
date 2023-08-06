@@ -1,0 +1,3 @@
+[console_scripts]
+nong = nong.command_line:play
+
