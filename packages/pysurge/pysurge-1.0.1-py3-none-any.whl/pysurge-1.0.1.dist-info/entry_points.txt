@@ -1,0 +1,2 @@
+[console_scripts]
+pysurge = pysurge.__main__:main
