@@ -1,0 +1,13 @@
+LICENSE
+README.md
+pyproject.toml
+setup.py
+qnorm/__init__.py
+qnorm/cli.py
+qnorm/quantile_normalize.py
+qnorm.egg-info/PKG-INFO
+qnorm.egg-info/SOURCES.txt
+qnorm.egg-info/dependency_links.txt
+qnorm.egg-info/entry_points.txt
+qnorm.egg-info/requires.txt
+qnorm.egg-info/top_level.txt
