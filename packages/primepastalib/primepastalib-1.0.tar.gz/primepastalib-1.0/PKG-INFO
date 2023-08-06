@@ -1,0 +1,42 @@
+Metadata-Version: 1.1
+Name: primepastalib
+Version: 1.0
+Summary: Helps in deploying django files to heroku.
+Home-page: https://github.com/primepasta/primepastalib
+Author: primepasta
+Author-email: theprimepasta@gmail.com
+License: MIT
+Download-URL: https://github.com/primepasta/primepastalib/archive/v_08.tar.gz
+Description: 
+        Makes the necessary changes to your django files and deploys them to heroku.
+        
+        Usage:
+        
+        from primepastalib import herokuLogin, djangoDeploy
+        
+        #projectName is the name of your django project, and appName is the name that you'd your heroku app to have.
+        
+        #adds the required files and makes changes to the settings.py file, and deploys them to heroku. Make sure you're logged in. Heroku will choose a name for the app.
+        
+        djangoDeploy('projectName')
+        
+        #Does the same as above, except the name you pass will be used for the app.
+        
+        djangoDeploy('projectName', 'appName')
+        
+        #You can also login to heroku by running the following: (It is recommended that you log into the heroku CLI yourself.)
+        
+        herokuLogin()
+        
+Keywords: django,heroku,deploy
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
