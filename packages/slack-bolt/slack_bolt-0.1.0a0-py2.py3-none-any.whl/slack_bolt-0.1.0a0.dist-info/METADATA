@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: slack-bolt
+Version: 0.1.0a0
+Summary: The Bolt Framework for Python
+Home-page: https://github.com/slackapi
+Author: Slack Technologies, Inc.
+Author-email: opensource@slack.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: slack-sdk (==3.0.0a1)
+Provides-Extra: adapter
+Requires-Dist: aiohttp (<4,>=3) ; extra == 'adapter'
+Requires-Dist: boto3 (<=2) ; extra == 'adapter'
+Requires-Dist: bottle (<1,>=0.12) ; extra == 'adapter'
+Requires-Dist: chalice (<2,>=1) ; extra == 'adapter'
+Requires-Dist: click (<8,>=7) ; extra == 'adapter'
+Requires-Dist: Django (<4,>=3) ; extra == 'adapter'
+Requires-Dist: falcon (<3,>=2) ; extra == 'adapter'
+Requires-Dist: fastapi (<0.55,>=0.54) ; extra == 'adapter'
+Requires-Dist: Flask (<2,>=1) ; extra == 'adapter'
+Requires-Dist: pyramid (<2,>=1) ; extra == 'adapter'
+Requires-Dist: sanic (<21,>=20) ; extra == 'adapter'
+Requires-Dist: starlette (<1,>=0.13) ; extra == 'adapter'
+Requires-Dist: tornado (<7,>=6) ; extra == 'adapter'
+Provides-Extra: async
+Requires-Dist: aiohttp (<4,>=3) ; extra == 'async'
+Provides-Extra: testing
+Requires-Dist: pytest (<6,>=5) ; extra == 'testing'
+Requires-Dist: pytest-asyncio (<1) ; extra == 'testing'
+Requires-Dist: aiohttp (<4,>=3) ; extra == 'testing'
+Requires-Dist: black (==19.10b0) ; extra == 'testing'
+
+# WIP: Bolt for Python
+
+The Slack team is working on Bolt for Python!
+
+
