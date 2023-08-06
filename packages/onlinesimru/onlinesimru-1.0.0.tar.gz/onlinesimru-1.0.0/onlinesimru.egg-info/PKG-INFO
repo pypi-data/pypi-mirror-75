@@ -1,0 +1,82 @@
+Metadata-Version: 2.1
+Name: onlinesimru
+Version: 1.0.0
+Summary: Wrapper for automatic reception of SMS-messages by onlinesim.ru
+Home-page: https://github.com/s00d/onlinesim-python-api
+Author: s00d
+Author-email: suppport@onlinesim.ru
+License: Apache License, Version 2.0, see LICENSE file
+Download-URL: https://github.com/s00d/onlinesim-python-api/archive/master.zip
+Description: # Onlinesim Python API
+        
+        
+        Wrapper for automatic reception of SMS-messages by onlinesim.ru
+        
+        [![N|Solid](https://img.shields.io/pypi/pyversions/onlinesimru.svg)](https://pypi.python.org/pypi/onlinesimru)
+        
+        ### Installation
+        You can install or upgrade package with:
+        ```
+        $ pip install onlinesimru --upgrade
+        ```
+        Or you can install from source with:
+        ```
+        $ git clone https://github.com/s00d/onlinesim-python-api
+        $ cd onlinesim-python-api
+        $ python setup.py install
+        ```
+        ...or install from source buth with pip
+        ```
+        $ pip install git+https://github.com/s00d/onlinesim-python-api
+        ```
+        ### Example
+        ```python
+        from onlinesimru import GetFree, GetRent, GetProxy, GetForward, GetUser, GetNumbers
+        import asyncio
+        
+        async def main():
+            client = GetUser('YOUR_TOKEN')
+            balance = await client.balance()
+            print(balance)
+        
+        asyncio.get_event_loop().run_until_complete(main()) # asyncio.run(main()) для python 3.7+
+        ```
+        
+        ### Example2
+        ```python
+        from onlinesimru import GetFree, GetRent, GetProxy, GetForward, GetUser, GetNumbers
+        import asyncio
+        
+        async def main():
+            numbers = GetNumbers('YOUR_TOKEN')
+            input('Press enter if you sms was sent')
+        
+            tzid = await numbers.get('service')
+            print(tzid)
+            code = await numbers.wait_code(tzid)
+            print(code)
+        
+        asyncio.get_event_loop().run_until_complete(main()) # asyncio.run(main()) для python 3.7+
+        ```
+        
+        ## Documentation
+        
+        All documentation is in the wiki of this project - **[Documentation](https://github.com/s00d/onlinesim-python-api/wiki)**
+        
+        ## Bugs
+        
+        If you have any problems, please create Issues here 
+        https://github.com/s00d/onlinesim-python-api/issues
+        
+Keywords: sms,revice,onlinesim-ru,autoreg
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Description-Content-Type: text/markdown
