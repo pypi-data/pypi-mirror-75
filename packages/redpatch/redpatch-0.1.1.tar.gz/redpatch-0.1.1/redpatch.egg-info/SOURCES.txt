@@ -1,0 +1,16 @@
+MANIFEST.in
+README.rst
+setup.py
+redpatch/__init__.py
+redpatch/filebrowser.py
+redpatch/filtersettings.py
+redpatch/redpatch.py
+redpatch/report.py
+redpatch.egg-info/PKG-INFO
+redpatch.egg-info/SOURCES.txt
+redpatch.egg-info/dependency_links.txt
+redpatch.egg-info/requires.txt
+redpatch.egg-info/top_level.txt
+redpatch_notebooks/__init__.py
+scripts/redpatch-batch-process
+scripts/redpatch-start
