@@ -1,0 +1,9 @@
+[MASTER]
+ignore=tests,setup.py,conf.py
+jobs=0
+
+[MESSAGES CONTROL]
+disable=W0511
+
+[TYPECHECK]
+ignored-classes=DataFrameGroupBy
