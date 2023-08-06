@@ -1,0 +1,10 @@
+.gitignore
+LICENSE
+README.md
+requirements.txt
+setup.py
+devcube/__init__.py
+devcube.egg-info/PKG-INFO
+devcube.egg-info/SOURCES.txt
+devcube.egg-info/dependency_links.txt
+devcube.egg-info/top_level.txt
