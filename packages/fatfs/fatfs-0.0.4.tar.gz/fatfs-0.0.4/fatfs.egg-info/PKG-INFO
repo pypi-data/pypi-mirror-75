@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: fatfs
+Version: 0.0.4
+Summary: A wrapper around ChaN's FatFS library for FAT filesystem manipulation.
+Home-page: https://github.com/krakonos/fatfs-python
+Author: Ladislav Laska
+Author-email: krakonos@krakonos.org
+License: UNKNOWN
+Description: # FatFS wrapper for Python
+        
+        This library provides a Python wrapper around [ChaN's FatFS](http://elm-chan.org/fsw/ff/00index_e.html) library.
+        
+        Note: This package is in alpha stage. Not all features are implemented, nor is it very well tested. Use at your own risk.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Embedded Systems
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: System :: Filesystems
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
