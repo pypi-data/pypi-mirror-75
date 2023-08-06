@@ -1,0 +1,4 @@
+include *.txt
+include LICENSE
+recursive-exclude boardex_salesforce\tests *.py
+recursive-include boardex_salesforce *.py
