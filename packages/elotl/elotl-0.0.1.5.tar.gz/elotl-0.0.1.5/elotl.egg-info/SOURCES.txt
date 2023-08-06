@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+elotl/__init__.py
+elotl.egg-info/PKG-INFO
+elotl.egg-info/SOURCES.txt
+elotl.egg-info/dependency_links.txt
+elotl.egg-info/top_level.txt
+elotl/corpora/__init__.py
+elotl/corpora/axolotl.csv
+elotl/corpora/tsunkua.csv
+elotl/corpus/__init__.py
+elotl/nahuatl/__init__.py
+elotl/otomi/__init__.py
