@@ -1,0 +1,47 @@
+----------------------------------------------------------------
+Program: {{ program.name }}
+
+Program parameters
+  duration: {{program.duration}}
+  reps_per_exercise: {{program.reps_per_exercise}}
+  intensity: {{program.intensity}}
+  units: {{program.units}}
+----------------------------------------------------------------
+Exercise information
+{% for day in program.days %}
+  {{day.name}}
+{% for dynamic_ex in day.dynamic_exercises %}
+   {{dynamic_ex.name.ljust(max_ex_name + 2)}} {{'{}{} -> {}{}'.format(str
+   ((dynamic_ex.start_weight|round2digits)).rjust(3), program.units, str((dynamic_ex
+   .final_weight)|round2digits).rjust(3), program.units).ljust(12 + 2*program.units|length)}}
+    {{'reps: [{}, {}]'.format(dynamic_ex.min_reps, dynamic_ex.max_reps).ljust(12+3)}}{{'weekly inc.: {}%'.format(dynamic_ex.weekly_growth(program.duration))}}
+{% endfor %}
+{% for static_ex in day.static_exercises %}
+   {{static_ex.name.ljust(max_ex_name + 2)}} {{static_ex.sets_reps(1)}}
+  {% endfor %}
+{% endfor %}
+----------------------------------------------------------------
+Program
+{% if program._rendered == False %}
+Not rendered. Call Program.render() to render it.
+{% else %}
+{% for week in range(1, program.duration + 1) %}
+ Week {{week}}
+{% for day in program.days %}
+  {{day.name}}
+  {% for dynamic_ex in day.dynamic_exercises %}
+   {{dynamic_ex.name.ljust(max_ex_name + 2)}} {% for scheme in program._rendered[week][day][dynamic_ex]['strings'] %}{{scheme.ljust(max_ex_scheme + 2)}}{% endfor %}
+   {% if verbose == True %}
+
+   {{'stats'.ljust(max_ex_name + 2)}} {{'reps(actual/desired): {}/{}'.format(program._rendered[week][day][dynamic_ex]['reps']|sum, program._rendered[week][day][dynamic_ex]['desired_reps']).ljust(30)}}{{'intensity(a/d): {}/{}'.format(program._rendered[week][day][dynamic_ex]['intensities']|mean|int, program._rendered[week][day][dynamic_ex]['desired_intensity'])}}
+   {% endif %}
+
+  {% endfor %}
+  {% for static_ex in day.static_exercises %}
+   {{static_ex.name.ljust(max_ex_name + 2)}} {{static_ex.sets_reps(week)}}
+  {% endfor %}
+
+{% endfor %}
+{% endfor %}
+{% endif %}
+----------------------------------------------------------------
