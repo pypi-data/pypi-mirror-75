@@ -1,0 +1,11 @@
+README.md
+setup.py
+argusvision/__init__.py
+argusvision.egg-info/PKG-INFO
+argusvision.egg-info/SOURCES.txt
+argusvision.egg-info/dependency_links.txt
+argusvision.egg-info/requires.txt
+argusvision.egg-info/top_level.txt
+argusvision/models/__init__.py
+argusvision/models/resnext.py
+argusvision/models/utils.py
