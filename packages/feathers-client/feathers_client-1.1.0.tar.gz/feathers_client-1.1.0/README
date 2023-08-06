@@ -1,0 +1,30 @@
+# featherjs client
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+featherjs is a client library for feathers js
+
+### Installation
+
+Requires [python] v3+ to run.
+
+Install the dependencies and devDependencies and start the server.
+
+
+```sh
+$ pip install feathers-client
+```
+
+### Usage
+
+
+```sh
+$ from feathers_client import *
+```
+
+
+License
+----
+
+MIT
+
