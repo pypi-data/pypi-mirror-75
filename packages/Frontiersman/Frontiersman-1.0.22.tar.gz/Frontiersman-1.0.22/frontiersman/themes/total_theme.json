@@ -1,0 +1,459 @@
+{
+  "#knight": {
+    "colours": {
+      "disabled_bg": "#00000000",
+      "normal_bg": "#00000000",
+      "normal_border": "#00000000",
+      "normal_text": "#00000000",
+      "dark_bg": "#00000000",
+      "hovered_bg": "#00000000",
+      "selected_bg": "#00000000",
+      "active_bg": "#00000000",
+      "dark_border": "#00000000",
+      "selected_border": "#00000000",
+      "hovered_border": "#00000000",
+      "active_border": "#00000000",
+      "disabled_border": "#00000000"
+    },
+    "images": {
+      "normal_image": {
+        "path": "./assets/scaled/knight.png"
+      },
+      "hovered_image": {
+        "path": "./assets/scaled/knight_hovered.png"
+      },
+      "disabled_image": {
+        "path": "./assets/scaled/knight_disabled.png"
+      }
+    }
+  },
+  "#monopoly": {
+    "colours": {
+      "disabled_bg": "#00000000",
+      "normal_bg": "#00000000",
+      "normal_border": "#00000000",
+      "normal_text": "#00000000",
+      "dark_bg": "#00000000",
+      "hovered_bg": "#00000000",
+      "selected_bg": "#00000000",
+      "active_bg": "#00000000",
+      "dark_border": "#00000000",
+      "selected_border": "#00000000",
+      "hovered_border": "#00000000",
+      "active_border": "#00000000",
+      "disabled_border": "#00000000"
+    },
+    "images": {
+      "normal_image": {
+        "path": "./assets/scaled/monopoly.png"
+      },
+      "hovered_image": {
+        "path": "./assets/scaled/monopoly_hovered.png"
+      },
+      "disabled_image": {
+        "path": "./assets/scaled/monopoly_disabled.png"
+      }
+    }
+  },
+  "#roadBuilding": {
+    "colours": {
+      "disabled_bg": "#00000000",
+      "normal_bg": "#00000000",
+      "normal_border": "#00000000",
+      "normal_text": "#00000000",
+      "dark_bg": "#00000000",
+      "hovered_bg": "#00000000",
+      "selected_bg": "#00000000",
+      "active_bg": "#00000000",
+      "dark_border": "#00000000",
+      "selected_border": "#00000000",
+      "hovered_border": "#00000000",
+      "active_border": "#00000000",
+      "disabled_border": "#00000000"
+    },
+    "images": {
+      "normal_image": {
+        "path": "./assets/scaled/roadBuilding.png"
+      },
+      "hovered_image": {
+        "path": "./assets/scaled/roadBuilding_hovered.png"
+      },
+      "disabled_image": {
+        "path": "./assets/scaled/roadBuilding_disabled.png"
+      }
+    }
+  },
+  "#yearOfPlenty": {
+    "colours": {
+      "disabled_bg": "#00000000",
+      "normal_bg": "#00000000",
+      "normal_border": "#00000000",
+      "normal_text": "#00000000",
+      "dark_bg": "#00000000",
+      "hovered_bg": "#00000000",
+      "selected_bg": "#00000000",
+      "active_bg": "#00000000",
+      "dark_border": "#00000000",
+      "selected_border": "#00000000",
+      "hovered_border": "#00000000",
+      "active_border": "#00000000",
+      "disabled_border": "#00000000"
+    },
+    "images": {
+      "normal_image": {
+        "path": "./assets/scaled/yearOfPlenty.png"
+      },
+      "hovered_image": {
+        "path": "./assets/scaled/yearOfPlenty_hovered.png"
+      },
+      "disabled_image": {
+        "path": "./assets/scaled/yearOfPlenty_disabled.png"
+      }
+    }
+  },
+  "#victoryPoint": {
+    "colours": {
+      "disabled_bg": "#00000000",
+      "normal_bg": "#00000000",
+      "normal_border": "#00000000",
+      "normal_text": "#00000000",
+      "dark_bg": "#00000000",
+      "hovered_bg": "#00000000",
+      "selected_bg": "#00000000",
+      "active_bg": "#00000000",
+      "dark_border": "#00000000",
+      "selected_border": "#00000000",
+      "hovered_border": "#00000000",
+      "active_border": "#00000000",
+      "disabled_border": "#00000000"
+    },
+    "images": {
+      "normal_image": {
+        "path": "./assets/scaled/victoryPoint.png"
+      },
+      "hovered_image": {
+        "path": "./assets/scaled/victoryPoint_hovered.png"
+      },
+      "disabled_image": {
+        "path": "./assets/scaled/victoryPoint_disabled.png"
+      }
+    }
+  },
+  "#Brick": {
+    "colours": {
+      "disabled_bg": "#00000000",
+      "normal_bg": "#00000000",
+      "normal_border": "#00000000",
+      "normal_text": "#00000000",
+      "dark_bg": "#00000000",
+      "hovered_bg": "#00000000",
+      "selected_bg": "#00000000",
+      "active_bg": "#00000000",
+      "dark_border": "#00000000",
+      "selected_border": "#00000000",
+      "hovered_border": "#00000000",
+      "active_border": "#00000000",
+      "disabled_border": "#00000000"
+    },
+    "images": {
+      "normal_image": {
+        "path": "./assets/scaled/Brick.png"
+      },
+      "hovered_image": {
+        "path": "./assets/scaled/Brick_hovered.png"
+      },
+      "disabled_image": {
+        "path": "./assets/scaled/Brick_disabled.png"
+      }
+    }
+  },
+  "#Ore": {
+    "colours": {
+      "disabled_bg": "#00000000",
+      "normal_bg": "#00000000",
+      "normal_border": "#00000000",
+      "normal_text": "#00000000",
+      "dark_bg": "#00000000",
+      "hovered_bg": "#00000000",
+      "selected_bg": "#00000000",
+      "active_bg": "#00000000",
+      "dark_border": "#00000000",
+      "selected_border": "#00000000",
+      "hovered_border": "#00000000",
+      "active_border": "#00000000",
+      "disabled_border": "#00000000"
+    },
+    "images": {
+      "normal_image": {
+        "path": "./assets/scaled/Ore.png"
+      },
+      "hovered_image": {
+        "path": "./assets/scaled/Ore_hovered.png"
+      },
+      "disabled_image": {
+        "path": "./assets/scaled/Ore_disabled.png"
+      }
+    }
+  },
+  "#Sheep": {
+    "colours": {
+      "disabled_bg": "#00000000",
+      "normal_bg": "#00000000",
+      "normal_border": "#00000000",
+      "normal_text": "#00000000",
+      "dark_bg": "#00000000",
+      "hovered_bg": "#00000000",
+      "selected_bg": "#00000000",
+      "active_bg": "#00000000",
+      "dark_border": "#00000000",
+      "selected_border": "#00000000",
+      "hovered_border": "#00000000",
+      "active_border": "#00000000",
+      "disabled_border": "#00000000"
+    },
+    "images": {
+      "normal_image": {
+        "path": "./assets/scaled/Sheep.png"
+      },
+      "hovered_image": {
+        "path": "./assets/scaled/Sheep_hovered.png"
+      },
+      "disabled_image": {
+        "path": "./assets/scaled/Sheep_disabled.png"
+      }
+    }
+  },
+  "#Wheat": {
+    "colours": {
+      "disabled_bg": "#00000000",
+      "normal_bg": "#00000000",
+      "normal_border": "#00000000",
+      "normal_text": "#00000000",
+      "dark_bg": "#00000000",
+      "hovered_bg": "#00000000",
+      "selected_bg": "#00000000",
+      "active_bg": "#00000000",
+      "dark_border": "#00000000",
+      "selected_border": "#00000000",
+      "hovered_border": "#00000000",
+      "active_border": "#00000000",
+      "disabled_border": "#00000000"
+    },
+    "images": {
+      "normal_image": {
+        "path": "./assets/scaled/Wheat.png"
+      },
+      "hovered_image": {
+        "path": "./assets/scaled/Wheat_hovered.png"
+      },
+      "disabled_image": {
+        "path": "./assets/scaled/Wheat_disabled.png"
+      }
+    }
+  },
+  "#Wood": {
+    "colours": {
+      "disabled_bg": "#00000000",
+      "normal_bg": "#00000000",
+      "normal_border": "#00000000",
+      "normal_text": "#00000000",
+      "dark_bg": "#00000000",
+      "hovered_bg": "#00000000",
+      "selected_bg": "#00000000",
+      "active_bg": "#00000000",
+      "dark_border": "#00000000",
+      "selected_border": "#00000000",
+      "hovered_border": "#00000000",
+      "active_border": "#00000000",
+      "disabled_border": "#00000000"
+    },
+    "images": {
+      "normal_image": {
+        "path": "./assets/scaled/Wood.png"
+      },
+      "hovered_image": {
+        "path": "./assets/scaled/Wood_hovered.png"
+      },
+      "disabled_image": {
+        "path": "./assets/scaled/Wood_disabled.png"
+      }
+    }
+  },
+  "#road_button": {
+    "images": {
+      "normal_image": {
+        "path": "./assets/road_button.png"
+      },
+      "hovered_image": {
+        "path": "./assets/road_button_h.png"
+      },
+      "disabled_image": {
+        "path": "./assets/road_button_d.png"
+      }
+    }
+  },
+  "#settle_button": {
+    "images": {
+      "normal_image": {
+        "path": "./assets/settle_button.png"
+      },
+      "hovered_image": {
+        "path": "./assets/settle_button_h.png"
+      },
+      "disabled_image": {
+        "path": "./assets/settle_button_d.png"
+      }
+    }
+  },
+   "#city_button": {
+    "images": {
+      "normal_image": {
+        "path": "./assets/city_button.png"
+      },
+      "hovered_image": {
+        "path": "./assets/city_button_h.png"
+      },
+      "disabled_image": {
+        "path": "./assets/city_button_d.png"
+      }
+    }
+  },
+   "#dev_button": {
+    "images": {
+      "normal_image": {
+        "path": "./assets/dev_button.png"
+      },
+      "hovered_image": {
+        "path": "./assets/dev_button_h.png"
+      },
+      "disabled_image": {
+        "path": "./assets/dev_button_d.png"
+      }
+    }
+  },
+  "#trade_button": {
+    "images": {
+      "normal_image": {
+        "path": "./assets/trade_button.png"
+      },
+      "hovered_image": {
+        "path": "./assets/trade_button_h.png"
+      },
+      "disabled_image": {
+        "path": "./assets/trade_button_d.png"
+      }
+    }
+  },
+  "#end_button": {
+    "images": {
+      "normal_image": {
+        "path": "./assets/end_button.png"
+      },
+      "hovered_image": {
+        "path": "./assets/end_button_h.png"
+      },
+      "disabled_image": {
+        "path": "./assets/end_button_d.png"
+      }
+    }
+  },
+  "#Red": {
+    "colours": {
+      "normal_bg": "#7F0000",
+      "dark_bg": "#7F0000",
+      "hovered_bg": "#7F0000",
+      "selected_bg": "#7F0000"
+    },
+    "misc": {
+      "shape": "rounded_rectangle",
+      "shape_corner_radius": "2",
+      "border_width": "2",
+      "shadow_width": "2"
+    }
+  },
+  "#Cyan": {
+    "colours": {
+      "normal_bg": "#00FFFF",
+      "dark_bg": "#00FFFF",
+      "hovered_bg": "#00FFFF",
+      "selected_bg": "#00FFFF"
+    },
+    "misc": {
+      "shape": "rounded_rectangle",
+      "shape_corner_radius": "2",
+      "border_width": "2",
+      "shadow_width": "2"
+    }
+  },
+  "#Orange": {
+    "colours": {
+      "normal_bg": "#FF6A00",
+      "dark_bg": "#FF6A00",
+      "hovered_bg": "#FF6A00",
+      "selected_bg": "#FF6A00"
+    },
+    "misc": {
+      "shape": "rounded_rectangle",
+      "shape_corner_radius": "2",
+      "border_width": "2",
+      "shadow_width": "2"
+    }
+  },
+  "#Blue": {
+    "colours": {
+      "normal_bg": "#0026FF",
+      "dark_bg": "#0026FF",
+      "hovered_bg": "#0026FF",
+      "selected_bg": "#0026FF"
+    },
+    "misc": {
+      "shape": "rounded_rectangle",
+      "shape_corner_radius": "2",
+      "border_width": "2",
+      "shadow_width": "2"
+    }
+  },
+  "#Green": {
+    "colours": {
+      "normal_bg": "#00990F",
+      "dark_bg": "#00990F",
+      "hovered_bg": "#00990F",
+      "selected_bg": "#00990F"
+    },
+    "misc": {
+      "shape": "rounded_rectangle",
+      "shape_corner_radius": "2",
+      "border_width": "2",
+      "shadow_width": "2"
+    }
+  },
+  "#Pink": {
+    "colours": {
+      "normal_bg": "#FF006E",
+      "dark_bg": "#FF006E",
+      "hovered_bg": "#FF006E",
+      "selected_bg": "#FF006E"
+    },
+    "misc": {
+      "shape": "rounded_rectangle",
+      "shape_corner_radius": "2",
+      "border_width": "2",
+      "shadow_width": "2"
+    }
+  },
+  "#Yellow": {
+    "colours": {
+      "normal_bg": "#FFD800",
+      "dark_bg": "#FFD800",
+      "hovered_bg": "#FFD800",
+      "selected_bg": "#7F0000"
+    },
+    "misc": {
+      "shape": "rounded_rectangle",
+      "shape_corner_radius": "2",
+      "border_width": "2",
+      "shadow_width": "2"
+    }
+  }
+}
+
