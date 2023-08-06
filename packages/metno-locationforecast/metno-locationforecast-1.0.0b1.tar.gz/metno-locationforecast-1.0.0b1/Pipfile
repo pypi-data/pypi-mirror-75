@@ -1,0 +1,24 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pytest = "*"
+mypy = "*"
+black = "*"
+flake8 = "*"
+coverage = "*"
+pydocstyle = "*"
+twine = "*"
+check-manifest = "*"
+metno-locationforecast = {editable = true, path = "."}
+
+[packages]
+requests = ">=2.20.0"
+
+[requires]
+python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true

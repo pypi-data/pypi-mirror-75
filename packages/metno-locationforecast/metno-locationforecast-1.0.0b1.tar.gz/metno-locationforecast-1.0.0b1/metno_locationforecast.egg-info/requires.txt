@@ -1,0 +1,11 @@
+requests~=2.20.0
+
+[dev]
+black
+flake8
+mypy
+pydocstyle
+pytest
+coverage
+twine
+check-manifest
