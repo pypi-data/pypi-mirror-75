@@ -1,0 +1,30 @@
+Metadata-Version: 1.2
+Name: youpy
+Version: 0.1.0rc5
+Summary: Python game engine for beginners
+Home-page: https://github.com/nicolasdespres/youpy
+Author: Nicolas Despres
+License: BSD 3-clause
+Project-URL: Source code, https://github.com/nicolasdespres/youpy
+Project-URL: Bug tracker, https://github.com/nicolasdespres/youpy/issues
+Description: Youpy is a simple game engine framework inspired by Scratch for educational use and beginners student.
+Keywords: game education
+Platform: Windows
+Platform: macOS
+Platform: Linux
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: MacOS X
+Classifier: Environment :: Win32 (MS Windows)
+Classifier: Environment :: X11 Applications
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Education
+Classifier: Topic :: Multimedia

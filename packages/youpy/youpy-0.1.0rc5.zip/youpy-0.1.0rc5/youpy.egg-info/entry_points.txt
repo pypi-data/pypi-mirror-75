@@ -1,0 +1,3 @@
+[console_scripts]
+youpy = youpy.__main__:sys_main
+
