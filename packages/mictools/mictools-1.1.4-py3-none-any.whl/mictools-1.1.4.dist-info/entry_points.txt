@@ -1,0 +1,4 @@
+
+            [console_scripts]
+            mictools=scripts.mictools_cmd:cli
+        
