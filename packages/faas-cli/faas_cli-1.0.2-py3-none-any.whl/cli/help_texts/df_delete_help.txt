@@ -1,0 +1,7 @@
+/033[37m*******************************************************************
+data_flow delete sub-command
+----------
+Deletes an existing Conversion.
+    Usage:
+    /033[32mfaascli data_flow delete --name <name of a data_flow /033[37m
+*******************************************************************/033[0m

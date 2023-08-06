@@ -1,0 +1,9 @@
+/033[37m*******************************************************************
+source_connection get sub-command
+----------
+Gets a Source Connection resource
+    Usage:
+    /033[32mfaascli source_connection get <Source Connection name>/033[37m
+    /033[32mfaascli source_connection get --name <Source Connection name>/033[37m
+*******************************************************************/033[0m
+

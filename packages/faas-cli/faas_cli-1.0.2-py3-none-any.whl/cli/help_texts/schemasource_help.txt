@@ -1,0 +1,13 @@
+/033[37m*******************************************************************
+source_schema command
+    The Source Schema is metadata for your Source Sata. It defines data types,
+    relationships, constraints etc. XML schema (XSD) is currently the only supported
+    Source Schema.
+----------
+    Source Schema sub-commands:
+    /033[32mfaascli source_schema create --help/033[37m
+    /033[32mfaascli source_schema list --help/033[37m
+    /033[32mfaascli source_schema get --help/033[37m
+    /033[32mfaascli source_schema delete --help/033[37m
+*******************************************************************/033[0m
+

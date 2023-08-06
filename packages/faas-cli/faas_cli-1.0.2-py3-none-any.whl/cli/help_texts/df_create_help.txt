@@ -1,0 +1,10 @@
+/033[37m*******************************************************************
+data_flow create sub-command
+----------
+Creates a data_flow.
+    Usage:
+    /033[32mfaascli data_flow create --name <name of a data_flow>
+--source_data <pointer to a source_connection of type xml or json>
+--source_schema <pointer to a source_connection of type xsd>
+--optimize <True(by default) or False >/033[37m
+*******************************************************************/033[0m

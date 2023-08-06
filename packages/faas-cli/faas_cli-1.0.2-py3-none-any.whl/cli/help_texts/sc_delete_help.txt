@@ -1,0 +1,7 @@
+/033[37m*******************************************************************
+source_connection delete sub-command
+----------
+Deletes Source Connection resource
+    Usage:
+    /033[32mfaascli source_connection delete --name <Source Connection name>/033[37m
+*******************************************************************/033[0m

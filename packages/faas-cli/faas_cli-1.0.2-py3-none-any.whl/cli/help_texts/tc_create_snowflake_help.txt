@@ -1,0 +1,10 @@
+/033[37m*******************************************************************
+target_connection create snowflake sub-command
+----------
+Creates Snowflake Target Connection.
+    usage:
+    /033[32mfaascli target_connection create snowflake --name <Target Connection name>
+    --host <host> --username <username> --password <password> --database <database>
+    --warehouse <warehouse> --schema <schema> --role <role>/033[37m
+*******************************************************************/033[0m
+

@@ -1,0 +1,8 @@
+/033[37m*******************************************************************
+source_schema delete sub-command
+----------
+Deletes a Source Schema resource.
+    Usage:
+    /033[32mfaascli source_schema delete --name <Source Schema name>/033[37m
+*******************************************************************/033[0m
+

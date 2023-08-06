@@ -1,0 +1,13 @@
+/033[37m*******************************************************************
+Dataflow command
+    data_flow is a task of processing of Source Data, using a Source Schema
+    (optionally), and saving the result to a Target Connection
+----------
+    Dataflow sub-commands:
+    /033[32mfaascli data_flow create --help/033[37m
+    /033[32mfaascli data_flow create_upload --help/033[37m
+    /033[32mfaascli data_flow list --help/033[37m
+    /033[32mfaascli data_flow get --help/033[37m
+    /033[32mfaascli data_flow delete --help/033[37m
+*******************************************************************/033[0m
+

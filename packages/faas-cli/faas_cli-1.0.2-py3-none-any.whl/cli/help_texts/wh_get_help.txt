@@ -1,0 +1,10 @@
+/033[37m*******************************************************************
+webhook get sub-command
+----------
+Gets an existing Webhook.
+    Usage:
+    /033[32mfaascli webhook get <Webhook name>/033[37m
+    /033[32mfaascli webhook get --name <Webhook name>/033[37m
+*******************************************************************/033[0m
+
+

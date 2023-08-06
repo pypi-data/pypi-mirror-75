@@ -1,0 +1,15 @@
+/033[37m*******************************************************************
+target_connection command
+    Target Connection is a resource containing connection details for the
+    data storage, where you want to save the processed data.
+    Note, that Target Connection is an optional resource.
+    If you don't create Target Connection, you still can process data,
+    and the output will be saved in our cloud and will be available for download.
+----------
+    Target Connection sub-commands:
+     /033[32mfaascli target_connection create --help/033[37m
+     /033[32mfaascli target_connection list --help/033[37m
+     /033[32mfaascli target_connection get --help/033[37m
+     /033[32mfaascli target_connection delete --help/033[37m
+*******************************************************************/033[0m
+

@@ -1,0 +1,9 @@
+/033[37m*******************************************************************
+webhook create sub-command
+----------
+Creates a Webhook.
+    Usage:
+    /033[32mfaascli webhook create --name <Webhook name> --url <url>/033[37m
+*******************************************************************/033[0m
+
+

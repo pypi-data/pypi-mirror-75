@@ -1,0 +1,27 @@
+/033[37m*******************************************************************
+target_connection create sub-command
+----------
+Supported Target Connections:
+-----
+    Amazon S3:
+    /033[32mfaascli target_connection create s3 --help/033[37m
+-----
+    MySQL:
+    /033[32mfaascli target_connection create mysql --help/033[37m
+-----
+    PostGreSQL:
+    /033[32mfaascli target_connection create postgresql --help/033[37m
+-----
+    Snowflake:
+    /033[32mfaascli target_connection create snowflake --help/033[37m
+-----
+    Microsoft SQL Server:
+    /033[32mfaascli target_connection create sqlserver --help/033[37m
+-----
+    Oracle DB:
+    /033[32mfaascli target_connection create oracle --help/033[37m
+-----
+    Amazon Redshift:
+    /033[32mfaascli target_connection create redshift --help/033[37m
+*******************************************************************/033[0m
+

@@ -1,0 +1,43 @@
+/033[37m*******************************************************************
+FaaS CLI
+----------
+    FaaS CLI commands:
+    /033[32mfaascli login --help/033[37m
+    /033[32mfaascli source_connection --help/033[37m
+    /033[32mfaascli target_connection --help/033[37m
+    /033[32mfaascli conversion --help/033[37m
+    /033[32mfaascli data_flow --help/033[37m
+    /033[32mfaascli webhook --help/033[37m
+----------
+    Examples:
+
+    To login into FaaS use the following command:
+    /033[32mfaascli login --username <email> --password <password>/033[37m
+
+    To login into FaaS with endpoint use the following command:
+    /033[32mfaascli login --username <email> --password <password> --endpoint <endpoint>/033[37m
+
+    To create data flow with name [dataflow1] using local XML file (/home/user/sample.xml) use the following command:
+    /033[32mfaascli data_flow create_upload --name dataflow1 --source_data /home/user/sample.xml --data_type xml/033[37m
+
+    To execute conversion which will append data to existing target_connection
+    /033[32mfaascli conversion execute --name <my_conv> --source_data <my_data> --data_flow <already created data_floW>
+    --format Parquet /033[37m
+
+    To create source connection with name [my_data] from local XML file (/home/user/sample.xml) use the following command:
+    /033[32mfaascli source_connection create s3 --name my_data --type xml --path s3://bucket/key --role_arn arn:aws:iam::1111:role/myRole/033[37m
+
+    To create data flow with name [my_data_flow] using Source Connection [my_data] use the following command:
+    /033[32mfaascli data_flow create --name my_data_flow --source_data my_data /033[37m
+
+    To execute conversion which will append data to existing target_connection
+    /033[32mfaascli conversion execute --name <my_conv> --source_data "/home/user/sample.xml" --source_data_type=xml --data_flow <already created data_floW>
+    --format Parquet /033[37m
+
+    To execute conversion by uploading local files which will append data to existing target_connection
+    /033[32mfaascli conversion execute_upload --name <my_conv> --source_data "/home/user/sample.xml" --source_data_type=xml --data_flow <already created data_floW>
+--format Parquet /033[37m
+
+
+*******************************************************************/033[0m
+

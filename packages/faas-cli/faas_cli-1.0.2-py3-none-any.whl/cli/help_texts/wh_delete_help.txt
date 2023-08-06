@@ -1,0 +1,9 @@
+/033[37m*******************************************************************
+webhook delete sub-command
+----------
+Deletes an existing Webhook.
+    Usage:
+    /033[32mfaascli webhook delete --name <Webhook name>/033[37m
+*******************************************************************/033[0m
+
+

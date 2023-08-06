@@ -1,0 +1,15 @@
+/033[37m*******************************************************************
+conversion execute_upload sub-command
+----------
+Creates a Conversion based on Data_Flow, using local files as a source
+    Usage:
+    /033[32mfaascli conversion execute_upload --name <name of a conversion>
+--data_flow <name of data_flow>
+--source_data <path to a file/directory to upload>
+--source_data_type <xml|json>
+--target <name of target connection>
+--append <True (by default) or False>
+--prefix <some prefix> (add prefix to all output table's(files) names)
+--suffix <some suffix> (add suffix to all output table's(files) names)
+--format <TSV(default)|CSV|Parquet|ORC|Avro> (available for S3 or download link target connection only)/033[37m
+*******************************************************************/033[0m

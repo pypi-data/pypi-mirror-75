@@ -1,0 +1,8 @@
+/033[37m*******************************************************************
+target_connection delete sub-command
+----------
+Deletes an existing Target Connection.
+    Usage:
+    /033[32mfaascli target_connection delete --name <Target Connection name>/033[37m
+*******************************************************************/033[0m
+

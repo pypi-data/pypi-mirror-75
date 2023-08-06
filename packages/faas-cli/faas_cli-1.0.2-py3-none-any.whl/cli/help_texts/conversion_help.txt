@@ -1,0 +1,13 @@
+/033[37m*******************************************************************
+conversion command
+    Conversion is a task of processing of Source Data, using a Source Schema
+    (optionally), and saving the result to a Target Connection
+----------
+    Conversion sub-commands:
+    /033[32mfaascli conversion execute --help/033[37m
+    /033[32mfaascli conversion execute_upload --help/033[37m
+    /033[32mfaascli conversion list --help/033[37m
+    /033[32mfaascli conversion get --help/033[37m
+    /033[32mfaascli conversion delete --help/033[37m
+*******************************************************************/033[0m
+

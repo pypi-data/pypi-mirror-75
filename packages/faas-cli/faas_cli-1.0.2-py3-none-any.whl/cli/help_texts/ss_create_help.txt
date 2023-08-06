@@ -1,0 +1,22 @@
+/033[37m*******************************************************************
+source_schema create sub-command
+----------
+Creates a Source Schema resource.
+-----
+    In case of local file uploading
+    Usage:
+    /033[32mfaascli source_schema create file --name <Source Schema name>
+    --file <path to a file to upload>/033[37m
+-----
+    In case of S3 bucket usage
+    Usage:
+    /033[32mfaascli source_schema create s3 --name <Source Schema name>
+    --path <s3://bucket/key> --role_arn <S3 Role ARN>/033[37m
+-----
+    In case of some http urls as source of XSD schema
+    Usage:
+       /033[32mfaascli source_schema create http --name <Source schema name>
+    --type <xml|json> --url <some http> /033[37m
+*******************************************************************/033[0m
+
+

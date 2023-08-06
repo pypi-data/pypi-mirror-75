@@ -1,0 +1,9 @@
+/033[37m*******************************************************************
+source_schema get sub-command
+----------
+Gets a Source Schema resource.
+    Usage:
+    /033[32mfaascli source_schema get <Source Schema name>/033[37m
+    /033[32mfaascli source_schema get --name <Source Schema name>/033[37m
+*******************************************************************/033[0m
+

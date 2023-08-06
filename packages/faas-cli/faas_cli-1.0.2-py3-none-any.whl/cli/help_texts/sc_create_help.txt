@@ -1,0 +1,17 @@
+/033[37m*******************************************************************
+source_connection create sub-command
+----------
+Creates Source Connection resource
+-----
+    In case of S3 bucket usage
+    Usage:
+    /033[32mfaascli source_connection create s3 --name <Source Connection name>
+    --type <xml|xsd|json> --path <s3://bucket/key>
+    --role_arn <S3 Role ARN with access to provided path>/033[37m
+-----
+    In case of some http urls as source of data
+    Usage:
+       /033[32mfaascli source_connection create http --name <Source Connection name>
+    --type <xml|xsd|json> --url <a http/https link to the source.> /033[37m
+*******************************************************************/033[0m
+

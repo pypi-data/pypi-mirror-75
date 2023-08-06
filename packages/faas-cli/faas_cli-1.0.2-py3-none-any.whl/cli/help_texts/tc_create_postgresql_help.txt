@@ -1,0 +1,11 @@
+/033[37m*******************************************************************
+target_connection create postgresql sub-command
+----------
+Creates PostgreSQL Target Connection.
+    usage:
+    /033[32mfaascli target_connection create postgresql --name <Target Connection name>
+    --host <host> --username <username> --password <password>
+    --database <database> --schema <schema>/033[37m
+*******************************************************************/033[0m
+
+

@@ -1,0 +1,11 @@
+/033[37m*******************************************************************
+target_connection create oracle sub-command
+----------
+Creates Oracle DB Target Connection.
+    usage:
+    /033[32mfaascli target_connection create oracle --name <Target Connection name>
+    --host <host> --username <username> --password <password>
+    --database <database>/033[37m
+*******************************************************************/033[0m
+
+

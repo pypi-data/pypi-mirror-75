@@ -1,0 +1,10 @@
+/033[37m*******************************************************************
+target_connection create s3 sub-command
+----------
+Creates Amazon S3 bucket Target Connection.
+    usage:
+    /033[32mfaascli target_connection create s3 --name <Target Connection name>
+    --path <path> --role_arn <role_arn>/033[37m
+*******************************************************************/033[0m
+
+

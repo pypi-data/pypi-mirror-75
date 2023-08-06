@@ -1,0 +1,7 @@
+/033[37m*******************************************************************
+data_flow trigger sub-command - append data to existing target connection
+----------
+Initialize data_flow appending process.
+    Usage:
+    /033[32mfaascli data_flow trigger --name <name of a data_flow>/033[37m
+*******************************************************************/033[0m

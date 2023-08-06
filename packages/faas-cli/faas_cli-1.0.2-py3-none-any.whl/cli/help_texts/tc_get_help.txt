@@ -1,0 +1,9 @@
+/033[37m*******************************************************************
+target_connection get sub-command
+----------
+Gets an existing Target Connection.
+    Usage:
+    /033[32mfaascli target_connection get <Target Connection name>/033[37m
+    /033[32mfaascli target_connection get --name <Target Connection name>/033[37m
+*******************************************************************/033[0m
+

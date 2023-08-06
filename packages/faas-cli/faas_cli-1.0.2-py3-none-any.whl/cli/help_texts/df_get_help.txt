@@ -1,0 +1,8 @@
+/033[37m*******************************************************************
+Data_flow get sub-command
+----------
+Gets an existing Conversion.
+    Usage:
+    /033[32mfaascli data_flow get <name of a data_flow> /033[37m
+    /033[32mfaascli data_flow get --name <name of a data_flow> /033[37m
+*******************************************************************/033[0m

@@ -1,0 +1,12 @@
+/033[37m*******************************************************************
+source_connection command
+    Source Connection is the data that you feed to Flexter for conversion. XML, XSD and JSON
+    are currently supported
+----------
+    Source Connection sub-commands:
+    /033[32mfaascli source_connection create --help/033[37m
+    /033[32mfaascli source_connection list --help/033[37m
+    /033[32mfaascli source_connection get --help/033[37m
+    /033[32mfaascli source_connection delete --help/033[37m
+*******************************************************************/033[0m
+

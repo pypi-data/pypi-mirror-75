@@ -1,0 +1,10 @@
+/033[37m*******************************************************************
+target_connection create redshift sub-command
+----------
+Creates Amazon Redshift Target Connection.
+    usage:
+    /033[32mfaascli target_connection create redshift --name <Target Connection name>
+    --host <host> --username <username> --password <password>
+    --database <database>/033[37m
+*******************************************************************/033[0m
+

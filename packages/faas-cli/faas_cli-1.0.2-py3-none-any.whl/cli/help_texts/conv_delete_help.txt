@@ -1,0 +1,7 @@
+/033[37m*******************************************************************
+conversion delete sub-command
+----------
+Deletes an existing Conversion.
+    Usage:
+    /033[32mfaascli conversion delete --name <name of a conversion> /033[37m
+*******************************************************************/033[0m

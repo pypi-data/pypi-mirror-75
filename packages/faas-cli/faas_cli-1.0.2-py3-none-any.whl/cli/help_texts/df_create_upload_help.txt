@@ -1,0 +1,11 @@
+/033[37m*******************************************************************
+data_flow create_upload sub-command
+----------
+Creates a data_flow, using local files as a source.
+    Usage:
+    /033[32mfaascli data_flow create_upload --name <name of a data_flow>
+--source_data <path to a file/directory to upload>
+--source_data_type <xml|json>
+--source_schema <path to a file/directory to upload>
+--optimize <True(by default) or False >/033[37m
+*******************************************************************/033[0m
