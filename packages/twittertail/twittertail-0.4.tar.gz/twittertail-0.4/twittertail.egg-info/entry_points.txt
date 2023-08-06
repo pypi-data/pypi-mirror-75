@@ -1,0 +1,3 @@
+[console_scripts]
+twittertail = twittertail.__main__:main
+
