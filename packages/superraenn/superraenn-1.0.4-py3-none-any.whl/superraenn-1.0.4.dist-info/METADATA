@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: superraenn
+Version: 1.0.4
+Summary: Python package to classify  supernovae based on optical light curves
+Home-page: https://github.com/villrv/superraenn
+Author: V. Ashley Villar
+Author-email: ashley.villar@gmail.com
+License: BSD (3-clause)
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Requires-Dist: numpy
+Requires-Dist: george
+Requires-Dist: scipy
+Requires-Dist: astropy
+Requires-Dist: recommonmark
+Requires-Dist: keras
+
+==========
+superRAENN
+==========
+
+.. image:: https://zenodo.org/badge/253530456.svg
+   :target: https://zenodo.org/badge/latestdoi/253530456
+
+.. image:: https://img.shields.io/travis/villrv/superraenn.svg
+        :target: https://travis-ci.org/villrv/superraenn
+
+.. image:: https://img.shields.io/pypi/v/superraenn.svg
+        :target: https://pypi.python.org/pypi/superraenn
+
+
+SuperRAENN is an open-source Python 3.x package for the photometric classification of supernovae in the following categories: Type I superluminos supernovae, Type II, Type IIn, Type Ia and Type Ib/c. It is described in detail in Villar et al. (in prep.). SuperRAENN is optimized for use with complete (rather than realtime) light curves from the Pan-STARRS Medium Deep Survey. *Users will need to train the classifier on their own data for optimal results.*
+
+* Free software: 3-clause BSD license
+* Documentation is available here: https://superraenn.readthedocs.io/en/latest/
+
+
+Installation
+------------
+
+`superraenn` is available with `pip`:
+
+
+``
+pip install superraenn
+``
+
+For a development install, clone this directory:
+
+``
+git clone https://github.com/villrv/superraenn.git
+cd superraenn
+python setup.py develop
+``
+
+
