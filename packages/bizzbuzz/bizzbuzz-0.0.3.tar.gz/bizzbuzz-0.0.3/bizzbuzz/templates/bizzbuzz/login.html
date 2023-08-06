@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+<span class="mainHeading"><a href="/bizzbuzz/"><img src="{%  static "images/newlogo.png" %}" style="height: 140px; width: 180px;margin-top: -45px;"></a> </span>
+    <span class="subHeading"><a href="/bizzbuzz/signup"> Sign Up</a></span>
+</div>
+<div class="container">
+
+    <div class="feed" style="width: 100%;margin-left: -1%;">
+
+        <span class="loginHeading" >Login</span>
+
+<div class="loginContainer">
+    <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="username" placeholder="Enter username"><br>
+        <input type="password" name="password" placeholder="Enter password"><br>
+        <input type="submit" name="" value="Login" class="logibtn"><br>
+        <a href="/bizzbuzz/signup" style="color:white; margin-left:25px">Want to create an account? Sign up here!</a>
+
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+    </form>
+</div>
+
+</div>
+    </div>
+
+</body>
+</html>
