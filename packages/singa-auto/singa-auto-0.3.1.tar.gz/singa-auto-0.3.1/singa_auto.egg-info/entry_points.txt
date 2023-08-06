@@ -1,0 +1,8 @@
+[console_scripts]
+admin = singa_auto:start_admin
+predict = singa_auto:start_predictor
+saclean = singa_auto:clean
+sago = singa_auto:start_all
+sastop = singa_auto:stop_all
+worker = singa_auto:start_worker
+
