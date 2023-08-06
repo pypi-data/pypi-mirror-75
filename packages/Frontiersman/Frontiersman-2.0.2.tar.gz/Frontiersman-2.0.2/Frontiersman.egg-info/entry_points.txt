@@ -1,0 +1,4 @@
+[console_scripts]
+FMClient = frontiersman.ClientMain:main
+FMServer = frontiersman.server:main
+
