@@ -1,0 +1,21 @@
+{% extends 'kmuhelper/app/base.html' %}
+
+{% block subtitle %}Error{% endblock %}
+
+{% block content %}
+    <h1>Error</h1>
+    <p>Die angeforderte Seite konnte leider nicht geladen werden!</p>
+    <br>
+    <h3>Mögliche Ursachen</h3>
+    <ul>
+        <li>Du hast keinen Zugriff auf diese Seite.</li>
+        <li>Diese Seite existiert nicht</li>
+        <li>Anderer Grund - <a target="_top" href="{% url 'kmuhelper:app-main' %}">Zur Startseite</a></li>
+    </ul>
+
+    {% if user.is_anonymous %}
+        <script>
+            top.location.reload();
+        </script>
+    {% endif %}
+{% endblock %}
