@@ -1,0 +1,31 @@
+[package]
+name    = "simplaz"
+version = "0.2.3"
+authors = ["Hugo Ledoux <h.ledoux@tudelft.nl>"]
+license = "MIT"
+homepage="https://github.com/hugoledoux/simplaz"
+repository="https://github.com/hugoledoux/simplaz"
+description = "A simple Python package to read LAZ files (LAS too)."
+readme = "README.md"
+edition = "2018"
+
+
+[dependencies]
+las = { version = "0.7.1", features = ["laz"] }
+chrono = "0.4"
+
+
+[dependencies.pyo3]
+version = "0.11"
+features = ["extension-module"]
+
+
+[lib]
+name = "simplaz"
+crate-type = ["cdylib"]
+
+
+[package.metadata.maturin]
+requires-python = ">=3.6"
+requires-dist = ["toml==0.10.0"]
+classifier=["License :: OSI Approved :: MIT License"]
