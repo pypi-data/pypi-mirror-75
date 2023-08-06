@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: funkybox
+Version: 0.1.5
+Summary: A collection of utility python functions made in rust.
+Keywords: python utility utilities
+Author: Paul Amazona
+License: MIT
+Description-Content-Type: text/markdown; charset=UTF-8; variant=GFM
+
+# funkybox
+A collection of utility python functions made in rust.
+
+[Github Repository](https://github.com/whatevergeek/funkybox)
+
+## Installation
+```shell
+pip install funkybox
+```
+
+Refer to [source code](https://github.com/whatevergeek/funkybox/blob/master/src/lib.rs) for available utility functions.
+
+## Usage
+```python
+import funkybox as fnk
+
+fnk.sum(1,2)
+```
+
+
