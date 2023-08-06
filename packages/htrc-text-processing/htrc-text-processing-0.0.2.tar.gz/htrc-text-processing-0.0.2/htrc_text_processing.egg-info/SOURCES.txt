@@ -1,0 +1,12 @@
+README.md
+setup.py
+htrc_text_processing/__init__.py
+htrc_text_processing.egg-info/PKG-INFO
+htrc_text_processing.egg-info/SOURCES.txt
+htrc_text_processing.egg-info/dependency_links.txt
+htrc_text_processing.egg-info/top_level.txt
+htrc_text_processing/htrc/__init__.py
+htrc_text_processing/htrc/models.py
+htrc_text_processing/htrc/runningheaders.py
+htrc_text_processing/htrc/tests.py
+htrc_text_processing/htrc/utils.py
