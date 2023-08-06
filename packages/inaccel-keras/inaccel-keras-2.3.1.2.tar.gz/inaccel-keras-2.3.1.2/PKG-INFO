@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: inaccel-keras
+Version: 2.3.1.2
+Summary: InAccel keras-like package
+Home-page: https://docs.inaccel.com
+Author: InAccel
+Author-email: info@inaccel.com
+License: Apache-2.0
+Description: UNKNOWN
+Keywords: InAccel Coral,FPGA,inaccel,keras
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
