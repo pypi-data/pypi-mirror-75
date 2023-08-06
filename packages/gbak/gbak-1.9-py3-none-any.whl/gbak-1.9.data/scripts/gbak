@@ -1,0 +1,39 @@
+#!python
+from __future__ import absolute_import
+import click
+import pkg_resources
+
+from gbackup import Client
+
+VERSION = pkg_resources.require("gbak")[0].version
+
+@click.group()
+@click.version_option(version=VERSION, prog_name='gbak')
+def gbak():  # pragma: no cover
+    pass
+
+@click.command()
+@click.option('--config', help='config file')
+@click.option('--input', help=' input')
+@click.option('--output', help=' output')
+def download(config,input,output):
+    if config != None :
+        c = Client(config, "download", input, output)
+        c.run()
+    else:
+        print("{}")
+
+@click.command()
+@click.option('--config', help='config file')
+@click.option('--input', help=' input')
+def upload(config, input):
+    if config != None :
+        c = Client(config, "upload", input, "")
+        c.run()
+    else:
+        print("{}")
+
+gbak.add_command(download)
+gbak.add_command(upload)
+if __name__ == '__main__':  # pragma: no cover
+    gbak()
