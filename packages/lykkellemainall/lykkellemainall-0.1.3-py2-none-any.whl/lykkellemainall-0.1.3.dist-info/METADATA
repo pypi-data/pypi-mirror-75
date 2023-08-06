@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: lykkellemainall
+Version: 0.1.3
+Summary: Modules pertaining to lykkellemainall
+Home-page: https://dev.azure.com/lykkelle/Lykkelle/_git/Lykkellescripts
+Author: Lykkelle Inc
+Author-email: admin@lykkelle.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+This is package that contains all modules needed to run
+the world program i.e. prio 0 till 6
+Contents:
+    1. mainmasterprogalleod - mastering
+    2.  maincalculationprogeodall - calculations
+    3. healthcheck - exceptions and health checks
+
+
