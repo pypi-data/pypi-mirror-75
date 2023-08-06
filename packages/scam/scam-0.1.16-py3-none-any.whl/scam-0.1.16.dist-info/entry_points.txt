@@ -1,0 +1,5 @@
+[console_scripts]
+scam = source.source_analyzer:main
+source-analyzer = source.source_analyzer:main
+source_analyzer = source.source_analyzer:main
+
