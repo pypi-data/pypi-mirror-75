@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: dccutils
+Version: 0.1.1
+Summary: Classes to abstract DCC functions and make your code DCC work agnostic
+Home-page: https://github.com/cgwire/dcc-utils
+Author: CGWire
+Author-email: contact@cg-wire.com
+License: MIT
+Keywords: cg,vfx,pipeline,production,asset manager
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Multimedia :: Graphics
+Provides-Extra: dev
+Requires-Dist: wheel ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+
+UNKNOWN
+
+
