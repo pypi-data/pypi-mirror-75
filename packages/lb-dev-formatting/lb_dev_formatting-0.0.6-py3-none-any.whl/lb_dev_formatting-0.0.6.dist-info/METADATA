@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: lb-dev-formatting
+Version: 0.0.6
+Summary: Formatting plugin for LHCb Development Tools
+Home-page: UNKNOWN
+Author: CERN - LHCb Core Software
+Author-email: lhcb-core-soft@cern.ch
+License: GPLv3+
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4
+Requires-Dist: click
+Requires-Dist: click-plugins
+Requires-Dist: pyoptional
+Requires-Dist: whichcraft
+Requires-Dist: lb-utils
+
+===========================================
+LHCb Development Tools | Formatting pluggin
+===========================================
+
+Purpose
+=======
+This python package exists to add formatting-related subcommands to the already-existing lb-dev command
+
