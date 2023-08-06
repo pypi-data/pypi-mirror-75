@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pyjserver
+Version: 0.0.1
+Summary: Python implementation of Node JSON Server (Flask as backend)
+Home-page: https://github.com/senavs/pyjserver
+Author: Matheus Sena Vasconcelos
+Author-email: sena.matheus14@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: python,node,nodejs,node.js,json,server,pyjsonserver,pyjserver,database,api,rest
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
