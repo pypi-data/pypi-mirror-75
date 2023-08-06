@@ -1,0 +1,120 @@
+CHANGES
+=======
+
+0.7.0
+-----
+
+* adding features
+
+0.6.3
+-----
+
+* improve doc
+* fix doc
+
+0.6.2
+-----
+
+* reorder readme
+
+0.6.1
+-----
+
+* Fix doc
+
+0.6.0
+-----
+
+* Adding wardoff-infos to retrieve requirements' infos
+
+0.5.1
+-----
+
+* Updating doc examples
+
+0.5.0
+-----
+
+* Adding pypi classifiers to the freeze output
+
+0.4.3
+-----
+
+* improve example
+
+0.4.2
+-----
+
+* fix sentence
+
+0.4.1
+-----
+
+* improve doc
+
+0.4.0
+-----
+
+* Allow wardoff-freeze to filter results
+* improve keep\_env
+
+0.3.0
+-----
+
+* Allow to get packages details during freeze
+* fix sentence
+* fix sentence
+
+0.2.0
+-----
+
+* remove matrix from travis deployment
+
+0.1.2
+-----
+
+* remove wheel from travis
+
+0.1.1
+-----
+
+* Fix pep8 errors
+
+0.1.0
+-----
+
+* Adding documentation
+* First version of pypi deprecation finder
+* WIP - implement the pypi package analyzer
+* ignore venv in tests
+* Add the tokenizer feature and entrypoint
+* fix typo
+* Fix python version to use with wardoff
+* reword readme
+* move tests at the right place
+* Move analyzer to analyzers/syntax.py
+* Create the \`analyzers\` module to host all kind of analyzer
+* Split code into dedicated modules
+* wardoff's goals
+
+0.0.1.dev23
+-----------
+
+* still in development message
+* ignore pbr artifacts
+* fix travis deployment
+* ignore deployments
+* split contexts
+* comment travis trick
+* fix test
+* fix test
+* fix test
+* unstable development
+* Improve things
+* setup travis
+* refactor analyzer
+* add contribution guide
+* improve formatting
+* fix linters errors
+* fix imports
+* Improve analyzer

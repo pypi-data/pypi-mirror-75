@@ -1,0 +1,8 @@
+[console_scripts]
+wardoff = wardoff.__main__:main
+wardoff-freeze = wardoff.__main__:freeze
+wardoff-infos = wardoff.__main__:infos
+wardoff-list-env = wardoff.__main__:list_env
+wardoff-rm-env = wardoff.__main__:rm_env
+wardoff-tokenizer = wardoff.__main__:tokenizer
+
