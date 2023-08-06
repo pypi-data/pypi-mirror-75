@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: rsm
+Version: 1.2.6
+Summary: Let's simplify things for real, shall we? 
+Home-page: https://github.com/antoinethebuilder/realsiemplify
+Author: Antoine
+Author-email: 64340767+antoinethebuilder@users.noreply.github.com
+License: MIT
+Description: ![](https://github.com/antoinethebuilder/realsiemplify/workflows/Publish%20Package/badge.svg) [![Language grade: Python](https://img.shields.io/lgtm/grade/python/g/antoinethebuilder/realsiemplify.svg?logo=lgtm&logoWidth=20)](https://lgtm.com/projects/g/antoinethebuilder/realsiemplify/context:python) ![](https://img.shields.io/github/license/antoinethebuilder/realsiemplify)
+        
+        **Contents** [ [TL;DR] | [Compatibility] | [Usage] | [About] ]
+        
+        ## TL;DR
+        [TL;DR]: #tldr
+        - This is **not** replacing the SiemplifySDK but a module which extends it.
+        - This is either _overriding_ or _adding_ a few methods or classes to be used with Siemplify.
+        - You are not obliged to choose between the SiemplifySDK and RSM, just use what you need. (Just don't get confused.)
+        
+        ## Compatibility
+        [Compatibility]: #compatibility
+        This module supports Python _>=_ 3.7 and was tested with Siemplify _v5.5.1.X_
+        
+        ## Usage
+        [Usage]: #usage
+            
+        _upcoming..._
+        
+        ## About
+        [About]: #about
+        After spending most of my days configuring, implementing Siemplify, a SOAR(Security Orchestration, Automation and Response) platform over the last months.
+        I decided to build something that would improve productivity as most of my time was spent in troubleshooting with problems that a customer should not encounter.
+        
+        ### Why did you name this repo 'realsiemplify' if it isn't an Official repository from Siemplify?
+        This name was chosen to be as ironic as possible since _Siemplify_ is pronounced the same way as _Simplify_ and I do no consider this to be simple since it can be really confusing to work on something with the SiemplifySDK.
+        You know the way little repetitive things that bothers you? I'm sure you've experienced something in your life that made those little things turn into something heavy, well, I feel you.
+        
+        ### Do you still recommend Siemplify?
+        I **absolutely** do recommend it.
+        
+        Every products has their pros and cons.
+        
+        Here is what I value the most and to me, it really is making the difference:
+        ### Relationship
+        - Siemplify has an **incredible** support team.
+        - Transparency is key with their relationship with customers.
+        - They are open to any feedback and they will be there for you if you need them.
+        
+        ### Are you against Siemplify?
+        Not at all. Siemplify has significantly improved since I first started using the product and they keep evolving very quickly.
+        
+        My lack of patience is mostly what caused all of this.
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
