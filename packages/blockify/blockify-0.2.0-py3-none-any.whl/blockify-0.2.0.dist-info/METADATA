@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: blockify
+Version: 0.2.0
+Summary: Fast and optimal genome segmentation with Bayesian blocks
+Home-page: https://github.com/arnavm/blockify
+Author: Arnav Moudgil
+Author-email: amoudgil@wustl.edu
+License: UNKNOWN
+Keywords: genomics,segmentation,bayesian
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable 
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: scipy
+Requires-Dist: statsmodels
+Requires-Dist: pybedtools
+
+# blockify
+
+Fast, mathematically optimal genome segmentation with Bayesian blocks
+
+## Installation
+
+`pip install blockify`
+
+The earliest production-ready version of blockify is 0.1.2.
+
+## Usage
+
+Blockify is available as both a Python library and a command line executable.
+
+To use in Python:
+```python
+from blockify import annotation
+from blockify import segmentation
+from blockify import normalization
+from blockify import downsampling
+```
+
+To use from the command line:
+`blockify -h`
+
+For more details, please see the documentation.
+
+### Development
+
+To actively develop blockify, clone from GitHub and switch to the
+development branch:
+
+```
+git clone https://github.com/arnavm/blockify.git
+cd blockify
+git checkout dev
+```
+
+Unit tests are available from the top-level directory:
+
+```
+python -m unittest tests.test_basic
+```
+
+Two batteries of tests are provided: `tests.test_basic` and
+`tests.test_advanced`. For routine development, the basic set of tests
+should be sufficient. The advanced suite takes much more time and
+fetches several large datasets. It is best used when making major
+changes to the code.
+
+## Disclaimer
+
+Not to be confused with the [similarly-named Spotify plugin](https://github.com/serialoverflow/blockify).
+
+
