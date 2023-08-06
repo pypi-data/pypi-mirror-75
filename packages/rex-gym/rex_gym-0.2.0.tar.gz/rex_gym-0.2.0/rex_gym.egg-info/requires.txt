@@ -1,0 +1,7 @@
+numpy
+pybullet
+gym
+tensorflow==1.15.3
+ruamel.yaml
+click
+tensorflow-probability==0.8
