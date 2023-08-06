@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: sgmail
+Version: 0.0.5
+Summary: A simple script that sends email with gmail
+Home-page: https://gitlab.com/timosdvs/sgmail
+Author: Timotheos Savva
+Author-email: timotheos.savva12@gmail.com
+License: UNKNOWN
+Description: A simple script that sends email with gmail
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
