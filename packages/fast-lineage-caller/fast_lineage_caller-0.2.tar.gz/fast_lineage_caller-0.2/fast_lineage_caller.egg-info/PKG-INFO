@@ -1,0 +1,17 @@
+Metadata-Version: 1.1
+Name: fast-lineage-caller
+Version: 0.2
+Summary: Module to call Mycobacterium tuberculosis lineages
+Home-page: https://github.com/farhat-lab/fast-lineage-caller/
+Author: Luca Freschi
+Author-email: l.freschi@gmail.com
+License: LGPLv3
+Description: UNKNOWN
+Keywords: Mycobacterium tuberculosis lineage calling
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
