@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: hubspot-api-client
+Version: 3.0.0
+Summary: HubSpot API client
+Home-page: https://github.com/HubSpot/hubspot-api-python
+Author: HubSpot
+Author-email: support@hubspot.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: six (>=1.10)
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+Provides-Extra: dev
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+
+UNKNOWN
+
+
