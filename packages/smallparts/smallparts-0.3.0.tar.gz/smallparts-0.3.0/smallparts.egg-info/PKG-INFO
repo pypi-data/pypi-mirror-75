@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: smallparts
+Version: 0.3.0
+Summary: A humble collection of convenience modules for use with Python 3
+Home-page: https://github.com/blackstream-x/smallparts
+Author: Rainer Schwarzbach
+Author-email: rainer@blackstream.de
+License: UNKNOWN
+Project-URL: Documentation, https://blackstream-x.github.io/smallparts/
+Project-URL: Source, https://github.com/blackstream-x/smallparts
+Project-URL: Tracker, https://github.com/blackstream-x/smallparts/issues
+Description: # Smallparts
+        
+        A humble collection of convenience modules for use with Python 3
+        
+        This package mainly focuses on text conversion and generation.
+        
+        When coding in Python, I found myself copying the same modules into my
+        projects over and over again, doing a few changes here and there and
+        ended up with slightly different modules with the same functionality.
+        So one day I decided to put an end to that and transfer my frequently used
+        helper modules to a single source of truth.  
+        Here they are, in good hope that they might be useful to others as well.
+        
+        * Package documentation: <https://blackstream-x.github.io/smallparts/>
+        * Installable resources: <https://pypi.org/project/smallparts/>
+        
+        ----
+        
+        > Please note: When creating this project on GitHub, I forked it off
+        > the sample project (<https://github.com/pypa/sampleproject>)
+        > from the Python Packaging User Guide’s recommendable
+        > [Tutorial on Packaging and Distributing Projects](https://packaging.python.org/guides/distributing-packages-using-setuptools/).  
+        > Apart from the basic structure of the package,
+        > this project shares nothing anymore with its parent.
+        > Nevertheless, GitHub shows a huge number of forks, but these are forks
+        > of the sample project, not of this one.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Text Processing :: General
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
