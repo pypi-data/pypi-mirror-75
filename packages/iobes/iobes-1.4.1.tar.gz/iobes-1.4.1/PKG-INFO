@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: iobes
+Version: 1.4.1
+Summary: Iobes
+Home-page: https://github.com/blester125/iobes
+Author: blester125
+Author-email: blester125@gmail.com
+License: MIT
+Download-URL: https://github.com/blester125/iobes/archive/1.4.1.tar.gz
+Description: -----
+        IOBES
+        -----
+        
+        .. image:: https://img.shields.io/pypi/v/iobes
+            :target: https://pypi.org/project/iobes/
+            :alt: PyPI Version
+        .. image:: https://github.com/blester125/iobes/workflows/Unit%20Test/badge.svg
+            :target: https://github.com/blester125/iobes/actions
+            :alt: Actions Status
+        .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+            :target: https://github.com/psf/black
+            :alt: Code style: black
+        
+        A light-weight library for creating span level annotations from token level decisions.
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Scientific/Engineering
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Provides-Extra: test
+Provides-Extra: mask
