@@ -1,0 +1,3 @@
+[console_scripts]
+sprinkles=sprinkles.commands:generate_config
+
