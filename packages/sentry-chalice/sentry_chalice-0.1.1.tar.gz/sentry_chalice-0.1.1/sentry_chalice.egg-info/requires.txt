@@ -1,0 +1,5 @@
+chalice<1.17.0,>=1.16.0
+sentry-sdk<0.17.0,>=0.16.2
+
+[:python_version < "3.7"]
+dataclasses>=0.6
