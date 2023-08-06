@@ -1,0 +1,19 @@
+Metadata-Version: 2.0
+Name: eazebot
+Version: 2.5.3
+Summary: Free python/telegram bot for easy execution and surveillance of crypto trading plans on multiple exchanges
+Home-page: https://github.com/marcelbeining/eazebot
+Author: Marcel Beining
+Author-email: marcel.beining@gmail.com
+License: LGPLv3
+Download-URL: https://github.com/marcelbeining/cryptotrader/archive/EazeBot_2.5.3.tar.gz
+Requires-Dist: ccxt (>=1.30.87)
+Requires-Dist: dill
+Requires-Dist: numpy (>=1.18.4)
+Requires-Dist: python-telegram-bot (>=12.8)
+Requires-Dist: requests
+Requires-Dist: dateparser
+
+[![GitHub](https://img.shields.io/github/tag/MarcelBeining/eazebot.svg?label=GitHub%20Release)](https://github.com/MarcelBeining/EazeBot/releases) 
+
+
