@@ -1,0 +1,11 @@
+numpy
+six
+pyyaml
+h5py
+onnx>=1.4.0
+
+[profiling]
+pandas
+seaborn
+matplotlib
+tensorflow
