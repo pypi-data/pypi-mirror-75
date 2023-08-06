@@ -1,0 +1,3 @@
+[distutils.setup_keywords]
+use_pipfile = setuptools_pipfile.keyword:use_pipfile
+
