@@ -1,0 +1,53 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+docs/source/requirements.txt
+docs/source/examples/example_data/Drag_test_example.txt
+docs/source/examples/example_data/Esseda_example_HSB.csv
+docs/source/examples/example_data/Esseda_example_LEM.xls
+docs/source/examples/example_data/Fietsergometer_example.xls
+docs/source/examples/example_data/Optipush_example.data
+docs/source/examples/example_data/Optotrak_example_.n3d
+docs/source/examples/example_data/Smartwheel_example.txt
+docs/source/examples/example_data/imu_example_data/NGIMU - 1 Frame - 00337909/Settings.txt
+docs/source/examples/example_data/imu_example_data/NGIMU - 1 Frame - 00337909/battery.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 1 Frame - 00337909/earth.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 1 Frame - 00337909/humidity.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 1 Frame - 00337909/linear.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 1 Frame - 00337909/quaternion.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 1 Frame - 00337909/rssi.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 1 Frame - 00337909/sensors.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 1 Frame - 00337909/temperature.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 3 Right - 003383F9/Settings.txt
+docs/source/examples/example_data/imu_example_data/NGIMU - 3 Right - 003383F9/battery.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 3 Right - 003383F9/earth.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 3 Right - 003383F9/humidity.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 3 Right - 003383F9/linear.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 3 Right - 003383F9/quaternion.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 3 Right - 003383F9/rssi.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 3 Right - 003383F9/sensors.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 3 Right - 003383F9/temperature.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 5 Left - 00338C0E/Settings.txt
+docs/source/examples/example_data/imu_example_data/NGIMU - 5 Left - 00338C0E/battery.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 5 Left - 00338C0E/earth.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 5 Left - 00338C0E/humidity.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 5 Left - 00338C0E/linear.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 5 Left - 00338C0E/quaternion.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 5 Left - 00338C0E/rssi.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 5 Left - 00338C0E/sensors.csv
+docs/source/examples/example_data/imu_example_data/NGIMU - 5 Left - 00338C0E/temperature.csv
+worklab/__init__.py
+worklab/com.py
+worklab/imu.py
+worklab/kin.py
+worklab/move.py
+worklab/physio.py
+worklab/plots.py
+worklab/utils.py
+worklab.egg-info/PKG-INFO
+worklab.egg-info/SOURCES.txt
+worklab.egg-info/dependency_links.txt
+worklab.egg-info/requires.txt
+worklab.egg-info/top_level.txt
