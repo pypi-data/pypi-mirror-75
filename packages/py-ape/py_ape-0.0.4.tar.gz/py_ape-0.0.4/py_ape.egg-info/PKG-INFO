@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: py-ape
+Version: 0.0.4
+Summary: A small package for handling matching data based on BigGorilla package
+Home-page: https://github.com/vietpq/py_ape
+Author: VietPQ - ToiNV
+Author-email: viet20304@gmail.com
+License: UNKNOWN
+Description: #py_ape package
+        
+        This is py_ape package. We made it based on BigGorilla package
+        Authors: VietPQ - ToiNV
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
