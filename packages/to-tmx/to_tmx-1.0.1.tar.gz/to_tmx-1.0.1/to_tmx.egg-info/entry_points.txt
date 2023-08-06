@@ -1,0 +1,6 @@
+[console_scripts]
+sent-tok = to_tmx.sent_tok:main
+tmx-batch-tradosize = to_tmx.tmx_batch_tradosizer:ProcessTMX
+tmx-tradosize = to_tmx.tmx_tradosizer:main
+to-tmx = to_tmx.to_tmx:main
+

@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+requirements.txt
+setup.py
+to_tmx/__init__.py
+to_tmx/sent_tok.py
+to_tmx/tmx_batch_tradosizer.py
+to_tmx/tmx_tradosizer.py
+to_tmx/to_tmx.py
+to_tmx.egg-info/PKG-INFO
+to_tmx.egg-info/SOURCES.txt
+to_tmx.egg-info/dependency_links.txt
+to_tmx.egg-info/entry_points.txt
+to_tmx.egg-info/requires.txt
+to_tmx.egg-info/top_level.txt
