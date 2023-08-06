@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+iscan/__init__.py
+iscan/scan.py
+iscan/std_lib.py
+iscan.egg-info/PKG-INFO
+iscan.egg-info/SOURCES.txt
+iscan.egg-info/dependency_links.txt
+iscan.egg-info/entry_points.txt
+iscan.egg-info/requires.txt
+iscan.egg-info/top_level.txt
+iscan/tests/__init__.py
+iscan/tests/test_scan.py
