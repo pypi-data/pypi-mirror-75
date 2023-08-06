@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: mpkg
+Version: 0.0.6
+Summary: A simple package manager.
+Home-page: https://github.com/mpkg-project/mpkg
+Author: zpcc
+Author-email: zp.c@outlook.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.7
+Requires-Dist: lxml (>=4.5.0)
+Requires-Dist: beautifulsoup4 (>=4.6.3)
+Requires-Dist: requests (>=2.23.0)
+Requires-Dist: click (>=7.1.1)
+
+UNKNOWN
+
+
