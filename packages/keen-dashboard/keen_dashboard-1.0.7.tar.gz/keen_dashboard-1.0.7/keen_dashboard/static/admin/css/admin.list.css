@@ -1,0 +1,66 @@
+.action-checkbox-column {
+    width: 0.6rem;
+}
+
+.table th, .table td {
+    vertical-align: baseline;
+}
+
+tr.selected {
+    background-color: #191b2acf !important;
+    color: white !important;
+}
+
+.kt-datatable__pager {
+    margin: 0px !important;
+    padding: 0.8rem !important;
+    padding-left: 1rem !important;
+}
+
+.kt-portlet__head-toolbar {
+    height: 38px !important;
+}
+
+#changelist-search {
+    align-items: baseline;
+}
+
+.kt-portlet__head-toolbar {
+    align-items: baseline;
+}
+
+#filtros {
+    position: absolute;
+    width: 18rem;
+    margin-left: -1.8rem;
+    left: calc(100% - 18rem);
+}
+
+#content-main.filtered {
+    padding-right: 19.6rem;
+}
+
+th > div > a {
+    color: #191b2a;
+}
+
+th.sorted > div > a {
+    color: #5867dd !important;
+}
+
+.table {
+    color: #212529cc !important;
+}
+
+th > a {
+    font-weight: 600 !important;
+}
+
+#search-icon {
+    position: relative;
+    left: -2rem;
+}
+
+.fas.fa-filter{
+    color: #00000066;
+}
