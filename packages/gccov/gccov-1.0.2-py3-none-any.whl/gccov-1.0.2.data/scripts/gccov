@@ -1,0 +1,22 @@
+#!python
+
+__author__ = 'Jie Li'
+__copyright__ = 'Copyright 2019-2020'
+__credits__ = ['Jie Li']
+__email__ = 'mm.jlli6t@gmail.com'
+__status__ = 'Development'
+
+import os
+import sys
+
+sys.path = [os.path.join((os.path.dirname(os.path.realpath(__file__))), '..')] + sys.path
+
+from gccov.main import read_arg
+from gccov.main import Main
+
+if __name__ == '__main__':
+	if len(sys.argv) == 1:
+		sys.argv.append('-h')
+		read_arg(sys.argv)
+
+	Main.exe(sys.argv)
