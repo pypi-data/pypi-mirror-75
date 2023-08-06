@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: ccframe
+Version: 0.0.2
+Summary: ccframe - simple web framework. Cloned from Bumbo Python Web Framework course
+Home-page: UNKNOWN
+Author: Alex Shanin
+Author-email: shanin.x@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+Requires-Dist: Jinja2 (==2.11.2)
+Requires-Dist: WebOb (==1.8.6)
+Requires-Dist: parse (==1.15.0)
+Requires-Dist: requests-wsgi-adapter (==0.4.1)
+Requires-Dist: requests (==2.24.0)
+Requires-Dist: whitenoise (==5.1.0)
+
+
+#### ccframe is a core frame for simple web apps. 
+
+Cloned from 'Bumbo Python Web Framework'. Build for learning purposes.
+
+Run app: 
+```gunicorn app:app```
+
+Run tests: ```pytest test.py```
+
+Run coverage: ```pytest --cov=. test.py```
+
