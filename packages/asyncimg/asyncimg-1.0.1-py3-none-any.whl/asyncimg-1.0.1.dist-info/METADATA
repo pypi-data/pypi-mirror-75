@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: asyncimg
+Version: 1.0.1
+Summary: An async image manipulation lib. Can be used for discord.
+Home-page: https://github.com/shahprog/asyncimg/
+Author: Md Shahriyar Alam
+Author-email: mdshahriyaralam552@gmail.com
+License: MIT
+Keywords: discord discord-rank discord-profile discord-leveling
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: Pillow
+Requires-Dist: aiohttp
+Requires-Dist: colorthief
+
+### asyncimg
+An async image manipulation lib. Can be used for discord.
+
+### Usage
+```python
+from asyncimg import Generator
+
+generator = Generator()
+image = await generator.lovers(profile_pic_link1, profile_pic_link2)
+
+# In discord command
+file = discord.File(fp=image, filename='image.png')
+await ctx.send(file=file)
+```
+
+### Available methods
+```python
+lovers(profile_pic_link1, profile_pic_link2)
+stars(profile_pic_link)
+colors(profile_pic_link)
+frame(profile_pic_link)
+envelop(profile_pic_link)
+knockout(profile_pic_link1, profile_pic_link2)
+fart(profile_pic_link)
+```
+
+`More coming soon`
+
+Any help need or better suggesions? [Join here](https://discord.gg/7SaE8v2) to contribute.Change Log
+===========
+
+0.0.1 (3/8/2020)
+--------------------------------
+- Release (Buggy)
+
+1.0.0 (3/8/2020)
+--------------------------------
+- Working release
+
+1.0.1 (3/8/2020)
+--------------------------------
+- Attempt to fix frame (Images do not match)
+
