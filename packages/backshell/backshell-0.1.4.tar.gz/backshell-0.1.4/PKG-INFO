@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: backshell
+Version: 0.1.4
+Summary: 
+Author: Sergey M
+Author-email: tz4678@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pysocks (>=1.7.1,<2.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
