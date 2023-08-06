@@ -1,0 +1,6 @@
+bgzip>=0.3.0
+cli-builder
+firecloud
+google-cloud-storage
+gs-chunked-io<0.5,>=0.4
+oauth2client
