@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: okpy
+Version: 1.17.0
+Summary: ok.py supports programming projects by running tests, tracking progress, and assisting in debugging.
+Home-page: https://github.com/okpy/ok-client
+Author: John Denero, Soumya Basu, Stephen Martinis, Sharad Vikram, Albert Wu
+Author-email: UNKNOWN
+License: Apache License, Version 2.0
+Keywords: education,autograding
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: certifi (==2019.11.28)
+Requires-Dist: urllib3 (==1.25.7)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: idna (==2.8)
+Requires-Dist: coverage (==4.4)
+Requires-Dist: pytutor (==1.0.0)
+Requires-Dist: ast-scope (==0.3.1)
+Requires-Dist: attrs (==19.3.0)
+Requires-Dist: pyaes (==1.6.1)
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: display-timedelta (==1.1)
+Requires-Dist: filelock (==3.0.12)
+
+UNKNOWN
+
+
