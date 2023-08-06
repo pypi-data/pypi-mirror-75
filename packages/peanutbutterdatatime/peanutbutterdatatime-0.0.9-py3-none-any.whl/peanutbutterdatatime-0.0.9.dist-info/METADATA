@@ -1,0 +1,113 @@
+Metadata-Version: 2.1
+Name: peanutbutterdatatime
+Version: 0.0.9
+Summary: John Snow Labs NLU provides state of the art algorithms for NLP&NLU with hundreds of pretrained models in 60+ languages. It enables swift and simple development and research with its powerful Pythonic and Keras inspired API. It is powerd by John Snow Labs powerful Spark NLP library.
+Home-page: http://nlp.johnsnowlabs.com
+Author: John Snow Labs
+Author-email: christian@johnsnowlabs.com
+License: UNKNOWN
+Keywords: NLP spark development NLU
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pyspark (==2.4.4)
+Requires-Dist: spark-nlp
+Requires-Dist: numpy
+Requires-Dist: pyarrow (>=0.16.0)
+Requires-Dist: pandas
+Requires-Dist: dataclasses
+
+# NLU : State of the Art Natural Language understanding
+John Snow Labs NLU provides state of the art algorithms for NLP&NLU with hundreds of pretrained models in 59 languages.
+It enables swift and simple development and research with its powerful Pythonic and Keras inspired API.
+NLU's focus liesin providing the latest and greatest results of NLP&NLU research with **1 Line of code at most**
+It is powerd by John Snow Labs powerful Spark NLP library.
+
+## What kind of models does NLU provides?
+NLU provides everything a data scientist might want to wish for!
+
+# TODO MORE HERE!!
+- Language Classification of 20 languages
+- Named Entity Recognition (NER) with over XZY pretrained models in different domains and XZY languages
+- Part of Speech Detection with over XZY pretrained models in XZY languages
+- 3 Different Spell Checkers with over XZY pretrained models in XZY languages
+- Lemmatizers with over XZY pretrained models in XZY languages
+- Stemmers with over XZY pretrained models in XZY languages
+- Stopword Cleaners with over XZY pretrained models in XZY languages
+
+- Many different typtes of Machine Learning and Deep Learning classifiers and predictors
+    - Deep based NER with NER DL
+    - Sentiment Classification
+    - Emotion Detection
+    - Part of Speech Classification
+    - Untyped Grammar Dependency Parsing
+    - Typed Grammar Dependency Parsing
+
+# The latest embeddings in deep Learning in many variations
+    - BERT
+    - ALBERT
+    - BIOBERT
+    - ELMO
+    - XLNET
+    - USE
+    - GLOVE
+
+# Classifiers retrained on many different datasets
+- trec6 classifier
+- trec10 classifier
+- spam classifier
+- fakenews classifier
+- emotion classifier
+- cyberbullying classifier
+- sarcasm classifier
+- sentiment classifier for movies
+- IMDB Movie Sentiment classifier
+- Twitter sentiment classifier
+- NER pretrained on ONTO notes
+- NER trainer on CONLL
+- Language classifier for 20 langauges on the wiki 20 lang dataset.
+
+# Different utitlities for the NLU toolchain
+- Matchers
+ - Datetime Matcher
+ - Pattern Matcher
+ - Chunk Matcher
+ - Phrases Matcher
+ - Text cleaners
+ - Stopword Cleaners
+ - Pattern Cleaners
+ - Slang Cleaner
+
+
+# Want to contribute?
+Use model hub!
+
+#Need help?
+Stack overflow
+Github issues
+
+
+
+
+## Dependencies
+- sparknlp
+- pyspark==2.4.4
+
+
+
+#### Troubleshoot
+
+On manjaro :
+#### Fix missing libffi.so.6 with
+
+    yay libffi6 on manjaro
+
