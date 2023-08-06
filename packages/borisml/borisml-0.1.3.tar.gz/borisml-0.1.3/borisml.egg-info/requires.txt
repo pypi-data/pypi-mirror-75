@@ -1,0 +1,10 @@
+tqdm
+torchvision
+pandas>=1.0.3
+hydra-core>=0.11.3
+numpy>=1.18.1
+requests>=2.23.0
+
+[LIGHTNING]
+pytorch_lightning>=0.7.1
+opencv-python

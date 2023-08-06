@@ -1,0 +1,35 @@
+model:
+  name: 'resnet-18'           # name of the model, currently supports resnet-18 to resnet-151
+  out_dim: 128                # dimensionality of output on which self-supervised loss is computed
+  num_ftrs: 16                # dimensionality of feature vectors (embedding size)
+  width: 1                    # width of the resnet
+
+criterion:            
+  temperature: 0.5            # number by which logits are divided
+
+optimizer:
+  lr: 1.                      # learning rate
+  weight_decay: 0.00001       # L2 penalty
+
+collate:
+  input_size: 32              # image input size
+  cj_prob: 0.8                # probability that color jitter is applied
+  cj_bright: 0.7              # color_jitter intensity for brightness,
+  cj_contrast: 0.7            # contrast,
+  cj_sat: 0.7                 # saturation,
+  cj_hue: 0.2                 # and hue
+  min_scale: 0.08             # minimum size of random crop relative to input_size
+  random_gray_scale: 0.2      # probability of converting image to gray scale
+  kernel_size: 0.1            # kernel size of gauss. blur relative to input_size
+
+loader:
+  batch_size: 768             # batch_size
+  shuffle: True               # reshuffle data each epoch
+  num_workers: 8              # number of workers pre-fetching batches
+  drop_last: True             # 
+
+trainer:
+  gpus: 1                     # number of gpus to use for training
+  max_epochs: 100
+#  max_epochs: 100
+#  precision: 16

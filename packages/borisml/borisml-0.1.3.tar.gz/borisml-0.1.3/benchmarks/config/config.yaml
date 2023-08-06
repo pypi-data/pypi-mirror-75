@@ -1,0 +1,10 @@
+defaults:
+- task: classification-cifar10
+
+active_learning: False
+embedding_cfg: ''
+n_repetitions: 5
+recycle: False
+sampler_cfg: ''
+
+

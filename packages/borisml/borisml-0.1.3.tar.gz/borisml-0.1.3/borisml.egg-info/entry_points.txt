@@ -1,0 +1,7 @@
+[console_scripts]
+boris-download = boris.cli.download_cli:entry
+boris-embed = boris.cli.embed_cli:entry [lightning]
+boris-magic = boris.cli.boris_cli:entry [lightning]
+boris-train = boris.cli.train_cli:entry [lightning]
+boris-upload = boris.cli.upload_cli:entry
+
