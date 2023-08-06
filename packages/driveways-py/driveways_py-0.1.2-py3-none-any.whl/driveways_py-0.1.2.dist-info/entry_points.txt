@@ -1,0 +1,3 @@
+[console_scripts]
+runmyserver = sample_app.run:main
+

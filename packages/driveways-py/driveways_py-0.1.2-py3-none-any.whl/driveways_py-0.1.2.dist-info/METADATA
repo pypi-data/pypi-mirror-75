@@ -1,0 +1,110 @@
+Metadata-Version: 2.1
+Name: driveways-py
+Version: 0.1.2
+Summary: Driveways Package
+Home-page: https://github.com/henryparker/drivewaynew
+Author: Andres Canas, Henry Parker, Dylan Fay, Zack Saadioui
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: asgiref
+Requires-Dist: astroid
+Requires-Dist: certifi
+Requires-Dist: Django
+Requires-Dist: django-crispy-forms
+Requires-Dist: django-leaflet
+Requires-Dist: geographiclib
+Requires-Dist: geopy
+Requires-Dist: idna
+Requires-Dist: psycopg2-binary
+Requires-Dist: pytz
+Requires-Dist: requests (>=2.24.0)
+Requires-Dist: six
+Requires-Dist: sqlparse
+Requires-Dist: toml
+Requires-Dist: urllib3
+Requires-Dist: wrapt
+Requires-Dist: Pillow
+Requires-Dist: geoip2
+
+This is Driveways by Andres Canas, Dylan Fay, Henry Parker, Zack Saadioui.
+
+# Driveways
+Driveways
+
+
+## Installation from PyPI: 
+- pip install driveways-py==0.1.2
+- runmyserver 
+
+- ***GDAL libraries must be installed on device
+- $ sudo aptitude install gdal-bin libgdal-dev
+- $ sudo aptitude install python3-gdal
+- $ sudo aptitude install binutils libproj-dev
+
+## Installing APK
+- APK is stored under "Realeases" on GitHub
+- Install APK on device after server is running 
+- Tested on device running api 27 (Android 8.1 Oreo)
+
+#Git Repo
+https://github.com/andrescanas01/driveways.git
+
+# Resources
+
+[Simplest Git Tutorial](https://rogerdudler.github.io/git-guide/)
+
+[Django API List](https://github.com/wsvincent/awesome-django)
+
+[Django Tutorials](https://github.com/wsvincent/awesome-django#educational)
+
+## API's 
+
+
+
+[Django Calendar](https://github.com/llazzaro/django-scheduler)
+
+[Django Map](https://github.com/madisona/django-google-maps)
+
+[Django Forms](https://github.com/django-crispy-forms/django-crispy-forms/)
+
+# DRIVEWAYS
+
+-   Enter destination and be shown available driveways to park nearby
+-   User can list their available parking spaces to earn extra income
+-   Driveways is meant to offer private parking.
+
+![image-20200617143552790](assets/Design-Prototype/image-20200617143552790.png)\\
+
+## Features / Planning
+
+#TODO: Finish Features
+
+-   Map Functionality: Google API's
+    - Object Markers
+        - Price/(day,timeframe), location, time, 
+-   Search Functionality
+    -   address search
+    -   distance function
+-   **Buyer Portal**
+-   **Seller Portal**
+        -   Make Listing (Update DB):
+            -   Cost, Time, Address
+- **Sign in Page**
+    -   **Account Details**
+        -   Payment
+        -   Account Information
+
+
+
+Later features:
+
+## User Testing
+
+> Later: Todo. 
+
+
