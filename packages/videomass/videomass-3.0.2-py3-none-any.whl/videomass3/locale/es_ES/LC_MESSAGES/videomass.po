@@ -1,0 +1,2698 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-08-04 12:19+0200\n"
+"PO-Revision-Date: 2020-08-04 12:29+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es_ES\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.1\n"
+
+#: ../Videomass3.py:90
+#, python-brace-format
+msgid ""
+"{0}\n"
+"\n"
+"Sorry, cannot continue.."
+msgstr ""
+
+#: ../Videomass3.py:172
+msgid ""
+"Permission denied: {}\n"
+"\n"
+"Check execution permissions."
+msgstr ""
+
+#: ../vdms_dialogs/audiodialogs.py:247
+msgid ""
+"Support to mono or stereo audio channels. If you are not sure set to \"Auto"
+"\" and source values will be copied."
+msgstr ""
+
+#: ../vdms_dialogs/audiodialogs.py:250
+msgid ""
+"The audio Rate (or sample-rate) is the sound sampling\n"
+"frequency and is measured in hertz. The higher the frequency,\n"
+"plus the audio signal will be true to the sound source, but\n"
+"the file will increase its size. For normal playback with\n"
+"audio CD set a sample rate of 44100kHz. If you are not sure\n"
+"set to \"Auto\" and source values will be copied."
+msgstr ""
+
+#: ../vdms_dialogs/audiodialogs.py:258
+msgid ""
+"The audio bitrate affects on file compression\n"
+"and on the quality of listening. The higher\n"
+"the value and more higher quality."
+msgstr ""
+
+#: ../vdms_dialogs/audiodialogs.py:263
+msgid ""
+"bit depth is the number of bits of information in each\n"
+"sample, and it directly corresponds to the resolution\n"
+"of each sample. Bit depth is only meaningful in reference\n"
+"to a PCM digital signal. Non-PCM formats, such as lossy\n"
+"compression formats, do not have associated bit depths."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:45
+msgid "Flip over"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:47
+msgid "Rotate Left"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:49
+msgid "Rotate Right"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:51
+msgid "Flip below"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:57
+msgid "Orientation points"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:65
+msgid "Videomass: Rotate and flip"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:67
+msgid "Reverses visual movie from bottom to top"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:70
+msgid "Rotate view movie to left"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:72
+msgid "Rotate view movie to Right"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:74
+msgid "Reverses visual movie from top to bottom"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:76
+msgid "Display show settings"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:135
+msgid "180° from bottom to top"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:141
+msgid "Rotate 90° Left"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:146
+msgid "Rotate 90° Right"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:151
+msgid "180° from top to bottom"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:202 ../vdms_dialogs/video_filters.py:417
+msgid "Width"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:207 ../vdms_dialogs/video_filters.py:427
+msgid "Height"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:223
+msgid "Crop Dimensions"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:287
+msgid "Videomass: video/image crop"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:288
+msgid ""
+"The height of the output video.\n"
+"Set to -1 for disabling."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:290
+msgid ""
+"The width of the output video.\n"
+"Set to -1 for disabling."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:292
+msgid "The horizontal position of the left edge."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:293
+msgid "The vertical position of the top edge of the left corner."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:294
+#, python-format
+msgid ""
+"Width:\n"
+"%s"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:297
+#, python-format
+msgid ""
+"Height:\n"
+"%s"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:416
+msgid "Scale (resize)"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:430
+msgid "Setdar (display aspect ratio):"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:432 ../vdms_dialogs/video_filters.py:449
+msgid "Numerator"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:444 ../vdms_dialogs/video_filters.py:462
+msgid "Denominator"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:447
+msgid "SetSar (sample aspect ratio):"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:525
+msgid "Videomass: resize (change resolution)"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:526
+msgid "Scale (resize) the input video or image."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:527
+#, python-format
+msgid ""
+"WIDTH:\n"
+"%s"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:528
+#, python-format
+msgid ""
+"HEIGHT:\n"
+"%s"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:529
+msgid ""
+"Sets the Display Aspect Ratio.\n"
+"Set to 0 to disabling."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:531 ../vdms_dialogs/video_filters.py:535
+#, python-format
+msgid ""
+"-NUMERATOR-\n"
+"%s"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:532 ../vdms_dialogs/video_filters.py:536
+#, python-format
+msgid ""
+"-DENOMINATOR-\n"
+"%s"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:533
+msgid ""
+"The setsar filter sets the Sample (aka Pixel) Aspect Ratio.\n"
+"Set to 0 to disabling."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:652
+msgid "Advanced Options"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:654
+msgid "Deinterlace"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:656
+msgid "Interlace"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:659
+msgid "Deinterlaces (Using the 'w3fdif' filter)"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:673
+msgid "Deinterlaces (Using the 'yadif' filter)"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:697
+msgid "Interlaces (Using the 'interlace' filter)"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:720
+msgid "Videomass: deinterlace/interlace"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:786
+msgid "Deinterlace the input video with `w3fdif` filter"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:788
+msgid "Set the interlacing filter coefficients."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:790 ../vdms_dialogs/video_filters.py:800
+msgid "Specify which frames to deinterlace."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:792
+msgid ""
+"Deinterlace the input video with `yadif` filter. For FFmpeg is the best and "
+"fastest choice "
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:795
+msgid ""
+"mode\n"
+"The interlacing mode to adopt."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:797
+msgid ""
+"parity\n"
+"The picture field parity assumed for the input interlaced video."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:802
+msgid "Simple interlacing filter from progressive contents."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:804
+msgid ""
+"scan:\n"
+"determines whether the interlaced frame is taken from the even (tff - "
+"default) or odd (bff) lines of the progressive frame."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:808
+msgid ""
+"lowpas:\n"
+"Enable (default) or disable the vertical lowpass filter to avoid twitter "
+"interlacing and reduce moire patterns.\n"
+"Default is no setting."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:1110
+msgid "Apply Denoisers Filters"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:1113
+msgid "Enable nlmeans denoiser"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:1120
+msgid "nlmeans options"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:1125
+msgid "Enable hqdn3d denoiser"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:1130
+msgid "hqdn3d options"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:1180
+msgid "Videomass: denoisers filters"
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:1181
+msgid ""
+"nlmeans:\n"
+"(Denoise frames using Non-Local Means algorithm is capable of restoring "
+"video sequences with even strong noise. It is ideal for enhancing the "
+"quality of old VHS tapes."
+msgstr ""
+
+#: ../vdms_dialogs/video_filters.py:1186
+msgid ""
+"hqdn3d:\n"
+"This is a high precision/quality 3d denoise filter. It aims to reduce image "
+"noise, producing smooth images and making still images really still. It "
+"should enhance compressibility."
+msgstr ""
+
+#: ../vdms_dialogs/time_selection.py:77
+msgid "Seeking - start point [h : m : s]"
+msgstr ""
+
+#: ../vdms_dialogs/time_selection.py:89
+msgid "Cut - end point [h : m : s]"
+msgstr ""
+
+#: ../vdms_dialogs/time_selection.py:96
+msgid "Videomass: duration"
+msgstr ""
+
+#: ../vdms_dialogs/time_selection.py:100
+msgid "Hours time"
+msgstr ""
+
+#: ../vdms_dialogs/time_selection.py:101
+msgid "Minutes Time"
+msgstr ""
+
+#: ../vdms_dialogs/time_selection.py:102
+msgid "Seconds time"
+msgstr ""
+
+#: ../vdms_dialogs/time_selection.py:106
+msgid "Hours amount duration"
+msgstr ""
+
+#: ../vdms_dialogs/time_selection.py:107
+msgid "Minutes amount duration"
+msgstr ""
+
+#: ../vdms_dialogs/time_selection.py:108
+msgid "Seconds amount duration"
+msgstr ""
+
+#: ../vdms_dialogs/time_selection.py:247
+msgid ""
+"Length of cut missing: Cut (end point) [hh,mm,ss]\n"
+"\n"
+"You should calculate the time amount between the Seeking (start point) and "
+"the cut point, then insert it in 'Cut (end point)'. Always consider the "
+"total duration of the flow in order to avoid entering incorrect values."
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:36
+msgid ""
+"This wizard will attempt to automatically detect FFmpeg in\n"
+"your system.\n"
+"\n"
+"In addition, it allows you to manually set a custom path\n"
+"to locate FFmpeg and its associated executables.\n"
+"\n"
+"Also, Remember that you can always change these settings\n"
+"later, through the Setup dialog.\n"
+"\n"
+"- Press 'Auto-detection' to start the system search now.\n"
+"\n"
+"- Press 'Browse..' to indicate yourself where FFmpeg is located.\n"
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:65
+msgid "Welcome to Videomass Wizard!"
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:67
+msgid "Auto-detection"
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:68 ../vdms_dialogs/settings.py:148
+#: ../vdms_dialogs/settings.py:171 ../vdms_dialogs/settings.py:183
+#: ../vdms_dialogs/settings.py:195 ../vdms_dialogs/settings.py:207
+msgid "Browse.."
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:71
+msgid "Videomass: Wizard"
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:132
+msgid "Locate the folder with ffmpeg, ffprobe and ffplay"
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:152
+msgid ""
+"'{}'\n"
+"File not found: '{}'\n"
+"{}  > are required.\n"
+"\n"
+"Please, choose a valid path."
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:206
+msgid ""
+"'{}' is not installed on the system. Please, install it or set a custom path "
+"using the 'Browse..' button."
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:213
+msgid ""
+"Videomass already seems to include FFmpeg and the executables associated "
+"with it.\n"
+"\n"
+"Are you sure you want to use them?"
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:217 ../vdms_io/filenames_check.py:78
+msgid "Videomass: Please Confirm"
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:270
+msgid ""
+"\n"
+"Wizard completed successfully.\n"
+"Restart Videomass now.\n"
+"\n"
+"Thank You!"
+msgstr ""
+
+#: ../vdms_dialogs/first_time_start.py:272
+msgid "That's all folks!"
+msgstr ""
+
+#: ../vdms_dialogs/infoprg.py:61
+msgid "Cross-platform graphical interface for FFmpeg and youtube-dl.\n"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:42
+msgid ""
+"1-PASS, Do not start with `ffmpeg -i filename`; do not end with `output-"
+"filename`"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:46
+msgid ""
+"2-PASS (optional), Do not start with `ffmpeg -i filename`; do not end with "
+"`output-filename`"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:50
+msgid "Supported Formats list (optional). Do not include the `.`"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:75 ../vdms_panels/presets_manager.py:473
+msgid "Profile Name"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:83 ../vdms_panels/presets_manager.py:474
+msgid "Description"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:124
+msgid "Output Format. Do not include the `.`"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:144
+msgid "Save.."
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:165
+msgid "Assign a short name to the profile"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:166
+msgid "Assign a long description to the profile"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:168
+msgid "Reserved arguments for the first pass"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:169
+msgid "Reserved arguments for the second pass"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:170
+msgid ""
+"You can specify one or more comma-separated format names to include in the "
+"profile"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:173
+msgid ""
+"Type the output format extension here. Leave blank to copy codec and format"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:229
+msgid "Incomplete profile assignments"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:236
+msgid "Formats must be comma-separated"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:246
+msgid "Profile already stored with same name"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:276
+msgid "Successful storing!"
+msgstr ""
+
+#: ../vdms_dialogs/presets_addnew.py:282
+msgid "Successful changes!"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:54
+msgid ""
+"The following settings affect output messages and the log messages\n"
+"during processes. Change only if you know what you are doing."
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:120
+msgid "FFmpeg threads option"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:125
+msgid "Set the number of threads (from 0 to 32)"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:141
+msgid "Where do you prefer to save all the output files?"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:162
+msgid "General"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:170
+msgid " Use a custom path to run FFmpeg"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:182
+msgid " Use a custom path to run FFprobe"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:194
+msgid " Use a custom path to run FFplay"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:206
+msgid " Use a custom path to run mpv player"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:218
+msgid "Executable paths"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:223
+msgid "Set Icon Themes"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:239
+msgid "Color customization"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:244
+msgid "Change color at the button bar:"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:250 ../vdms_dialogs/settings.py:635
+msgid "Bar Colour"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:255
+msgid "Change color of bar buttons:"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:260 ../vdms_dialogs/settings.py:637
+msgid "Buttons Colour"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:265
+msgid "Color setting for button fonts:"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:270 ../vdms_dialogs/settings.py:639
+msgid "Font Colour"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:275
+msgid "Restore default settings"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:280
+msgid "Appearance"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:301
+msgid "Logging levels"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:321
+msgid "Videomass: setup"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:322
+msgid ""
+"Enable custom paths for the executables. If the check boxes are disabled or "
+"if the path field is empty, the search for the executables is entrusted to "
+"the environment variables."
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:419
+msgid "Set a default directory to save files"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:460
+msgid "Videomass: Where is the ffmpeg executable located?"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:500
+msgid "Videomass: Where is the ffprobe executable located?"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:539
+msgid "Videomass: Where is the ffplay executable located?"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:578
+msgid "Videomass: Where is the mpv executable located?"
+msgstr ""
+
+#: ../vdms_dialogs/settings.py:669
+msgid "Changes will take affect once the program has been restarted"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:64
+msgid "Informations"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:75
+msgid "System options"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:85
+msgid "Options enabled"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:95
+msgid "Options disabled"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:109
+msgid "Videomass: FFmpeg specifications"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:112
+msgid "flags"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:113 ../vdms_frames/ffmpeg_conf.py:117
+#: ../vdms_frames/ffmpeg_conf.py:121
+msgid "options"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:116 ../vdms_frames/ffmpeg_conf.py:120
+msgid "status"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:144
+msgid "FFmpeg   ...installed"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:147
+msgid "FFmpeg   ...was imported locally"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:150
+msgid "FFprobe   ...installed"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:153
+msgid "FFprobe   ...was imported locally"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:155
+msgid "FFprobe   ...not found !"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:158
+msgid "FFplay   ...installed"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:161
+msgid "FFplay   ...was imported locally"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:163
+msgid "FFplay   ...not found !"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:181
+msgid "Specific compilation options"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:197
+msgid "ENABLED:"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:201
+msgid "Enabled"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:210
+msgid "DISABLED:"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_conf.py:214
+msgid "Disabled"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_codecs.py:45
+msgid "CODING ABILITY"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_codecs.py:47
+msgid "Videomass: FFmpeg encoders"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_codecs.py:49
+msgid "DECODING CAPABILITY"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_codecs.py:51
+msgid "Videomass: FFmpeg decoders"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_codecs.py:70
+msgid "Video"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_codecs.py:80 ../vdms_panels/av_conversions.py:634
+msgid "Audio"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_codecs.py:90
+msgid "Subtitle"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_codecs.py:112 ../vdms_frames/ffmpeg_codecs.py:121
+#: ../vdms_frames/ffmpeg_codecs.py:130 ../vdms_frames/ffmpeg_formats.py:100
+#: ../vdms_frames/ffmpeg_formats.py:104 ../vdms_frames/ffmpeg_formats.py:108
+msgid "description"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_formats.py:64
+msgid "Demuxing only"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_formats.py:75
+msgid "Muxing only"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_formats.py:86
+msgid "Demuxing/Muxing support"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_formats.py:96
+msgid "Videomass: FFmpeg file formats"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_formats.py:99 ../vdms_frames/ffmpeg_formats.py:103
+#: ../vdms_frames/ffmpeg_formats.py:107
+msgid "format"
+msgstr ""
+
+#: ../vdms_frames/shownormlist.py:55
+msgid "File name"
+msgstr ""
+
+#: ../vdms_frames/shownormlist.py:56
+msgid "Max volume dBFS"
+msgstr ""
+
+#: ../vdms_frames/shownormlist.py:57
+msgid "Mean volume dBFS"
+msgstr ""
+
+#: ../vdms_frames/shownormlist.py:58
+msgid "Offset dBFS"
+msgstr ""
+
+#: ../vdms_frames/shownormlist.py:59
+msgid "Result dBFS"
+msgstr ""
+
+#: ../vdms_frames/shownormlist.py:63
+msgid "Post-normalization references:"
+msgstr ""
+
+#: ../vdms_frames/shownormlist.py:67
+msgid "=  Clipped peaks"
+msgstr ""
+
+#: ../vdms_frames/shownormlist.py:71
+msgid "=  No changes"
+msgstr ""
+
+#: ../vdms_frames/shownormlist.py:76
+msgid "=  Below max peak"
+msgstr ""
+
+#: ../vdms_frames/shownormlist.py:125 ../vdms_panels/av_conversions.py:1881
+#: ../vdms_panels/presets_manager.py:701
+msgid "RMS-based volume statistics"
+msgstr ""
+
+#: ../vdms_frames/shownormlist.py:147 ../vdms_panels/av_conversions.py:1879
+#: ../vdms_panels/presets_manager.py:699
+msgid "PEAK-based volume statistics"
+msgstr ""
+
+#: ../vdms_frames/while_playing.py:40
+msgid ""
+"q, ESC\n"
+"f\n"
+"p, SPC\n"
+"m\n"
+"9, 0\n"
+"/, *\n"
+"a\n"
+"v\n"
+"t\n"
+"c\n"
+"w\n"
+"s\n"
+"\n"
+"left/right\n"
+"down/up\n"
+"page down/page up\n"
+"\n"
+"right mouse click\n"
+"left mouse double-click"
+msgstr ""
+
+#: ../vdms_frames/while_playing.py:45
+msgid ""
+"Quiet.\n"
+"Togle full screen.\n"
+"Pause.\n"
+"Togle mute.\n"
+"Decrease and increase volume respectively.\n"
+"Decrease and increase volume respectively.\n"
+"Cycle audio channel in the current program.\n"
+"Cycle video channel.\n"
+"Cycle subtitle channel in the current program.\n"
+"Cycle program.\n"
+"Cycle video filters or show modes.\n"
+"Step to the next frame. Pause if the stream is not \n"
+"already paused, step to the next video frame, and pause.\n"
+"Seek backward/forward 10 seconds.\n"
+"Seek backward/forward 1 minute.\n"
+"Seek to the previous/next chapter. Or if there are no \n"
+"chapters Seek backward/forward 10 minutes.\n"
+"Seek to percentage in file corresponding to fraction of width.\n"
+"Toggle full screen."
+msgstr ""
+
+#: ../vdms_frames/while_playing.py:80
+msgid "Videomass: Shortcuts while playing"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:62 ../vdms_frames/ffmpeg_search.py:139
+msgid "print basic options"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:63 ../vdms_frames/ffmpeg_search.py:140
+msgid "print more options"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:64 ../vdms_frames/ffmpeg_search.py:141
+msgid "print all options (very long)"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:65 ../vdms_frames/ffmpeg_search.py:142
+msgid "show available devices"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:66 ../vdms_frames/ffmpeg_search.py:143
+msgid "show available bit stream filters"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:67 ../vdms_frames/ffmpeg_search.py:144
+msgid "show available protocols"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:68 ../vdms_frames/ffmpeg_search.py:145
+msgid "show available filters"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:69 ../vdms_frames/ffmpeg_search.py:146
+msgid "show available pixel formats"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:70 ../vdms_frames/ffmpeg_search.py:147
+msgid "show available audio sample formats"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:71 ../vdms_frames/ffmpeg_search.py:148
+msgid "show available color names"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:72 ../vdms_frames/ffmpeg_search.py:149
+msgid "list sources of the input device"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:73 ../vdms_frames/ffmpeg_search.py:151
+msgid "list sinks of the output device"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:74 ../vdms_frames/ffmpeg_search.py:152
+msgid "show available HW acceleration methods"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:79
+msgid "Choose one of the topics in the list"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:97
+msgid "The search function allows you to find entries in the current topic"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:101
+msgid "Ignore-case"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:103
+msgid ""
+"Ignore case distinctions, so that characters that differ only in case match "
+"each other."
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:119
+msgid "Videomass: FFmpeg search topics"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:165
+msgid ""
+"\n"
+"  ..Nothing available"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:199
+msgid ""
+"\n"
+"  ...Not found"
+msgstr ""
+
+#: ../vdms_frames/ffmpeg_search.py:206
+msgid ""
+"\n"
+"  Choose a topic in the drop down first"
+msgstr ""
+
+#: ../vdms_frames/mediainfo.py:85
+msgid "Videomass - FFprobe streams analyzer"
+msgstr ""
+
+#: ../vdms_frames/mediainfo.py:88
+msgid "File Selection"
+msgstr ""
+
+#: ../vdms_frames/mediainfo.py:93 ../vdms_frames/mediainfo.py:96
+#: ../vdms_frames/mediainfo.py:99 ../vdms_frames/mediainfo.py:102
+msgid "References"
+msgstr ""
+
+#: ../vdms_frames/mediainfo.py:94 ../vdms_frames/mediainfo.py:97
+#: ../vdms_frames/mediainfo.py:100 ../vdms_frames/mediainfo.py:103
+msgid "Parameters"
+msgstr ""
+
+#: ../vdms_frames/mediainfo.py:148
+msgid "Data Format"
+msgstr ""
+
+#: ../vdms_frames/mediainfo.py:149
+msgid "Video Stream"
+msgstr ""
+
+#: ../vdms_frames/mediainfo.py:150
+msgid "Audio Streams"
+msgstr ""
+
+#: ../vdms_frames/mediainfo.py:151
+msgid "Subtitle Streams"
+msgstr ""
+
+#: ../vdms_frames/ydl_mediainfo.py:62
+msgid "Videomass - youtube-dl show more"
+msgstr ""
+
+#: ../vdms_frames/ydl_mediainfo.py:65
+msgid "TITLE"
+msgstr ""
+
+#: ../vdms_frames/ydl_mediainfo.py:66
+msgid "URL"
+msgstr ""
+
+#: ../vdms_io/filenames_check.py:75
+#, python-format
+msgid ""
+"Already exist: \n"
+"\n"
+"- %s\n"
+"\n"
+"Do you want to overwrite? "
+msgstr ""
+
+#: ../vdms_io/filenames_check.py:86
+#, python-format
+msgid ""
+"The file does not exist:\n"
+"\n"
+"\"%s\"\n"
+msgstr ""
+
+#: ../vdms_io/filenames_check.py:87
+msgid "Videomass: Input file error"
+msgstr ""
+
+#: ../vdms_io/filenames_check.py:93
+#, python-format
+msgid ""
+"The folder does not exist:\n"
+"\n"
+"\"%s\"\n"
+msgstr ""
+
+#: ../vdms_io/filenames_check.py:94
+msgid "Videomass: Output folder error"
+msgstr ""
+
+#: ../vdms_io/IO_tools.py:66 ../vdms_io/IO_tools.py:88
+#, python-format
+msgid "File does not exist or not a valid file:  %s"
+msgstr ""
+
+#: ../vdms_io/IO_tools.py:134 ../vdms_io/IO_tools.py:255
+#: ../vdms_io/IO_tools.py:273 ../vdms_io/IO_tools.py:310
+msgid "Videomass - Loading..."
+msgstr ""
+
+#: ../vdms_io/IO_tools.py:135
+msgid ""
+"\n"
+"Wait....\n"
+"Audio peak analysis.\n"
+msgstr ""
+
+#: ../vdms_io/IO_tools.py:256 ../vdms_io/IO_tools.py:274
+msgid ""
+"\n"
+"Wait....\n"
+"Retrieving required data.\n"
+msgstr ""
+
+#: ../vdms_io/IO_tools.py:290
+msgid "Videomass - Reading..."
+msgstr ""
+
+#: ../vdms_io/IO_tools.py:291
+msgid ""
+"\n"
+"Wait....\n"
+"Check for update.\n"
+msgstr ""
+
+#: ../vdms_io/IO_tools.py:327
+msgid ""
+"\n"
+"Wait....\n"
+"Upgrading {}\n"
+msgstr ""
+
+#: ../vdms_io/IO_tools.py:329
+msgid ""
+"\n"
+"Wait....\n"
+"Downloading {}\n"
+msgstr ""
+
+#: ../vdms_io/IO_tools.py:345
+msgid "Videomass - Downloading..."
+msgstr ""
+
+#: ../vdms_io/presets_manager_properties.py:49
+#, python-format
+msgid ""
+"The selected profile is not suitable to convert the following file formats:\n"
+"\n"
+"%s\n"
+"\n"
+msgstr ""
+
+#: ../vdms_io/presets_manager_properties.py:85
+msgid ""
+"Is not a compatible Videomass presets. It is recommended removing it or "
+"rewrite it with a compatible JSON data structure.\n"
+"\n"
+"Possible solution: open Presets Manager panel, then use menu \"File\" > "
+"\"Reset all presets\" to safe repair all presets. Remember, those that are "
+"not compatible you have to manually remove them."
+msgstr ""
+
+#: ../vdms_io/presets_manager_properties.py:99
+msgid ""
+"The presets folder is empty, or there are invalid files. Open the Presets "
+"Manager panel, then Perform a repair in the \"File\" > \"Reset all presets\" "
+"menu."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:128 ../vdms_main/main_frame.py:1390
+#: ../vdms_main/main_frame.py:1429
+msgid "Streams analyzer"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:141
+msgid "Preview"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:154 ../vdms_panels/filedrop.py:194
+msgid "Duration"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:168
+msgid "Save Configuration"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:181
+msgid "New.."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:194
+msgid "Delete.."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:207
+msgid "Edit.."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:298
+msgid "Duration or time range settings."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:299
+msgid "Show additional multimedia information."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:300
+msgid "Playing a media file or URL."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:301
+msgid "Save the settings on presets manager."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:302
+msgid "Create a new profile and save it in the current preset."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:304
+msgid "Delete the selected profile."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:305
+msgid "Edit the selected profile."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:312 ../vdms_main/main_frame.py:365
+msgid "Ready"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:450
+msgid "For playback, first make sure you select a URL in the list control"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:455 ../vdms_main/main_frame.py:1332
+msgid "YouTube Downloader"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:534
+msgid "Are you sure you want to exit?"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:534 ../vdms_main/main_frame.py:593
+msgid "Exit"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:562
+msgid "Choose a destination folder.."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:563
+msgid "Choose a folder in which to save all the output files."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:566
+msgid "Add new preset"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:567
+msgid "Create a new empty preset from a template."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:570
+msgid "Save new copy on media"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:571
+msgid "Make a back-up of the selected preset."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:574
+msgid "Restoring a preset"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:575
+msgid "Replace the selected preset with another saved one."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:577
+msgid "Restore default preset"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:578
+msgid "Replace the selected preset with the default one."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:581
+msgid "Restore all default presets"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:582
+msgid "Revert all presets to default values."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:585
+msgid "Delete current preset"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:586
+msgid "Remove the selected preset from the Presets Manager."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:590
+msgid "Reload presets list"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:591
+msgid "..Sometimes it can be useful"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:594
+msgid "Close Videomass"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:601
+msgid "While playing"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:602
+msgid "Show useful keyboard shortcuts when playing or previewing with ffplay"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:606
+msgid "Integrated specifications"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:607
+msgid "Shows the built-ins configuration features of FFmpeg"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:610
+msgid "Muxers and Demuxers"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:611
+msgid "Muxers and demuxers available on FFmpeg in use."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:614
+msgid "Encoders"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:615
+msgid "Shows available encoders on FFmpeg"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:616
+msgid "Decoders"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:616
+msgid "Shows available decoders on FFmpeg"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:619
+msgid "Search topics"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:620
+msgid "A easy utility to search for information on FFmpeg topics and options"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:626
+msgid "Version in Use"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:627
+msgid "Shows the version in use"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:629
+msgid "Check for Update"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:630
+msgid "Check for the latest version available on GitHub"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:633
+msgid "Update youtube-dl"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:634
+msgid "Update with latest version of youtube-dl"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:636
+msgid "&Youtube-dl"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:638
+msgid "&Tools"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:641
+msgid "Home panel"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:642
+msgid "jump to the start panel"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:644
+msgid "Presets manager"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:645
+msgid "jump to the Presets Manager panel"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:646
+msgid "A/V conversions"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:647
+msgid "jump to the Audio/Video Conv. panel"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:649
+msgid "YouTube downloader"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:650
+msgid "jump to the YouTube Downloader panel"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:653
+msgid "Log viewing console"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:654
+msgid "View log messages of the last process executed"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:659
+msgid "Configuration directory"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:660
+msgid "Opens the Videomass configuration directory"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:662
+msgid "Log directory"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:663
+msgid "Opens the Videomass log directory if it exists"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:665
+msgid "Cache directory"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:666
+msgid "Opens the Videomass cache directory if exists"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:668
+msgid "&System"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:670
+msgid "&View"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:673
+msgid "Setup"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:674
+msgid "General Settings"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:676
+msgid "Discover new versions of Videomass"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:677
+msgid "Check for the most latest version of Videomass on <https://pypi.org/>"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:680
+msgid "&Preferences"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:684
+msgid "User Guide"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:685
+msgid "Wiki"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:687
+msgid "Issue tracker"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:689
+msgid "Translation..."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:691
+msgid "Donation"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:693
+msgid "FFmpeg documentation"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:695
+msgid "About Videomass"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:696
+msgid "&Help"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:749
+msgid "Videomass: Choose a directory"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:889
+msgid ""
+"\n"
+"Wait....\n"
+"Check installed version\n"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:894 ../vdms_main/main_frame.py:908
+msgid "You are using youtube-dl version {}"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:914
+#, python-brace-format
+msgid ""
+"ERROR: {0}\n"
+"\n"
+"youtube-dl has not been installed yet."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:929
+msgid "A new version of youtube-dl is available on GitHub:"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:931
+msgid "The latest version of youtube-dl on GitHub is:"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:942
+msgid "youtube-dl is up-to-date {}"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:971
+msgid "youtube-dl is already up-to-date {}"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:992
+#, python-brace-format
+msgid ""
+"Successful! youtube-dl is up-to-date ({0})\n"
+"\n"
+"Re-start is required. Do you want to close Videomass now?"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1003
+msgid ""
+"It looks like you installed youtube-dl with a package manager. Please use "
+"that to update."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1021 ../vdms_main/main_frame.py:1032
+msgid "No files added yet"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1043
+msgid "No URLs added yet"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1062
+msgid "Output log has not been created yet."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1081
+msgid "cache directory has not been created yet."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1171
+#, python-brace-format
+msgid ""
+"A new version (v{0}) of Videomass is available\n"
+"from <https://pypi.org/project/videomass/>"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1177
+#, python-brace-format
+msgid "You are already using the latest version (v{0}) of Videomass"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1182
+msgid ""
+"An error was found in the search for the web page.\n"
+"Sorry for this inconvenience."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1211
+msgid "Back"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1214
+msgid "Forward"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1217
+msgid "Convert"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1219
+msgid "Download"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1253
+msgid "Drag at least one file"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1265
+msgid "Append at least one URL"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1272
+msgid "Invalid URL: \"{}\""
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1301 ../vdms_panels/filedrop.py:265
+msgid "Add Files"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1325
+msgid "Add URLs"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1335 ../vdms_main/main_frame.py:1377
+#: ../vdms_main/main_frame.py:1417
+msgid "Warning: the previous settings may be reset to default values."
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1351
+msgid "Show More"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1371
+msgid "Audio/Video Conversions"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1411
+msgid "Presets Manager"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1465
+msgid "Log of the last process"
+msgstr ""
+
+#: ../vdms_main/main_frame.py:1467
+msgid "Under processing..."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:231
+msgid "Video Encoder"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:238
+msgid "Codec"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:249
+msgid "Pass"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:253
+msgid "2-pass encoding"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:258
+msgid "CRF"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:268
+msgid "Bit Rate (kb)"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:279
+msgid "Min Rate (kb)"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:289
+msgid "Max Rate (kb)"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:299
+msgid "Buffer Size (kb)"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:311
+msgid "Aspect Ratio"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:349
+msgid "Pixel Format"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:360
+msgid "Subtitle Stream"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:374
+msgid "Optimizations"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:380
+msgid "Use for Web"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:398 ../vdms_panels/av_conversions.py:456
+msgid "Optimize for"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:415
+msgid "Deadline/Quality"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:425
+msgid "Quality/Speed ratio modifier:"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:436
+msgid "Activates row-mt 1"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:477
+msgid "Preset"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:491
+msgid "Profile"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:502
+msgid "Level"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:511
+msgid "Tune"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:525
+msgid "Format"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:534
+msgid "Media"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:544
+msgid "Container"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:557
+msgid "AV Media"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:562
+msgid "Audio Encoder"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:572
+msgid "Audio Properties"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:582
+msgid "Settings"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:601 ../vdms_panels/presets_manager.py:169
+msgid "Audio Streams Mapping"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:608 ../vdms_panels/presets_manager.py:176
+msgid "Input Audio Index"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:621 ../vdms_panels/presets_manager.py:187
+msgid "Output Audio Index"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:640
+msgid "Video Filters"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:656
+msgid "Resize"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:670
+msgid "Crop Dimension"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:682
+msgid "Rotation"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:696
+msgid "De/Interlace"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:750
+msgid "Audio Filters"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:757 ../vdms_panels/presets_manager.py:159
+msgid "Audio Normalization"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:778
+msgid "Volumedetect"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:794 ../vdms_panels/presets_manager.py:224
+msgid "Volume Statistics"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:807 ../vdms_panels/presets_manager.py:236
+msgid "Target level:"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:825 ../vdms_panels/presets_manager.py:253
+msgid "Set integrated loudness target:  "
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:836 ../vdms_panels/presets_manager.py:265
+msgid "Set maximum true peak:"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:847 ../vdms_panels/presets_manager.py:275
+msgid "Set loudness range target:"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:859
+msgid "Filters"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:870
+msgid ""
+"Available video codecs. \"Copy\" is not a codec but indicate that the video "
+"stream is not to be re-encoded and allows changing the format or other "
+"parameters"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:874
+msgid ""
+"Output format and file extension. the content may change based on the codec "
+"and media"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:877
+msgid ""
+"\"Video\" to save the output file as a video; \"Audio\" to save as an audio "
+"track"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:880
+msgid "It can reduce the file size, but takes longer."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:882
+msgid "Specifies a minimum tolerance to be used"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:884
+msgid ""
+"Specifies a maximum tolerance. this is only used in conjunction with buffer "
+"size"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:887
+msgid ""
+"Specifies the decoder buffer size, which determines the variability of the "
+"output bitrate "
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:890
+msgid ""
+"\"good\" is the default and recommended for most applications; \"best\" is "
+"recommended if you have lots of time and want the best compression "
+"efficiency; \"realtime\" is recommended for live/fast encoding"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:895
+msgid ""
+"\"cpu-used\" sets how efficient the compression will be. The meaning depends "
+"on the mode above."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:898
+msgid ""
+"specifies the target (average) bit rate for the encoder to use. Higher value "
+"= higher quality. Set -1 to disable this control."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:902
+msgid ""
+"Constant rate factor. Lower values = higher quality and a larger file size. "
+"Set -1 to disable this control."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:905
+msgid "Try filters by playing a preview"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:907
+msgid "Clear all enabled filters "
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:909
+msgid "Video width and video height ratio."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:911
+msgid ""
+"Frames repeat a given number of times per second. In some countries are 30 "
+"NTSC, in PAL countries like Italy are 25."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:914 ../vdms_panels/presets_manager.py:304
+msgid ""
+"Gets maximum volume and average volume data in dBFS, then calculates the "
+"offset amount for audio normalization."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:917 ../vdms_panels/presets_manager.py:307
+msgid ""
+"Limiter for the maximum peak level or the mean level (when switch to RMS) in "
+"dBFS. From -99.0 to +0.0; default for PEAK level is -1.0; default for RMS is "
+"-20.0"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:921 ../vdms_panels/presets_manager.py:320
+msgid "Choose from video a specific input audio stream to work out."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:924 ../vdms_panels/presets_manager.py:323
+msgid ""
+"Map on the output index. Keep same input map if saving as video; to save as "
+"audio select to \"all\" or \"Auto\""
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:927 ../vdms_panels/presets_manager.py:311
+msgid ""
+"Integrated Loudness Target in LUFS. From -70.0 to -5.0, default is -24.0"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:930 ../vdms_panels/presets_manager.py:314
+msgid "Maximum True Peak in dBTP. From -9.0 to +0.0, default is -2.0"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:933 ../vdms_panels/presets_manager.py:317
+msgid "Loudness Range Target in LUFS. From +1.0 to +20.0, default is +7.0"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:1262 ../vdms_panels/av_conversions.py:1277
+msgid "No filter enabled"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:1585
+msgid "No Audio"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:1734 ../vdms_panels/presets_manager.py:557
+msgid ""
+"Activate peak level normalization, which will produce a maximum peak level "
+"equal to the set target level."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:1737 ../vdms_panels/presets_manager.py:560
+msgid ""
+"Activate RMS-based normalization, which according to mean volume calculates "
+"the amount of gain to reach same average power signal."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:1741 ../vdms_panels/presets_manager.py:564
+msgid ""
+"Activate two passes normalization. It Normalizes the perceived loudness "
+"using the \"​loudnorm\" filter, which implements the EBU R128 algorithm."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:1764 ../vdms_panels/presets_manager.py:590
+msgid "Audio normalization off"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:1801 ../vdms_panels/presets_manager.py:622
+msgid "Audio normalization is required only for some files"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:1802 ../vdms_panels/presets_manager.py:623
+msgid "Audio normalization is not required based to set target level"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:1995
+msgid ""
+"Undetected volume values! use the \"Volumedetect\" control button to analyze "
+"the data on the audio volume."
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:2168
+msgid "Audio/Video EBU normalization"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:2274
+msgid "Audio conversions"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:2315
+msgid "Audio EBU normalization"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:2351
+#, python-format
+msgid "%s file in pending"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:2359 ../vdms_panels/av_conversions.py:2365
+#: ../vdms_panels/presets_manager.py:1147
+msgid "Off"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:2372
+msgid ""
+"SUMMARY\n"
+"\n"
+"File Queue\n"
+"Output Format                        \n"
+"Web Optimize\n"
+"Audio Codec\n"
+"Audio bit-rate                        \n"
+"Audio Channels\n"
+"Audio Rate\n"
+"Bit per Sample                        \n"
+"Audio Normalization\n"
+"Time selection                        \n"
+"Selected Input Audio index"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:2393
+msgid ""
+"SUMMARY\n"
+"\n"
+"File to Queue\n"
+"Web Optimize\n"
+"Output Format                      \n"
+"Video Codec\n"
+"Aspect Ratio\n"
+"FPS\n"
+"Audio Codec                      \n"
+"Audio Channels\n"
+"Audio Rate\n"
+"Audio bit-rate                      \n"
+"Bit per Sample\n"
+"Audio Normalization                      \n"
+"Selected Input Audio index\n"
+"Audio Output Map index                      \n"
+"Subtitle stream index\n"
+"Time selection"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:2421
+msgid ""
+"SUMMARY\n"
+"\n"
+"File to Queue\n"
+"Web Optimize\n"
+"Pass Encoding                      \n"
+"Output Format\n"
+"Video Codec\n"
+"Video bit-rate                      \n"
+"CRF\n"
+"Min Rate\n"
+"Max Rate\n"
+"Buffer size                      \n"
+"VP8/VP9 Options\n"
+"Video Filters\n"
+"Aspect Ratio\n"
+"FPS                      \n"
+"Preset\n"
+"Profile\n"
+"Tune\n"
+"Audio Codec                      \n"
+"Audio Channels\n"
+"Audio Rate\n"
+"Audio bit-rate                      \n"
+"Bit per Sample\n"
+"Audio Normalization                      \n"
+"Selected Input Audio index\n"
+"Audio Output Map index                      \n"
+"Subtitles streams index\n"
+"Time selection"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:2489
+msgid "Videomass: Select a preset to storing the new profile"
+msgstr ""
+
+#: ../vdms_panels/av_conversions.py:2499
+msgid "Videomass: Create a new profile"
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:54
+msgid ""
+"  Presets Manager - Create, edit and use quickly your favorite\n"
+"  FFmpeg presets and profiles with full formats support and codecs. "
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:58
+msgid ""
+"  A set of useful tools for audio and video conversions.\n"
+"  Save your profiles and reuse them with Presets Manager. "
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:62
+msgid ""
+"  Easily download videos and audio in different formats\n"
+"  and quality from YouTube, Facebook and more sites. "
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:68
+msgid "Welcome to Videomass"
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:69
+msgid "Version {}"
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:110
+msgid "Download additional presets or contribute to making new ones "
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:113
+msgid "Additional Presets"
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:156
+msgid ""
+"- Requires: Microsoft Visual C++ 2010 Redistributable Package (x86)\n"
+"\n"
+"for major information visit: <http://ytdl-org.github.io/youtube-dl/download."
+"html>"
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:167
+msgid ""
+"{}\n"
+"\n"
+"youtube-dl: no library or executable found ."
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:171
+msgid ""
+"An updated version of youtube-dl is required to download videos from YouTube."
+"com and other video sites. Videomass can download an updated copy of youtube-"
+"dl locally.\n"
+"\n"
+"- Web site: <https://github.com/ytdl-org/youtube-dl/releases>\n"
+"{}\n"
+"\n"
+"...Do you wish to continue?"
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:180
+msgid ""
+"Successful! \n"
+"\n"
+"Important: youtube-dl is very often updated, be sure to always use the "
+"latest version available. Use the dedicated functions on menu bar > Tools > "
+"youtube-dl.\n"
+"\n"
+"Re-start is required. Do you want to close Videomass now?"
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:188
+msgid ""
+"Notice: the youtube-dl executable previously downloaded with Videomass is no "
+"longer in use, since the one installed in the system that has priority is "
+"now used.\n"
+"\n"
+"Do you want to remove the one no longer in use?"
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:199 ../vdms_panels/choose_topic.py:222
+msgid "Videomass confirmation"
+msgstr ""
+
+#: ../vdms_panels/choose_topic.py:203 ../vdms_panels/presets_manager.py:969
+msgid "Don't show this dialog again"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:79
+msgid ""
+"At least one \"Format Code\" must be checked for each URL selected in green."
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:81
+msgid "Function available only if you choose \"Download by format code\""
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:110
+msgid "Default"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:111
+msgid "Download audio and video splitted"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:112
+msgid "Download Audio only"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:113
+msgid "Download by format code"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:182
+msgid "Download all playlist"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:186
+msgid "Embed thumbnail in audio file"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:190
+msgid "Add metadata to file"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:194
+msgid "Write subtitles to video"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:197 ../vdms_panels/youtubedl_ui.py:480
+msgid "URLs loaded"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:306 ../vdms_panels/youtubedl_ui.py:322
+msgid "Play selected url"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:336 ../vdms_panels/youtubedl_ui.py:433
+msgid "Format Code"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:337 ../vdms_panels/youtubedl_ui.py:434
+#: ../vdms_panels/youtubedl_ui.py:489
+msgid "Url"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:338 ../vdms_panels/youtubedl_ui.py:435
+#: ../vdms_panels/youtubedl_ui.py:490
+msgid "Title"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:339 ../vdms_panels/youtubedl_ui.py:436
+msgid "Extension"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:340
+msgid "Resolution"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:341
+msgid "Video Codec"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:342
+msgid "fps"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:343
+msgid "Audio Codec"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:344
+msgid "Size"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:437 ../vdms_panels/youtubedl_ui.py:491
+msgid "Resolution note"
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:488
+msgid "N."
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:509
+msgid ""
+"\"Show more\" only is enabled when Videomass uses youtube-dl as imported "
+"library."
+msgstr ""
+
+#: ../vdms_panels/youtubedl_ui.py:527
+msgid "Check at least one box for each URL (green selection)"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:61
+msgid "Directories are not allowed, just add files, please."
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:62
+msgid ""
+"File without format extension: please give an appropriate extension to the "
+"file name, example '.mkv', '.avi', '.mp3', etc."
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:104
+#, python-format
+msgid "Duplicate files are rejected: > '%s'"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:161
+msgid "Drag one or more files below"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:165 ../vdms_panels/textdrop.py:59
+msgid "Options"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:174 ../vdms_panels/textdrop.py:64
+msgid "Output Directory"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:193
+msgid "Input files"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:195
+msgid "Media type"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:196
+msgid "File size"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:204
+msgid "Remove the selected file from the list"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:205
+msgid "Delete all files from the list"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:206 ../vdms_panels/textdrop.py:90
+msgid "Choose another output directory for files saving"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:238 ../vdms_panels/filedrop.py:253
+msgid "Remove the selected file"
+msgstr ""
+
+#: ../vdms_panels/filedrop.py:263
+msgid "No file selected"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:91
+msgid "[Videomass]: DONE !\n"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:92
+msgid "[Videomass]: FAILED !\n"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:93
+msgid ""
+"\n"
+"[Videomass]: Sorry, task failed !\n"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:94
+msgid ""
+"\n"
+"[Videomass]: Interrupted Process !\n"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:95
+msgid ""
+"\n"
+"[Videomass]: Successfully completed !\n"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:96
+msgid ""
+"\n"
+"[Videomass]: completed, but not everything was successful.\n"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:124
+msgid "Log viewing console:"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:133
+msgid "Suppress excess output"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:137
+msgid "Abort"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:151
+msgid "If activated, hides some output messages."
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:153
+msgid "Stops current process"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:426
+msgid "...Finished"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:440
+msgid "wait... I'm aborting"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:442
+msgid "...Interrupted"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:460
+msgid ""
+"There are still processes running.. if you want to stop them, use the \"Abort"
+"\" button.\n"
+"\n"
+"Do you want to kill application?"
+msgstr ""
+
+#: ../vdms_panels/long_processing_task.py:463
+msgid "Please confirm"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:111
+msgid "Select a preset from the drop down:"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:124
+msgid "Presets"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:129
+msgid "1-PASS"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:141
+msgid "2-PASS"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:152
+msgid "Command line FFmpeg"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:210
+msgid "Volumedected"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:287
+msgid "Automations"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:300
+msgid "First pass parameters of the selected profile"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:302
+msgid "Second pass parameters of the selected profile"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:419 ../vdms_panels/presets_manager.py:439
+msgid "New profile"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:421 ../vdms_panels/presets_manager.py:441
+msgid "Edit selected profile"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:423 ../vdms_panels/presets_manager.py:443
+msgid "Delete selected profile"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:475
+msgid "Output Format"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:476
+msgid "Supported Formats List"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:494 ../vdms_panels/presets_manager.py:536
+msgid ""
+"ERROR: Typing error on JSON keys: {}\n"
+"\n"
+"File: \"{}\"\n"
+"key malformed ?"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:715
+msgid "Enter name for new preset"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:728
+msgid "Cannot save current data in file '{}'."
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:732
+msgid ""
+"'Successful!\n"
+"\n"
+"A new preset has been created."
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:746
+msgid ""
+"Are you sure you want to remove \"{}\" preset?\n"
+"\n"
+" It will be moved to the \"Removals\" folder in the presets directory"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:749 ../vdms_panels/presets_manager.py:809
+#: ../vdms_panels/presets_manager.py:825 ../vdms_panels/presets_manager.py:850
+#: ../vdms_panels/presets_manager.py:920 ../vdms_panels/presets_manager.py:965
+#: ../vdms_panels/presets_manager.py:1037
+msgid "Videomass: Please confirm"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:760
+msgid ""
+"{}\n"
+"\n"
+"Sorry, removal failed, I can't continue."
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:780
+msgid "Select a directory to save it"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:785
+msgid "Successfully saved"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:795
+msgid "Videomass: Choose a videomass preset to restore "
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:804
+#, python-brace-format
+msgid ""
+"The following preset:\n"
+"\n"
+"'{0}'\n"
+"\n"
+"will be imported and will overwrite the one in use.\n"
+"Proceed ?"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:823
+msgid ""
+"The selected preset will be overwritten with default profiles!\n"
+"proceed?"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:834
+msgid "Sorry, this preset is not part of default Videomass presets."
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:848
+msgid ""
+"WARNING: you are restoring all default presets!\n"
+"Proceed?"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:872
+#, python-format
+msgid "Create a new profile on \"%s\" preset"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:891 ../vdms_panels/presets_manager.py:914
+#: ../vdms_panels/presets_manager.py:952
+msgid "First select a profile in the list"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:896
+#, python-format
+msgid "Edit profile of the \"%s\" preset: "
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:918
+msgid "Are you sure you want to delete the selected profile?"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:939
+msgid ""
+"Undetected volume values! use the \"Volumedetect\" control button to analyze "
+"data on the audio volume."
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:960
+msgid ""
+"The selected profile command has been changed manually.\n"
+"Do you want to apply it during the conversion process?"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:1009
+#: ../vdms_panels/presets_manager.py:1059
+#: ../vdms_panels/presets_manager.py:1096
+msgid "Starts"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:1033
+msgid ""
+"EBU normalization is enabled twice in automation and command line. Command "
+"line has priority.\n"
+"\n"
+"Do you wish to continue?"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:1087
+msgid "To export as pictures, select one file at a time"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:1149
+msgid "Disable"
+msgstr ""
+
+#: ../vdms_panels/presets_manager.py:1157
+msgid ""
+"SUMMARY\n"
+"\n"
+"File to Queue\n"
+"Pass Encoding                     \n"
+"Profile Used\n"
+"Output Format\n"
+"Audio Normalization                     \n"
+"Selected Input Audio index\n"
+"Audio Output Map index                     \n"
+"Time selection"
+msgstr ""
+
+#: ../vdms_panels/textdrop.py:51
+msgid "Add one or more URLs below"
+msgstr ""
+
+#: ../vdms_panels/textdrop.py:89
+msgid "Delete all text from the list"
+msgstr ""
+
+#: ../vdms_threads/mpv_url.py:113
+msgid ""
+"{}\n"
+"\n"
+"You need mpv to play urls but mpv is not found."
+msgstr ""
+
+#: ../vdms_threads/one_pass.py:81 ../vdms_threads/picture_exporting.py:79
+#: ../vdms_threads/two_pass_EBU.py:78 ../vdms_threads/two_pass.py:81
+msgid "Is 'ffmpeg' installed on your system?"
+msgstr ""
+
+#: ../vdms_threads/ydl_executable.py:66 ../vdms_threads/ydl_executable.py:73
+#: ../vdms_threads/ydl_executable.py:234 ../vdms_threads/ydl_executable.py:241
+msgid "Unrecognized error"
+msgstr ""
+
+#: ../vdms_threads/ydl_executable.py:69 ../vdms_threads/ydl_executable.py:237
+msgid ""
+"\n"
+"Requires MSVCR100.dll\n"
+"To resolve this problem install: Microsoft Visual C++ 2010 Redistributable "
+"Package (x86)"
+msgstr ""
+
+#: ../vdms_threads/ydl_executable.py:75
+msgid "Is 'youtube-dl' installed on your system?"
+msgstr ""
+
+#: ../vdms_threads/youtubedlupdater.py:129
+msgid ""
+"Requires MSVCR100.dll\n"
+"To resolve this problem install: Microsoft Visual C++ 2010 Redistributable "
+"Package (x86)"
+msgstr ""
