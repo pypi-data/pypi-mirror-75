@@ -1,0 +1,52 @@
+dist: xenial
+sudo: required
+services:
+- docker
+cache:
+  directories:
+    - ${HOME}/.cache
+    - ${HOME}/cached-deps
+    - ${HOME}/gopath/pkg/mod
+    - "$(python3 -c 'import site; print(site.USER_BASE)')"
+language: python
+env:
+  global:
+    - PATH=$HOME/cached-deps:$PATH
+
+matrix:
+  include:
+    # python 3.5
+    - python: 3.5
+      env: PACHYDERM_VERSION=1.11.0
+    - python: 3.5
+      env: PACHYDERM_VERSION=1.10.0
+    - python: 3.5
+      env: PACHYDERM_VERSION=1.9.0
+    # python 3.8
+    - python: 3.8
+      env: PACHYDERM_VERSION=1.11.0
+    - python: 3.8
+      env: PACHYDERM_VERSION=1.10.0
+    - python: 3.8
+      env: PACHYDERM_VERSION=1.9.0
+    # other tests
+    - python: 3.8
+      env:
+        - TOXENV=lint
+        - PACHYDERM_VERSION=1.10.0
+    - python: 3.8
+      env:
+        - TOXENV=examples
+        - PACHYDERM_VERSION=1.10.0
+
+install:
+- make ci-install
+before_script:
+- make ci-setup
+script:
+- tox
+
+before_cache:
+  # Make sure cache dirs have the necessary permissions for Travis to traverse
+  # & copy them all elsewhere
+  - proto/pachyderm/etc/testing/travis_cache.sh
