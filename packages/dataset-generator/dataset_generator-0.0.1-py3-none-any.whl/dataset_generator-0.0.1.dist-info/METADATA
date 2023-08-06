@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: dataset-generator
+Version: 0.0.1
+Summary: A package for generating Image datasets given some backgrounds and objects
+Home-page: https://github.com/Shiny-Akash/dg.git
+Author: Akash Kumar . S
+Author-email: akasharul2101@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# dg - Dataset Generator
+The dg module is used to generate datasets .It has useful Classes and Functions to help in generating various kinds of Image datasets .
+
+
