@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: openpivtlib
+Version: 1.0.7
+Summary: A library containing common elements to openpivt and PIVT apps built on top of openpivt
+Home-page: UNKNOWN
+Author: Eric Frechette
+Author-email: eric@softwarefactorylabs.com
+License: UNKNOWN
+Description: # openpivtlib
+        
+        A library containing common elements to openpivt and PIVT apps built on top of openpivt.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Developers
+Requires-Python: >= 3.7
+Description-Content-Type: text/markdown
+Provides-Extra: test
