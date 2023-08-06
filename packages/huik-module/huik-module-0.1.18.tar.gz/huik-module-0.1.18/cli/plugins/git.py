@@ -1,0 +1,101 @@
+import os
+import click
+import subprocess as sub
+from datetime import datetime as date
+import socket
+from cli.utils import TableDisplay
+import re
+
+@click.group(invoke_without_command=True)
+@click.option('-v', is_flag=True,help='Use this flag to auto increment __version__ in __version__.* file.')
+@click.pass_context
+def cli(ctx,v):
+    """
+    git pull add commit push 4 step in one.
+    """
+    if ctx._depth == 2:
+        if v: 
+            versionfile=[]
+            for root,folder,files in os.walk(os.getcwd()):
+                for file in files:
+                    if file.split('.')[0]=='_version_':
+                        versionfile.append(os.path.join(root,file))
+            trueVersion = []
+            for f in versionfile:
+                try:
+                    data = open(f,'rt').read()
+                    if '__version__' in data:
+                        trueVersion.append((f,data))
+                except:
+                    pass
+
+            count = len(trueVersion)
+            if count>1 or count==0:
+                if count>1:
+                    click.echo(f"Found these __version__ files:")
+                    for f,d in trueVersion:
+                        click.echo(f)
+                if not click.confirm(f'{"More" if count>1 else "Less"} than one _version_.* file was found, ignore version and continue?',default=True,):
+                    return 
+            if count==1:
+                file,data = trueVersion[0]
+                data = data.split('\n')
+                for k,line in enumerate(data):
+                    p = re.compile('\d+\.\d+\.\d+')
+                    if '__version__' in line:
+                        m=p.search(line)
+                        if m:
+                            ver = m.group()
+                            verl = ver.split('.')
+                            verl[-1] = str(int(ver.split('.')[-1])+1)
+                            newver = '.'.join(verl)
+                            data[k] = line.replace(ver,newver)
+                            click.echo(f"Update __version__ in {file} from <{ver}> to <{newver}> .")
+                with open(file,'wt') as f:
+                    f.write('\n'.join(data))
+
+        click.echo('\nGit pull')
+        sub.run('git pull',shell=True,)
+        click.echo('\nCommit to Git')
+        msg = click.prompt("Enter a comment",show_default=True,
+            default=f"ON: {date.now().strftime('%c')}, FROM: {socket.gethostname()}")
+        sub.run(f'git add . \n git commit -m "{msg}" \n git push',shell=True)
+        result = sub.run('git config --get remote.origin.url',stdout=sub.PIPE,encoding='utf-8',shell=True).stdout
+        td = TableDisplay()
+        click.echo(td(title='>>> <g>! Success</g> <<<',text=f"Commited to [{result.strip()}]"))
+
+README="# This Repo is created by [OK git][huik]\n[![python version](https://img.shields.\
+io\/badge/python-3.5%20%7C%203.6%20%7C%203.7%20-blue)][pythonwebsite]\n[![Alt text]\
+(https://img.shields.io/pypi/v/huik-module 'Hover to see this text.')][huik]\n### \
+Emphasis\n*Italic* ; **Bold** ; ***Bold and Italic*** ; ~~Scratch~~\n### List items\n1. \
+First ordered list item\n* Unordered list can use asterisks\n\n[huik]:https://pypi.org\
+/project/huik-module\n[pythonwebsite]: https://www.python.org/downloads/release/python-375\n"
+
+IGNORE={
+"py": '*.py[cod]\n__pycache__\n*.so\n.env\n*.json\ntest*.*\ntest*\n*.bak\n*.dat\n*.dir\
+\n*.egg\n*.egg-info\ndump.rdb\ndist\nbuild\neggs\nparts\nbin\nvar\nsdist\ndevelop-eggs\n\
+.installed.cfg\nlib\nlib64\n.DS_Store\npip-log.txt\n.coverage\n.tox\nnosetests.xml\n*.vscode\
+\n*.code-workspace\n*.mo\n.mr.developer.cfg\n.project\n.pydevproject\n.env\nvenv\nlogs\n',
+"js":'/node_modules\n/.pnp\n.pnp.js\n/coverage\n/build\n.DS_Store\n.env.local\n\
+.env.development.local\n.env.test.local\n.env.production.local\nnpm-debug.log*\
+\nyarn-debug.log*\nyarn-error.log*\n'
+}
+
+@cli.command()
+@click.option('--javascript','-js','project',flag_value='js',help='Setup javascript .gitignore')
+@click.option('--python','-py','project',flag_value='py',help='Setup python .gitignore')
+def init(project):
+    "Init a new git package with .gitignore and README.md"
+    if not project:
+        project =  click.prompt("Type of project to init",
+        show_default=True,type=click.Choice(["py","js"],case_sensitive=False),
+        default="py")
+    with open('README.md','wt') as f:
+        f.write(README)
+    with open('.gitignore','wt') as f:
+        f.write(IGNORE[project])
+    url = click.prompt("Enter github repo url")
+    sub.run(f'git init\ngit add .\ngit commit -m "First Commit"\ngit remote add origin {url}\ngit push --set-upstream origin master',shell=True)
+   
+    
+    
