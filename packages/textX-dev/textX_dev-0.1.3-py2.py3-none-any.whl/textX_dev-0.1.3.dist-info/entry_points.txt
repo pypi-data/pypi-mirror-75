@@ -1,0 +1,6 @@
+[textx_commands]
+startproject = textxdev.cli.startproject:startproject
+
+[textx_generators]
+que_txproject = textxdev.scaffold:que_gen_txproject
+
