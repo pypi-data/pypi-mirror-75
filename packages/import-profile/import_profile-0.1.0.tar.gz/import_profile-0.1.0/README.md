@@ -1,0 +1,29 @@
+import_profile
+==============
+
+Want to know how much time and memory each of your Python imports costs?
+
+Find out with `import_profile`!
+
+Just do:
+
+    python3 -m import_profile flask sqlalchemy flask_sqlalchemy pandas numpy
+
+And you will get:
+
+    flask sqlalchemy flask_sqlalchemy numpy pandas
+
+                              time  cpu.user  cpu.system  memory.uss  memory.rss
+    flask             1.579192e-01  0.136667    0.013333    9.899740   13.015625
+    sqlalchemy        9.448679e-02  0.083333    0.010000    5.097656    5.250000
+    flask_sqlalchemy  6.937877e-02  0.063333    0.006667    3.441406    3.468750
+    numpy             1.138294e-01  0.116667    0.086667    7.684896   12.278646
+    pandas            3.321003e-01  0.290000    0.046667   17.712240   25.085937
+    *base*           -3.885781e-16  0.053333    0.013333    5.945312   11.634115
+
+    cpu.user   = seconds of CPU time spent in this process
+    cpu.system = seconds of CPU time spent waiting for the OS kernel, such
+                 as waiting for file I/O to complete
+    memory.uss = unique set size - memory taken up by process, minus
+                 shared objects/DLLs (megabytes)
+    memory.rss = resident set size (megabytes)
