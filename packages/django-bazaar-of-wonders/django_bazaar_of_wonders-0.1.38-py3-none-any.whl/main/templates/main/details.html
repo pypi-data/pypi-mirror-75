@@ -1,0 +1,238 @@
+{% extends 'main/base.html' %}
+<!-- access custom templatetag -->
+{% block content %}
+    <div style="background-color: rgba(245, 225, 215, .8); border: solid 5px rgb(40, 17, 19); text-align: center; margin-left: 35px; margin-right: 20px; margin-bottom: 25px">
+        <div class="row" style="display: flex; align-content: center">
+            <!-- checks for card instance -->
+            {% if c %}
+                <div class="column1" style="min-width: min-content; text-align: center; margin-left: 15px; justify-content: center;">
+                    <!-- display all known card information -->
+                    <img src="{{ c.card_image_loc }}" style="width: 15vw; height: auto; margin-top: 20px; ">
+                    {% if user.is_authenticated and card_saved %}
+                        <p style="color: rgb(40, 17, 19)"><a style="color:rgb(90, 47, 49)" href="{% url 'main:collection' %}"><b>View in Collection</b></a></p>
+                        <p style="color: rgb(40, 17, 19)"><a style="color:rgb(90, 47, 49)" href="{% url 'main:remove_from_collection' %}?selected={{c.product_id}}"><b>Remove from Collection</b></b><i class="black-text material-icons" style="vertical-align: -10%; font-size:18px;">delete</i></a></p>
+                    {% elif user.is_authenticated and not card_saved %}
+                        <p style="color: rgb(40, 17, 19)"><a href="{% url 'main:add_to_collection' %}?selected={{c.product_id}}" style="color:rgb(90, 47, 49)"><b>Add card to your collection</b></b>.</a></p>
+                    {% else %}
+                        <b><p style="color:rgb(90, 47, 49)"><a href="/login" target="_self" style="color: rgb(64, 126, 155)">Login</a> or <a href="/register" target="_self" style="color: rgb(64, 126, 155)">create an account</a> to save this card to your collection.</p></b>
+                    {% endif %}
+                </div>
+                <div class="column2" style="float: left; margin-left: 50px">
+                    <h5 style="margin-top: 10px; margin-bottom: 5px; text-align: center; color:rgb(90, 47, 49); font-size: 8vh"><b>{{ c.name }} Details</b></h5>
+                    <div class="row" style="display: flex; justify-content: center">
+                        <div class="column" style="float: left; text-align: left; margin-right: 8px; margin-left: 8px;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Type:</b></p>
+                                    </td>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)">{{ c.type_id.card_type }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Colors:</b></p>
+                                    </td>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)">{{ c.card_color }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Mana Cost/Total:</b></p>
+                                    </td>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)">{{ c.mana_cost }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Converted Mana Cost:</b></p>
+                                    </td>
+                                    <td>
+                                        {% if c.converted_mana_cost != -1 %}
+                                            <p style="color: rgb(40, 17, 19)">{{ c.converted_mana_cost }}</p>
+                                        {% else %}
+                                            <p style="color: rgb(40, 17, 19)">No converted mana cost available</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Keywords:</b></p>
+                                    </td>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)">{{ c.card_keywords }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Collection Number:</b></p>
+                                    </td>
+                                    <td>
+                                        {% if c.collection_number != -1 %}
+                                            <p style="color: rgb(40, 17, 19)">{{ c.collection_number }}</p>
+                                        {% else %}
+                                            <p style="color: rgb(40, 17, 19)">No collection number available</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="column" style="float: left; text-align: left; margin-right: 8px; margin-left: 8px;">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Rarity:</b></p>
+                                    </td>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)">{{ c.rarity_id.card_rarity }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Power:</b></p>
+                                    </td>
+                                    <td>
+                                        {% if c.power != -1 %}
+                                            <p style="color: rgb(40, 17, 19)">{{ c.power }}</p>
+                                        {% else %}
+                                            <p style="color: rgb(40, 17, 19)">No power information available</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Toughness:</b></p>
+                                    </td>
+                                    <td>
+                                        {% if c.toughness != -1 %}
+                                            <p style="color: rgb(40, 17, 19)">{{ c.toughness }}</p>
+                                        {% else %}
+                                            <p style="color: rgb(40, 17, 19)">No toughness information available</p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Set Name:</b></p>
+                                    </td>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)">{{ c.set_name }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Artist:</b></p>
+                                    </td>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)">{{ c.artist }}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="column" style="float: left; text-align: left; margin-right: 8px; margin-left: 8px; max-width: 25%">
+                            <table>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Card Text:</b></p>
+                                    </td>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)">{{ c.card_text }}</p>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)"><b>Flavor Text:</b></p>
+                                    </td>
+                                    <td>
+                                        <p style="color: rgb(40, 17, 19)">{{ c.flavor_text }}</p>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <!-- card not in database - error msg -->
+        {% else %}
+        <div style="background-color: rgba(228, 193, 152, 0.7); text-align: center">
+            <div style="font-size: 10vw; font-family: CustomBazaarFont; color: rgb(40, 63, 19); ">Sorry the card information was not found in our master deck</div>
+        </div>
+        {% endif %}
+    </div>
+<!-- checks for listings -->
+    {% if l and c %}
+    <h5 style="margin-top: 10px; margin-bottom: 5px; text-align: center; font-family: CustomBazaarFont; color:rgb(50, 73, 29); font-size: 20vh; text-shadow: 3px 3px rgb(40, 17, 19);">Purchase Options</h5>
+    <div class="row" style="display: flex; text-align: center; justify-content: center; margin-right: 8vw; margin-left: 20vw">
+        <table>
+            <tbody>
+                <tr>
+                    <td>
+                        {% if c.tcg_player_purchase_url != "" %}
+                            <a href="{{ c.tcg_player_purchase_url }}" target=_blank"><button style="margin-top:10px; font-size: 7vh; background-color: rgb(4, 56, 68); color: rgb(228, 193, 152); text-shadow: 5px 5px rgb(40, 17, 19); height: min-content; width: 75%; border-radius: 5px; font-family: CustomBazaarFont; padding: 25px">Buy Now at TCG Player</button></a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if c.card_market_purchase_url != "" %}
+                            <a href="{{ c.card_market_purchase_url }}" target=_blank"><button style="margin-top:10px; font-size: 7vh; background-color: rgb(4, 56, 68); color: rgb(228, 193, 152); text-shadow: 5px 5px rgb(40, 17, 19); height: min-content; width: 75%; border-radius: 5px; font-family: CustomBazaarFont;padding: 25px">Buy Now at Card Market</button></a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if c.mtg_stocks_purchase_url != "" %}
+                            <a href="{{ c.mtg_stocks_purchase_url }}" target=_blank"><button style="margin-top:10px; font-size: 7vh; background-color: rgb(4, 56, 68); color: rgb(228, 193, 152); text-shadow: 5px 5px rgb(40, 17, 19); height: min-content; width: 75%; border-radius: 5px; font-family: CustomBazaarFont; padding: 25px">Buy Now at MTG Stocks</button></a>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if user.is_authenticated %}
+                            <p><a href="{% url 'main:notifications' c.product_id %}"><button style="margin-top:10px; font-size: 7vh; background-color: rgb(40, 17, 19); color: rgb(228, 193, 152); text-shadow: 5px 5px rgb(40, 17, 19); height: min-content; width: 75%; border-radius: 5px; font-family: CustomBazaarFont; padding: 25px">Notify Me at Price Drop</button></a></p>
+                        {% else %}
+                            <p><button style="margin-top:10px; font-size: 7vh; background-color: rgb(40, 17, 19); color: rgb(228, 193, 152); text-shadow: 5px 5px rgb(40, 17, 19); height: min-content; width: 75%; border-radius: 5px; font-family: CustomBazaarFont; padding: 25px">
+                                <a style="color: rgb(70, 93, 49)" href="{% url 'main:login_req' %}">Login</a> or <a style="color: rgb(70, 93, 49)" href="{% url 'main:register' %}">Register</a> to recieve price drop notifications</button></p>
+                        {% endif %}
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="container black-text" style="background-color: rgba(64, 126, 155, 0.9); border: rgb(4, 56, 68) 5px solid; text-align: center; padding: 15px; font-size: 18px;">
+        <h5 style="margin-top: 10px; margin-bottom: 5px; text-align: center; font-family: CustomBazaarFont; color:rgb(228, 193, 152); font-size: 10vh; text-shadow: 3px 3px rgb(40, 17, 19);">Listings Available at TCG Player</h5>
+        <div style="display: flex; flex-direction: row;">
+            <div style="flex-wrap: wrap; display: flex; margin-right: 20px; margin-left: 10px; justify-content: space-evenly ">
+            {% for item in l %}
+                <div class="col-md-3" style="width: min-content; margin: 20px;">
+                <!-- cards = link to details page -->
+                    <div class="card" style="width: 15vw; height: auto; background-color: rgba(245, 225, 215, .8); border: solid 3px rgb(40, 17, 19); padding: 15px">
+                         <a title="card-testing" class="btn-link" style="width:min-content" href="{{ c.tcg_player_purchase_url }}" target=_blank"">
+                            {% load static %}
+                            <div style="text-align: left;">
+                                <p style="color: rgb(40, 17, 19);  margin: 1px"><b>Price: $</b>{{ item.price }}</p>
+                            </div>
+                            <div style="text-align: left;">
+                                <p style="color: rgb(40, 17, 19); margin: 1px"><b>Seller: </b>{{ item.seller_key.seller_name }}</p>
+                            </div>
+                            <div style="text-align: left;">
+                                <p style="color: rgb(40, 17, 19); margin: 1px"><b>Condition: </b>{{ item.condition }}</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            <!-- no matching cards -->
+            {% empty %}
+                <div style="background-color: rgba(228, 193, 152, 0.7); text-align: center">
+                    <div style="font-size: 10vw; font-family: CustomBazaarFont; color: rgb(40, 63, 19); ">Currently no listings available for this card</div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    {% else %}
+        <br>
+        <div style="background-color: rgba(228, 193, 152, 0.7); text-align: center">
+            <div style="font-size: 10vw; font-family: CustomBazaarFont; color: rgb(40, 63, 19); ">Currently no listings available for this card</div>
+        </div>
+        <br>
+    {% endif %}
+{% endblock %}
