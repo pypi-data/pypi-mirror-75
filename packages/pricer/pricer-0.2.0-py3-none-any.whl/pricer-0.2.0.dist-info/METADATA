@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: pricer
+Version: 0.2.0
+Summary: Use WoW addon data to optimize auction buying and selling policies
+Home-page: https://github.com/bluemania/wow_auctions
+License: MIT
+Author: bluemania
+Author-email: damnthatswack@hotmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: PyYAML (==5.2)
+Requires-Dist: SLPP (==1.2)
+Requires-Dist: click (==6.7)
+Requires-Dist: fastparquet (==0.3.3)
+Requires-Dist: importlib_metadata (>=1.7.0,<2.0.0)
+Requires-Dist: pandas (==1.0.1)
+Requires-Dist: seaborn (==0.9.0)
+Project-URL: Repository, https://github.com/bluemania/wow_auctions
+Description-Content-Type: text/markdown
+
+# WoW Auction engine
+[![Tests](https://github.com/bluemania/wow_auctions/workflows/Tests/badge.svg)](https://github.com/bluemania/wow_auctions/actions?workflow=Tests)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![Codecov](https://codecov.io/gh/bluemania/wow_auctions/branch/master/graph/badge.svg)](https://codecov.io/gh/bluemania/wow_auctions)
+[![PyPI](https://img.shields.io/pypi/v/pricer.svg)](https://pypi.org/project/pricer/)
+
+This project helps automate some aspects of trading on the World of Warcraft (WoW) auction house.
+
+Related article here: https://www.nickjenkins.com.au/articles/personal/2020/07/07/programming-and-analytics-in-games
+
+The program is currently under development and is not currently designed for third party use.
+
+### Requirements
+
+You will need Python 3.7 and World of Warcraft: Classic installed locally on your machine.
+
+This project uses [poetry](https://python-poetry.org/) to manage dependencies and versioning.
+
+```bash
+poetry install
+```
+
+You will also need the following WoW Classic Addons installed to interface with the program:
+
+* ArkInventory
+* Auctioneer
+* Beancounter (comes with Auctioneer)
+
+### Running the script
+
+After the above setup, to run the script enter the following on command line.
+
+```bash
+poetry shell
+poetry run python run.py -a
+```
+
+There are many command line options; -a will run primary analysis (except for sell policies). Please refer to the scripts for further information.
+
+### License
+All assets and code are under the MIT LICENSE and in the public domain unless specified otherwise.
+
+#### TODO
+
+* Create additional selling profile for min-bid max-buy high-volume. May require splitting the function more carefully
+* More visibility on current inventory
+
