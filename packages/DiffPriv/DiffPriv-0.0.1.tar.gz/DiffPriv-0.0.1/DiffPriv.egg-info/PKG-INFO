@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: DiffPriv
+Version: 0.0.1
+Summary: A Differential Privacy Package
+Home-page: https://github.com/Quantalabs/DiffPriv
+Author: Quantalabs
+License: UNKNOWN
+Description: # DiffPriv
+        Differential Privacy Algorithms
+        
+        # What it is
+        DiffPriv is a collection of different defferential privacy algorithms.
+        
+        # How to Use
+        To use the random reponse mechanism, call the random funtion.
+        
+            random(response_list)
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8.1
+Description-Content-Type: text/markdown
