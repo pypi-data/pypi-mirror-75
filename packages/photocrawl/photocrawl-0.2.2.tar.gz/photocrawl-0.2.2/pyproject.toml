@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "photocrawl"
+version = "0.2.2"
+description = "Analysis script of photography habits."
+authors = ["Felix Soubelet <felix.soubelet@liverpool.ac.uk>"]
+license = "MIT"
+
+readme = "README.md"
+repository = "https://github.com/fsoubelet/PhotoCrawl"
+
+keywords = ["Photography", "Utility", "Visualisation"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Topic :: Scientific/Engineering :: Visualization",
+    "Topic :: Utilities",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6.1"
+matplotlib = "^3.2.1"
+pandas = "^1.0.3"
+seaborn = "^0.10.1"
+pyexifinfo = "^0.4.0"
+loguru = "^0.4.1"
+Pillow = "^7.1.2"
+
+[tool.poetry.dev-dependencies]
+portray = "^1.4"
+mypy = "^0.782"
+
+[tool.portray]
+docs_dir = "manual_docs"
+extra_dirs = ["example_outputs"]
+extra_markdown_extensions = ["admonition", "codehilite", "footnotes", "pymdownx.arithmatex", "pymdownx.betterem", "pymdownx.caret", "pymdownx.critic", "pymdownx.details", "pymdownx.inlinehilite", "pymdownx.magiclink", "pymdownx.tasklist", "pymdownx.keys", "pymdownx.mark", "pymdownx.smartsymbols", "pymdownx.superfences", "pymdownx.tasklist", "pymdownx.tilde"]
+output_dir = "docs"
+modules = ["photocrawl"]
+
+[tool.portray.mkdocs]
+repo_url = "https://github.com/fsoubelet/PhotoCrawl"
+repo_name = "Photocrawl"
+edit_uri = "https://github.com/fsoubelet/PhotoCrawl"
+
+[tool.portray.mkdocs.theme]
+name = "material"
+palette = {scheme = "slate", primary = "indico", accent = "pink"}
+font = {text = "roboto", code = "Fira Code"}
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
