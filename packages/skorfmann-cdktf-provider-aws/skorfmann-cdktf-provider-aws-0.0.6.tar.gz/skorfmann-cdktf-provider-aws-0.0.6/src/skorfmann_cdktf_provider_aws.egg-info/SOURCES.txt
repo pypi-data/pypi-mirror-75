@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/skorfmann_cdktf_provider_aws/__init__.py
+src/skorfmann_cdktf_provider_aws/py.typed
+src/skorfmann_cdktf_provider_aws.egg-info/PKG-INFO
+src/skorfmann_cdktf_provider_aws.egg-info/SOURCES.txt
+src/skorfmann_cdktf_provider_aws.egg-info/dependency_links.txt
+src/skorfmann_cdktf_provider_aws.egg-info/requires.txt
+src/skorfmann_cdktf_provider_aws.egg-info/top_level.txt
+src/skorfmann_cdktf_provider_aws/_jsii/__init__.py
+src/skorfmann_cdktf_provider_aws/_jsii/cdktf-provider-aws@0.0.6.jsii.tgz
