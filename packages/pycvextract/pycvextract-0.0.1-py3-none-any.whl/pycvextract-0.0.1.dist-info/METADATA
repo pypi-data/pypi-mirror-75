@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: pycvextract
+Version: 0.0.1
+Summary: 'A simple resume parser used for extracting information from resumes'
+Home-page: https://github.com/yenat
+Author: yenatfanta shifferaw
+Author-email: yenatshif@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: attrs (>=19.1.0)
+Requires-Dist: blis (>=0.2.4)
+Requires-Dist: certifi (>=2019.6.16)
+Requires-Dist: chardet (>=3.0.4)
+Requires-Dist: cymem (>=2.0.2)
+Requires-Dist: docx2txt (>=0.7)
+Requires-Dist: idna (>=2.8)
+Requires-Dist: jsonschema (>=3.0.1)
+Requires-Dist: nltk (>=3.4.3)
+Requires-Dist: numpy (>=1.16.4)
+Requires-Dist: pandas (>=0.24.2)
+Requires-Dist: pdfminer.six (>=20181108)
+Requires-Dist: preshed (>=2.0.1)
+Requires-Dist: pycryptodome (>=3.8.2)
+Requires-Dist: pyrsistent (>=0.15.2)
+Requires-Dist: python-dateutil (>=2.8.0)
+Requires-Dist: pytz (>=2019.1)
+Requires-Dist: requests (>=2.22.0)
+Requires-Dist: six (>=1.12.0)
+Requires-Dist: sortedcontainers (>=2.1.0)
+Requires-Dist: spacy (>=2.1.4)
+Requires-Dist: srsly (>=0.0.7)
+Requires-Dist: textract (>=1.6.1)
+Requires-Dist: thinc (>=7.0.4)
+Requires-Dist: tqdm (>=4.32.2)
+Requires-Dist: urllib3 (>=1.25.3)
+Requires-Dist: wasabi (>=0.2.2)
+
+# Example Package
+
+This is a simple example package. You can use
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
+
+
