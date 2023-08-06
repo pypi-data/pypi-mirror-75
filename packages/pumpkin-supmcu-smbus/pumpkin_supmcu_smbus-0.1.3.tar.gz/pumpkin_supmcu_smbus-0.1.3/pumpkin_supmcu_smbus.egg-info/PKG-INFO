@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pumpkin-supmcu-smbus
+Version: 0.1.3
+Summary: A library to interface with Pumpkin SupMCU modules via I2C with the `smbus` package.
+Home-page: https://gitlab.com/pumpkin-space-systems/public/pumpkin-supmcu
+Author: James Womack
+Author-email: info@pumpkininc.com
+License: UNKNOWN
+Description: # pumpkin-supmcu-smbus Package
+        
+        The `pumpkin-supmcu-smbus` package has the following functionality:
+        
+        * Leverages business logic found in [pumpkin-supmcu](https://pumpkin-supmcu.readthedocs.io/en/latest/index.html).
+            + Please read `pumpkin-supmcu` documentation for usage, this is the implementation package for [smbus2](https://pypi.org/project/smbus2/)
+        * Interfaces `pumpkin-supmcu` package with the [smbus2 package](https://pypi.org/project/smbus2/)
+        
+        The documentation for the `pumpkin-supmcu-smbus` package can be [found here](https://pumpkin-supmcu-smbus.readthedocs.io/en/latest/).
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
