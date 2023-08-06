@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: linformer_pytorch
+Version: 0.16.0
+Summary: An implementation of the Linformer in Pytorch
+Home-page: https://github.com/tatp22/linformer-pytorch
+Author: Peter Tatkowski
+Author-email: tatp22@gmail.com
+License: UNKNOWN
+Description: # Linformer Pytorch Implementation
+        A practical implementation of the [Linformer paper](https://arxiv.org/pdf/2006.04768.pdf).
+        
+        This is a self attention mechanism with linear time complexity in n.
+        
+        Check out the github for more information: https://github.com/tatp22/linformer-pytorch
+        
+Keywords: transformers,attention,deep learning,artificial intelligence,sparse attention
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
