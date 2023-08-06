@@ -1,0 +1,3 @@
+[console_scripts]
+flashcards_cli = flashcards_cli.__main__:main
+
