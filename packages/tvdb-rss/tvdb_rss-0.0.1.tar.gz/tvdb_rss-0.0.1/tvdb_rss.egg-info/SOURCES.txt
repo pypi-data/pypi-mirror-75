@@ -1,0 +1,14 @@
+README.md
+setup.py
+tvdb_rss/__init__.py
+tvdb_rss/__main__.py
+tvdb_rss/config.py
+tvdb_rss/data_classes.py
+tvdb_rss/rss.py
+tvdb_rss/setup_logger.py
+tvdb_rss/tvdb.py
+tvdb_rss.egg-info/PKG-INFO
+tvdb_rss.egg-info/SOURCES.txt
+tvdb_rss.egg-info/dependency_links.txt
+tvdb_rss.egg-info/requires.txt
+tvdb_rss.egg-info/top_level.txt
