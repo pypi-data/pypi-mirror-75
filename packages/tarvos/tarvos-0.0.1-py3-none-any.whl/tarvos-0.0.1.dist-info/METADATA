@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: tarvos
+Version: 0.0.1
+Summary: Tarvos Interface Library
+Home-page: UNKNOWN
+Author: Tanay Gupta
+Author-email: tanayg@protonmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: pyyaml
+
+# Tarvos Interface Library
+
+Provides clean wrappers to standard library funtions and more.
+
