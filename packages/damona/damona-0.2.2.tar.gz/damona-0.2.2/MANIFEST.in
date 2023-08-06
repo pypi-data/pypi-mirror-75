@@ -1,0 +1,11 @@
+recursive-exclude * __pycache__
+recursive-exclude * *pyc
+include requirements*txt
+include CONTRIBUTING.rst
+include LICENSE
+include README.rst
+<<<<<<< HEAD
+include .requirements_dev.txt
+=======
+inclued .requirements_dev.txt
+>>>>>>> d142969d2eecabe7271ec29ea1a876c232697b78
