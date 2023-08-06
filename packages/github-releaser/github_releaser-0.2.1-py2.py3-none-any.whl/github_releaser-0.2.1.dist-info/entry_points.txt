@@ -1,0 +1,3 @@
+[console_scripts]
+github-releaser = github_releaser:cli
+
