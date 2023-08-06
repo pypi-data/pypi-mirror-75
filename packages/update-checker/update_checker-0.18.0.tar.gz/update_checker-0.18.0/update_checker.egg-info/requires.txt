@@ -1,0 +1,13 @@
+requests>=2.3.0
+
+[dev]
+black
+flake8
+pytest>=2.7.3
+
+[lint]
+black
+flake8
+
+[test]
+pytest>=2.7.3
