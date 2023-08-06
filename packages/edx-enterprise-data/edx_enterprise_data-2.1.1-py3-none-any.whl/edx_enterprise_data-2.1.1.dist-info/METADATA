@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: edx-enterprise-data
+Version: 2.1.1
+Summary: Enterprise Reporting
+Home-page: https://github.com/edx/edx-enterprise-data
+Author: edX
+Author-email: oscm@edx.org
+License: AGPL 3.0
+Platform: UNKNOWN
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: edx-rest-api-client
+Requires-Dist: edx-rbac
+Requires-Dist: Django
+Requires-Dist: six
+Requires-Dist: django-model-utils
+Requires-Dist: edx-opaque-keys
+Requires-Dist: edx-drf-extensions
+Requires-Dist: edx-django-utils
+Requires-Dist: rules
+Requires-Dist: django-fernet-fields
+Requires-Dist: requests
+Provides-Extra: reporting
+Requires-Dist: vertica-python ; extra == 'reporting'
+Requires-Dist: boto3 ; extra == 'reporting'
+Requires-Dist: unicodecsv (==0.14.1) ; extra == 'reporting'
+Requires-Dist: celery (==3.1.18) ; extra == 'reporting'
+Requires-Dist: cryptography ; extra == 'reporting'
+Requires-Dist: awscli ; extra == 'reporting'
+Requires-Dist: pyminizip ; extra == 'reporting'
+Requires-Dist: paramiko ; extra == 'reporting'
+Requires-Dist: py2neo ; extra == 'reporting'
+Requires-Dist: PGPy ; extra == 'reporting'
+
+UNKNOWN
+
+
