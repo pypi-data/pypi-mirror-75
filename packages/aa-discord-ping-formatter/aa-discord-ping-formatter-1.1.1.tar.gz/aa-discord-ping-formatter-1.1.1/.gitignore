@@ -1,0 +1,7 @@
+/build/
+/dist/
+/*.egg-info/
+/discordpingformatter/__pycache__/
+.idea/
+
+discordpingformatter/static/discordpingformatter/js/discordpingformatter.dev.js

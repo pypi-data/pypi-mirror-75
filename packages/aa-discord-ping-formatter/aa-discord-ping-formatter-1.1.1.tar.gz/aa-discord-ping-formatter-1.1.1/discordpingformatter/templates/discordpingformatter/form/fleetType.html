@@ -1,0 +1,25 @@
+<div class="form-group clearfix">
+    <label class="col-md-3 control-label" for="fleetType">Fleet Type</label>
+    <div class="col-md-9">
+        <select id="fleetType" name="fleetType" class="form-control">
+            <option value="">Please select</option>
+            <option value="Roaming" data-embed-color="#81FD2D">Roam</option>
+            <option value="Home Defense" data-embed-color="#F1C40F">Home Defense</option>
+            <option value="StratOP" data-embed-color="#E67E22">StratOP</option>
+            <option value="CTA" data-embed-color="#E91E63">CTA</option>
+
+            {% if additionalFleetTypes|length > 0 %}
+                <option value="" disabled></option>
+                <optgroup label="Additionally configured fleet types">
+                    {% for fleetType in additionalFleetTypes %}
+                        {% if fleetType.fleetType %}
+                            <option value="{{ fleetType.fleetType }}" data-embed-color="{{ fleetType.embedColor }}">{{ fleetType.fleetType }}</option>
+                        {% else %}
+                            <option value="{{ fleetType }}" data-embed-color="#FAA61A">{{ fleetType }}</option>
+                        {% endif %}
+                    {% endfor %}
+                </optgroup>
+            {% endif %}
+        </select>
+    </div>
+</div>
