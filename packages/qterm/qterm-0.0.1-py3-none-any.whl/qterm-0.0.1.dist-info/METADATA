@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: qterm
+Version: 0.0.1
+Summary: QTerm is a Python module for spawning child applications and controlling them automatically
+Home-page: https://github.com/SH659/QTerm
+Author: SH21
+Author-email: anosovigor404@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: Microsoft :: Windows
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# QTerm
+QTerm is a Python module for spawning child applications and controlling them automatically.
+
+## **Usage**
+
+To interract with a child process use `QTerm` class:
+
+```python
+from qterm import QTerm
+
+with QTerm() as term:
+    print(term.exec('cd'))
+```
+
+In case command prompt pattern changes use `temp_prompt` method:
+
+```python
+from qterm import QTerm, PYTHON
+
+print(PYTHON)
+
+with QTerm() as term:
+    with term.temp_prompt(*PYTHON):
+        print(term.exec('1+1'))
+
+# TermArgs(SPAWN_COMMAND='python', PROMPT=re.compile('^>>> '), EXIT_COMMAND='exit()')
+# ['2']
+```
+
+
+
