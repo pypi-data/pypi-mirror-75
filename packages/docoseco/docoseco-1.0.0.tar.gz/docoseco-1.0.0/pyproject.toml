@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "docoseco"
+version = "1.0.0"
+description = "Automatize management of docker confgs and secrets "
+authors = ["German Lashevich <german.lashevich@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/Zebradil/docoseco"
+packages = [
+    { include = "docoseco" }
+]
+
+[tool.poetry.scripts]
+docoseco = "docoseco:main"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+"ruamel.yaml" = "^0.16.10"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
