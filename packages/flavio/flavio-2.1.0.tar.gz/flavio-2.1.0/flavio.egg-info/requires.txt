@@ -1,0 +1,16 @@
+numpy
+scipy
+setuptools>=3.3
+pyyaml
+ckmutil
+wilson>=2.0
+particle
+
+[plotting]
+matplotlib>=2.0
+
+[sampling]
+iminuit
+
+[testing]
+nose2
