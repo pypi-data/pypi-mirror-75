@@ -1,0 +1,1198 @@
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.1
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - saving cell to /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) -  -> /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_47_cc_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_47_cc_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_47_cc_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_47_cc_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_discharge.csv OK
+(cellpy) - using pandas 1.0.1
+(cellpy) - dumping to csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/summary_discharge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/summary_charge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/summary_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/summary_cumulated_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/summary_ir_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/summary_ir_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/summary_end_voltage_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/summary_end_voltage_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/summary_charge_c_rate_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/test/summary_discharge_c_rate_test.csv
+(cellpy) - cycles_engine:
+(cellpy) - Not ready for production
+(cellpy) - dumping to csv
+(cellpy) - [establishing links]
+(cellpy) - Saved file to /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3_0uq9xj/ProjectOfRun/cellpy_batch_test.json
+(cellpy) -  <- grabbing ( /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_45_cc.h5 )
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.1
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - saving cell to /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) -  -> /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_47_cc_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_47_cc_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_47_cc_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_47_cc_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_discharge.csv OK
+(cellpy) - using pandas 1.0.1
+(cellpy) - dumping to csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/summary_discharge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/summary_charge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/summary_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/summary_cumulated_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/summary_ir_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/summary_ir_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/summary_end_voltage_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/summary_end_voltage_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/summary_charge_c_rate_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/test/summary_discharge_c_rate_test.csv
+(cellpy) - cycles_engine:
+(cellpy) - Not ready for production
+(cellpy) - dumping to csv
+(cellpy) - [establishing links]
+(cellpy) - Saved file to /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp94v2fdlu/ProjectOfRun/cellpy_batch_test.json
+(cellpy) -  <- grabbing ( /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_45_cc.h5 )
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptd3kssmd/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptd3kssmd/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptd3kssmd/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.1
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Failed to load: unsupported pickle protocol: 5
+(cellpy) - [establishing links]
+(cellpy) - Saved file to /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptd3kssmd/ProjectOfRun/cellpy_batch_test.json
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - /Users/jepe/scripting/cellpy/tests/test_cellpy.py:115: PytestUnknownMarkWarning: Unknown pytest.mark.timeout - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+  @pytest.mark.timeout(5.0)
+
+(cellpy) - /Users/jepe/scripting/cellpy/tests/test_cellpy.py:125: PytestUnknownMarkWarning: Unknown pytest.mark.benchmark - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+  @pytest.mark.benchmark(
+
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpawqk_wzi/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpawqk_wzi/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpawqk_wzi/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpawqk_wzi/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpawqk_wzi/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpawqk_wzi/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpawqk_wzi/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpawqk_wzi/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpawqk_wzi/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Failed to load: '20160805_test001_47_cc_01.res'
+(cellpy) - [establishing links]
+(cellpy) - Saved file to /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpawqk_wzi/ProjectOfRun/cellpy_batch_test.json
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpwudfrk7o/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpwudfrk7o/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpwudfrk7o/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpwudfrk7o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpwudfrk7o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpwudfrk7o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpwudfrk7o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpwudfrk7o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpwudfrk7o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Failed to load: '20160805_test001_47_cc_01.res'
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpv7oz5f3s/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpv7oz5f3s/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpv7oz5f3s/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpv7oz5f3s/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpv7oz5f3s/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpv7oz5f3s/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpv7oz5f3s/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpv7oz5f3s/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpv7oz5f3s/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Failed to load: '20160805_test001_47_cc_01.res'
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmps2y96c1v/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmps2y96c1v/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmps2y96c1v/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmps2y96c1v/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmps2y96c1v/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmps2y96c1v/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmps2y96c1v/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmps2y96c1v/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmps2y96c1v/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp5oeklkt6/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp5oeklkt6/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp5oeklkt6/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp5oeklkt6/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp5oeklkt6/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp5oeklkt6/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp5oeklkt6/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp5oeklkt6/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp5oeklkt6/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpznlbz9_o/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpznlbz9_o/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpznlbz9_o/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpznlbz9_o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpznlbz9_o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpznlbz9_o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpznlbz9_o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpznlbz9_o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpznlbz9_o/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Failed to load: '20160805_test001_47_cc_01.res'
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp1g9i5akd/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp1g9i5akd/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp1g9i5akd/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp1g9i5akd/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp1g9i5akd/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp1g9i5akd/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp1g9i5akd/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp1g9i5akd/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp1g9i5akd/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Failed to load: '20160805_test001_47_cc_01.res'
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpa8b8rz9i/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpa8b8rz9i/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpa8b8rz9i/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpa8b8rz9i/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpa8b8rz9i/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpa8b8rz9i/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpa8b8rz9i/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpa8b8rz9i/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpa8b8rz9i/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3v44wa6g/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3v44wa6g/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3v44wa6g/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3v44wa6g/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3v44wa6g/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3v44wa6g/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3v44wa6g/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3v44wa6g/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmp3v44wa6g/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Failed to load: '20160805_test001_47_cc_01.res'
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpbv62jls_/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpbv62jls_/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpbv62jls_/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpbv62jls_/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpbv62jls_/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpbv62jls_/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpbv62jls_/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpbv62jls_/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpbv62jls_/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - saving cell to /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) -  -> /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_47_cc_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_47_cc_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_47_cc_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_47_cc_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpjztzds81/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_discharge.csv OK
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - /Users/jepe/scripting/cellpy/tests/test_cellpy.py:115: PytestUnknownMarkWarning: Unknown pytest.mark.timeout - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+  @pytest.mark.timeout(5.0)
+
+(cellpy) - /Users/jepe/scripting/cellpy/tests/test_cellpy.py:125: PytestUnknownMarkWarning: Unknown pytest.mark.benchmark - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+  @pytest.mark.benchmark(
+
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - saving cell to /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) -  -> /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_47_cc_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_47_cc_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_47_cc_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_47_cc_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_discharge.csv OK
+(cellpy) - using pandas 1.0.3
+(cellpy) - dumping to csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/summary_discharge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/summary_charge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/summary_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/summary_cumulated_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/summary_ir_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/summary_ir_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/summary_end_voltage_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/summary_end_voltage_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/summary_charge_c_rate_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/test/summary_discharge_c_rate_test.csv
+(cellpy) - cycles_engine:
+(cellpy) - Not ready for production
+(cellpy) - dumping to csv
+(cellpy) - [establishing links]
+(cellpy) - Saved file to /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpugddgaau/ProjectOfRun/cellpy_batch_test.json
+(cellpy) -  <- grabbing ( /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_45_cc.h5 )
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - /Users/jepe/scripting/cellpy/tests/test_cellpy.py:115: PytestUnknownMarkWarning: Unknown pytest.mark.timeout - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+  @pytest.mark.timeout(5.0)
+
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - saving cell to /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) -  -> /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_47_cc_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_47_cc_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_47_cc_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_47_cc_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_discharge.csv OK
+(cellpy) - using pandas 1.0.3
+(cellpy) - dumping to csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/summary_discharge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/summary_charge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/summary_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/summary_cumulated_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/summary_ir_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/summary_ir_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/summary_end_voltage_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/summary_end_voltage_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/summary_charge_c_rate_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/test/summary_discharge_c_rate_test.csv
+(cellpy) - cycles_engine:
+(cellpy) - Not ready for production
+(cellpy) - dumping to csv
+(cellpy) - [establishing links]
+(cellpy) - Saved file to /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmptwz5o8mf/ProjectOfRun/cellpy_batch_test.json
+(cellpy) -  <- grabbing ( /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_45_cc.h5 )
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - /Users/jepe/scripting/cellpy/tests/test_cellpy.py:115: PytestUnknownMarkWarning: Unknown pytest.mark.timeout - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+  @pytest.mark.timeout(5.0)
+
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - /Users/jepe/scripting/cellpy/tests/test_cellpy.py:115: PytestUnknownMarkWarning: Unknown pytest.mark.timeout - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+  @pytest.mark.timeout(5.0)
+
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - saving cell to /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) -  -> /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_47_cc_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_47_cc_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_47_cc_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_47_cc_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_discharge.csv OK
+(cellpy) - using pandas 1.0.3
+(cellpy) - dumping to csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/summary_discharge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/summary_charge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/summary_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/summary_cumulated_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/summary_ir_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/summary_ir_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/summary_end_voltage_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/summary_end_voltage_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/summary_charge_c_rate_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/test/summary_discharge_c_rate_test.csv
+(cellpy) - cycles_engine:
+(cellpy) - Not ready for production
+(cellpy) - dumping to csv
+(cellpy) - [establishing links]
+(cellpy) - Saved file to /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpfhfhekim/ProjectOfRun/cellpy_batch_test.json
+(cellpy) -  <- grabbing ( /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_45_cc.h5 )
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - /Users/jepe/scripting/cellpy/tests/test_cellpy.py:115: PytestUnknownMarkWarning: Unknown pytest.mark.timeout - is this a typo?  You can register custom marks to avoid this warning - for details, see https://docs.pytest.org/en/latest/mark.html
+  @pytest.mark.timeout(5.0)
+
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - 
+Could not set custom log-dir - non-existing directory
+Dir: /Users/jepe/scripting/cellpy/tests/cellpy_data/logs
+Using current directory instead: /Users/jepe/scripting/cellpy/tests
+(cellpy) - NumExpr defaulting to 4 threads.
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test
+(cellpy) - created folder /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data
+(cellpy) - using pandas 1.0.3
+(cellpy) - [update experiment]
+(cellpy) - Processing 20160805_test001_45_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - your system cannot read the fid-table (posix-windows confusion) hopefully this will be solved in a newer version of pytables.
+(cellpy) - Loading raw-file
+(cellpy) - running make_step_table
+(cellpy) - Assuming cycling in anode half-cell (discharge before charge) mode
+(cellpy) - Using the following nominal capacity: 3579
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) -  Ups! Could not process this (cycle 36)
+(cellpy) -  no steps found (c:36 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_45_cc_01_dqdv_discharge.csv OK
+(cellpy) - Processing 20160805_test001_47_cc
+(cellpy) - setting cycle mode (anode)...
+(cellpy) - loading cell
+(cellpy) - Started cellpy.cellreader.loadcell
+(cellpy) - Checking file ids - using 'size'
+(cellpy) - ...loaded successfully...
+(cellpy) - Trying to get summary_data
+(cellpy) - saving to cellpy-format
+(cellpy) - saving cell to /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) -  -> /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_47_cc.h5
+(cellpy) - exporting [raw] [cycles]
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_47_cc_normal.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_47_cc_steps.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_47_cc_stats.csv OK
+(cellpy) - The file /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_47_cc_cycles.csv was created
+(cellpy) - exporting [ica]
+(cellpy) -  Ups! Could not process this (cycle 18)
+(cellpy) -  no steps found (c:18 s:0 type:charge)
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_charge.csv OK
+(cellpy) - /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/raw_data/20160805_test001_47_cc_dqdv_discharge.csv OK
+(cellpy) - using pandas 1.0.3
+(cellpy) - dumping to csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/summary_discharge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/summary_charge_capacity_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/summary_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/summary_cumulated_coulombic_efficiency_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/summary_ir_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/summary_ir_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/summary_end_voltage_discharge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/summary_end_voltage_charge_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/summary_charge_c_rate_test.csv
+(cellpy) - > /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/test/summary_discharge_c_rate_test.csv
+(cellpy) - cycles_engine:
+(cellpy) - Not ready for production
+(cellpy) - dumping to csv
+(cellpy) - [establishing links]
+(cellpy) - Saved file to /var/folders/wj/k1t54hxd4jqfym7f1sy0rg980000gn/T/tmpvva39rc4/ProjectOfRun/cellpy_batch_test.json
+(cellpy) -  <- grabbing ( /Users/jepe/scripting/cellpy/testdata/hdf5/20160805_test001_45_cc.h5 )
