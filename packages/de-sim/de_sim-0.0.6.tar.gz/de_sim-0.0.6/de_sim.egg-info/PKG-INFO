@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: de-sim
+Version: 0.0.6
+Summary: Object-oriented discrete-event simulation tool for complex, data-driven modeling
+Home-page: https://github.com/KarrLab/de_sim
+Author: Karr Lab
+Author-email: info@karrlab.org
+License: MIT
+Download-URL: https://github.com/KarrLab/de_sim
+Description: UNKNOWN
+Keywords: computational modeling,data-driven modeling,discrete event simulation,DES,object-oriented programming,Python
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Provides-Extra: tests
+Provides-Extra: docs
+Provides-Extra: all
