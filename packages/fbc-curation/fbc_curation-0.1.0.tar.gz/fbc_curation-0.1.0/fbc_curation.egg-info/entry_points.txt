@@ -1,0 +1,4 @@
+[console_scripts]
+fbc_curation = fbc_curation.curation:main
+fbc_curation_examples = fbc_curation.examples:run_examples
+

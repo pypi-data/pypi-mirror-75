@@ -1,0 +1,28 @@
+Metadata-Version: 1.2
+Name: fbc_curation
+Version: 0.1.0
+Summary: FBC reference files for SBML model curation using cobrapy
+Home-page: https://github.com/matthiaskoenig/fbc_curation
+Author: Matthias König
+Author-email: konigmatt@googlemail.com
+License: LGPLv3
+Description: fbc_curation
+        =============
+        
+        ``fbc_curation``: Helpers for reproducibility of constraint-based models
+        available from https://github.com/matthiaskoenig/fbc_curation.
+        
+        © 2020 Matthias König
+        
+Keywords: SBML,FBC,simulation
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.6
