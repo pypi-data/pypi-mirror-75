@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+src/edolab/__init__.py
+src/edolab/__main__.py
+src/edolab/run.py
+src/edolab/summarise.py
+src/edolab/version.py
+src/edolab.egg-info/PKG-INFO
+src/edolab.egg-info/SOURCES.txt
+src/edolab.egg-info/dependency_links.txt
+src/edolab.egg-info/entry_points.txt
+src/edolab.egg-info/requires.txt
+src/edolab.egg-info/top_level.txt
