@@ -1,0 +1,3 @@
+[console_scripts]
+pysnobal = pysnobal.cli:main
+
