@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: dric-client
+Version: 1.1.1
+Summary: Python client interface to Dr.IC platform
+Home-page: https://github.com/kwlee0220/dric.client.python
+Author: Kang-Woo Lee
+Author-email: kwlee@etri.re.kr
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3
+Requires-Dist: PyYAML
+Requires-Dist: paho-mqtt
+Requires-Dist: protobuf
+Requires-Dist: fastavro
+Requires-Dist: grpcio
+
+UNKNOWN
+
+
