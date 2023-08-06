@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: MainModeling-pkg
+Version: 0.0.1
+Summary: Structural Analysis and Soft Computing
+Home-page: https://http://www.diseniosm.com/
+Author: Edgar David Mora Martinez
+Author-email: edgar.mora@diseniosm.com
+License: UNKNOWN
+Description: #MainModeling
+        For more information about the program you can see the article 
+        "Modeling and calibration of infill frame-buildings, using ambient 
+        vibration tests and Genetic Algorithms" in the International Journal 
+        of Structural Engineering, the reference is as follows:
+        "Mora, E.D., Aguirre, J.J.,
+        Bone, J.L., Parra, K.G. and Baquero, R.F. (2020) â€˜Modelling and calibration of
+        infill frame-buildings, using ambient vibration tests and genetic algorithmsâ€™,
+        Int. J. Structural Engineering, Vol. 10, No. 4, pp.330â€“352."
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
