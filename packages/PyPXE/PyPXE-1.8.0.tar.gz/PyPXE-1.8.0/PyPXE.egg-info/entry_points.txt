@@ -1,0 +1,3 @@
+[console_scripts]
+pypxe = pypxe.server:main
+
