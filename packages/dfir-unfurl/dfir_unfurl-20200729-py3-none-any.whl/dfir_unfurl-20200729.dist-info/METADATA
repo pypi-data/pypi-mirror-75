@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: dfir-unfurl
+Version: 20200729
+Summary: Unfurl takes a URL and expands ("unfurls") it into a directed graph
+Home-page: https://github.com/obsidianforensics/unfurl
+Author: Ryan Benson
+Author-email: ryan@dfir.blog
+License: Apache
+Keywords: unfurl,forensics,dfir,reverse-engineering,security
+Platform: UNKNOWN
+Requires-Dist: flask
+Requires-Dist: flask-cors
+Requires-Dist: maclookup
+Requires-Dist: networkx
+Requires-Dist: protobuf
+Requires-Dist: publicsuffix2
+Requires-Dist: pycountry
+Requires-Dist: Requests
+Requires-Dist: torf
+Requires-Dist: ulid-py
+
+UNKNOWN
+
+

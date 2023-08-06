@@ -1,0 +1,201 @@
+# Copyright 2019 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+import urllib.parse
+
+twitter_snowflake_edge = {
+    'color': {
+        'color': '#1da1f2'
+    },
+    'title': 'Twitter Snowflake',
+    'label': '❄'
+}
+
+twitter_edge = {
+    'color': {
+        'color': '#1da1f2'
+    },
+    'title': 'Twitter Parsing Functions',
+    'label': '@'
+}
+
+
+def parse_twitter_snowflake(unfurl, node):
+    # Ref: https://blog.twitter.com/engineering/en_us/a/2010/announcing-snowflake.html
+    #      https://ws-dl.blogspot.com/2019/08/2019-08-03-tweetedat-finding-tweet.html
+    try:
+        snowflake = int(node.value)
+        timestamp = (snowflake >> 22) + 1288834974657
+        machine_id = (snowflake & 0x3FF000) >> 12
+        sequence = snowflake & 0xFFF
+
+    except Exception as e:
+        print(e)
+        return
+
+    node.hover = 'Twitter Snowflakes are time-based IDs. ' \
+                 '<a href="https://blog.twitter.com/engineering/en_us/a/2010/announcing-snowflake.html" ' \
+                 'target="_blank">[ref]</a>'
+
+    unfurl.add_to_queue(
+        data_type='epoch-milliseconds', key=None, value=timestamp, label=f'Timestamp: {timestamp}',
+        hover='The first value in a Twitter Snowflake is a timestamp',
+        parent_id=node.node_id, incoming_edge_config=twitter_snowflake_edge)
+
+    unfurl.add_to_queue(
+        data_type='integer', key=None, value=machine_id, label=f'Machine ID: {machine_id}',
+        hover='The second value in a Twitter Snowflake is the machine ID',
+        parent_id=node.node_id, incoming_edge_config=twitter_snowflake_edge)
+
+    unfurl.add_to_queue(
+        data_type='integer', key=None, value=sequence, label=f'Sequence: {sequence}',
+        hover='For every ID that is generated, this number is incremented and rolls over every 4096',
+        parent_id=node.node_id, incoming_edge_config=twitter_snowflake_edge)
+
+
+def run(unfurl, node):
+    if 'twitter.com' in unfurl.find_preceding_domain(node):
+        if node.data_type == 'url.query.pair' and node.key == 't':
+            import tweepy
+            auth = tweepy.OAuthHandler("aOaFHIHDR0XxhuGMBWm3VKt4l", "2heNE3wsjJtQ0WCK9Rdzs3Zvy7LDJThHNa1yIsUXqS2VEXv6Wj")
+            auth.set_access_token("30110948-5KhgfJ3rPsbPRr8shVkAzdP466z4fZjT1PT39eaWX", "kvPAxqkle6cAG8YHhoMpi33x2cp8krj5AwrZ8FsaS8YHY")
+
+            # Create API object
+            api = tweepy.API(auth)
+            user = api.get_user(node.value)
+            print(user.name)
+
+            var_svg = '<svg xmlns="http://www.w3.org/2000/svg" width="390" height="65">'\
+                '<rect x="0" y="0" width="100%" height="100%" fill="#7890A7" stroke-width="20" stroke="#ffffff" ></rect>'\
+                '<foreignObject x="15" y="10" width="100%" height="100%">'\
+                '<div xmlns="http://www.w3.org/1999/xhtml" style="font-size:40px">'\
+                ' <em>I</em> am'\
+                '<span style="color:white; text-shadow:0 0 20px #000000;">'\
+                ' HTML in SVG!</span>'\
+                '</div>'\
+                '</foreignObject>'\
+                '</svg>'
+
+            var_url = "data:image/svg+xml;charset=utf-8," + var_svg
+
+            var_u2 = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 500 500" enable-background="new 0 0 100 100" xml:space="preserve" height="100px" width="100px">'\
+                        '<g>'\
+                        '<path d="M28.1,36.6c4.6,1.9,12.2,1.6,20.9,1.1c8.9-0.4,19-0.9,28.9,0.9c6.3,1.2,11.9,3.1,16.8,6c-1.5-12.2-7.9-23.7-18.6-31.3   c-4.9-0.2-9.9,0.3-14.8,1.4C47.8,17.9,36.2,25.6,28.1,36.6z"/>'\
+                        '<path d="M70.3,9.8C57.5,3.4,42.8,3.6,30.5,9.5c-3,6-8.4,19.6-5.3,24.9c8.6-11.7,20.9-19.8,35.2-23.1C63.7,10.5,67,10,70.3,9.8z"/>'\
+                        '<path d="M16.5,51.3c0.6-1.7,1.2-3.4,2-5.1c-3.8-3.4-7.5-7-11-10.8c-2.1,6.1-2.8,12.5-2.3,18.7C9.6,51.1,13.4,50.2,16.5,51.3z"/>'\
+                        '<path d="M9,31.6c3.5,3.9,7.2,7.6,11.1,11.1c0.8-1.6,1.7-3.1,2.6-4.6c0.1-0.2,0.3-0.4,0.4-0.6c-2.9-3.3-3.1-9.2-0.6-17.6   c0.8-2.7,1.8-5.3,2.7-7.4c-5.2,3.4-9.8,8-13.3,13.7C10.8,27.9,9.8,29.7,9,31.6z"/>'\
+                        '<path d="M15.4,54.7c-2.6-1-6.1,0.7-9.7,3.4c1.2,6.6,3.9,13,8,18.5C13,69.3,13.5,61.8,15.4,54.7z"/>'\
+                        '<path d="M39.8,57.6C54.3,66.7,70,73,86.5,76.4c0.6-0.8,1.1-1.6,1.7-2.5c4.8-7.7,7-16.3,6.8-24.8c-13.8-9.3-31.3-8.4-45.8-7.7   c-9.5,0.5-17.8,0.9-23.2-1.7c-0.1,0.1-0.2,0.3-0.3,0.4c-1,1.7-2,3.4-2.9,5.1C28.2,49.7,33.8,53.9,39.8,57.6z"/>'\
+                        '<path d="M26.2,88.2c3.3,2,6.7,3.6,10.2,4.7c-3.5-6.2-6.3-12.6-8.8-18.5c-3.1-7.2-5.8-13.5-9-17.2c-1.9,8-2,16.4-0.3,24.7   C20.6,84.2,23.2,86.3,26.2,88.2z"/>'\
+                        '<path d="M30.9,73c2.9,6.8,6.1,14.4,10.5,21.2c15.6,3,32-2.3,42.6-14.6C67.7,76,52.2,69.6,37.9,60.7C32,57,26.5,53,21.3,48.6   c-0.6,1.5-1.2,3-1.7,4.6C24.1,57.1,27.3,64.5,30.9,73z"/>'\
+                        '</g>' \
+                        '<foreignobject class="node" x="1" y="2" width="100" height="100">'\
+                        '<div style = "border:1px green solid"> Im a div inside a SVG.</div></foreignobject>'\
+                        '</svg>'
+
+            var_u3 = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 500 500" enable-background="new 0 0 100 100" xml:space="preserve" height="100px" width="100px">'\
+                     '<foreignobject class="node" x="4" y="2" width="10" height="10"><div style="border:1px green solid">Im a div inside a SVG.</div></foreignobject></svg>'
+
+            unfurl.add_to_queue(
+                data_type='descriptor', key=None, value=None,
+                hover='The sharing platform is a best guess based on observations; if you find a '
+                      'new sharing code, please let us know',
+                parent_id=node.node_id, incoming_edge_config=twitter_edge, extra_options={'image': var_u3, 'shape': 'image'})
+
+        if node.data_type == 'url.path.segment' and \
+                unfurl.check_if_int_between(node.value, 561675293291446272, 1245138807813046272):
+            parse_twitter_snowflake(unfurl, node)
+
+        elif node.data_type == 'url.query.pair':
+            if node.key == 's':
+                sharing_codes = {
+                    '19': ' from Android',
+                    '20': ' from Twitter Web',
+                    '21': ' from iOS'
+                }
+
+                unfurl.add_to_queue(
+                    data_type='descriptor', key=None, value=f'Tweet was shared{sharing_codes.get(node.value, "")}',
+                    hover='The sharing platform is a best guess based on observations; if you find a '
+                          'new sharing code, please let us know',
+                    parent_id=node.node_id, incoming_edge_config=twitter_edge)
+
+            elif node.key == 'lang':
+                supported_langs = {
+                    'am': 'Amharic',
+                    'ar': 'Arabic',
+                    'bg': 'Bulgarian',
+                    'bn': 'Bengali',
+                    'bo': 'Tibetan',
+                    'ca': 'Catalan',
+                    'ch': 'Cherokee',
+                    'cs': 'Czech',
+                    'da': 'Danish',
+                    'de': 'German',
+                    'dv': 'Maldivian',
+                    'el': 'Greek',
+                    'en': 'English',
+                    'es': 'Spanish',
+                    'et': 'Estonian',
+                    'fa': 'Persian',
+                    'fi': 'Finnish',
+                    'fr': 'French',
+                    'gu': 'Gujarati',
+                    'hi': 'Hindi',
+                    'ht': 'Haitian',
+                    'hu': 'Hungarian',
+                    'hy': 'Armenian',
+                    'in': 'Indonesian',
+                    'is': 'Icelandic',
+                    'it': 'Italian',
+                    'iu': 'Inuktitut',
+                    'iw': 'Hebrew',
+                    'ja': 'Japanese',
+                    'ka': 'Georgian',
+                    'km': 'Khmer',
+                    'kn': 'Kannada',
+                    'ko': 'Korean',
+                    'lo': 'Lao',
+                    'lt': 'Lithuanian',
+                    'lv': 'Latvian',
+                    'ml': 'Malayalam',
+                    'my': 'Myanmar',
+                    'ne': 'Nepali',
+                    'nl': 'Dutch',
+                    'no': 'Norwegian',
+                    'or': 'Oriya',
+                    'pa': 'Panjabi',
+                    'pl': 'Polish',
+                    'pt': 'Portuguese',
+                    'ro': 'Romanian',
+                    'ru': 'Russian',
+                    'si': 'Sinhala',
+                    'sk': 'Slovak',
+                    'sl': 'Slovene',
+                    'sv': 'Swedish',
+                    'ta': 'Tamil',
+                    'te': 'Telugu',
+                    'th': 'Thai',
+                    'tl': 'Tagalog',
+                    'tr': 'Turkish',
+                    'uk': 'Ukrainian',
+                    'ur': 'Urdu',
+                    'vi': 'Vietnamese',
+                    'zh': 'Chinese'
+                }
+
+                unfurl.add_to_queue(
+                    data_type='descriptor', key=None,
+                    value=f'Language set to {supported_langs.get(node.value, node.value)}',
+                    parent_id=node.node_id, incoming_edge_config=twitter_edge)
