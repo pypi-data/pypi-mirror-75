@@ -1,0 +1,3 @@
+[console_scripts]
+chaos = cdpchaostoolkit.__main__:cli
+
