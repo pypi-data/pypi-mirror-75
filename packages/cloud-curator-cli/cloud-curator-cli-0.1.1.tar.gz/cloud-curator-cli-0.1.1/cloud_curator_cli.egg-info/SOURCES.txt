@@ -1,0 +1,14 @@
+README.md
+setup.py
+cloud_curator/__init__.py
+cloud_curator/main.py
+cloud_curator/aws/__init__.py
+cloud_curator/aws/client.py
+cloud_curator/reports/__init__.py
+cloud_curator/reports/access_keys_rotated.py
+cloud_curator_cli.egg-info/PKG-INFO
+cloud_curator_cli.egg-info/SOURCES.txt
+cloud_curator_cli.egg-info/dependency_links.txt
+cloud_curator_cli.egg-info/entry_points.txt
+cloud_curator_cli.egg-info/requires.txt
+cloud_curator_cli.egg-info/top_level.txt
