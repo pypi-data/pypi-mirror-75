@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: pybddisasm
+Version: 0.1.1
+Summary: The Bitdefender disassembler Python wrapper
+Home-page: https://github.com/bitdefender/bddisasm
+Author: Bitdefender
+License: Apache Software License
+Platform: Windows
+Platform: Linux
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.4
+Description-Content-Type: text/markdown
+Requires-Dist: setuptools
+
+# The Bitdefender disassembler Python wrapper
+
+## Build
+
+Building and installing is easy:
+
+```bash
+python3 setup.py build
+python3 setup.py install
+```
+
+## Usage
+
+Use it by importing the pybddisasm.disasm module:
+
+```python
+from pybddisasm.bddisasm import *
+
+instr = nd_decode_ex2(buff, arch, arch, arch, vendor, current_rip)
+```
+
+## Pip
+
+Use pip to install the package:
+
+```bash
+pip install pybddisasm
+```
+
+
