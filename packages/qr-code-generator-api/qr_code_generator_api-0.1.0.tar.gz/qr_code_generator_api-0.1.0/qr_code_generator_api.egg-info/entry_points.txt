@@ -1,0 +1,4 @@
+
+    [console_scripts]
+    qr_code_generator=qr_code_generator.__main__:main
+    
