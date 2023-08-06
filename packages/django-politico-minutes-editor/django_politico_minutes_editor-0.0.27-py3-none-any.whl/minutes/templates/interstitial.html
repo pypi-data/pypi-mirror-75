@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>POLITICO Minutes | Advertisements</title>
+{% endblock %}
+
+{% block api %}
+  {{ block.super }}
+  <meta name="INTERSTITIAL" content="{{ interstitial }}">
+{% endblock %}
+
+{% block styles %}
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'minutes/css/main.interstitial.css' %}">
+{% endblock %}
+
+{% block app %}
+<script type="text/javascript" src="{% static 'minutes/js/main.interstitial.js' %}"></script>
+{% endblock %}

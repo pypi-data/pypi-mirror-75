@@ -1,0 +1,142 @@
+[
+  {
+    "model": "minutes.interstitialtype",
+    "pk": "25a0358c-7c7b-41c6-adee-e514678ef7d9",
+    "fields": {
+      "name": "House Ad",
+      "json_schema": {},
+      "ui_schema": {},
+      "context": {}
+    }
+  },
+  {
+    "model": "minutes.interstitialtype",
+    "pk": "f5591bd8-9039-45fa-b696-b1d1a2149b64",
+    "fields": {
+      "name": "Sponsored Minute",
+      "json_schema": {
+        "type": "object",
+        "title": "Minute",
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "ui_schema": {
+        "text": {
+          "ui:type": "main",
+          "ui:widget": "slate",
+          "ui:autofocus": true,
+          "ui:placeholder": "What's the minute?"
+        },
+        "ui:order": [
+          "text"
+        ]
+      },
+      "context": null
+    }
+  },
+  {
+    "model": "minutes.interstitial",
+    "pk": "0c3b3d22-7385-4cd2-826a-32fda188756c",
+    "fields": {
+      "name": "House Ad",
+      "type": "25a0358c-7c7b-41c6-adee-e514678ef7d9",
+      "last_updated": null,
+      "favorite": true,
+      "content": {},
+      "version": 1
+    }
+  },
+  {
+    "model": "minutes.minutetype",
+    "pk": "a4564d28-280c-4dd3-b0c7-46b5fcd288a7",
+    "fields": {
+      "name": "End Card",
+      "json_schema": {
+        "type": "object",
+        "title": "Minute",
+        "required": [
+          "text",
+          "tease"
+        ],
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "tease": {
+            "type": "string",
+            "title": "Tease"
+          }
+        }
+      },
+      "ui_schema": {
+        "text": {
+          "ui:type": "main",
+          "ui:widget": "slate",
+          "ui:default": "end",
+          "ui:autofocus": true,
+          "ui:placeholder": ""
+        },
+        "tease": {
+          "ui:type": "main",
+          "ui:widget": "big",
+          "ui:autofocus": true,
+          "ui:placeholder": "What we're reading..."
+        },
+        "ui:order": [
+          "tease",
+          "text"
+        ]
+      },
+      "context": {
+        "end": true
+      },
+      "is_meta": true
+    }
+  },
+  {
+    "model": "minutes.minutetype",
+    "pk": "e2d47fd3-d509-4cf2-b66f-e43dd7a2c45d",
+    "fields": {
+      "name": "Default",
+      "json_schema": {
+        "type": "object",
+        "title": "Minute",
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        }
+      },
+      "ui_schema": {
+        "text": {
+          "ui:type": "main",
+          "ui:widget": "slate",
+          "ui:default": "minute",
+          "ui:autofocus": true,
+          "ui:placeholder": "What's the minute?"
+        },
+        "ui:order": [
+          "text"
+        ]
+      },
+      "context": null,
+      "is_meta": false
+    }
+  },
+  {
+    "model": "minutes.theme",
+    "pk": "0683f82a-af36-4fc1-9db3-5cbb8c2a5ed3",
+    "fields": {
+      "name": "Default"
+    }
+  }
+]

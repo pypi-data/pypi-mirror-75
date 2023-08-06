@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>POLITICO Minutes | Minutes</title>
+{% endblock %}
+
+{% block api %}
+  {{ block.super }}
+  <meta name="USER" content="{{ user }}">
+  <meta name="MINUTE" content="{{ minute }}">
+  <meta name="EDITION" content="{{ edition }}">
+{% endblock %}
+
+{% block styles %}
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'minutes/css/main.minute.css' %}">
+{% endblock %}
+
+{% block app %}
+<script type="text/javascript" src="{% static 'minutes/js/main.minute.js' %}"></script>
+{% endblock %}
