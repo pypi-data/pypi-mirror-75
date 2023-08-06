@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: BlockSDK
+Version: 0.1.1
+Summary: BlockSDK is an API service for blockchain applications
+Home-page: https://blocksdk.com
+Author: BlockChen
+Author-email: bianconery@blockchen.io
+License: UNKNOWN
+Download-URL: https://github.com/Block-Chen/blocksdk-python
+Keywords: blocksdk api
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3
+Requires-Dist: requests
+
+UNKNOWN
+
+
