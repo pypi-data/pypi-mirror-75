@@ -1,0 +1,7 @@
+numpy
+scipy
+PyYAML
+matplotlib
+h5py
+spglib
+phonopy<2.8,>=2.7
