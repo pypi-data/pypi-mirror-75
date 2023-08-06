@@ -1,0 +1,38 @@
+# Output files
+*.xml
+*.yaml
+*.yml
+!.github/*/*.yml
+!.pre-commit-config.yaml
+!.readthedocs.yml
+!codecov.yml
+!environment.yml
+!examples/additional_particles.yml
+!expertsystem/particle_list.*
+!tests/amplitude/expected_recipe.yml
+
+# Build output
+*.egg-info/
+*build/
+.fuse_*
+dist/
+version.py
+
+# Python temporary files
+*.pyc
+.coverage
+.coverage.*
+.eggs/
+.ipynb_checkpoints/
+.mypy*/
+.pytest_cache/
+.tox/
+__pycache__/
+htmlcov/
+*.egg-info/
+
+# Virtual environments
+*venv/
+
+# Visual Studio Code
+**.code-workspace
