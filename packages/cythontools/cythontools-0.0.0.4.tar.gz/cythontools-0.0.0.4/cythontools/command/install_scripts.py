@@ -1,0 +1,18 @@
+# AUTOMATICALLY GENERATED AS DERIVATIVE OF skbuild.command PACKAGE (cythontools)
+from skbuild.command.install_scripts import distutils_log as _skbuild_command_install_scripts_distutils_log
+from skbuild.command.install_scripts import set_build_base_mixin as _skbuild_command_install_scripts_set_build_base_mixin
+from skbuild.command.install_scripts import distribution_hide_listing as _skbuild_command_install_scripts_distribution_hide_listing
+from skbuild.command.install_scripts import new_style as _skbuild_command_install_scripts_new_style
+from skbuild.command.install_scripts import install_scripts as _skbuild_command_install_scripts_install_scripts
+
+
+class set_build_base_mixin(_skbuild_command_install_scripts_set_build_base_mixin):
+    pass
+
+class install_scripts(_skbuild_command_install_scripts_install_scripts):
+    pass
+
+
+distutils_log = _skbuild_command_install_scripts_distutils_log
+distribution_hide_listing = _skbuild_command_install_scripts_distribution_hide_listing
+new_style = _skbuild_command_install_scripts_new_style
