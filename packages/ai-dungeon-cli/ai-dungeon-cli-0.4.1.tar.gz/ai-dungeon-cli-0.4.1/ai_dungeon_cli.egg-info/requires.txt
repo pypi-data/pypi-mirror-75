@@ -1,0 +1,6 @@
+PyYAML>=5.1.2
+gql>=v3.0.0a1
+requests>=2.23.0
+
+[:platform_system == "Windows"]
+pyreadline>=2.1
