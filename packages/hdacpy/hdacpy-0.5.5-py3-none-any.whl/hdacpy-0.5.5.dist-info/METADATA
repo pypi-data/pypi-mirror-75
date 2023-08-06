@@ -1,0 +1,28 @@
+Metadata-Version: 2.0
+Name: hdacpy
+Version: 0.5.5
+Summary: Tools for Hdac wallet management and offline transaction signing
+Home-page: https://github.com/psy2848048/hdacpy
+Author: psy2848048
+Author-email: psy2848048@users.noreply.github.com
+License: UNKNOWN
+Project-URL: Changelog, https://github.com/psy2848048/hdacpy/blob/master/CHANGELOG.md
+Keywords: hdac blockchain cryptocurrency python sdk
+Platform: UNKNOWN
+Classifier: Typing :: Typed
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.6
+Requires-Dist: bech32 (<2.0.0,>=1.1.0)
+Requires-Dist: bip32utils
+Requires-Dist: ecdsa (>=0.14.0,<0.15.0)
+Requires-Dist: mnemonic (==0.19)
+Requires-Dist: typing-extensions (<4.0.0,>=3.7.4); python_version < "3.8"
+
+UNKNOWN
+
+
