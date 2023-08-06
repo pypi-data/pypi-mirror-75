@@ -1,0 +1,50 @@
+[tool.poetry]
+name = "beer-keeper"
+version = "1.1.0"
+description = ""
+authors = ["Vlad David <vlad.david@complyadvantage.com>","Bogdan Potra <bogdan.potra@complyadvantage.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.24.0"
+pydocstyle = "^5.0.2"
+sphinx-automodapi = "^0.12"
+httpx = "^0.13.3"
+
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.8.3"
+pytest = "^5.4.3"
+black = "^19.10b0"
+reorder-python-imports = "^2.3.2"
+pre-commit = "^2.6.0"
+responses = "^0.10.15"
+pytest-cov = "^2.10.0"
+
+[tool.poetry.scripts]
+BeerKeeper = "beer_keeper.cli:app"
+
+[tool.black]
+target_version = ["py38"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+    | \.hg
+    | \.mypy_cache
+    | \.tox
+    | \.venv
+    | _build
+    | buck-out
+    | build
+    | dist
+
+    # The following are specific to Black, you probably don't want those.
+    | blib2to3
+    | tests/data
+)/
+'''
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
