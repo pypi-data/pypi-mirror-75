@@ -1,0 +1,16 @@
+setup.py
+kafka_scrapy/__init__.py
+kafka_scrapy/connection.py
+kafka_scrapy/dupefilter.py
+kafka_scrapy/extensions.py
+kafka_scrapy/kafka_default_settings.py
+kafka_scrapy/offset_monitor.py
+kafka_scrapy/picklecompat.py
+kafka_scrapy/queues.py
+kafka_scrapy/scheduler.py
+kafka_scrapy/spiders.py
+kafka_scrapy.egg-info/PKG-INFO
+kafka_scrapy.egg-info/SOURCES.txt
+kafka_scrapy.egg-info/dependency_links.txt
+kafka_scrapy.egg-info/requires.txt
+kafka_scrapy.egg-info/top_level.txt
