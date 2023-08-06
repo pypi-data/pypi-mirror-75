@@ -1,0 +1,14 @@
+numpy>=1.16
+astropy>=3
+scipy>=0.14
+
+[all]
+specutils>=0.7
+dust-extinction
+
+[docs]
+matplotlib
+sphinx-astropy
+
+[test]
+pytest-astropy
