@@ -1,0 +1,53 @@
+[tool.black]
+line-length = 88
+target_version = ["py36", "py37", "py38"]
+
+[tool.poetry]
+name = "xraysink"
+version = "1.0.0"
+description = "Instrument asyncio Python for AWS X-Ray."
+readme = "README.md"
+authors = ["Gary Donovan <gazza@gazza.id.au>"]
+license = "Apache 2.0"
+homepage = "https://github.com/garyd203/xraysink"
+repository = "https://github.com/garyd203/xraysink"
+documentation = "https://github.com/garyd203/xraysink"
+# If you update this keyword list, also update the one in github
+keywords=["AWS", "XRay", "python", "asyncio"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Web Environment",
+    "Framework :: AsyncIO",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: Apache Software License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Software Development :: Libraries :: Application Frameworks",
+    "Topic :: System :: Monitoring",
+]
+packages = [
+    { include="xraysink", from="src" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+aws_xray_sdk = "~2"
+wrapt = "^1.12.1"
+
+[tool.poetry.dev-dependencies]
+black = "==19.3b0"
+pytest = "^5.4.3"
+aiohttp = "~3"
+async-asgi-testclient = "^1.4.4"
+pytest-asyncio = "^0.14"
+starlette = "^0.13"
+fastapi = "^0.58.1"
+
+[build-system]
+requires = ["poetry>=1.0.3"]
+build-backend = "poetry.masonry.api"
