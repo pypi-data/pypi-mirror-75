@@ -1,0 +1,14 @@
+README.md
+setup.py
+scrab/__init__.py
+scrab/formatter.py
+scrab/parser.py
+scrab/scrab
+scrab.egg-info/PKG-INFO
+scrab.egg-info/SOURCES.txt
+scrab.egg-info/dependency_links.txt
+scrab.egg-info/not-zip-safe
+scrab.egg-info/requires.txt
+scrab.egg-info/top_level.txt
+scrab/web/__init__.py
+scrab/web/web_client.py
