@@ -1,0 +1,123 @@
+Metadata-Version: 2.1
+Name: ftoml
+Version: 0.2.0
+Summary: Python library unifying f-stringswith Tom's Obvious, Minimal Language
+Home-page: https://github.com/schuellerf/ftoml
+Author: Florian Schüller
+Author-email: florian.schueller@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Requires-Python: >=2.6, !=3.0.*, !=3.1.*, !=3.2.*
+Requires-Dist: toml
+Requires-Dist: fstring
+Requires-Dist: astroid
+
+*****
+FTOML
+*****
+
+Extends the python module *toml* with the python library *fstring*
+
+See the test-files for some examples
+
+you can do things like::
+
+    base_url="https://example.com"
+
+    [module1]
+    url="{base_url}/path1.html"
+
+    [module2]
+    url="{base_url}/path2.html"
+
+
+... and many things more
+
+Tox
+###
+
+Prerequisites for pyenv according to https://github.com/pyenv/pyenv/wiki/Common-build-problems ::
+
+    sudo apt-get install -y build-essential libssl-dev zlib1g-dev libbz2-dev \
+    libreadline-dev libsqlite3-dev wget curl llvm libncurses5-dev libncursesw5-dev \
+    xz-utils tk-dev libffi-dev liblzma-dev python-openssl git
+
+To prepare tox for the tests, install pyenv and install all needed python versions. e.g.::
+
+    echo pypy-5.7.1 2.7.18 3.5.9 3.6.11 3.7.8 3.8.5|xargs -n1 pyenv install
+    pyenv global pypy-5.7.1 2.7.18 3.5.9 3.6.11 3.7.8 3.8.5
+
+then run tox::
+
+    tox
+
+... syntax check::
+
+    flake8
+
+and codecoverage::
+
+    tox
+    firefox htmlcov/index.html
+
+Internal
+########
+
+Just some notes for me how to build and upload::
+
+    # create tag with release notes
+    git tag -a -m "$(git log --pretty='format:| %as %h %s' HEAD...$(git describe --tags |awk -F - '//{ print $1 }'))" VERSION
+    rm -rf build dist
+    python3 setup.py sdist bdist_wheel
+    python3 -m twine upload --repository pypi dist/*
+
+
+
+
+
+VERSIONS
+########
+
+0.2.0
+*****
+
+| 2020-07-31 cda05f2 Add support to use floats
+| 2020-07-31 9986e19 Implement test for loads
+| 2020-07-31 2514f21 Fix code coverage execution
+| 2020-07-31 ae780ef Build universal package
+
+0.1.0
+*****
+
+| 2020-07-31 8f8f0d3 Set encoding in setup.py
+| 2020-07-31 7e7843a Python2 compatibility for setup.py
+| 2020-07-31 72746b2 Implement inherited defaults
+
+0.0.3
+*****
+
+| 2020-07-30 5c867c8 Change Release notes syntax
+
+0.0.2
+*****
+
+| 2020-07-30 6d174ae Change versioning
+| 2020-07-30 4a9faef Notes for releasing
+| 2020-07-29 d413842 Flake8
+| 2020-07-29 bac41df Fix order of dictionary for string compare in test
+| 2020-07-29 7df3c6b Implement hacky support for all those python versions
+| 2020-07-29 4c1424a Start using tox
+| 2020-07-29 19e6c32 Load and Dump test
+
+0.0.1
+*****
+
+| Initial Release
+
+
+
