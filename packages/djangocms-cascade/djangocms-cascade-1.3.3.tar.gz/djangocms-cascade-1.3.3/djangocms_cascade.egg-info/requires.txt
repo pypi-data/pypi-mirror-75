@@ -1,0 +1,7 @@
+django<3.1,>=2.1
+django-classy-tags>=1.0
+django-cms<4,>=3.5
+django-entangled
+djangocms-text-ckeditor>=3.7
+jsonfield
+requests
