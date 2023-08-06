@@ -1,0 +1,4 @@
+[console_scripts]
+pfinterp = pyfesom2.pfinterp:pfinterp
+pfplot = pyfesom2.pfplot:pfplot
+
