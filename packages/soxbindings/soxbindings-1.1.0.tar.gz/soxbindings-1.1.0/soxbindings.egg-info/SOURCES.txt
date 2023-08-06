@@ -1,0 +1,14 @@
+README.md
+setup.py
+soxbindings/__init__.py
+soxbindings/audio.py
+soxbindings/effects.py
+soxbindings/sox_cli.py
+soxbindings/transform.py
+soxbindings.egg-info/PKG-INFO
+soxbindings.egg-info/SOURCES.txt
+soxbindings.egg-info/dependency_links.txt
+soxbindings.egg-info/not-zip-safe
+soxbindings.egg-info/requires.txt
+soxbindings.egg-info/top_level.txt
+soxbindings/ext/sox.cpp
