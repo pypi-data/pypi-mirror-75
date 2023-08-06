@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+requirements.txt
+requirements_dev.txt
+setup.py
+data_genie.egg-info/PKG-INFO
+data_genie.egg-info/SOURCES.txt
+data_genie.egg-info/dependency_links.txt
+data_genie.egg-info/requires.txt
+data_genie.egg-info/top_level.txt
+genie_pkg/__init__.py
+genie_pkg/australia.py
+genie_pkg/delimited_genie.py
+genie_pkg/dqc.py
+genie_pkg/fw_genie.py
+genie_pkg/generators.py
+genie_pkg/json_genie.py
