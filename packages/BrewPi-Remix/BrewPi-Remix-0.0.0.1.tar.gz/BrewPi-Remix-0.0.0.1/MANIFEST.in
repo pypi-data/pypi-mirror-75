@@ -1,0 +1,22 @@
+include pyproject.toml
+
+# Include the README
+include *.md
+
+# Include the license file
+include LICENSE
+
+# Include the data files
+recursive-include data *
+
+# Include the html files
+recursive-include html *
+
+# Include the settings files
+recursive-include settings *
+
+# Include the utils files
+recursive-include utils *
+
+# Include the inc files
+recursive-include inc *

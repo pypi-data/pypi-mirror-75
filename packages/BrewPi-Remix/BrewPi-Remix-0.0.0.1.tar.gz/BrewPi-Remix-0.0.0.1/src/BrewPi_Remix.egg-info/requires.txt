@@ -1,0 +1,16 @@
+numpy
+configobj
+GitPython
+psutil
+pyserial
+requests
+scipy
+sentry-sdk
+simplejson
+urllib3
+
+[dev]
+check-manifest
+
+[test]
+coverage

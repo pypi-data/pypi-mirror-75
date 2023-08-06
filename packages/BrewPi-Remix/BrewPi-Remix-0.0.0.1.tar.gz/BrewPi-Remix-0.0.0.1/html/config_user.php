@@ -1,0 +1,2 @@
+<?php 
+$scriptPath = '/home/brewpi';
