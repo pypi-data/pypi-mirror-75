@@ -1,0 +1,12 @@
+tensorflow
+numpy
+matplotlib
+opencv-python
+h5py
+yacs
+
+[coco]
+pycocotools
+
+[mAP]
+tqdm
