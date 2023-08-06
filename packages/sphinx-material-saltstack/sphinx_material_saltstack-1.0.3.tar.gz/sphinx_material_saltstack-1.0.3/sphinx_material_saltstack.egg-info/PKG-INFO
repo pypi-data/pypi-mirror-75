@@ -1,0 +1,206 @@
+Metadata-Version: 2.1
+Name: sphinx-material-saltstack
+Version: 1.0.3
+Summary: Material sphinx theme for SaltStack documentation
+Home-page: https://gitlab.com/saltstack/open/docs/sphinx-material-saltstack
+Author: Derek Ardolf
+Author-email: derek@icanteven.io
+License: UNKNOWN
+Description: # Material Sphinx Theme for SaltStack Projects
+        
+        _This is a SaltStack-themed fork of the_
+        _[Material Sphinx Theme](https://github.com/bashtage/sphinx-material/) for_
+        _simplified use in SaltStack projects._
+        
+        For an example of deployed documentation using this theme:
+        - https://enterprise.saltstack.com
+        
+        >_**NOTE:** If wanting to use this for_
+        _personal or non-SaltStack Sphinx-based documentation projects, you_
+        _may want to use the Material Sphinx Theme instead._
+        
+        >_**NOTE:** Any changes to the theme, that are non-SaltStack specific,_
+        _should be done to the upstream Material for Sphinx (`sphinx-material`)_
+        _project. Those changes can be merged downstream back to this project._
+        
+        
+        **Table of Contents**
+        
+        <!-- TOC -->
+        
+        - [Material Sphinx Theme for SaltStack Projects](#material-sphinx-theme-for-saltstack-projects)
+            - [About the Original Material Sphinx Theme](#about-the-original-material-sphinx-theme)
+            - [Theme Differences](#theme-differences)
+                - [License Differences](#license-differences)
+            - [Installation](#installation)
+            - [Configuration](#configuration)
+            - [Customizing the layout](#customizing-the-layout)
+        
+        <!-- /TOC -->
+        
+        ## About the Original Material Sphinx Theme
+        
+        A Material Design theme for Sphinx documentation. Based on [Material for
+        MkDocs](https://squidfunk.github.io/mkdocs-material/), and [Guzzle
+        Sphinx Theme](https://github.com/guzzle/guzzle_sphinx_theme).
+        
+        - See the original Material Theme for Sphinx [demonstration
+        site](https://bashtage.github.io/sphinx-material/) for examples of
+        rendered rst.
+        - See the the original Material Theme for Sphinx [source code on GitHub](https://github.com/bashtage/sphinx-material/).
+        
+        ## Theme Differences
+        
+        This project is a downstream/derivative of the Material for Sphinx project. The primary
+        additions to this project are the following files:
+        
+        - `sphinx_material_saltstack/sphinx_material_saltstack/static/images/favicon.png`
+        - `sphinx_material_saltstack/sphinx_material_saltstack/static/images/saltstack-logo.png`
+        - `sphinx_material_saltstack/sphinx_material_saltstack/static/stylesheets/saltstack.css`
+        
+        The rest of the theme includes references to these new files.
+        
+        Overall look at modified files in this repository:
+        
+        - `LICENSE.md`
+          - See [License Differences](#license-differences)
+        - `docs/conf.py`
+          - Since this is the example demo site, some minor changes of the new theme name
+            and modified theme defaults, have been included.
+        - `setup.py`
+          - Modifications referring to new package/plugin naming, and other small misc. changes.
+        - `sphinx_material/sphinx_material/layout.html`
+          - Made to also include `sphinx_material/sphinx_material/static/stylesheets/saltstack.css`
+        - `sphinx_material/sphinx_material/theme.conf`
+          - Modified defaults that are specific to SaltStack preferences.
+        
+        ### License Differences
+        
+        This project is released under the **Apache 2.0** license, due to the
+        inclusion of trademark-related images. Specifically:
+        
+        - `sphinx_material/sphinx_material/static/images/favicon-salt.png`
+        - `sphinx_material/sphinx_material/static/images/saltstack-logo.png`
+        
+        The rest of the project is otherwise the same as the upstream project,
+        which is released under the **MIT** license. If wanting to make a derivative
+        of this theme, or include the source code elsewhere, it would be a better
+        idea to make use of the upstream theme source:
+        
+        - [sphinx-material (on GitHub)](https://github.com/bashtage/sphinx-material/)
+        
+        The `LICENSE` file of this repository includes both the content of the Apache 2.0
+        license, and the content of the original MIT license.
+        
+        ## Installation
+        
+        Setup venv:
+        
+        ```bash
+        python3 -m venv .venv
+        source .venv/bin/activate
+        pip install -U pip setuptools wheel
+        ```
+        
+        Install via pip:
+        
+        ```bash
+        pip install sphinx-material-saltstack
+        ```
+        
+        or if you have the code checked out locally:
+        
+        ```bash
+        pip install -e .
+        ```
+        
+        ## Configuration
+        
+        Add the following to your imports in `conf.py`:
+        
+        ```python
+        import sphinx_material_saltstack
+        ```
+        
+        There are a lot more ways to customize this theme, as this more
+        comprehensive example shows:
+        
+        ```python
+        # Required theme setup
+        html_theme = 'sphinx_material_saltstack'
+        
+        # Material theme options (see theme.conf for more information)
+        html_theme_options = {
+        
+            # Set the name of the project to appear in the navigation.
+            'nav_title': 'Project Name',
+        
+            # Set you GA account ID to enable tracking
+            'google_analytics_account': 'UA-XXXXX',
+        
+            # Specify a base_url used to generate sitemap.xml. If not
+            # specified, then no sitemap will be built.
+            'base_url': 'https://project.gitlab.io/project',
+        
+            # Set the repo location to get a badge with stats
+            'repo_url': 'https://gitlab.com/project/project/',
+            'repo_name': 'Project',
+        
+            # Visible levels of the global TOC; -1 means unlimited
+            'globaltoc_depth': 3,
+            # If False, expand all TOC entries
+            'globaltoc_collapse': False,
+            # If True, show hidden TOC entries
+            'globaltoc_includehidden': False,
+        }
+        ```
+        
+        ## Customizing the layout
+        
+        You can customize the theme by overriding Jinja template blocks. For
+        example, \'layout.html\' contains several blocks that can be overridden
+        or extended.
+        
+        Place a `layout.html` file in your project's `/_templates`
+        directory.
+        
+        ```bash
+        mkdir source/_templates
+        touch source/_templates/layout.html
+        ```
+        
+        Then, configure your `conf.py`:
+        
+        ```python
+        templates_path = ['_templates']
+        ```
+        
+        Finally, edit your override file `source/_templates/layout.html`:
+        
+        ```jinja2
+            {# Import the theme's layout. #}
+            {% extends '!layout.html' %}
+        
+            {%- block extrahead %}
+            {# Add custom things to the head HTML tag #}
+            {# Call the parent block #}
+            {{ super() }}
+            {%- endblock %}
+        ```
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Framework :: Sphinx :: Extension
+Classifier: Framework :: Sphinx :: Theme
+Classifier: Topic :: Documentation :: Sphinx
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Development Status :: 5 - Production/Stable
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

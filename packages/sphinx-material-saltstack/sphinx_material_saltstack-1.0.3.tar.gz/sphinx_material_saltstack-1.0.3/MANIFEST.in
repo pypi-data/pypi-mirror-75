@@ -1,0 +1,8 @@
+include LICENSE.md
+include README.md
+recursive-include sphinx_material_saltstack/sphinx_material_saltstack *
+include versioneer.py
+include sphinx_material_saltstack/_version.py
+include setup.cfg
+include requirements.txt
+include requirements-dev.txt
