@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: se4ai-group4-common-utils
+Version: 0.3.7
+Summary: A package for common utility functions that our project needs
+Home-page: https://github.com/cmu-seai/group-project-se4ai-group-4
+Author: Daniel Biales
+Author-email: dbiales@andrew.cmu.edu
+License: UNKNOWN
+Description: # Group 4
+        
+        ## Common Utils package
+        
+        ## Common Utils Package
+        #### Dependencies
+        Python packages to build: `setuptools` and `wheel`  
+        Python packages to deploy: `twine`  
+        To install: `python3 -m pip install --upgrade setuptools wheel twine`
+        
+        #### Building & deploy the package
+        1. `cd common-utils`
+        1. `python3 setup.py sdist bdist_wheel`
+        1. `python3 -m twine upload dist/*`
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
