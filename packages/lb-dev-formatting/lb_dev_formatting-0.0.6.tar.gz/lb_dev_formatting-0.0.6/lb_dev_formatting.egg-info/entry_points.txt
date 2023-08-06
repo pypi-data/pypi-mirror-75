@@ -1,0 +1,6 @@
+
+        [lb_dev.plugins]
+        format=lb_dev_formatting.commands.format:format_command
+        [console_scripts]
+        format-hook=lb_dev_formatting.hooks.format:format
+    
