@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: mlworks
+Version: 0.0.5
+Summary: Python Package for Unlimited Machine Learning Works
+Home-page: https://github.com/adelmofilho/mlworks
+Author: Adelmo Filho
+Author-email: adelmo.aguiar.filho@gmail.com
+License: UNKNOWN
+Description: # mlworks
+        Python Package for Unlimited Machine Learning Works
+        
+        [![pypi](https://img.shields.io/pypi/v/mlworks)](https://pypi.org/project/mlworks/)
+        [![python](https://img.shields.io/pypi/pyversions/mlworks)](https://pypi.org/project/mlworks/)
+        [![Build Status](https://api.travis-ci.org/adelmofilho/mlworks.svg?branch=master&status=unknown)](https://travis-ci.org/github/adelmofilho/mlworks/)
+        [![codecov](https://codecov.io/gh/adelmofilho/mlworks/branch/master/graphs/badge.svg?branch=master)](https://codecov.io/github/adelmofilho/mlworks?branch=master)
+        [![Code Quality](https://img.shields.io/scrutinizer/g/adelmofilho/mlworks.svg)](https://scrutinizer-ci.com/g/adelmofilho/mlworks/badges/quality-score.png?b=master)
+        [![license](https://img.shields.io/github/license/adelmofilho/mlworks?color=blue)](https://scrutinizer-ci.com/g/adelmofilho/mlworks/badges/quality-score.png?b=master)
+        [![docs](https://readthedocs.org/projects/mlworks/badge/?version=latest)](https://readthedocs.org/projects/mlworks/?badge=latest)
+        [![Upload PyPI](https://github.com/adelmofilho/mlworks/workflows/Upload%20Python%20Package/badge.svg)](https://github.com/adelmofilho/mlworks/actions)
+Keywords: mlworks,Python,projects,machine-learning,feature-engineering,modelling,data-science
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 1 - Planning
+Classifier: Natural Language :: Portuguese (Brazilian)
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
