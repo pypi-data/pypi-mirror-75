@@ -1,0 +1,32 @@
+from setuptools import setup, find_packages
+
+setup(
+    name='PassportMicroService',
+    version='0.0.1',
+    description=(
+      'passport-micro-service'
+    ),
+    author='NoahWang',
+    author_email='234082230@qq.com',
+    maintainer='noahwang',
+    maintainer_email='234082230@qq.com',
+    license='',
+    install_requires=['passportsdk'],
+    packages=[
+        'passport_micro_service',
+        'passport_micro_service.app',
+        'passport_micro_service.app.admin',
+        'passport_micro_service.app.admin.traits',
+        'passport_micro_service.app.portal',
+        'passport_micro_service.app.portal.traits',
+        'passport_micro_service.app.user',
+        'passport_micro_service.app.user.traits',
+        'passport_micro_service.auth',
+        'passport_micro_service.core',
+        'passport_micro_service.model',
+        'passport_micro_service.scripts',
+        'passport_micro_service.tests',
+    ],
+    include_package_data=True,
+    zip_safe=False
+)
