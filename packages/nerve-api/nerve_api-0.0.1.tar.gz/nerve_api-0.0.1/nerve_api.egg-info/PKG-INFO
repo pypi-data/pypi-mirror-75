@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: nerve-api
+Version: 0.0.1
+Summary: Package that exposes the Nerve API
+Home-page: https://git.tttech.com/projects/BUIENG/repos/nerve-examples/
+Author: TTTech Industrial Automation AG
+Author-email: hannes.brantner@tttech-industrial.com
+License: UNKNOWN
+Description: # Nerve API
+        
+        https://git.tttech.com/projects/BUIENG/repos/nerve-examples/
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
