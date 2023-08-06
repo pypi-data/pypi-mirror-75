@@ -1,0 +1,7 @@
+requests<=2.22,>=2.21
+pytz<=2020.2,>=2020.1
+iso8601<=0.2,>=0.1
+pydash<=4.8,>=4.7
+
+[:python_version < "3.7"]
+dataclasses>=0.6
