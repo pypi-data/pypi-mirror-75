@@ -1,0 +1,12 @@
+MANIFEST.in
+license
+readme.md
+setup.py
+bin/nts
+nts/__init__.py
+nts/downloader.py
+nts_everdrone.egg-info/PKG-INFO
+nts_everdrone.egg-info/SOURCES.txt
+nts_everdrone.egg-info/dependency_links.txt
+nts_everdrone.egg-info/requires.txt
+nts_everdrone.egg-info/top_level.txt
