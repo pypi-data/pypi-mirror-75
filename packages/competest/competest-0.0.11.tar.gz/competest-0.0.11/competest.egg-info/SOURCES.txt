@@ -1,0 +1,17 @@
+README.md
+setup.py
+competest/__init__.py
+competest/competest.py
+competest/linux.py
+competest/parsers.py
+competest/windows.py
+competest.egg-info/PKG-INFO
+competest.egg-info/SOURCES.txt
+competest.egg-info/dependency_links.txt
+competest.egg-info/entry_points.txt
+competest.egg-info/requires.txt
+competest.egg-info/top_level.txt
+competest/compilers/__init__.py
+competest/compilers/compilers_common.py
+competest/compilers/compilers_linux.py
+competest/compilers/compilers_windows.py
