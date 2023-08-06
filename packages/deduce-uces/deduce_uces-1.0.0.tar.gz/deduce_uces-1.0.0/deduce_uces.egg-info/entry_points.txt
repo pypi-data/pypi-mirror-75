@@ -1,0 +1,3 @@
+[console_scripts]
+deduce = deduce.__main__:main
+
