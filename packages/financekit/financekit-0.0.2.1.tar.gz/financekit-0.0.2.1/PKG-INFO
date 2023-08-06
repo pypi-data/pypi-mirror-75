@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: financekit
+Version: 0.0.2.1
+Summary: A financial package for Python
+Home-page: https://github.com/GuillaumeKark/financekit
+Author: Guillaume Karklins
+Author-email: guillaume.karklins_marchay@edu.escp.eu
+License: Apache License 2.0
+Description: # financekit
+        
+        This is a Python package for financial analysis. The project is in a pre-development release version.
+        The project is available on [PyPI](https://pypi.org/project/financekit/).
+        
+        For installation use: 
+        
+        ```
+        pip install financekit
+        ```
+        
+        The current version is 0.0.2.
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
