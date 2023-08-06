@@ -1,0 +1,54 @@
+Metadata-Version: 2.1
+Name: txtrader-monitor
+Version: 1.1.4
+Summary: TxTrader Securities Trading API Monitor
+Home-page: https://github.com/rstms/txtrader_monitor/
+Author: Matt Krueger
+Author-email: mkrueger@rstms.net
+License: MIT
+Description: txtrader-monitor
+        ----------------
+        
+        This module is a stand-alone package for the monitor component of the txtrader trading api manager
+        
+        ## Installation
+        ```
+        pip install txtrader-monitor
+        ```
+        
+        ## Configuration
+        The following configuration variables are required:
+        ```
+        TXTRADER_HOST
+        TXTRADER_USERNAME
+        TXTRADER_PASSWORD
+        TXTRADER_TCP_PORT
+        TXTRADER_API_ACCOUNT
+        ```
+        There are 2 ways to provide the variables:
+        ### passed as a python dict into the constructor `API(config={'TXTRADER_HOST': 'localhost', ...})` 
+        ### set as environment variables
+        
+        ## Basic Usage:
+        ```
+        from txtrader_monitor import API
+        
+        api = API()
+        
+        print(api.status())
+        
+        api.add_symbol('TSLA')
+        
+        order = api.market_order('TSLA', 100)
+        
+        print(api.query_positions())
+        ```
+        
+Keywords: trading api txtrader twisted
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
