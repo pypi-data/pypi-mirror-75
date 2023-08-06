@@ -1,0 +1,6 @@
+[console_scripts]
+minki = minkipy.cli.main:minki
+
+[mincepy.plugins.types]
+minkipy_types = minkipy.provides:get_types
+
