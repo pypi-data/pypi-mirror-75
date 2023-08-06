@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: hao
+Version: 0.0.1
+Summary: misc tools for configs, logs
+Home-page: https://github.com/orctom/tab
+Author: orctom
+Author-email: orctom@gmail.com
+License: UNKNOWN
+Project-URL: Source, https://github.com/orctom/tab
+Description: # tab
+        
+        Misc tools to 
+        
+        - read conf/config.yaml
+        - config logs
+        - ...
+        
+        ## install
+        
+        ```bash
+        pip install tab
+        ```
+        
+        
+Keywords: tools,config,logs
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: test
