@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: politico-civic-election-loader
+Version: 1.0a7.dev1
+Summary: Ingest election metadata and results from outside sources, the POLITICO way.
+Home-page: https://github.com/The-Politico/politico-civic-election-loader/
+Author: POLITICO interactive news
+Author-email: interactives@politico.com
+License: MIT
+Download-URL: https://github.com/The-Politico/politico-civic-election-loader/archive/1.0a7.dev1.tar.gz
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.0
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Internet :: WWW/HTTP
+Description-Content-Type: text/markdown
+Requires-Dist: celery
+Requires-Dist: django
+Requires-Dist: djangorestframework
+Requires-Dist: psycopg2-binary
+Requires-Dist: politico-civic-utils
+Requires-Dist: politico-civic-entity
+Requires-Dist: politico-civic-geography
+Requires-Dist: politico-civic-government
+Requires-Dist: politico-civic-election
+Requires-Dist: us
+Provides-Extra: test
+Requires-Dist: pytest ; extra == 'test'
+
+![POLITICO](https://rawgithub.com/The-Politico/src/master/images/logo/badge.png)
+
+# politico-civic-election-loader
+
+Ingest election metadata and results from outside sources, the POLITICO way.
+
+
+## Quickstart
+
+1. Install the app.
+
+  ```
+  $ pip install politico-civic-election-loader
+  ```
+
+2. Add the app to your Django project settings.
+
+  ```python
+  INSTALLED_APPS = [
+      # ...
+      'rest_framework',
+      'election_loader',
+  ]
+  ```
+
+3. Migrate the database.
+
+  ```
+  $ python manage.py migrate entity
+  ```
+
+
+## Developing
+
+### Running a development server
+
+Move into the example directory, install dependencies and run the development server with pipenv.
+
+  ```
+  $ cd example
+  $ pipenv install
+  $ pipenv run python manage.py runserver
+  ```
+
+### Setting up a PostgreSQL database
+
+1. Run the make command to setup a fresh database.
+
+  ```
+  $ make database
+  ```
+
+2. Add a connection URL to `example/.env`.
+
+  ```
+  DATABASE_URL="postgres://localhost:5432/electionloader"
+  ```
+
+3. Run migrations from the example app.
+
+  ```
+  $ cd example
+  $ pipenv run python manage.py migrate
+  ```
+
+
+## Copyright
+
+&copy; 2019&ndash;present POLITICO, LLC
+
+
