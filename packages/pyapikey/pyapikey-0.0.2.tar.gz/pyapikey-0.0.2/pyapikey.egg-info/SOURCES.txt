@@ -1,0 +1,12 @@
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+pyapikey/__init__.py
+pyapikey/core.py
+pyapikey/version.py
+pyapikey.egg-info/PKG-INFO
+pyapikey.egg-info/SOURCES.txt
+pyapikey.egg-info/dependency_links.txt
+pyapikey.egg-info/entry_points.txt
+pyapikey.egg-info/top_level.txt
