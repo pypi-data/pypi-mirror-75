@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+datanews/__init__.py
+datanews/requestor.py
+datanews.egg-info/PKG-INFO
+datanews.egg-info/SOURCES.txt
+datanews.egg-info/dependency_links.txt
+datanews.egg-info/requires.txt
+datanews.egg-info/top_level.txt
+datanews/api_resources/__init__.py
+datanews/api_resources/monitor.py
+datanews/api_resources/news.py
