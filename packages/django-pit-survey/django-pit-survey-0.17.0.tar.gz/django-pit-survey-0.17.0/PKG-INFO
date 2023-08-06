@@ -1,0 +1,26 @@
+Metadata-Version: 1.2
+Name: django-pit-survey
+Version: 0.17.0
+Summary: Django app with web forms to assist with the collection of data for Point-in-Time (PIT) counts for the Annual Homeless Assessment Report (AHAR) sent to the U.S. Congress.
+Home-page: https://github.com/Kopetzki/PIT_APP
+License: MIT
+Description: Django app with web forms to assist with the collection of data for Point-in-Time (PIT) counts
+        for the Annual Homeless Assessment Report (AHAR) sent to the U.S. Congress. You can view these
+        annual reports at: https://www.hudexchange.info/homelessness-assistance/ahar
+        
+        Examples PDFs of the forms:
+        Intervew: https://files.hudexchange.info/resources/documents/Model-Interview-Based-Unsheltered-Night-of-Count-PIT-Survey.pdf
+        Observation: https://files.hudexchange.info/resources/documents/Model-Observation-Based-Unsheltered-Night-of-Count-PIT-Survey.pdf
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.8
