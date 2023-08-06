@@ -1,0 +1,86 @@
+language: minimal
+
+env:
+  global:
+    # Doctr deploy key for ioos/erddapy
+    - secure: "K7/ZsuH+mp28YhBgnHARRmneKyMqODpMcrzTBd4tK0rqtzRJYP7fel9JGhD/3mIqyp/E2qCF3Rk/YbonHvmsyjh0yBmyI1BtHIKEcsUgwYCMvkjWYTR0k5LYWqtyEl1pW5RSs5PAAKCcXDdxDoXkmLdJViDiKv6Mv8bnfppYJzPH7Z2xjfr9YxvhMiIngfLxtjPAm1GZKO75Ldhw1uE9eMqdxYHrENvTkbXTfS2o5ERCJppd8o8zeEsnUjE7fDXsvBTYP5Cdng9tYMVCFiIubQXLuYUGKjwVObR7AIczwx5so4yTly0k2gNrXtTpTW+hm6D8VQCGfJAXgfq3zpzKtUwBKpXVAP8K+NWy91eXOyr/rgcmFXjlzsN25/gPonyac92a7OQXRs5nsXKBY1KfUR2LyQapVZ89RpoA6w98X7OWeqvUg7uDuCdYAcsM3zVJMqIHvlr9UpqMvuluRMvX4iq9P/fD5Bq1WT3uJ3olLEXpbcaOeeaBpb3vO8IwiOEaNXR7A9iug3cpz4bP5nd5DET8Ki+lew6bkfiC5SaP+emS9WXD4uoKbiwrL6wz1kAdjOH6Exn4R0q8paJuaORiIfDEXAay39ZwBl3qzvt6Y7O3Y8i9oXG59+UKojSXxkPdF4byWA1nUF6wl4bpC4f/oJMoDtXiUdNv6WM8Jcndwdk="
+
+matrix:
+  fast_finish: true
+  include:
+    - name: "python-3.6"
+      env: PY=3.6
+    - name: "python-3.7"
+      env: PY=3.7
+    - name: "python-3.8"
+      env: PY=3.8
+    - name: "tarball"
+      env: PY=3
+    - name: "docs"
+      env: PY=3
+
+before_install:
+  # Install miniconda and create TEST env.
+  - |
+    wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O miniconda.sh
+    bash miniconda.sh -b -p $HOME/miniconda
+    export PATH="$HOME/miniconda/bin:$PATH"
+    conda config --set always_yes yes --set changeps1 no --set show_channel_urls true
+    conda update --quiet conda
+    conda config --add channels conda-forge --force
+    conda config --set channel_priority strict
+    conda config --set safety_checks disabled
+    conda create --name TEST python=$PY --file requirements.txt --file requirements-dev.txt
+    source activate TEST
+    conda info --all
+
+install:
+  - pip install -e . --no-deps --force-reinstall
+
+script:
+  - |
+    if [[ $TRAVIS_JOB_NAME == python-* ]]; then
+      cp -r tests/ /tmp
+      pushd /tmp
+      pytest -n 2 -rxs --cov=erddapy -m "not serial" tests
+      pytest -rxs --cov=erddapy -m "serial" tests
+      popd
+    fi
+
+  - if [[ $TRAVIS_JOB_NAME == 'tarball' ]]; then
+      python setup.py --version ;
+      pip wheel . -w dist --no-deps ;
+      check-manifest --verbose ;
+      twine check dist/* ;
+    fi
+
+  - |
+    if [[ $TRAVIS_JOB_NAME == 'docs' ]]; then
+      set -e
+      travis_wait jupyter nbconvert --to notebook --execute notebooks/quick_intro.ipynb --output=quick_intro-output.ipynb
+      jupyter nbconvert --to notebook --execute notebooks/searchfor.ipynb --output=searchfor-output.ipynb
+      cp notebooks/*output.ipynb docs/source/
+      pushd docs
+      make clean html linkcheck
+      popd
+      if [[ -z "$TRAVIS_TAG" ]]; then
+        python -m doctr deploy --build-tags --key-path github_deploy_key_ioos_erddapy.enc --built-docs docs/build/html dev
+      else
+        python -m doctr deploy --build-tags --key-path github_deploy_key_ioos_erddapy.enc --built-docs docs/build/html "version-$TRAVIS_TAG"
+        python -m doctr deploy --build-tags --key-path github_deploy_key_ioos_erddapy.enc --built-docs docs/build/html .
+      fi
+    fi
+
+deploy:
+  skip_cleanup: true
+  provider: pypi
+  user: "__token__"
+  password:
+    secure: "GUI/SjwCFR4tc7lsc9kzr3ZrZYdb8tHvCBmX1YGpjcSRfio73Me39BbDh47gy2L/fSmJAAohRTmb1SskuGPIbWLGd295c44btOqRgohjzsVdLoJ6Pa8+E4T1NXj7GKP12puu4z+u78czPpOBw/XQHaFFiS6xBgeG8sxby6mhvpZeb7d+3LnkecXoGPlTMYvfKR1veltuhTIfqmAdHaIAl2JXGvJGIQNvYTI2WXzKt6XUSQRSIgqLwhn7dAx89e4BKti4XKE5KrhdsO0cUKw9LOIJh8kNAw3p6GPByy/KIs362c/hr+7MDsdr5SSJ5UxsoM0AEqSg3YXwLCTQbAONzC9KwHp0e7XHkUEgaPjMY2gYj61g54iMmbWeblN57LGUzOgAXF3FBSCoQfSu0GeBF3I5dEQIkoQX2zUI93JNbt2lT/gfcRrIuKWOIJ6HysOaGFHSbE3+pGUIi9pxfbimp7G6c30Eg8qs2D7/b++X8BGaHpGSunSkqKIkQv0jo5ND0JTYinLzUBH2VNkUo7t0b1a6LOUo86ZM+w8YdIMV5mXAzalFrA4XOl9/wsKn382EZZo0voGC7Kxd5E2bV8NYylsXDU+3l0zwSxch7WNcLYLIBEHvX3hX8+a8+b7enmMmjyEv/9/Jt5pNtjaa8q+tDQmy4+ExN/TECw3YhCKsPmc="
+  distributions: sdist bdist_wheel
+  upload_docs: false
+  on:
+    repo: ioos/erddapy
+    tags: true
+    all_branches: master
+    condition: '$TRAVIS_JOB_NAME == "tarball"'
