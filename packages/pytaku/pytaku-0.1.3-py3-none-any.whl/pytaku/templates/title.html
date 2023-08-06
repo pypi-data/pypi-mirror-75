@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+  .cover {
+    width: 400px;
+    border: 1px solid black;
+  }
+</style>
+{% endblock %}
+
+{% block title %}
+{{ name }}
+{% endblock %}
+
+{% block content %}
+
+<div>
+<h1>{{ name }}</h1>
+{{ ibutton(href='https://mangadex.org/manga/' + id, right_icon='arrow-up-right', text='Source site', color='blue') }}
+</div>
+
+<img class="cover" src="https://mangadex.org/images/manga/{{ id }}.{{ cover_ext }}" alt="cover" />
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Group</th>
+  </tr>
+  {% for chapter in chapters %}
+  <tr>
+    <td>
+      <a href="{{ url_for('chapter_view', chapter_id=chapter['id']) }}">
+        Chapter {{ chapter['number'] }}
+        {% if chapter['volume'] %}Volume {{ chapter['volume'] }} {% endif %}
+        {% if chapter['name'] %}- {{ chapter['name'] }} {% endif %}
+      </a>
+    </td>
+    <td>{{ ', '.join(chapter['groups']) }}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
