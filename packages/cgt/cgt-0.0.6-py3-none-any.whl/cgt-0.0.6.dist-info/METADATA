@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: cgt
+Version: 0.0.6
+Summary: Tools for representing circular genomes in sage
+Home-page: https://github.com/js51/Circular-genome-tools
+Author: Joshua Stevenson
+Author-email: joshua.stevenson@utas.edu.au
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=2
+Description-Content-Type: text/markdown
+
+# Circular genome tools (cgt)
+A sage package for working with circular genomes represented by signed or unsigned permutations. It includes tools for converting between representations as well as visualisations using matplotlib.
+
+To install and use this package, paste the following command in your terminal
+
+`sage -pip install cgt`
+
+and use `import cgt` in a sage script or environment.
+
+
