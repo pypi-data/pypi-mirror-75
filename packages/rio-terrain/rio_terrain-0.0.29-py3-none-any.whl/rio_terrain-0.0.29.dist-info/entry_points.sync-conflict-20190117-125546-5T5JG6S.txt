@@ -1,0 +1,15 @@
+
+        [rasterio.rio_commands]
+        aspect=rio_terrain.cli.aspect:aspect
+        curvature=rio_terrain.cli.curvature:curvature
+        difference=rio_terrain.cli.difference:difference
+        extract=rio_terrain.cli.extract:extract
+        label=rio_terrain.cli.label:label
+        mad=rio_terrain.cli.mad:mad
+        quantiles=rio_terrain.cli.quantiles:quantiles
+        slice=rio_terrain.cli.slice:slice
+        slope=rio_terrain.cli.slope:slope
+        std=rio_terrain.cli.std:std
+        threshold=rio_terrain.cli.threshold:threshold
+        uncertainty=rio_terrain.cli.uncertainty:uncertainty
+      

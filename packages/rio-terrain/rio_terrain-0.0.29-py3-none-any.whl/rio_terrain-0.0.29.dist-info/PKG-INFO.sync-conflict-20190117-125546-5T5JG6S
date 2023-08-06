@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: rio-terrain
+Version: 0.0.11
+Summary: Rasterio CLI plugin to perform common operations on height rasters.
+Home-page: http://github.com/mrahnis/rio-terrain
+Author: Michael Rahnis
+Author-email: michael.rahnis@fandm.edu
+License: BSD
+Description: UNKNOWN
+Keywords: LiDAR,surveying,elevation,raster,DEM
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: GIS
