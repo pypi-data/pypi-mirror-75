@@ -1,0 +1,3 @@
+[console_scripts]
+napkin = napkin.cli:main
+
