@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: aiocsv
+Version: 1.0.1
+Summary: Asynchronous CSV reading/writing
+Home-page: https://github.com/MKuranowski/aiocsv
+Author: Mikołaj Kuranowski
+Author-email: mkuranowski@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: async asynchronous aiofile csv tsv
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Framework :: AsyncIO
+Classifier: Programming Language :: Python :: 3 :: Only
+Description-Content-Type: text/markdown
