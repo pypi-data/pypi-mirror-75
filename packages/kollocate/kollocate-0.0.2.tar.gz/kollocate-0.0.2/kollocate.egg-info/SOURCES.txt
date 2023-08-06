@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+kollocate/__init__.py
+kollocate/analyze.py
+kollocate/index.py
+kollocate/search.py
+kollocate.egg-info/PKG-INFO
+kollocate.egg-info/SOURCES.txt
+kollocate.egg-info/dependency_links.txt
+kollocate.egg-info/requires.txt
+kollocate.egg-info/top_level.txt
+kollocate/indexdir/MAIN_vxol2ststxvi5mkc.seg
+kollocate/indexdir/_MAIN_1.toc
