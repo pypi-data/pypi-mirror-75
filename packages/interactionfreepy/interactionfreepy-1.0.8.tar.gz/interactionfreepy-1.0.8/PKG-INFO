@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: interactionfreepy
+Version: 1.0.8
+Summary: A intuitive and cross-languige RCP lib for Python.
+Home-page: https://github.com/hwaipy/InteractionFreePy
+Author: Hwaipy
+Author-email: hwaipy@gmail.com
+License: gpl-3.0
+Download-URL: https://github.com/hwaipy/InteractionFreePy/archive/v1.0.8.tar.gz
+Description: UNKNOWN
+Keywords: msgpack,zeromq,zmq,0mq,rcp,cross-languige
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
