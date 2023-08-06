@@ -1,0 +1,3 @@
+[console_scripts]
+ascid = ascid.__main__:main
+

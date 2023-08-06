@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: ascid
+Version: 0.2.0
+Summary: Ascid is the Self-referential Cycle IDentifier. It is capable of quickly (in linear time) detectingthe maximum length repeated substrings in text files.
+Home-page: https://github.com/esultanik/ascid
+Author: Trail of Bits
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Utilities
+Classifier: Topic :: Text Processing
+Requires-Python: >=2.7, >=3
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: setuptools ; extra == 'dev'
+
+UNKNOWN
+
+
