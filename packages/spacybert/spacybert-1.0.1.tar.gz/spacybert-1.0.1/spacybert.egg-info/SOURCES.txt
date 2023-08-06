@@ -1,0 +1,12 @@
+README.md
+setup.py
+spacybert/__init__.py
+spacybert/about.py
+spacybert.egg-info/PKG-INFO
+spacybert.egg-info/SOURCES.txt
+spacybert.egg-info/dependency_links.txt
+spacybert.egg-info/not-zip-safe
+spacybert.egg-info/requires.txt
+spacybert.egg-info/top_level.txt
+tests/__init__.py
+tests/test_bert_inference.py
