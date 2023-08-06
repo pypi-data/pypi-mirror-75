@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: scanamabob
+Version: 0.0.2
+Summary: A security toolkit for AWS based environments
+Home-page: https://github.com/CarveSystems/scanamabob
+Author: Carve Systems, LLC.
+Author-email: kenneth.wilke@carvesystems.com
+License: UNKNOWN
+Description: # Scanamabob!
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Security
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
