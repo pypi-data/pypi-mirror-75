@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: chspi
+Version: 1.0.1
+Summary: A small set of tools for students in Carlisle High School's Raspberry Pi program
+Home-page: https://github.com/fisheri2004/chspi
+Author: Isaac Fisher
+Author-email: fisheri@carlislestudents.org
+License: UNKNOWN
+Description: This module was created for students of Carlisle High School.  If you have any questions about the content of this package, email fisheri@carlislestudents.org.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
