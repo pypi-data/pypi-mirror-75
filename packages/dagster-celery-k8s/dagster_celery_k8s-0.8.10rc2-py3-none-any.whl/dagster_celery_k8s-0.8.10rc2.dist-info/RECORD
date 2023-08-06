@@ -1,0 +1,14 @@
+dagster_celery_k8s/__init__.py,sha256=6Yq6odACifu5xkNzxESp1LRHsX_q-2mmzMAZBCwm5rE,250
+dagster_celery_k8s/app.py,sha256=MI301xce9W3mCfS4oaaeNKkldKGgKa6dc8FdYfTQkNU,351
+dagster_celery_k8s/config.py,sha256=ud18RUW1iziONmqBv6CutCxr8v2JXDtindmxoTaO15w,2543
+dagster_celery_k8s/executor.py,sha256=JWC10Con0UO3wC9zi_UgYUNtO92EsOY-gTz4-7kaCjs,18505
+dagster_celery_k8s/launcher.py,sha256=OwQtOig7ypOo-N4s3EjAP0iLArt0uURjyIRnkPfjJ9A,11067
+dagster_celery_k8s/version.py,sha256=n-RDdd5K5BLFsKJnbjUqPQuqug98KHyYvZQWNGp0IgU,28
+dagster_celery_k8s_tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dagster_celery_k8s_tests/test_inclusion.py,sha256=0nWPmN3bYO28YceMWwTYPFkEPVHvMNQo5BTRIvx1FR0,290
+dagster_celery_k8s_tests/test_launcher.py,sha256=-iCeBTFGWzc7sZVbDCWWXIiGq1ASNDWdbu-fx4gWQZE,4906
+dagster_celery_k8s_tests/test_version.py,sha256=uNSKlyQngt3o3Y_iGHpaNIRwP5yOngh17o9HquWytdo,96
+dagster_celery_k8s-0.8.10rc2.dist-info/METADATA,sha256=UIOqN1CwEu0rFwMb6BvksB8u60sy3-3FzVQI_Q1pVKY,654
+dagster_celery_k8s-0.8.10rc2.dist-info/WHEEL,sha256=p46_5Uhzqz6AzeSosiOnxK-zmFja1i22CrQCjmYe8ec,92
+dagster_celery_k8s-0.8.10rc2.dist-info/top_level.txt,sha256=YKJWSsIHQpdWVkCocmEJrSMfHaBQj-Lvhf0zeFgx1dw,44
+dagster_celery_k8s-0.8.10rc2.dist-info/RECORD,,
