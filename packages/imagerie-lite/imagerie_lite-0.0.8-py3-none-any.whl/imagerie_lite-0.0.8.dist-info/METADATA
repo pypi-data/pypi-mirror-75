@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: imagerie-lite
+Version: 0.0.8
+Summary: Python package grouping together common useful functions and operations.
+Home-page: https://github.com/ibragim64/imagerie/tree/lite
+Author: Ibragim Abubakarov
+Author-email: ibragim.ai95@gmail.com
+Maintainer: Ibragim Abubakarov
+Maintainer-email: ibragim.ai95@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Multimedia
+Description-Content-Type: text/markdown
+Requires-Dist: opencv-python
+Requires-Dist: pillow
+Requires-Dist: numpy
+
+Imagerie lite
+=============
+> Lightweight python package grouping together useful computer vision functions and operations
+
+This package was initially created for myself to extract some of the most useful important functions,  
+from packages like `scipy`, `skimage`, etc...  
+
+This was done in order to expose all these very useful computer vision functions,  
+and be able to use them in a **Serverless** environment.
+
+Documentation
+-------------
+Documentation related files are stored in `docs/` directory.
+
+* [Getting started](docs/main.md)
+    * [Prerequisites](docs/main.md#prerequisites)
+    * [Installation](docs/main.md#installation)
+* [Documentation](docs/main.md#functions)
+    * [Functions](docs/main.md#functions)
+
+Credits
+-------
+ - [Ibragim Abubakarov](https://www.ibragim.fr) <[ibragim.ai95@gmail.com](mailto:ibragim.ai95@gmail.com)>
+
