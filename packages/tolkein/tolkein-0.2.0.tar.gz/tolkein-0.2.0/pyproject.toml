@@ -1,0 +1,20 @@
+[build-system]
+requires = [
+    'setuptools>=42',
+    'wheel'
+]
+
+[tool.black]
+line-length = 88
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.tox
+  | \.venv
+  | _build
+  | build
+  | dist
+)/
+'''
+

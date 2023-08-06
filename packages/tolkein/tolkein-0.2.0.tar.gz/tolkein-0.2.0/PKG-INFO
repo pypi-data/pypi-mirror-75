@@ -1,0 +1,86 @@
+Metadata-Version: 2.1
+Name: tolkein
+Version: 0.2.0
+Summary: Tree of Life Kit of Evolutionary Informatics Novelties
+Home-page: https://github.com/tolkit/tolkein
+Author: TolKit
+Author-email: tolkein@genomehubs.org
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/tolkit/tolkein/issues
+Project-URL: Source, https://github.com/tolkit/tolkein
+Description: =======
+        Tolkein
+        =======
+        
+        
+        
+        
+        Tree of Life Kit of Evolutionary Informatics Novelties
+        ======================================================
+        
+        
+        Installation
+        ============
+        
+        ::
+        
+            conda install -c tolkit tolkein
+        
+        or 
+        
+            pip install tolkein
+        
+        You can also install the in-development version with::
+        
+            pip install https://github.com/tolkit/tolkein/archive/master.zip
+        
+        
+        Documentation
+        =============
+        
+        
+        https://tolkein.readthedocs.io/
+        
+        
+        Development
+        ===========
+        
+        To run all tests run::
+        
+            tox
+        
+        
+        Changelog
+        =========
+        
+        0.2.0
+        -----
+        
+        Features:
+        * Added fetch methods
+        * Switched code style to black/flake8
+        
+        Bug fixes:
+        * Stopped log messages printing twice
+        
+        
+        0.0.1 (2020-07-02)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: bioinformatics
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/x-rst
+Provides-Extra: dev
+Provides-Extra: test
