@@ -1,0 +1,135 @@
+{
+    // ======================================================================
+    //
+    // Please note: This is a "JSON with Comments". Neat, is it not ? ;-)
+    //
+    // Recomended setup is:
+    // - Try to run as is.
+    //      - If you can NOT connect to the Parameter Archive (MUST/ARES),
+    //        try via your web browser first.
+    //      - Then maybe update below "Credentials".
+    // - Then run the test plot, adjust to your needs.
+    //
+    // - If you like to overwrite the "[defaults]", use this config.json file to do so.
+    //   This is the recommended way to configure global settings to your liking.
+    //   To see the list of default settings, set below "ppGlobalShowDefaults" to "True".
+    //
+    // - The "comand line" (CLI) options are manly for use by crontab.
+    //   Run with "--help" to see options and defaults.
+    //
+    // - The "enviroment" switches are also mainly for crontab:
+    //   CRON, VERBOSE, DEBUG, TIMER
+    //
+    // ======================================================================
+
+    // ----------------------------------------------------------------------
+    // Credentials options
+    //
+    // MANDATORY: for the MUST or ARES Parameter Archive Data Link
+    // ----------------------------------------------------------------------
+    "_ppLinkBaseUrl": "http://server.esa.int:1234/webclient",
+    "_ppLinkUsername": "USER",
+    "_ppLinkPassword": "PASSWORD",
+
+    // ----------------------------------------------------------------------
+    // Files & Directories options
+    // ----------------------------------------------------------------------
+    // :Union(null, str):
+    "ppGlobalConfigFile": null,                 // Default: "config.json"
+    "ppGlobalDataDir": null,                    // Default: "data"
+    "ppGlobalPlotDir": null,                    // Default: "plots"
+
+    // ----------------------------------------------------------------------
+    // Crontab options
+    //
+    // Only print on Error
+    // And give the cache logic a hint how often this is called ...
+    // ----------------------------------------------------------------------
+    // :Union(null, bool):
+    "_ppGlobalCronFlag": null,                  // Default: null
+    // :Union(null, int):
+    "_ppGlobalCronMinutes": null,               // Default: null
+
+    // ----------------------------------------------------------------------
+    // Plot options
+    // ----------------------------------------------------------------------
+    // :Union(null, int):
+    "ppDefaultTimePeriodDays": null,        // Default: 7
+    // :Union(null, str):
+    "ppFileNameBase": null,                 // Default: "Test_Plot"
+    "ppFileNameAddOn": null,                // Default: "1w"
+    "ppFileNameExtension": null,            // Default: "png"
+    "ppXLabel": null,                       // Default: "DateTime"
+    // :Union(null, Dict[str]):
+    "ppColorList": null,                    // Default: ["red", "blue", "green", "gold", "orangered", "cornflowerblue", "limegreen", "yellow"]
+
+    // ----------------------------------------------------------------------
+    // HTTP/JSON Cache options
+    // ----------------------------------------------------------------------
+    // :Union(null, str):
+    "ppCacheName": null,                    // Default: "parameterArchive"
+    // :Union(null, int): Seconds, 172800 = 2 Days
+    "ppCacheExpireSeconds": null,           // Default: 172800
+    // :Union(null, bool):
+    "ppCacheSplitFlag": null,               // Default: null
+
+    // ----------------------------------------------------------------------
+    // API request options
+    // ----------------------------------------------------------------------
+    // :Union(null, str):  Data Re-Sampling in 10s, 1d, ..., if any
+    "_ppResampleTimeDeltaStr": null,        // Default: null
+    // :Union(null, int): Seconds
+    "_ppRequestTimeOutSeconds": null,     // Default: 20
+    "_ppRequestTimeOutSecondsShort": null,// Default: 10
+    "_ppRequestTimeOutSecondsLong": null, // Default: 60
+
+    // ----------------------------------------------------------------------
+    // ppOverwriteParaNameList
+    //
+    // Optional: If you don't like the Description Parameter Name
+    // in WODB, provide an alternative here.
+    // It will be replaced already at dataframe level.
+    // ----------------------------------------------------------------------
+    // :Union(null, Dict(str, str)):
+    "_ppOverwriteParaNameList": {            // Default: null
+
+        "AD046": "SAS Roll Angle (AD046)",
+        "AD047": "SAS Pitch Angle (AD047)",
+        "AD065": "IMU Yaw Angle (AD065)",
+
+        "T6044": "THR 1A (T6044)",
+        "T6045": "THR 1B (T6045)",
+        "T6046": "THR 2A (T6046)",
+        "T6047": "THR 2B (T6047)",
+        "T6048": "THR 3A (T6048)",
+        "T6049": "THR 3B (T6049)",
+        "T6050": "THR 4A (T6050)",
+        "T6051": "THR 4B (T6051)",
+
+        "T6072": "Tank 1 TOP (T6072)",
+        "T6073": "Tank 1 EXT (T6073)",
+        "T6074": "Tank 2 TOP (T6074)",
+        "T6075": "Tank 2 EXT (T6075)",
+        "T6076": "Tank 3 TOP (T6076)",
+        "T6077": "Tank 3 EXT (T6077)",
+        "T6078": "Tank 4 EXT (T6078)",
+        "T6071": "Tank 4 TOP (T6071)"
+    },
+
+    // ----------------------------------------------------------------------
+    // DEBUG, will only set if Default is unset
+    // ----------------------------------------------------------------------
+    // :Union(null, bool):
+    "_ppDebugPrintCurrentSettingsFlag": null,    // Default: null
+    "_ppDebugVerboseFlag": null,                // Default: null
+    "_ppDebugDebugFlag": null,                  // Default: null
+    "_ppDebugJupyterDisplayFlag": null,         // Default: null
+    "_ppDebugOnePlotOnlyFlag": null,            // Default: null
+    "_ppDebugFunctionTimerFlag": null,          // Default: null
+
+
+    // ======================================================================
+    // END
+    // ======================================================================
+    "__DUMMY_with_no_Comma__": null             // Dummy at end :-)
+}
