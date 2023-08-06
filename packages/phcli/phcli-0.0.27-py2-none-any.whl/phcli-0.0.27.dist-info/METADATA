@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: phcli
+Version: 0.0.27
+Summary: pharbers dag scheduler config
+Home-page: UNKNOWN
+Author: Alfred Yang
+Author-email: alfredyang@pharbers.com
+Maintainer: ClockQ
+Maintainer-email: zyqi@pharbers.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=2.7
+Description-Content-Type: text/markdown
+
+# phDagCommand
+Pharbers Python 工具集合
+
+## 打包方式
+```androiddatabinding
+$ python setup.py sdist --formats=zip
+```
+
+## 安装方式
+```androiddatabinding
+
+```
+
+## 使用方法
+```androiddatabinding
+> phcli -h
+```
+
+
