@@ -1,0 +1,3 @@
+[console_scripts]
+dsk = dataswissknife.cli_tool:main
+
