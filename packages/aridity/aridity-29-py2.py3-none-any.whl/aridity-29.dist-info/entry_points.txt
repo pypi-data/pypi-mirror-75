@@ -1,0 +1,5 @@
+[console_scripts]
+arid-config = arid_config:main_arid_config
+aridity = aridity:main_aridity
+processtemplate = processtemplate:main_processtemplate
+
