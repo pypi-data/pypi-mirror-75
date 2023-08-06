@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: codigodamata
+Version: 0.0.18
+Summary: A docassemble package for enviromental crimes
+Home-page: https://codigodamata.consciencia.eco.br/
+Author: Cláudio Ângelo Correa Gonzaga,Roberto Vasconcelos Novaes
+Author-email: claudioacgonzaga@gmail.com,rnovaes@ufmg.br
+License: The MIT License (MIT)
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: zipp
+
+# Código da Mata
+
+Pacote para Docassemble (usando Python e Markdown).Automação da análise jurídica e montagem de documentos ("document assembly") de atos jurídicos relacionados ao desmatamento ilegal (crimes contra a flora e correlatos previstos no art. 38 e seguintes da Lei 9.605/98). Seu objetivo é facilitar o trabalho de promotores de Justiça no âmbito do Projeto Olhos da Mata e, futuramente, de fiscais do Ibama, Semas, bem como de juízes com atribuição ou jurisdição em crimes relacionados ao desmatamento ilegal.
+https://codigodamata.consciencia.eco.br/
+
+
+
