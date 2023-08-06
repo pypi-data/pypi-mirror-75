@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: scalelite
+Version: 0.1.4
+Summary: A Python wrapper around the Scalelite
+Home-page: https://github.com/alexsanderp/scalelite-python-wrapper
+Author: Alexsander Pereira
+Author-email: alexsander.pereira@icloud.com
+License: MIT
+Description: # Scalelite Python Wrapper
+        
+        A Python Wrapper around the [Scalelite](https://github.com/blindsidenetworks/scalelite)
+Keywords: scalelite wrapper
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
