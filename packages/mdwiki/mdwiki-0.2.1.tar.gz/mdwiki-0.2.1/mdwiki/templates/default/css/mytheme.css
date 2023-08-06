@@ -1,0 +1,43 @@
+table.list{
+  width: 100%;
+  table-layout: inherit;
+  display: table;
+}
+
+table.list th,table.list td {
+    padding: 6px 13px;
+    border: none;
+    text-align: left;
+  }
+
+div.pagger{
+  margin-top: 20px;
+  width: 100%;
+  text-align: center;
+}
+div.post_content div.toc{
+    display: none;
+}
+div.mytoc{
+    position: -webkit-sticky;
+    position: sticky;
+    top: 4rem;
+    max-height: fit-content;
+    overflow-y: visible;
+}
+h1.article_title{
+    text-align: center;
+    border: none !important;
+    display: block;
+}
+div.tags_container{
+    text-align: center;
+    /*border-bottom: solid 1px #eeeeee;*/
+}
+span.toc_title{
+    font-weight: 900;
+    font-size: 1.4em;
+    display: block;
+    text-align: center;
+    padding-bottom: 1.2em;
+}
