@@ -1,0 +1,15 @@
+<div class="kt-user-card-v2">
+    <div class="kt-user-card-v2__pic">
+        <img alt="{{ title | slugify }}" src="{{ image }}">
+    </div>
+    <div class="kt-user-card-v2__details">
+        <a class="kt-user-card-v2__name" href="{{ url }}">
+            {{ title }}
+        </a>
+        {% if subtitle %}
+        <span class="kt-user-card-v2__desc">
+            {{ subtitle }}
+        </span>
+        {% endif %}
+    </div>
+</div>

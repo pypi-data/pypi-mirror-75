@@ -1,0 +1,23 @@
+{% load i18n admin_utils %}
+<div class="m-1">
+    <div class="btn text-left {% filter_class choices %} btn-block btn-sm mb-3">
+        <i class="fas fa-filter"></i>
+        Por {{ title }}
+    </div>
+    <ul>
+    {% for choice in choices %}
+        <li class="kt-font-bold text-primary"
+        {% if choice.selected %}
+            style="list-style: disc"
+        {% else %}
+            style="list-style: none"
+        {% endif %}>
+            <a class="{% if choice.selected %}text-primary{% else %}text-dark{% endif %}"
+                    href="{{ choice.query_string|iriencode }}"
+                     title="{{ choice.display }}">
+                {{ choice.display }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</div>
