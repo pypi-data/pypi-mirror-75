@@ -1,0 +1,12 @@
+README.md
+setup.py
+LangSpider.egg-info/PKG-INFO
+LangSpider.egg-info/SOURCES.txt
+LangSpider.egg-info/dependency_links.txt
+LangSpider.egg-info/top_level.txt
+lang_spider/__init__.py
+lang_spider/scheduler.py
+lang_spider/sync_spider.py
+lang_spider/sync_spider_obj.py
+lang_spider/web_http.py
+lang_spider/service/common_crawl.py
