@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+gameHub.py
+gameHubCLI.py
+setup.py
+GameHub.egg-info/PKG-INFO
+GameHub.egg-info/SOURCES.txt
+GameHub.egg-info/dependency_links.txt
+GameHub.egg-info/entry_points.txt
+GameHub.egg-info/requires.txt
+GameHub.egg-info/top_level.txt
+game_hub/data/hangManWords.txt
+test/test_gameHub.py
+test/test_gameHubCLI.py
