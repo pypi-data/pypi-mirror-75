@@ -1,0 +1,4 @@
+requests==2.*
+gevent==1.*
+boto3==1.*
+future==0.*
