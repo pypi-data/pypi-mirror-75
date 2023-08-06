@@ -1,0 +1,3 @@
+[console_scripts]
+test_fastscript = fastscript.test_cli:main
+
