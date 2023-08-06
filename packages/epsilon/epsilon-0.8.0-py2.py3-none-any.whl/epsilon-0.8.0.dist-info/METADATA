@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: epsilon
+Version: 0.8.0
+Summary: A set of utility modules used by Divmod projects
+Home-page: https://github.com/twisted/epsilon
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Twisted
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet
+Classifier: Topic :: Security
+Classifier: Topic :: Utilities
+Requires-Dist: six (>=1.12.0)
+Requires-Dist: zope.interface
+Requires-Dist: twisted[tls] (>=13.2.0)
+
+Divmod Epsilon
+==============
+.. image:: https://github.com/twisted/epsilon/workflows/Python%20package/badge.svg
+    :target: https://travis-ci.org/twisted/epsilon
+.. image:: https://img.shields.io/pypi/v/Epsilon
+    :alt: PyPI
+
+Epsilon is a set of utility modules, commonly used by all Divmod projects.
+
+This is intended mainly as a support package for code used by Divmod projects,
+and not as an external library.  However, it contains many useful modules and
+you can feel free to use them!
+
+
