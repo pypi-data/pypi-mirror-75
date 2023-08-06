@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: holger-utils
+Version: 0.4.0
+Summary: utils for developing web application
+Home-page: https://gitlab.com/football-fantasy/holger-utils
+Author: Mohammad Hosein Shamsaei
+Author-email: holgerco.dev@gmail.com
+License: UNKNOWN
+Description: # Holger Utils
+        
+        
+        ## Sentry
+        > settings.py
+        ```python
+        from holger import sentry
+        ...
+        SENTRY_KEY = '<your sentry key>'
+        SENTRY_ORGANIZATION = '<your sentry organization name>'
+        SENTRY_PROJECT = '<your sentry project name>'
+        sentry.init()
+        ``` 
+        
+        ## Elastic search
+        > settings.py
+        ```python
+        ELASTIC_PROTOCOL = '<http or https>' # default 'http'
+        ELASTIC_HOST = '<host that elastic run>' # default 'localhost'
+        ELASTIC_PORT = '<listen port>' # default 9200
+        ELASTIC_USE_SSL = '' # default False
+        TIME_ZONE = '<elastic timezone>' # default 'UTC' 
+        ```
+        
+        ## Firebase
+        > settings.py
+        ```python
+        FIREBASE_APP_OPTIONS = '<app dict options>' # default {}
+        FIREBASE_APP_NAME = 'your app name' # default 'FIRESTORE_DEFAULT'
+        ```
+        
+        
+        ## Log
+        > for use log, you must config elastic search and sentry before
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
