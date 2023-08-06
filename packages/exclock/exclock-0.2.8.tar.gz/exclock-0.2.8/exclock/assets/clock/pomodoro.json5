@@ -1,0 +1,35 @@
+{
+  title: "🍎 Pomodoro 🍎",
+  "sounds": {
+    "0": {
+      "message": "Begin Working! {count}-1",
+      "sound_filename": "silent.mp3",
+    },
+    "25m":{
+    "message": "It's time to finish work. Let's time a break.",
+  },
+    "30m":{
+    "message": "It's time to finish the break. Let's start work. {count}-2",
+  },
+    "55m":{
+    "message": "It's time to finish work. Let's time a break.",
+  },
+  "60m": {
+    "message": "It's time to finish the break. Let's start work. {count}-3",
+  },
+  "85m": {
+    "message": "It's time to finish work. Let's time a break.",
+  },
+  "90m": {
+    "message": "It's time to finish the break. Let's start work. {count}-4",
+  },
+  "115m": {
+    "message": "It's time to finish work. Let's time a long break.",
+  },
+  "145m": {
+    "message": "",
+    "sound_filename": "silent.mp3",
+  },
+ },
+  "loop": null,
+}
