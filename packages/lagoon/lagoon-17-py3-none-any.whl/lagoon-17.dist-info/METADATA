@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: lagoon
+Version: 17
+Summary: Concise layer on top of subprocess, similar to sh project
+Home-page: https://github.com/combatopera/lagoon
+Author: Andrzej Cichocki
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: diapyr
+
+# lagoon
+[![Build Status](https://travis-ci.org/combatopera/lagoon.svg?branch=master)](https://travis-ci.org/combatopera/lagoon)
+
+
