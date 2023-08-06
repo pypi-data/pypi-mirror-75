@@ -1,0 +1,11 @@
+README.rst
+setup.py
+bin/mapillary_auth.py
+bin/mapillary_process.py
+bin/mapillary_upload.py
+mapillary_tools/__init__.py
+mapillary_tools.egg-info/PKG-INFO
+mapillary_tools.egg-info/SOURCES.txt
+mapillary_tools.egg-info/dependency_links.txt
+mapillary_tools.egg-info/requires.txt
+mapillary_tools.egg-info/top_level.txt
