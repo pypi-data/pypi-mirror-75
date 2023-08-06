@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: SuperalloyDataExtractor
+Version: 0.0.6
+Summary: A data extractor to get target information from superalloy documents. The functions include batch downloading documents in XML and TXT format from the Elsevier database, locating target sentences from the full text and automatically extracting triple information in the form of <material name, property specifier, value>.
+Home-page: https://github.com/Weiren1996/superalloydataextractor
+Author: Weiren_Wang
+Author-email: 357329191@qq.com
+License: MIT
+Description: 
+        **SuperalloyDataExtractor**
+        ----------------------
+        The functions of superalloydataextractor toolkit include batch downloading documents in XML and TXT format from the Elsevier database, locating target sentences from the full text and automatically extracting triple information in the form of <material name, property specifier, value>.
+        
+        This package is released under MIT License, please see the LICENSE file for details.
+        
+        **Features**
+        ----------------------
+        - Rule-based named entity recognition for superalloy.
+        - An automated data extraction pipeline for superalloy.
+        - Algorithm based on distance and number of entities, processing multiple relationship extraction without labeling samples.
+        
+        **Superalloy Data Extractor Code**
+        ----------------------
+        This code extracts data of property from TXT files. These TXT files need to be supplied by the researcher. The code is written in Python3. To run the code:
+        
+            1. Fork this repository
+            2. Download the word embeddings and dictionary.ini:
+            	- Available here: https:
+            3. Download all 5 files and place in the superalloydataextractor/bin folder
+            4. Place all files in superalloydataextractor/data
+        
+        **USAGE**
+        ----------------------
+        Clone this github repository and run
+        ```
+        python3 setup.py install
+        ```
+        
+        Or simply use the code in your own project.
+        
+        **LICENSE**
+        ----------------------
+        All source code is licensed under the MIT license.
+        
+        **Install**
+        ----------------------
+        ```
+        pip install superalloydataextractor
+        ```
+        or if you are an Anaconda user, run:
+        
+        ```
+        conda install -c superalloydataextractor superalloydataextractor
+        ```
+        
+Keywords: text-mining,mining,superalloy,informatics,nlp,txt,science,scientific
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Text Processing
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
