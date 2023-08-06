@@ -1,0 +1,3 @@
+[console_scripts]
+lavd = lavd.server:main
+
