@@ -1,0 +1,16 @@
+{
+  "api_key": "",
+  "endpoint": "https://samples.octopus.app/api/",
+  "is_source_server": false,
+  "password": "guest",
+  "space_id": "Spaces-1",
+  "user_name": "guest",
+  "data_path": "",
+  "action": "clone_space",
+  "local_data": false,
+  "no_stdout": false,
+  "overwrite": false,
+  "package": false,
+  "pem": false,
+  "types": []
+}
