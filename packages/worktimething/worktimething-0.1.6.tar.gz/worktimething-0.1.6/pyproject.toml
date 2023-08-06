@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "worktimething"
+version = "0.1.6"
+description = ""
+authors = ["arjoonn sharma <arjoonn.94@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+click = "^7.1.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^19.10b0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
