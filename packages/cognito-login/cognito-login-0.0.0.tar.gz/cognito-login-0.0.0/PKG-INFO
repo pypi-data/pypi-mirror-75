@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: cognito-login
+Version: 0.0.0
+Summary: cognito-login - A CLI to get a jwt from cognito login credentials
+Home-page: https://github.com/trek10inc/cognito-login
+Author: Trek10, Inc
+Author-email: package-management@trek10.com
+License: MIT
+Description: # Cognito Login: A CLI to get a jwt from cognito login credentials
+        
+        Makes heavy use of the [warrant](https://github.com/capless/warrant) library to make it easy to get a jwt from a cognito userpool.
+        
+Platform: UNKNOWN
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
