@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: electra-pytorch
+Version: 0.0.1
+Summary: Electra - Pytorch
+Home-page: https://github.com/lucidrains/electra-pytorch
+Author: Phil Wang
+Author-email: lucidrains@gmail.com
+License: MIT
+Keywords: transformers,artificial intelligence,pretraining
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: torch
+
+UNKNOWN
+
+
