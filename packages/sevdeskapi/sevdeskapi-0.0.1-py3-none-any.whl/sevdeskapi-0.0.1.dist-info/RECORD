@@ -1,0 +1,16 @@
+sevdeskapi/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sevdeskapi/client.py,sha256=3g9BBaE54f_qey-65FmasLF4ncyB_Zj1xNpFv_r-TGk,2268
+sevdeskapi/exception.py,sha256=HgrM0zKR7AQ99rcj1pGCOoCs7klNXgHbF5V5v9bHDDU,469
+sevdeskapi/models/__init__.py,sha256=l4u8zivkLX-uW7PC3p5x52vXn8o_kS9NG786nqdg2e0,129
+sevdeskapi/models/base.py,sha256=iFl5M0N-gPMj0gq5auMkuQi2ikN3HSK9GtVKtsRIBIM,2026
+sevdeskapi/models/category.py,sha256=q5SLX1NabsJkcsr-vMfjySJn4J0r3n8t2DPR1UvCNzI,982
+sevdeskapi/models/contact.py,sha256=-0qW-pLpmtXLyRnXQFmAtBp5Dn6ON1s_GsyctkrbSTw,1083
+sevdeskapi/utils/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sevdeskapi/utils/converter.py,sha256=m4dccnKB8vEsIFlYUn-USw77PvYbalxXL1U4JjcFQNg,277
+sevdeskapi/utils/map.py,sha256=a6cYkbMvCtgEaK2zObJL5ymYWqKMiG63hatSpjI2j-Y,1122
+sevdeskapi/utils/queryset.py,sha256=zYWPCrlcgyeiZi8aHAJ5ZmxIe97FetlY6IjAz5kVgHQ,413
+sevdeskapi/utils/sevdesktranslate.py,sha256=YnQubZJCfqns_Gt1W8gxltLAA7BwOShTznpBZK_VPhI,735
+sevdeskapi-0.0.1.dist-info/METADATA,sha256=DOpIDw4tg1VTTm6SUKiglatFiNGq1Fy1bkkapZPz-eo,865
+sevdeskapi-0.0.1.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+sevdeskapi-0.0.1.dist-info/top_level.txt,sha256=7xOxl67qRQ9by18zPbea4i248ogGLDoDVRIsa2ueDLo,11
+sevdeskapi-0.0.1.dist-info/RECORD,,
