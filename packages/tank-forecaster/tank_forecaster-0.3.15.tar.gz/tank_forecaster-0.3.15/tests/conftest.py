@@ -1,0 +1,69 @@
+# put fixtures here
+import pytest
+# from tank_forecaster import validation
+
+
+@pytest.fixture(scope='module')
+def tank_input_two_entry():
+    return [{'product': 'UNLEADED 88',
+               'read_time': '2020-07-22T12:35:01',
+               'run_time': '2020-07-22T12:35:01',
+               'store_number': 'KT110',
+               'tank_id': '1',
+               'temperature': 66.5836944411236,
+               'volume': 13284.172673874453},
+              {'product': 'UNLEADED 88',
+               'read_time': '2020-07-22T12:24:01',
+               'run_time': '2020-07-22T12:24:00',
+               'store_number': 'KT110',
+               'tank_id': '1',
+               'temperature': 66.5805883403786,
+               'volume': 13298.881427020242}]
+
+
+@pytest.fixture(scope='module')
+def tank_input_proper():
+    return [{'product': 'UNLEADED 88',
+               'read_time': '2020-07-22T12:35:01',
+               'run_time': '2020-07-22T12:35:01',
+               'store_number': 'KT110',
+               'tank_id': '1',
+               'temperature': 66.5836944411236,
+               'volume': 13284.172673874453},
+              {'product': 'UNLEADED 88',
+               'read_time': '2020-07-22T12:24:01',
+               'run_time': '2020-07-22T12:24:00',
+               'store_number': 'KT110',
+               'tank_id': '1',
+               'temperature': 66.5805883403786,
+               'volume': 13298.881427020242},
+            {'product': 'UNLEADED 88',
+             'read_time': '2020-07-22T12:15:01',
+             'run_time': '2020-07-22T12:15:00',
+             'store_number': 'KT110',
+             'tank_id': '1',
+             'temperature': 66.5805883403786,
+             'volume': 1410.881427020242},
+            {'product': 'UNLEADED 88',
+             'read_time': '2020-07-22T11:55:01',
+             'run_time': '2020-07-22T11:55:00',
+             'store_number': 'KT110',
+             'tank_id': '1',
+             'temperature': 66.5805883403786,
+             'volume': 1450.881427020242},
+            {'product': 'UNLEADED 88',
+             'read_time': '2020-07-22T11:25:01',
+             'run_time': '2020-07-22T11:25:00',
+             'store_number': 'KT110',
+             'tank_id': '1',
+             'temperature': 66.5805883403786,
+             'volume': 1470.881427020242}
+            ]
+
+
+@pytest.fixture(scope='module')
+def sales_input_proper():
+    return [{'store': '103', 'date': '2017-06-05', 'tank_id': '1', 'tank_type': '304', 'sales': 23},
+            {'store': '103', 'date': '2017-06-04', 'tank_id': '1', 'tank_type': '304', 'sales': 51},
+            {'store': '103', 'date': '2017-06-03', 'tank_id': '1', 'tank_type': '304', 'sales': 43},
+            {'store': '103', 'date': '2017-06-02', 'tank_id': '1', 'tank_type': '304', 'sales': 10}]
