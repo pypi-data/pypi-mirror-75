@@ -1,0 +1,27 @@
+<div class="panel panel-default noprint">
+ <div class="panel-heading"><strong>Lifecycles</strong></div>
+ 
+{% if lifecycles|length > 0 and perms.lifecycles.view_lifecycle %}
+ <table class="table table-hover panel-body">
+  <tbody>
+   {% for lifecycle in lifecycles %}
+    <tr>
+     <td><a href="/plugins/lifecycles/lifecycles/{{ lifecycle.id }}/">{{ lifecycle }}</a></td>
+    </tr>
+   {% endfor %}
+  </tbody>
+ </table>
+{% else %}
+ <div class="panel-body text-muted">None</div>
+{% endif %}
+
+
+ <div class="panel-footer text-right noprint">
+{% if perms.lifecycles.add_lifecycle %}
+  <a href="/plugins/lifecycles/lifecycles/create/?device={{ device }}" class="btn btn-primary btn-xs">
+     <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+     Add lifecycle
+  </a>
+{% endif %}
+ </div>
+</div>

@@ -1,0 +1,11 @@
+from django.shortcuts import render
+from django.views.generic import View
+from .models import Lifecycle
+
+class Lifecycles(View):
+    def get(self, request):
+        lifecycle = Lifecycle.objects.filter_by(id=).first()
+        return render(request, 'netbox_animal_sounds/animal.html', {
+            'animal': animal,
+
+        })
