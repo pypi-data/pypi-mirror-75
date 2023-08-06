@@ -1,0 +1,103 @@
+{% extends "userface/search_base.html" %}
+
+
+{% if user.is_authenticated %}
+
+    {% load crispy_forms_tags %}
+
+    {% block body %}
+    <div class="flex" style="margin: 5px;padding: 5px">
+    <div>
+    <div class="flex flex-wrap" style="margin:20px">
+      <form method="get">
+        <label for="results">Enter Destination Address: </label>
+        <div class="flex flex-wrap">
+        <div>
+        <input id="results" class="form-control" type="text" name="results" value="{{ search_results }}">
+           <label for="distance">Enter Max distance from location (km): </label>
+         <input id="distance" class="form-control" type="text" name="distance" value="{{ search_distance }}">
+        </div>
+        <div style="margin-left: 10px">
+            <br/>
+        <button type="submit" class="btn btn-success" >
+          Submit
+        </button>
+        </div>
+        </div>
+      </form>
+    </div>
+
+
+
+    {% if resultss and request.session.spot and request.session.spot.0 %}
+    <div style="margin: 20px">
+        <h1 class="h5"> {{resultss}} </h1>
+        <h3 class="h6"> Parking Spots next to Destination: </h3>
+        {% comment %} <li> {{}} </li> {% endcomment %}
+        <div class="flex flex-wrap">
+        {% for spot in request.session.spot %}
+          {% if spot.address %}
+            <div class="card" style="width: 12rem; margin: 15px;">
+              <img src="https://images.unsplash.com/photo-1506521781263-d8422e82f27a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2250&q=80" class="card-img-top" alt="No-image-available">
+              <div class="card-body">
+                <p class="card-text">Address: {{spot.address}}</p>
+                <p class="card-text">Owner: {{spot.owner}}</p>
+                  <p class="card-text">Phone Number: {{spot.number}}</p>
+              </div>
+            </div>
+          {% endif %}
+
+        {% endfor %}
+        </div>
+    </div>
+
+
+
+{% load leaflet_tags %}
+
+{% leaflet_css %}
+
+{% leaflet_js %}
+
+
+
+<div>
+    {% leaflet_map "main" callback="map_init" %}
+</div>
+
+
+<script type="text/javascript">
+
+    function map_init(map, options) {
+
+        // get point lat and lon
+
+        var lat = "{{ dest.location.x }}";
+
+        var lon = "{{ dest.location.y }}";
+
+        // zoom to point & add it to map
+        map.setView([lat, lon], 12);
+        L.marker([lat, lon], {title: "Destination"}).addTo(map);
+       "{% for spot in request.session.spot %}"
+          L.marker(["{{spot.lat}}", "{{spot.lon}}"], {title: "Parking Spot"}).addTo(map);
+        "{% endfor %}"
+
+    }
+
+</script>
+
+    {% else %}
+   
+    {%if resultss and not request.session.spot%}
+      <h4 class="h4" style="margin:10px;">No Parking Spots to {{resultss}}</h4>
+    {% else %}
+
+    {% endif %}
+    {% endif %}
+    </div>
+    </div>
+    {% endblock body %}
+
+{% else %}
+{% endif %}

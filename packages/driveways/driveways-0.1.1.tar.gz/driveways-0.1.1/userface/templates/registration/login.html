@@ -1,0 +1,25 @@
+{% extends "userface/cover.html" %}
+
+{% block search %}
+    <div class="flex" style="margin: 5px;padding: 10px; border-top:solid white">
+{% load crispy_forms_tags %}
+  <form method="post" style="width:100%">
+  {% csrf_token %}
+    <div>
+    <div class="form-row">
+        <div class="form-group col-md-15 mb-0">
+        {{ form.username|as_crispy_field }}
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-15 mb-0">
+        {{ form.password|as_crispy_field }}
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    
+  </form>
+      </div>
+{% endblock search %}
+

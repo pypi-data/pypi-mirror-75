@@ -1,0 +1,29 @@
+
+
+
+
+{% extends "userface/parking_spot_list.html" %}
+
+{% block title %}  <h1 class="h2">Register Parking</h1>  {% endblock title %}
+
+  {% block action %}
+   <a href="{% url 'userface:myparking'%}" class="btn btn-sm btn-outline-secondary">Your Parking Spots</a>
+  {% endblock action %}
+
+
+
+{% block content %}
+{% load crispy_forms_tags %}
+  <form method="post">
+    {% csrf_token %}
+    <div class="form-row">
+      <div class="form-group col-md-6 mb-0">
+        {{ form.address|as_crispy_field }}
+      </div>
+      <div class="form-group col-md-6 mb-0">
+        {{ form.city|as_crispy_field }}
+      </div>
+    </div>
+    <button type = "submit" class="btn btn-sm btn-outline-secondary">Submit</button>
+  </form>
+{% endblock %}
