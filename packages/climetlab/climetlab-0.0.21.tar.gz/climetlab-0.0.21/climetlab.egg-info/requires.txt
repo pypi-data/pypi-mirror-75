@@ -1,0 +1,17 @@
+pandas==1.0.5
+numpy
+xarray
+netcdf4
+cfgrib
+cdsapi
+ecmwf-api-client
+pandas
+tqdm
+requests
+eccodes
+magics
+ecmwflibs
+pdbufr
+pyodc
+dask
+toolz
