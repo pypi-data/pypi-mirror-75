@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: yolololobagv4
+Version: 0.1.0
+Summary: TensorFlow 2.x implementation of YOLOv4
+Home-page: https://github.com/satyambharti171/yolololobagv4
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: click (>=6.7)
+Requires-Dist: numpy (>=1.10)
+Requires-Dist: tensorflow-addons (>=0.9.1)
+Provides-Extra: publish
+Requires-Dist: bumpversion (>=0.5.3) ; extra == 'publish'
+Requires-Dist: twine (>=1.13.0) ; extra == 'publish'
+
+A Tensorflow implementation of YoloV4
+
+

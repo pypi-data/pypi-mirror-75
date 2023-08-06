@@ -1,0 +1,14 @@
+backbones/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+backbones/csp_darknet53.py,sha256=dkTFT_3vdZlfNyQ-W61ggMkXPEKfTbQhH_JP9gAS2hE,3811
+heads/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+heads/yolov3_head.py,sha256=bpsnk4-vJrRTP0mKTGIWZY1edp0F1bI1utktqgDoAC0,10655
+necks/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+necks/yolov4_neck.py,sha256=q5NN135oZyYCFIbjMansSL7vOnUCxQQG9H6laco-yRI,3305
+tools/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tools/convert_darknet_weights.py,sha256=N88s8w-wNMW-yZA6SvdWRY8y7aKdqoJ3B8Us1go1yLc,4932
+yolololobagv4-0.1.0.dist-info/LICENSE,sha256=WTIQcRPIJux-Iv1HP52gf4Kn63dWEtwKA0L6OLn_jw8,1063
+yolololobagv4-0.1.0.dist-info/METADATA,sha256=XbZCopGwzDM4pGqDuis9FxXf3mhYRRZgDsp2XVUtK10,921
+yolololobagv4-0.1.0.dist-info/WHEEL,sha256=YUYzQ6UQdoqxXjimOitTqynltBCkwY6qlTfTh2IzqQU,97
+yolololobagv4-0.1.0.dist-info/entry_points.txt,sha256=0T93v5HegocQ9uel5ZNUf4eR5J7e1WbxDBIxEiFfUMw,113
+yolololobagv4-0.1.0.dist-info/top_level.txt,sha256=Ae6qLOT78hIwl8DGQirf1cBvhbGxvsO6HeS7HTyQzMk,28
+yolololobagv4-0.1.0.dist-info/RECORD,,

@@ -1,0 +1,3 @@
+[console_scripts]
+convert-darknet-weights = yolololobagv4.tools.convert_darknet_weights:convert_darknet_weights
+
