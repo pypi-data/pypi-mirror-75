@@ -1,0 +1,25 @@
+from setuptools import setup
+
+
+setup(
+    name='helpdeskbot',
+    version='2.2.1',
+    description='Discord utility bot for DevDungeon.com',
+    url='https://github.com/DevDungeon/HelpDeskBot',
+    author='John Leon',
+    author_email='nanodano@devdungeon.com',
+    license='GPL-3.0',
+    packages=['helpdeskbot'],
+    entry_points={
+        'console_scripts': [
+            'helpdeskbot = helpdeskbot.__main__:main',
+        ],
+    },
+    zip_safe=False,
+    python_requires='>=3.7',
+    install_requires=[
+        'discord.py',
+        'aiohttp',
+        'python-dotenv',
+    ]
+)
