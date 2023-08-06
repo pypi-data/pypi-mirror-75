@@ -1,0 +1,45 @@
+appdirs
+certifi
+psutil
+requests
+websockets
+
+[dev]
+pytest-cov
+wheel
+
+[memex]
+python-dateutil
+bleach
+jsonschema
+mistune
+python-slugify
+sqlalchemy
+webob
+
+[memex:implementation_name != "pypy"]
+psycopg2
+
+[memex:implementation_name == "pypy"]
+psycopg2cffi
+
+[test]
+factory-boy
+mock
+pytest
+bleach
+jsonschema
+mistune
+python-slugify
+sqlalchemy
+webob
+
+[test:implementation_name != "pypy"]
+psycopg2
+
+[test:implementation_name == "pypy"]
+psycopg2cffi
+
+[zdesk]
+pyyaml
+zdesk
