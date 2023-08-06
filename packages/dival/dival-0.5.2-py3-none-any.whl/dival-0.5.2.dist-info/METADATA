@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: dival
+Version: 0.5.2
+Summary: Deep Inversion Validation Library
+Home-page: https://github.com/jleuschn/dival
+Author: Johannes Leuschner
+Author-email: jleuschn@uni-bremen.de
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: numpy (>=1.10)
+Requires-Dist: pandas
+Requires-Dist: odl
+Requires-Dist: scikit-image
+Requires-Dist: scikit-learn
+Requires-Dist: hyperopt
+Requires-Dist: tqdm
+Requires-Dist: matplotlib
+Requires-Dist: h5py
+Requires-Dist: requests
+Requires-Dist: packaging
+Provides-Extra: torch_learned_reconstructors
+Requires-Dist: torch ; extra == 'torch_learned_reconstructors'
+
+UNKNOWN
+
+
