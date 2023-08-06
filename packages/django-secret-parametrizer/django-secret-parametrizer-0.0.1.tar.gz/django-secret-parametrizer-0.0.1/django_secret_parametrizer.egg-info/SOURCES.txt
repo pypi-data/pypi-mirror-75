@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+django_secret_parametrizer.egg-info/PKG-INFO
+django_secret_parametrizer.egg-info/SOURCES.txt
+django_secret_parametrizer.egg-info/dependency_links.txt
+django_secret_parametrizer.egg-info/top_level.txt
+secret_parametrizer/__init__.py
+secret_parametrizer/admin.py
+secret_parametrizer/apps.py
+secret_parametrizer/models.py
+secret_parametrizer/tests.py
+secret_parametrizer/views.py
+secret_parametrizer/migrations/0001_initial.py
+secret_parametrizer/migrations/__init__.py
