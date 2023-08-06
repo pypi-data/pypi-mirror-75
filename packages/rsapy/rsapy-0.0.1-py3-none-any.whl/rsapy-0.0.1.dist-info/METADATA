@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: rsapy
+Version: 0.0.1
+Summary: UNKNOWN
+Home-page: https://pypi.org/project/rsapy
+Author: Sandra Mattar
+Author-email: sandrawmattar1@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+<pre>
+>>> import rsapy
+>>> pub, pri = rsapy.genkey(2**512) # generate rsa key
+>>> vig = rsapy.genvigkey(100) # generate vigenere key with length 100
+>>> encoded = encode("message", pub)
+>>> print(encoded)
+>>> decoded = decode(encoded, pri)
+>>> print(decoded)
+>>> encoded = vigencode("message", vig)
+>>> print(encoded)
+>>> decoded = vigdecode(encoded, vig)
+>>> print(decoded)
+</pre>
+
