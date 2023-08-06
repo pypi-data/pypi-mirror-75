@@ -1,0 +1,16 @@
+basicauth
+beautifulsoup4
+colorlog
+email_validator
+html5lib
+psycopg2-binary
+pyaml
+python-dateutil==2.8.1
+ratelimit
+six>=1.15.0
+sshtunnel
+tabulator[cchardet]>=1.52.3
+yamlloader
+
+[:python_version < "3.5"]
+typing
