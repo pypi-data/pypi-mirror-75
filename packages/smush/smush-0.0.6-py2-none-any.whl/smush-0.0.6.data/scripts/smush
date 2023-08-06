@@ -1,0 +1,124 @@
+#!python
+
+from __future__ import print_function
+import os
+import sys
+
+sys.path.append(os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir))
+
+from smush import app, CurrentRepo, TopicMerge, __version__ as VERSION
+
+
+def main(args, config):
+    """Automates merging of topic branches.
+
+        usage: smush [-h] [--new] [--check] [--skip-style-check]
+                     [--skip-pr-check] [--delete-local] [--profile PROFILE]
+                     [topic_branch]
+
+    This script automates steps required to cleanly merge a topic branch into a
+    base branch. No merge commits are made. Before merging, the topic branch is
+    rebased so it can be merged using `--ff-only` then pushed.
+
+    If merging this way and using GitHub, and a pull request exists for the topic
+    branch, the pull request will be automatically marked as merged and closed.
+
+    If no topic branch is specified, the active branch will be used.
+
+    Args:
+        args (argparse.Namespace): Command-line arguments and options.
+        config (dict): Application configuration.
+    """
+    # Create topic branch and exit, if in --new mode
+    if args.new:
+        if not args.topic_branch:
+            print("Please specify a branch name.")
+            sys.exit(1)
+
+        # Update base branch, creach topic branch, and push to base's origin
+        project_repo = CurrentRepo(config['base branch'])
+        project_repo.update_base_branch()
+        project_repo.create_topic_branch(args.topic_branch)
+        print("Switched to new topic branch '{}'.".format(args.topic_branch))
+        sys.exit(0)
+
+    # Initialize topic branch merge handler
+    merge = TopicMerge(config['base branch'], topic_branch=args.topic_branch, delete_local=args.delete_local)
+
+    # Check branch and exit, if in --check mode
+    if args.check:
+        syntax_check_scripts = None
+        if 'syntax check scripts' in config:
+            syntax_check_scripts = config['syntax check scripts']
+        app.check_topic_branch_commits(merge, skip_style_check=args.skip_style_check, syntax_check_scripts=syntax_check_scripts)
+        sys.exit(0)
+
+    # Make sure an open pull request exists for the dev branch
+    if 'github owner' in config and 'github repo' in config and not args.skip_pr_check:
+        app.check_for_pull_request(config, merge.topic_branch)
+
+    # Show "before notes" from config, if any
+    if 'before notes' in config:
+        print(config['before notes'])
+
+    if merge.remote_branch_exists(config['base branch']):
+        merge.update_base_branch()
+    else:
+        print("Merge aborted: the base branch does't exist remotely.")
+        sys.exit(1)
+
+    # Check out topic branch locally, if need be
+    if not merge.local_branch_exists(merge.topic_branch):
+        if app.get_confirmation('Topic branch not checked out locally. Would you like to do that?'):
+            merge.check_out_topic_branch_from_remote()
+        else:
+            print('Merge aborted.')
+            sys.exit(0)
+
+    merge.rebase_topic_branch_and_push()
+
+    # Check number of commits and commit style
+    print('Checking commit quantity/style in topic branch...')
+    app.check_topic_branch_commits(merge)
+
+    # Merge or abort
+    if not app.get_confirmation('Would you like to merge the above commits?'):
+        merge.git.checkout(merge.topic_branch)
+        print('Merge aborted.')
+        sys.exit(0)
+
+    merge.merge_and_cleanup()
+
+    print('Done!')
+
+    # Show "after notes" from config, if any
+    if 'after notes' in config:
+        print(config['after notes'])
+
+
+if __name__ == '__main__':
+    try:
+        # Parse CLI args and load configuration
+        args = app.arg_parser().parse_args()
+
+        # Show version and exit, if in --version mode
+        if args.version:
+            print('smush version {}'.format(VERSION))
+            sys.exit(0)
+
+        config = app.load_config(args.profile, args.base_branch)
+
+        # Allow config to be overridden via CLI options
+        if args.base_branch:
+            config['base branch'] = args.base_branch
+
+        if args.github_owner:
+            config['github owner'] = args.github_owner
+
+        if args.github_repo:
+            config['github repo'] = args.github_repo
+
+        main(args, config)
+    except Exception as e:
+        print(str(e))
+        sys.exit(1)
