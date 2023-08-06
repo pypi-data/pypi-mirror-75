@@ -1,0 +1,7 @@
+[gui_scripts]
+allTools = astrocabtools.all_tools.src.all_tools:main
+bandChan = astrocabtools.mrs_chan.src.main:main
+detPlot = astrocabtools.mrs_det_plot.src.main:main
+fitLine = astrocabtools.fit_line.src.main:main
+specChan = astrocabtools.mrs_spec_chan.src.main:main
+
