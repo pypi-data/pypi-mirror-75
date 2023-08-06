@@ -1,0 +1,25 @@
+Metadata-Version: 1.2
+Name: relevance-libs
+Version: 0.9.1
+Summary: Relevance Python connectors.
+Home-page: http://www.relevance.io
+Author: Relevance.io
+Author-email: info@relevance.io
+Maintainer: Francis Lacroix
+Maintainer-email: f@relevance.io
+License: MIT
+Description: Relevance Python connectors.
+        
+        This package allows a third-party application to integrate with the Relevance
+        APIs.
+Platform: any
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides: relevance_libs
+Requires-Python: >=3.6
