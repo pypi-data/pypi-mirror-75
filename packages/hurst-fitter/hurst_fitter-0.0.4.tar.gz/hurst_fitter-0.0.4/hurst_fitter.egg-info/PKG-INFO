@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: hurst-fitter
+Version: 0.0.4
+Summary: Library to estimate Hurst index of time series.
+Home-page: https://github.com/sauxpa/hurst_fitter
+Author: Patrick Saux
+Author-email: patrick.jr.saux@gmail.com
+License: UNKNOWN
+Description: # hurst_fitter
+        Library to fit Hurst index for time series from the autocorrelogram profile
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
