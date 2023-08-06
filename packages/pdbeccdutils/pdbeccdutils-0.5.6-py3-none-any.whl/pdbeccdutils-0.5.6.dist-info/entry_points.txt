@@ -1,0 +1,4 @@
+[console_scripts]
+process_components_cif = pdbeccdutils.scripts.process_components_cif_cli:main
+setup_pubchem_library = pdbeccdutils.scripts.setup_pubchem_library_cli:main
+
