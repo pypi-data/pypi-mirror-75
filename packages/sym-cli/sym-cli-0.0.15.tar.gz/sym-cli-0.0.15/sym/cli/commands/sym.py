@@ -1,0 +1,35 @@
+import click
+
+from ..decorators import setup_segment, setup_sentry
+from ..helpers import segment
+from ..helpers.constants import SegmentWriteKey, SentryDSN
+from ..helpers.options import resource_option
+from ..helpers.sym_group import SymGroup
+from ..saml_clients.chooser import SAMLClientName, choose_saml_client
+from ..version import __version__
+from . import GlobalOptions
+
+
+@click.group(cls=SymGroup)
+@click.option(
+    "--saml-client",
+    "saml_client_name",
+    default="auto",
+    type=click.Choice(["auto", "aws-okta", "saml2aws"]),
+    help="the SAML client type to use",
+)
+@click.option("--debug", is_flag=True, help="enable verbose debugging")
+@resource_option
+@click.make_pass_decorator(GlobalOptions, ensure=True)
+@setup_segment(write_key=SegmentWriteKey)
+@setup_sentry(dsn=SentryDSN, release=f"sym-cli@{__version__}")
+def sym(
+    options: GlobalOptions, saml_client_name: SAMLClientName, debug: bool, resource: str
+) -> None:
+    """Access resources managed by Sym workflows.
+
+    Use these tools to work with your resources once you've gotten approval in
+    Slack.
+    """
+    options.saml_client_type = choose_saml_client(saml_client_name)
+    options.debug = debug
