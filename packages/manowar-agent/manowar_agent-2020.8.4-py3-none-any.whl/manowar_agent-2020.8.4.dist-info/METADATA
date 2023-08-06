@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: manowar-agent
+Version: 2020.8.4
+Summary: Package to Add as a Collector
+Home-page: https://github.com/chalbersma/manowar
+Author: Chris Halbersma
+Author-email: chris+manowar@halbersma.us
+License: BSD-2-Clause
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Security
+Description-Content-Type: text/markdown
+Requires-Dist: Jinja2
+Requires-Dist: pyjq
+Requires-Dist: PyYAML
+Requires-Dist: requests
+Requires-Dist: salt
+Requires-Dist: ec2-metadata
+
+# manowar_agent
+
+[![Build Status](https://travis-ci.org/chalbersma/manowar_agent.svg?branch=master)](https://travis-ci.org/chalbersma/manowar_agent)
+
+Agent for Manowar. Designed to be an agent that you can stick on a box and
+get a moderately complete picture of what is on the device.
+
+* [PyPi Prod](https://pypi.org/project/manowar-agent/)
+* [PyPi Test](https://test.pypi.org/project/manowar-agent/)
+
+
+
