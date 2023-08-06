@@ -1,0 +1,3 @@
+[console_scripts]
+messi = messi.__init__:main
+
