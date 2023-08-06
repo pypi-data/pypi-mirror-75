@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: urlwatch
+Version: 2.21
+Summary: urlwatch monitors webpages for you
+Home-page: https://thp.io/2008/urlwatch/
+Author: Thomas Perl
+Author-email: m@thp.io
+License: BSD
+Project-URL: Source, https://github.com/thp/urlwatch
+Project-URL: Tracker, https://github.com/thp/urlwatch/issues
+Description: urlwatch is intended to help you watch changes in webpages and get notified
+        (via e-mail, in your terminal or through various third party services) of any
+        changes. The change notification will include the URL that has changed and
+        a unified diff of what has changed.
+Platform: UNKNOWN
+Requires-Python: >=3.5
