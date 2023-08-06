@@ -1,0 +1,183 @@
+osaca_version: 0.3.4
+isa: "AArch64"
+# Contains all operand-irregular instruction forms OSACA supports for AArch64.
+# Operand-regular for a AArch64 instruction form with N operands in the shape of
+#   mnemonic op1 ... opN
+# means that op1 is the only destination operand and op2 to op(N) are source operands.
+instruction_forms:
+    - name: fmla
+      operands:
+        - class: "register"
+          prefix: "*"
+          shape: "*"
+          source: true
+          destination: true
+        - class: "register"
+          prefix: "*"
+          shape: "*"
+          source: true
+          destination: false
+        - class: "register"
+          prefix: "*"
+          shape: "*"
+          source: true
+          destination: false
+    - name: ldp
+      operands:
+        - class: "register"
+          prefix: "*"
+          source: false
+          destination: true
+        - class: "register"
+          prefix: "*"
+          source: false
+          destination: true
+        - class: "memory"
+          base: "*"
+          offset: "*"
+          index: "*"
+          scale: "*"
+          pre-indexed: false
+          post-indexed: false
+          source: true
+          destination: false
+    - name: ldp
+      operands:
+        - class: "register"
+          prefix: "*"
+          source: false
+          destination: true
+        - class: "register"
+          prefix: "*"
+          source: false
+          destination: true
+        - class: "memory"
+          base: "*"
+          offset: "*"
+          index: "*"
+          scale: "*"
+          pre-indexed: false
+          post-indexed: true
+          source: true
+          destination: true
+    - name: ldp
+      operands:
+        - class: "register"
+          prefix: "*"
+          source: false
+          destination: true
+        - class: "register"
+          prefix: "*"
+          source: false
+          destination: true
+        - class: "memory"
+          base: "*"
+          offset: "*"
+          index: "*"
+          scale: "*"
+          pre-indexed: true
+          post-indexed: false
+          source: true
+          destination: true
+    - name: [ldr, ldur]
+      operands:
+        - class: "register"
+          prefix: "*"
+          source: false
+          destination: true
+        - class: "memory"
+          base: "*"
+          offset: "*"
+          index: "*"
+          scale: "*"
+          pre-indexed: false
+          post-indexed: true
+          source: true
+          destination: true
+    - name: [ldr, ldur]
+      operands:
+        - class: "register"
+          prefix: "*"
+          source: false
+          destination: true
+        - class: "memory"
+          base: "*"
+          offset: "*"
+          index: "*"
+          scale: "*"
+          pre-indexed: true
+          post-indexed: false
+          source: true
+          destination: true
+    - name: stp
+      operands:
+        - class: "register"
+          prefix: "*"
+          source: true
+          destination: false
+        - class: "register"
+          prefix: "*"
+          source: true
+          destination: false
+        - class: "memory"
+          base: "*"
+          offset: "*"
+          index: "*"
+          scale: "*"
+          pre-indexed: false
+          post-indexed: false
+          source: false
+          destination: true   
+    - name: stp
+      operands:
+        - class: "register"
+          prefix: "*"
+          source: true
+          destination: false
+        - class: "register"
+          prefix: "*"
+          source: true
+          destination: false
+        - class: "memory"
+          base: "*"
+          offset: "*"
+          index: "*"
+          scale: "*"
+          pre-indexed: true
+          post-indexed: false
+          source: false
+          destination: true
+    - name: stp
+      operands:
+        - class: "register"
+          prefix: "*"
+          source: true
+          destination: false
+        - class: "register"
+          prefix: "*"
+          source: true
+          destination: false
+        - class: "memory"
+          base: "*"
+          offset: "*"
+          index: "*"
+          scale: "*"
+          pre-indexed: false
+          post-indexed: true
+          source: false
+          destination: true
+    - name: [str, stur]
+      operands:
+        - class: "register"
+          prefix: "*"
+          source: true
+          destination: false
+        - class: "memory"
+          base: "*"
+          offset: "*"
+          index: "*"
+          scale: "*"
+          pre-indexed: "*"
+          post-indexed: "*"
+          source: false
+          destination: true
