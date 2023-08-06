@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: vui
+Version: 0.0.1
+Summary: GUI framework written in pure Python
+Home-page: https://github.com/eterevsky/pygui
+Author: Oleg Eterevsky
+Author-email: oleg@eterevsky.com
+License: UNKNOWN
+Description: # pygui
+        pygui is a cross-platform GUI framwork, built on top of Pyglet. It is currently
+        in early stage of development. The aim is to build a simple pythonic API that
+        could be used to build UI apps and games.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 2 - Pre-Alpha
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
