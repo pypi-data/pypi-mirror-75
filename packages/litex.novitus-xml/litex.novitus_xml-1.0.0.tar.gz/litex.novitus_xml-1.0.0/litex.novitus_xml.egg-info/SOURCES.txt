@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+litex.novitus_xml.egg-info/PKG-INFO
+litex.novitus_xml.egg-info/SOURCES.txt
+litex.novitus_xml.egg-info/dependency_links.txt
+litex.novitus_xml.egg-info/namespace_packages.txt
+litex.novitus_xml.egg-info/not-zip-safe
+litex.novitus_xml.egg-info/requires.txt
+litex.novitus_xml.egg-info/top_level.txt
+litex/novitus_xml/__init__.py
+litex/novitus_xml/exceptions.py
+litex/novitus_xml/helpers.py
+litex/novitus_xml/printer.py
