@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: gender
+Version: 0.0.28
+Summary: Get gender from name and email address
+Home-page: https://github.com/eeghor/gender
+Author: Igor Korostil
+Author-email: eeghor@gmail.com
+License: MIT
+Keywords: gender name email
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Text Processing
+Classifier: Topic :: Text Processing :: Filters
+Requires-Python: >=3.6
+Requires-Dist: unidecode
+
+gender from name or email
+
+
