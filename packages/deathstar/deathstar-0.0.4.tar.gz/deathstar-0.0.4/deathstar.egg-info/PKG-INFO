@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: deathstar
+Version: 0.0.4
+Summary: Destroy Stuff
+Home-page: https://repl.it/@rediar/Deathstar-py-package
+Author: rediar
+Author-email: placeholder@example.com
+License: UNKNOWN
+Description: # About Death Star
+        ---
+        
+        Death Star is intended for destroying stuff.
+        
+        # Importing 
+        `pip install deathstar`
+        in your file:
+        `import deathstar`
+        
+        # Initializing
+        ```python
+        import deathstar
+        DeathStar = deathstar.DeathStar()
+        ```
+        parameters: dialogue (boolean, turns on or off printing dialogue, default if `False`)
+        
+        # Deleting Objects
+        ```python
+        obj = ["a","b","c"]
+        DeathStar.trash_compacter(obj)
+        print(obj)
+        #obj go bye bye this should throw error as obj has been destroyed
+        ```
+        Deletes stuff!
+        
+        # Deleting Files
+        ```python
+        DeathStar.fire_at("text.txt")
+        open("text.txt") #errors
+        ```
+        deletes files. Cannot delete directories, you're thinking of Starkiller base silly
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
