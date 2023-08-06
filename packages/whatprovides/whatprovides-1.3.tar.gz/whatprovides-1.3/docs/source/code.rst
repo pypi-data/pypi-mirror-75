@@ -1,0 +1,5 @@
+Code
+====
+
+.. automodule:: whatprovides
+ :members:
