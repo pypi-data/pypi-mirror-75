@@ -1,0 +1,34 @@
+# Sets for Activities & Resources
+# Here: products & machines
+set Activities := Q W E R T;
+set Resources := A B C D ;
+
+# Params for Activities - value & max amount can do per activity
+# Here: profit/unit & no Max activities
+param  Values  :=
+    Q    18
+    W    25
+    E    10
+    R    12
+    T    15;
+
+# Params for Resources - maximum amount available per resource
+# Here: max time available per machine
+# Param for Resources - Number of each type of resource available
+# Here: Number of each type of machine
+param: MaxResource  NumResource :=
+    A      40           4
+    B      40           5
+    C      40           3
+    D      40           7;
+
+# Params for Resources & Activities
+#   - amount of each Resource needed to do 1 Activity
+# NOTE: to do 1 activity, need to do everything in column
+#   - An activity uses all of them - it's and operation, not or
+# Here: amount of time needed on each machine to create 1 unit of a product
+param ResourceNeeds:  Q    W    E    R    T :=
+                 A  1.2  1.3  0.7  0.0  0.5
+                 B  0.7  2.2  1.6  0.5  1.0
+                 C  0.9  0.7  1.3  1.0  0.8
+                 D  1.4  2.8  0.5  1.2  0.6;

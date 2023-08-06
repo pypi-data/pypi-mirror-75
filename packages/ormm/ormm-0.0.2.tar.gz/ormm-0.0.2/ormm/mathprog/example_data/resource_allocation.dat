@@ -1,0 +1,29 @@
+# Sets for Activities & Resources
+# Here: products & machines
+set Activities := P Q ;
+set Resources := A B C D ;
+
+# Params for Activities - value & max amount can do per activity
+# Here: profit/unit & max demand per product
+param:  Values  MaxActivity :=
+    P     45        100
+    Q     60         50;
+
+# Params for Resources - maximum amount available per resource
+# Here: max time available per machine
+param MaxResource :=
+A 2400
+B 2400
+C 2400
+D 2400;
+
+# Params for Resources & Activities
+#   - amount of each Resource needed to do 1 Activity
+# NOTE: to do 1 activity, need to do everything in column 
+#   - An activity uses all of them - it's and operation, not or
+# Here: amount of time needed on each machine to create 1 unit of a product
+param ResourceNeeds:  P   Q :=
+                 A  15  10
+                 B  15  30
+                 C  15   5
+                 D  10   5;

@@ -1,0 +1,27 @@
+# Sets for Ingredients & Properties
+# Here: ingredients & nutritional info
+set Ingredients := Limestone Corn Soybean ;
+set Properties := Calcium Protein Fiber ;
+
+# Params for Ingredients - Cost
+# Here: cents/kg
+param       Cost :=
+Limestone   10.0
+     Corn   30.5
+  Soybean   90.0;
+
+# Params for Properties - minimum & maximum amount allowed
+# Here: Nutritional Requirement proportions
+# NOTE: +/-1000 to avoid setting limit (should be None)
+param:  MinProperty  MaxProperty :=
+  Calcium  0.008       0.012
+  Protein  0.220        1000
+    Fiber  -1000       0.050;
+
+# Params for Properties & Ingredients
+#   - amount of each Property for 1 unit of that Ingredient
+# Here: Nutritional Info (proportions) per Ingredient
+param IngredientProperties:  Calcium  Protein  Fiber :=
+                 Limestone    0.380    0.000   0.000
+                      Corn    0.001    0.090   0.020
+                   Soybean    0.002    0.500   0.080;
