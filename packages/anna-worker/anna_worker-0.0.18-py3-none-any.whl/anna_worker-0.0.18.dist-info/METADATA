@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: anna-worker
+Version: 0.0.18
+Summary: anna worker
+Home-page: https://github.com/patrikpihlstrom/anna-worker
+Author: Patrik Pihlstrom
+Author-email: patrik.pihlstrom@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: anna-client
+Requires-Dist: docker
+
+### anna-worker
+
+
