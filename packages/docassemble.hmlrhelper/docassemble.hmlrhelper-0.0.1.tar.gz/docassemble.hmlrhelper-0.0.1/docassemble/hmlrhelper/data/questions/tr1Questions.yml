@@ -1,0 +1,305 @@
+---
+modules:
+  - docassemble.docusign.da_docusign
+  - .objects
+---
+#control the flow of the interview
+mandatory: True
+code: |
+  user_saw_intro
+  electronic_signatures
+
+  title_numbers
+  property_address
+
+  transfer_one = ''
+  transfer_two = ''
+  if transfer_with == 'transfer_one':
+    transfer_one = 'Yes'
+  elif transfer_with == 'transfer_two':
+    transfer_two = 'Yes'
+
+  consideration_one = ''
+  consideration_two = ''
+  consideration_three = ''
+  if consideration_choice == 'consideration_one':
+    consideration_one = 'Yes'
+  elif consideration_choice == 'consideration_two':
+    consideration_two = 'Yes'
+  elif consideration_choice == 'consideration_three':
+    consideration_three = 'Yes'
+
+  additional_provisions
+
+  if transferors.there_are_any:
+    review_transferors
+
+  transferees.there_are_any
+
+  trust_one = ''
+  trust_two = ''
+  trust_three = ''
+  #only ask about declarations of trust if transferee is more than one person
+  if transferees.target_number > 1:
+    if trust_choice == 'trust_one':
+      trust_one = 'Yes'
+    elif trust_choice == 'trust_two':
+      trust_two = 'Yes'
+    elif trust_choice == 'trust_three':
+      trust_three = 'Yes'
+
+---
+question: |
+  Transfer of whole of registered title(s) (TR1) Helper
+subquestion: |
+    <p>A tool to prepare a TR1 and optionally continue to submit it for esignature through Docusign</p>
+    <p><b>PLEASE NOTE:</b> This tool is currently limited to person to person transfers and does not handle UK or Overseas Company transfers.</p>
+field: user_saw_intro
+---
+question: |
+  Do you want to capture the additional information needed to enable this form to be signed electronically?
+yesno: electronic_signatures
+---
+question: |
+  Title number(s) of the property?
+fields:
+  - Title number(s): title_numbers
+    datatype: text
+  - note: |
+      Leave blank if not yet registered
+---
+question: |
+  What's the property address?:
+fields:
+  - Property Address: property_address
+    datatype: text
+    max: 60
+  - note: |
+      Insert address including postcode (if any) or other description of the property, for example ‘land adjoining 2 Acacia Avenue’.
+---
+question: |
+  The transferor transfers with:
+fields:
+  - no label: transfer_with
+    datatype: radio
+    code: |
+      [
+        {'transfer_one': "full title guarantee"},
+        {'transfer_two': "limited title guarantee"}
+      ]
+  - Any modifications: transfer_modifications_text
+    datatype: text
+    required: False
+---
+question: |
+  What's the consideration?
+subquestion: |
+  If your case has already been allocated a hearing/trial
+  date or trial period please include details of those dates.
+fields:
+  - no label: consideration_choice
+    datatype: radio
+    code: |
+      [
+        {'consideration_one': "The transferor has received from the transferee for the property the following sum (in words and figures).."},
+        {'consideration_two': "The transfer is not for money or anything that has a monetary value"},
+        {'consideration_three': "Insert other receipt as appropriate..."},
+        {'consideration_four': "None of the boxes apply - I'll add an appropriate memorandum as part of the Additional Provisions instead"}
+      ]
+    required: True
+  - Sum (in words and figures): consideration_one_text
+    datatype: text
+    show if:
+      variable: consideration_choice
+      is: 'consideration_one'
+    required: True
+  - Other Receipt: consideration_three_text
+    datatype: text
+    show if:
+      variable: consideration_choice
+      is: 'consideration_three'
+    required: True
+---
+question: |
+  Additional provisions
+subquestion: |
+  Insert here any required or permitted statement, certificate or application and any agreed covenants, declarations and so on (excluding any memorandum you added in the consideration section)
+fields:
+  - no label: additional_provisions
+    datatype: area
+    required: False
+---
+##################### GET TRANSFEREE DETAILS #####################
+objects:
+  - transferees: DAList.using(object_type=TRParty,there_are_any=True,ask_number=True,complete_attribute='finished')
+---
+question: |
+  About the Transferees
+subquestion: |
+  A current limitation of this form is that it will only work up to a maximum of four signatories (and their associated witnesses)
+fields:
+  - How many Transferees are there?: transferees.target_number
+    datatype: integer
+    min: 1
+    max: 4
+---
+code: |
+  transferees[i].name.first
+  if electronic_signatures:
+    transferees[i].name.email
+  if (len(additional_provisions) > 0) or (transferees.target_number > 1):
+    transferees[i].witness.name.first
+    if electronic_signatures:
+      transferees[i].witness.name.email
+  transferees[i].finished = True
+---
+question: |
+  Please add the name and address of the ${ordinal(i)} transferee.
+subquestion: |
+  Give the full name of the ${ordinal(i)} person to be shown as a registered proprietor.
+  
+  Give the intended address for service for the ${ordinal(i)} transferee for entry in the register
+fields:
+  - First name: transferees[i].name.first
+  - Middle name(s): transferees[i].name.middle
+    required: False
+  - Last name: transferees[i].name.last
+  - Service Address (inc. postcode): transferees[i].address.address
+    max: 60  
+---
+question: |
+  Please add the contact information for the ${ordinal(i)} transferee.
+subquestion: |
+  Give the address, email and mobile number for the ${ordinal(i)} person to be shown as a registered proprietor.
+fields:
+  - Email: transferees[i].name.email
+    datatype: email
+  - Mobile (in +44 format): transferees[i].name.mobile_number
+---
+question: |
+  Please add the details of the WITNESS for the ${ordinal(i)} transferee.
+subquestion: |
+  Give the full name and address of the ${ordinal(i)} WITNESS.
+fields:
+  - First name: transferees[i].witness.name.first
+  - Middle name(s): transferees[i].witness.name.middle
+    required: False
+  - Last name: transferees[i].witness.name.last
+  - Full Address (inc. postcode): transferees[i].witness.address.address
+    max: 60
+---
+question: |
+  Please add the contact information for WITNESS for the ${ordinal(i)} transferee.
+subquestion: |
+  Give the email and mobile number for the ${ordinal(i)} WITNESS.
+fields:
+  - Email: transferees[i].witness.name.email
+    datatype: email
+  - Mobile (in +44 format): transferees[i].witness.name.mobile_number
+---
+##################### GET TRANSFEROR DETAILS #####################
+objects:
+  - transferors: DAList.using(object_type=TRParty,there_is_another=False,there_are_any=True, complete_attribute='finished')
+---
+code: |
+  transferors[i].name.first
+  if electronic_signatures:
+    transferors[i].name.email
+  transferors[i].witness.name.first
+  if electronic_signatures:
+    transferors[i].witness.name.email
+  transferors[i].finished = True
+---
+table: transferors.table
+rows: transferors
+columns:
+  - Name: row_item
+edit:
+  - name.first
+---
+question: |
+  ALL Transferor(s)
+subquestion: |
+  So far you have added ${transferors.number_as_word()} Transferor(s).
+
+  ${transferors.table}
+
+  ${transferors.add_action()}
+field: review_transferors
+---
+question: |
+  Please add the name of the ${ordinal(i)} transferor.
+subquestion: |
+  Give the full name of the ${ordinal(i)} person transferring the property.
+fields:
+  - First name: transferors[i].name.first
+  - Middle name(s): transferors[i].name.middle
+    required: False
+  - Last name: transferors[i].name.last
+---
+question: |
+  Please add the contact information for the ${ordinal(i)} transferor.
+subquestion: |
+  Give the email and mobile number for the ${ordinal(i)} person transferring the property.
+fields:
+  - Email: transferors[i].name.email
+    datatype: email
+  - Mobile (in +44 format): transferors[i].name.mobile_number
+---
+question: |
+  Please add the details of the WITNESS for the ${ordinal(i)} transferor.
+subquestion: |
+  Give the full name and address of the ${ordinal(i)} WITNESS.
+fields:
+  - First name: transferors[i].witness.name.first
+  - Middle name(s): transferors[i].witness.name.middle
+    required: False
+  - Last name: transferors[i].witness.name.last
+  - Full Address (inc. postcode): transferors[i].witness.address.address
+    max: 60
+---
+question: |
+  Please add the contact information for WITNESS for the ${ordinal(i)} transferor.
+subquestion: |
+  Give the email and mobile number for the ${ordinal(i)} WITNESS.
+fields:
+  - Email: transferors[i].witness.name.email
+    datatype: email
+  - Mobile (in +44 format): transferors[i].witness.name.mobile_number
+---
+question: |
+  Declaration of trust. The transferee is more than one person and...
+fields:
+  - no label: trust_choice
+    datatype: radio
+    code: |
+      [
+        {'trust_one': "they are to hold the property on trust for themselves as joint tenants"},
+        {'trust_two': "they are to hold the property on trust for themselves as tenants in common in equal shares"},
+        {'trust_three': "they are to hold the property on trust..."},
+      ]
+    required: True
+  - Memorandum: trust_text
+    datatype: area
+    show if:
+      variable: trust_choice
+      is: 'trust_three'
+    required: True
+---
+include:
+  - docusignBuilder.yml
+---
+include:
+  - docusignQuestions.yml
+---
+#initialise some default values for variables if they haven't been populated elsewhere (docassemble works backwards)
+---
+code: |
+  consideration_one_text = ''
+---
+code: |
+  consideration_three_text = ''
+---
+code: |
+  trust_text = ''
+---
