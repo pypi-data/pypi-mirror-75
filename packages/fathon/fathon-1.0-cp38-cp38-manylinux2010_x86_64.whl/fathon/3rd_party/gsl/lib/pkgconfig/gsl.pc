@@ -1,0 +1,11 @@
+prefix=/tmp/pip-req-build-jpi0l9qi/fathon/gsl/../gsl_tmp
+exec_prefix=/tmp/pip-req-build-jpi0l9qi/fathon/gsl/../gsl_tmp
+libdir=/tmp/pip-req-build-jpi0l9qi/fathon/gsl/../gsl_tmp/lib
+includedir=/tmp/pip-req-build-jpi0l9qi/fathon/gsl/../gsl_tmp/include
+GSL_CBLAS_LIB=-lgslcblas
+
+Name: GSL
+Description: GNU Scientific Library
+Version: 2.6
+Libs: -L/tmp/pip-req-build-jpi0l9qi/fathon/gsl/../gsl_tmp/lib -lgsl ${GSL_CBLAS_LIB} -lm -lm 
+Cflags: -I/tmp/pip-req-build-jpi0l9qi/fathon/gsl/../gsl_tmp/include
