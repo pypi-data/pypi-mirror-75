@@ -1,0 +1,15 @@
+README.md
+setup.py
+wallpy/__init__.py
+wallpy/__version__.py
+wallpy/file_types.py
+wallpy/image_download.py
+wallpy/main.py
+wallpy/url_query.py
+wallpy/wallpaper.py
+wallpy.egg-info/PKG-INFO
+wallpy.egg-info/SOURCES.txt
+wallpy.egg-info/dependency_links.txt
+wallpy.egg-info/entry_points.txt
+wallpy.egg-info/requires.txt
+wallpy.egg-info/top_level.txt
