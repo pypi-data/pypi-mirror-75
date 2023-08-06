@@ -1,0 +1,86 @@
+v0.1.21
+1. Fixed broken http route lookup
+
+v0.1.20
+1. Added http route tests
+2. Added root user check
+3. Added searches for missing prog files (for platforms using non-std locations)
+4. Removed non-required configurator code
+
+v0.1.19
+1. Reverted to previous min of v3.6 due to influx client req
+
+v0.1.18
+1. Fixed min req version designation error
+
+v0.1.17
+1. Fixed min req for python to 3.3 in setup file
+
+v0.1.16
+1. Added improved os command checking with attempt to find if hard coded filename not found
+
+v0.1.15
+1. Added platform detection (removed from cfg file)
+
+v0.1.14
+1. Fixed DHCP timing issues
+
+v0.1.13
+1. Added hhtp server resonse time support
+
+v0.1.12
+1. Implemented bail on tests on Influx auth failure
+
+v0.1.11
+1. Fixed routing issues
+
+v0.1.10
+1. Fixed data types for wlan data
+
+v0.1.9
+1. Enhanced poll status data with cycle time & mode info
+
+v0.1.8
+1. Improved bad route detection & route injection
+2. Added polled status data 
+
+v0.1.7
+1. Added more checked to detect bad routing due to multiple interfaces updated
+
+v0.1.6
+1. fixed integer/float issue for lost_percent data in to influx
+
+v0.1.5
+1. Improved Splunk token check messages
+
+v0.1.4
+1. Added token check for splunk
+
+v0.1.3
+1. Moved to Python package & uploaded to PyPi
+2. Split off the core poller code from support files
+3. Changed versioning convention to vX.X.X format
+
+v0.12
+1. Added ethernet support for running tests
+2. Added support for InfluxDB and InfluxDB2
+3. Added support for enhanced debugging
+4. Changed data source names to remove references to splunk
+5. Added approximate MOS score calculation for udp test, kindly contributed by Mario Gingras
+
+*** Special Notes: ***
+In this release, you will need to:
+    a. re-create your config.ini file, using config.default.ini as a template
+    b. copy the updated splunk dashboards in dashboards/splunk to any exiting splunk instances
+    c. You must import the influxdb python module with: sudo pip3 install influxdb
+
+v0.11
+1. Added timeouts to http & ping tests
+2. Added optional central config retrieval from github repo
+3. Added iperf timeouts to improve perf when targets down
+
+V0.10
+Added 'connectivity_lookup' parameter to config.default.ini to allow custom DNS lookup when wiperf assesses initial connectivity health.
+
+V0.09
+Added ufw rules to allow http port on wlan & eth
