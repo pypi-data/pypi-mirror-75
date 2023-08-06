@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: opentelemetry-tools-google-cloud
+Version: 0.11b0
+Summary: Google Cloud propagator and resource detector for OpenTelemetry
+Home-page: https://github.com/GoogleCloudPlatform/opentelemetry-operations-python/opentelemetry-tools-google-cloud
+Author: Google
+Author-email: opentelemetry-pypi@google.com
+License: Apache-2.0
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.4
+Description-Content-Type: text/x-rst
+Requires-Dist: google-auth
+Requires-Dist: opentelemetry-api (==0.11b0)
+Requires-Dist: opentelemetry-sdk (==0.11b0)
+Requires-Dist: requests
+Provides-Extra: test
+
+OpenTelemetry Google Cloud Integration
+======================================
+
+.. image:: https://badge.fury.io/py/opentelemetry-tools-google-cloud.svg
+    :target: https://badge.fury.io/py/opentelemetry-tools-google-cloud
+
+.. image:: https://readthedocs.org/projects/google-cloud-opentelemetry/badge/?version=latest
+    :target: https://google-cloud-opentelemetry.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+This library provides support for:
+
+- Detecting GCP resources like GCE, GKE, etc.
+- Propagating trace context in the legacy Google Cloud format
+
+Installation
+------------
+
+.. code:: bash
+
+    pip install opentelemetry-tools-google-cloud
+
+..
+    TODO: Add usage info here
+
+
+References
+----------
+
+* `Cloud Trace <https://cloud.google.com/trace/>`_
+* `OpenTelemetry Project <https://opentelemetry.io/>`_
+
+
