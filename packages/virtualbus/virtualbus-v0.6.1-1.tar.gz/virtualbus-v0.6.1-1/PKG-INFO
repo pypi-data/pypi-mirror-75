@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: virtualbus
+Version: v0.6.1-1
+Summary: Virtual bus
+Home-page: https://github.com/tedicreations/virtualbus
+Author: Kanelis Elias
+Author-email: hkanelhs@yahoo.gr
+License: MIT
+Download-URL: https://github.com/TediCreations/{name}/archive/v0.6.1-1.tar.gz
+Description: # VirtualBus
+        
+        Networking messaging system. Right now we are under development and it is not stable.
+        
+        ### Installation
+        
+        ```sh
+        $ pip install virtualbus
+        ```
+        
+        # License
+        
+        MIT
+        
+Keywords: virtual,bus,socket,networking
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
