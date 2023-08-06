@@ -1,0 +1,14 @@
+[run]
+parallel = true
+source =
+    pytest_venv
+    tests
+
+[paths]
+source =
+    src/pytest_venv
+    */site-packages/pytest_venv
+
+[report]
+show_missing = true
+precision = 2
