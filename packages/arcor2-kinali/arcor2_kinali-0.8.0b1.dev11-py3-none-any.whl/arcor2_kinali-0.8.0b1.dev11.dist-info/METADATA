@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: arcor2-kinali
+Version: 0.8.0b1.dev11
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Robo@FIT
+Author-email: imaterna@fit.vut.cz
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: dataclasses
+Requires-Dist: dataclasses-jsonschema[fast-validation]
+Requires-Dist: arcor2 (>=0.8.0b3.*)
+Requires-Dist: Pillow
+
+UNKNOWN
+
+
