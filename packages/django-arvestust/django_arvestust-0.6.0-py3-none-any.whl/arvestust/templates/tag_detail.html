@@ -1,0 +1,43 @@
+{% extends 'arvestust.html' %}
+{% load cache %}
+
+{% comment %}
+    Describe the template here.
+{% endcomment %}
+
+{% block content %}
+    <nav aria-label="breadcrumb">
+        <ol class="p-0 breadcrumb bg-light">
+            <li class="breadcrumb-item">
+                <a href="{% url 'arvestust:tag-list' %}">Tags</a>
+            </li>
+            <li class="breadcrumb-item active">{{ tag.content }}</li>
+        </ol>
+    </nav>
+
+    <h2 class="text-bold pb-3">{{ tag }}</h2>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">slug</th>
+          <th scope="col">Content</th>
+        </tr>
+      </thead>
+      <tbody>
+    {% for object in tag.projects.all %}
+        <tr>
+          <th scope="row">{{ object.id }}</th>
+          <td>
+              <a href="{{ object.get_absolute_url }}">
+                {{ object.slug }}
+              </a>
+          </td>
+          <td>{{ object.slug }}</td>
+        </tr>
+    {% endfor %}
+      </tbody>
+    </table>
+
+{% endblock content %}
