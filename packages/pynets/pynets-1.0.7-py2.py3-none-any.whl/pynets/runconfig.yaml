@@ -1,0 +1,233 @@
+maxcrossing: # Maximum crossing fibers per voxel in tractography
+    - 2
+StructuralNetworkWeighting:
+    fiber_density: # If set to True, scale fiber count by mean length relative to the volume of roi node pairs. If false, raw streamline counts will be used.
+        - True
+    fa_weighting: # If True, scale edge weights by average Fractional Anisotropy (FA) along all streamlines used to define an edge.
+        - True
+    overlap_thr: # ROI-streamline overlap in units of voxels.
+        - 1
+step_list: # For ensemble tractography, step-sizes should never exceed the voxel size. By default, PyNets covers 0.1-0.5 which encompasses the typical range of values used in human tractography research.
+    - 0.1
+    - 0.2
+    - 0.3
+    - 0.4
+    - 0.5
+curv_thr_list: # Ensemble tractography, should be [0, 90] degrees.
+    - 50
+    - 40
+    - 30
+use_life:  # Filter ensemble tractogram to yield more plausible streamlines
+    - False
+clustering_local_conn: # If you are running agglomerative-type clustering (e.g. ward, average, single, complete) this setting indicates which spatially constrained local connectivity definition to use. Options are 'allcorr' (all voxels have equal weight), 'scorr' (spatial-connectivity across time-series), and 'tcorr' (temporal-connectivity across time-series).
+    - 'tcorr'
+c_boot: # Number of bootstrapped iterations for spatially-constrained clustering
+    - 16
+nthreads:
+    - 2
+graph_file_format:
+    - 'npy'
+low_pass:
+    - null # See Yuen et al. 2019, which applies 0.25 low_pass. NOTE: *If you are working with task data, this setting should almost always be `null`.
+tracking_method: # a tracking algorithm for dmri connectome estimation. Options are: local and particle.
+    - 'local'
+tissue_classifier: # Indicates the tissue classification method to use for dMRI tractography. Options are: cmc (continuous), act (anatomically-constrained), wb (whole-brain mask), and wm (binary to white-matter only). If particle tracking is used, then this variable will be auto-set to 'cmc'.
+    - 'act'
+tracking_samples: # Indicates the number of cumulative streamline samples for each tractogram. *Note that we should keep this relatively low since total streamlines will actually sum cumulatively across a given connectome ensemble (e.g. 100 connectomes x 20,000 = 2 million streamlines)
+    - 20000
+parcel_naming: # Whether to use multi-atlas lookup to label nodes. Default is True.
+    - True
+DSN: # Experimental option. Direct Streamline Normalization attempts to normalize streamlines (i.e. post-reconstruction) to a morphologically standardized scaling (i.e. range of fiber lengths) specific to the template used.
+    - False
+template: # `MNI152_T1` is the default and, along with `colin27` is provided by PyNets already. Other templates can be specified from templateflow (<https://github.com/templateflow/templateflow>), which will be fetched automatically: `MNI152Lin`, `MNI152NLin2009cAsym`, `MNI152NLin2009cSym`, `MNI152NLin6Asym`, `MNI152NLin6Sym`, `MNIInfant`, `MNIPediatricAsym`, `NKI`, `OASIS30ANTs` Any custom templates provided by the user should reside in the pynets/templates directory and be accompanied by two additional versions with _brain.nii.gz and brain_mask.nii.gz, followed by _1mm/_2mm suffices.
+#    - 'colin27'
+    - 'MNI152_T1'
+#    - 'CN200'
+hub_detection_method: # Valid inputs are richclub, eigenvector centrality, betweenness centrality, coreness (requires installation of cpalgoorithm)
+    - 'betweenness'
+nilearn_parc_atlases:
+    - 'atlas_harvard_oxford'
+    - 'atlas_aal'
+    - 'atlas_destrieux_2009'
+    - 'atlas_talairach_gyrus'
+    - 'atlas_talairach_ba'
+    - 'atlas_talairach_lobe'
+nilearn_coord_atlases:
+    - 'coords_power_2011'
+    - 'coords_dosenbach_2010'
+nilearn_prob_atlases:
+    - 'atlas_msdl'
+    - 'atlas_pauli_2017'
+local_atlases:
+    - 'destrieux2009_rois'
+    - 'BrainnetomeAtlasFan2016'
+    - 'VoxelwiseParcellationt0515kLeadDBS'
+    - 'Juelichgmthr252mmEickhoff2005'
+    - 'CorticalAreaParcellationfromRestingStateCorrelationsGordon2014'
+    - 'AICHAreorderedJoliot2015'
+    - 'HarvardOxfordThr252mmWholeBrainMakris2006'
+    - 'VoxelwiseParcellationt058kLeadDBS'
+    - 'MICCAI2012MultiAtlasLabelingWorkshopandChallengeNeuromorphometrics'
+    - 'Hammers_mithAtlasn30r83Hammers2003Gousias2008'
+    - 'AALTzourioMazoyer2002'
+    - 'DesikanKlein2012'
+    - 'AAL2zourioMazoyer2002'
+    - 'VoxelwiseParcellationt0435kLeadDBS'
+    - 'AICHAJoliot2015'
+    - 'whole_brain_cluster_labels_PCA100'
+    - 'whole_brain_cluster_labels_PCA200'
+    - 'RandomParcellationsc05meanalll43Craddock2011'
+    - 'sub-colin27_label-L2018_desc-scale1_atlas'
+    - 'sub-colin27_label-L2018_desc-scale2_atlas'
+    - 'sub-colin27_label-L2018_desc-scale3_atlas'
+    - 'sub-colin27_label-L2018_desc-scale4_atlas'
+    - 'sub-colin27_label-L2018_desc-scale5_atlas'
+labeling_atlases:
+    - 'talairach_labels'
+    - 'mni_labels'
+    - 'juelich_labels'
+    - 'harvardoxford_cortical_labels'
+    - 'harvardoxford_subcortical_labels'
+    - 'AAL2zourioMazoyer2002'
+    - 'DesikanKlein2012'
+    - 'BrainnetomeAtlasFan2016'
+    - 'MICCAI2012MultiAtlasLabelingWorkshopandChallengeNeuromorphometrics'
+    - 'Hammers_mithAtlasn30r83Hammers2003Gousias2008'
+    - 'AICHAreorderedJoliot2015'
+available_models:
+    func_models:
+      - 'corr'
+      - 'sps'
+      - 'cov'
+      - 'partcorr'
+      - 'QuicGraphicalLasso'
+      - 'QuicGraphicalLassoCV'
+      - 'QuicGraphicalLassoEBIC'
+      - 'AdaptiveQuicGraphicalLasso'
+    struct_models:
+      - 'csa'
+      - 'csd'
+      - 'ten'
+      - 'sfm'
+#sentiment_labeling:
+#    liwc_file:
+#        - '/Users/derekpisner/Documents/LIWC2015_English.dic' # Must be purchased and licensed. Visit https://liwc.wpengine.com/ for more information.
+#    neurosynth_db:
+#        - '/Users/derekpisner/Documents/neurosynth_nimare_with_abstracts.pkl.gz' # https://nimare.readthedocs.io/
+plotting:
+    connectogram:
+        - False
+    glassbrain:
+        - True
+    adjacency:
+        - True
+    dpi:
+        - 300
+    labeling_atlas:
+        - 'AAL2zourioMazoyer2002'
+    functional:
+        glassbrain:
+            color_theme:
+              - 'Blues_d'
+        adjacency:
+            color_theme:
+                - 'RdBu_r'
+    structural:
+        glassbrain:
+            color_theme:
+              - 'binary' # Recommend keeping the default here, as it produces white edges "resembling" white-matter fibers
+        adjacency:
+            color_theme:
+                - 'RdBu_r'
+resource_dict: # Nipype workflow resource settings
+      - 'fetch_nodes_and_labels_node':
+        - (4, 8)
+      - 'save_nifti_parcels_node':
+        - (4, 1)
+      - 'gtab_node':
+        - (1, 0.5)
+      - 'save_coords_and_labels_node':
+        - (1, 0.5)
+      - 'check_orient_and_dims_func_node':
+        - (2, 2)
+      - 'check_orient_and_dims_mask_node':
+        - (1, 0.5)
+      - 'check_orient_and_dims_uatlas_node':
+        - (1, 0.5)
+      - 'check_orient_and_dims_anat_node':
+        - (2, 0.5)
+      - 'node_gen_node':
+        - (2, 6)
+      - 'get_node_membership_node':
+        - (2, 6)
+      - 'check_orient_and_dims_dwi_node':
+        - (2, 3)
+      - 'get_anisopwr_node':
+        - (2, 1)
+      - 'extract_ts_node':
+        - (4, 4)
+      - 'clustering_node':
+        - (4, 8)
+      - 'get_conn_matrix_node':
+        - (2, 2)
+      - 'thresh_func_node':
+        - (1, 2)
+      - 'register_node':
+        - (6, 3)
+      - 'register_atlas_node':
+        - (1, 1)
+      - 'get_fa_node':
+        - (2, 1)
+      - 'run_tracking_node':
+        - (6, 4)
+      - 'thresh_diff_node':
+        - (1, 1.5)
+      - 'dsn_node':
+        - (1, 2)
+      - 'plot_all_node':
+        - (1, 2)
+      - 'streams2graph_node':
+        - (4, 1)
+      - 'build_multigraphs_node':
+        - (2, 6)
+      - 'plot_all_struct_func_node':
+        - (1, 2)
+      - 'mase_embedding_node':
+        - (2, 6)
+      - 'omni_embedding_node':
+        - (1, 2)
+      - 'join_iters_node_thr':
+        - (1, 1)
+      - 'join_iters_node_nets':
+        - (1, 1)
+      - 'clust_join_node':
+        - (1, 1)
+execution_dict: # Nipype workflow global settings
+    - 'stop_on_first_crash':
+        - False
+    - 'crashfile_format':
+        - 'txt'
+    - 'parameterize_dirs':
+        - False
+    - 'display_variable':
+        - ':0'
+    - 'job_finished_timeout':
+        - 120
+    - 'matplotlib_backend':
+        - 'Agg'
+    - 'use_relative_paths':
+        - True
+    - 'keep_inputs':
+        - True
+    - 'remove_unnecessary_outputs':
+        - False
+    - 'remove_node_directories':
+        - False
+    - 'raise_insufficient':
+        - False
+    - 'poll_sleep_duration':
+        - 1
+    - 'hash_method':
+        - 'timestamp'
+    - 'local_hash_check':
+        - False
