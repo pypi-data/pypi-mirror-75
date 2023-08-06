@@ -1,0 +1,17 @@
+root: ~/projects/
+template: source ./venv/bin/activate && {COMMAND}
+
+editor: vim
+
+# alias: directory
+services:
+  one: one-service
+  two: two-service
+  three: three-service
+
+commands:
+  status: git status
+  reset: git reset origin/develop --hard
+  pull: >
+    git checkout develop -q &&
+    git pull
