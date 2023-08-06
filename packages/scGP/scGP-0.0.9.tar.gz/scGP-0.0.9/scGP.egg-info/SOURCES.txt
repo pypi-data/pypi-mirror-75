@@ -1,0 +1,17 @@
+LICENSE
+README.md
+setup.py
+bin/__init__.py
+bin/align.py
+bin/main.py
+bin/preprocess.py
+bin/qc_plot_functions.py
+bin/utils.py
+bin/__pycache__/align.cpython-37.pyc
+bin/__pycache__/qc_plot_functions.cpython-37.pyc
+bin/__pycache__/utils.cpython-37.pyc
+scGP.egg-info/PKG-INFO
+scGP.egg-info/SOURCES.txt
+scGP.egg-info/dependency_links.txt
+scGP.egg-info/entry_points.txt
+scGP.egg-info/top_level.txt
