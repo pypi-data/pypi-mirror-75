@@ -1,0 +1,95 @@
+<head>
+    {% load static %}
+    <!-- Prism CSS -->
+    <link href="{% static 'tinymce/css/prism.css' %}" rel="stylesheet">
+    <!-- Compiled and minified Materialize CSS -->
+    <link href="{% static 'main/css/materialize.css' %}" rel="stylesheet" >
+    <link href="{% static 'main/css/main.css' %}" rel="stylesheet" >
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+    
+    <!-- Downloaded from https://github.com/leongersen/noUiSlider/releases -->
+    <link href="{% static 'main/css/nouislider.min.css' %}" rel="stylesheet" >
+    <script src="{% static 'main/css/nouislider.min.js' %}"></script>
+    
+    <!-- Downloaded from https://github.com/leongersen/wnumb/releases -->
+    <script src="{% static 'main/css/wNumb.min.js' %}"></script>
+    
+    <!-- nav dropdown styling  -->
+    <style>
+        #menuBtn, #menuBtn ul
+        {
+            list-style: none;
+            margin: 0;
+            padding: 0;           
+        }
+        #menuBtn li
+        {
+            z-index: 100;
+            float: left;
+            position: relative;
+            background-color: black;
+            white-space: nowrap;  
+        }
+        #menuBtn ul        
+        {
+            display: none;
+            position: absolute;
+            padding-bottom: 15px;
+            background: black;
+        }
+        #menuBtn ul li
+        {
+            float: none;
+            padding-top: 20px;
+            padding-bottom: 20px;  
+            top: 60px;
+            line-height: 30px;
+        }
+        #menuBtn a:link, #menuBtn a:visited
+        {
+            font-size: 20px;
+            display: block;
+            color: white;
+            border: 1px, white;
+        }
+        #menuBtn li:hover
+        {
+            color: white;
+            display: blo;
+        }
+        #menuBtn li:hover,  #menuBtn a:hover   
+        {
+            color: orange;
+        }
+        #menuBtn li:hover ul       
+        {
+            display: block;
+        }
+    </style>
+</head>
+
+<!-- site background image -->
+<body style="background-image: url('{% static 'main/images/bkgd.png' %}'); background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+   
+    <!-- top navbar -->
+    {% include 'main/includes/nav.html' %}
+   
+    <!-- web app logo -->
+    <div class="row" style="text-align: center;">
+        <div style="color: rgb(4, 56, 68); text-shadow: 5px 5px rgb(40, 17, 19); font-size: 33vh; text-align: center; font-family: CustomBazaarFont;">Bazaar of Wonders</div>
+    </div>
+
+    <!-- html message system -->
+    {% include 'main/includes/messaging.html' %}
+
+    <!-- main screen content : default to home.html-->
+    <div class="row">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+
+<!-- Prism JS -->
+<script src="{% static 'tinymce/js/prism.js' %}"></script>

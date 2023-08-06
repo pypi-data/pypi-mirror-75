@@ -1,0 +1,3 @@
+[console_scripts]
+bazaar_start = bazaar_of_wonders_server_scripts.run:main
+
