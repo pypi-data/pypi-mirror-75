@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "venpo"
+version = "0.2.2"
+description = "Extract Venmo transactions from a profile with one command"
+authors = ["Marc Ford <mrfxyz567@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/mfdeux/venpo"
+packages = [{ include = "venpo" }]
+include = ["data/*"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+lxml = "^4.5.2"
+requests = "^2.24.0"
+beautifulsoup4 = "^4.9.1"
+python-dateutil = "^2.8.1"
+click = "^7.1.2"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+black = "^19.10b0"
+ipython = "^7.17.0"
+
+[tool.poetry.scripts]
+venpo = "venpo.cli:cli"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
