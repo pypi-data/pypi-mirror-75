@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: facecast-io
+Version: 0.3.1
+Summary: Unofficial API for facecast.io
+Home-page: https://github.com/skhalymon/facecast-io
+License: MIT
+Keywords: facecast,api-client
+Author: Serhii Khalymon
+Author-email: sergiykhalimon@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Multimedia :: Sound/Audio
+Classifier: Topic :: Software Development :: Libraries
+Requires-Dist: httpx (>=0.12.1,<0.13.0)
+Requires-Dist: pyquery (>=1.4.1,<2.0.0)
+Requires-Dist: retry (>=0.9.2,<0.10.0)
+Requires-Dist: typing (>=3.7,<4.0); python_version < "3.8"
+Requires-Dist: typing_extensions (>=3.7,<4.0); python_version < "3.8"
+Requires-Dist: yarl (>=1.4.2,<2.0.0)
+Project-URL: Repository, https://github.com/skhalymon/facecast-io
+Description-Content-Type: text/x-rst
+
+***********
+Facecast IO
+***********
+
+Unofficial API client to https://facecast.io service
+####################################################
+
+Installation
+************
+
+:pip: pip install facecast-io
+:poetry: poetry add facecast-io
+
+Usage
+*****
+
+::
+
+    api = FacecastAPI(os.environ["FACECAST_USERNAME"], os.environ["FACECAST_PASSWORD"])
+
+
