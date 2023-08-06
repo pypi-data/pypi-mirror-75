@@ -1,0 +1,13 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+smoothfit/__about__.py
+smoothfit/__init__.py
+smoothfit/main.py
+smoothfit.egg-info/PKG-INFO
+smoothfit.egg-info/SOURCES.txt
+smoothfit.egg-info/dependency_links.txt
+smoothfit.egg-info/requires.txt
+smoothfit.egg-info/top_level.txt
+test/test_smoothfit.py
