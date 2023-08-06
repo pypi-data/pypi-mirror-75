@@ -1,0 +1,3 @@
+[console_scripts]
+nlcodec=nlcodec.__main__:mainnlcodec-freq = nlcodec.term_freq:main
+
