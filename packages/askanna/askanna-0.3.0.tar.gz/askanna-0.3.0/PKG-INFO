@@ -1,0 +1,107 @@
+Metadata-Version: 2.1
+Name: askanna
+Version: 0.3.0
+Summary: AskAnna Command line and library interface
+Home-page: https://gitlab.askanna.io/open/askanna-cli
+Author: AskAnna
+Author-email: devops@askanna.io
+License: UNKNOWN
+Description: # askanna-cli
+        
+        
+        askanna-cli offers a CLI interface for creating AskAnna and supported DSP
+        projects. It simplifies the communication with the AskAnna platform and
+        provides facilities for supporting every part of the data science process.
+        
+        ## Documentation
+        
+        ## Quickstart
+        
+        ### Install askanna-cli::
+        
+        ```
+        pip install askanna
+        ```
+        
+        ### Login to askanna:
+        
+        ```
+        askanna login
+        ```
+        
+        This will create a `.askanna.yml` in your home folder.
+        
+        When used in a CI, one can configure authentication by setting an environment variable:
+        
+        ```bash
+        export AA_REMOTE=https://beta-api.askanna.eu/v1/
+        export AA_TOKEN=<your api token, can be found in ~/.askanna.yml>
+        ```
+        
+        Upload your package to AskAnna:
+        First setup your `askanna.yml`:
+        ```yml
+        push-target: https://beta.askanna.eu/project/7MQT-6309-9g3t-R5QR/
+        ```
+        Values on the URL and `project-uuid` needs to be configured for your own project.
+        
+        Uploading a package from a CI environment requires the following variables to be set:
+        
+        ```bash
+        export AA_TOKEN=<your api token>
+        ```
+        
+        ## Features
+        
+        ## Running Tests
+        
+        Does the code actually work?
+        ```bash
+        source <YOURVIRTUALENV>/bin/activate
+        (myenv) $ pip install tox
+        (myenv) $ tox
+        ```
+        
+           
+        ## Credits
+        
+        Tools used in rendering this package:
+        
+        * Cookiecutter: https://github.com/audreyr/cookiecutter
+        * `cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        # History
+        
+        ## 0.3.0 (2020-07-31)
+        * changed `askanna artifact` to `askanna artifact add`
+        * adding `askanna artifact get`
+        * adding `askanna variable list` to get a list of variables in askanna
+        * adding `askanna variable change` to modify the value of a variable
+        
+        ## 0.2.0 (2020-07-23)
+        * adding askanna push -f
+        * adding askanna push -m "push message"
+        * changing how .askanna.yml is created
+        * adding askanna functions for running in job
+        * adding first test to check on push-target
+        * download payload with cli
+        
+        
+        ## 0.1.0 (2019-12-05)
+        * First commit to repo
+        * Basic function to do askanna login
+        * First version of askanna package
+        
+Keywords: askanna
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
