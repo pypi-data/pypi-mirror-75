@@ -1,0 +1,7 @@
+protobuf==3.12.2
+grpcio>=1.20
+grpclib==0.3.1
+pyblake2==1.1.2
+cryptography==2.8
+ecdsa==0.15
+pycryptodome==3.9.4
