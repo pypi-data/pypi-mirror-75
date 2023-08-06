@@ -1,0 +1,61 @@
+Metadata-Version: 1.1
+Name: camog
+Version: 0.2.3
+Summary: csv file reader
+Home-page: https://github.com/walshb/camog
+Author: Ben Walsh
+Author-email: b@wumpster.com
+License: Apache License 2.0
+Description: Camóg
+        =====
+        
+        |Build Status|
+        
+        A fast csv parser for Python and R.
+        
+        ::
+        
+            import camog
+        
+            headers, columns = camog.load('foobar.csv', nthreads=4)
+        
+        How should I build it?
+        ----------------------
+        
+        ::
+        
+            make benchmark
+        
+        Benchmarks
+        ----------
+        
+        +-----------------------------------------------------+------------------------------+
+        | Name                                                | Relative speed (4 threads)   |
+        +=====================================================+==============================+
+        | `pandas <https://github.com/pandas-dev/pandas>`__   | 1                            |
+        +-----------------------------------------------------+------------------------------+
+        | `paratext <https://github.com/wiseio/paratext>`__   | 2.5                          |
+        +-----------------------------------------------------+------------------------------+
+        | `camog <https://github.com/walshb/camog>`__         | 5                            |
+        +-----------------------------------------------------+------------------------------+
+        
+        Where's the doc?
+        ----------------
+        
+        ::
+        
+            cat camog/_csv.py
+        
+        .. |Build Status| image:: https://travis-ci.org/walshb/camog.svg?branch=master
+           :target: https://travis-ci.org/walshb/camog
+        
+Keywords: csv reader
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
