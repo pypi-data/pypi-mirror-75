@@ -1,0 +1,10 @@
+sparql-client
+eventlet
+six
+
+[test]
+mock
+cssselect
+webob
+mechanize==0.2.5
+wsgi_intercept==0.4
