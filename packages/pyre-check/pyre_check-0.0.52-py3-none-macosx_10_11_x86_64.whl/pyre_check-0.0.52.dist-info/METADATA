@@ -1,0 +1,115 @@
+Metadata-Version: 2.1
+Name: pyre-check
+Version: 0.0.52
+Summary: A performant type checker for Python
+Home-page: https://pyre-check.org/
+Author: Facebook
+Author-email: pyre@fb.com
+Maintainer: Facebook
+Maintainer-email: pyre@fb.com
+License: MIT
+Download-URL: https://github.com/facebook/pyre-check
+Keywords: typechecker development
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: dataclasses
+Requires-Dist: pywatchman
+Requires-Dist: psutil
+Requires-Dist: libcst (>=0.3.6)
+Requires-Dist: pyre-extensions
+Provides-Extra: sapp
+Requires-Dist: click ; extra == 'sapp'
+Requires-Dist: click-log ; extra == 'sapp'
+Requires-Dist: flask (~=1.1.2) ; extra == 'sapp'
+Requires-Dist: flask-cors (~=3.0.8) ; extra == 'sapp'
+Requires-Dist: flask-graphql (~=2.0.1) ; extra == 'sapp'
+Requires-Dist: graphene (~=2.1.8) ; extra == 'sapp'
+Requires-Dist: graphene-sqlalchemy (~=2.3.0) ; extra == 'sapp'
+Requires-Dist: ipython (==7.6.1) ; extra == 'sapp'
+Requires-Dist: munch ; extra == 'sapp'
+Requires-Dist: pygments ; extra == 'sapp'
+Requires-Dist: SQLAlchemy ; extra == 'sapp'
+Requires-Dist: ujson (~=1.35) ; extra == 'sapp'
+Requires-Dist: xxhash (~=1.3.0) ; extra == 'sapp'
+Requires-Dist: prompt-toolkit (~=2.0.9) ; extra == 'sapp'
+
+![Pyre](https://raw.githubusercontent.com/facebook/pyre-check/master/logo.png)
+
+Pyre is a performant type checker for Python compliant with [PEP 484](https://www.python.org/dev/peps/pep-0484/). Pyre can analyze codebases with millions of lines of code incrementally – providing instantaneous feedback to developers as they write code.
+
+Pyre ships with **Pysa**, a security focused static analysis tool we've built on top of Pyre that reasons about data flows in Python applications. Please refer to our [documentation](https://pyre-check.org/docs/pysa-basics.html) to get started with our security analysis.
+
+*Read this in other languages: [Español](README.es.md)*
+
+## Requirements
+You need a working [Python 3.6 or later](https://www.python.org/getit/) environment to run Pyre. We highly recommend that you install [watchman](https://facebook.github.io/watchman/) to get the most out of Pyre but it's not strictly necessary. On MacOS you can get everything with [homebrew](https://brew.sh/):
+```
+$ brew install python3 watchman
+```
+In Ubuntu, Mint and Debian you can install Python 3 like this:
+```
+$ sudo apt-get install python3 python3-pip watchman
+```
+We tested Pyre on **Ubuntu 16.04 LTS**, **CentOS 7**, as well as **OSX 10.11** and later.
+
+## Getting Started
+These instructions assume you're working with a virtual environment set up inside of your project directory as follows.
+
+```
+$ cd your_project
+$ python3 -m venv venv
+(venv) $ pip install pyre-check
+```
+
+We now need to tell Pyre what to check by running
+```
+(venv) $ pyre init
+```
+By default, this command will set up a configuration for Pyre (`.pyre_configuration`) as well as watchman (`.watchmanconfig`) in your project's directory.
+
+Note that if you do have your virtual environment inside your project directory you will want to tell Pyre not to check the contents of it by adding the following line to your `.pyre_configuration` file:
+
+```
+"ignore_all_errors": [
+  "<absolute path to the virtual environment>"
+],
+```
+
+If you're using watchman, you need to make sure we have watchman listening to file changes in your project directory:
+
+```
+(venv) $ touch .watchmanconfig
+```
+
+We are now ready to start Pyre:
+```
+(venv) $ echo "i: int = 'string'" > test.py
+(venv) $ pyre
+ ƛ Found 1 type error!
+test.py:1:0 Incompatible variable type [9]: i is declared to have type `int` but is used as type `str`.
+```
+Note that the first invocation initializes Pyre's server that handles incremental updates and will be slower than subsequent invocations – you can easily see this by invoking `pyre` again and observe the same result instantaneously.
+
+For more detailed documentation, see https://pyre-check.org.
+
+## Join the Pyre community
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to help out.
+
+## License
+
+Pyre is licensed under the MIT license.
+
+
