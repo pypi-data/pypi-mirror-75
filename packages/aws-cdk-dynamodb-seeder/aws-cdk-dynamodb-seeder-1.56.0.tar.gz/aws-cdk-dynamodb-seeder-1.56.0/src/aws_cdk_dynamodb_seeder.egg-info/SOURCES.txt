@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/ElegantDevelopment/AWSCDKDynamoDBSeeder/__init__.py
+src/ElegantDevelopment/AWSCDKDynamoDBSeeder/py.typed
+src/ElegantDevelopment/AWSCDKDynamoDBSeeder/_jsii/__init__.py
+src/ElegantDevelopment/AWSCDKDynamoDBSeeder/_jsii/aws-cdk-dynamodb-seeder@1.56.0.jsii.tgz
+src/aws_cdk_dynamodb_seeder.egg-info/PKG-INFO
+src/aws_cdk_dynamodb_seeder.egg-info/SOURCES.txt
+src/aws_cdk_dynamodb_seeder.egg-info/dependency_links.txt
+src/aws_cdk_dynamodb_seeder.egg-info/requires.txt
+src/aws_cdk_dynamodb_seeder.egg-info/top_level.txt
