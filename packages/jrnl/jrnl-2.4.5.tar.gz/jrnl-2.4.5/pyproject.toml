@@ -1,0 +1,57 @@
+[tool.poetry]
+name = "jrnl"
+version = "v2.4.5"
+description = "Collect your thoughts and notes without leaving the command line."
+authors = [
+    "Manuel Ebert <manuel@1450.me>",
+    "Jonathan Wren <jonathan@nowandwren.com>",
+    "Micah Ellison <micahellison@gmail.com>"
+]
+maintainers = [
+    "Jonathan Wren and Micah Ellison <jrnl-sh@googlegroups.com>",
+]
+license = "GPL-3.0-only"
+readme = "README.md"
+homepage = "https://jrnl.sh"
+repository = "https://github.com/jrnl-org/jrnl"
+
+[tool.poetry.dependencies]
+python = ">=3.6.0, <3.9.0"
+pyxdg = "^0.26.0"
+cryptography = "^2.7"
+passlib = "^1.7"
+parsedatetime = "^2.4"
+keyring = ">19.0, <22.0"
+pytz = ">=2019.1, <2021.0"
+tzlocal = ">1.5, <3.0"
+asteval = "^0.9.14"
+colorama = "^0.4.1"
+python-dateutil = "^2.8"
+pyyaml = "^5.1"
+ansiwrap = "^0.8.4"
+packaging = "^20.4"
+
+[tool.poetry.dev-dependencies]
+behave = "^1.2"
+mkdocs = "^1.0"
+black = {version = "^19.10b0",allow-prereleases = true}
+toml = "^0.10.0"
+pyflakes = "^2.2.0"
+pytest = "^5.4.3"
+
+[tool.poetry.scripts]
+jrnl = 'jrnl.cli:run'
+
+[tool.isort]
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+line_length = 88
+known_first_party = ["jrnl", "behave"]
+force_sort_within_sections = true
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
