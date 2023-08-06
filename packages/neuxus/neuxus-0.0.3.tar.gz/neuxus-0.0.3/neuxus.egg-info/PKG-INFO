@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: neuxus
+Version: 0.0.3
+Summary: A flexible software to build real-time pipeline for EEG processing
+Home-page: https://github.com/LaSEEB/NeuXus
+Author: S.Legeay, A.Vourvopoulos
+Author-email: legeay.simon.sup@gmail.com
+License: UNKNOWN
+Description: # NeuXus
+        Build flexible pipeline for real-time processing
+        
+        
+        ## Installation
+        
+        ### Basic use
+        
+        To Do uploading on PyPi
+        ```
+        pip install neuxus
+        ```
+        
+        ## Run
+        
+        ### Run basic pipeline from NeuXus
+        
+        ```
+        neuxus basics/generate_send.py -e
+        ```
+        
+        ### Run your pipeline from NeuXus
+        
+        ```
+        neuxus path_to_my_pipeline.py
+        ```
+        
+        ## Customize your own nodes
+        
+        see template
+        TODO
+        
+        ## For developers
+        
+        Clone from source:
+        
+        ```
+        git clone https://github.com/LaSEEB/NeuXus.git
+        ```
+        
+        Install dev-requirements
+        ToDo
+        
+        Create the tar.gz file and install it on your computer:
+        ```
+        setup.py sdist
+        pip install nexus-xx.xx.xx.tar.gz
+        ```
+        
+        ### Tests
+        
+        Launch tests with:
+        ```
+        python -m unittest discover
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
