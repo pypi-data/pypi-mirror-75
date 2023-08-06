@@ -1,0 +1,4 @@
+[console_scripts]
+pds-doi-cmd = pds_doi_core.cmd.pds_doi_cmd:main
+pds-doi-start-dev = pds_doi_core.web_api.service:main
+
