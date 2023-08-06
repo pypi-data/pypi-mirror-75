@@ -1,0 +1,3 @@
+[console_scripts]
+raw_tcp_connection = raw_tcp_connection.cli:main
+
