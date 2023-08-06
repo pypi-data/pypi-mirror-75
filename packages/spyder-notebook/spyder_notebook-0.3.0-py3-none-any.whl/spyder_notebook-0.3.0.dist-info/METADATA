@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: spyder-notebook
+Version: 0.3.0
+Summary: Jupyter notebook integration with Spyder
+Home-page: https://github.com/spyder-ide/spyder-notebook
+Author: Spyder Development Team
+License: MIT
+Keywords: spyder jupyter notebook
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Framework :: Jupyter
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.5
+Requires-Dist: spyder (<5,>=4.1)
+Requires-Dist: jinja2
+Requires-Dist: jupyter-core
+Requires-Dist: nbformat
+Requires-Dist: notebook (>=4.3)
+Requires-Dist: qtpy
+Requires-Dist: qdarkstyle
+Requires-Dist: requests
+Requires-Dist: traitlets
+
+This package allows the Jupyter notebook to run inside Spyder as a plugin.
+
+
