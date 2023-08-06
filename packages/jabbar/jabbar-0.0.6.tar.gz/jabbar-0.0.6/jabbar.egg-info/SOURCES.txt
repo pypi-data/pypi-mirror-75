@@ -1,0 +1,13 @@
+LICENSE
+README.rst
+setup.cfg
+setup.py
+jabbar/__init__.py
+jabbar/bar.py
+jabbar/version.py
+jabbar.egg-info/PKG-INFO
+jabbar.egg-info/SOURCES.txt
+jabbar.egg-info/dependency_links.txt
+jabbar.egg-info/top_level.txt
+test/__init__.py
+test/test_basic.py
