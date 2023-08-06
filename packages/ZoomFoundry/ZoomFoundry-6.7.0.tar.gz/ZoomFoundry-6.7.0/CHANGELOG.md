@@ -1,0 +1,68 @@
+# Changelog
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+### Added
+
+## [6.6.0] - 2020-06-04
+- Add app boilerplate
+- Add DynamicComponent
+- Add metadata to content overview
+- Replace px with rem in default theme
+- Update display of configuration settings in admin app
+- Automatically fallback to default theme if specified theme is missing
+
+## [6.5.0] - 2020-05-10
+- Add user impersonation
+- Add support for sass response type
+- Move default instance into _assets
+- Add more detailed audit logging
+
+## [6.4.0] - 2020-04-21
+- Add pug content rendering
+- Add libsass support
+- Add support for email addresses as usernames
+- Add screenshot artifact saving for tests
+- Add callable app menus
+- Tighten up CLI
+
+## [6.3.0] - 2020-04-06
+- Add support for timedetla formatting
+- Fix PyPi build
+- Add zoom init to CLI
+- Add support for more form attribute overrides
+- Bundle fontawesome4
+- Add ztag helper
+
+## [6.2.2] - 2019-12-23
+- Add background processing
+- Enable reading of JSON request bodies
+
+## [6.1.0] - 2019-11-26
+- Add support for pip install
+- Refactor and enhance CLI
+- Add ability to for pages to accept multiple content items
+- Add database information page to admin app
+- Add confirmation emails to register app
+- Add snippets
+- Add support for including templates from app specific themes.
+- Add content comments for missing template includes.
+- Add support for WOFF2 static repsonses.
+- Add db.database property.
+- Add configuration options for profiler.
+- Promote DynamicView to top level class.
+- Add ability to support both helper tags and python format tags in templates.
+- This CHANGELOG file.
+
+## [6.0.0] - 2018-10-12
+### Added
+- First official tagged release
+- Python 3 only
+- MySQL / MariaDB support
+- Linux / Mac / Windows
+### Changed
+- some modules ported from DataZoomer (https://github.com/dsilabs/datazoomer) which is considered the predecessor to Zoom.
+
