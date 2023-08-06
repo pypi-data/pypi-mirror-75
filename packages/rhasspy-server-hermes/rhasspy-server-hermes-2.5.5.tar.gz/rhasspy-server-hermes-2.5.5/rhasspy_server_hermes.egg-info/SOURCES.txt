@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+VERSION
+requirements.txt
+setup.cfg
+setup.py
+rhasspy_server_hermes.egg-info/PKG-INFO
+rhasspy_server_hermes.egg-info/SOURCES.txt
+rhasspy_server_hermes.egg-info/dependency_links.txt
+rhasspy_server_hermes.egg-info/requires.txt
+rhasspy_server_hermes.egg-info/top_level.txt
+rhasspyserver_hermes/__init__.py
+rhasspyserver_hermes/__main__.py
+rhasspyserver_hermes/train.py
+rhasspyserver_hermes/utils.py
