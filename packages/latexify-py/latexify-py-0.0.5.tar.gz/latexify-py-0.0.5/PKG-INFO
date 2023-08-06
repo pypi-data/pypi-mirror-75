@@ -1,0 +1,31 @@
+Metadata-Version: 1.2
+Name: latexify-py
+Version: 0.0.5
+Summary: Generates LaTeX source from Python functions.
+Home-page: https://github.com/odashi/latexify_py
+Author: Yusuke Oda
+Author-email: yus.takara@gmail.com
+License: Apache Software License 2.0
+Description: # latexify_py
+        Generates LaTeX math description from Python functions.
+        
+        ## FAQs
+        1. Which Python version? ... Using 3.6 AST.
+        2. GPT-3? ... No, rule-based.
+        
+        ## Example
+        
+        [Google Colaboratory](https://colab.research.google.com/drive/1MuiawKpVIZ12MWwyYuzZHmbKThdM5wNJ?usp=sharing)
+        
+Keywords: equation latex math mathematics
+Platform: UNKNOWN
+Classifier: Framework :: IPython
+Classifier: Framework :: Jupyter
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Software Development :: Code Generators
+Classifier: Topic :: Text Processing :: Markup :: LaTeX
+Requires-Python: >=3.6, <3.9
