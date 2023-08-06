@@ -1,0 +1,13 @@
+setuptools>=46.1
+pip~=20.1
+more-itertools~=8.2
+
+[dev]
+tox~=3.14
+pytest~=5.4
+wheel~=0.34
+readme-md-docstrings<1,>=0.1.0
+
+[test]
+tox~=3.14
+pytest~=5.4
