@@ -1,0 +1,3 @@
+[console_scripts]
+cy_procedure = cy_procedure.cli:main
+
