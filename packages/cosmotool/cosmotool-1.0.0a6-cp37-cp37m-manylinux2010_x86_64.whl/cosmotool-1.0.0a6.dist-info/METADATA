@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: cosmotool
+Version: 1.0.0a6
+Summary: A small cosmotool box of useful functions
+Home-page: UNKNOWN
+License: CeCILL-v2
+Keywords: cosmology,interpolation,cmake,extension
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: C
+Classifier: Programming Language :: C++
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: cffi
+Requires-Dist: numexpr
+Requires-Dist: pyfftw
+Requires-Dist: h5py
+
+CosmoTool: a small mixed bag library for doing cosmology in C++/python
+======================================================================
+
+
+
+This is cosmotool. I do not provide documentation right now.
+
+
+
