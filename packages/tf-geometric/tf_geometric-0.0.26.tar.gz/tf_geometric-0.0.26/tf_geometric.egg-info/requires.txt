@@ -1,0 +1,17 @@
+numpy>=1.17.4
+networkx>=2.1
+scipy>=1.1.0
+scikit-learn>=0.22
+tqdm
+
+[tf1-cpu]
+tensorflow<2.0.0,>=1.14.0
+
+[tf1-gpu]
+tensorflow-gpu<2.0.0,>=1.14.0
+
+[tf2-cpu]
+tensorflow>=2.0.0b1
+
+[tf2-gpu]
+tensorflow-gpu>=2.0.0b1
