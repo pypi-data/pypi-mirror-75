@@ -1,0 +1,25 @@
+from distutils.core import setup
+setup(
+    name='FlashMail',
+    packages=['FlashMail'],
+    version='0.0.1',
+    license='MIT',
+    description='A fast, simple, yet poweful way to send emails, with less than 10 lines of code',
+    long_description=open('README.txt').read() + '\n\n' + open('CHANGELOG.txt').read(),
+    author='Dhanush Eashwar',
+    author_email='dhanush.eashwar@gmail.com',
+    url='',
+    download_url='',
+    keywords=['emails', 'sending', 'information', 'gmails', 'python', 'attachments', 'images', 'html'],
+    install_requires=[''],
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+        'Intended Audience :: Developers',
+        'Topic :: Software Development :: Build Tools',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 3',
+        'Programming Language :: Python :: 3.4',
+        'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
+    ],
+)
