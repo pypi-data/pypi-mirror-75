@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+lcs_client.md
+setup.py
+lcs_client/__init__.py
+lcs_client.egg-info/PKG-INFO
+lcs_client.egg-info/SOURCES.txt
+lcs_client.egg-info/dependency_links.txt
+lcs_client.egg-info/requires.txt
+lcs_client.egg-info/top_level.txt
+tests/test_client_functions.py
+tests/test_user.py
+tests/testing_utils.py

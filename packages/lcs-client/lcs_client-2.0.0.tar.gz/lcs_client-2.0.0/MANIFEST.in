@@ -1,0 +1,4 @@
+include LICENSE.txt
+include lcs_client.md
+graft tests
+global-exclude *.pyc

@@ -1,0 +1,10 @@
+requests>=2.0
+
+[build]
+wheel~=0.34
+twine~=3.2
+
+[dev]
+pytest~=6.0
+pytest-mock~=3.2
+pydoc-markdown~=3.3
