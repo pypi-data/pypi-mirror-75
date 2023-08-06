@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: standing
+Version: 0.1.0
+Summary: Compute wavenumber-frequency spectra and decomposition into standing and travelling components
+Home-page: https://github.com/oliverwm1/standing
+Author: Oliver Watt-Meyer
+Author-email: oliverwatt@gmail.com
+License: MIT license
+Keywords: standing
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+
+========
+Standing
+========
+
+
+.. image:: https://img.shields.io/pypi/v/standing.svg
+        :target: https://pypi.python.org/pypi/standing
+
+.. image:: https://img.shields.io/travis/oliverwm1/standing.svg
+        :target: https://travis-ci.com/oliverwm1/standing
+
+.. image:: https://readthedocs.org/projects/standing/badge/?version=latest
+        :target: https://standing.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+
+
+Compute wavenumber-frequency spectra and decomposition into standing and travelling components
+
+
+* Free software: MIT license
+* Documentation: https://standing.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.0 (2020-05-31)
+------------------
+
+* First release on PyPI.
+
+
