@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: django-myplant
+Version: 0.0.1
+Summary: this is for compal plants
+Home-page: UNKNOWN
+Author: Manny_Zheng
+Author-email: imzhengk@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# First Package
+django == 2.2
+python == 3.5
+
+
+in setting.py
+
+PLANT = {
+    'plant1' : 'Plant1',
+    'cd' : 'CD',
+}
+
+
