@@ -1,0 +1,7 @@
+[console_scripts]
+ssm-connect = toolkit.ssm_connect:main
+ssm-list = toolkit.ssm_list:main
+ssm-port-forward = toolkit.ssm_port_forward:main
+ssm-run = toolkit.ssm_run:main
+ssm-ssh = toolkit.ssm_ssh:main
+
