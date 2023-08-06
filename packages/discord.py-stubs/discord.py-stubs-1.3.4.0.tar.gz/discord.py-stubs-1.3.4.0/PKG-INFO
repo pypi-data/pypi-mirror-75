@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: discord.py-stubs
+Version: 1.3.4.0
+Summary: discord.py stubs
+License: BSD-3-Clause
+Author: Bryan Forbes
+Author-email: bryan@reigndropsfall.net
+Requires-Python: >=3.6.1,<4.0.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Typing :: Typed
+Requires-Dist: mypy (>=0.782,<0.783)
+Requires-Dist: typing-extensions (>=3.7.4,<4.0.0)
