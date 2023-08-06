@@ -1,0 +1,14 @@
+README.md
+setup.py
+strato_query/__init__.py
+strato_query/aggregations.py
+strato_query/api_query.py
+strato_query/authentication.py
+strato_query/constants.py
+strato_query/exceptions.py
+strato_query/filters.py
+strato_query/query_structures.py
+strato_query.egg-info/PKG-INFO
+strato_query.egg-info/SOURCES.txt
+strato_query.egg-info/dependency_links.txt
+strato_query.egg-info/top_level.txt
