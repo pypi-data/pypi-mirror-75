@@ -1,0 +1,20 @@
+name: pygeoogc-dev
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.8
+  - setuptools
+  - owslib
+  - pyproj
+  - simplejson
+  - shapely
+  - defusedxml
+  - requests
+
+  - bump2version
+  - pytest-cov
+  - pytest-xdist
+  - pre-commit
+  - codecov
+  - coverage
+
