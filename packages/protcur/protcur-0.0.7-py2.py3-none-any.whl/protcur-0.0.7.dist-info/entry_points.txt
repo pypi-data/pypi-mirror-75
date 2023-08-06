@@ -1,0 +1,5 @@
+[console_scripts]
+protcur = protcur.cli:main
+protcur-analysis = protcur.analysis:main
+protcur-server = protcur.server:main
+
