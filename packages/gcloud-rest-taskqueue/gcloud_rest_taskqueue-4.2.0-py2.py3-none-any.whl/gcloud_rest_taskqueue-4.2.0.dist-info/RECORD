@@ -1,0 +1,15 @@
+gcloud_rest_taskqueue-4.2.0-py3.8-nspkg.pth,sha256=yh_2vbQ3vJpMiFbvaFfXmGdXqzGytdeN5hxcSUNFt5g,1692
+gcloud/rest/taskqueue/__init__.py,sha256=rErEkJ_6zbeakzMHVAH-_kisyAgpdMkCv6B7EEBraS4,678
+gcloud/rest/taskqueue/queue.py,sha256=5Pc2t-2LS4JFa7LOZP-1xoLSTGXmbTIu4WEIW-mhNX8,5349
+gcloud/rest/taskqueue/utils.py,sha256=08NixV9WufPcyMZ05ZtK3QMAniUtmP-LaQTomYITZX0,1212
+tests/integration/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/integration/conftest.py,sha256=1gZNiNQRsLQi8-r3GuzoaWioMX7izypeXA_RBTu4V8M,1985
+tests/integration/pushqueue_test.py,sha256=NxW_iy_AGlhvuONRu6qJk7VzEr62PJ17_lwUaW3zsnM,1925
+tests/unit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/unit/utils_test.py,sha256=8Q1mAA_efWrJB1FX8apMGtqcfPrjmCpCA6KhDSDppOE,426
+gcloud_rest_taskqueue-4.2.0.dist-info/LICENSE,sha256=Icg1hWR-wexT11pK_0G4br0w4RzIRi94pRv0dc6bK_k,1068
+gcloud_rest_taskqueue-4.2.0.dist-info/METADATA,sha256=xb8_h66gVu9UfSQGYAix1CKQqL7ZszDvK_L24KLc92c,2650
+gcloud_rest_taskqueue-4.2.0.dist-info/WHEEL,sha256=kGT74LWyRUZrL4VgLh6_g12IeVl_9u9ZVhadrgXZUEY,110
+gcloud_rest_taskqueue-4.2.0.dist-info/namespace_packages.txt,sha256=lvTjKP_ervwXKvwypRaaIo5JBgFsERlMNd73yVqrX10,19
+gcloud_rest_taskqueue-4.2.0.dist-info/top_level.txt,sha256=sox9WnuebKsnnDxekC1Pd7Q7wUz_DL8DRjlHhthn-ik,13
+gcloud_rest_taskqueue-4.2.0.dist-info/RECORD,,
