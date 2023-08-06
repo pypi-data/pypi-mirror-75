@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+data_access/__init__.py
+data_access/base_strategies.py
+data_access/data_manager.py
+data_access/data_record.py
+data_access/storage_strategy.py
+data_access.egg-info/PKG-INFO
+data_access.egg-info/SOURCES.txt
+data_access.egg-info/dependency_links.txt
+data_access.egg-info/top_level.txt

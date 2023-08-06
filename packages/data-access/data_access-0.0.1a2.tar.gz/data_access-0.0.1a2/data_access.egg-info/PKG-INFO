@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: data-access
+Version: 0.0.1a2
+Summary: A library for easy multi-source data access
+Home-page: https://github.com/LearningAnalyticsITMO/data-access
+Author: almdudleer
+Author-email: leshaserdyukov@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/LearningAnalyticsITMO/data_access/archive/v0.0.1-alpha.2.tar.gz
+Description: # data_access
+        A library for data access
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 3 - Alpha
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
