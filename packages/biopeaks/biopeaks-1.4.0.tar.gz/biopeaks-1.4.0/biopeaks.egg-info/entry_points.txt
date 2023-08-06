@@ -1,0 +1,3 @@
+[console_scripts]
+biopeaks = biopeaks.__main__:main
+
