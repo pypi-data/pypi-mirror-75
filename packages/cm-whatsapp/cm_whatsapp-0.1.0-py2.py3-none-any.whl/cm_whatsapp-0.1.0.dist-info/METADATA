@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: cm-whatsapp
+Version: 0.1.0
+Summary: A example Python package
+Home-page: https://github.com/nikhil130yadav/whatsapp_msg_cm.com
+Author: Nikil Yadav
+Author-email: nikhil.nikhil2008@gmail.com
+License: BSD 2-clause
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Requires-Dist: requests
+Requires-Dist: json
+Requires-Dist: os
+
+UNKNOWN
+
+
