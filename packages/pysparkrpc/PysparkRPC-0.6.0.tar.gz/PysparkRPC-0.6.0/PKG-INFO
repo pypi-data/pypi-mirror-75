@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pysparkrpc
+Version: 0.6.0
+Summary: Seamlessly run Pyspark code on remote clusters.
+Home-page: https://github.com/abronte/PysparkRPC
+License: MIT
+Author: Adam Bronte
+Author-email: adam@bronte.me
+Requires-Python: >=3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: cloudpickle (>=1.5.0,<2.0.0)
+Requires-Dist: findspark (>=1.4.2,<2.0.0)
+Requires-Dist: flask (>=1.1.2,<2.0.0)
+Requires-Dist: httpx (>=0.13.3,<0.14.0)
+Project-URL: Repository, https://github.com/abronte/PysparkRPC
+Project-URL: issues, https://github.com/abronte/PysparkRPC/issues
+Description-Content-Type: text/x-rst
+
+PysparkRPC |teststatus|
+========================
+
+.. |teststatus| image:: https://github.com/abronte/PysparkRPC/workflows/Tests/badge.svg
+
+
+Seamlessly run Pyspark code on remote clusters.
+
