@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: faas-sdk
+Version: 1.0.0
+Summary: FaaS Python SDK
+Home-page: UNKNOWN
+Author: Sonra Intelligence Ltd
+Author-email: hello@sonra.io
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+Requires-Dist: requests (>=2.22.0)
+
+# FaaS-SDK
+Core SDK / FaaS Client to work with FaaS API
+
+https://api.sonra.io/documentation/
+
+
