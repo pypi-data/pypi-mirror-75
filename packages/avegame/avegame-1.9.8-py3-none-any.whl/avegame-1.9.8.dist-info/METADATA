@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: avegame
+Version: 1.9.8
+Summary: Adventure! Villainy! Excitement!
+Home-page: https://github.com/AVEgame/AVE
+Author: Matthew Scroggs and Giancarlo Grasso
+Author-email: ave@mscroggs.co.uk
+Maintainer-email: ave@mscroggs.co.uk
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: windows-curses (>=2.1.0) ; platform_system == "Windows"
+
+UNKNOWN
+
+

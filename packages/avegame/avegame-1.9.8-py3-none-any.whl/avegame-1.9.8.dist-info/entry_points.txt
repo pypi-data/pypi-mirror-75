@@ -1,0 +1,4 @@
+[console_scripts]
+ave = ave.__main__:run
+ave-test = ave.__main__:test_game
+
