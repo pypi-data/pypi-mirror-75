@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "fluepdot"
+version = "0.1.1"
+description = "A wrapper for the Fluepdot HTTP API"
+authors = ["Carl Gödecken <m@mastercarl.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pillow = "^7.0.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
