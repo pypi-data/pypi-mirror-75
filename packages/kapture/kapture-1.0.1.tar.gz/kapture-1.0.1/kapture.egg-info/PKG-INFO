@@ -1,0 +1,432 @@
+Metadata-Version: 2.1
+Name: kapture
+Version: 1.0.1
+Summary: kapture: file format for SfM
+Home-page: UNKNOWN
+Author: naverlabs
+Author-email: kapture@naverlabs.com
+License: UNKNOWN
+Description: ![KAPTURE](assets/kapture_logo.svg)
+        
+        kapture: data format
+        ====================
+        
+        Overview
+        --------
+        
+        Kapture is a pivot file format, based on text and binary files, used to
+        describe SfM (Structure From Motion) and more generally sensor-acquired
+        data.
+        
+        It can be used to store sensor parameters and raw sensor data: - cameras
+        - images - lidar and other sensor data
+        
+        As well as computed data:
+        
+        -   2d features
+        
+        -   3d reconstruction
+        
+        Specifications
+        --------------
+        
+        The format specification is detailed in the [kapture format
+        specifications document](kapture_format.adoc).
+        
+        Example File Structure
+        ----------------------
+        
+        This is an example file structure of a dataset in the kapture format.
+        
+            my_dataset                 # Dataset root path
+            ├─ sensors/                # Sensor data root path
+            │  ├─ sensors.txt          # list of all sensors with their specifications (e.g. camera intrinsics)
+            │  ├─ rigs.txt             # geometric relationship between sensors (optional)
+            │  ├─ trajectories.txt     # extrinsics (timestamp, sensor, pose)
+            │  ├─ records_camera.txt   # all records of type 'camera' (timestamp, sensor and path to image)
+            │  ├─ records_SENSOR_TYPE.txt # all records of type SENSOR_TYPE (other sensors, eg: 'magnetic', 'pressure'...)
+            │  └─ records_data/            # image and lidar data path
+            │     ├─ map/cam_01/00001.jpg  # image path used in records_camera.txt (example)
+            │     ├─ map/cam_01/00002.jpg
+            │     ├─ map/lidar_01/0001.pcd # lidar data path used in records_lidar.txt
+            │     ├─ query/query001.jpg    # image path used in records_camera.txt
+            │     ├─ ...
+            ├─ reconstruction/
+            │  ├─ keypoints/                    # 2D keypoints files
+            │  │  ├─ keypoints.txt              # type of keypoint
+            │  │  ├─ map/cam_01/00001.jpg.kpt   # keypoints for corresponding image (example)
+            │  │  ├─ query/query001.jpg.kpt     # keypoints for corresponding image (example)
+            │  │  ├─ ...
+            │  ├─ descriptors/                  # keypoint descriptors files
+            │  │  ├─ descriptors.txt            # type of descriptor
+            │  │  ├─ map/cam_01/00001.jpg.desc  # descriptors for corresponding image (example)
+            │  │  ├─ query/query001.jpg.desc    # descriptors for corresponding image (example)
+            │  │  ├─ ...
+            │  ├─ ...
+            │  ├─ points3d.txt                  # 3D points of the reconstruction
+            │  ├─ observations.txt              # 2D/3D points corespondences
+            │  ├─ matches/                      # matches files.
+            │  │  ├─ map/cam_01/00001.jpg.overlapping/cam_01/00002.jpg.matches # example
+            │  │  ├─ ...
+        
+        Software
+        --------
+        
+        The kapture format is provided with a Python library, as well as several
+        conversion tools.
+        
+        ### Install
+        
+            pip install kapture
+        
+        or see [installation](doc/installation.adoc) for more detailed
+        instructions.
+        
+        ### Using docker
+        
+        Build the docker image:
+        
+            # build the docker image
+            docker build . -t kapture
+            # run unit tests
+            docker run -it --rm kapture python3 -m unittest discover -s /opt/source/kapture/tests
+        
+        If you want to process your own data, you can bind directories between
+        the host and the container using `--volume` or `--mount` option (See the
+        [docker documentation](https://docs.docker.com/storage/bind-mounts/)).
+        The following example mounts `/path/to/dataset/` from the host to
+        `/dataset` inside the docker.
+        
+            docker run -it \
+                --rm \ # Automatically remove the container when it exits \
+                --volume /path/to/dataset/:/dataset:ro \ #read only
+                kapture
+        
+        ### kapture library
+        
+        ### kapture tools
+        
+        In this repository, you will find a set of **conversion tools** to or
+        from kapture format. Import results to kapture format, and conversely,
+        export converts kapture data to other formats. Depending of the format,
+        some data might not be converted, either because the other format does
+        not support it (`—`) or because its was not implemented (`⨉`). Here is a
+        table summarizing the conversion capabilities:
+        
+        <table style="width:100%;">
+        <caption>conversion capabilities</caption>
+        <colgroup>
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        <col style="width: 7%" />
+        </colgroup>
+        <thead>
+        <tr class="header">
+        <th>Format</th>
+        <th>← →</th>
+        <th>cam</th>
+        <th>rig</th>
+        <th>img</th>
+        <th>trj</th>
+        <th>gps</th>
+        <th>kpt</th>
+        <th>dsc</th>
+        <th>gft</th>
+        <th>p3D</th>
+        <th>obs</th>
+        <th>mch</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd">
+        <td><p>colmap</p></td>
+        <td><p>import</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>⨉</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>(✓)</p></td>
+        </tr>
+        <tr class="even">
+        <td><p>export</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>⨉</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>(✓)</p></td>
+        <td></td>
+        </tr>
+        <tr class="odd">
+        <td><p>openmvg</p></td>
+        <td><p>import</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>⨉</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        </tr>
+        <tr class="even">
+        <td><p>export</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>⨉</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td></td>
+        </tr>
+        <tr class="odd">
+        <td><p>OpenSfM</p></td>
+        <td><p>import</p></td>
+        <td><p>✓</p></td>
+        <td><p>⨉</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>⨉</p></td>
+        <td><p>✓</p></td>
+        </tr>
+        <tr class="even">
+        <td><p>export</p></td>
+        <td><p>✓</p></td>
+        <td><p>⨉</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>⨉</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>⨉</p></td>
+        <td><p>✓</p></td>
+        <td></td>
+        </tr>
+        <tr class="odd">
+        <td><p>bundler</p></td>
+        <td><p>import</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        </tr>
+        <tr class="even">
+        <td><p>image_folder</p></td>
+        <td><p>import</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        </tr>
+        <tr class="odd">
+        <td><p>image_list</p></td>
+        <td><p>import</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        </tr>
+        <tr class="even">
+        <td><p>nvm</p></td>
+        <td><p>import</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        </tr>
+        <tr class="odd">
+        <td><p>IDL_dataset_cvpr17</p></td>
+        <td><p>import</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        </tr>
+        <tr class="even">
+        <td><p>RobotCar_Seasons</p></td>
+        <td><p>import</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>?</p></td>
+        <td><p>—</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>?</p></td>
+        </tr>
+        <tr class="odd">
+        <td><p>ROSbag cameras+trajectory</p></td>
+        <td><p>import</p></td>
+        <td><p>(✓)</p></td>
+        <td><p>(✓)</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>⨉</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        </tr>
+        <tr class="even">
+        <td><p>SILDa</p></td>
+        <td><p>import</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        </tr>
+        <tr class="odd">
+        <td><p>virtual_gallery</p></td>
+        <td><p>import</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>✓</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        <td><p>—</p></td>
+        </tr>
+        </tbody>
+        </table>
+        
+        -   `✓`: supported, `(✓)` partially supported, `⨉`: not implemented,
+            `—`: not supported by format.
+        
+        -   `cam`: handle camera parameters, eg. intrisics
+        
+        -   `rig`: handle rig structure.
+        
+        -   `img`: handle the path to images.
+        
+        -   `trj`: handle trajectories, eg. poses.
+        
+        -   `kpt`: handle image keypoints locations.
+        
+        -   `dsc`: handle image keypoints descriptors.
+        
+        -   `gft`: handle global image feature descriptors.
+        
+        -   `p3D`: handle 3D point clouds.
+        
+        -   `obs`: handle observations, ie. 3D-points / 2D keypoints
+            correspondences.
+        
+        -   `mch`: handle keypoints matches.
+        
+        Tutorial
+        --------
+        
+        See the [kapture tutorial](doc/tutorial.adoc) for a short introduction
+        to:
+        
+        -   conversion tools
+        
+        -   dataset download
+        
+        -   localization pipelines
+        
+        Contributing
+        ------------
+        
+        If you wish to contribute, please refer to the
+        [CONTRIBUTING](CONTRIBUTING.adoc) page.
+        
+        License
+        -------
+        
+        Software license is detailed in the [LICENSE](LICENSE) file.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev
