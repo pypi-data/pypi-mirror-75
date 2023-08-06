@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: client_agreement_api
+Version: 0.0.3
+Summary: A small example package
+Home-page: https://github.com/Abdullahabid3691/ClientAgreement-Api
+Author: Abdullah Abid
+Author-email: abdullahabid3691@gmail.com
+License: UNKNOWN
+Description: # ClientAgreement-Api
+        A sample project to distribute on pypi.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

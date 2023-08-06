@@ -1,0 +1,8 @@
+connexion==2.7.0
+connexion[openapi-ui]==0.0.6
+flask==1.1.1
+Flask-SQLAlchemy==2.4.4
+flask-marshmallow
+marshmallow
+marshmallow-sqlalchemy
+Werkzeug
