@@ -1,0 +1,93 @@
+Metadata-Version: 2.1
+Name: qobra
+Version: 1.1.0
+Summary: A simple music player for the command line
+Home-page: https://github.com/aloussase/qobra
+Author: Alexander Goussas
+Author-email: agoussas@espol.edu.ec
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: mpg123
+
+# qobra
+
+A simple music player for the command line.
+
+![qobra](./assets/qobra.png)
+
+## Why qobra?
+
+You can't get much more minimal than qobra. qobra extends mpg123 functionalities
+to provide ease of navigation between your songs. As of version 1.1.0, qobra:
+
+- can play songs in normal and shuffle mode
+- provides a search functionality to filter your music
+- supports a vast variety of file formats thanks to mpg123
+
+## Installation
+
+qobra is available on PyPI. Install it with pip:
+
+```bash
+pip install qobra
+```
+
+mpg123 will be installed as a dependency as well.
+
+## Usage
+
+```bash
+qobra [-d dirname] [options]
+```
+
+Where `dirname` is your music directory. You can also set the music directory in
+qobra's config file to avoid having to type it every time, as explained below.
+
+## Control
+
+| Key   | Function            |
+| ----  | ---------           |
+| j     | go down a song      |
+| k     | go up a song        |
+| l     | play selected song  |
+| p     | pause song          |
+| t     | toggle playing mode |
+| q     | quit qobra          |
+| o     | play next song      |
+| i     | play previous song  |
+| /     | open search bar     |
+| Enter | submit search       |
+| Esc   | cancel search       |
+
+
+## Configuration
+
+qobra will look for a configuration file in ~/.config/qobra/config.py or use the
+default configuration if it can't find one. You can copy the sample config.py
+file in this repository to ~/.config/qobra/config.py if you want to have your
+own configuration.
+
+You can customize qobra's colors in the config.py file, as well as set your
+music directory to avoid having to write it out on the command line:
+
+```python
+music_dir = '~/music'
+```
+
+## TODOS
+
+If you like this project, you can help with one of these:
+
+- [ ] Implement pause functionality.
+
+## Issues
+
+- Resizing the window while the search bar is summoned may break the program.
+
+
+
+
