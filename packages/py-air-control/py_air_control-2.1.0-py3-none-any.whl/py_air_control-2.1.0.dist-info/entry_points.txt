@@ -1,0 +1,4 @@
+[console_scripts]
+airctrl = pyairctrl.airctrl:main
+cloudctrl = pyairctrl.cloudctrl:main
+
