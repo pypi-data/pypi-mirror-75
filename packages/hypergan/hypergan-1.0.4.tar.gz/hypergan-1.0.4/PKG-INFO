@@ -1,0 +1,29 @@
+Metadata-Version: 1.2
+Name: hypergan
+Version: 1.0.4
+Summary: A customizable generative adversarial network with reproducible configurations.  Build your own content generator.
+Home-page: https://github.com/255BITS/hypergan
+Author: HyperGAN
+Author-email: hypergan@protonmail.com
+Maintainer: hypergan developers
+Maintainer-email: hypergan@protonmail.com
+License: MIT
+Description: HyperGAN is an AI framework for building Generative Adversarial Networks. There are examples for building classifiers, content generators, sequence generation, and aligning two datasets. Check out the github for more information.
+Keywords: hypergan,neural network,procedural content generation,generative adversarial network,pytorch
+Platform: Linux
+Platform: Mac OS-X
+Platform: Unix
+Platform: Windows
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Artistic Software
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
