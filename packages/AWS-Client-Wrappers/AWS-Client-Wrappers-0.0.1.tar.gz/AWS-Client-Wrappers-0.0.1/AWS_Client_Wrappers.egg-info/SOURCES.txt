@@ -1,0 +1,15 @@
+README.md
+setup.py
+AWS_Client_Wrappers.egg-info/PKG-INFO
+AWS_Client_Wrappers.egg-info/SOURCES.txt
+AWS_Client_Wrappers.egg-info/dependency_links.txt
+AWS_Client_Wrappers.egg-info/not-zip-safe
+AWS_Client_Wrappers.egg-info/requires.txt
+AWS_Client_Wrappers.egg-info/top_level.txt
+aws/__init__.py
+aws/base.py
+aws/boto3.py
+aws/s3.py
+aws/s3client.py
+test/__init__.py
+test/unitttest/__init__.py

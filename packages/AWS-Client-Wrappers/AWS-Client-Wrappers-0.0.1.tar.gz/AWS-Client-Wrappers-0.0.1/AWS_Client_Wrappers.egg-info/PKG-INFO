@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: AWS-Client-Wrappers
+Version: 0.0.1
+Summary: AWS client wrappers for even easier doing stuff
+Home-page: https://github.com/kmjbyrne/aws
+Author: Keith Byrne
+Author-email: keithmbyrne@gmail.com
+License: MIT
+Description: # aws-client
+        AWS Client for secrets manager and S3 mostly
+        
+Keywords: python library utilities
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
