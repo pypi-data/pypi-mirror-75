@@ -1,0 +1,96 @@
+mlspec_base_type:
+  # Base schema type that this extends
+  meta: base
+
+mlspec_schema_version:
+  # Identifies the version of this schema
+  meta: 0.0.1
+
+mlspec_schema_type:
+  # Identifies the type of this schema
+  meta: metadata
+
+schema_version:
+  # Identifies version of MLSpec to use to instantiate
+  type: semver
+  required: True
+
+schema_type:
+  # Identifies type of MLSpec to use to instantiate
+  type: allowed_schema_types
+  required: True
+
+name:
+  # name: (Required) name of this model file
+  type: string
+  required: True
+
+model_identifier:
+  # string to describe the model
+  type: string
+  required: True
+description:
+  # description: (Optional) description of this model file
+  type: string
+  required: False
+author:
+  # author: (Required for trainable)
+  type: nested
+  schema:
+    name:
+      # name: (Required for trainable) name of this training job's author
+      type: string
+      required: True
+    email:
+      #   email: (Required for trainable) email of this training job's author
+      type: email
+      required: True
+framework:
+  # framework: (Required)
+  type: nested
+  schema:
+    name:
+      #   name: (Required) ML/DL framework format that the model is stored as.
+      type: string
+      required: True
+    version:
+      #   version: (Optional) Framework version used for this model
+      type: string
+      required: True
+    runtimes:
+      #   runtimes: (Required for trainable)
+      type: nested
+      schema:
+        name:
+          #     name: (Required for trainable) programming language for the model runtime
+          type: string
+          required: True
+        version:
+          #     version: (Required for trainable) programming language version for the model runtime
+          type: string
+          required: True
+
+license:
+  # license: (Optional) License for this model.
+  type: string
+  required: False
+
+domain:
+  # domain: (Optional) Domain metadata for this model.
+  type: string
+  required: False
+
+purpose:
+  # purpose: (Optional) Purpose of this model, e.g. binary_classification
+  type: string
+  required: False
+
+website:
+  # website:  (Optional) Links that explain this model in more details
+  type: uri
+  required: False
+
+labels:
+  # labels: (Optional list) labels and tags for this model
+  type: dict
+  required: False

@@ -1,0 +1,36 @@
+mlspec_base_type:
+  # Base schema type that this extends
+  meta: base
+
+mlspec_schema_version:
+  # Identifies the version of this schema
+  meta: 0.0.1
+
+mlspec_schema_type:
+  # Identifies the type of this schema
+  meta: environment
+
+schema_version:
+  # Identifies version of MLSpec to use to instantiate
+  type: semver
+  required: True
+
+schema_type:
+  # Identifies type of MLSpec to use to instantiate
+  type: allowed_schema_types
+  required: True
+
+# Conda environment specification. Details about the Conda environment file format:
+# https://conda.io/docs/user-guide/tasks/manage-environments.html#create-env-file-manually
+
+environment_name:
+  type: string
+  required: True
+
+dependencies:
+  type: list_dependencies
+  required: True
+
+channels:
+  type: list_strings
+  required: True
