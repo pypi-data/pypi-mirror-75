@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: pt-cardano-cli-pooloverflow
+Version: 0.0.11
+Summary: A simple auto-complete prompt for cardano-cli
+Home-page: https://github.com/pooloverflow/pt-cardano-cli
+Author: pooloverflow
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: prompt-toolkit (>=3.0.5)
+
+# ptcardanocli
+A simple auto-complete prompt for cardano-cli
+
+
+
