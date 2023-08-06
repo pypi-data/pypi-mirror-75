@@ -1,0 +1,12 @@
+include meta.json
+include tokenizer
+include pycvextract/ner *
+include pycvextract/vocab *
+
+recursive-include pycvextract *
+
+exclude pycvextract/annotated_resumes2.json
+exclude pycvextract/annotated_for_training_shuffled.json
+exclude pycvextract/final_final_training_shuffled.json
+exclude pycvextract/custom_train.py
+
