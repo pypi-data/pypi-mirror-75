@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: abtem
+Version: 1.0.0b1
+Summary: ab initio Transmission Electron Microscopy
+Home-page: https://github.com/jacobjma/abtem
+Author: Jacob Madsen
+Author-email: jacob.madsen@univie.ac.at
+Maintainer: Jacob Madsen
+Maintainer-email: jacob.madsen@univie.ac.at
+License: UNKNOWN
+Platform: any
+Requires-Python: >=3.6
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: numba
+Requires-Dist: imageio
+Requires-Dist: pyfftw
+Requires-Dist: h5py
+Requires-Dist: matplotlib
+Requires-Dist: ase
+Requires-Dist: tqdm
+
+[![Gitter](https://badges.gitter.im/abTEM/community.svg)](https://gitter.im/abTEM/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
+
+# abTEM
+ab initio Transmission Electron Microscopy
+
+This program is under development and subject to changes.
+
+
