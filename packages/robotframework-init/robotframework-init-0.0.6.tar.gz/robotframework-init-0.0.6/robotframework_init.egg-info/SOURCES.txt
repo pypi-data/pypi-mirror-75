@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.py
+./robotframework-init/resource/.gitignore
+./robotframework-init/resource/README.md
+./robotframework-init/resource/env.resource
+./robotframework-init/resource/global.resource
+./robotframework-init/resource/init.bat
+./robotframework-init/resource/init.sh
+./robotframework-init/resource/requirement.txt
+robotframework-init/__init__.py
+robotframework-init/rf_init.py
+robotframework_init.egg-info/PKG-INFO
+robotframework_init.egg-info/SOURCES.txt
+robotframework_init.egg-info/dependency_links.txt
+robotframework_init.egg-info/requires.txt
+robotframework_init.egg-info/top_level.txt
