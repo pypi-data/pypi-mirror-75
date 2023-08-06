@@ -1,0 +1,3 @@
+[console_scripts]
+python_benforder = python_benforder.cli:main
+
