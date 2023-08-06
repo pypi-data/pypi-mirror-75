@@ -1,0 +1,17 @@
+README.md
+setup.py
+hbp_neuromorphic_platform.egg-info/PKG-INFO
+hbp_neuromorphic_platform.egg-info/SOURCES.txt
+hbp_neuromorphic_platform.egg-info/dependency_links.txt
+hbp_neuromorphic_platform.egg-info/entry_points.txt
+hbp_neuromorphic_platform.egg-info/requires.txt
+hbp_neuromorphic_platform.egg-info/top_level.txt
+nmpi/__init__.py
+nmpi/cli.py
+nmpi/nmpi_admin.py
+nmpi/nmpi_saga.py
+nmpi/nmpi_user.py
+nmpi/psa-oauth2.py
+test/test_client.py
+test/test_mock.py
+test/test_saga_client.py
