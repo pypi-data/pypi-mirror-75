@@ -1,0 +1,10 @@
+{% load wagtailcore_tags i18n %}
+
+<div id="collect-block" class="theme-{{ page.theme }}">
+    <div class="collect">
+        {{ settings.cms.WebspaceSettings.collect_text|richtext }}
+        <div class="collect-btn">
+            <a id="collect-btn" href="#" class="btn primary-light">{% trans "I agree" %}</a>
+        </div>
+    </div>
+</div>
