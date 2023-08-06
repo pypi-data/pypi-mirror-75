@@ -1,0 +1,12 @@
+[build-system]
+requires = ["setuptools>=42", "wheel", "setuptools_scm[toml]>=3.5.0"]
+build-backend = "setuptools.build_meta"
+
+[tools.setuptools_scm]
+local_scheme = "no-local-version"
+
+[tool.coverage.run]
+omit = "*test*"
+
+[tool.coverage.report]
+exclude_lines = ["if __name__ == .__main__.:", "def __repr__"]
