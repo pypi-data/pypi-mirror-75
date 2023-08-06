@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: SentimentAnalysis
+Version: 0.8
+Summary: A small example package
+Home-page: https://github.com/arunkottilukkal/AnalyseSentiment
+Author: Arun Kesavan
+Author-email: arunkottilukkal@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/arunkottilukkal/AnalyseSentiment/archive/v_08.tar.gz
+Description: # SentimentAnalysis Package
+        
+        # How to use the package?
+        
+        from AnalyseSentiment.AnalyseSentiment import AnalyseSentiment
+        
+        obj = AnalyseSentiment()
+        
+        data = obj.Analyse("sentence to be analysed")
+Keywords: Sentiment Analysis,Sentence Sentiment,Emotion Analysis
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
