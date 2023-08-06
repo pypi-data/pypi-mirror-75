@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: textwrangler
+Version: 0.0.2
+Summary: A simple library for cleaning and pre-processing text.
+Home-page: https://github.com/mattmurray/textwrangler
+License: UNKNOWN
+Download-URL: https://github.com/mattmurray/textwrangler/archive/v0.0.2.tar.gz
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Requires-Dist: nltk
+Requires-Dist: beautifulsoup4
+Requires-Dist: better-profanity
+Requires-Dist: contractions
+Requires-Dist: langdetect
+Requires-Dist: textblob
+Requires-Dist: textstat
+Requires-Dist: textsearch
+Requires-Dist: inflect
+Requires-Dist: unidecode
+Requires-Dist: scikit-learn
+
+UNKNOWN
+
+
