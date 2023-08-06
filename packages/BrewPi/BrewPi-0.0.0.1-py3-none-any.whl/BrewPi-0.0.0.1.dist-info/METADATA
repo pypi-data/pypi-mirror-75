@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: BrewPi
+Version: 0.0.0.1
+Summary: For the fans of the original Arduino temperature controller
+Home-page: https://github.com/pypa/brewpi-remix
+Author: Lee C. Bussy
+Author-email: lee@bussy.org
+License: UNKNOWN
+Project-URL: Support, https://docs.brewpiremix.com
+Project-URL: Bug Reports, https://github.com/brewpi-remix/brewpi/issues
+Project-URL: Source, https://github.com/brewpi-remix/brewpi
+Keywords: homebrew,home brew,beer,temperature,temperature control,fermentation,control,PID
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Developers
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: PHP
+Classifier: Programming Language :: JavaScript
+Classifier: Topic :: Home Automation
+Classifier: Topic :: Utilities
+Requires-Python: >=3.7, <4
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: configobj
+Requires-Dist: GitPython
+Requires-Dist: psutil
+Requires-Dist: pyserial
+Requires-Dist: requests
+Requires-Dist: scipy
+Requires-Dist: sentry-sdk
+Requires-Dist: simplejson
+Requires-Dist: urllib3
+Provides-Extra: dev
+Requires-Dist: check-manifest ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: coverage ; extra == 'test'
+
+# brewpi-python
+A new Python3 project for BrewPi Remix
+
+
