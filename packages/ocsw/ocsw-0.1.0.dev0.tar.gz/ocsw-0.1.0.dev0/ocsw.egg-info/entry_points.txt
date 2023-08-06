@@ -1,0 +1,3 @@
+[console_scripts]
+ocsw-cli = ocsw.cli:main
+
