@@ -1,0 +1,14 @@
+README.md
+setup.py
+iparse/__init__.py
+iparse/_parse.py
+iparse.egg-info/PKG-INFO
+iparse.egg-info/SOURCES.txt
+iparse.egg-info/dependency_links.txt
+iparse.egg-info/requires.txt
+iparse.egg-info/top_level.txt
+tests/__init__.py
+tests/test_iparser.py
+tests/test_json_parser.py
+tests/test_linkedin.py
+tests/xkcd01.py
