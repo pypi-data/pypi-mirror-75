@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Usage Guide &mdash; igem-wikisync 0.0.7 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Reference for Developers" href="../reference/index.html" />
+    <link rel="prev" title="Tutorial" href="../tutorial/index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> igem-wikisync
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Usage Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maintaining-a-session">Maintaining a Session</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#keeping-track-of-changes">Keeping Track of Changes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tracking-broken-links">Tracking Broken Links</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#logging">Logging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#continuous-integration">Continuous Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">igem-wikisync</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Usage Guide</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/usage/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="usage-guide">
+<span id="id1"></span><h1><a class="toc-backref" href="#id4">Usage Guide</a><a class="headerlink" href="#usage-guide" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#usage-guide" id="id4">Usage Guide</a></p>
+<ul>
+<li><p><a class="reference internal" href="#getting-started" id="id5">Getting Started</a></p></li>
+<li><p><a class="reference internal" href="#maintaining-a-session" id="id6">Maintaining a Session</a></p></li>
+<li><p><a class="reference internal" href="#keeping-track-of-changes" id="id7">Keeping Track of Changes</a></p></li>
+<li><p><a class="reference internal" href="#tracking-broken-links" id="id8">Tracking Broken Links</a></p></li>
+<li><p><a class="reference internal" href="#logging" id="id9">Logging</a></p></li>
+<li><p><a class="reference internal" href="#continuous-integration" id="id10">Continuous Integration</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="getting-started">
+<h2><a class="toc-backref" href="#id5">Getting Started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>WikiSync runs through a Python script in your root directory, and looks for your iGEM username and password in your terminal session as environment variables.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this guide, we assume a familiarity and level of comfort with Python and command line software. If that doesn’t sound like you, head over to our <a class="reference internal" href="../tutorial/index.html#tutorial"><span class="std std-ref">Tutorial</span></a> where we explain everything you need to know.</p>
+</div>
+<p>In the Python script, it requires three parameters as input:</p>
+<ol class="arabic simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">src_dir</span></code>: Folder where your source code exists.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">build_dir</span></code>: Folder where WikiSync will save the modified code before uploading.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">team</span></code>: Your team name registered with iGEM.</p></li>
+</ol>
+<p>Let’s assume your wiki folder has the following structure:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wiki</span><span class="o">/</span>
+    <span class="n">index</span><span class="o">.</span><span class="n">html</span>
+    <span class="n">css</span><span class="o">/</span>
+        <span class="n">home</span><span class="o">.</span><span class="n">css</span>
+        <span class="n">content</span><span class="o">.</span><span class="n">css</span>
+    <span class="n">js</span><span class="o">/</span>
+        <span class="n">main</span><span class="o">.</span><span class="n">js</span>
+        <span class="n">content</span><span class="o">.</span><span class="n">js</span>
+    <span class="n">assets</span><span class="o">/</span>
+        <span class="n">img</span><span class="o">/</span>
+            <span class="n">logo</span><span class="o">.</span><span class="n">jpg</span>
+        <span class="n">video</span><span class="o">/</span>
+            <span class="n">intro</span><span class="o">.</span><span class="n">mp4</span>
+    <span class="n">Description</span><span class="o">/</span>
+        <span class="n">index</span><span class="o">.</span><span class="n">html</span>
+    <span class="n">Design</span><span class="o">/</span>
+        <span class="n">index</span><span class="o">.</span><span class="n">html</span>
+</pre></div>
+</div>
+<ol class="arabic">
+<li><p>Since WikiSync saves the modified source code before uploading, the directory structure needs to change a little:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wiki</span><span class="o">/</span>
+    <span class="n">src</span><span class="o">/</span>
+        <span class="n">index</span><span class="o">.</span><span class="n">html</span>
+        <span class="c1"># ... all the content from above</span>
+    <span class="n">build</span><span class="o">/</span>
+        <span class="c1"># this is where modified code will be stored</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Now, add the Python script, <code class="docutils literal notranslate"><span class="pre">wikisync.py</span></code>:</p>
+<blockquote>
+<div><div class="highlight-python notranslate" id="wikisync-snippet"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">igem_wikisync</span> <span class="k">as</span> <span class="nn">sync</span>
+
+<span class="n">sync</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">team</span><span class="o">=</span><span class="s1">&#39;your_team_name&#39;</span><span class="p">,</span>
+    <span class="n">src_dir</span><span class="o">=</span><span class="s1">&#39;source_directory&#39;</span><span class="p">,</span>     <span class="c1"># &#39;src&#39; in this case</span>
+    <span class="n">build_dir</span><span class="o">=</span><span class="s1">&#39;build_directory&#39;</span>     <span class="c1"># &#39;build&#39; in this case</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Export the following environment variables:</p>
+<blockquote>
+<div><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">IGEM_USERNAME</span><span class="o">=</span><span class="n">youriGEMusername</span>
+<span class="n">IGEM_PASSWORD</span><span class="o">=</span><span class="n">youriGEMpassword</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p>Run wikisync.py by executing:</p>
+<blockquote>
+<div><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 wikisync.py
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ol>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>We use environment variables for credentials so that they’re not accidentally committed to Git. If you’re using a bash script to export your credentials, please remember to add it to <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
+</div>
+<p>And that’s all! Your wiki has been deployed to iGEM!</p>
+<p>Read on to see how WikiSync performs optimizations by storing cookies and uploading only the files that have changed.</p>
+</div>
+<div class="section" id="maintaining-a-session">
+<span id="cookies"></span><h2><a class="toc-backref" href="#id6">Maintaining a Session</a><a class="headerlink" href="#maintaining-a-session" title="Permalink to this headline">¶</a></h2>
+<p>WikiSync stores cookies so you don’t have to login on every run. This reducing network overhead and also makes the overall operation faster.</p>
+<p>Cookies are stored in a file called <code class="docutils literal notranslate"><span class="pre">wikisync.cookies</span></code> in the directory where WikiSync is run.</p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>It is strongly recommended that you add <code class="docutils literal notranslate"><span class="pre">wikisync.cookies</span></code> to <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p>
+</div>
+</div>
+<div class="section" id="keeping-track-of-changes">
+<span id="tracking-changes"></span><h2><a class="toc-backref" href="#id7">Keeping Track of Changes</a><a class="headerlink" href="#keeping-track-of-changes" title="Permalink to this headline">¶</a></h2>
+<p>After each run of WikiSync, it creates a file called <code class="docutils literal notranslate"><span class="pre">upload_map.yml</span></code> in the directory where it was run. This is a list of files it has encountered and uploaded till now, along with their URLs and MD5 hashes. This ensures that existing files are not uploaded again, but their URLs still can be substituted in the code. MD5 hashes allow it to check for changes within existing files, so it can upload the modified versions.</p>
+<p>This is also useful in case connection to iGEM servers is lost while uploading. WikiSync saves the intermediate state in the upload map, so you can resume from that point when the internet connection is restored.</p>
+<p>The upload map can (and should) be tracked by a version control system, to allow <a class="reference internal" href="#id3">continuous integration</a> and deployment through <a class="reference external" href="https://travis-ci.com">Travis</a>. This also helps you get a bird’s eye view of the upload operation without having to read the log.</p>
+<p>The upload map should never be edited manually. If this file is deleted/damaged, WikiSync will upload each file again, which can overload the iGEM servers unnecessarily. This can be especially troublesome when all the teams try to upload their content, close to the Wiki Freeze.</p>
+</div>
+<div class="section" id="tracking-broken-links">
+<h2><a class="toc-backref" href="#id8">Tracking Broken Links</a><a class="headerlink" href="#tracking-broken-links" title="Permalink to this headline">¶</a></h2>
+<p>As your wiki grows into several pages and hundreds of links spread across them, it can be hard to find broken links. WikiSync tries to make this easier by checking for broken (internal) links. This functionality is enabled by default to enforce good practice, but it can be disabled. Look at the configuration options to know more about this.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Broken link warnings can be silenced by passing <code class="docutils literal notranslate"><span class="pre">silence_warnings=True</span></code> in the call to <code class="docutils literal notranslate"><span class="pre">wikisync.run()</span></code>.</p>
+</div>
+</div>
+<div class="section" id="logging">
+<span id="id2"></span><h2><a class="toc-backref" href="#id9">Logging</a><a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h2>
+<p>WikiSync prints a log of all the operations it carries out, allowing you to oversee them. This log is present in the <code class="docutils literal notranslate"><span class="pre">wikisync.log</span></code> file. You can search for specific events using the following keywords:</p>
+<div class="admonition-under-construction admonition">
+<p class="admonition-title">Under construction.</p>
+<p>Coming up in a few days.</p>
+</div>
+<p>This file doesn’t contain any sensitive information, and can be committed to git.</p>
+</div>
+<div class="section" id="continuous-integration">
+<span id="id3"></span><h2><a class="toc-backref" href="#id10">Continuous Integration</a><a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h2>
+<p>Since WikiSync can upload your entire wiki automatically, this job can now be fully integrated into your version control system itself. <a class="reference external" href="https://travis-ci.com">Travis CI</a> can now deploy to iGEM just as easily as it can deploy to Github Pages.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In this guide, we assume a familiarity and level of comfort with version control systems and continuous integration. If that doesn’t sound like you, head over to our <a class="reference internal" href="../tutorial/index.html#tutorial"><span class="std std-ref">Tutorial</span></a> where we explain everything you need to know.</p>
+</div>
+<p>Please find here <a class="reference external" href="https://gist.github.com/ballaneypranav/7b5ad1024f9ad2edc721e59c917c915d">a Travis configuration</a> file that you can directly include in your project</p>
+<p>You’ll also need to add <code class="docutils literal notranslate"><span class="pre">GITHUB_USERNAME</span></code>, <code class="docutils literal notranslate"><span class="pre">IGEM_USERNAME</span></code> and <code class="docutils literal notranslate"><span class="pre">IGEM_PASSWORD</span></code> along with <code class="docutils literal notranslate"><span class="pre">GITHUB_TOKEN</span></code> as environment variables on Travis. We will have more details on the process up here soon.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../reference/index.html" class="btn btn-neutral float-right" title="Reference for Developers" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../tutorial/index.html" class="btn btn-neutral float-left" title="Tutorial" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Pranav Ballaney
+      <span class="lastupdated">
+        Last updated on Aug 03, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
