@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      metal:use-macro="context/main_template/macros/master"
+      lang="en"
+      i18n:domain="ftw.logo">
+
+    <metal:block fill-slot="main">
+      <h1 i18n:translate="">Manually set site Logos and Icons</h1>
+          <table>
+            <thead>
+              <tr>
+                <th class="zcml-image" i18n:translate="">ZCML logos/icons</th>
+                <th class="dexterity-override" i18n:translate="">Manual Overrides</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tal:widgets repeat="widget view/widgets/values">
+                <tr>
+                  <th colspan="3">
+                    <div class="field-title"
+                          tal:content="widget/label"></div>
+                    <div class="field-desc"
+                          tal:content="widget/field/description"></div>
+                  </th>
+                </tr>
+                <tr tal:define="widgetname python:widget.name.split('.')[-1];
+                                scale_name python:widgetname.replace('_', '/', 1);
+                                origin_class python:view.get_origin_for_scale(scale_name);"
+                    tal:attributes="class origin_class">
+                  <td class="zcml-image">
+                    <img tal:attributes="src string:${context/@@plone_portal_state/navigation_root_url}/@@logo/z/${scale_name}" />
+                  </td>
+                  <td class="direct-or-scaled-override">
+                    <p tal:condition="python: origin_class == 'scaled_base_override'"
+                       class="scaled-override-expl explanation">
+                        Note: The image below is a scale of the 'SVG base override' above.
+                    </p>
+                    <img tal:attributes="src string:${context/@@plone_portal_state/navigation_root_url}/@@logo/${scale_name}" />
+                  </td>
+                </tr>
+              </tal:widgets>
+            </tbody>
+          </table>
+    </metal:block>
+
+</html>

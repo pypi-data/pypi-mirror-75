@@ -1,0 +1,109 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-04-05 08:03+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Preferred-Encodings: utf-8 latin1\n"
+
+#: ./ftw/logo/manual_override.py:109
+msgid "Android icon 192x192"
+msgstr ""
+
+#: ./ftw/logo/manual_override.py:115
+msgid "Android icon 512x512"
+msgstr ""
+
+#: ./ftw/logo/manual_override.py:85
+msgid "Apple touch icon"
+msgstr ""
+
+#: ./ftw/logo/manual_override.py:181
+msgid "Edit Manual Logo and Icon Overrides"
+msgstr "Logos und Icons bearbeiten"
+
+#: ./ftw/logo/manual_override.py:121
+msgid "Favicon"
+msgstr ""
+
+#: ./ftw/logo/manual_override.py:97
+msgid "Favicon 16x16"
+msgstr ""
+
+#: ./ftw/logo/manual_override.py:91
+msgid "Favicon 32x32"
+msgstr ""
+
+#: ./ftw/logo/manual_override.pt:17
+#: ./ftw/logo/profiles/default/types/ftw.logo.ManualOverrides.xml
+msgid "Manual Overrides"
+msgstr "Logos und Icons manuell überschreiben"
+
+#: ./ftw/logo/profiles/default/types/ftw.logo.ManualOverrides.xml
+msgid "Manual icon and logo overrides for ftw.logo"
+msgstr "Beinhaltet die Logos und Icons vom Paket ftw.logo."
+
+#: ./ftw/logo/manual_override.pt:9
+msgid "Manually set site Logos and Icons"
+msgstr "Manuelles hochladen von Logos und Icons"
+
+#: ./ftw/logo/manual_override.py:71
+msgid "Mobile logo (PNG)"
+msgstr ""
+
+#: ./ftw/logo/manual_override.py:103
+msgid "Mstile icon 150x150"
+msgstr ""
+
+#: ./ftw/logo/profiles/default/actions.xml
+msgid "Override Site Logos"
+msgstr "Logos und Icons überschreiben"
+
+#: ./ftw/logo/manual_override.py:78
+msgid "Overriding the base icon will generate an override for ALL icons below if not already set."
+msgstr "Durch das Überschreiben vom Basis Icon (base) werden alle anderen Icons, falls nicht überschrieben, neu generiert."
+
+#: ./ftw/logo/manual_override.py:58
+msgid "Overriding the base logo will generate an override for BOTH logos below if not already set."
+msgstr "Durch das Überschreiben vom Basis Logo (base) werden alle anderen Logos, falls nicht überschrieben, neu generiert."
+
+#: ./ftw/logo/manual_override.py:77
+msgid "SVG base icon"
+msgstr "Basis Icon (SVG)"
+
+#: ./ftw/logo/manual_override.py:57
+msgid "SVG base logo"
+msgstr "Basis Logo (SVG)"
+
+#: ./ftw/logo/manual_override.py:182
+msgid "Site logos and icons set in ZCML are shown in the left column. Overrides from this form are shown in the right column"
+msgstr "Logos und Icons, welche über die Konfiguration (ZCML) geladen werden, erscheinen in der linken Spalte. Manuel angepasst Logos erscheinen in der rechten Spalte"
+
+#: ./ftw/logo/manual_override.py:65
+msgid "Standard (desktop) logo (PNG)"
+msgstr ""
+
+#: ./ftw/logo/manual_override.pt:15
+msgid "ZCML logos/icons"
+msgstr "konfigurierte Logos und Icons (ZCML)"
+
+#: ./ftw/logo/configure.zcml:30
+msgid "ftw.logo caching"
+msgstr ""
+
+#: ./ftw/logo/configure.zcml:23
+msgid "ftw.logo default"
+msgstr ""
+
+#: ./ftw/logo/configure.zcml:38
+msgid "ftw.logo:uninstall"
+msgstr ""
+

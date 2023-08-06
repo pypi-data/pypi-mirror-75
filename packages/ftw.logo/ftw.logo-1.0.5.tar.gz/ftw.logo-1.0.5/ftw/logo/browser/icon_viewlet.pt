@@ -1,0 +1,26 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag="python: 1"
+      i18n:domain="ftw.logo">
+
+<link rel="apple-touch-icon"
+      sizes="180x180"
+      tal:attributes="href string:${view/navigation_root_url}/@@logo/icon/APPLE_TOUCH_ICON?r=${view/cachekey}">
+<link rel="icon"
+      type="image/png"
+      sizes="32x32"
+      tal:attributes="href string:${view/navigation_root_url}/@@logo/icon/FAVICON_32X32?r=${view/cachekey}">
+<link rel="icon"
+      type="image/png"
+      sizes="16x16"
+      tal:attributes="href string:${view/navigation_root_url}/@@logo/icon/FAVICON_16X16?r=${view/cachekey}">
+<link rel="icon"
+      tal:attributes="href string:${view/navigation_root_url}/@@logo/icon/FAVICON?r=${view/cachekey}">
+<link rel="manifest"
+      tal:attributes="href string:${view/navigation_root_url}/manifest.json?r=${view/cachekey}">
+<meta name="msapplication-config"
+      tal:attributes="content string:${view/navigation_root_url}/browserconfig.xml?r=${view/cachekey}">
+<meta name="theme-color" content="#ffffff">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+</html>

@@ -1,0 +1,13 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:theme="http://namespaces.zope.org/ftw.theming"
+    xmlns:zcml="http://namespaces.zope.org/zcml"
+    i18n_domain="ftw.logo">
+
+    <include package="ftw.theming" file="meta.zcml" />
+
+    <theme:resources profile="ftw.logo:default" slot="addon">
+        <theme:scss file="resources/integration.theme.scss" />
+    </theme:resources>
+
+</configure>

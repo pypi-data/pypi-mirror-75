@@ -1,0 +1,10 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    i18n_domain="ftw.logo">
+
+  <permission
+      id="ftw.logo.OverrideSiteLogosAndIcons"
+      title="ftw.logo: Override site logos and icons"
+      />
+
+</configure>

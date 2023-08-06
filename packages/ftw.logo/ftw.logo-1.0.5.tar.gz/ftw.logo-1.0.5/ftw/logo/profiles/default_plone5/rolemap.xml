@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<rolemap>
+  <permissions>
+    <permission name="ftw.logo: Override site logos and icons" acquire="False">
+      <role name="Site Administrator" />
+      <role name="Manager" />
+    </permission>
+  </permissions>
+</rolemap>

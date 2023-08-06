@@ -1,0 +1,40 @@
+Changelog
+=========
+
+
+1.0.5 (2020-07-30)
+------------------
+
+- Fix logoconfig mobile instance variable name to match the mobile logo scale name. [mathias.leimgruber]
+
+
+1.0.4 (2020-01-09)
+------------------
+
+- Add ftw.logo portal_type translation to plone domain. [tinagerber]
+
+
+1.0.3 (2019-12-09)
+------------------
+
+- Fix user action permission. [mathias.leimgruber]
+- Fix test using the same file twice. [busykoala]
+
+
+1.0.2 (2019-07-05)
+------------------
+
+- Use default configured workflow. [busykoala]
+
+
+1.0.1 (2019-06-21)
+------------------
+
+- Remove newline in filename. [busykoala]
+
+
+1.0.0 (2019-06-20)
+------------------
+
+- Add Plone 5.1 support. [busykoala]
+- Initial implementation.

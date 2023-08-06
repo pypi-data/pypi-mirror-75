@@ -1,0 +1,39 @@
+.portaltype-ftw-logo-manualoverrides {
+  .field-title-row {
+    background-color: $color-gray-light;
+
+    .field-title {
+      font-weight: bold;
+    }
+
+  }
+
+  .widget {
+    .field > label, .namedblobimage-field > span img:first-child {
+      display: none;
+    }
+  }
+
+  .explanation {
+    background-color: $color-warning;
+    border: 1px solid darken($color-warning, 20%);
+    padding: 1em;
+  }
+
+}
+
+#portal-mobilelogo {
+  display: block;
+
+  @include screen-small {
+    display: none;
+  }
+}
+
+#portal-logo {
+  display: none;
+
+  @include screen-small {
+    display: block;
+  }
+}

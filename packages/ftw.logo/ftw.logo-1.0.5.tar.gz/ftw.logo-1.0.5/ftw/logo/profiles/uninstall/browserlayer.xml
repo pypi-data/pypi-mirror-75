@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<layers>
+    <layer name="ftw.logo.layer"
+           interface="ftw.logo.interfaces.IFtwLogo"
+           remove="True" />
+</layers>

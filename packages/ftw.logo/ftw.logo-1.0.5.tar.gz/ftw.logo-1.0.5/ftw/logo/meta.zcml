@@ -1,0 +1,19 @@
+<configure
+    xmlns="http://namespaces.zope.org/zope"
+    xmlns:meta="http://namespaces.zope.org/meta">
+
+    <meta:directive
+        namespace="https://namespaces.4teamwork.ch/ftw.logo"
+        name="logo"
+        schema=".meta.ILogoDirective"
+        handler=".meta.registerLogo"
+        />
+
+    <meta:directive
+        namespace="https://namespaces.4teamwork.ch/ftw.logo"
+        name="icon"
+        schema=".meta.IIconDirective"
+        handler=".meta.registerIcon"
+        />
+
+</configure>

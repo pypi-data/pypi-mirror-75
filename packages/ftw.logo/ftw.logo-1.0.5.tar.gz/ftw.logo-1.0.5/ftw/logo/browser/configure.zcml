@@ -1,0 +1,21 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:browser="http://namespaces.zope.org/browser"
+  xmlns:plone="http://namespaces.plone.org/plone"
+  xmlns:zcml="http://namespaces.zope.org/zcml">
+
+  <browser:viewlet
+    name="plone.links.favicon"
+    class=".icon_viewlet.IconViewlet"
+    permission="zope2.View"
+    manager="plone.app.layout.viewlets.interfaces.IHtmlHeadLinks"
+    layer="ftw.logo.interfaces.IFtwLogo" />
+
+  <browser:viewlet
+    name="plone.logo"
+    class=".logo_viewlet.LogoViewlet"
+    permission="zope2.View"
+    manager="plone.app.layout.viewlets.interfaces.IPortalHeader"
+    layer="ftw.logo.interfaces.IFtwLogo" />
+
+</configure>

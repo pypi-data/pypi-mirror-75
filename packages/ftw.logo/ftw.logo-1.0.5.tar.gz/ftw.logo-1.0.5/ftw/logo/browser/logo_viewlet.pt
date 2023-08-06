@@ -1,0 +1,17 @@
+<html xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      tal:omit-tag="python: 1"
+      i18n:domain="ftw.logo">
+
+<a tal:attributes="href view/navigation_root_url"
+   id="portal-logo">
+   <img tal:attributes="src string:${view/navigation_root_url}/@@logo/logo/get_logo?r=${view/cachekey}" />
+</a>
+
+<a tal:attributes="href view/navigation_root_url"
+   id="portal-mobilelogo">
+   <img tal:attributes="src string:${view/navigation_root_url}/@@logo/logo/MOBILE_LOGO?r=${view/cachekey}" />
+</a>
+
+
+</html>
