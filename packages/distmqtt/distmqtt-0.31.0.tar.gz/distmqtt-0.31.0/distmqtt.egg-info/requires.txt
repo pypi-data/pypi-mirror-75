@@ -1,0 +1,12 @@
+anyio>=1.3
+asyncwebsockets
+attrs>=19
+docopt
+msgpack
+passlib
+pyyaml
+simplejson
+transitions
+
+[distkv]
+distkv>=0.30.5

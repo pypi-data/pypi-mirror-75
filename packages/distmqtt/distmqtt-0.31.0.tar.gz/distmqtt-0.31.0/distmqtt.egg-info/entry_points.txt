@@ -1,0 +1,18 @@
+[console_scripts]
+distmqtt = distmqtt.scripts.broker_script:main
+distmqtt_pub = distmqtt.scripts.pub_script:main
+distmqtt_sub = distmqtt.scripts.sub_script:main
+
+[distmqtt.broker.plugins]
+auth_anonymous = distmqtt.plugins.authentication:AnonymousAuthPlugin
+auth_file = distmqtt.plugins.authentication:FileAuthPlugin
+broker_sys = distmqtt.plugins.sys.broker:BrokerSysPlugin
+topic_acl = distmqtt.plugins.topic_checking:TopicAccessControlListPlugin
+topic_taboo = distmqtt.plugins.topic_checking:TopicTabooPlugin
+
+[distmqtt.client.plugins]
+
+
+[distmqtt.test.plugins]
+
+
