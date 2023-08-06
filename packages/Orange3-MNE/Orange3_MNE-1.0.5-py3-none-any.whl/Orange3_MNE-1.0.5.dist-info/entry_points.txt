@@ -1,0 +1,7 @@
+[orange.widgets]
+EEG – 1. Data IO = EegDataIO.widgets
+EEG – 2. Preprocessing = EegPreprocessing.widgets
+EEG – 3. Feature extraction = EegFeatureExtraction.widgets
+EEG – 4. Classification = EegClassification.widgets
+EEG – 5. Visualization = EegVisualization.widgets
+
