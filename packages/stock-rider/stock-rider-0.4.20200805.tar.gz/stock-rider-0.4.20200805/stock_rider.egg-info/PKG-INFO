@@ -1,0 +1,60 @@
+Metadata-Version: 1.1
+Name: stock-rider
+Version: 0.4.20200805
+Summary: Stock Rider
+Home-page: https://github.com/namuan/stock-rider
+Author: DeskRiders Dev
+Author-email: me@deskriders.dev
+License: MIT
+Description: Stocks Rider
+        ------------
+        
+        Find anomalies in Stock market based on Volume.
+        
+        |image0|
+        
+        A live version of this is running as a bot on
+        `StockRiderTips <https://www.reddit.com/r/StockRiderTips>`__ sub-reddit.
+        
+        Installation
+        ~~~~~~~~~~~~
+        
+        .. code:: bash
+        
+           pip install stock-rider
+        
+        Using Stocks Rider
+        ~~~~~~~~~~~~~~~~~~
+        
+        *Populate data*
+        
+        .. code:: bash
+        
+           stock-rider populate-data --period 6mo --interval 1d
+        
+        *Run analysis*
+        
+        .. code:: bash
+        
+           # High Volume analysis
+           stock-rider volume-analysis --period 200
+        
+        License
+        ~~~~~~~
+        
+        `MIT <https://choosealicense.com/licenses/mit/>`__
+        
+        .. |image0| image:: docs/stockridertips-banner.png
+        
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
