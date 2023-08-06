@@ -1,0 +1,10 @@
+README.md
+setup.py
+ethanypc_simplerequest.egg-info/PKG-INFO
+ethanypc_simplerequest.egg-info/SOURCES.txt
+ethanypc_simplerequest.egg-info/dependency_links.txt
+ethanypc_simplerequest.egg-info/top_level.txt
+simplehttp/__init__.py
+simplehttp/error.py
+simplehttp/http_client.py
+simplehttp/utils.py
