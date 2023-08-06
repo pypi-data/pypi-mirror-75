@@ -1,0 +1,28 @@
+<!--{% extends 'base.html' %}
+
+{% block content %}
+{% with config=settings.PLUGINS_CONFIG.lifecycles %}
+{% for lifecycle in lifecycles%}
+	<h2 class="text-center" style="margin-top: 200px">
+		{{ lifecycle.id }}
+	</h2>
+{% endfor %}
+{% endwith %}
+{% endblock %}-->
+
+{% extends 'base.html' %}
+{% load buttons %}
+
+{% block content %}
+    <div class="pull-right noprint">
+        {% if perms.lifecycles.lifecycles_create %}
+            {% add_button 'plugins:lifecycles:lifecycles_create' %}
+        {% endif %}
+    </div>
+    <h1>{% block title %}Lifecycles{% endblock %}</h1>
+    <div class="row">
+        <div class="col-md-9">
+            {% include 'utilities/obj_table.html' %}
+        </div>
+    </div>
+{% endblock %}
