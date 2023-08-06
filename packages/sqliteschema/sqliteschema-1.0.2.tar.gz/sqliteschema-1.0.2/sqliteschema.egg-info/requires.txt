@@ -1,0 +1,15 @@
+setuptools>=38.3.0
+mbstrdecoder<2,>=0.8.3
+tabledata<2,>=1.0.0
+typepy<2,>=0.6.6
+
+[dumps]
+pytablewriter<2,>=0.48.0
+
+[logging]
+loguru<1,>=0.4.1
+
+[test]
+pytablewriter<2,>=0.48.0
+SimpleSQLite>=1
+pytest
