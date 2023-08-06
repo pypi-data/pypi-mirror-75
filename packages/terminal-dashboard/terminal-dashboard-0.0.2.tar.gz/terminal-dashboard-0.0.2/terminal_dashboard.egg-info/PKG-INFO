@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: terminal-dashboard
+Version: 0.0.2
+Summary: A tool for showing a customizable graphical dashboard of various data sources in a terminal
+Home-page: http://github.com/jpfxgood/dashboard
+Author: James Goodwin
+Author-email: dashboard@jlgoodwin.com
+License: MIT
+Description: Overview
+        ========
+        
+        This project is a work in progress for a system dashboard tool that displays graphical dashboards in a terminal window with configurable data sources.
+        
+        
+        Installation
+        ============
+        
+        For now check it out and run the dashboard script in the scripts directory.
+        
+        An example config file is provided in the root directory.
+        
+        Dashboard
+        =========
+        
+        More documentation TBD.
+        
+        
+Keywords: dashboard,monitor,terminal,graphs
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
