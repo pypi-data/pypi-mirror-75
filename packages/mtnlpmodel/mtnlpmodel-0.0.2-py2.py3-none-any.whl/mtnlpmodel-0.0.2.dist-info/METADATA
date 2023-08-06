@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: mtnlpmodel
+Version: 0.0.2
+Summary: mtnlpmodel
+Home-page: https://github.com/xiaomihao/mtnlp_model
+Author: Xiao Mi
+Author-email: 1922188869@qq.com
+License: Apache 2.0
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: keras
+Requires-Dist: tokenizer-tools
+Requires-Dist: flask
+Requires-Dist: flask-cors
+Requires-Dist: ioflow
+Requires-Dist: tf-crf-layer
+Requires-Dist: tf-attention-layer
+Requires-Dist: tensorflow (==1.15.0)
+Requires-Dist: deliverable-model (==0.4.1)
+Requires-Dist: gunicorn
+Requires-Dist: micro-toolkit
+Requires-Dist: seq2annotation
+
+UNKNOWN
+
+
