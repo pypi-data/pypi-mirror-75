@@ -1,0 +1,229 @@
+Metadata-Version: 2.1
+Name: functiondefextractor
+Version: 0.0.3
+Summary: Function Definition Extractor
+Home-page: https://github.com/philips-software/functiondefextractor
+Author: Brijesh
+Author-email: brijesh.krishnank@philips.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: xlrd (==1.2.0)
+Requires-Dist: xlsxwriter (==1.2.1)
+Requires-Dist: pandas (==1.0.5)
+
+# Function Extractor
+
+![Python application](https://github.com/philips-software/functiondefextractor/workflows/Python%20application/badge.svg)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![codecov](https://codecov.io/gh/philips-software/functiondefextractor/branch/master/graph/badge.svg)](https://codecov.io/gh/philips-software/functiondefextractor)
+
+Tool to extract the function definitions from the source code
+
+It can be used to extract functions from,
+
+- C  
+
+- C++
+
+- C#  
+
+- Java  
+
+- Python
+
+- TypeScript
+
+- JavaScript
+
+Advantage of using such function extractions are,
+
+- Resolving technical debt  
+
+- Identify function similarity  
+
+- Identify pattern check (Supresswarnings, Assert, etc...)
+
+## Dependencies
+
+- python 3.8 : 64 bit  
+
+- python packages (xlrd, xlsxwriter, pandas)  
+
+- third party packages [Ctags, grep]
+
+## Installation
+
+
+Requirements are added in requirement.txt file
+
+Python 3.8
+
+python: install python for the respective OS at
+"https://www.python.org/downloads/" Make sure to update the
+path variable to point to the python installation folder.
+
+pip: (only if pip is not present by default) get get-pip.py
+from below link to your folder "https://bootstrap.pypa.io/get-pip.py"
+Open a command prompt and navigate to the folder containing get-pip.py.
+
+Run the following command:
+
+functiondefextractor:
+
+pip install functiondefextractor
+
+## Other tools
+
+### Ctags: "https://en.wikipedia.org/wiki/Ctags"
+
+- Windows:
+
+1.Download Ctags from "http://ctags.sourceforge.net/"
+
+2.Select the right package(based on OS & architecture) and
+
+extract the zip file to a folder
+
+3.Update the system 'path' environment variable with the path to ctags executable
+
+- Linux:
+
+`apt-get install ctags`
+
+- OS X:
+
+`brew install ctags`
+
+### grep
+
+1.Download grep `"binaries and Dependencies"`
+
+from `http://gnuwin32.sourceforge.net/packages/grep.htm`
+
+2.Extract the content to a folder
+
+3.Copy and paste contents from `\bin` folder of Dependencies
+
+to `\bin` folder of Binaries
+
+4.Update the system `'path'` environment variable with the path to "grep" executable
+
+
+```sh
+pip install functiondefextractor
+```
+
+## Usage & Configuration
+
+### Code
+
+- General usage with out options.
+
+```sh
+from functiondefextractor import core_extractor
+out_put = core_extractor.extractor (r"path_to_repo/code")
+print(out_put)
+```
+
+- To extract functions based on annotation.
+
+```sh
+from functiondefextractor import core_extractor
+out_put = core_extractor.extractor (r"path_to_repo/code", annot="@Test")
+print(out_put)
+```
+
+- To extract delta lines(+/-) from code based on annotation/key word.
+Note: If user is unaware of complete annotation use this(annot with delta)
+feature to extract functions else use the above feature.
+
+```sh
+from functiondefextractor import core_extractor
+out_put = core_extractor.extractor
+          (r"path_to_repo/code", annot="@SupressWarning", delta="5")
+print(out_put)
+```
+
+- To analyse various patterns in the code based on given condition.
+For example to search assert, suppress warnings patterns.
+
+```sh
+from functiondefextractor import core_extractor
+out_put = core_extractor.check_condition
+          ("@SupressWarning", r"path_to_excelfile/dataframe", "(")
+print(out_put)
+```
+
+### Commandline
+
+- General usage with out options to extract functions from repo.
+
+```sh
+>>>python -m functiondefextractor.extractor_cmd --p path/to/repo
+```
+
+- To analyse various patterns in the code based on given condition.
+
+```sh
+>>>python -m functiondefextractor.extractor_cmd
+             --c "@Assert" --e path/to/excel/dataframe --s "("
+```
+
+- Help option can be found at,  
+
+```sh
+>>>python -m functiondefextractor.extractor_cmd -h
+```
+
+### Output
+
+- Executing functiondefextractor to extract functions from
+ command line would generate an output excel file which contains
+ FileName_FunctionName in Unique ID column and extracted functions in Code column
+
+- Using functiondefextractor to extract functions from code would return
+ a dataframe with same content as excel file.
+
+- When functiondefextractor is executed to analyse patterns in code, an excel file
+ with multiple sheets would be generated which contains the requested patterns and
+ pivot table. Also an html file with pivot table of the same would be generated.
+
+## Contact
+
+
+Brijesh Krishnan <brijesh.krishnank@philips.com>
+
+Sannihith Reddy <sannihith.reddyp@philips.com>
+
+
+## License
+
+
+The MIT License (MIT) Copyright © [2019] Koninklijke Philips N.V, "https://www.philips.com"
+
+Permission is hereby granted, free of charge, to any person
+obtaining a copy of this software and associated documentation
+files (the Software), to deal in the Software without restriction,
+including without limitation the rights to use, copy, modify,
+merge, publish, distribute, sublicense, and/or sell copies of the
+Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED AS IS, WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS
+BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
+CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
