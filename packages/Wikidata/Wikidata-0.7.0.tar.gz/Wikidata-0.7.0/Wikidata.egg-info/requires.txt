@@ -1,0 +1,12 @@
+
+[:python_version < "3.5"]
+typing
+
+[mypy]
+mypy>=0.782
+
+[tests]
+flake8>=3.8.3
+flake8-import-order-spoqa
+pytest~=4.6.11
+pytest-flake8~=1.0.6
