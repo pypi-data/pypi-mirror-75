@@ -1,0 +1,14 @@
+transformer_encoder/__init__.py,sha256=V3W2kdZFT5nmgkMP_DwWIz3TTnc9oqvB0Ub7ruVfJRI,182
+transformer_encoder/encoder.py,sha256=Jz2QQBB91blyIhU3jg2NCXvJp5PB3XphltCsoVQy8Vk,1907
+transformer_encoder/encoder_layer.py,sha256=gxZ6PvzmnIz8Hky3Oxgs0swEjt_QS3Gj3QTGm4T7kRo,1493
+transformer_encoder/feed_forward.py,sha256=8IbzJEToxYKHwEcfnKy08H9jUX_zzoBK1bx3WfqOzdg,636
+transformer_encoder/layer_norm.py,sha256=vqiQwJc6zzmZJ9X_BO-aUrnUn-fzUDCB1MGHLWt3rnM,546
+transformer_encoder/multi_head_attention.py,sha256=Lh1HQHowAYfX9yrYaxq-YU4vqewq74X6xj7tpVCimgo,3248
+transformer_encoder/utils/__init__.py,sha256=CtpsuAQIOF4lwUrj1mAchsLuEqJLEEHSlucw-9Uzz0s,276
+transformer_encoder/utils/positional_encoding.py,sha256=egYKUkjPb_0LMdoeEoRK6_Na8Lernwaay1r35F6RP64,1054
+transformer_encoder/utils/warmup_optimizer.py,sha256=E35c4cQEyF2Xr7nhhHfr4upf7a2MeSso1DGfhOnysbc,1047
+transformer_encoder-0.0.3.dist-info/LICENSE,sha256=NcIpYZcI51o_tIKf7R1EUflmPF7oGr0wruw7Er0pcJw,1090
+transformer_encoder-0.0.3.dist-info/METADATA,sha256=UV4OzDxNyhgr7gqgWCJm1U3ZXE-TsuK6ngcG9Mk8hhI,3254
+transformer_encoder-0.0.3.dist-info/WHEEL,sha256=YUYzQ6UQdoqxXjimOitTqynltBCkwY6qlTfTh2IzqQU,97
+transformer_encoder-0.0.3.dist-info/top_level.txt,sha256=QasAlUpFKukTWKOhkM3bhFX7o-W-m62ZxdwaYAKdbeo,20
+transformer_encoder-0.0.3.dist-info/RECORD,,
