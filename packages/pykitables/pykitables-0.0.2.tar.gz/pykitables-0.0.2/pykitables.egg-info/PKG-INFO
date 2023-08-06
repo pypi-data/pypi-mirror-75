@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: pykitables
+Version: 0.0.2
+Summary: Get neatly formatted tables from any Wikipedia article
+Home-page: https://github.com/omshii/pykitables
+Author: Omshi Samal
+Author-email: omshisamal72@gmail.com
+License: UNKNOWN
+Description: # pykitables
+        A python package for getting neatly formatted tables from any Wikipedia page using beautifulsoup4.
+        
+        ##Installation
+        '''pip install pykitables'''
+        
+        ## Usage
+        ``` import pykitables
+            tables = pykitables.get_tables("https://en.wikipedia.org/wiki/Template:COVID-19_pandemic_data/United_States_medical_cases")
+            #Returns a list of Wikitable objects
+            csv1 = tables[0].to_csv()
+            #Returns the csv for the first table in the article
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
