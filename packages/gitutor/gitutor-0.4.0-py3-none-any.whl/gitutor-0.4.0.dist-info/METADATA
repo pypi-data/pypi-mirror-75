@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: gitutor
+Version: 0.4.0
+Summary: Git wrapper that offers more user friendly commands
+Home-page: https://gitutor.io
+License: MIT
+Keywords: git,python,cli
+Author: AMAI
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: GitPython (==3.1.3)
+Requires-Dist: click (==7.1.2)
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: gitdb (==4.0.5)
+Requires-Dist: pygithub (==1.51)
+Requires-Dist: pyinquirer (==1.0.3)
+Requires-Dist: requests (>=2.20.0,<3.0.0)
+Requires-Dist: smmap (==3.0.4)
