@@ -1,0 +1,6 @@
+[console_scripts]
+collectfish = thunderfish.collectfish:main
+eodexplorer = thunderfish.eodexplorer:main
+fishfinder = thunderfish.fishfinder:main
+thunderfish = thunderfish.thunderfish:main
+
