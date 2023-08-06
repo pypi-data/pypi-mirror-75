@@ -1,0 +1,16 @@
+bc_python_hcl2-0.3.1.data/scripts/hcl2tojson,sha256=fcK_COJ2HAzmFI1iTcR9KlTQRprprro2wUOpbpH6t2c,3226
+hcl2/__init__.py,sha256=Rj9dhuhSiHBHfCoV0S3Wrm3uFAEsQLJt9RYXPM5zLBU,122
+hcl2/api.py,sha256=4FJhkqYO77_zZBj7KYbTFLnkfTM3IRrlQzjSBq9Uufs,613
+hcl2/hcl2.lark,sha256=KqFcdBGxHFuCo4hVucMV97Mwldsghe_EIpH5wMHTXMw,3547
+hcl2/parser.py,sha256=QpyVvL8rAWMEgzc1J4TewpZfjeMWpLIieLWOrXXxrhc,2255
+hcl2/transformer.py,sha256=73nH18aRMdJa4CsdAd2e5f1IiVK1u4LRWM_yPVZjZiw,8516
+hcl2/version.py,sha256=TZkGuMIRSRmUY3XCIs5owt2o60vXyqYMHWIkhx65uYE,22
+test/__init__.py,sha256=DnBs-Y1JW4OuwVUG9p4hEMFL9eLhO9NqV3n_Ykapsqs,61
+test/helpers/__init__.py,sha256=u-cxXv_0MV7pLn0LQpAANTxH24n6EoHN_VHd_Itmmrw,35
+test/unit/__init__.py,sha256=cCbZthWyt2B6OpsJ0X-sQNZS5KCNdFAYwkQXYqxj4Bk,72
+test/unit/test_load.py,sha256=gTMhVkVXLCNSnTSWgRMQBjIvqulireLrQ1kvSVpsc9c,1929
+bc_python_hcl2-0.3.1.dist-info/LICENSE,sha256=1F6u5DUziQ9nOhsdpCKebpuHYXa-t16pV8xJaZapj_s,1063
+bc_python_hcl2-0.3.1.dist-info/METADATA,sha256=CGzTF51eZ10bvHXuImaXDiTMa0Zn71VOMEtVWKs5foQ,4088
+bc_python_hcl2-0.3.1.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+bc_python_hcl2-0.3.1.dist-info/top_level.txt,sha256=-4IN3ZgZmEC2kL2Tq-NgZh6N_C_aAbsD46Y9nXTH8-Y,10
+bc_python_hcl2-0.3.1.dist-info/RECORD,,
