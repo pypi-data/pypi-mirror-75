@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: stocksmith
+Version: 0.1.0
+Summary: 
+Author: Saakshaat
+Author-email: saakshaat2001@gmail.com
+Requires-Python: >=2.7,<3.0
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Requires-Dist: pendulum (>=2.1.2,<3.0.0)
