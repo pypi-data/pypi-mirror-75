@@ -1,0 +1,21 @@
+Metadata-Version: 1.2
+Name: association-measures
+Version: 0.1.5
+Summary: Corpus association measures for Python pandas
+Home-page: https://github.com/fau-klue/pandas-association-measures
+Author: Markus Opolka
+Author-email: markus@martialblog.de
+License: MIT
+Description: 
+        Statistical association measures for Python pandas.
+        
+        Association measures are mathematical formulae that interpret cooccurrence frequency data. For each pair of words extracted from a corpus, they compute an association score, a single real value that indicates the amount of (statistical) association between the two words.
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Cython
+Requires-Python: >=3
