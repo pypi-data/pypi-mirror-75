@@ -1,0 +1,19 @@
+wheel
+setuptools
+cython!=0.27,!=0.27.2,<=0.29.14,>=0.24
+kivy==2.0.0rc2
+kivymd>=0.104.1
+
+[:platform_system != "Darwin"]
+screeninfo
+
+[:platform_system == "Darwin"]
+pygame
+
+[:platform_system == "Windows"]
+kivy_deps.glew
+kivy_deps.sdl2
+kivy_deps.gstreamer
+
+[:python_version < "3.7"]
+importlib_resources
