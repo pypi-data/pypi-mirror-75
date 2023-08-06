@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: PyClassicRound
+Version: 1.5
+Summary: Current python 3's round function uses Banker's rounding, this package will help you to round off numbers the classical way.
+Home-page: https://github.com/rohitxsh93/PyClassicRound
+Author: Rohit
+Author-email: rohit.shrivastava93@gmail.com
+License: UNKNOWN
+Description: # PyClassicRound
+        
+        The current implementation of round() function in Python 3 uses Banker's rounding i.e integers are rounded to the nearest even integer, this package allows you to round off numbers the classical way.
+        
+        ### Installation
+        
+        PyClassicRound has no dependencies.
+        
+        ```sh
+        > pip install PyClassicRound
+        ```
+        
+        ### Usage (example)
+        
+        ```sh
+        > from PyClassicRound import classic_round
+        
+        > classic_round(2.55, 1) #outputs 2.6 whereas python 3's round() outputs 2.5
+        ```
+        #### OR
+        
+        ```sh
+        > from PyClassicRound import classic_round as cround
+        
+        > cround(2.55, 1) #outputs 2.6 whereas python 3's round() outputs 2.5
+        ```
+        
+        ### Parameters
+        
+        - Number that needs to be rounded off
+        - Upto how many decimal places (__optional__) (**defaults to 2 decimal points** (Hundredths Place))
+        
+        Input parameters can be in any format i.e. integer, float, string.
+        
+        Output will be:
+        - integer: if decimal points is 0
+        - otherwise float
+        
+        ### License
+        MIT
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
