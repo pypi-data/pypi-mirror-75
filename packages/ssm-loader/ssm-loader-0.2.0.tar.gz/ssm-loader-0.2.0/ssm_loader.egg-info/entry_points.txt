@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        ssm=ssm.__main__:main
+    
