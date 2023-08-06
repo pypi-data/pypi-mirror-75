@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: easemlschema
+Version: 0.1.13
+Summary: Schema which is used to define the type of a machine learning data set.
+Home-page: https://github.com/DS3Lab/easeml
+Author: Bojan Karlas
+Author-email: bojan.karlas@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.9.1)
+
+# Ease.ml Schema
+
+This is the Python implementation of the ease.ml schema.
+
+
