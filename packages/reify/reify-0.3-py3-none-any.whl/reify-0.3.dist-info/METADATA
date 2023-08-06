@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: reify
+Version: 0.3
+Summary: A standalone tool for rendering jinja templates
+Home-page: https://github.com/canonical-ols/reify
+Author: Simon Davy
+Author-email: simon.davy@canonical.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Requires-Dist: jinja2
+Requires-Dist: pyyaml
+
+UNKNOWN
+
+
