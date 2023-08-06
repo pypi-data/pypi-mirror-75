@@ -1,0 +1,6 @@
+include LICENSE
+include AUTHORS.md
+include MANIFEST.in
+include README.md
+include requirements.txt
+include docs/*.rst
