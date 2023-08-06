@@ -1,0 +1,79 @@
+LOCUS       AB123456                1000 bp    DNA     circular BCT 04-NOV-2019
+DEFINITION  Fake complete genome.
+ACCESSION   AB123456
+VERSION     AB123456.1
+FEATURES             Location/Qualifiers
+     source          1..1000
+                     /organism="Unidentified Bug"
+                     /mol_type="genomic DNA"
+                     /strain="Mystery"
+     gene            join(990..1000,1..90)
+                     /locus_tag="G_0001"
+     CDS             join(990..1000,1..90)
+                     /locus_tag="G_0001"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="chromosomal replication initiator protein"
+     gene            101..200
+                     /locus_tag="G_0002"
+     CDS             101..200
+                     /locus_tag="G_0002"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Protein Homology."
+                     /codon_start=1
+                     /transl_table=11
+                     /product="Protein 1"
+     gene            201..400
+                     /locus_tag="G_0003"
+     CDS             201..400
+                     /locus_tag="G_0003"
+                     /note="Possible transposase based on homology"
+                     /codon_start=1
+                     /transl_table=11
+                     /product="Hypothetical protein"
+     gene            complement(401..500)
+                     /locus_tag="G_0004"
+     CDS             complement(401..500)
+                     /locus_tag="G_0004"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Protein Homology."
+                     /codon_start=1
+                     /transl_table=11
+                     /product="Phage protein"
+     gene            501..600
+                     /locus_tag="G_0005"
+     CDS             501..600
+                     /locus_tag="G_0005"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Protein Homology."
+                     /codon_start=1
+                     /transl_table=11
+                     /product="IS101"
+     gene            701..800
+                     /locus_tag="G_0006"
+     CDS             701..800
+                     /locus_tag="G_0006"
+                     /note="Derived by automated computational analysis using
+                     gene prediction method: Protein Homology."
+                     /codon_start=1
+                     /transl_table=11
+                     /product="Integrase"
+ORIGIN      
+        1 atgtggatcc gcccattgca ggcggaactg agcgataaca cgctggcact gtatgcgcca
+       61 aaccgttttg tgctcgactg ggtaagggac aaatacctca ataatatcaa tggactcctc
+      121 aatgattttt gcggtgcgga cgccccgcag ctgcgttttg aggtgggcgc taagcccgcc
+      181 agctcgctgc agaaaggggc ggtaagcccg gctgcggcgg ccattccggc ggcgcaggtg
+      241 cagaccgcgc gcgcggcgcc gacgatcgtg cgccctggct gggataatgt cccggcgccg
+      301 gcggagccga cctaccgctc taacgttaac gtgaaacaca cgtttgataa cttcgtcgaa
+      361 ggtaaatcta accagctggc ccgcgcggcg gcgcgtcagg tggcggataa cccgggcggc
+      421 gcctacaacc ccctgttcct ctatggcggg acgggtctgg gtaaaactca cctgctgcac
+      481 gcggtgggca acggcattgt ggcgcgtaag ccgaacgcga aagtggtcta tatgcactcc
+      541 gagcgtttcg ttcaggacat ggttaaagcg ctgcagaaca acgccatcga agagtttaag
+      601 cgttactacc gctccgttga cgccctgctg atcgatgaca ttcagttctt tgccaataaa
+      661 gaacgatccc aggaagagtt tttccacacc ttcaatgcgc tgctggaagg taatcagcag
+      721 atcatcctga cgtcggatcg ttatccaaaa gagatcaacg gcgttgagga tcgtctaaaa
+      781 tcccgcttcg gctgggggct gacggtggcg atcgagccgc cggagctgga aacccgcgtc
+      841 gcgatcctga tgaaaaaagc cgacgagaac gacatccgcc tgccgggcga agtggcgttc
+      901 tttattgcca agcgtctgcg ctcgaacgtg cgtgagctgg agggggcgct gaatcgcgtt
+      961 atcgccaacg ccaacttcac cggccgggcg atcaccatcg
+//
