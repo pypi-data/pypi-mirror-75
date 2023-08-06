@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: tridentx
+Version: 0.5.7
+Summary: Multiverse for Deep Learning Developers without Pitfall
+Home-page: UNKNOWN
+Author: Allan Yiin
+Author-email: allan@datadecision.ai
+License: MIT
+Download-URL: https://test.pypi.org/project/tridentx
+Description: Multiverse for Deep Learning Developers without Pitfall
+        
+        
+        
+        Release Note
+        #. Support AMP (automatic mixed precision) with pytorch 1.6.
+        #. attach lots of functions in ops on the tensor and use @numpy_compatible to share same syntax within numpy array or tensor.
+        #. New attribute 'sequence_rank' comes to all conv_blocks familay, if sequence_rank='cna' means the order is  'Convolution-Normalization-Activation'.
+        #. Adding EvoNorm, SIREN ..
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3
+Provides-Extra: visualize
+Provides-Extra: tests

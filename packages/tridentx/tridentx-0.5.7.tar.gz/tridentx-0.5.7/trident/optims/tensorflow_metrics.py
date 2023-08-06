@@ -1,0 +1,105 @@
+from __future__ import absolute_import
+from __future__ import division
+from __future__ import print_function
+import numpy as np
+import math
+import itertools
+import copy
+import tensorflow as tf
+from tensorflow.python.framework import tensor_shape
+from tensorflow.python.ops import nn_ops
+from trident.backend.common import get_session,addindent,get_time_suffix,get_function,get_class,format_time,get_terminal_size,snake2camel,camel2snake
+from trident.backend.tensorflow_ops import *
+
+__all__ = ['accuracy','psnr','mean_absolute_error','mean_squared_error','mean_squared_logarithmic_error','mae','mse','rmse','msle','get_metric']
+
+
+def accuracy(output,target, topk=1, axis=-1, **kwargs):
+    """Computes the precision@k for the specified values of k
+    prec1, prec5 = accuracy(output.data, target, topk=(1, 5))
+    """
+    if  int_shape(target)!=int_shape(output):
+        raise  ValueError('output shape {0} is not competable with target shape {1}'.format(output.shape, target.shape))
+
+    if topk==1:
+        return reduce_mean(equal(argmax(target, axis), argmax(output, axis)))
+    else:
+        return reduce_mean(cast(tf.nn.in_top_k(predictions=output, targets=target, k=topk), tf.float32))
+
+def accuracy(output, target, topk=1,axis=-1,exclude_mask=False):
+    """Computes the precision@k for the specified values of k
+    prec1, prec5 = accuracy(output.data, target, topk=(1, 5))
+    """
+    input_tensor=copy.deepcopy(output)
+    target_tensor=copy.deepcopy(target)
+
+
+
+    batch_size = int_shape(target_tensor)[0]
+    if  topk==1:
+        input_tensor = cast(squeeze(argmax(input_tensor, axis)),'float32')
+        target_tensor = cast(squeeze(argmax(target_tensor, axis)),'float32')
+        if input_tensor.shape != target_tensor.shape and topk == 1:
+            raise ValueError('input shape {0} is not competable with target shape {1}'.format(input_tensor.shape,
+                                                                                              target_tensor.shape))
+
+        return mean(equal(input_tensor,target_tensor))
+    else:
+        _,pred = tf.nn.top_k(input_tensor,topk,  True)
+        target_tensor= expand_dims(argmax(target_tensor, axis),-1)
+        target_tensor=cast(tf.repeat(target_tensor,topk,axis=-1),'float32')
+        return reduce_mean(reduce_max(equal(cast(pred,'float32'),target_tensor),-1))
+
+
+
+
+
+
+def psnr(output, target):
+    if target.get_shape()!=output.get_shape() :
+        raise ValueError('output shape {0} is not competable with target shape {1}'.format(output.shape,target.shape))
+    diff =tf.math.reduce_mean(tf.math.square(output - target),[1,2,3])
+    return tf.math.reduce_mean( (10 * tf.math.log(255**2 / diff)/tf.math.log(10)))
+
+
+def mean_absolute_error(output, target):
+    if target.get_shape()!=output.get_shape() :
+        raise ValueError('output shape {0} is not competable with target shape {1}'.format(output.shape,target.shape))
+    return tf.math.reduce_mean(tf.math.abs( output -  target))
+mae=mean_absolute_error
+
+
+def mean_squared_error(output, target):
+    if target.get_shape()!=output.get_shape() :
+        raise ValueError('output shape {0} is not competable with target shape {1}'.format(output.shape,target.shape))
+    return tf.math.reduce_mean(tf.math.square( output -  target))
+mse=mean_squared_error
+
+
+
+
+def root_mean_squared_error(output, target):
+    if target.get_shape()!=output.get_shape() :
+        raise  ValueError('output shape {0} is not competable with target shape {1}'.format(output.shape,target.shape))
+    return tf.math.sqrt(tf.math.reduce_mean(tf.math.square( output -  target)))
+rmse=root_mean_squared_error
+
+
+
+def mean_squared_logarithmic_error(output, target):
+    if target.get_shape()!=output.get_shape() :
+        raise  ValueError('output shape {0} is not competable with target shape {1}'.format(output.shape,target.shape))
+    return tf.math.reduce_mean(tf.math.square(tf.math.log(1 + output)- tf.math.log(1 + target)))
+msle=mean_squared_logarithmic_error
+
+
+def get_metric(metric_name):
+    if metric_name is None:
+        return None
+    metric_modules = ['trident.optims.tensorflow_metrics']
+    try:
+        metric_fn = get_function(camel2snake(metric_name), metric_modules)
+    except Exception :
+        metric_fn = get_function(metric_name, metric_modules)
+    return metric_fn
+
