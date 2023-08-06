@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: sumologic-workday
+Version: 1.0.3
+Summary: Sumo Logic collection solution for WorkDay
+Home-page: https://github.com/SumoLogic/sumologic-workday
+Author: SumoLogic
+Author-email: it@sumologic.com, apps-team@sumologic.com
+License: PSF
+Description: # sumologic-workday
+        
+        Solution to pull alerts from WorkDay to Sumo Logic
+        
+        
+        ## Installation
+        
+        This collector can be deployed both onprem and on cloud.
+        
+        Refer to the sumo logic documentation for installation instructions.
+        
+        
+        
+Keywords: sumologic python rest api log management analytics WorkDay agent collector forwarder
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: gcp
+Provides-Extra: azure
+Provides-Extra: aws
+Provides-Extra: all

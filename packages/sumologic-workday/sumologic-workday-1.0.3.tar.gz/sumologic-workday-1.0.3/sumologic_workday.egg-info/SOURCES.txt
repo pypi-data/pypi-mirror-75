@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+VERSION
+requirements.txt
+setup.py
+sumologic_workday.egg-info/PKG-INFO
+sumologic_workday.egg-info/SOURCES.txt
+sumologic_workday.egg-info/dependency_links.txt
+sumologic_workday.egg-info/entry_points.txt
+sumologic_workday.egg-info/requires.txt
+sumologic_workday.egg-info/top_level.txt
+sumologic_workday.egg-info/zip-safe
+sumoworkdaycollector/__init__.py
+sumoworkdaycollector/api.py
+sumoworkdaycollector/main.py
+sumoworkdaycollector/sumoworkdaycollector.yaml

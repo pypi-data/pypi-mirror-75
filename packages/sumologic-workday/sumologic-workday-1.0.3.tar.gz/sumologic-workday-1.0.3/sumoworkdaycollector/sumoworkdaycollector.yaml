@@ -1,0 +1,53 @@
+Workday_Report_Config:
+ SIGNON_REPORT_URL: null
+ ISU_USERNAME: null
+ ISU_PASSWORD: null
+ TIMEOUT: 600 # max could be 90 minutes default 10 minutes
+ MAX_FETCH_INTERVAL: 3600     # 1hr
+ MIN_FETCH_INTERVAL: 60
+ API_CALL_DELAY_SECONDS: 60
+
+Workday_API_Config:
+ AUDIT_API_URL: "/auditLogs"
+ WORKDAY_REST_API_ENDPOINT: null
+ REFRESH_TOKEN_ENDPOINT: null
+ CLIENT_ID: null
+ CLIENT_SECRET: null
+ REFRESH_TOKEN: null
+ PAGINATION_LIMIT: 100
+ TIMEOUT: 60
+ API_CALL_DELAY_SECONDS: 60
+
+Logging:
+ LOG_FORMAT: "%(levelname)s | %(asctime)s | %(threadName)s | %(name)s | %(message)s"
+ ROTATION_TYPE: D
+ ROTATION_INTERVAL: 1
+ BACKUP_COUNT: 7
+ ENABLE_CONSOLE_LOG: true
+ ENABLE_LOGFILE: false
+ LOG_FILEPATH: /tmp/sumoworkdaycollector.log
+ LOG_LEVEL: "INFO"
+
+Collection:
+ ENVIRONMENT: onprem
+ NUM_WORKERS: 2
+ OUTPUT_HANDLER: HTTP
+ MAX_RETRY: 3
+ BACKOFF_FACTOR: 5
+ TIMEOUT: 60
+ COMPRESSED: true
+ MAX_PAYLOAD_BYTESIZE: 500000
+ END_TIME_EPOCH_OFFSET_SECONDS: 120
+ BACKFILL_DAYS: 0
+ DBNAME: sumoworkdaycollector
+ DB_DIR: ~/sumo
+
+
+SumoLogic:
+ HTTP_LOGS_ENDPOINT: null
+
+DeployMetaData:
+ PACKAGENAME: sumologic-workday
+ APPNAME: Workday
+ SRC_FOLDER_NAME: sumoworkdaycollector
+ ENABLE_LAYER: false
