@@ -1,0 +1,13 @@
+README.md
+setup.py
+markov_epidemic/__init__.py
+markov_epidemic/markov_epidemic.py
+markov_epidemic/seir_epidemic.py
+markov_epidemic/sir_epidemic.py
+markov_epidemic/sis_epidemic.py
+markov_epidemic/utils.py
+markov_epidemic.egg-info/PKG-INFO
+markov_epidemic.egg-info/SOURCES.txt
+markov_epidemic.egg-info/dependency_links.txt
+markov_epidemic.egg-info/requires.txt
+markov_epidemic.egg-info/top_level.txt
