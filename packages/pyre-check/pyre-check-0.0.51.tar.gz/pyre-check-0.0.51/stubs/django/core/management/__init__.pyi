@@ -1,0 +1,6 @@
+# pyre-unsafe
+
+from typing import Any
+
+call_command: Any = ...
+execute_from_command_line: Any = ...
