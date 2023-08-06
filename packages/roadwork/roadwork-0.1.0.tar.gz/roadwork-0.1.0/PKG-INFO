@@ -1,0 +1,19 @@
+Metadata-Version: 1.2
+Name: roadwork
+Version: 0.1.0
+Summary: The developmental release for Roadwork Python SDK.
+Home-page: https://xaviergeerinck.com
+Author: Xavier Geerinck
+Author-email: xavier.geerinck@gmail.com
+License: MIT
+Project-URL: Documentation, https://github.com/roadwork/roadwork-rl
+Project-URL: Source, https://github.com/roadwork/roadwork-rl
+Description: This is the developmental release for Roadwork Python SDK.
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
