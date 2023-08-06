@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: liquidctl
+Version: 1.4.0
+Summary: Cross-platform tool and drivers for liquid coolers and other devices
+Home-page: https://github.com/jonasmalacofilho/liquidctl
+Author: Jonas Malaco
+Author-email: jonas@protocubo.io
+License: UNKNOWN
+Project-URL: Supported devices, https://github.com/jonasmalacofilho/liquidctl/tree/v1.4.0#supported-devices
+Project-URL: Documentation, https://github.com/jonasmalacofilho/liquidctl/tree/v1.4.0#liquidctl--liquid-cooler-control
+Project-URL: Changelog, https://github.com/jonasmalacofilho/liquidctl/blob/v1.4.0/CHANGELOG.md
+Description: # liquidctl – liquid cooler control
+        
+        _Cross-platform tool and drivers for liquid coolers and other devices_
+        
+        [![Status of the tests](https://github.com/jonasmalacofilho/liquidctl/workflows/tests/badge.svg)](https://github.com/jonasmalacofilho/liquidctl/commits/master)
+        [![Status of the build for Windows](https://ci.appveyor.com/api/projects/status/n5lgebd5m8iomx42/branch/master?svg=true&passingText=windows%20exe&failingText=failed&pendingText=building)](https://ci.appveyor.com/project/jonasmalacofilho/liquidctl/branch/master)
+        
+        
+        ```
+        # liquidctl list
+        Device ID 0: NZXT Smart Device (V1)
+        Device ID 1: NZXT Kraken X (X42, X52, X62 or X72)
+        
+        # liquidctl initialize all
+        
+        # liquidctl --match kraken set fan speed  20 30  30 50  34 80  40 90  50 100
+        # liquidctl --match kraken set sync color spectrum-wave
+        
+        # liquidctl --match smart set led color fading 350017 ff2608
+        # liquidctl --match smart set fan1 speed 50
+        
+        # liquidctl status
+        NZXT Smart Device (V1)
+        ├── Fan 1                        PWM  
+        ├── Fan 1 current               0.04  A
+        ├── Fan 1 speed                 1035  rpm
+        ├── Fan 1 voltage              11.91  V
+        ├── Fan 2                          —  
+        ├── Fan 3                          —  
+        ├── Firmware version           1.0.7  
+        ├── LED accessories                2  
+        ├── LED accessory type    HUE+ Strip  
+        ├── LED count (total)             20  
+        └── Noise level                   60  dB
+        
+        NZXT Kraken X (X42, X52, X62 or X72)
+        ├── Liquid temperature     28.1  °C
+        ├── Fan speed               851  rpm
+        ├── Pump speed             1953  rpm
+        └── Firmware version      6.0.2  
+        ```
+        
+        For which devices are supported, installation instructions, a guide to the CLI and device specific details, check the complete [Documentation](https://github.com/jonasmalacofilho/liquidctl/tree/v1.4.0#liquidctl--liquid-cooler-control).
+Keywords: cross-platform cli driver corsair evga nzxt liquid-cooler fan-controller power-supply led-controller kraken smart-device hue2 gigabyte
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: System :: Hardware :: Hardware Drivers
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
