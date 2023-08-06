@@ -1,0 +1,4 @@
+[console_scripts]
+fasttrace = cloudtrace.fasttrace:main
+scampertrace = cloudtrace.scampertrace:main
+
