@@ -1,0 +1,8 @@
+SLACK_API_TOKEN=__SLACK_API_TOKEN__
+CHANNEL=#jenkins
+
+############################################################################
+# DEV SETTINGS - Don't put anything below this line in your prod environment
+############################################################################
+DEBUG=True
+DEVELOPMENT=True
