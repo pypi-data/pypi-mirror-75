@@ -1,0 +1,35 @@
+Metadata-Version: 2.0
+Name: more-systemctl-status
+Version: 0.1.0
+Summary: Provides children data of systemctl status processes. Wrapper for systemctl status and pstree.
+Home-page: https://github.com/buanzo/more-systemctl-status
+Author: Arturo "Buanzo" Busleiman
+Author-email: buanzo@buanzo.com.ar
+License: Apache
+Keywords: systemd,pstree,process,wrapper,cli,sysadmin
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: POSIX :: Other
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6
+
+# More-Systemctl-Status
+
+This simple script takes the output of "systemctl status", and when it gets
+a PID it runs pstree and get's its children.  Finally, it merges both
+outputs into one concise, pstree-like output based on systemd-initiated
+processes.
+
+
+
