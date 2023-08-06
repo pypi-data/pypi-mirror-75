@@ -1,0 +1,11 @@
+Metadata-Version: 1.2
+Name: pyconfighelper
+Version: 0.0.8
+Summary: Retrieve an encrypted JSON configuration file from Github and decrypt it. Encryption/Decryption is performed via Google Cloud KMS keys.
+Home-page: http://github.com/joncain/pyconfighelper
+Author: Jon Cain
+Author-email: jon@joncain.net
+License: Apache 2.0
+Description: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
