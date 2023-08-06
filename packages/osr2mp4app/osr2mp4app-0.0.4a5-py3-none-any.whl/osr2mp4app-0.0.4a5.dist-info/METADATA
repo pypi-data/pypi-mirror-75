@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: osr2mp4app
+Version: 0.0.4a5
+Summary: Gui version of osr2mp4
+Home-page: https://github.com/uyitroa/osr2mp4-app
+Author: yuitora
+Author-email: shintaridesu@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: autologging
+Requires-Dist: PyQt5
+Requires-Dist: psutil
+Requires-Dist: configparser
+Requires-Dist: osrparse
+Requires-Dist: osr2mp4
+
+# Getting started
+HI
+
+
