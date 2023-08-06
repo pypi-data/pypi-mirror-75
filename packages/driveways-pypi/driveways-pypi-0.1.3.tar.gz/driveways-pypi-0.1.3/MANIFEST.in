@@ -1,0 +1,3 @@
+recursive-include userface/templates *
+recursive-include userface/static *
+recursive-include media *

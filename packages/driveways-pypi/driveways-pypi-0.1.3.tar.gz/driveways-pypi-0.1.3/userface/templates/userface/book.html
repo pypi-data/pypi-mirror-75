@@ -1,0 +1,16 @@
+{% extends "userface/search_base.html" %}
+
+{% block body %}
+           <div class="card" style="width: 12rem; margin: 15px;">
+                <img src="{{ spot.upload_image.url }}" class="card-img-top" alt="No-image">
+              <div class="card-body">
+                <p class="card-text" >Address: {{spot.address}}
+                </p>
+                <p class="card-text">Owner: {{spot.owner}}</p>
+                  <p class="card-text">Phone Number: {{spot.number}}</p>
+
+              </div>
+            </div>
+
+         <a class="btn btn-primary" href="{% url 'userface:confirm' spot.id %}" role="button" style="margin-left: 15px; background-color: #003366">Confirm</a>
+{% endblock body %}}
