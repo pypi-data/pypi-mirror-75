@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: mongoset
+Version: 0.2.3
+Summary: Pythonic wrapper around pymongo that can act as a drop-in replacement for dataset
+Home-page: https://github.com/TadpoleTutoring/mongoset
+License: MIT
+Author: InnovativeInventor
+Author-email: root@max.fan
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: dnspython (>=1.16.0,<2.0.0)
+Requires-Dist: pymongo (>=3.10.1,<4.0.0)
+Requires-Dist: pytest-race (>=0.1.1,<0.2.0)
+Project-URL: Repository, https://github.com/TadpoleTutoring/mongoset
+Description-Content-Type: text/markdown
+
+## mongoset
+
+![Build](https://github.com/TadpoleTutoring/mongodb-dataset/workflows/Python%20testing%20and%20linting/badge.svg)
+[![codecov](https://codecov.io/gh/TadpoleTutoring/mongodb-dataset/branch/master/graph/badge.svg?token=kh26hWszR0)](https://codecov.io/gh/TadpoleTutoring/mongodb-dataset)
+
+
+Pythonic wrapper around pymongo that can act as a drop-in replacement for dataset 
+
