@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: centrify.dmc
+Version: 0.1
+Summary: Library to retrieve an access token to Centrify PAS from an enrolled machine
+Home-page: https://github.com/centrify/dmc-python
+Author: Harvey Kwok
+Author-email: harvey.kwok@centrify.com
+License: MIT
+Download-URL: https://github.com/centrify/dmc-python/archive/v0.1-alpha.zip
+Description: UNKNOWN
+Keywords: Centrify,DMC
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
