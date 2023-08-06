@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: fff_profile_picture
+Version: 1.0.3
+Summary: A Module to generate profile pictures
+Home-page: UNKNOWN
+Author: Alwin Lohrie (Niwla23)
+Author-email: alwin@kat-zentrale.de
+License: LGPL
+Description: # FFF Profile Picture Lib
+        ## What is it?
+        A library to generate profile pictures
+        
+        ## Example
+        ```python
+        from fff_profile_picture import Generator
+        from PIL import Image
+        
+        generator = Generator(Image.open("original.JPG"), Image.open("overlay.png"))
+        result = generator.process()
+        result.save("generated.png")
+        ```
+        
+        ## Docs
+        
+        ####`class Generator(self, background, overlay, scale=0, size=(640, 640))`
+        
+        `background`: PIL.Image: An Image object representing 
+        the picture on that the overlay will be printed.
+        
+        `overlay`: Pil.Image: An Image object representing the picture that 
+        will be used as an overlay
+        
+        `scale`: Int: How thick the border should be. Defaults to 0
+        
+        `size`: Tuple: Defines the size of the result. Background will be scaled to this 
+        size.
+        
+        `process()`:
+        
+        Creates the Picture
+        
+        Returns: PIL.Image
+        
+        
+Keywords: fff,fridaysforfuture,profilepicture,generator
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
