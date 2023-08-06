@@ -1,0 +1,16 @@
+# **p3elf**
+
+A tiny python3 module for parsing ELF file metadata that I'm writing to familiarize myself with python binary IO as well as to gain more python experience.
+
+Currently, it can: 
+
+* parse the ELF file header
+
+* parse program headers and section headers
+
+* dump segments
+
+* dump sections
+
+## TODO
+* cli tool
