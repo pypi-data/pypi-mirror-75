@@ -1,0 +1,10 @@
+click==7.*
+h11<0.10,>=0.8
+websockets==8.*
+
+[:sys_platform != "win32" and sys_platform != "cygwin" and platform_python_implementation != "PyPy"]
+httptools==0.1.*
+uvloop>=0.14.0
+
+[watchgodreload]
+watchgod<0.7,>=0.6
