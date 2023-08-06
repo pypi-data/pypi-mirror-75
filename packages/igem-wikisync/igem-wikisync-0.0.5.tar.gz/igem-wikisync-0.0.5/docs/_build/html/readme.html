@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Overview &mdash; igem-wikisync 0.0.4 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> igem-wikisync
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.4
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usage_guide.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference/index.html">Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">igem-wikisync</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Overview</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/readme.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="overview">
+<span id="id1"></span><h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p><strong>WikiSync</strong> is a Python library that allows you to easily upload your iGEM wiki. There’s no need anymore to manually upload each file, replace your URLs and copy paste your source code into a web form. Building and deployment can now be as simple as a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>, thanks to <a class="reference external" href="https://travis-ci.com">Travis</a>.</p>
+<p>All you need are five lines of code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">igem_wikisync</span> <span class="k">as</span> <span class="nn">sync</span>
+
+<span class="n">sync</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+    <span class="n">team</span><span class="o">=</span><span class="s1">&#39;your_team_name&#39;</span><span class="p">,</span>
+    <span class="n">src_dir</span><span class="o">=</span><span class="s1">&#39;source_directory&#39;</span><span class="p">,</span>
+    <span class="n">build_dir</span><span class="o">=</span><span class="s1">&#39;build_directory&#39;</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+<p>Under the <a class="reference external" href="https://2020.igem.org/Resources/Wiki_Editing_Help">existing iGEM wiki infrastucture</a>, you’re required to upload every image, document or video individually, and create each page by typing code in a text box in your web browser. This presents serious challenges as your wiki grows into several pages with dozens of images.</p>
+<p>Creating a team wiki can be quite challenging, specially for a someone new to programming.  Modern code editors like <a class="reference external" href="https://code.visualstudio.com">Visual Studio Code</a> offer <a class="reference external" href="https://medium.com/&#64;bretcameron/7-essential-features-of-visual-studio-code-for-web-developers-be77e235bf62">several features</a> to make it easier and writing code inside a web browser deprives you from using them. Even if you write code on a code editor instead of the iGEM webpage, you still need to copy-paste all your files every time you make changes. Doing this over and over for several months can quickly become an annoyance and divert focus away from your actual project.</p>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>WikiSync automates the entire deployment process by allowing you to develop your wiki locally, so you can <a class="reference external" href="https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer">look at your wiki as you code</a>. When you’re done, you can effortlessly push your code to iGEM servers, by running just one command.</p>
+<p>WikiSync also checks for broken links and keeps track of previously uploaded files. It goes through each file in your wiki source folder and uploads all images and documents. It then reads all your code, changes URLs to those recieved from iGEM and finally uploads the modified code as well. This allows your entire team to collaborate on platforms such as Github, which can then <a class="reference external" href="travisguidelink">automatically deploy to iGEM servers using Travis</a>.</p>
+<p>Please head over to the <a class="reference internal" href="usage_guide.html#usage-guide"><span class="std std-ref">Usage Guide</span></a> to get started, or take a look at our <a class="reference internal" href="tutorial.html#tutorial"><span class="std std-ref">Tutorial</span></a> for step-by-step examples meant to help you make deployment as easy as a <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code>.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">igem</span><span class="o">-</span><span class="n">wikisync</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="documentation">
+<h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="https://igem-wikisync.readthedocs.io/">https://igem-wikisync.readthedocs.io/</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Pranav Ballaney
+      <span class="lastupdated">
+        Last updated on Jul 27, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
