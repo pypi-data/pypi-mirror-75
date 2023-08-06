@@ -1,0 +1,6 @@
+.__DS_Store__
+*.pyc
+__pycache__/
+.ipynb_checkpoints/
+*.egg-info/
+settings.json
