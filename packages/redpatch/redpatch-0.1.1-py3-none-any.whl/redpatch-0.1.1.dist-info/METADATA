@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: redpatch
+Version: 0.1.1
+Summary: Finding Disease Lesions in Plant Leaves
+Home-page: https://github.com/TeamMacLean/redpatch
+Author: Dan MacLean
+Author-email: dan.maclean@tsl.ac.uk
+License: LICENSE.txt
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Requires-Dist: ipywidgets (==7.5.1)
+Requires-Dist: ipython (==7.8.0)
+Requires-Dist: jupyter (>=1.0.0)
+Requires-Dist: numpy (>=1.17.1)
+Requires-Dist: numba (>=0.48.0)
+Requires-Dist: matplotlib (>=3.1.0)
+Requires-Dist: pytest (>=5.1.2)
+Requires-Dist: scikit-image (>=0.16.2)
+Requires-Dist: scipy (>=1.3.1)
+Requires-Dist: pyyaml (>=5.2)
+Requires-Dist: shapely (>=1.6.0)
+Requires-Dist: pandas (>=0.25.0)
+Requires-Dist: yattag (>=1.12.2)
+
+UNKNOWN
+
+
