@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: boxprint
+Version: 0.0.1
+Summary: A small package for printing boxes
+Home-page: https://github.com/yuzuquats/pybox
+Author: James Kao
+Author-email: james.l.kao@example.com
+License: UNKNOWN
+Description: # Pybox
+        
+        TODO - Come back later!
+        
+        ```
+        import pybox
+        
+        bprint("hello world")
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
