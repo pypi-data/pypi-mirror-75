@@ -1,0 +1,4 @@
+include climetlab/*/styles/*.yaml
+include climetlab/*/*/styles/*.yaml
+include climetlab/*/*/*/styles/*.yaml
+include climetlab/*/*/*/*/styles/*.yaml
