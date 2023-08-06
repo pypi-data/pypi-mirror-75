@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: coldtype
+Version: 0.0.5
+Summary: Functions for manual vectorized typesetting
+Home-page: https://github.com/goodhertz/coldtype
+Author: Rob Stenson / Goodhertz
+Author-email: rob@goodhertz.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: fontPens
+Requires-Dist: defcon
+Requires-Dist: mido
+Requires-Dist: skia-pathops
+Requires-Dist: easing-functions
+Requires-Dist: fonttools[lxml,type1,ufo,unicode,woff]
+Requires-Dist: freetype-py
+Requires-Dist: uharfbuzz
+Requires-Dist: python-bidi
+Requires-Dist: ufo2ft
+Requires-Dist: unicodedata2
+Requires-Dist: numpy
+Provides-Extra: renderer
+Requires-Dist: noise ; extra == 'renderer'
+Requires-Dist: websocket-client ; extra == 'renderer'
+Requires-Dist: websockets ; extra == 'renderer'
+Requires-Dist: watchdog ; extra == 'renderer'
+
+
+# Coldtype
+
+### Programmatic display typography
+
+More info available at: [coldtype.goodhertz.co](https://coldtype.goodhertz.co)
+
+
