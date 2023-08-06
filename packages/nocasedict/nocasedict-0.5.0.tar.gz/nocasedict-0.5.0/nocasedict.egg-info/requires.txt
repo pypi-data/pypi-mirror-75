@@ -1,0 +1,27 @@
+six>=1.14.0
+
+[test]
+packaging>=17.0
+
+[test:python_version < "3.4" and sys_platform != "win32"]
+pathlib2<3,>=2.3.3
+
+[test:python_version < "3.5"]
+pytest<5.0.0,>=4.3.1
+virtualenv>=14.0.0
+
+[test:python_version >= "2.7" and python_version <= "3.6"]
+pluggy>=0.7.1
+
+[test:python_version >= "3.5" and python_version < "3.8"]
+virtualenv>=16.1.0
+
+[test:python_version >= "3.5" and python_version <= "3.6"]
+pytest!=6.0.0,>=4.3.1
+
+[test:python_version >= "3.7"]
+pytest!=6.0.0,>=4.4.0
+pluggy>=0.13.0
+
+[test:python_version >= "3.8"]
+virtualenv>=20.0.0
