@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: CSGOMemPy
+Version: 1.0.0
+Summary: Easy to use CSGO mod functions
+Home-page: UNKNOWN
+Author: EthanEDITS
+Author-email: ethaneditsbusiness@gmail.com
+License: MIT
+Description: This module makes it super easy to make basic mod functions for CSGO by reading and writing memory. These functions include Glow, Triggerbot, and Recoil Control.
+        
+        Change Log
+        ==========
+        
+        1.0.0 (8/3/2020)
+        ----------------
+        -Initial Release
+Keywords: csgo memory windows
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3

@@ -1,0 +1,1 @@
+This module makes it super easy to make basic mod functions for CSGO by reading and writing memory. These functions include Glow, Triggerbot, and Recoil Control.
