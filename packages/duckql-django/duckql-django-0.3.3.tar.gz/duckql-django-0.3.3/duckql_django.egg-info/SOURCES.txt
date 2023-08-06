@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+setup.py
+duckql_django/__init__.py
+duckql_django/models.py
+duckql_django/schema.py
+duckql_django/version.py
+duckql_django/wrapper.py
+duckql_django.egg-info/PKG-INFO
+duckql_django.egg-info/SOURCES.txt
+duckql_django.egg-info/dependency_links.txt
+duckql_django.egg-info/requires.txt
+duckql_django.egg-info/top_level.txt
