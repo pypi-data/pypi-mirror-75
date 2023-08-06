@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: argparse_dataclasses
+Version: 0.1
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Felix Neko
+Author-email: felix-neko@list.ru
+License: UNKNOWN
+Description: argparse_dataclasses
+        =====================
+        
+        Dozens of times I had to create settings classes for my Python console scripts. Here's some utility boilerplate code that helps to create commandline parsers for dataclasses in a couple of lines = )
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
