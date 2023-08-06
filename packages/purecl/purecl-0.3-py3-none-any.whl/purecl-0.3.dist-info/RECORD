@@ -1,0 +1,15 @@
+purecl/__init__.py,sha256=_KDaCUIg6YO84GaexFnSEUSvw-AWARXyGOFsCgim3J8,3096
+purecl/_cffi.py,sha256=TZsH8BZVMfstehLlzdmtlwPCoxlmWqs4XLwMbxKrNZY,2639
+purecl/_py.py,sha256=i0tlsvhPvCx2j-DB83rIJWaQ2iwMkTNT27sxhcgelW0,77817
+purecl/blas/__init__.py,sha256=eARRD9AlsPKorECxyJ7j2GlNGbM8asmTtCC3hkgzUeU,3910
+purecl/blas/_clblas.py,sha256=tL7U7ZfQoRLyQeBdo_kJ5obGJ9JEZflShovcKTVJEv0,16632
+purecl/common/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+purecl/common/const.py,sha256=HhuyQmmQ_9MNnlvKEKuwl6mV6oDOuhyL6Z6Pgn1iBR4,7438
+purecl/common/errors.py,sha256=rJlO88fJbE-s2O1OLKflVyEwVmWg4SbN7mvGW18JbcU,4021
+purecl/common/ocl_api.c,sha256=PFQ-rPk6YQYoIu_kSZ0Qq6naQx2NdeWwBFGZsnHA9RE,14599
+purecl/common/src_reader.py,sha256=0U-oAy3jMhRKhQ0wxj8v_Ui3yQiEeNYgComuWUsgA1U,421
+purecl-0.3.dist-info/LICENSE,sha256=nuju8Zj2GutIF9QJ7z6nJAO5MMvL8uNzbtiC_1H6654,1563
+purecl-0.3.dist-info/METADATA,sha256=RbhIasZr4D-hWgBrW5dhw0im-zMBPgZpM8aeU5t4dd4,743
+purecl-0.3.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+purecl-0.3.dist-info/top_level.txt,sha256=FoLynlJyLAKDDXpBYlvzAXBEFe_VVif000bRfXQyEIg,7
+purecl-0.3.dist-info/RECORD,,
