@@ -1,0 +1,688 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>igem_wikisync.wikisync &mdash; igem-wikisync 0.0.6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> igem-wikisync
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../usage/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/index.html">Reference for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">igem-wikisync</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="../index.html">Module code</a> &raquo;</li>
+        
+      <li>igem_wikisync.wikisync</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for igem_wikisync.wikisync</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">date</span>
+<span class="kn">from</span> <span class="nn">hashlib</span> <span class="kn">import</span> <span class="n">md5</span>
+<span class="kn">from</span> <span class="nn">http.cookiejar</span> <span class="kn">import</span> <span class="n">LWPCookieJar</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">mechanicalsoup</span>
+<span class="kn">import</span> <span class="nn">yaml</span>
+
+<span class="kn">from</span> <span class="nn">igem_wikisync.browser</span> <span class="kn">import</span> <span class="n">iGEM_login</span>
+<span class="kn">from</span> <span class="nn">igem_wikisync.browser</span> <span class="kn">import</span> <span class="n">iGEM_upload_file</span>
+<span class="kn">from</span> <span class="nn">igem_wikisync.browser</span> <span class="kn">import</span> <span class="n">iGEM_upload_page</span>
+<span class="kn">from</span> <span class="nn">igem_wikisync.files</span> <span class="kn">import</span> <span class="n">CSSfile</span>
+<span class="kn">from</span> <span class="nn">igem_wikisync.files</span> <span class="kn">import</span> <span class="n">HTMLfile</span>
+<span class="kn">from</span> <span class="nn">igem_wikisync.files</span> <span class="kn">import</span> <span class="n">JSfile</span>
+<span class="kn">from</span> <span class="nn">igem_wikisync.files</span> <span class="kn">import</span> <span class="n">OtherFile</span>
+<span class="kn">from</span> <span class="nn">igem_wikisync.logger</span> <span class="kn">import</span> <span class="n">logger</span>
+<span class="kn">from</span> <span class="nn">igem_wikisync.parsers</span> <span class="kn">import</span> <span class="n">CSSparser</span>
+<span class="kn">from</span> <span class="nn">igem_wikisync.parsers</span> <span class="kn">import</span> <span class="n">HTMLparser</span>
+<span class="kn">from</span> <span class="nn">igem_wikisync.parsers</span> <span class="kn">import</span> <span class="n">JSparser</span>
+
+<span class="c1"># pylint: disable=too-many-instance-attributes, fixme</span>
+
+
+<div class="viewcode-block" id="run"><a class="viewcode-back" href="../../reference/igem_wikisync.html#igem_wikisync.wikisync.run">[docs]</a><span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="n">team</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">src_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">build_dir</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">year</span><span class="o">=</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">year</span><span class="p">,</span>
+        <span class="n">silence_warnings</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Runs iGEM-WikiSync and uploads all files to iGEM servers</span>
+<span class="sd">    while replacing relative URLs with those on the iGEM server.</span>
+
+<span class="sd">    Mandatory Arguments:</span>
+<span class="sd">        team: iGEM Team Name</span>
+<span class="sd">        src_dir: Path to the folder where the source files are present</span>
+<span class="sd">        build_dir: Path to the folder where the built files will be stored before uploading</span>
+
+<span class="sd">    Optional Arguments:</span>
+<span class="sd">        year: Subdomain for igem.org. Current year by default.</span>
+<span class="sd">        silence_warnings: Broken link warnings are not printed to console if true. The log still contains everything.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># * 1. CHECK AND FORMAT INPUTS</span>
+    <span class="k">if</span> <span class="n">team</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">team</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Please specify your team name.&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span>
+
+    <span class="k">if</span> <span class="n">src_dir</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src_dir</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Please specify where your code is stored &#39;</span> <span class="o">+</span>
+                        <span class="s1">&#39;using the src_dir argument.&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span>
+
+    <span class="k">if</span> <span class="n">build_dir</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">build_dir</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Please specify where your code should be temporarily stored &#39;</span> <span class="o">+</span>
+                        <span class="s1">&#39;using the build_dir argument.&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Year should be a four digit integer.&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">silence_warnings</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;silence_warnings must have a boolean value.&#39;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span>
+
+    <span class="n">config</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;team&#39;</span><span class="p">:</span>      <span class="n">team</span><span class="p">,</span>
+        <span class="s1">&#39;src_dir&#39;</span><span class="p">:</span>   <span class="n">src_dir</span><span class="p">,</span>
+        <span class="s1">&#39;build_dir&#39;</span><span class="p">:</span> <span class="n">build_dir</span><span class="p">,</span>
+        <span class="s1">&#39;year&#39;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">),</span>
+        <span class="s1">&#39;silence_warnings&#39;</span><span class="p">:</span> <span class="n">silence_warnings</span>
+    <span class="p">}</span>
+
+    <span class="c1"># * 2. Load or create upload_map</span>
+    <span class="n">upload_map</span> <span class="o">=</span> <span class="n">get_upload_map</span><span class="p">()</span>
+
+    <span class="c1"># * 3. Create build directory</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">build_dir</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">build_dir</span><span class="p">)</span>
+        <span class="c1"># ? error handling here?</span>
+
+    <span class="c1"># * 4. Get iGEM credentials from environment variables</span>
+    <span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;username&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;IGEM_USERNAME&#39;</span><span class="p">),</span>
+        <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;IGEM_PASSWORD&#39;</span><span class="p">)</span>
+    <span class="p">}</span>
+
+    <span class="c1"># * 5. Load/create cookie file</span>
+    <span class="n">browser</span><span class="p">,</span> <span class="n">cookiejar</span> <span class="o">=</span> <span class="n">get_browser_with_cookies</span><span class="p">()</span>
+
+    <span class="c1"># * 6. Login to iGEM</span>
+    <span class="n">login</span> <span class="o">=</span> <span class="n">iGEM_login</span><span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="n">credentials</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">login</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;Failed to login.&#39;</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">SystemExit</span>
+
+    <span class="c1"># * 7. Save cookies</span>
+    <span class="c1"># TODO: check if this works, might not</span>
+    <span class="n">cookiejar</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="c1"># * 8. Cache files</span>
+    <span class="n">files</span> <span class="o">=</span> <span class="n">cache_files</span><span class="p">(</span><span class="n">upload_map</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="c1"># * 9. Upload all assets and create a map</span>
+    <span class="n">uploaded_assets</span> <span class="o">=</span> <span class="n">upload_and_write_assets</span><span class="p">(</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;other&#39;</span><span class="p">],</span> <span class="n">browser</span><span class="p">,</span> <span class="n">upload_map</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+    <span class="c1"># * 10. write upload map just in case</span>
+    <span class="c1"># things go wrong while dealing with code</span>
+    <span class="n">write_upload_map</span><span class="p">(</span><span class="n">upload_map</span><span class="p">)</span>
+
+    <span class="c1"># * 11. Build files and upload changed files</span>
+    <span class="n">uploaded_code</span> <span class="o">=</span> <span class="n">build_and_upload</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">browser</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">upload_map</span><span class="p">)</span>
+
+    <span class="c1"># * 12. Write final upload map</span>
+    <span class="n">write_upload_map</span><span class="p">(</span><span class="n">upload_map</span><span class="p">)</span>
+
+    <span class="n">print_summary</span><span class="p">(</span><span class="n">uploaded_assets</span><span class="p">,</span> <span class="n">uploaded_code</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_upload_map"><a class="viewcode-back" href="../../reference/igem_wikisync.html#igem_wikisync.wikisync.get_upload_map">[docs]</a><span class="k">def</span> <span class="nf">get_upload_map</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Opens existing upload_map.yml or creates and empty upload map.</span>
+
+<span class="sd">    Upload map is a dictionary that contains previously uploaded</span>
+<span class="sd">    html, css, js and other files, along with their URLs and hashes.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="s1">&#39;upload_map.yml&#39;</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;upload_map.yml&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">upload_map</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;upload_map.yml exists but could not be opened. Please try again.&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">SystemExit</span>
+
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">upload_map</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)):</span>
+            <span class="n">upload_map</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="c1"># make sure upload map has all the keys</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">,</span> <span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="s1">&#39;css&#39;</span><span class="p">,</span> <span class="s1">&#39;js&#39;</span><span class="p">]:</span>
+            <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">upload_map</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">upload_map</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)):</span>
+                <span class="n">upload_map</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">upload_map</span><span class="p">[</span><span class="n">key</span><span class="p">],</span> <span class="nb">dict</span><span class="p">):</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;upload_map.yml has an invalid format.&#39;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="s1">&#39;Please fix/delete the file and run the program again.&#39;</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">SystemExit</span>
+
+        <span class="k">return</span> <span class="n">upload_map</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="s1">&#39;assets&#39;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s1">&#39;html&#39;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s1">&#39;css&#39;</span><span class="p">:</span> <span class="p">{},</span>
+            <span class="s1">&#39;js&#39;</span><span class="p">:</span> <span class="p">{}</span>
+        <span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="write_upload_map"><a class="viewcode-back" href="../../reference/igem_wikisync.html#igem_wikisync.wikisync.write_upload_map">[docs]</a><span class="k">def</span> <span class="nf">write_upload_map</span><span class="p">(</span><span class="n">upload_map</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;upload_map.yml&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Writes upload map to file. &quot;&quot;&quot;</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">yaml</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">upload_map</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Tried to write </span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s1"> but could not.&#39;</span><span class="p">)</span>
+        <span class="c1"># FIXME Can this be improved?</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<div class="viewcode-block" id="get_browser_with_cookies"><a class="viewcode-back" href="../../reference/igem_wikisync.html#igem_wikisync.wikisync.get_browser_with_cookies">[docs]</a><span class="k">def</span> <span class="nf">get_browser_with_cookies</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Creates a mechanicalsoup.StatefulBrowser() instance</span>
+<span class="sd">    with cookies loaded from file, if exists.</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        browser: mechanicalsoup.StatefulBrowser() instance</span>
+<span class="sd">        cookiejar: browser cookiejar that can be saved after logging in</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cookie_file</span> <span class="o">=</span> <span class="s1">&#39;wikisync.cookies&#39;</span>
+    <span class="n">cookiejar</span> <span class="o">=</span> <span class="n">LWPCookieJar</span><span class="p">(</span><span class="n">cookie_file</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">cookie_file</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cookiejar</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+        <span class="c1"># in case file is empty</span>
+        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+            <span class="k">pass</span>
+
+    <span class="n">browser</span> <span class="o">=</span> <span class="n">mechanicalsoup</span><span class="o">.</span><span class="n">StatefulBrowser</span><span class="p">()</span>
+    <span class="c1"># ? error handling here?</span>
+    <span class="n">browser</span><span class="o">.</span><span class="n">set_cookiejar</span><span class="p">(</span><span class="n">cookiejar</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">browser</span><span class="p">,</span> <span class="n">cookiejar</span></div>
+
+
+<div class="viewcode-block" id="cache_files"><a class="viewcode-back" href="../../reference/igem_wikisync.html#igem_wikisync.wikisync.cache_files">[docs]</a><span class="k">def</span> <span class="nf">cache_files</span><span class="p">(</span><span class="n">upload_map</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads filenames into memory, along with setting up</span>
+<span class="sd">    appropriate objects to generate URLs and hashes as required.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        upload_map: custom upload map</span>
+<span class="sd">        config: configuration for this run</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        cache: dictionary with html, css, js and other file objects</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">cache</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;html&#39;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;css&#39;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;js&#39;</span><span class="p">:</span> <span class="p">{},</span>
+        <span class="s1">&#39;other&#39;</span><span class="p">:</span> <span class="p">{}</span>
+    <span class="p">}</span>
+
+    <span class="c1"># for each file in src_dir</span>
+    <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;src_dir&#39;</span><span class="p">]):</span>
+        <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+
+            <span class="c1"># Store path and extension</span>
+            <span class="n">infile</span> <span class="o">=</span> <span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">root</span><span class="p">)</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">))</span><span class="o">.</span><span class="n">relative_to</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;src_dir&#39;</span><span class="p">])</span>
+            <span class="n">extension</span> <span class="o">=</span> <span class="n">infile</span><span class="o">.</span><span class="n">suffix</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+            <span class="c1"># create appropriate file object</span>
+            <span class="c1"># file objects contain corresponding paths and URLs</span>
+            <span class="k">if</span> <span class="n">extension</span> <span class="o">==</span> <span class="s1">&#39;html&#39;</span><span class="p">:</span>
+                <span class="n">file_object</span> <span class="o">=</span> <span class="n">HTMLfile</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+                <span class="n">cache</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">][</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_object</span>
+
+            <span class="k">elif</span> <span class="n">extension</span> <span class="o">==</span> <span class="s1">&#39;css&#39;</span><span class="p">:</span>
+                <span class="n">file_object</span> <span class="o">=</span> <span class="n">CSSfile</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+                <span class="n">cache</span><span class="p">[</span><span class="s1">&#39;css&#39;</span><span class="p">][</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_object</span>
+
+            <span class="k">elif</span> <span class="n">extension</span> <span class="o">==</span> <span class="s1">&#39;js&#39;</span><span class="p">:</span>
+                <span class="n">file_object</span> <span class="o">=</span> <span class="n">JSfile</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+                <span class="n">cache</span><span class="p">[</span><span class="s1">&#39;js&#39;</span><span class="p">][</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_object</span>
+
+            <span class="k">elif</span> <span class="n">extension</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;png&#39;</span><span class="p">,</span> <span class="s1">&#39;gif&#39;</span><span class="p">,</span> <span class="s1">&#39;jpg&#39;</span><span class="p">,</span> <span class="s1">&#39;jpeg&#39;</span><span class="p">,</span> <span class="s1">&#39;pdf&#39;</span><span class="p">,</span> <span class="s1">&#39;ppt&#39;</span><span class="p">,</span> <span class="s1">&#39;txt&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;zip&#39;</span><span class="p">,</span> <span class="s1">&#39;mp3&#39;</span><span class="p">,</span> <span class="s1">&#39;mp4&#39;</span><span class="p">,</span> <span class="s1">&#39;webm&#39;</span><span class="p">,</span> <span class="s1">&#39;mov&#39;</span><span class="p">,</span> <span class="s1">&#39;swf&#39;</span><span class="p">,</span> <span class="s1">&#39;xls&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;xlsx&#39;</span><span class="p">,</span> <span class="s1">&#39;docx&#39;</span><span class="p">,</span> <span class="s1">&#39;pptx&#39;</span><span class="p">,</span> <span class="s1">&#39;csv&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="s1">&#39;ogg&#39;</span><span class="p">,</span> <span class="s1">&#39;gb&#39;</span><span class="p">,</span>
+                                       <span class="s1">&#39;tif&#39;</span><span class="p">,</span> <span class="s1">&#39;tiff&#39;</span><span class="p">,</span> <span class="s1">&#39;fcs&#39;</span><span class="p">,</span> <span class="s1">&#39;otf&#39;</span><span class="p">,</span> <span class="s1">&#39;eot&#39;</span><span class="p">,</span> <span class="s1">&#39;ttf&#39;</span><span class="p">,</span> <span class="s1">&#39;woff&#39;</span><span class="p">,</span> <span class="s1">&#39;svg&#39;</span><span class="p">]:</span>
+
+                <span class="c1"># make sure file path start with &#39;assets&#39;</span>
+                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">infile</span><span class="p">))</span> <span class="o">&lt;</span> <span class="mi">7</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">infile</span><span class="p">)[:</span><span class="mi">7</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;assets/&#39;</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">infile</span><span class="si">}</span><span class="s1"> is an </span><span class="si">{</span><span class="n">extension</span><span class="si">}</span><span class="s1"> file outside the &quot;assets&quot; folder. Skipping.&#39;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+
+                <span class="c1"># make sure file size is within limits</span>
+                <span class="k">elif</span> <span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;src_dir&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">infile</span><span class="p">)</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="o">&gt;=</span> <span class="mi">1000000</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">infile</span><span class="si">}</span><span class="s1"> is larger than the 100MB file limit. Skipping.&#39;</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                <span class="c1"># create OtherFile</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">file_object</span> <span class="o">=</span> <span class="n">OtherFile</span><span class="p">(</span><span class="n">infile</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+
+                    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">upload_filename</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">240</span><span class="p">:</span>
+                        <span class="n">cache</span><span class="p">[</span><span class="s1">&#39;other&#39;</span><span class="p">][</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_object</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">infile</span><span class="si">}</span><span class="s1">: Upload filename too large. Skipping.&#39;</span><span class="p">)</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Please do not nest assets too deep and take a look at our docs to see how WikiSync renames files.&#39;</span><span class="p">)</span>
+                        <span class="k">continue</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">infile</span><span class="si">}</span><span class="s1"> has an unsupported file extension. Skipping.&#39;</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+            <span class="k">if</span> <span class="n">extension</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">,</span> <span class="s1">&#39;css&#39;</span><span class="p">,</span> <span class="s1">&#39;js&#39;</span><span class="p">]:</span>
+                <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">upload_map</span><span class="p">[</span><span class="n">extension</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="n">upload_map</span><span class="p">[</span><span class="n">extension</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span>
+                        <span class="s1">&#39;md5&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+                        <span class="s1">&#39;link_URL&#39;</span><span class="p">:</span> <span class="n">file_object</span><span class="o">.</span><span class="n">link_URL</span>
+                    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">cache</span></div>
+
+
+<div class="viewcode-block" id="upload_and_write_assets"><a class="viewcode-back" href="../../reference/igem_wikisync.html#igem_wikisync.wikisync.upload_and_write_assets">[docs]</a><span class="k">def</span> <span class="nf">upload_and_write_assets</span><span class="p">(</span><span class="n">other_files</span><span class="p">,</span> <span class="n">browser</span><span class="p">,</span> <span class="n">upload_map</span><span class="p">,</span> <span class="n">config</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">    Uploads and writes all files and stores URLs in upload_map.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        other_files: dictionary containing OtherFile objects</span>
+<span class="sd">        browser: mechanicalsoup.StatefulBrowser instance</span>
+<span class="sd">        upload_map: custom upload map</span>
+<span class="sd">        config: custom configuration options</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Number of files uploaded</span>
+
+<span class="sd">    Raises:</span>
+<span class="sd">        SystemExit on failure</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># count the number of files uploaded</span>
+    <span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+
+    <span class="c1"># files have to be uploaded before everything else because</span>
+    <span class="c1"># the URLs iGEM assigns are random</span>
+    <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">other_files</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+        <span class="n">file_object</span> <span class="o">=</span> <span class="n">other_files</span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
+
+        <span class="c1"># flag to see if file has already been uploaded</span>
+        <span class="n">uploaded</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="c1"># check if the file has already been uploaded</span>
+        <span class="k">for</span> <span class="n">asset_path</span> <span class="ow">in</span> <span class="n">upload_map</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+
+            <span class="c1"># if current path matches stored path</span>
+            <span class="k">if</span> <span class="n">asset_path</span> <span class="o">==</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+                <span class="n">asset</span> <span class="o">=</span> <span class="n">upload_map</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">][</span><span class="n">asset_path</span><span class="p">]</span>
+                <span class="c1"># and the md5 hash is also the same</span>
+                <span class="k">if</span> <span class="n">file_object</span><span class="o">.</span><span class="n">md5_hash</span> <span class="o">==</span> <span class="n">asset</span><span class="p">[</span><span class="s1">&#39;md5&#39;</span><span class="p">]:</span>
+                    <span class="c1"># the file has already been uploaded</span>
+                    <span class="n">uploaded</span> <span class="o">=</span> <span class="kc">True</span>
+                    <span class="k">break</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># the file path matches, but the md5 hash doesn&#39;t</span>
+                    <span class="c1"># this means the file has changed</span>
+                    <span class="n">uploaded</span> <span class="o">=</span> <span class="kc">False</span>
+                    <span class="k">break</span>
+
+        <span class="c1"># if new file</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">uploaded</span><span class="p">:</span>
+            <span class="c1"># write to build_dir</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="c1"># create directory if doesn&#39;t exist</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">build_path</span><span class="o">.</span><span class="n">parent</span><span class="p">):</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">build_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">src_path</span><span class="p">,</span> <span class="n">file_object</span><span class="o">.</span><span class="n">build_path</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="n">file_object</span><span class="o">.</span><span class="n">upload_filename</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="c1"># print upload map to save the current state</span>
+                <span class="n">write_upload_map</span><span class="p">(</span><span class="n">upload_map</span><span class="p">)</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Failed to write </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="si">}</span><span class="s1"> to build_dir. &#39;</span> <span class="o">+</span> \
+                    <span class="s1">&#39;The current upload map has been saved. &#39;</span> <span class="o">+</span> \
+                    <span class="s1">&#39;You will not have to upload everything again.&#39;</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">SystemExit</span>
+
+            <span class="n">successful</span> <span class="o">=</span> <span class="n">iGEM_upload_file</span><span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="n">file_object</span><span class="p">,</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;year&#39;</span><span class="p">])</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">successful</span><span class="p">:</span>
+                <span class="c1"># print upload map to save the current state</span>
+                <span class="n">write_upload_map</span><span class="p">(</span><span class="n">upload_map</span><span class="p">)</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Failed to upload </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="si">}</span><span class="s1">. &#39;</span>
+                <span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;The current upload map has been saved. &#39;</span>
+                <span class="n">message</span> <span class="o">+=</span> <span class="s1">&#39;You will not have to upload everything again.&#39;</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">exc_info</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">critical</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                <span class="k">raise</span> <span class="ne">SystemExit</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">counter</span> <span class="o">+=</span> <span class="mi">1</span>
+
+            <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="ow">in</span> <span class="n">upload_map</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                <span class="n">upload_map</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)][</span><span class="s1">&#39;md5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">md5_hash</span>
+                <span class="n">upload_map</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)][</span><span class="s1">&#39;link_URL&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">link_URL</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">upload_map</span><span class="p">[</span><span class="s1">&#39;assets&#39;</span><span class="p">][</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">)]</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s1">&#39;link_URL&#39;</span><span class="p">:</span> <span class="n">file_object</span><span class="o">.</span><span class="n">link_URL</span><span class="p">,</span>
+                    <span class="s1">&#39;md5&#39;</span><span class="p">:</span> <span class="n">file_object</span><span class="o">.</span><span class="n">md5_hash</span><span class="p">,</span>
+                    <span class="s1">&#39;upload_filename&#39;</span><span class="p">:</span> <span class="n">file_object</span><span class="o">.</span><span class="n">upload_filename</span>
+                <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">counter</span></div>
+
+
+<div class="viewcode-block" id="build_and_upload"><a class="viewcode-back" href="../../reference/igem_wikisync.html#igem_wikisync.wikisync.build_and_upload">[docs]</a><span class="k">def</span> <span class="nf">build_and_upload</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">browser</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">upload_map</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Replaces URLs in files and uploads changed files.</span>
+
+<span class="sd">    Arguments:</span>
+<span class="sd">        files: Custom file cache</span>
+<span class="sd">        browser: mechanicalsoup.StatefulBrowser instance</span>
+<span class="sd">        config: Configuration for this run</span>
+<span class="sd">        upload_map: custom upload map</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        Dictionary with no. of &#39;html&#39;, &#39;css&#39; and &#39;js&#39; files uploaded</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">counter</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;html&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;css&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="s1">&#39;js&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">file_dictionary</span> <span class="ow">in</span> <span class="p">[</span><span class="n">files</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">],</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;css&#39;</span><span class="p">],</span> <span class="n">files</span><span class="p">[</span><span class="s1">&#39;js&#39;</span><span class="p">]]:</span>
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">file_dictionary</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">file_object</span> <span class="o">=</span> <span class="n">file_dictionary</span><span class="p">[</span><span class="n">path</span><span class="p">]</span>
+            <span class="n">path_str</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+            <span class="n">ext</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">extension</span>
+
+            <span class="c1"># open file</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">src_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                    <span class="n">contents</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Could not open/read </span><span class="si">{</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s1">. Skipping.&#39;</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                <span class="k">continue</span>  <span class="c1"># FIXME Can this be improved?</span>
+
+            <span class="n">processed</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># just so the linter doesn&#39;t freak out</span>
+            <span class="c1"># parse and modify contents</span>
+            <span class="k">if</span> <span class="n">ext</span> <span class="o">==</span> <span class="s1">&#39;html&#39;</span><span class="p">:</span>
+                <span class="n">processed</span> <span class="o">=</span> <span class="n">HTMLparser</span><span class="p">(</span>
+                    <span class="n">config</span><span class="p">,</span> <span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">contents</span><span class="p">,</span> <span class="n">upload_map</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ext</span> <span class="o">==</span> <span class="s1">&#39;css&#39;</span><span class="p">:</span>
+                <span class="n">processed</span> <span class="o">=</span> <span class="n">CSSparser</span><span class="p">(</span>
+                    <span class="n">config</span><span class="p">,</span> <span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">contents</span><span class="p">,</span> <span class="n">upload_map</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ext</span> <span class="o">==</span> <span class="s1">&#39;js&#39;</span><span class="p">:</span>
+                <span class="n">processed</span> <span class="o">=</span> <span class="n">JSparser</span><span class="p">(</span><span class="n">contents</span><span class="p">)</span>
+
+            <span class="c1"># calculate and store md5 hash of the modified contents</span>
+            <span class="n">build_hash</span> <span class="o">=</span> <span class="n">md5</span><span class="p">(</span><span class="n">processed</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">upload_map</span><span class="p">[</span><span class="n">ext</span><span class="p">][</span><span class="n">path_str</span><span class="p">][</span><span class="s1">&#39;md5&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">build_hash</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Contents of </span><span class="si">{</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="si">}</span><span class="s1"> have been uploaded previously. Skipping.&#39;</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">upload_map</span><span class="p">[</span><span class="n">ext</span><span class="p">][</span><span class="n">path_str</span><span class="p">][</span><span class="s1">&#39;md5&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">build_hash</span>
+                <span class="n">build_path</span> <span class="o">=</span> <span class="n">file_object</span><span class="o">.</span><span class="n">build_path</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="c1"># create directory if doesn&#39;t exist</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="n">build_path</span><span class="o">.</span><span class="n">parent</span><span class="p">):</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">build_path</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+                    <span class="c1"># and write the processed contents</span>
+                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">build_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+                        <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">processed</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;Couldn not write </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">build_path</span><span class="p">)</span><span class="si">}</span><span class="s2">. Skipping.&quot;</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                    <span class="c1"># FIXME Can this be improved?</span>
+
+                <span class="c1"># upload</span>
+                <span class="n">successful</span> <span class="o">=</span> <span class="n">iGEM_upload_page</span><span class="p">(</span><span class="n">browser</span><span class="p">,</span> <span class="n">processed</span><span class="p">,</span> <span class="n">file_object</span><span class="o">.</span><span class="n">upload_URL</span><span class="p">)</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">successful</span><span class="p">:</span>
+                    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Could not upload </span><span class="si">{</span><span class="nb">str</span><span class="p">(</span><span class="n">file_object</span><span class="o">.</span><span class="n">path</span><span class="p">)</span><span class="si">}</span><span class="s1">. Skipping.&#39;</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+                    <span class="k">continue</span>
+                    <span class="c1"># FIXME Can this be improved?</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">counter</span><span class="p">[</span><span class="n">ext</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="k">return</span> <span class="n">counter</span></div>
+
+
+<span class="k">def</span> <span class="nf">print_summary</span><span class="p">(</span><span class="n">assets</span><span class="p">,</span> <span class="n">code</span><span class="p">):</span>
+
+    <span class="n">total_count</span> <span class="o">=</span> <span class="n">assets</span> <span class="o">+</span> <span class="n">code</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">code</span><span class="p">[</span><span class="s1">&#39;css&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">code</span><span class="p">[</span><span class="s1">&#39;js&#39;</span><span class="p">]</span>
+
+    <span class="k">if</span> <span class="n">total_count</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WikiSync did not find any changes from the previous run. No files were uploaded.&#39;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">total_count</span> <span class="o">==</span> <span class="n">assets</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Done! Successfully uploaded </span><span class="si">{</span><span class="n">assets</span><span class="si">}</span><span class="s2"> assets.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">total_count</span> <span class="o">==</span> <span class="n">code</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Done! Successfully uploaded </span><span class="si">{</span><span class="n">code</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> HTML files.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">total_count</span> <span class="o">==</span> <span class="n">code</span><span class="p">[</span><span class="s1">&#39;css&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Done! Successfully uploaded </span><span class="si">{</span><span class="n">code</span><span class="p">[</span><span class="s1">&#39;css&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> stylesheets.&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">total_count</span> <span class="o">==</span> <span class="n">code</span><span class="p">[</span><span class="s1">&#39;js&#39;</span><span class="p">]:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Done! Successfully uploaded </span><span class="si">{</span><span class="n">code</span><span class="p">[</span><span class="s1">&#39;js&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> JS scripts.&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Done! Successfully uploaded:&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">assets</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">assets</span><span class="si">}</span><span class="s2"> assets&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">code</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">code</span><span class="p">[</span><span class="s1">&#39;html&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> HTML files&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">code</span><span class="p">[</span><span class="s1">&#39;css&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">code</span><span class="p">[</span><span class="s1">&#39;css&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> stylesheets&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">code</span><span class="p">[</span><span class="s1">&#39;js&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;    </span><span class="si">{</span><span class="n">code</span><span class="p">[</span><span class="s1">&#39;js&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> JS scripts&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Please look at the log for more details.&quot;</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Pranav Ballaney
+      <span class="lastupdated">
+        Last updated on Aug 03, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,334 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>igem_wikisync &mdash; igem-wikisync 0.0.6 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Contributing" href="../contributing.html" />
+    <link rel="prev" title="Reference for Developers" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> igem-wikisync
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.6
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Reference for Developers</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">igem_wikisync</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">igem-wikisync</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Reference for Developers</a> &raquo;</li>
+        
+      <li>igem_wikisync</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/reference/igem_wikisync.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="igem-wikisync">
+<h1>igem_wikisync<a class="headerlink" href="#igem-wikisync" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-igem_wikisync.wikisync"></span><dl class="py function">
+<dt id="igem_wikisync.wikisync.build_and_upload">
+<code class="sig-prename descclassname">igem_wikisync.wikisync.</code><code class="sig-name descname">build_and_upload</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">files</span></em>, <em class="sig-param"><span class="n">browser</span></em>, <em class="sig-param"><span class="n">config</span></em>, <em class="sig-param"><span class="n">upload_map</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/igem_wikisync/wikisync.html#build_and_upload"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#igem_wikisync.wikisync.build_and_upload" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replaces URLs in files and uploads changed files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>files</strong> – Custom file cache</p></li>
+<li><p><strong>browser</strong> – mechanicalsoup.StatefulBrowser instance</p></li>
+<li><p><strong>config</strong> – Configuration for this run</p></li>
+<li><p><strong>upload_map</strong> – custom upload map</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary with no. of ‘html’, ‘css’ and ‘js’ files uploaded</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="igem_wikisync.wikisync.cache_files">
+<code class="sig-prename descclassname">igem_wikisync.wikisync.</code><code class="sig-name descname">cache_files</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">upload_map</span></em>, <em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/igem_wikisync/wikisync.html#cache_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#igem_wikisync.wikisync.cache_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads filenames into memory, along with setting up
+appropriate objects to generate URLs and hashes as required.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>upload_map</strong> – custom upload map</p></li>
+<li><p><strong>config</strong> – configuration for this run</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><em>cache</em> – dictionary with html, css, js and other file objects</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="igem_wikisync.wikisync.get_browser_with_cookies">
+<code class="sig-prename descclassname">igem_wikisync.wikisync.</code><code class="sig-name descname">get_browser_with_cookies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/igem_wikisync/wikisync.html#get_browser_with_cookies"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#igem_wikisync.wikisync.get_browser_with_cookies" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a mechanicalsoup.StatefulBrowser() instance
+with cookies loaded from file, if exists.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><em>browser</em> – mechanicalsoup.StatefulBrowser() instance
+cookiejar: browser cookiejar that can be saved after logging in</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="igem_wikisync.wikisync.get_upload_map">
+<code class="sig-prename descclassname">igem_wikisync.wikisync.</code><code class="sig-name descname">get_upload_map</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/igem_wikisync/wikisync.html#get_upload_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#igem_wikisync.wikisync.get_upload_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Opens existing upload_map.yml or creates and empty upload map.</p>
+<p>Upload map is a dictionary that contains previously uploaded
+html, css, js and other files, along with their URLs and hashes.</p>
+</dd></dl>
+
+<dl class="py function">
+<dt id="igem_wikisync.wikisync.run">
+<code class="sig-prename descclassname">igem_wikisync.wikisync.</code><code class="sig-name descname">run</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">team</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">src_dir</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">build_dir</span><span class="p">:</span> <span class="n">str</span></em>, <em class="sig-param"><span class="n">year</span><span class="o">=</span><span class="default_value">2020</span></em>, <em class="sig-param"><span class="n">silence_warnings</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/igem_wikisync/wikisync.html#run"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#igem_wikisync.wikisync.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Runs iGEM-WikiSync and uploads all files to iGEM servers
+while replacing relative URLs with those on the iGEM server.</p>
+<dl class="simple">
+<dt>Mandatory Arguments:</dt><dd><p>team: iGEM Team Name
+src_dir: Path to the folder where the source files are present
+build_dir: Path to the folder where the built files will be stored before uploading</p>
+</dd>
+<dt>Optional Arguments:</dt><dd><p>year: Subdomain for igem.org. Current year by default.
+silence_warnings: Broken link warnings are not printed to console if true. The log still contains everything.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="igem_wikisync.wikisync.upload_and_write_assets">
+<code class="sig-prename descclassname">igem_wikisync.wikisync.</code><code class="sig-name descname">upload_and_write_assets</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">other_files</span></em>, <em class="sig-param"><span class="n">browser</span></em>, <em class="sig-param"><span class="n">upload_map</span></em>, <em class="sig-param"><span class="n">config</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/igem_wikisync/wikisync.html#upload_and_write_assets"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#igem_wikisync.wikisync.upload_and_write_assets" title="Permalink to this definition">¶</a></dt>
+<dd><p>”
+Uploads and writes all files and stores URLs in upload_map.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>other_files</strong> – dictionary containing OtherFile objects</p></li>
+<li><p><strong>browser</strong> – mechanicalsoup.StatefulBrowser instance</p></li>
+<li><p><strong>upload_map</strong> – custom upload map</p></li>
+<li><p><strong>config</strong> – custom configuration options</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Number of files uploaded</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>SystemExit on failure</strong> – </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="igem_wikisync.wikisync.write_upload_map">
+<code class="sig-prename descclassname">igem_wikisync.wikisync.</code><code class="sig-name descname">write_upload_map</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">upload_map</span><span class="p">:</span> <span class="n">dict</span></em>, <em class="sig-param"><span class="n">filename</span><span class="o">=</span><span class="default_value">'upload_map.yml'</span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/igem_wikisync/wikisync.html#write_upload_map"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#igem_wikisync.wikisync.write_upload_map" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes upload map to file.</p>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../contributing.html" class="btn btn-neutral float-right" title="Contributing" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Reference for Developers" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Pranav Ballaney
+      <span class="lastupdated">
+        Last updated on Aug 03, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
