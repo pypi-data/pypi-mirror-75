@@ -1,0 +1,3 @@
+[console_scripts]
+tenable-jira = tenable_jira.cli:cli
+
