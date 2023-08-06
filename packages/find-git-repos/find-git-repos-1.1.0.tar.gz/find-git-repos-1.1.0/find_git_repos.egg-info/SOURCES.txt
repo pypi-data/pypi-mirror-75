@@ -1,0 +1,16 @@
+.gitignore
+LICENSE
+MANIFEST.in
+README.rst
+find_git_repos.py
+pyproject.toml
+setup.cfg
+setup.py
+tox.ini
+.github/workflows/tests.yaml
+find_git_repos.egg-info/PKG-INFO
+find_git_repos.egg-info/SOURCES.txt
+find_git_repos.egg-info/dependency_links.txt
+find_git_repos.egg-info/entry_points.txt
+find_git_repos.egg-info/requires.txt
+find_git_repos.egg-info/top_level.txt
