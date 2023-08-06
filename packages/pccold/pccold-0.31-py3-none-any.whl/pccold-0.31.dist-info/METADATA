@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: pccold
+Version: 0.31
+Summary: UNKNOWN
+Home-page: https://pypi.python.org/pypi
+Author: davidkingzyb
+Author-email: davidkingzyb@qq.com
+License: MIT
+Keywords: douyu pccold
+Platform: UNKNOWN
+Requires-Dist: streamlink (==0.14.2)
+Requires-Dist: bypy (>=1.6.4)
+Requires-Dist: psutil (>=5.5.0)
+Requires-Dist: pystt (==0.2.2)
+Requires-Dist: websocket-client (>=0.54.0)
+Requires-Dist: PyExecJS (>=1.5.1)
+
+UNKNOWN
+
+

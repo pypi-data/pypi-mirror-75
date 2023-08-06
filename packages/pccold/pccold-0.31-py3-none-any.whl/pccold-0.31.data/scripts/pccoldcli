@@ -1,0 +1,6 @@
+#!python
+import pccold
+import sys
+
+output=sys.argv[1]
+pccold.cli_main(output)
