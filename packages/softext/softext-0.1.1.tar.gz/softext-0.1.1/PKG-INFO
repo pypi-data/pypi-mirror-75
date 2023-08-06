@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: softext
+Version: 0.1.1
+Summary: A package with some text cleaning tools
+Home-page: https://github.com/unj-inovacao/softext/
+License: MIT
+Keywords: Text,NLP
+Author: Aron Bordin
+Author-email: aron.bordin@softplan.com.br
+Maintainer: Luccas Quadros
+Maintainer-email: luccas.quadros@softplan.com.br
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: Unidecode (>=1.1.1,<2.0.0)
+Requires-Dist: nltk (>=3.4.5,<4.0.0)
+Project-URL: Documentation, https://github.com/unj-inovacao/softext/
+Project-URL: Repository, https://github.com/unj-inovacao/softext/

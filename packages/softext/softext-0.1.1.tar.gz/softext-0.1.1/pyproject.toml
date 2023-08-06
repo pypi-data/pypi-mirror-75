@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "softext"
+version = "0.1.1"
+description = "A package with some text cleaning tools"
+authors = ["Aron Bordin <aron.bordin@softplan.com.br>", "Luccas Quadros <luccas.quadros@softplan.com.br>"]
+maintainers = ["Luccas Quadros <luccas.quadros@softplan.com.br>"]
+license = "MIT"
+homepage = "https://github.com/unj-inovacao/softext/"
+repository = "https://github.com/unj-inovacao/softext/"
+documentation = "https://github.com/unj-inovacao/softext/"
+keywords = ["Text","NLP"]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+nltk = "^3.4.5"
+Unidecode = "^1.1.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.4.3"
+coverage = "^5.2.1"
+pytest-cov = "^2.10.0"
+flake8 = "^3.8.3"
+black = "^19.10b0"
+flake8-black = "^0.1.2"
+flake8-bandit = "^2.1.2"
+flake8-bugbear = "^20.1.4"
+safety = "^1.9.0"
+pre-commit = "^2.6.0"
+
+
+[tool.coverage.paths]
+source = ["src", "*/site-packages"]
+
+[tool.coverage.run]
+branch = true
+source = ["softext"]
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 85
+
+[tool.pytest.ini_options]
+addopts = "--color=yes"
+log_cli = 1
+log_cli_level = "INFO"
+log_cli_format = "%(asctime)s [%(levelname)8s] %(message)s (%(filename)s:%(lineno)s)"
+log_cli_date_format = "%Y-%m-%d %H:%M:%S"
+python_files = "tests.py test_*.py *_tests.py"
+
+[build-system]
+requires = ["poetry>=1.0.5"]
+build-backend = "poetry.masonry.api"
