@@ -1,0 +1,13 @@
+.gitignore
+.pre-commit-config.yaml
+Makefile
+README.md
+enviroment.yml
+setup.py
+jsoncache/__init__.py
+mozilla_jsoncache.egg-info/PKG-INFO
+mozilla_jsoncache.egg-info/SOURCES.txt
+mozilla_jsoncache.egg-info/dependency_links.txt
+mozilla_jsoncache.egg-info/not-zip-safe
+mozilla_jsoncache.egg-info/top_level.txt
+tests/test_loader.py
