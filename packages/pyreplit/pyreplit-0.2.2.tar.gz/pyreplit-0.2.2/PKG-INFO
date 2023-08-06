@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pyreplit
+Version: 0.2.2
+Summary: Fork of sugarfi/pyrepl
+Home-page: https://github.com/AgeOfMarcus/pyreplit
+Author: AgeOfMarcus
+Author-email: marcus@marcusweinberger.com
+License: UNKNOWN
+Description: # pyreplit
+        
+        A port of [PyRepl](https://github.com/sugarfi/PyRepl) to allow installation through PyPi.
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
