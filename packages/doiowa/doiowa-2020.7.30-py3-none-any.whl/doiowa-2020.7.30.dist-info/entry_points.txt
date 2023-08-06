@@ -1,0 +1,3 @@
+[console_scripts]
+doiowa = doiowa.__main__:main
+
