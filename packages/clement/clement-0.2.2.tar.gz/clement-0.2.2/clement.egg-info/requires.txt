@@ -1,0 +1,12 @@
+numpy
+scipy>=1.0.0
+scikit-image
+scikit-learn
+pyqt5
+numexpr
+mrcfile
+read-lif==0.4.0
+tifffile
+matplotlib
+pyqtgraph==0.11.0rc0
+pyyaml
