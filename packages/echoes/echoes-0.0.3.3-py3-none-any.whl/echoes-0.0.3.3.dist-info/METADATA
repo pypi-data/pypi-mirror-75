@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: echoes
+Version: 0.0.3.3
+Summary: Machine Learning with Echo State Networks in Python
+Home-page: https://github.com/fabridamicelli/echoes
+Author: Fabrizio Damicelli
+Author-email: f.damicelli@uke.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6
+Requires-Dist: numpy (>=1.16.0)
+Requires-Dist: scikit-learn (>=0.20.2)
+Requires-Dist: pandas (>=1.0.3)
+Requires-Dist: matplotlib (>=3.2.0)
+Requires-Dist: seaborn (>=0.10.1)
+Requires-Dist: numba (==0.49.1)
+
+UNKNOWN
+
+
