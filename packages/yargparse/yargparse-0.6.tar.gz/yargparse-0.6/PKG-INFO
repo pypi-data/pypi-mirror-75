@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: yargparse
+Version: 0.6
+Summary: YAML / Argparse merger
+Home-page: https://github.com/jpfeiffe/yargparse
+Author: Joel Pfeiffer
+Author-email: jpfeiffe@gmail.com
+License: MIT
+Download-URL: https://github.com/jpfeiffe/yargparse/archive/v_05.tar.gz
+Description: # yargparse
+        Simple merging of YAML configuration files with Command Line Interface (CLI), allowing CLI to override the defaults set in YAML.
+        
+Keywords: argparse,yaml,config
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
