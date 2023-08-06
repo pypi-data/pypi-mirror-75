@@ -1,0 +1,3 @@
+[flake8]
+application_import_names = cs110
+import_order_style = google

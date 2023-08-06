@@ -1,0 +1,30 @@
+CHANGES
+=======
+
+* Remove \* imports
+* Rename module: client -> autograder
+* Remove Console object
+* Add helper function to get login name of user
+* Use Flake8 to enforce coding standards (#8)
+* Use environment variable to disable autograder
+* Use file name as conditional for autograder
+* Import cs110.server to invoke functions
+* Add proof-of-concept integration test
+* Ignore vi temporary files
+* Revert "Use script name to determine top-level environment"
+* Add GitHub Actions workflow for testing (#6)
+* Revert "Updated client.py"
+* Changed real-time lib to cs110
+* Added Console to client
+* Updated client.py
+* Use tox to manage automated testing
+* Add test cases for client module
+* Use script name to determine top-level environment
+* Use relative import for client module
+* Ignore derived files and environments
+* Fixed the .client issue
+* Renaming client
+* Redirecting to live website
+* PyPI Config
+* Filepath tracking
+* Initial Commit
