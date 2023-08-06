@@ -1,0 +1,89 @@
+Metadata-Version: 2.1
+Name: scrab
+Version: 0.0.6
+Summary: Fast and easy to use scraper for the content-centered web pages, e.g. blog posts, news, etc.
+Home-page: https://github.com/gindex/scrab
+Author: Yevgen Pikus
+Author-email: yevgen.pikus@gmail.com
+License: MIT
+Keywords: scrab scraper crawler extractor converter web content html text
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Utilities
+Classifier: Topic :: Text Processing
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: click
+Requires-Dist: requests
+Requires-Dist: lxml
+
+# scrab - Fuzzy content scraper
+
+[![Python package](https://github.com/gindex/scrab/workflows/Python%20package/badge.svg?branch=master)](https://github.com/gindex/scrab/actions)
+![PyPI - Python Version](https://img.shields.io/pypi/pyversions/scrab)
+[![GitHub Release](https://img.shields.io/github/v/release/gindex/scrab.svg)](https://github.com/gindex/scrab/releases) 
+[![GitHub Release](https://img.shields.io/pypi/v/scrab.svg)](https://pypi.org/project/scrab) 
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
+
+
+Fast and easy to use content scraper for topic-centred web pages, e.g. blog posts, news and wikis.    
+
+The tool uses heuristics to extract main content and ignores surrounding noise. No processing rules. No XPath. No configuration.
+
+### Installing
+
+```shell script
+pip install scrab
+```
+
+### Usage
+```shell script
+scrab https://blog.post
+``` 
+
+Store extracted content to a file:
+
+```shell script
+scrab https://blog.post > content.txt
+``` 
+
+### ToDo List
+- [x] Support `<main>` tag 
+- [ ] Add support for lists
+- [ ] Add support for scripts 
+- [ ] Add support for markdown output format
+- [ ] Download and save referenced images
+- [ ] Extract and embed links
+
+### Development
+```shell script
+# Lint with flake8
+flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
+
+# Check with mypy
+mypy ./scrab
+mypy ./tests
+
+# Run tests
+pytest
+``` 
+Publish to PyPI:
+```shell script
+rm -rf dist/*
+python setup.py sdist bdist_wheel
+twine upload dist/*
+```
+
+### License
+This project is licensed under the [MIT License](README.md).
+
+
+
