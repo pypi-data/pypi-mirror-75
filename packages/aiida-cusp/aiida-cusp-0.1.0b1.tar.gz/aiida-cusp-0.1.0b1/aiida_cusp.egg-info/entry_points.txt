@@ -1,0 +1,22 @@
+[aiida.calculations]
+cusp.vasp = aiida_cusp.calculators.vasp_calculation:VaspCalculation
+
+[aiida.cmdline.data]
+potcar = aiida_cusp.cli.potcar_cmd:potcar
+
+[aiida.data]
+cusp.chgcar = aiida_cusp.data.outputs.vasp_chgcar:VaspChgcarData
+cusp.contcar = aiida_cusp.data.outputs.vasp_contcar:VaspContcarData
+cusp.generic = aiida_cusp.data.outputs.vasp_generic:VaspGenericData
+cusp.incar = aiida_cusp.data.inputs.vasp_incar:VaspIncarData
+cusp.kpoints = aiida_cusp.data.inputs.vasp_kpoint:VaspKpointData
+cusp.outcar = aiida_cusp.data.outputs.vasp_outcar:VaspOutcarData
+cusp.poscar = aiida_cusp.data.inputs.vasp_poscar:VaspPoscarData
+cusp.potcar = aiida_cusp.data.inputs.vasp_potcar:VaspPotcarData
+cusp.potcarfile = aiida_cusp.data.inputs.vasp_potcar:VaspPotcarFile
+cusp.vasprun = aiida_cusp.data.outputs.vasp_vasprun:VaspVasprunData
+cusp.wavecar = aiida_cusp.data.outputs.vasp_wavecar:VaspWavecarData
+
+[aiida.parsers]
+cusp.default = aiida_cusp.parsers.vasp_file_parser:VaspFileParser
+
