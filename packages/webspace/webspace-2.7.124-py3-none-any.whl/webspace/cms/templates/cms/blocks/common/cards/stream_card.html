@@ -1,0 +1,14 @@
+{% extends 'cms/blocks/_card.html' %}
+{% load wagtailcore_tags %}
+{% load static %}
+
+{% block card_entity %}custom {% if footer %}nopad{% endif %}{% endblock %}
+
+{% block card_icon %}
+{% endblock %}
+
+{% block card_content %}
+    {% for stream in value.streams %}
+        {% include_block stream with block_num=block_num %}
+    {% endfor %}
+{% endblock %}
