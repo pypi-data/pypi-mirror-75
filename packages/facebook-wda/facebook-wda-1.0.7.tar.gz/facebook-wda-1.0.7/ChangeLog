@@ -1,0 +1,194 @@
+CHANGES
+=======
+
+1.0.7
+-----
+
+* change tmq check time
+
+1.0.6
+-----
+
+* add appium\_settings, fix invalid\_session\_id not handle old wda
+* slow find elements
+
+1.0.5
+-----
+
+* fix missing delete bug
+
+1.0.4
+-----
+
+* fix selector getattr recursive error
+
+1.0.3
+-----
+
+* show error message
+
+1.0.2
+-----
+
+* add alert check before send\_keys, for tmq platform
+
+1.0.1
+-----
+
+* fix element operation error
+
+1.0.0
+-----
+
+* finish register\_callback
+* update doc
+* add callback
+
+0.9.7
+-----
+
+* update session-id when session-id matched application crashed. for old wda
+
+0.9.6
+-----
+
+* simplefy error\_callback logic, fix infinite callback error
+* remove useless api
+* fix ipython complete, add more tests
+
+0.9.5
+-----
+
+* bug fix
+
+0.9.4
+-----
+
+* reduce /status request count
+
+0.9.3
+-----
+
+* change el.click logic to get position first and send tap request
+
+0.9.2
+-----
+
+* fix compability with old WDA session
+
+0.9.1
+-----
+
+* fix bug when device re-plug
+
+0.9.0
+-----
+
+* fix urljoin in python 3.7
+* add class USBClient, which support usb connection without iproxy
+
+0.8.1
+-----
+
+* fix since attrdict doc not readed
+* fix get sessionId
+
+0.8.0
+-----
+
+* add press method, support args: home, volumeUp, volumeDown
+
+0.7.7
+-----
+
+* compatible with old WDA
+
+0.7.6
+-----
+
+* merge master
+* fix conflict
+* fix c.windows\_size() when session not created
+* add golang wda client link
+* update readme
+
+0.7.5
+-----
+
+* fix alert callback missing error
+
+0.7.4
+-----
+
+* fix compatibility for old version of wda
+
+0.7.3
+-----
+
+* when error:invalid-session-id occurs, retry again
+
+0.7.2
+-----
+
+* raise error when return value contains error key
+
+0.7.1
+-----
+
+* fix session() with no argument error
+
+0.7.0
+-----
+
+* update doc
+* move all Session methods to Client
+
+0.6.2
+-----
+
+* rename wda\_alibaba to wda\_taobao
+
+0.6.1
+-----
+
+* add taobao property
+
+0.6.0
+-----
+
+* add alibaba property
+
+0.5.0
+-----
+
+* add home function to Session
+* add app\_list, even useless
+
+0.4.2
+-----
+
+* fix swipe\_up-down-left-right, close #89
+
+0.4.1
+-----
+
+* fix python2 support, close #76
+* update doc
+
+0.4.0
+-----
+
+* update readme
+* add more functions
+* add method s.xpath(...)
+* make httpdo thread safe
+
+0.3.9
+-----
+
+* fix app launch stuck, set Quiescence to False
+
+0.3.8
+-----
+
+* check url format when create Client
