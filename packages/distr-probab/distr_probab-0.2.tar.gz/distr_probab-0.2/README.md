@@ -1,0 +1,1 @@
+This package can be used to compute General, Gaussian and Binomial distribution of provided inputs for the user. This package is open sourced and can be used by anyone for educational purposes.
