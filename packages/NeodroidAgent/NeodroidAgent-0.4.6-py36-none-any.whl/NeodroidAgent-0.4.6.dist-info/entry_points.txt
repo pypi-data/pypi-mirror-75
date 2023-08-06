@@ -1,0 +1,6 @@
+[console_scripts]
+neodroid-agent = neodroidagent.entry_points.cli:main
+neodroid-clean-all = neodroidagent.entry_points.clean:clean_all
+neodroid-open-data = neodroidagent.entry_points.open_data:main
+neodroid-tb = neodroidagent.entry_points.tensorboard_entry_point:main
+
