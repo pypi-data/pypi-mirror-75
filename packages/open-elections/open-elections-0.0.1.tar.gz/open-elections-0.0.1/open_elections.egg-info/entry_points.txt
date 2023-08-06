@@ -1,0 +1,3 @@
+[console_scripts]
+validate-state = open_elections.validation.data_issues_by_state:main
+
