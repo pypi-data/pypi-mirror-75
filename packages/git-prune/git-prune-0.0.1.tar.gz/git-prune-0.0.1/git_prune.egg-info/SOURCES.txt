@@ -1,0 +1,10 @@
+README.md
+setup.cfg
+setup.py
+git_prune.egg-info/PKG-INFO
+git_prune.egg-info/SOURCES.txt
+git_prune.egg-info/dependency_links.txt
+git_prune.egg-info/entry_points.txt
+git_prune.egg-info/top_level.txt
+git_prune_src/__init__.py
+git_prune_src/main.py
