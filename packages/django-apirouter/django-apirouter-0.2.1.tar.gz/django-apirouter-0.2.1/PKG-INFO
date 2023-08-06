@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: django-apirouter
+Version: 0.2.1
+Summary: Django API router
+Home-page: https://github.com/antonrh/django-apirouter
+License: MIT
+Keywords: django,api,rest
+Author: Anton Ruhlov
+Author-email: antonruhlov@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: attrs (>=19.3.0,<20.0.0)
+Requires-Dist: django (>=3.0.8,<4.0.0)
+Requires-Dist: mkdocs-material[docs] (>=5.5.0,<6.0.0)
+Requires-Dist: mkdocs[docs] (>=1.1.2,<2.0.0)
+Requires-Dist: mkdocstrings[docs] (>=0.12.2,<0.13.0)
+Project-URL: Repository, https://github.com/antonrh/django-apirouter
+Description-Content-Type: text/markdown
+
+# Django APIRouter (in progress)
+
+Django API router component.
+
+*Inspired by [FastAPI](https://fastapi.tiangolo.com/) and [Django Rest Framework](https://www.django-rest-framework.org/).*
+
+![tests](https://github.com/antonrh/django-apirouter/workflows/tests/badge.svg)
+[![codecov](https://codecov.io/gh/antonrh/django-apirouter/branch/master/graph/badge.svg)](https://codecov.io/gh/antonrh/django-apirouter)
+[![Documentation Status](https://readthedocs.org/projects/django-apirouter/badge/?version=latest)](https://django-apirouter.readthedocs.io/en/latest/?badge=latest)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+[![version](https://img.shields.io/pypi/v/django-apirouter.svg)](https://pypi.org/project/django-apirouter/)
+[![license](https://img.shields.io/pypi/l/django-apirouter)](https://github.com/antonrh/django-apirouter/blob/master/LICENSE)
+
+---
+
+Documentation: https://django-apirouter.readthedocs.io/
+
+---
+
+## Installing
+
+Install using `pip`:
+
+```bash
+pip install django-apirouter
+```
+
+## Quick Example
+
+*project/urls.py*
+
+```python
+from apirouter import APIRouter, Response, Request
+
+router = APIRouter()
+
+
+@router.route("/")
+def index(request: Request):
+    return Response("Hello, Django APIRouter!")
+
+
+urlpatterns = router.urls
+```
+
+## TODO:
+
+* Documentation
+* OpenAPI support (Swagger, ReDoc)
+* Pydantic support
+* Async views support (with Django 3.1)
+* etc.
+
