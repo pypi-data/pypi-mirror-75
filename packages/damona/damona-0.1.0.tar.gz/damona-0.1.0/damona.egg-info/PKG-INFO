@@ -1,0 +1,38 @@
+Metadata-Version: 1.2
+Name: damona
+Version: 0.1.0
+Summary: A set of NGS singularity recipes, built for you and easily downlable
+Home-page: http://github.com/sequana/sequana
+Author: Thomas Cokelaer
+Author-email: thomas.cokelaer@pasteur.fr
+Maintainer: Thomas Cokelaer
+Maintainer-email: thomas.cokelaer@pasteur.fr
+License: new BSD
+Download-URL: https://github.com/sequana/sequana/archive/0.1.0.tar.gz
+Description: collections of singularity recipes that can be used to build software used in
+        NGS pipelines.
+        
+        
+        
+        * fastqc: from centos:7
+        * bcl2fastq: from centos:7
+        
+        
+        
+Keywords: NGS,singularity
+Platform: Linux
+Platform: Unix
+Platform: MacOsX
+Platform: Windows
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Classifier: Topic :: Scientific/Engineering :: Physics
