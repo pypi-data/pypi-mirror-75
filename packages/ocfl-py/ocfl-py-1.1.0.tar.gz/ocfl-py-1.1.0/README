@@ -1,0 +1,65 @@
+==========================================
+ocfl-py - An OCFL implementation in Python
+==========================================
+
+.. image:: https://travis-ci.org/zimeon/ocfl-py.svg?branch=main
+  :target: https://travis-ci.org/zimeon/ocfl-py
+.. image:: https://coveralls.io/repos/github/zimeon/ocfl-py/badge.svg?branch=main
+  :target: https://coveralls.io/github/zimeon/ocfl-py?branch=main
+
+**WORK IN PROGRESS - NO GUARANTEE, NO MONEY BACK :-)**
+
+Attempts to follow `OCFL specification v1.0
+<https://ocfl.io/1.0/spec/>`_, see `implementation status for errors and warnings
+<https://github.com/zimeon/ocfl-py/blob/main/docs/validation_status.md>`_ for
+details of validator support.
+
+Installing
+----------
+
+This code requires Python 3.
+
+This code attempts to support the OCFL specification v1.0 and to additional
+developments. To get the most up to date version check out the ``main``
+branch from github (or if you are reckless you can try the ``develop`` branch).
+
+I hope to keep a version not too far out of date on `PyPI
+<https://pypi.org/project/ocfl-py/>`_ too, which can be installed or upgraded
+to the current version with:
+
+    pip install --upgrade ocfl-py
+
+Use
+---
+
+There should then be three scripts available:
+
+- ``ocfl-validate.py`` - validate OCFL objects or OCFL storage roots
+- ``ocfl-object.py`` - build, manipulate, extract from or validate an OCFL object
+- ``ocfl-store.py`` - add or access OCFL objects under an OCFL storage root
+
+Each script takes ``-h`` for help.
+
+See `examples in docs folder
+<https://github.com/zimeon/ocfl-py/tree/main/docs>`_ for use of these scripts.
+
+The code is also available as a module ``ocfl`` for other python code to use. However,
+the interfaces should not be considered stable at the moment.
+
+Contributing
+------------
+
+Bug reports welcome as `github issues
+<https://github.com/zimeon/ocfl-py/issues>`_.
+
+See `CONTRIBUTING.md
+<https://github.com/zimeon/ocfl-py/blob/main/CONTRIBUTING.md>`_
+for guidelines for contributing.
+
+Copyright and License
+---------------------
+
+Copyright 2018--2020 Simeon Warner and `contributors
+<https://github.com/zimeon/ocfl-py/graphs/contributors>`_.
+Provided under the MIT license, see `LICENSE.txt
+<https://github.com/zimeon/ocfl-py/blob/main/LICENSE.txt>`_.
