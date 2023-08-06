@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+citygan/__init__.py
+citygan/citygan.py
+citygan/citygan_util.py
+citygan/gui.py
+citygan/pix2pix_citygenerator.py
+citygan/threaded_gui.py
+citygan.egg-info/PKG-INFO
+citygan.egg-info/SOURCES.txt
+citygan.egg-info/dependency_links.txt
+citygan.egg-info/requires.txt
+citygan.egg-info/top_level.txt

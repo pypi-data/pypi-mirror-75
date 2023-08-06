@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: citygan
+Version: 0.1.6
+Summary: Procedurally generated cities using generative adversarial networks
+Home-page: https://github.com/ProjectCity-Group/gan-cities
+Author: Thomas Allen, Eric Lehmann, Jacob Roberge, Christopher Ward, Adrian Wright
+Author-email: UNKNOWN
+License: MIT
+Download-URL: https://github.com/ProjectCity-Group/gan-cities/archive/v0.1.3.tar.gz
+Description: UNKNOWN
+Keywords: gan,city,procedural,generation
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
