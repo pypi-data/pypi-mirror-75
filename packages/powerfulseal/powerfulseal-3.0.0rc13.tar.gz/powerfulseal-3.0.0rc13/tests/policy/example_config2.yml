@@ -1,0 +1,8 @@
+config:
+  runStrategy:
+    runs: 7
+    minSecondsBetweenRuns: 77
+    maxSecondsBetweenRuns: 78
+scenarios:
+  - name: Test
+    steps: []
