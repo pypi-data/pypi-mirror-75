@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+rom_operator_inference/__init__.py
+rom_operator_inference/_core.py
+rom_operator_inference/post.py
+rom_operator_inference/pre.py
+rom_operator_inference/utils.py
+rom_operator_inference.egg-info/PKG-INFO
+rom_operator_inference.egg-info/SOURCES.txt
+rom_operator_inference.egg-info/dependency_links.txt
+rom_operator_inference.egg-info/requires.txt
+rom_operator_inference.egg-info/top_level.txt
