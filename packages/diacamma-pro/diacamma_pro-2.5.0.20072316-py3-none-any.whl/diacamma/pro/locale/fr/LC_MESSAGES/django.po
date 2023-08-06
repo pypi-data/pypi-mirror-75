@@ -1,0 +1,77 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-29 11:54+0000\n"
+"PO-Revision-Date: 2019-10-24 12:03+0200\n"
+"Last-Translator: b'Paul ARULATEDA <paul531@orange.fr>'\n"
+"Language-Team: \n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Translated-Using: django-rosetta 0.7.8\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: __init__.py:43
+msgid "Diacamma pro"
+msgstr "Diacamma Pro"
+
+#: appli_settings.py:39
+msgid "Entreprise application"
+msgstr "Application d'entreprise"
+
+#: appli_settings.py:48
+msgid "Meet the {[i]}Diacamma{[/i]} community on our forum and blog"
+msgstr ""
+"Retrouvez la communauté {[i]}Diacamma{[/i]} sur notre forum et notre blog"
+
+#: appli_settings.py:58
+msgid "(c) GPL Licence"
+msgstr "(c) GPL Licence"
+
+#: migrations/0001_initial.py:34
+msgid "president"
+msgstr "président"
+
+#: migrations/0001_initial.py:35
+msgid "vice-president"
+msgstr "vice-président"
+
+#: migrations/0001_initial.py:36
+msgid "manager"
+msgstr "gérant"
+
+#: migrations/0001_initial.py:37
+msgid "director"
+msgstr "directeur"
+
+#: migrations/0001_initial.py:38
+msgid "partner"
+msgstr "associé"
+
+#: migrations/0001_initial.py:39
+msgid "enterprise"
+msgstr "entreprise"
+
+#: migrations/0001_initial.py:40
+msgid "association"
+msgstr "association"
+
+#~ msgid "treasurer"
+#~ msgstr "trésorier"
+
+#~ msgid "secretary"
+#~ msgstr "secrétaire"
+
+#~ msgid "special adviser"
+#~ msgstr "chargé de mission"
+
+#~ msgid "family"
+#~ msgstr "famille"

@@ -1,0 +1,132 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-07-29 11:54+0000\n"
+"PO-Revision-Date: 2020-01-28 11:14+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 2.0.6\n"
+
+#: __init__.py:43
+msgid "Diacamma micro-business"
+msgstr "Diacamma micro-business"
+
+#: models.py:45 views.py:80
+msgid "year"
+msgstr "year"
+
+#: models.py:46
+msgid "quarter"
+msgstr "quarter"
+
+#: models.py:46
+msgid "1st quarter"
+msgstr "1st quarter"
+
+#: models.py:46
+msgid "2nd quarter"
+msgstr "2nd quarter"
+
+#: models.py:46
+msgid "3rd quarter"
+msgstr "3rd quarter"
+
+#: models.py:46
+msgid "4st quarter"
+msgstr "4st quarter"
+
+#: models.py:47
+msgid "amount service"
+msgstr "amount service"
+
+#: models.py:49
+msgid "amount sell"
+msgstr "amount sell"
+
+#: models.py:51
+msgid "amount other"
+msgstr "amount other"
+
+#: models.py:54
+msgid "date begin"
+msgstr "date begin"
+
+#: models.py:55
+msgid "date end"
+msgstr "date end"
+
+#: models.py:59
+#, python-format
+msgid "%(quarter)s of %(year)d"
+msgstr "%(quarter)s of %(year)d"
+
+#: models.py:94
+msgid "social declaration"
+msgstr "social declaration"
+
+#: models.py:95
+msgid "social declarations"
+msgstr "social declarations"
+
+#: models.py:102
+msgid "microbusiness-sellaccount"
+msgstr "account code for sell"
+
+#: models.py:104
+msgid "microbusiness-serviceaccount"
+msgstr "account code for service"
+
+#: models.py:107
+msgid "# micro-business (editor)"
+msgstr "# micro-business (editor)"
+
+#: views.py:46
+msgid "Microbusiness"
+msgstr "Microbusiness"
+
+#: views.py:46
+msgid "Microbusiness tools"
+msgstr "Microbusiness tools"
+
+#: views.py:58
+msgid "Management of business parameters"
+msgstr "Management of business parameters"
+
+#: views.py:61
+msgid "Configuration"
+msgstr "Configuration"
+
+#: views.py:67
+msgid "Management of social declarations"
+msgstr "Management of social declarations"
+
+#: views.py:72
+msgid "Social declarations"
+msgstr "Social declarations"
+
+#: views.py:95
+msgid "Show social declarations"
+msgstr "Show social declarations"
+
+#: views.py:98 views.py:99
+msgid "Calcul"
+msgstr "Calcul"
+
+#: views.py:102
+msgid "Calcul social declarations"
+msgstr "Calcul social declarations"
+
+#: views.py:108
+msgid "Calcul this social declaration ?"
+msgstr "Calcul this social declaration ?"
