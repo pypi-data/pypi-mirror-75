@@ -1,0 +1,3 @@
+[console_scripts]
+cerebra = cerebra.commandline:cli
+
