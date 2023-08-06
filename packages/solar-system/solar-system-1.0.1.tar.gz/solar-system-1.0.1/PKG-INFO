@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: solar-system
+Version: 1.0.1
+Summary: A Solar system simulation using Python. 使用turtle模块的太阳系模拟程序。
+Home-page: https://pypi.org/project/solar-system/
+Author: 七分诚意 qq:3076711200
+Author-email: 3416445406@qq.com
+License: UNKNOWN
+Description:
+
+使用turtle模块的太阳系模拟程序
+
+快捷键:
+按Ctrl+“+”或Ctrl+“-”进行缩放。
+按↑，↓，←，→键移动。
+按“+”或“-”键增加或者降低速度。
+
+Keywords: solar,system,solarsys
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Multimedia :: Graphics
+Classifier: Natural Language :: Chinese (Simplified)
