@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: my-pwm
+Version: 0.0.8
+Summary: Passward maneger
+License: MIT
+Author: Daisuke Oku
+Author-email: w.40141@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: fire (>=0.3.1,<0.4.0)
+Requires-Dist: pyperclip (>=1.8.0,<2.0.0)
+Requires-Dist: qrcode (>=6.1,<7.0)
+Description-Content-Type: text/x-rst
+
+mypwgen
+=======
+
+Passward generator
+
+How to Use
+----------
+
