@@ -1,0 +1,9 @@
+expects>=0.8.0
+junit-xml==1.8
+lxml>=4.1.1
+PyYAML>=5.1
+pyfakefs>=3.4.3
+requests>=2.18.4
+twin-sister>=4.2.6.0
+twine>=1.9.1
+wheel>=0.30.0
