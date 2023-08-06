@@ -1,0 +1,3 @@
+[console_scripts]
+rhasspy-wake-raven-hermes = rhasspywake_raven_hermes.__main__:main
+
