@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: netnir
+Version: 0.0.15
+Summary: a modular cli utility built around nornir.
+Home-page: https://github.com/netdevops/netnir
+Author: James Williams
+Author-email: james.williams@rackspace.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Intended Audience :: Telecommunications Industry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Networking
+Requires-Python: >=3.6
+Requires-Dist: pytest-runner
+Requires-Dist: nornir (==2.4.0)
+Requires-Dist: netmiko (==2.4.2)
+Requires-Dist: hier-config (==v1.6.1)
+Requires-Dist: keyring (>=21.2.1)
+Requires-Dist: keyrings.alt (>=3.4.0)
+
+UNKNOWN
+
+
