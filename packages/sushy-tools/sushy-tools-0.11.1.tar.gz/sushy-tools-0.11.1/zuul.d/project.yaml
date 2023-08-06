@@ -1,0 +1,15 @@
+- project:
+    templates:
+      - openstack-python3-victoria-jobs
+      - check-requirements
+      - openstack-lower-constraints-jobs
+      - release-notes-jobs-python3
+      - publish-openstack-docs-pti
+    check:
+      jobs:
+        - sushy-tools-tempest-partition-bios-redfish-pxe
+        - sushy-tools-tempest-partition-uefi-redfish-vmedia
+    gate:
+      jobs:
+        - sushy-tools-tempest-partition-bios-redfish-pxe
+        - sushy-tools-tempest-partition-uefi-redfish-vmedia
