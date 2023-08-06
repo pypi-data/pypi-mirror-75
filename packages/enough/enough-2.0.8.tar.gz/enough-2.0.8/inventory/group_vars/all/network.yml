@@ -1,0 +1,17 @@
+---
+#
+#############################################
+#
+# When openstack_network is Ext-Net, the host has two network
+# interfaces:
+#
+#   eth0 is bound to the Ext-Net network and has a public IP
+#   eth1 is bound to the internal network and has a private IP
+#
+# When openstack_network is internal, the host has one network
+# interface:
+#
+#   eth0 is bound to the internal network and has a private IP
+#
+openstack_network: Ext-Net
+# openstack_network: internal

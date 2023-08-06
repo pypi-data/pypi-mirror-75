@@ -1,0 +1,12 @@
+---
+- name: apt-get install snapd
+  apt:
+    name: [snapd]
+    state: present
+
+# https://github.com/wekan/wekan-snap/wiki/Install
+# https://github.com/wekan/wekan/wiki/Adding-users
+- name: snap install wekan
+  shell: |
+    snap install wekan
+    snap set wekan root-url='https://{{ wekan_vhost_fqdn }}'
