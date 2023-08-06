@@ -1,0 +1,15 @@
+rdtools/__init__.py,sha256=CT3KWzJhy57npcNoGHOSF8-8er29mSQjyfsnNap-BiM,1168
+rdtools/_version.py,sha256=Coax1vTb0ZzZPv12F2G-tC8Rm8jSQ3MHyPrJbkHXFcg,504
+rdtools/aggregation.py,sha256=GqfoaVsqna3VcBxaVsAY0OiZTb_fh2muFAPeBDWX2ks,771
+rdtools/clearsky_temperature.py,sha256=bq8kEQUEIpixN43NgQMgZBIuWZ3iMV12tN5Fn9eNj8k,4585
+rdtools/degradation.py,sha256=YaQHTcWSQ0z6M3FESV5tH80VWsUzn5FJWoSqj12g4-4,12206
+rdtools/filtering.py,sha256=4gh-BpizlRIre2QS6hx0DNu0nh_RJaokCBwA3LYuKb0,3583
+rdtools/normalization.py,sha256=VgdNBftBLLa_7fZUOHJMVs3yKeV9VzmY-yXD6ww6X0Y,27632
+rdtools/plotting.py,sha256=9v4D2zXeBiTkW5MzVtsmDOAQOhP1yQlV2C8HZCAC5AM,7596
+rdtools/soiling.py,sha256=fvjdH2Fyg73weD89SPAq4luEcRbFoTAYT1nQfJTDVjE,32152
+rdtools/data/temperature.hdf5,sha256=umPgP2qFeeJ_dHxKy3yTAM-rAGpNK6t9Adivf433kx4,6223504
+rdtools-2.0.0b0.dist-info/LICENSE,sha256=gqzbK4li1l-DXaMw5hnfEEz5PpdFfbQEpsQN5igTn5o,1128
+rdtools-2.0.0b0.dist-info/METADATA,sha256=fr7FcMWKH4TK934UduEbnbuLOOcxG6J2EP9VINRzmzo,2335
+rdtools-2.0.0b0.dist-info/WHEEL,sha256=kGT74LWyRUZrL4VgLh6_g12IeVl_9u9ZVhadrgXZUEY,110
+rdtools-2.0.0b0.dist-info/top_level.txt,sha256=uRs382jVi41dlewUQbZeVeftXE1M14hIX1o7mW4psNY,8
+rdtools-2.0.0b0.dist-info/RECORD,,
