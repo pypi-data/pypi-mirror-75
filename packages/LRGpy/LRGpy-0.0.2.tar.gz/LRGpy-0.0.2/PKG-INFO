@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: LRGpy
+Version: 0.0.2
+Summary: LRG Python code repsository.
+Home-page: https://github.com/GMU-LRG/LRGpy
+Author: Lattanzi Research Group
+Author-email: dlattanz@gmu.edu
+License: UNKNOWN
+Description: # LRGpy
+        
+        LRGpy is a collection of Python code used by the Lattanzi Research Code at George Mason University. This package currently consists of point cloud utilities derived from research papers, CloudCompare utilities, and PCL functions.
+        
+        ## Installation
+        
+        Run the following to install:
+        
+        ```python
+        pip install LRGpy
+        ```
+        
+        ## Example Usage
+        
+        Generate a point cloud from a comma separated text file (such as a CloudCompare output):
+        
+        ```python
+        # Import the entire LRGpy module:
+        import LRGpy
+        
+        cloud = LRGpy.PointCloudFromTxt("./cloud.txt")
+        ```
+        
+        ```python
+        # Alternatively, import just one function into your own namespace:
+        from LRGpy import PointCloudFromTxt
+        
+        cloud = PointCloudFromTxt("./cloud.txt")
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Natural Language :: English
+Classifier: Topic :: Scientific/Engineering
+Description-Content-Type: text/markdown
