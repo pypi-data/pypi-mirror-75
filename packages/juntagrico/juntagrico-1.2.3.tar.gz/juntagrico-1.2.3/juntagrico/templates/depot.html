@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load i18n %}
+{% load config %}
+{% block styles %}
+    <link rel="stylesheet" href="/static/external/leaflet/leaflet.css" />
+{% endblock %}
+{% block page_title %}
+    <h3>
+        {% vocabulary "depot" %} {{ depot.name }}
+    </h3>
+{% endblock %}
+{% block content %}
+    <div class="row mb-3">
+        <div class="col-md-3">
+            {% trans "Adresse" %}
+        </div>
+        <div class="col-md-9">
+            {{ depot.addr_street }}
+            <br/>
+            {{ depot.addr_zipcode }} {{ depot.addr_location }}
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-3">
+            {% trans "Wochentag" %}
+        </div>
+        <div class="col-md-9">
+            {{ depot.get_weekday_display }}
+        </div>
+    </div>
+    <div class="row mb-3">
+        <div class="col-md-3">
+            {% trans "Kontaktperson" %}
+        </div>
+        <div class="col-md-9">
+            {{ depot.contact.first_name }} {{ depot.contact.last_name }}
+            <a href="mailto:{{ depot.contact.email }}">
+                {{ depot.contact.email }}
+            </a>
+        </div>
+    </div>
+    {% if depot.description %}
+        <div class="row mb-3">
+            <div class="col-md-3">
+                {% trans "Beschreibung" %}
+            </div>
+            <div class="col-md-9">
+                {{ depot.description|linebreaksbr|urlize }}
+            </div>
+        </div>
+    {% endif %}
+    <div class="row">
+        <div class="offset-md-3 col-md-9">
+            {% if requires_map %}
+                <div style="height: 20rem" id="depot-map">
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript">
+        var depots = [];
+        {% if depot.has_geo %}
+            depots.push(
+            {name: '{{ depot.name }}',
+            addr_street: '{{ depot.addr_street }}',
+            addr_zipcode: '{{ depot.addr_zipcode }}',
+            addr_location: '{{ depot.addr_location }}',
+            latitude: '{{ depot.latitude }}',
+            longitude: '{{ depot.longitude }}',
+            code: '{{ depot.code }}'
+            });
+        {% endif %}
+    </script>
+    <script type="text/javascript" src="/static/external/leaflet/leaflet.js"></script>
+    <script type="text/javascript" src="/static/external/require.min.js" data-main="/static/js/initDepot.js">
+    </script>
+{% endblock %}
