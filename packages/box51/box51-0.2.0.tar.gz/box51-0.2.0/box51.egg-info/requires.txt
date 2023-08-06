@@ -1,0 +1,10 @@
+Pillow>=7.0.0
+python-slugify>=4.0.1
+
+[develop]
+pytest
+tox
+
+[test]
+pytest
+tox
