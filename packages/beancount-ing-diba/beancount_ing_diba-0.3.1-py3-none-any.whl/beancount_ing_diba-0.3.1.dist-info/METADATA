@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: beancount-ing-diba
+Version: 0.3.1
+Summary: Beancount Importer for ING-DiBa (DE) CSV exports
+Home-page: https://github.com/siddhantgoel/beancount-ing-diba
+License: MIT
+Keywords: banking,beancount,cli-accounting,finance
+Author: Siddhant Goel
+Author-email: me@sgoel.org
+Requires-Python: >=3.5,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Financial and Insurance Industry
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Project-URL: Repository, https://github.com/siddhantgoel/beancount-ing-diba
