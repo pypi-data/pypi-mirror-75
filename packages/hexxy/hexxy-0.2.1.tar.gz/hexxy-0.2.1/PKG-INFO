@@ -1,0 +1,56 @@
+Metadata-Version: 1.1
+Name: hexxy
+Version: 0.2.1
+Summary: UNKNOWN
+Home-page: https://github.com/fx-kirin/hexxy
+Author: fx-kirin
+Author-email: fx.kirin@gmail.com
+License: MIT
+Description: 
+        hexxy
+        =====
+        
+        
+        .. image:: https://img.shields.io/pypi/v/package_name.svg
+           :target: https://pypi.python.org/pypi/hexxy
+           :alt: Latest PyPI version
+        
+        
+        Usage
+        -----
+        
+        .. code-block::
+        
+           $ hexxy 32333435 --p
+           '2345'
+           $ hexxy "parse text" --h
+           '70617273652074657874'
+        
+        Installation
+        ------------
+        
+        Requirements
+        ^^^^^^^^^^^^
+        
+        Compatibility
+        -------------
+        
+        Licence
+        -------
+        
+        Authors
+        -------
+        
+        package_name was written by `fx-kirin <fx.kirin@gmail.com>`_.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7

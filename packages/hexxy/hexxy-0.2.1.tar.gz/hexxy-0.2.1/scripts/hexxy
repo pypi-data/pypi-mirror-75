@@ -1,0 +1,36 @@
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+# vim:fenc=utf-8
+#
+# Copyright © 2020 fx-kirin <fx.kirin@gmail.com>
+#
+# Distributed under terms of the MIT license.
+
+"""
+
+"""
+
+import os
+import fire
+import sys
+
+
+def main(input_text=None, h=False, p=False):
+    if input_text is None:
+        input_text = sys.stdin.buffer.read()[:-1]
+
+    if h:
+        if isinstance(input_text, bytes):
+            print(input_text.hex())
+        else:
+            text = str(input_text)
+            hex_text = "".join("{:02x}".format(ord(c)) for c in text)
+            print("'%s'" % (hex_text))
+    if p:
+        text = str(input_text)
+        text = bytearray.fromhex(text).decode("latin1")
+        print("'%s'" % (text))
+
+
+if __name__ == "__main__":
+    fire.Fire(main)
