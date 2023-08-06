@@ -1,0 +1,4 @@
+[console_scripts]
+main_exporter = job_queue_exporter.main_exporter:main
+squeue_dummy = job_queue_exporter.squeue:main
+
