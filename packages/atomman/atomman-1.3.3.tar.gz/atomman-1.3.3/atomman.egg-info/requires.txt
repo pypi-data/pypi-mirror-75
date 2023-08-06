@@ -1,0 +1,10 @@
+xmltodict
+DataModelDict
+numpy>=1.15
+matplotlib
+scipy
+pandas
+cython
+numericalunits
+toolz
+potentials>=0.2.2
