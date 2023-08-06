@@ -1,0 +1,3 @@
+[console_scripts]
+starcli = starcli.__main__:cli
+
