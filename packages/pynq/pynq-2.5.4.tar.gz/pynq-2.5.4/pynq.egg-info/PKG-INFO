@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: pynq
+Version: 2.5.4
+Summary: (PY)thon productivity for zy(NQ)
+Home-page: https://github.com/Xilinx/PYNQ
+Author: Xilinx PYNQ Development Team
+Author-email: pynq_support@xilinx.com
+License: BSD 3-Clause
+Download-URL: https://github.com/Xilinx/PYNQ
+Description: PYNQ is an open-source project from Xilinx that makes it easy to design embedded systems with Zynq All Programmable Systems on Chips (APSoCs). Using the Python language and libraries, designers can exploit the benefits of programmable logic and microprocessors in Zynq to build more capable and exciting embedded systems.
+        PYNQ users can now create high performance embedded applications with
+        -	parallel hardware execution
+        -	high frame-rate video processing
+        -	hardware accelerated algorithms
+        -	real-time signal processing
+        -	high bandwidth IO
+        -	low latency control
+        
+        See the <a href="http://www.pynq.io/" target="_blank">PYNQ webpage</a> for an overview of the project, and find <a href="http://pynq.readthedocs.io" target="_blank">documentation on ReadTheDocs</a> to get started. 
+        
+        
+Platform: UNKNOWN
+Requires-Python: >=3.5.2
+Description-Content-Type: text/markdown
