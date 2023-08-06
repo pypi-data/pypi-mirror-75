@@ -1,0 +1,387 @@
+html,body{
+   height: 100%;
+}
+
+body{
+    width:100%;
+    height: 100%;
+    background-color: #0994A8;
+    overflow: hidden;
+}
+
+.navbar{
+    z-index: 1;
+    display: flex;
+    flex-direction: row;
+    padding:25px;
+    width: 100%;
+    margin-left: -10px;
+    background: #04B9D3;
+    position: fixed;
+    top: 0px;
+    height: 4%;
+    opacity:1;
+    margin-bottom: 0px;
+}
+.mainHeading{
+    font-size: 25px;
+    font-weight: bold;
+font-family: Georgia;
+    letter-spacing: 0.05em;
+    color: white;
+}
+.mainHeading a:hover
+{
+    text-decoration: none;
+}
+.subHeading{
+   font-size: 16px;
+margin-top: 8px;
+font-family: Georgia;
+    margin-left: 40px;
+}
+a{
+    text-decoration: none;
+    color: white;
+}
+a:hover{
+    text-decoration: underline;
+}
+
+.container{
+    display:flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+}
+.sidebar {
+    width:12%;
+    margin-left: -1%;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding-bottom: 10%;
+    height: 95%;
+    overflow-y: scroll;
+    padding-left: 3%;
+}
+
+.favorite
+{
+    margin-left: 72px;
+    height: 40px;
+    width: 40px;
+}
+.channel
+{
+    border: none;
+    border-radius: 25px;
+    margin-top: 15px;
+    margin-left: 33px;
+    height: 60px;
+    width: 60px;
+}
+.active
+{
+background-color: #055662;
+}
+.imgcontainer
+{
+    width: 100%;
+}
+
+.searchbox
+{
+
+    margin-left: -3px;
+    width: 223px;
+    height: 43px;
+    padding-left: 12px;
+    border-right: none;
+    border-bottom: darkgray solid 1px;
+    margin-bottom:15px;
+    border-radius: 5px;
+    border-top: darkgray solid 1px;
+}
+.feed{
+    display: flex;
+    flex-direction: column;
+    border-top:darkgray solid 1px;
+    background-color: white;
+    overflow-x: hidden;
+    height: 100%;
+    width: 85%;
+    margin-top: 1%;
+    padding-left: 0.5%;
+
+}
+.loginHeading
+{
+    font-size: 28px;
+    font-weight: bold;
+    color: #055662;
+    padding-left: 48%;
+    padding-top: 5%;
+    margin-top: 5%;
+}
+.hintText
+{
+    padding-top: 25px;
+   margin-left: 300px;
+    font-size: 14px;
+    color: white;
+}
+.signupText
+{
+  padding-top: 25px;
+   margin-left: 90px;
+    font-size: 14px;
+    color: white;
+}
+.favoritebar
+{
+    padding-top: 5px;
+    display: flex;
+    flex-direction: row;
+    background-color: white;
+    padding-bottom: 13px;
+    border-bottom: darkgray solid 1px;
+border-left: darkgray solid 1px;
+    border-right: darkgray solid 1px;
+    margin-left: -1px;
+    margin-right: -5px;
+
+}
+.favoritebar a{
+  color:#055662;
+    font-weight: bold;
+}
+.timeheading h1
+{
+margin-bottom: 0;
+    margin-left: 25px;
+    color: #055662;
+}
+.news
+{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.loginContainer
+{
+ margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    margin-left: 35%;
+    margin-top: 1%;
+    border: darkgray solid 1px;
+    border-radius: 5px;
+    background-color: #04B9D3;
+    width: 30%;
+    color: white;
+}
+.loginContainer form
+{
+    padding-top: 15px;
+}
+.loginContainer input
+{
+    background-color: white;
+    width: 300px;
+    margin-left: 65px;
+    padding: 8px;
+    margin-top: 15px;
+    border-radius: 8px;
+    border: none;
+    height: 28px;
+    margin-bottom: 10px;
+}
+.loginContainer input[type=submit]
+{
+    font-size: 18px;
+    width: 315px;
+    padding: 10px;
+    height: 40px;
+    color: #055662;
+    font-weight: bold;
+}
+.loginContainer input[type=submit]:hover
+{
+    cursor: pointer;
+    color: lightsteelblue;
+}
+
+.newsCard
+{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 20px;
+    margin-left: 3%;
+    border: darkgray solid 1px;
+    border-radius: 5px;
+    background-color: #04B9D3;
+    color: white;
+    width:350px;
+    margin-right: 2%;
+}
+.number
+{
+    height: 40px;
+    width: 45px;
+    background-color: white;
+    border: none;
+    border-radius: 2px;
+    color: #055662;
+    margin-left: 15px;
+    font-weight: bold;
+    font-size: 18px;
+    margin-top: 20px;
+}
+
+.textcontainer
+{
+    text-wrap: normal;
+    width: 280px;
+    padding-left: 15px;
+    padding-top: 18px;
+
+
+    display: flex;
+    flex-direction: column;
+}
+.news a:hover{
+    text-decoration: none;
+}
+.author
+{
+    font-size: 15px;
+    opacity: 0.9;
+    font-weight: bold;
+    margin-top: 15px;
+}
+.searchform input[type=search]
+{
+    margin-left: 360px;
+
+    margin-top: 50px;
+    border: solid 1px grey;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 16px;
+    width: 500px;
+    height: 50px;
+}
+.category
+{
+    margin-right: 800px;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    color: black;
+    padding-left: 200px;
+    margin-bottom: 30px;
+}
+.category a{
+    background-color: #055662;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 8px;
+    letter-spacing: 0.05em;
+margin-right: 20px;
+}
+.category a:hover
+{
+    text-decoration: none;
+}
+.addbtn{
+    background-color: white;
+    color: #055662;
+    width: 230px;
+    height: 30px;
+    margin-right:2px;
+    border: none;
+    font-size: 14px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+.addbtn:hover
+{
+    font-weight: bold;
+}
+::-webkit-scrollbar {
+    width: 11px;
+    height: 50px;
+}
+::-webkit-scrollbar-track {
+    background-color:#04B9D3 ;
+    border: 4px solid transparent;
+
+       /* THIS IS IMPORTANT */
+}
+
+::-webkit-scrollbar-thumb{
+border-radius: 10px;
+    min-height: 15px;
+    max-height: 15px;
+    background-color:#055662;
+}
+
+
+.refresh{
+    background-color: #04B9D3;
+    color: white;
+    width: 230px;
+    height: 30px;
+    margin-right:2px;
+    border: none;
+    font-size: 14px;
+    border-radius: 8px;
+    margin-left: 15px;
+    cursor: pointer;
+    margin-top: 60px;
+}
+.refresh:hover
+{
+    font-weight: bold;
+}
+.channelimg
+{
+    margin-top: 20px;
+    margin-left: 15px;
+    height: 50px;
+    width: 50px;
+}
+.feedmod a{
+    color: #055662;
+    padding-left: 200px;
+    font-size: 16px;
+
+}
+.feedmod a:hover
+{
+    cursor: pointer;
+    text-decoration: none;
+}
+.feedmod
+{
+    display: flex;
+    flex-direction: column;
+    border-top:darkgray solid 1px;
+    background-color: white;
+    margin-right: -5px;
+    overflow-x: hidden;
+    padding-left: 150px;
+}
+.row
+{
+    display: flex;
+    flex-direction: row;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+}
