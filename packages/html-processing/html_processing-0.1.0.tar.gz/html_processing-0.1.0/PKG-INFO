@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: html_processing
+Version: 0.1.0
+Summary: Helps processing html with lxml
+Home-page: https://git.uni-due.de/
+Author: J. Hohenstein
+Author-email: j.hoh@t-online.de
+License: UNKNOWN
+Description: This Repo contains the package for all the html_processing logic
+        Bla bla bla, this should be explained a bit more
+        
+        
+        --> New version can be created by using the jobs in the pipeline.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
