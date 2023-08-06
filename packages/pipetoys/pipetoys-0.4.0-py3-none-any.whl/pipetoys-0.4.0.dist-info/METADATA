@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: pipetoys
+Version: 0.4.0
+Summary: Pythonic pipelines.
+License: ISC
+Author: SeparateRecords
+Author-email: me@rob.ac
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+
+# pipetoys
+
+Pythonic pipelines. Just higher-order functions.
+
+Only used for personal projects and small scripts.
+I have no plans for documentation.
+
