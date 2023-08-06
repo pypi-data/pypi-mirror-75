@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: tabledbmapper
+Version: 0.1.5
+Summary: General query tool class of relational database.
+Home-page: https://github.com/lyoshur/tabledbmapper
+Author: lyoshur
+Author-email: 1421333878@qq.com
+Maintainer: lyoshur
+Maintainer-email: 1421333878@qq.com
+License: MIT License
+Description: # tabledbmapper
+        General query tool class of relational database.
+        
+Keywords: sql orm
+Platform: ubuntu
+Platform: windows
+Classifier: Development Status :: 4 - Beta
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries
+Description-Content-Type: text/markdown
