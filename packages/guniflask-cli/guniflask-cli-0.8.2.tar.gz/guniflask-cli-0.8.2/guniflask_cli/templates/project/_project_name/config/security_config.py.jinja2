@@ -1,0 +1,24 @@
+# coding=utf-8
+
+from guniflask.context import configuration
+{%- if authentication_type == 'jwt' %}
+from guniflask.config import settings
+{%- endif %}
+from guniflask.security_config import WebSecurityConfigurer, HttpSecurity, enable_web_security
+{%- if authentication_type == 'jwt' %}
+
+from .jwt_config import JwtConfigurer
+{%- endif %}
+
+
+@configuration
+@enable_web_security
+class SecurityConfiguration(WebSecurityConfigurer):
+
+    def configure_http(self, http: HttpSecurity):
+        """Configure http security here"""
+        {%- if authentication_type == 'jwt' %}
+        jwt = settings.get_by_prefix('guniflask.jwt')
+        if jwt:
+            http.apply(JwtConfigurer(jwt))
+        {%- endif %}
