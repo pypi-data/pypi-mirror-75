@@ -1,0 +1,6 @@
+name: {{ cookiecutter.base_package }}
+channels:
+  - conda-forge
+  - gbroques
+dependencies:
+  - ose-workbench-platform=={{ cookiecutter.ose_workbench_platform_version }}
