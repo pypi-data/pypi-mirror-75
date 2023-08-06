@@ -1,0 +1,9 @@
+mando<0.7,>=0.6
+flake8-polyfill
+future
+
+[:python_version <= "3.4"]
+colorama==0.4.1
+
+[:python_version > "3.4"]
+colorama>=0.4.1
