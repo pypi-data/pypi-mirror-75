@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: mkdocs-swan
+Version: 0.1.0
+Summary: SWAN theme for MkDocs
+Home-page: https://github.com/swan-cern/mkdocs-swan
+Author: Diogo Castro
+Author-email: diogo.castro@cern.ch
+License: BSD
+Description: # SWAN MkDocs theme
+        
+        Theme for the [SWAN](https://cern.ch/swan) help and gallery [MkDocs](https://www.mkdocs.org/) webpages, based on [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+        
+        ## How to use
+        
+        Install the package:
+        ```
+        pip install mkdocs-swan
+        ```
+        
+        And add it to `mkdocs.yml`:
+        ```yml
+        theme:
+          name: 'swan'
+        ```
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Documentation
+Classifier: Topic :: Software Development :: Documentation
+Classifier: Topic :: Text Processing :: Markup :: HTML
+Description-Content-Type: text/markdown
