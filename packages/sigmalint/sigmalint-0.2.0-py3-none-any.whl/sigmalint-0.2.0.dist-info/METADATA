@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: sigmalint
+Version: 0.2.0
+Summary: A simple linter for Sigma rules
+Author: Ryan Plas
+Author-email: ryan.plas@stage2sec.com
+Requires-Python: >=3.8.0,<4.0.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: jsonschema (>=3.2.0,<4.0.0)
+Requires-Dist: pyrx (>=0.3.0,<1.0.0)
+Requires-Dist: pyyaml (>=5.3.1,<6.0.0)
