@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: config-guiosoft
+Version: 0.1.3
+Summary: Guiosoft Python Configuration Class
+Home-page: UNKNOWN
+Author: Guionardo Furlan
+Author-email: guionardo@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: python-dotenv (==0.13.0)
+Requires-Dist: python-dateutil (==2.8.1)
+
+# GS PY Config
+
+Configuration class
+
+![Python package](https://github.com/guionardo/py-config/workflows/Python%20package/badge.svg)
+[![codecov](https://codecov.io/gh/guionardo/py-config/branch/develop/graph/badge.svg)](https://codecov.io/gh/guionardo/py-config)
+
+
