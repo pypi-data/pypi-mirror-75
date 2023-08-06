@@ -1,0 +1,3 @@
+[sqlalchemy.dialects]
+kylin = kylinpy.sqla_dialect:KylinDialect
+
