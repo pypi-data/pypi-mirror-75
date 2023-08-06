@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: LatoLog
+Version: 0.1.0
+Summary: A package that makes customizing logs easier than expected
+Home-page: https://github.com/fabioqcorreia/LatoLog
+Author: Fábio Correia
+Author-email: fabioqcorreia@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Latolog
+
+Simple customizable logging.
+> Only JSON mode is supported at the moment. XML is WIP
+
+## Installation
+
+    pip install LatoLog
+
+## Usage example
+
+    import LatoLog
+
+    my_content = { "a": 1, "b", 2 }
+
+    latolog = LatoLog()
+
+    latolog.print_log(my_content)
+
+    >>> {"timestamp": "04-12-2019 16:43:49", "a": 1, "b": 2 }
+
+
