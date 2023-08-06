@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: bcruds
+Version: 0.0.1
+Summary: Menu driven program to handle binary files.
+Home-page: https://kunwaryuvraj.herokuapp.com/
+Author: KUNWAR YUVRAJ
+Author-email: xxxx@xxx.xxx
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+import bcruds.cruds 
+bcruds.cruds.main()
+
