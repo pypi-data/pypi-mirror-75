@@ -1,0 +1,14 @@
+py2neo==5.0b1
+psycopg2
+SQLAlchemy
+networkx
+numpy
+pandas
+jupyter_client
+notebook
+omegaconf
+
+[dev]
+black
+pytest
+m2r2

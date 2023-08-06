@@ -1,0 +1,3 @@
+include juneau/config/config.yaml
+recursive-include jupyter-config *.json
+recursive-include juneau/dataset_inspector *.js
