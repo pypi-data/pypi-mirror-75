@@ -1,0 +1,12 @@
+MANIFEST.in
+setup.cfg
+setup.py
+data/__init__.py
+data/model.py
+data/mongo_repository.py
+lgt_data.egg-info/PKG-INFO
+lgt_data.egg-info/SOURCES.txt
+lgt_data.egg-info/dependency_links.txt
+lgt_data.egg-info/not-zip-safe
+lgt_data.egg-info/requires.txt
+lgt_data.egg-info/top_level.txt
