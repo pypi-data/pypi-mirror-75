@@ -1,0 +1,11 @@
+gitpython
+pyyaml
+py-cpuinfo<5.0.0
+
+[docs]
+sphinx
+sphinx-rtd-theme
+
+[tests]
+pytest
+pytest-cov
