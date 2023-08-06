@@ -1,0 +1,37 @@
+# Argus Vision
+
+argusvision package provides easy to use access to image embedding models pretrained on Bing data - Argus Vision models.
+Interface is based on popular torchvision.
+
+In version 1.0, supported model is Argus Vision V6 - resnext101 32x8d
+
+Please note that provided models are offering image embeddings
+## Installation
+``pip install argusvision``
+
+For Windows, torch needs to be install from wheel file.
+Please download the latest torch from here: https://download.pytorch.org/whl/torch_stable.html
+and then install it using: pip install <.whl file>
+
+## Usage
+Example script:  
+```
+import argusvision
+import torch
+
+# This will load pretrained model
+model = argusvision.models.resnext101_32x8d()
+
+# This will initialize weights with default values
+model = argusvision.models.resnext101_32x8d(pretrained=False) 
+
+# Load model to CPU memory, interface is the same as torchvision
+model = argusvision.resnext101_32x8d(map_location=torch.device('cpu')) 
+```
+
+### Benchmarks
+Here are the evaluations of the popular datasets  
+Model | CIFAR-10 | STL-10
+--- | --- | ---
+Torchvision, ResNext101 32x8d | 90% | 81.1%
+Argusvision, ResNext101 32x8d | 92.6% | 84.2%
