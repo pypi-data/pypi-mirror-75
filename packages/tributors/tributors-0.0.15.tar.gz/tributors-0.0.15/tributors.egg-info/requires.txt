@@ -1,0 +1,8 @@
+requests>=2.23.0
+
+[all]
+requests>=2.23.0
+codemetapy>=0.3.2
+
+[codemeta]
+codemetapy>=0.3.2
