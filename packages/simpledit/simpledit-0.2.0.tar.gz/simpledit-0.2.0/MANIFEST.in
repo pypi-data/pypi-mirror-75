@@ -1,0 +1,3 @@
+include README.md LICENSE .gitignore
+recursive-include simpledit/images *
+recursive-include simpledit/styling *
