@@ -1,0 +1,45 @@
+image: python:3.6
+
+variables:
+    PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
+
+cache:
+  paths:
+    - .cache/pip
+    - venv/
+
+stages:
+  - lint
+  - setup
+  - test
+  - build
+  - deploy
+
+lint:
+  stage: lint
+  before_script:
+    - pip install flake8 flake8-quotes
+  script:
+    - flake8 --config=.flake8
+
+build:
+  stage: build
+  script:
+    - python setup.py sdist
+  artifacts:
+    paths:
+      - ./dist
+
+deploy_pypi:
+  stage: deploy
+  dependencies:
+    - build
+  variables:
+    TWINE_USERNAME: $PYPI_USERNAME
+    TWINE_PASSWORD: $PYPI_PASSWORD
+  before_script:
+    - pip install twine
+  script:
+    - twine upload dist/*
+  only:
+    - tags
