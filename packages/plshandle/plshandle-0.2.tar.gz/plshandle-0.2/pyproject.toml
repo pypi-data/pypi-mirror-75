@@ -1,0 +1,16 @@
+[tool.black]
+line-length = 100
+
+[tool.coverage.run]
+omit = ["plshandle/tests/**", "plshandle/__main__.py", "plshandle/_decorator.py", "plshandle/_version.py", "plshandle/_cli_utils/**"]
+
+[tool.coverage.report]
+exclude_lines = [
+    "def __repr__",
+    "pragma: no cover",
+    "if args.verbose:",
+    "def _verbose_list",
+]
+partial_branches = [
+    "pragma: no branch",
+]
