@@ -1,0 +1,10 @@
+setup.py
+pySpack/__init__.py
+pySpack/pyspack.py
+pySpack/test_pyspack.py
+pySpack.egg-info/PKG-INFO
+pySpack.egg-info/SOURCES.txt
+pySpack.egg-info/dependency_links.txt
+pySpack.egg-info/top_level.txt
+pySpack/core/__init__.py
+pySpack/core/exec_cmd.py
