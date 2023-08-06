@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: freenom-dns
+Version: 1.1.0
+Summary: An unofficial python implementation for managing freenom_dns.com dns records.
+Home-page: https://github.com/PunkLee2py/freenom-dns
+Author: Punk Lee
+Author-email: punklee333@gmail.com
+License: MIT
+Requires-Dist: requests
+Requires-Dist: lxml
+Requires-Dist: retrying
+
+Freenom-dns Script
+
+
