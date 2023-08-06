@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: Kloudio
+Version: 1.0.0
+Summary: Kloudio APIs
+Home-page: https://github.com/Kloudio/sdk-python
+Author: Kloudio
+Author-email: developer@kloud.io
+License: UNKNOWN
+Keywords: SDK,API,Kloudio APIs
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+Requires-Dist: six (>=1.10)
+Requires-Dist: urllib3 (>=1.15)
+
+# Kloudio Python Library
+
+- API version: BETA
+- Package version: 1.0.0
+
+## Requirements.
+
+Python 2.7 and 3.4+
+
+## Installation & Usage
+### pip install
+
+```sh
+pip install kloudio
+```
+(you may need to run `pip` with root permission: `sudo pip install kloudio`)
+
+Then import the package:
+```python
+import kloudio
+```
+
+## Using Kloudio API
+
+Documentation for the Python library can be found at https://github.com/Kloudio/sdk-python
+
+
+
+
+
