@@ -1,0 +1,3 @@
+[console_scripts]
+bluetooth_battery = bluetooth_battery.bluetooth_battery:main
+
