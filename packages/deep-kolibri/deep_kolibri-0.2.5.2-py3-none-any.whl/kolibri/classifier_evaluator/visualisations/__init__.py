@@ -1,0 +1,2 @@
+# from kolibri.classifier_evaluator.visualisations import plot_trade_off_curves
+from kolibri.classifier_evaluator.visualisations.trade_off_curve_plot import plot_trade_off_curves
