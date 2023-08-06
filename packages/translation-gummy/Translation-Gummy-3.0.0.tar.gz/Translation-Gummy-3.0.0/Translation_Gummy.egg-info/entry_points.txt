@@ -1,0 +1,4 @@
+[console_scripts]
+gummy-journal = gummy.cli:translate_journal
+gummy-translate = gummy.cli:translate_text
+
