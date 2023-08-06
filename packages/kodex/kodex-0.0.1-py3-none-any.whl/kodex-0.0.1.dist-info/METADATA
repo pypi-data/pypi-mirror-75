@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: kodex
+Version: 0.0.1
+Summary: Python bindings for our Kodex tool.
+Home-page: https://github.com/kiprotect/kodex-py
+Author: KIProtect GmbH
+Author-email: kodex-ce@kiprotect.com
+License: BSD-3
+Platform: UNKNOWN
+Requires-Python: >=3
+Requires-Dist: click
+
+UNKNOWN
+
+
