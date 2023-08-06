@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: dcar
+Version: 0.2.0
+Summary: Low level, pure Python D-Bus implementation for message bus clients.
+Home-page: https://andreas19.github.io/dcar/
+Author: Andreas Suhre
+Author-email: andreas19@posteo.eu
+License: BSD-3-Clause
+Project-URL: Source code, https://github.com/andreas19/dcar/
+Description: # D-Car
+        
+        Low level, pure Python D-Bus implementation for message bus clients.
+        
+        For more information see the [documentation](https://andreas19.github.io/dcar/overview.html).
+        
+        History
+        -------
+        
+        **2020-08-02 (0.2.0)**
+         - Add parameter timeout to Bus.block()
+         - Add field is_signal to MessageInfo
+         - The handler functions for incoming method calls and signals are not executed
+           in the same thread as the recv-loop any more but in a separate thread
+           sequentially
+        
+        **2019-06-03 (0.1.0)**
+         - First public release
+        
+Keywords: d-bus,dbus,client
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
