@@ -1,0 +1,16 @@
+future
+six
+dss_python<0.11,>=0.10.6
+
+[dev]
+pytest
+pytest-cov
+sphinx-rtd-theme
+nbsphinx
+black
+pre-commit
+
+[extras]
+pandas
+matplotlib
+networkx
