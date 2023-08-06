@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "ssd1306_infobutton"
+version = "0.1.3"
+description = "A script to control a SSD1306 OLED display with a button on the Raspberry Pi"
+authors = ["Greg Smith <gregory_smith@gregoftheweb.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+"luma.oled" = "^3.5.0"
+"rpi.gpio" = "^0.7.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
