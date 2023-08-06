@@ -1,0 +1,12 @@
+include LICENSE
+include README.md
+include requirements.txt
+recursive-include djangosubscribe/managers *
+recursive-include djangosubscribe/migrations *
+recursive-include djangosubscribe/modeladmins *
+recursive-include djangosubscribe/modelforms *
+recursive-include djangosubscribe/models *
+recursive-include djangosubscribe/querysets *
+recursive-include djangosubscribe/signals *
+recursive-include djangosubscribe/templates/djangoadmin/djangosubscribe *
+recursive-include djangosubscribe/views *

@@ -1,0 +1,21 @@
+{% extends "djangoadmin/base/body/index_form.html" %}
+
+{% block sidebar_left %}
+    {% include "djangoadmin/base/sidebar_left/sidebar_left_form.html" with kwargs=kwargs %}
+{% endblock sidebar_left %}
+
+{% block body %}
+{% include "djangoadmin/widgets/alerts.html" %}
+<form method="POST" enctype="multipart/form-data" action="">{% csrf_token %}
+    {% include "djangoadmin/widgets/TextInput_FormField_Row.html" with field=form.father %}
+    {% include "djangoadmin/widgets/NumberInput_FormField_Row.html" with field=form.father_mobile %}
+    {% include "djangoadmin/widgets/TextInput_FormField_Row.html" with field=form.father_occupation %}
+    {% include "djangoadmin/widgets/TextInput_FormField_Row.html" with field=form.mother %}
+    {% include "djangoadmin/widgets/NumberInput_FormField_Row.html" with field=form.mother_mobile %}
+    {% include "djangoadmin/widgets/TextInput_FormField_Row.html" with field=form.mother_occupation %}
+{% endblock body %}
+
+{% block sidebar_right %}
+    {% include "djangoadmin/widgets/Select_FormField_Card.html" with field=form.status is_submit="Create" type="primary" cls='mb-1' %}
+</form>
+{% endblock sidebar_right %}

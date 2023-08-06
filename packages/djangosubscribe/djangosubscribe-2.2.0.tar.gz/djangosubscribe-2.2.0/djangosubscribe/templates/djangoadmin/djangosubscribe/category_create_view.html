@@ -1,0 +1,12 @@
+{% extends "djangoadmin/base/body/index_admin.html" %}
+
+{% block body %}
+{% include "djangoadmin/widgets/alerts.html" %}
+<form method="POST" action="">{% csrf_token %}
+{% include "djangoadmin/widgets/TextInput_FormField_Row.html" with field=category_form.title %}
+{% endblock body %}
+
+{% block sidebar_right %}
+{% include "djangoadmin/widgets/Select_FormField_Card.html" with field=category_form.status is_submit="Save" cls="mb-1" type="primary" %}
+</form>
+{% endblock sidebar_right %}
