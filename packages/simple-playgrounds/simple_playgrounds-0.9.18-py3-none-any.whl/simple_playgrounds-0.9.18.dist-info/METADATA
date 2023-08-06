@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: simple-playgrounds
+Version: 0.9.18
+Summary: Simulator for AGI and RL
+Home-page: UNKNOWN
+Author: Michael Garcia Ortiz
+Author-email: michael.garcia-ortiz@city.ac.uk
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: pyyaml
+Requires-Dist: markdown
+Requires-Dist: pygame
+Requires-Dist: pymunk
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+
+UNKNOWN
+
+
