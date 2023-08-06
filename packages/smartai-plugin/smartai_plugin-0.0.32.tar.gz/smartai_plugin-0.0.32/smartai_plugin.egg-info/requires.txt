@@ -1,0 +1,11 @@
+pyyaml
+Flask==1.1.1
+flask_restful
+requests
+python-dateutil
+azure-storage-blob==12.1.0
+azure-cosmosdb-table==1.0.6
+Werkzeug==0.16.0
+gunicorn==19.9.0
+gevent==1.4.0
+apscheduler
