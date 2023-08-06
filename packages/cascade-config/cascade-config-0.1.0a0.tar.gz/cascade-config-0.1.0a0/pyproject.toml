@@ -1,0 +1,27 @@
+[build-system]
+requires = ["flit_core >=2,<4"]
+build-backend = "flit_core.buildapi"
+
+[tool.flit.metadata]
+dist-name = "cascade-config"
+module = "cascade_config"
+author = "RalfG"
+author-email = "ralf@gabriels.dev"
+home-page = "https://github.com/RalfG/cascade-config"
+description-file = "README.md"
+classifiers = [
+    "License :: OSI Approved :: Apache Software License",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development",
+    "Topic :: Utilities"
+]
+requires = ["jsonschema>=3,<4"]
+requires-python = ">=3.6"
+keywords = "configuration, command line interface, configuration files, JSON"
+
+
+[tool.flit.metadata.requires-extra]
+test = ["pytest>=6,<7", "pytest-cov>=2,<3"]
+dev = []
