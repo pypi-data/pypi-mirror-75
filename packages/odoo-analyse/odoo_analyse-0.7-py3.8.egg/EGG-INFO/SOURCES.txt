@@ -1,0 +1,16 @@
+README.md
+pyproject.toml
+setup.py
+src/odoo_analyse/__init__.py
+src/odoo_analyse/main.py
+src/odoo_analyse/model.py
+src/odoo_analyse/module.py
+src/odoo_analyse/odoo.py
+src/odoo_analyse/utils.py
+src/odoo_analyse/view.py
+src/odoo_analyse.egg-info/PKG-INFO
+src/odoo_analyse.egg-info/SOURCES.txt
+src/odoo_analyse.egg-info/dependency_links.txt
+src/odoo_analyse.egg-info/entry_points.txt
+src/odoo_analyse.egg-info/requires.txt
+src/odoo_analyse.egg-info/top_level.txt
