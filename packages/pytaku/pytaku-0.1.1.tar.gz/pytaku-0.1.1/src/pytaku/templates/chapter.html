@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Ch. {{ num_major }}
+{% if num_minor %}.{{ num_minor }}{% endif %}
+{% if name %} - {{ name }}{% endif %}
+{% endblock %}
+
+{% block head %}
+<style>
+  html {
+    background-color: #444;
+    color: white;
+  }
+
+  .content {
+    padding: var(--body-padding) 0;
+    text-align: center;
+  }
+
+  .cover {
+    width: 400px;
+    border: 1px solid black;
+  }
+
+  .pages img {
+    display: block;
+    margin: 0 auto 1rem auto;
+  }
+
+  .buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .buttons > * {
+    margin-right: .5rem;
+    margin-top: .2rem;
+    margin-bottom: .2rem;
+  }
+  .buttons > *:last-child {
+    margin-right: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<h1>{{ self.title() }}</h1>
+
+{# Put buttons in block to reuse later in this same template #}
+{% block buttons %}
+<div class="buttons">
+  {% if prev_chapter %}
+  {{ ibutton(href=url_for('chapter_view', chapter_id=prev_chapter['id']), left_icon='chevrons-left', text='Prev') }}
+  {% else %}
+  {{ ibutton(left_icon='chevrons-left', text='Prev', disabled=True) }}
+  {% endif %}
+
+  {{ ibutton(href=url_for('title_view', title_id=title_id), left_icon='list', text='Chapter list', color='blue') }}
+
+  {% if next_chapter %}
+  {{ ibutton(href=url_for('chapter_view', chapter_id=next_chapter['id']), right_icon='chevrons-right', text='Next') }}
+  {% else %}
+  {{ ibutton(right_icon='chevrons-right', text='Next', disabled=True) }}
+  {% endif %}
+</div>
+{% endblock %}
+
+<div class="pages">
+  {% for page in pages %}
+  <img src="{{ page }}" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+  {% endfor %}
+</div>
+
+{{ self.buttons() }}
+
+{% endblock %}
