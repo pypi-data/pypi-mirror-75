@@ -1,0 +1,14 @@
+README.md
+setup.py
+OdooTools/__init__.py
+OdooTools/utilities/__init__.py
+OdooTools/utilities/attachments/__init__.py
+OdooTools/utilities/attachments/attachment.py
+OdooTools/utilities/debug/__init__.py
+OdooTools/utilities/debug/debug.py
+OdooTools/utilities/records/__init__.py
+OdooTools/utilities/records/records.py
+odoo_utilities.egg-info/PKG-INFO
+odoo_utilities.egg-info/SOURCES.txt
+odoo_utilities.egg-info/dependency_links.txt
+odoo_utilities.egg-info/top_level.txt

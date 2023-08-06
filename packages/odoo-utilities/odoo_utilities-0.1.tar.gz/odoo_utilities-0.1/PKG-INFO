@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: odoo_utilities
+Version: 0.1
+Summary: Set of tools for Odoo ERP
+Home-page: https://github.com/divad1196/odoo_utilities
+Author: Gallay David
+Author-email: davidtennis96@hotmail.com
+License: UNKNOWN
+Description: OdooTools
+        =========
+        
+        Set of tools for Odoo developpement
+        
+        .. code:: python
+        
+            import OdooTools
+        
+        Debug
+        -----
+        
+        Debug utilities
+        
+        .. code:: python
+        
+            from odoo.ONS import debug
+        
+        -  **print\_func\_code**: print function code and its inheritance
+           (considering loading order)
+        
+        ``python   print_func_code(env, model, function)``
+        
+        -  env: odoo environnement
+        -  model: model \_name value, e.g. "sale.order"
+        -  function: function to analyse, e.g. "onchange\_partner\_id"
+        
+        -  **printTraceBack**: print the call path up to this function call
+        
+        ``python   printTraceBack(printer)``
+        
+        -  printer: display function, default is "print", we can use the logger
+           from logging library
+        
+           .. code:: python
+        
+               printTraceBack(_logger.critical)
+        
+        -  **get\_depends\_methods**: return a list of dict containing trigger
+           keys and function object of all "api.depends" of a model
+        
+        ``python   for depends in get_onchange_methods(env, model):       print(x["keys"], x["function"])``
+        
+        -  env: environnement odoo
+        -  model: le model dont on veut les depends, e.g. "sale.order"
+        
+        -  **get\_onchange\_methods**: same as get\_depends\_methods but for
+           "api.onchange"
+        
+        -  **analyse\_depends**: call print\_func\_code on get\_depends\_methods
+           result
+        
+        ``python   analyse_depends(env, model)``
+        
+        -  **analyse\_onchange**: call print\_func\_code on
+           get\_onchange\_methods result
+        
+        ``python   analyse_onchange(env, model)``
+        
+        Records
+        -------
+        
+        Tools to handle recordset
+        
+        -  **groupby**: group recordset according to list of key (or key getter)
+        
+        ``python   groupby(records, attributes)``
+        
+        -  records: recordset to group
+        -  attributs: list of grouping key, that can be either:
+        
+           -  an object attribute's name as string, e.g. ``"name"``
+           -  a function taking a record and returning the key, e.g.
+              ``lambda line: line.move_id.sale_line_id.order_id``
+        
+        Example:
+        
+        ``python   lines = self.mapped("move_line_ids").filtered("result_package_id")   grouped = groupby(lines, [       "result_package_id",       "picking_id",       lambda line: line.move_id.sale_line_id.order_id,   ])   for package, package_data in grouped.items():      for picking_id, picking_id_data in package_data.items():         for sale_id, records in package_data.items():               print(records)``
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
