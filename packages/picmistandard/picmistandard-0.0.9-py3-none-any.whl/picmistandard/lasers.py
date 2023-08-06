@@ -1,0 +1,156 @@
+"""Classes following the PICMI standard
+These should be the base classes for Python implementation of the PICMI standard
+"""
+import math
+import sys
+import re
+
+from .base import _ClassWithInit
+
+# ---------------
+# Physics objects
+# ---------------
+
+class PICMI_GaussianLaser(_ClassWithInit):
+    """
+    Specifies a Gaussian laser distribution
+      - name=None: Optional name of the laser
+      - wavelength: Laser wavelength
+      - waist: Waist of the Gaussian pulse at focus [m]
+      - duration: Duration of the Gaussian pulse [s]
+      - focal_position=[0,0,0]: Position of the laser focus (vector) [m]
+      - centroid_position=[0,0,0]: Position of the laser centroid at time 0 (vector) [m]
+      - propagation_direction=[0,0,1]: Direction of propagation (unit vector) [1]
+      - polarization_direction=[1,0,0]: Direction of polarization (unit vector) [1]
+      - a0: Normalized vector potential at focus
+            Specify either a0 or E0 (E0 takes precedence).
+      - E0: Maximum amplitude of the laser field [V/m]
+            Specify either a0 or E0 (E0 takes precedence).
+      - phi0: Carrier envelope phase (CEP) [rad]
+      - zeta: Spatial chirp at focus (in the lab frame) [m.s]
+      - beta: Angular dispersion at focus (in the lab frame) [rad.s]
+      - phi2: Temporal chirp at focus (in the lab frame) [s^2]
+    """
+    def __init__(self, wavelength, waist, duration,
+                 focal_position = [0., 0., 0.],
+                 centroid_position = [0., 0., 0.],
+                 propagation_direction = [0., 0., 1.],
+                 polarization_direction = [1., 0., 0.],
+                 a0 = None,
+                 E0 = None,
+                 phi0 = None,
+                 zeta = None,
+                 beta = None,
+                 phi2 = None,
+                 name = None,
+                 **kw):
+
+        assert E0 is not None or a0 is not None, 'One of E0 or a0 must be speficied'
+
+        k0 = 2.*math.pi/wavelength
+        if E0 is None:
+            from scipy import constants
+            E0 = a0*constants.electron_mass*constants.speed_of_light**2*k0/constants.elementary_charge
+        if a0 is None:
+            from scipy import constants
+            a0 = E0/(constants.electron_mass*constants.speed_of_light**2*k0/constants.elementary_charge)
+
+        self.wavelength = wavelength
+        self.k0 = k0
+        self.waist = waist
+        self.duration = duration
+        self.focal_position = focal_position
+        self.centroid_position = centroid_position
+        self.propagation_direction = propagation_direction
+        self.polarization_direction = polarization_direction
+        self.a0 = a0
+        self.E0 = E0
+        self.phi0 = phi0
+        self.zeta = zeta
+        self.beta = beta
+        self.phi2 = phi2
+        self.name = name
+
+        self.handle_init(kw)
+
+
+class PICMI_AnalyticLaser(_ClassWithInit):
+    """
+    Specifies a laser with an analytically described distribution
+      - name=None: Optional name of the laser
+      - field_expression: Analytic expression describing the electric field of the laser(string) [V/m]
+                            Expression should be in terms of the position, 'X', 'Y', in the plane orthogonal
+                            to the propagation direction, and 't' the time. The expression should describe
+                            the full field, including the oscillitory component.
+                            Parameters can be used in the expression with the values given as keyword arguments.
+      - propagation_direction=[0,0,1]: Direction of propagation (unit vector) [1]
+      - polarization_direction=[1,0,0]: Direction of polarization (unit vector) [1]
+
+      Even though the parameters below should be built into the expression, some codes require
+      specified values for numerical purposes.
+
+      - wavelength: Laser wavelength
+      - amax: Maximum normalized vector potential
+      - Emax: Maximum amplitude of the laser field [V/m]
+      Specify either amax or Emax (Emax takes precedence).
+    """
+    def __init__(self, field_expression,
+                 wavelength,
+                 propagation_direction = [0., 0., 1.],
+                 polarization_direction = [1., 0., 0.],
+                 amax = None,
+                 Emax = None,
+                 name = None,
+                 **kw):
+
+        assert Emax is not None or amax is not None, 'One of Emax or amax must be speficied'
+
+        k0 = 2.*math.pi/wavelength
+        if Emax is None:
+            from scipy import constants
+            Emax = amax*constants.electron_mass*constants.speed_of_light**2*k0/constants.elementary_charge
+        if amax is None:
+            from scipy import constants
+            amax = Emax/(constants.electron_mass*constants.speed_of_light**2*k0/constants.elementary_charge)
+
+        self.wavelength = wavelength
+        self.field_expression = field_expression
+        self.k0 = k0
+        self.propagation_direction = propagation_direction
+        self.polarization_direction = polarization_direction
+        self.amax = amax
+        self.Emax = Emax
+        self.name = name
+
+        self.field_expression = '{}'.format(field_expression).replace('\n', '')
+
+        # --- Find any user defined keywords in the kw dictionary.
+        # --- Save them and delete them from kw.
+        # --- It's up to the code to make sure that all parameters
+        # --- used in the expression are defined.
+        self.user_defined_kw = {}
+        for k in list(kw.keys()):
+            if re.search(r'\b%s\b'%k, self.field_expression):
+                self.user_defined_kw[k] = kw[k]
+                del kw[k]
+
+        self.handle_init(kw)
+
+
+# ------------------
+# Numeric Objects
+# ------------------
+
+
+class PICMI_LaserAntenna(_ClassWithInit):
+    """
+    Specifies the laser antenna injection method
+      - position: Position of antenna launching the laser (vector) [m]
+      - normal_vector: Vector normal to antenna plane (vector) [1]
+    """
+    def __init__(self, position, normal_vector, **kw):
+
+        self.position = position
+        self.normal_vector = normal_vector
+
+        self.handle_init(kw)
