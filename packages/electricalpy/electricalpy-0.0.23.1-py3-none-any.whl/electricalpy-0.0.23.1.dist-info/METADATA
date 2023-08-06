@@ -1,0 +1,164 @@
+Metadata-Version: 2.1
+Name: electricalpy
+Version: 0.0.23.1
+Summary: Computing and Plotting functions for electrical engineers
+Home-page: https://github.com/iam-abdul
+Author: ironman 038
+Author-email: mohammadabdulrehman739@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: sympy
+Requires-Dist: matplotlib
+
+ï»¿# ElectricalPy
+
+Electricalpy is a python module developed to be used by the electrical engineers. It aims to automate the conventional procedures of calculating and plotting of electrical parameters.
+
+# Installation
+
+ - Use command **pip install electricalpy** to install it in your computer
+
+
+## Major functions
+
+ - As of now, this is the only python module that can solve any ***linear electrical circuit*** both with ***dependent*** and ***independent sources*** and in the presence of ***reactive elements***
+ - Also it is the only python module that could ***plot the circle diagram of induction motor*** from the data of ***Open circuit and Short Circuit tests***
+
+
+## Other functions
+
+ - Conversion of two port parameters
+ - RMS and AVG calculation of any waveform
+ - RH stablity criteria
+ - Star to Delta conversions
+ - Rectangular to Polar conversion
+ - Series and Parallel calculations
+
+## Circuit Solver:
+
+This function takes a netlist *( matrix describing the circuit connections )* as input and returns the node voltages as the output.
+### Nomenclature:
+
+ - **X.Number** ---> here X tells us the type of element and number is used to differentiate number of same elements
+ - **V** ---> independent voltage source
+ -  **I**   ---> independent current source
+ - **EV** ---> voltage controlled voltage source
+ - **II** ---> current controlled current source
+ - **IV** ---> current controlled voltage source
+ - **VI** ---> voltage controlled current source
+ - **R** ---> resistance/ impedance
+
+ ### Rules for describing a circuit or netlist.
+ #### Independent Voltage Source
+
+The direction of current through any **Voltage source** is assumed from positive terminal to negative terminal. 
+The netlist of Independent voltage source is as follows
+
+ - **[ "V.1", A, B, Vab ]** ---> it tells that a Voltage source named V.1 of voltage Vab has its positive terminal connected to Node A and negative terminal connected to Node B
+ #### Independent Current Source
+ The terminal at which current leaves the source is considered as negative and the terminal from which the current enters the source is considered as positive
+ - **[ "I.1", A, B, Ia ]** ---> it tells us that a current source named I.1 is connected in such a way that current of Ia is flowing form node A to node B.
+  #### Resistor/ impedance
+  Both resistor and impedance are denoted with common symbol R. 
+  - **[ "R.1", A, B,  Ra]** ---> it tells that  a resistor of impedance Ra is connected between nodes A,B. The sequence of nodes A,B doesn't matter unless a current controlled source is sampling current from this resistor. If current through the resistor is being sampled, then the sequence of the nodes should be such that it shows the direction of current simillar to nodes of independent current source. In case of impedance replace Ra with **Ra+Xj** or **Ra-Xj** directly.
+#### Voltage Controlled Voltage Source
+it has six arguments to describe its connection in the circuit
+- **[ "EV.1", A, B, C, D, G1]**---> it tells that a voltage controlled voltage source of gain G1 is connected between A, B with A positive terminal and B negative terminal. The C, D denotes the nodes at which the dependent source is sampling the voltage from.
+ #### Voltage Controlled Current Source
+ it also has six arguments to describe its connection in the circuit
+ - **[ "VI.1", A, B, C, D, G2]**---> it tells that a voltage controlled current source VI.1 of with gain G2 is connected such that current flows form node A to node B. The nodes C, D denotes the nodes across which the voltage is sampled by the source
+#### Current Controlled Current Source
+It has five arguments to describe its connection in the circuit
+- **[ "II.1", A, B, "R.1", G3]**---> it tells us that a current controlled current source with current gain of G3 is connected such that the current flows from A to B. And R.1 is the element through which the current is being sampled, here the sequence of nodes decribing the connection of R.1 should be same as the direction of sample current through it. In case the current sampled is through a voltage source then R.1 is replaced with the name of that corresponding voltage source, keeping in mind that the direction of sample current should be from +ve to -ve terminal of voltage source, if not the gain must be assumed negative.
+#### Current Controlled Voltage Source
+It has five arguments to describe its connection in the circuit
+- **[ "IV.1", A, B, "R.1", G4]**---> it tells us that a current controlled voltage source with voltage gain of G4 is connected such that the +ve is connected to A and -ve terminal to B. And R.1 is the element through which the current is being sampled, here the sequence of nodes decribing the connection of R.1 should be same as the direction of sample current through it. In case the current sampled is through a voltage source then R.1 is replaced with the name of that corresponding voltage source, keeping in mind that the direction of sample current should be from +ve to -ve terminal of voltage source, if not the gain must be assumed negative.
+
+#### eg:  
+	ckt = 
+		[
+	    ["I.1",0,1,1],
+	    ["R.1",1,2,0.25],
+	    ["R.2",2,0,0.5],
+	    ["R.3",1,0,0.125],
+	    ["II.1",2,0,"R.2",2]
+	    ]
+	    node_voltages = electricalpy.solve_circuit(ckt)
+
+
+## Circle Diagram of Induction Motor
+
+The Circle diagram is a powerfull tool used to calculate the performance of induction motor at any load without even loading it. It is a very conventional method requires various geometric tools to plot and evaluate the preformance of the machine.
+This module makes it easy to plot the circle diagram form the data obtained form O.C and S.C test along  with armature resistance test.
+
+ ##### - ***electricalpy.plot_circle_dia(Voc,Ioc,Woc,Vsc,Isc,Wsc,Rating of machine, ratio of losses , scale)***
+
+|                |No load Test                          |Blocked Rotor Test                         |
+|----------------|-------------------------------|-----------------------------|
+|Voltage|`no load voltage: Voc`            |`short circuit voltage : Vsc `           |
+|Current          |`no load current: Ioc`            |`short circuit current: Isc`            |
+|Power|`no load power loss: Woc`  |`full load power loss: Wsc`  
+
+ - ***ratio of losses***  it is the ratio of rotor to stator copper losses
+
+ This function returns an array of values such as: `Max torque`,`max output`, `full load current`, `max input`, `efficiency` ,`power factor (full load)` `starting torque`,  `full load torque` along with a plot showing the circle diagram.
+
+## RH criteria
+
+It is a function that uses RH criteria to tell wheather a system is stable or not, but it doesn't tell the absolute stablity of the system.
+it takes RH coeffiecients as inputs in a list and returns rest of the RH array and tells wheather the system is stable or not.
+
+ - ***eg: RH([1,2,0,3])*** ---> here 1 is the coeffiecient of highest power and 3 is the coefficient of lowest power
+
+# RMS & AVG of any waveform
+This method uses sympy.Piecewise () method to describe the waveform. The input arguments for the RMS function and AVG function are same. Both requires waveform function *(p1 or p2)*, starting and ending points, and timeperiod. The function returns a sympy expression denoting the RMS or AVG of that respective waveform.
+
+ - `x = sy.symbols('x')`
+ - `p1 = sy.Piecewise((0,x<0),(1,x>0))`#here it is a dc wave
+ - `p2 = sy.Piecewise((0,x<0),(sy.sin(x),x<2*sy.pi),(0,True))`#sine wave
+ - `sy.plot(p2)`
+ - `ans = rms(p2,0,2*sy.pi,2*sy.pi,False).evalf()#False to when limits are not in degrees`
+ - `ans2 = avg(p2,0,2*sy.pi,2*sy.pi,False).evalf()`
+ - `print (ans2)`
+
+
+
+## Conversion of two port parameters
+
+Available conversion  functions and their input arguments:
+ - ***z_to_y(z_parameters)***
+ - ***z_to_t(z_parameters)***
+ - ***z_to_h(z_parameters)***
+ - ***y_to_z(y_parameters)***
+ - ***t_to_z(t_parameters)***
+ - ***h_to_z(h_parameters)***
+ - ***y_to_t(y_parameters)***
+ - ***y_to_h(y_parameters)***
+ - ***t_to_y(t_parameters)***
+ - ***t_to_h(t_parameters)***
+ - ***h_to_t(h_parameters)***
+
+## Star/ Delta conversions:
+
+It is a very easy process to do but requires attention and time, so we have automated it, 
+
+    `to_star(ab_bc_ca)`
+   this function accepts a list of inputs, in the order of ab, bc, ca. The function return Ra, Rb, Rc.
+
+
+    to_delta(a_b_c):
+this function accepts a list of inputs in the order of a,b,c and returns Rab, Rbc, Rac
+## About the developer
+
+This module is being developed by the students of Department of Electrical Engineering, Osmania University. 
+
+> **Note:** for suggestions/ requests/ collaboration, please feel free to mail me at--> mohammadabdulrehman739@gmail.com.
+
+
+
+
