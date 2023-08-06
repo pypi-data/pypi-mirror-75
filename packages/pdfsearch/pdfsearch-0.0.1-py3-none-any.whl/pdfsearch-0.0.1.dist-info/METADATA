@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: pdfsearch
+Version: 0.0.1
+Summary: pdf - Search Tool, searches for a keyword in the filename            ,the n first pages of the file or in the keyword section of the metadata.
+Home-page: https://gitlab.com/_HolgerW/pdfs.git
+Author: Holger Wasmund
+Author-email: Holger.Wasmund@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.5.5
+Description-Content-Type: text/x-rst
+Requires-Dist: argparse
+Requires-Dist: pdfminer.six
+Requires-Dist: pathlib
+
+pdfsearch
+=========
+
+|python| |license|
+
+pdfsearch is a command line tool tha searches a directory for pdf files containing a specified keyword in the filename, the n first pages of the file, or in the keyword section of the metadata.
+
+Installation
+------------
+
+pdfsearch can be installed via pip
+
+.. code-block:: console
+
+    $ pip install pdfsearch
+
+Examples
+--------
+1)
+To search a keyword in the filenames in a specific directory use the -d option.
+The two following examples search '2020-04-06' in the filenames (default) in the directory '~/Documents/bills' and in the current directory (default):
+
+.. code-block:: console
+
+    $ pdfs.py -d ~/Documents/bills 2020-04-06 
+    $ pdfs.py 2020-04-06                          
+
+2)
+To search in the n first pages of the pdfs for the keyword in the directory use the -n [number] option. If you don't specify a numer after -n make sure to put the option at the end of the line, in this case the default are the first 3 pages. Warning: if you choose [number] too big, the program gets slow. 
+The first examples searchs the current folder for the keyword 'Python' in the first 2 pages of each pdf-file in the directory.
+The second line searchs the first 3 pages (default) of each pdf for the word 'solidstate' in the folder '~/Documents/articles':
+
+.. code-block:: console
+
+    $ pdfs.py -n 2 Python
+    $ pdfs.py -d ~/Documents/articles solidstate -n
+
+3)
+You can also search the keyword section of the meta data of the pdfs. To do that use the -k option. The next example searchs 'Physics' in the keyword metadata: 
+
+.. code-block:: console
+
+    $ pdfs.py -k Physics
+
+4)
+Finally you can combine every option. If you use one or more of the options -n or -k you have to specify -f if you also would like to search the filenames: 
+
+.. code-block:: console
+
+    $ pdfs.py -d ~/Documents/articles -k -f -n 2 python
+
+
+
+.. |python| image:: https://img.shields.io/badge/Python-3.5.5-blue.svg
+   :target: https://pypi.python.org
+
+.. |license| image:: https://img.shields.io/badge/license-MIT-blue.svg
+   :target: https://gitlab.com/_HolgerW/pdfs/blob/master/LICENSE
+
+
+
