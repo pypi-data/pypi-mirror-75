@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: python-cutter
+Version: 0.1
+Summary: Cookiecutter CLI to start projects in Python
+Home-page: https://github.com/alvesgabriel/pycutter
+Author: Gabriel Alves
+Author-email: gabriel.alves.monteiro1@gmail.com
+License: GNU AFFERO GENERAL PUBLIC LICENSE
+Description: # pycutter
+        Cookiecutter to start projects in Python
+        
+        [![Python 3](https://pyup.io/repos/github/alvesgabriel/pycutter/python-3-shield.svg)](https://pyup.io/repos/github/alvesgabriel/pycutter/)
+        [![Build Status](https://travis-ci.org/alvesgabriel/pycutter.svg?branch=master)](https://travis-ci.org/alvesgabriel/pycutter)
+        [![Updates](https://pyup.io/repos/github/alvesgabriel/pycutter/shield.svg)](https://pyup.io/repos/github/alvesgabriel/pycutter/)
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3 or later (AGPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Framework :: Pytest
+Description-Content-Type: text/markdown
