@@ -1,0 +1,51 @@
+Metadata-Version: 1.1
+Name: skye-users
+Version: 0.1
+Summary: A django app to manage custom user permissions.
+Home-page: https://www.skyetechgroup.com/
+Author: Gordrick Martin
+Author-email: gordrickmartin@gmail.com
+License: BSD-3-Clause  # Example license
+Description: ==============================
+        SKYETECH GROUP USER MANAGEMENT
+        ==============================
+        
+        skyeusers is an app for managing users for skyetech backend api systems.
+        
+        Detailed documentation is in the "docs" directory.
+        
+        Quick start
+        -----------
+        
+        1. Add "skyeusers" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+                'skyeusers',
+            ]
+        
+        2. Include the skyeusers URLconf in your project urls.py like this::
+        
+            path('skyeusers/', include('skyeusers.urls')),
+        
+        3. Run ``python manage.py migrate`` to create the polls models.
+        
+        4. Start the development server and visit http://127.0.0.1:8000/skyeusers/
+           to
+        
+        5. Read the documentation for instructions on how to extend it and add new users, set random passwords, email users, add users roles and permission
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
