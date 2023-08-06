@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: pcatk
+Version: 0.1
+Summary: Pre-Cancer Atlas data analysis toolkit
+Home-page: https://github.com/hungyiwu/pca_analysis_toolkit
+Author: Hung-Yi Wu
+Author-email: hungyi_wu@g.harvard.edu
+License: UNKNOWN
+Description: # PCA analysis toolkit
+        
+        Analysis toolkit for the Pre-Cancer Atlas project. This toolkit is meant for exploratory analyses that changes rapidly. 
+        
+        Images, mostly acquired through the [CyCIF technology](https://www.cycif.org/), are assumed to be processed first by [mcmicro-nf](https://github.com/labsyspharm/mcmicro-nf), where most of the heavy computation for illumination correction, stitching, registration, nuclei & cell segmentation, and feature quantification are done. The images are then passed to this toolkit for rapid iterations of exploratory analyses.
+        
+        ## Modules
+        * `convert`  
+           Unpack and repack ome.tif files to TIFF images.
+        * `exemplar`  
+           Sample, render, and assemble single cell images.
+        * `feature`  
+           Pixel binarization as feature generation.
+        * `measure`  
+           Mini-tile and region-wise Pearson correlation coefficient.
+        * `util`  
+           Utility functions.
+        * `external`  
+           Useful external code.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
