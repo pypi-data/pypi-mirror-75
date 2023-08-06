@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: morsepy
+Version: 0.3.2
+Summary: A morse decrypter and encrypter module for python
+Home-page: https://github.com/silas-hw/Morsepy
+Author: silas-hw
+Author-email: silas.hayes.williams@gmail.com
+License: MIT
+Download-URL: https://github.com/silas-hw/Morsepy/archive/v0.3.2.tar.gz
+Description: # Morsepy
+        A morse encrypter/decrypter module for python  
+          
+        # How to use  
+        `pip install morsepy`  
+          
+        ## To encrypt to morse:  
+        ``` python
+        from morsepy import Morsepy
+        
+        # prints out string as morsecode
+        print(Morsepy.encrypt('hello world')
+        ```
+        This would return `.... . .-.. .-.. --- / .-- --- .-. .-.. -..`  
+          
+        ## To decrypt from morse  
+        ``` python
+        from morsepy import Morsepy
+        
+        # prints out morse code as string
+        print(Morsepy.decrypt('.... . .-.. .-.. --- / .-- --- .-. .-.. -..')
+        ```
+        This would return `hello world`  
+          
+        # Formatting Rules  
+        To make using this module easier it's important to format your morse well:  
+        * Have one white space between each character  
+        * Have a slash between each word, you can pad this with white space or not **but it's important you choose one and only use that**  *(e.g '- .... .. ... / .-- --- -. .----. -/.-- --- .-. -.-' won't work)*
+        
+        ## Making morse beeps  
+        Morsepy can output a morse signal as a series of beeps with the `beep()` funnction  
+          
+        ```python
+        from morsepy import Morsepy
+        
+        Morsepy.beep('hello world!') #outputs a series of beeps for the morse code of 'hello world!'
+        ```
+        
+Keywords: morse,decrypt,encrypt
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
