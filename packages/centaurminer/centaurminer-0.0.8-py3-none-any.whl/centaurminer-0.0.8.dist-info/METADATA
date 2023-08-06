@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: centaurminer
+Version: 0.0.8
+Summary: A selenium wrapper to help mining data from scientific literature.
+Home-page: https://github.com/Simonsays095/CENTAURminer.git
+Author: Simon Ewing
+Author-email: Simonsays095@gmail.com
+License: UNKNOWN
+Project-URL: Documentation, https://centaurminer.readthedocs.io/
+Project-URL: Source code, https://github.com/Simonsays095/CENTAURminer
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.4
+Description-Content-Type: text/x-rst
+Requires-Dist: selenium
+Requires-Dist: webdriver-manager
+
+Scientific Article (CENTAUR) Data Mining Package
+================================================
+
+
+This package is a wrapper on `selenium <https://pypi.org/project/selenium/>`_, a package that "automates web browser interaction from Python". In this package, we add the following features:
+
+* Automatically determine and install the correct chromedriver version, using webdriver-manager.
+* Add a class used to identify where elements are located on the DOM
+* Add a class that specifies if any extra processing should be done to the elements in the previous class, rather than just extract an attribute.
+* Create helper classes to simplify the process of identifying elements
+* Helper functions are included to make processing and storing data easier.
+
+Although this package is tailored to data mining scientific literature, is can be used in other applications in data mining.
+
+
