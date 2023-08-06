@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: classicmagedps
+Version: 0.3.2
+Summary: 
+Author: mcdallas
+Author-email: mcdallas@protonmail.com
+Requires-Python: >=3.7.3,<4.0.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: simpy (>=4.0.1,<5.0.0)
+Requires-Dist: tqdm (>=4.46.1,<5.0.0)
