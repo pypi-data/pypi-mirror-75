@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: torchot
+Version: 0.0.1
+Summary: Differentiable Optimal Transport in PyTorch
+Home-page: https://github.com/nbgl/pytorch-ot
+Author: Jakub Nabaglo
+Author-email: j@nab.gl
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: torch (>=1.6)
+
+UNKNOWN
+
+
