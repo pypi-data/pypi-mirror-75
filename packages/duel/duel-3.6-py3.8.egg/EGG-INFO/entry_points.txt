@@ -1,0 +1,3 @@
+[console_scripts]
+duel = duel.__main__:main
+
