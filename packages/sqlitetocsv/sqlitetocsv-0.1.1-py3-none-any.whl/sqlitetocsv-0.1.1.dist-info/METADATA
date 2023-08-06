@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: sqlitetocsv
+Version: 0.1.1
+Summary: Useful package to export all the tables from sqlite db to csv files
+Home-page: https://github.com/MullionGroup/sqlitetocsv
+Author: Kaushik Sangem
+Author-email: Kaushik.Sangem@mulliongroup.com
+License: MIT
+Download-URL: https://pypi.org/project/elastictools/
+Keywords: Sqlite,CSV,sqlite to csv,Python 3
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: pandas
+
+# sqlitetocsv
+Export the tables from sqlite db to csv files
+
+
+# Description
+
+It consists of one main modules:
+
+- `csvexport`: tools to export all the tbales to csv files from sqlite database
+
+# Installation
+
+## Normal installation
+
+```bash
+pip install sqlitetocsv
+```
+
+## Development installation
+
+```bash
+git clone https://github.com/MullionGroup/sqlitetocsv.git
+cd sqlitetocsv
+pip install --editable .
+```
+
+
+# Change log
+## [0.1.1] - 2020-07-30
+
+
