@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: denoiser
+Version: 0.0.1
+Summary: Speech enhancement in the waveform domain. Supports offline and streaming evaluation. Implementation for https://arxiv.org/abs/2006.12847.
+Home-page: https://github.com/facebookresearch/denoiser
+Author: Alexandre Défossez
+Author-email: alexandre.defossez@gmail.com
+License: MIT License
+Description: Speech enhancement in the waveform domain. Supports offline and streaming evaluation. Implementation for https://arxiv.org/abs/2006.12847.
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Multimedia :: Sound/Audio :: Speech
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7.0
+Description-Content-Type: text/markdown
