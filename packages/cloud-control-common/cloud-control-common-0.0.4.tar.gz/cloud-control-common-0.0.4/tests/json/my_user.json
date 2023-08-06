@@ -1,0 +1,30 @@
+{
+  "userName": "roc",
+  "fullName": "roc marciano",
+  "firstName": "roc",
+  "lastName": "marciano",
+  "emailAddress": "roc.marciano@cis.ntt.com",
+  "role": [
+    "backup",
+    "create image",
+    "drs",
+    "network",
+    "reports",
+    "server",
+    "tag",
+    "vpn"
+  ],
+  "phone": {
+    "countryCode": "213",
+    "number": "1242424222"
+  },
+  "organization": {
+    "name": "Purple Team",
+    "homeGeoName": "DEV GEO 1",
+    "homeGeoApiHost": "api-ash99-dev.mcp-services.net",
+    "homeGeoId": "dev_geo1",
+    "id": "a32ef0e8-d9aa-4e86-b617-d03673a031a3"
+  },
+  "state": "NORMAL",
+  "createTime": "2019-10-21T08:44:39.000Z"
+}
