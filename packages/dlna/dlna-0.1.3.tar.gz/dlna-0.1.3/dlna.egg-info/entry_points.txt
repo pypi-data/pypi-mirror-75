@@ -1,0 +1,3 @@
+[console_scripts]
+dlna = dlna.client:run
+
