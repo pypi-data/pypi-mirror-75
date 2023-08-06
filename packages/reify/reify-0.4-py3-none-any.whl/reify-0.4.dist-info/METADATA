@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: reify
+Version: 0.4
+Summary: A standalone tool for rendering jinja templates
+Home-page: https://github.com/canonical-ols/reify
+Author: Simon Davy
+Author-email: simon.davy@canonical.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Description-Content-Type: text/plain
+Requires-Dist: jinja2
+Requires-Dist: pyyaml
+
+usage: reify [-h] [--context CONTEXT] [--envfile ENVFILE] [--output OUTPUT]
+             [--mode MODE] [--charm-config CHARM_CONFIG]
+             template [extra [extra ...]]
+
+render a jinja2 template
+
+positional arguments:
+  template              the template file
+  extra                 extra key value pairs (foo=bar)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --context CONTEXT, -c CONTEXT
+                        file to load context data from. Can also be read from
+                        stdin.
+  --envfile ENVFILE, -e ENVFILE
+                        file with environment varibles
+  --output OUTPUT, -o OUTPUT
+                        output file; defaults to stdout
+  --mode MODE, -m MODE  mode of output file, if not stdout; defaults to 0666 -
+                        umask
+  --charm-config CHARM_CONFIG
+                        charm config file, default values will be added to
+                        template context
+
+
