@@ -1,0 +1,3 @@
+[console_scripts]
+trafficserver_exporter = trafficserver_exporter.__main__:main
+
