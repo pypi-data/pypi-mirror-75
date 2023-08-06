@@ -1,0 +1,91 @@
+Metadata-Version: 2.1
+Name: celerite2
+Version: 0.0.1.dev2
+Summary: Fast and scalable Gaussian Processes in 1D
+Home-page: https://celerite2.readthedocs.io
+Author: Daniel Foreman-Mackey
+Author-email: foreman.mackey@gmail.com
+Maintainer: Daniel Foreman-Mackey
+Maintainer-email: foreman.mackey@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.13.0)
+Requires-Dist: pybind11 (>=2.4)
+Requires-Dist: setuptools (>=40.6.0)
+Requires-Dist: setuptools-scm
+Requires-Dist: wheel
+Provides-Extra: dev
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: coverage[toml] ; extra == 'dev'
+Requires-Dist: pytest (==6.0.0rc1) ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: scipy ; extra == 'dev'
+Requires-Dist: celerite (>=0.3.1) ; extra == 'dev'
+Requires-Dist: pep517 ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: nbstripout ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-material ; extra == 'docs'
+Requires-Dist: sphinx-copybutton ; extra == 'docs'
+Requires-Dist: rtds-action ; extra == 'docs'
+Requires-Dist: nbsphinx ; extra == 'docs'
+Provides-Extra: jax
+Requires-Dist: jax ; extra == 'jax'
+Requires-Dist: jaxlib ; extra == 'jax'
+Provides-Extra: release
+Requires-Dist: pep517 ; extra == 'release'
+Requires-Dist: twine ; extra == 'release'
+Provides-Extra: style
+Requires-Dist: isort ; extra == 'style'
+Requires-Dist: black ; extra == 'style'
+Requires-Dist: black-nbconvert ; extra == 'style'
+Provides-Extra: test
+Requires-Dist: wheel ; extra == 'test'
+Requires-Dist: coverage[toml] ; extra == 'test'
+Requires-Dist: pytest (==6.0.0rc1) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: scipy ; extra == 'test'
+Requires-Dist: celerite (>=0.3.1) ; extra == 'test'
+Provides-Extra: theano
+Requires-Dist: theano ; extra == 'theano'
+Provides-Extra: torch
+Requires-Dist: torch ; extra == 'torch'
+Provides-Extra: tutorials
+Requires-Dist: jupytext ; extra == 'tutorials'
+Requires-Dist: jupyter ; extra == 'tutorials'
+Requires-Dist: nbconvert ; extra == 'tutorials'
+Requires-Dist: matplotlib ; extra == 'tutorials'
+Requires-Dist: jax ; extra == 'tutorials'
+Requires-Dist: jaxlib ; extra == 'tutorials'
+Requires-Dist: scipy ; extra == 'tutorials'
+
+# celerite2
+
+_celerite_ is an algorithm for fast and scalable Gaussian Process (GP)
+Regression in one dimension and this library, _celerite2_ is a re-write of the
+original [celerite project](https://celerite.readthedocs.io) to improve
+numerical stability and integration with various machine learning frameworks.
+This implementation includes interfaces in Python and C++, with full support for
+Theano/PyMC3 and preliminary interfaces in JAX, PyTorch, and TensorFlow.
+
+This documentation won't teach you the fundamentals of GP modeling but the best
+resource for learning about this is available for free online: [Rasmussen &
+Williams (2006)](http://www.gaussianprocess.org/gpml/). Similarly, the
+_celerite_ algorithm is restricted to a specific class of covariance functions
+(see [the original paper](https://arxiv.org/abs/1703.09710) for more information
+and [a recent generalization](https://arxiv.org/abs/2007.05799) for extensions
+to structured two-dimensional data). If you need scalable GPs with more general
+covariance functions, [GPyTorch](https://gpytorch.ai/) might be a good choice.
+
+
