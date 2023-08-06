@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: access-spotify
+Version: 1.0
+Summary: A package to get all album and track info for an artist by querying the Spotify API
+Home-page: UNKNOWN
+Author: pancham_banerjee
+Author-email: panchajanya.banerjee@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: pandas
+Requires-Dist: pillow
+Requires-Dist: tqdm
+Requires-Dist: spotipy
+
+UNKNOWN
+
+
