@@ -1,0 +1,11 @@
+lark-parser
+
+[docs]
+sphinx
+sphinx-rtd-theme
+
+[pygsti-integration]
+pygsti
+
+[tests]
+pytest
