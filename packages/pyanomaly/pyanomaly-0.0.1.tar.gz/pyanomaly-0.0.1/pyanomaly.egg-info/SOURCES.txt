@@ -1,0 +1,17 @@
+CONTRIBUTING.md
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+pyanomaly/__init__.py
+pyanomaly/_nbdev.py
+pyanomaly/stats.py
+pyanomaly/timeseries.py
+pyanomaly.egg-info/PKG-INFO
+pyanomaly.egg-info/SOURCES.txt
+pyanomaly.egg-info/dependency_links.txt
+pyanomaly.egg-info/entry_points.txt
+pyanomaly.egg-info/not-zip-safe
+pyanomaly.egg-info/requires.txt
+pyanomaly.egg-info/top_level.txt
