@@ -1,0 +1,3 @@
+[console_scripts]
+apimd = apimd.__main__:main
+
