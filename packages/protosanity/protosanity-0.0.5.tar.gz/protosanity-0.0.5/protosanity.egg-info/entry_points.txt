@@ -1,0 +1,3 @@
+[console_scripts]
+protoc-gen-sanity = protosanity.protoc_gen_sanity:main
+
