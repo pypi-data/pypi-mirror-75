@@ -1,0 +1,3 @@
+[console_scripts]
+octobot_cli = octobot_cli.cli:cli
+
