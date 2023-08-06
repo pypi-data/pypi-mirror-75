@@ -1,0 +1,16 @@
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+src/opentelemetry/tools/cloud_trace_propagator.py
+src/opentelemetry/tools/resource_detector.py
+src/opentelemetry/tools/google/version.py
+src/opentelemetry_tools_google_cloud.egg-info/PKG-INFO
+src/opentelemetry_tools_google_cloud.egg-info/SOURCES.txt
+src/opentelemetry_tools_google_cloud.egg-info/dependency_links.txt
+src/opentelemetry_tools_google_cloud.egg-info/requires.txt
+src/opentelemetry_tools_google_cloud.egg-info/top_level.txt
+tests/test_cloud_trace_propagator.py
+tests/test_gcp_resource_detector.py
