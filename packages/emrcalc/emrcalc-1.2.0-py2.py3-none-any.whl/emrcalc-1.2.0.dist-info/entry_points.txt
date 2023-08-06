@@ -1,0 +1,3 @@
+[console_scripts]
+emrcalc = emrcalc.emrcalc_main:main
+
