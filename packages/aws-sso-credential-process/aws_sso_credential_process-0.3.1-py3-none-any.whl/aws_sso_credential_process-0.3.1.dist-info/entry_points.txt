@@ -1,0 +1,5 @@
+[console_scripts]
+aws-configure-sso-profile=aws_sso_credential_process.aws_configure_sso_profile:main
+aws-sso-configure-profile=aws_sso_credential_process.aws_configure_sso_profile:main
+aws-sso-credential-process=aws_sso_credential_process.aws_sso_credential_process:main
+
