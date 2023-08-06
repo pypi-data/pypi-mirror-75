@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: tethys-utils
+Version: 0.0.1
+Summary: tethys utilities
+Home-page: https://github.com/tethys-ts/tethys-utils
+Author: Mike Kittridge
+Author-email: mullenkamp1@gmail.com
+License: Apache
+Requires-Dist: zstandard
+Requires-Dist: pandas
+
+tethys-utils
+
+
