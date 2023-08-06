@@ -1,0 +1,3 @@
+[console_scripts]
+iconetl = iconetl.cli:cli
+

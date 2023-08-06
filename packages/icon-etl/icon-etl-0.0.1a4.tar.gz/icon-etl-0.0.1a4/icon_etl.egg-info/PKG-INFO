@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: icon-etl
+Version: 0.0.1a4
+Summary: Tools for exporting ICON blockchain data to CSV or JSON
+Home-page: https://github.com/insight-icon/icon-etl
+Author: Richard Mah
+Author-email: richard@richardmah.com
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/insight-icon/icon-etl/issues
+Project-URL: Source, https://github.com/insight-icon/icon-etl
+Description: # ICON ETL
+        
+        [![Build Status](https://travis-ci.org/insight-icon/icon-etl.svg?branch=master)](https://travis-ci.org/github/insight-icon/icon-etl)
+        [![Pypi Version](https://img.shields.io/pypi/v/icon-etl)](https://pypi.org/project/icon-etl/)
+        [![Pypi Version](https://img.shields.io/pypi/l/icon-etl)](https://pypi.org/project/icon-etl/)
+        
+        
+        
+        ## Quickstart
+        
+        Install ICON ETL:
+        
+        ```bash
+        pip3 install icon-etl
+        ```
+        
+        Export blocks and transactions:
+        
+        ```bash
+        > iconetl export_blocks_and_transactions --start-block 0 --end-block 500000 \
+        --blocks-output blocks.csv --transactions-output transactions.csv
+        ```
+        
+        ## Running Tests
+        
+        ```bash
+        > pip3 install -e .[dev,streaming]
+        > export ICON_ETL_RUN_SLOW_TESTS=True
+        > pytest -vv
+        ```
+        
+        ### Running Tox Tests
+        
+        ```bash
+        > pip3 install tox
+        > tox
+        ```
+        
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6.0,<3.8.0
+Description-Content-Type: text/markdown
+Provides-Extra: streaming
+Provides-Extra: dev
