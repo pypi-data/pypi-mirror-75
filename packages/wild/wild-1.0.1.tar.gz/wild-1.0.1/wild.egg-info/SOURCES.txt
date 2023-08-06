@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+wb/__init__.py
+wb/cli.py
+wb/api/__init__.py
+wb/api/wildebeest_api.py
+wild.egg-info/PKG-INFO
+wild.egg-info/SOURCES.txt
+wild.egg-info/dependency_links.txt
+wild.egg-info/entry_points.txt
+wild.egg-info/requires.txt
+wild.egg-info/top_level.txt
