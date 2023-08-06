@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: inductiveGRL
+Version: 0.2
+Summary: the code used in the experimental setup of our paper 'Inductive Graph Representation Learning for Fraud Detection'.
+Home-page: https://github.com/Charlesvandamme/Inductive-Graph-Representation-Learning-for-Fraud-Detection
+Author: Charles Van Damme
+Author-email: charles.vandamme@student.kuleuven.be
+License: MIT
+Download-URL: https://github.com/rafaelvanbelle/Inductive-Graph-Representation-Learning-for-Fraud-Detection/releases/download/v0.2/inductiveGRL-0.2.tar.gz
+Platform: UNKNOWN
+Requires-Dist: ipynb
+Requires-Dist: nbimporter
+Requires-Dist: stellargraph
+Requires-Dist: networkx
+Requires-Dist: pandas
+Requires-Dist: numpy
+Requires-Dist: scikit-plot
+Requires-Dist: matplotlib
+Requires-Dist: sklearn
+Requires-Dist: xgboost
+Requires-Dist: keras
+Requires-Dist: tensorflow
+Requires-Dist: matlab-kernel
+
+UNKNOWN
+
+
