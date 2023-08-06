@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+histoprint/__init__.py
+histoprint/cli.py
+histoprint/formatter.py
+histoprint.egg-info/PKG-INFO
+histoprint.egg-info/SOURCES.txt
+histoprint.egg-info/dependency_links.txt
+histoprint.egg-info/entry_points.txt
+histoprint.egg-info/requires.txt
+histoprint.egg-info/top_level.txt
+histoprint.egg-info/zip-safe
