@@ -1,0 +1,17 @@
+Metadata-Version: 1.2
+Name: gccov
+Version: 1.0.3
+Summary: Visualize gc & coverage.
+Home-page: https://github.com/jlli6t/gccov
+Author: Jie Li
+Author-email: mm.jlli6t@gmail.com
+Maintainer: Jie Li
+Maintainer-email: mm.jlli6t@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Keywords: biology bioinformatics
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: Unix
+Requires-Python: >=3.6

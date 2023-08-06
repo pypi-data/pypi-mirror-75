@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+bin/gccov
+gccov/__init__.py
+gccov/coverm.py
+gccov/scatter.py
+gccov/version
+gccov/version.py
+gccov/workflow.py
+gccov.egg-info/PKG-INFO
+gccov.egg-info/SOURCES.txt
+gccov.egg-info/dependency_links.txt
+gccov.egg-info/requires.txt
+gccov.egg-info/top_level.txt
