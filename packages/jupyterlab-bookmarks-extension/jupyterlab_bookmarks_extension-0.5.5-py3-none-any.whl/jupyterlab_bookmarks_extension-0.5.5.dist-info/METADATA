@@ -1,0 +1,122 @@
+Metadata-Version: 2.1
+Name: jupyterlab-bookmarks-extension
+Version: 0.5.5
+Summary: A JupyterLab extension to provide Launcher icons for favorites. Allows 'bookmarking' files for quick access from the Launcher.
+Home-page: https://github.com/nandor-poka/jupyterlab-bookmarks-extension
+Author: Dr. Nandor Poka
+License: BSD-3-Clause
+Keywords: Jupyter,JupyterLab
+Platform: Linux
+Platform: Mac OS X
+Platform: Windows
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Jupyter
+Description-Content-Type: text/markdown
+Requires-Dist: jupyterlab (~=2.2.0)
+
+# jupyterlab-bookmarks-extension
+
+[![PyPI version](https://badge.fury.io/py/jupyterlab-bookmarks-extension.svg)](https://badge.fury.io/py/jupyterlab-bookmarks-extension)
+![Github Actions Status](https://github.com/nandor-poka/jupyterlab-bookmarks-extension/workflows/Build/badge.svg)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/0e490b1feef34f2fb92ebc8174dc2446)](https://www.codacy.com/manual/np/jupyterlab-bookmarks-extension?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=nandor-poka/jupyterlab-bookmarks-extension&amp;utm_campaign=Badge_Grade)
+
+A JupyterLab extension to provide Launcher icons for favorites. Allows bookmarking files for quick access from the Launcher.
+
+This extension is composed of a Python package named `jupyterlab_bookmarks_extension`
+for the server extension and a NPM package named `jupyterlab-bookmarks-extension`
+for the frontend extension.
+
+## Intro
+
+![Intro](./img/intro.gif)
+
+## Requirements
+
+* JupyterLab >= 2.0 (preferably 2.2.0)
+
+## Install
+
+Note: You will need NodeJS to install the extension.
+
+```bash
+pip install jupyterlab_bookmarks_extension
+jupyter lab build
+```
+
+## Troubleshoot
+
+If you are seeing the frontend extension but it is not working, check
+that the server extension is enabled:
+
+```bash
+jupyter serverextension list
+```
+
+If the server extension is installed and enabled but you are not seeing
+the frontend, check the frontend is installed:
+
+```bash
+jupyter labextension list
+```
+
+If it is installed, try:
+
+```bash
+jupyter lab clean
+jupyter lab build
+```
+
+## Contributing
+
+### Install for development
+
+The `jlpm` command is JupyterLab's pinned version of
+[yarn](https://yarnpkg.com/) that is installed with JupyterLab. You may use
+`yarn` or `npm` in lieu of `jlpm` below.
+
+```bash
+# Clone the repo to your local environment
+# Move to jupyterlab-bookmarks-extension directory
+
+# Install server extension
+pip install -e .
+# Register server extension
+jupyter serverextension enable --py jupyterlab_bookmarks_extension --sys-prefix
+
+# Install dependencies
+jlpm
+# Build Typescript source
+jlpm build
+# Link your development version of the extension with JupyterLab
+jupyter labextension install .
+# Rebuild Typescript source after making changes
+jlpm build
+# Rebuild JupyterLab after making any changes
+jupyter lab build
+```
+
+You can watch the source directory and run JupyterLab in watch mode to watch for changes in the extension's source and automatically rebuild the extension and application.
+
+```bash
+# Watch the source directory in another terminal tab
+jlpm watch
+# Run jupyterlab in watch mode in one terminal tab
+jupyter lab --watch
+```
+
+Now every change will be built locally and bundled into JupyterLab. Be sure to refresh your browser page after saving file changes to reload the extension (note: you'll need to wait for webpack to finish, which can take 10s+ at times).
+
+### Uninstall
+
+```bash
+pip uninstall jupyterlab_bookmarks_extension
+jupyter labextension uninstall jupyterlab-bookmarks-extension
+```
+
+
