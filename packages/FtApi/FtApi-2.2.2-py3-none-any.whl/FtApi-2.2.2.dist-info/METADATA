@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: FtApi
+Version: 2.2.2
+Summary: Class for manipulating 42 Api
+Home-page: https://github.com/ryaoi/ftApi
+Author: ryaoi
+Author-email: nop@42.codes
+License: LICENSE.txt
+Platform: UNKNOWN
+Requires-Dist: certifi (>=2019.6.16)
+Requires-Dist: chardet (>=3.0.4)
+Requires-Dist: idna (>=2.8)
+Requires-Dist: Pygments (>=2.4.2)
+Requires-Dist: requests (>=2.22.0)
+Requires-Dist: urllib3 (>=1.25.3)
+
+# FtApi
+
+## Usage
+You need to have uid and secret from 42 application panel
+tons of love for the dev Team who makde RESTful API.
+You guys rock !!!
+
+```
+pip install FtApi
+```
+
+## Example
+
+![example](https://github.com/ryaoi/ftApi/blob/master/img/example.png)
+
+### For myself
+```
+launch 42api_creator.py
+cp FtApi.py inside the folder FtApi
+vim CHANGES.txt #update the information
+vim setup.py #change version of the package
+python3 setup.py sdist bdist_wheel
+python3 -m twine upload --skip-existing --repository-url https://upload.pypi.org/legacy/ dist/*
+```
+
+
