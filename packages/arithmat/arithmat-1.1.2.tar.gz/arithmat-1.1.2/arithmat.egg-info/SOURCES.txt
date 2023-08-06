@@ -1,0 +1,16 @@
+.gitignore
+LICENSE.md
+README.md
+VERSION
+setup.py
+test.sage
+arithmat/__init__.py
+arithmat/arithmetic_matroid.py
+arithmat/shnf.py
+arithmat/test.sage.py
+arithmat.egg-info/PKG-INFO
+arithmat.egg-info/SOURCES.txt
+arithmat.egg-info/dependency_links.txt
+arithmat.egg-info/requires.txt
+arithmat.egg-info/top_level.txt
+figures/poset.png
