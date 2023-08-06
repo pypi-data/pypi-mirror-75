@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: arnica
+Version: 1.8.0
+Summary: Open Source library CFD toolkit
+Home-page: UNKNOWN
+Author: CoopTeam-CERFACS
+Author-email: coop@cerfacs.com
+License: CeCILL-B FREE SOFTWARE LICENSE AGREEMENT
+Keywords: ARNICA
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: mplcursors
+Requires-Dist: h5py
+Requires-Dist: PyYAML (>=3.13)
+Requires-Dist: lxml
+Requires-Dist: pandas
+Requires-Dist: hdfdict
+
+UNKNOWN
+
+
