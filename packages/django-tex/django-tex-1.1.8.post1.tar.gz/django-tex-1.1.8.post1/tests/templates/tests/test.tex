@@ -1,0 +1,17 @@
+\documentclass{article}
+
+\begin{document}
+
+\section{ {{- test -}} }
+
+This is {{ test }}!
+
+This is a number: {{ number|localize }}. And this is a date: {{ date|localize }}.
+
+\begin{itemize}
+{% for item in names %}
+\item {{ item }}
+{% endfor %}
+\end{itemize}
+
+\end{document}
