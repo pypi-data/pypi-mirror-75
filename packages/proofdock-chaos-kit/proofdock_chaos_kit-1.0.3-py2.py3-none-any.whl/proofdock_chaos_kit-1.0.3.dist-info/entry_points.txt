@@ -1,0 +1,4 @@
+[chaostoolkit.cli_plugins]
+configure = pdchaoskit.cli:configure
+experiment = pdchaoskit.cli:experiment
+
