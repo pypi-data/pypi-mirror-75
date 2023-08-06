@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: dpp_common_utils
+Version: 0.2.0
+Summary: A small utils package
+Home-page: https://git.uni-due.de/
+Author: J. Hohenstein
+Author-email: j.hoh@t-online.de
+License: UNKNOWN
+Description: A small utils package that contains little helpers, that we need for a private project.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
