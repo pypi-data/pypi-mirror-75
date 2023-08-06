@@ -1,0 +1,6 @@
+requests
+djangorestframework
+elasticsearch[async]
+celery
+sentry-sdk
+python-dateutil
