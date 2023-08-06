@@ -1,0 +1,17 @@
+{
+    "machine_display_name": "CEB Brick Press",
+    "repo_name": "ose-{{ cookiecutter.machine_display_name.lower().replace(' ', '-') }}-workbench",
+    "machine_title": "OSE {{ cookiecutter.machine_display_name }}",
+    "workbench_title": "{{ cookiecutter.machine_title }} Workbench",
+    "base_package": "ose{{ cookiecutter.machine_display_name.lower().replace(' ', '') }}",
+    "command_registry_filename": "OSE_{{ cookiecutter.machine_display_name.replace(' ', '_') }}",
+    "command_namespace": "OSE{{ cookiecutter.machine_display_name.replace(' ', '') }}",
+    "workbench_class_name": "{{ cookiecutter.machine_display_name.replace(' ', '') }}Workbench",
+    "owner_name": "G Roques",
+    "year": "{% now 'utc', '%Y' %}",
+    "ose_workbench_platform_version": null,
+    "_copy_without_render": [
+        "docs/_templates/*"
+    ],
+    "_extensions": ["jinja2_time.TimeExtension"]
+}
