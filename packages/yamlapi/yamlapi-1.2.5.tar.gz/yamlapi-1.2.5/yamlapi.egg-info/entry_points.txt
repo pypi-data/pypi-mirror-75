@@ -1,0 +1,3 @@
+[console_scripts]
+yamlapi = yamlapi.yaml_api:start_project
+
