@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pyrainbird
+Version: 0.4.2
+Summary: Rain Bird Controller
+Home-page: https://github.com/jbarrancos/pyrainbird/
+Author: J.J.Barrancos
+Author-email: jordy@fusion-ict.nl
+License: MIT
+Keywords: Rain Bird
+Platform: UNKNOWN
+Requires-Dist: pycryptodome
+Requires-Dist: requests
+Requires-Dist: datetime
+Requires-Dist: setuptools
+
+UNKNOWN
+
+
