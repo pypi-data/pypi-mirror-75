@@ -1,0 +1,9 @@
+astral>=1.10.1
+cachetools>=3.1.1
+configparser>=3.7.4
+dsmr-parser>=0.21
+omnikdataloggerproxy>=1.2.0
+paho-mqtt>=1.5.0
+pytz>=2019.1
+pyyaml>=5.1
+requests>=2.21.0
