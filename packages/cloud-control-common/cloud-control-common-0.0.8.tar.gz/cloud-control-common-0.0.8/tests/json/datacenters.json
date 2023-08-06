@@ -1,0 +1,1055 @@
+{
+  "datacenter": [
+    {
+      "displayName": "DEV Geo1 Cork",
+      "city": "Cork",
+      "state": "Munster",
+      "country": "Ireland",
+      "vpn": [
+        {
+          "url": "https://ash99-dev.cloud-vpn.net",
+          "vpnAccess": "VPN_SINGLE_FACTOR",
+          "regionalVpn": true
+        }
+      ],
+      "ftpsHost": "ftps-ash99-dev.mcp-services.net",
+      "networking": {
+        "property": [
+          {
+            "name": "RATIO_PUBLIC_IPS_PER_SERVER",
+            "value": "3"
+          },
+          {
+            "name": "MAX_VLANS_PER_NETWORK_DOMAIN",
+            "value": "30"
+          },
+          {
+            "name": "MAX_POOL_MEMBERS_PER_POOL",
+            "value": "100"
+          },
+          {
+            "name": "MAX_FIREWALL_RULES_PER_NETWORK_DOMAIN",
+            "value": "1000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENERS_PER_NETWORK_DOMAIN",
+            "value": "100"
+          },
+          {
+            "name": "MAX_POOLS_PER_NETWORK_DOMAIN",
+            "value": "100"
+          },
+          {
+            "name": "MAX_NODE_CONNECTION_LIMIT",
+            "value": "100000"
+          },
+          {
+            "name": "MAX_NODE_CONNECTION_RATE_LIMIT",
+            "value": "4000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENER_CONNECTION_LIMIT",
+            "value": "100000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENER_CONNECTION_RATE_LIMIT",
+            "value": "4000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENERS_WITH_SSL",
+            "value": "100"
+          },
+          {
+            "name": "DEFAULT_CIPHERS",
+            "value": "MEDIUM:HIGH:!EXPORT:!ADH:!MD5:!RC4:!SSLv2:!SSLv3:!ECDHE+AES-GCM:!ECDHE+AES:!ECDHE+3DES:!ECDHE_ECDSA:!ECDH_RSA:!ECDH_ECDSA:@SPEED"
+          },
+          {
+            "name": "PRIVATE_KEY_ACCEPTABLE_BIT_LENGTHS",
+            "value": "512,1024,2048"
+          }
+        ],
+        "maintenanceStatus": "NORMAL",
+        "type": "2"
+      },
+      "hypervisor": {
+        "diskSpeed": [
+          {
+            "displayName": "Standard",
+            "abbreviation": "STD",
+            "description": "Standard Disk Speed",
+            "id": "STANDARD",
+            "default": true,
+            "available": true,
+            "variableIops": false
+          },
+          {
+            "displayName": "Provisioned IOPS",
+            "abbreviation": "PIOPS",
+            "description": "User can choose specific IOPS separate from size of disk",
+            "variableIopLimits": {
+              "minDiskIops": 16,
+              "maxDiskIops": 15000,
+              "minIopsPerGb": 3,
+              "maxIopsPerGb": 15
+            },
+            "id": "PROVISIONEDIOPS",
+            "default": false,
+            "available": true,
+            "variableIops": true
+          },
+          {
+            "displayName": "High Performance",
+            "abbreviation": "HPF",
+            "description": "Faster than Standard. Uses 15000 RPM disk with Fast Cache.",
+            "id": "HIGHPERFORMANCE",
+            "default": false,
+            "available": true,
+            "variableIops": false
+          },
+          {
+            "displayName": "Economy",
+            "abbreviation": "ECN",
+            "description": "Slower than Standard. Uses 7200 RPM disk without Fast Cache.",
+            "id": "ECONOMY",
+            "default": false,
+            "available": true,
+            "variableIops": false
+          }
+        ],
+        "cpuSpeed": [
+          {
+            "displayName": "Standard",
+            "description": "Standard CPU Speed",
+            "id": "STANDARD",
+            "default": true,
+            "available": true
+          },
+          {
+            "displayName": "High Performance",
+            "description": "Faster and more consistent than Standard. Suitable for applications that are more CPU intensive.",
+            "id": "HIGHPERFORMANCE",
+            "default": false,
+            "available": true
+          }
+        ],
+        "cluster": [
+          {
+            "displayName": "Cluster 1",
+            "description": "Cluster 1",
+            "diskSpeed": [
+              {
+                "displayName": "Standard",
+                "abbreviation": "STD",
+                "description": "Standard Disk Speed",
+                "id": "STANDARD",
+                "default": true,
+                "available": true,
+                "variableIops": false
+              },
+              {
+                "displayName": "Provisioned IOPS",
+                "abbreviation": "PIOPS",
+                "description": "User can choose specific IOPS separate from size of disk",
+                "variableIopLimits": {
+                  "minDiskIops": 16,
+                  "maxDiskIops": 15000,
+                  "minIopsPerGb": 3,
+                  "maxIopsPerGb": 15
+                },
+                "id": "PROVISIONEDIOPS",
+                "default": false,
+                "available": true,
+                "variableIops": true
+              },
+              {
+                "displayName": "High Performance",
+                "abbreviation": "HPF",
+                "description": "Faster than Standard. Uses 15000 RPM disk with Fast Cache.",
+                "id": "HIGHPERFORMANCE",
+                "default": false,
+                "available": true,
+                "variableIops": false
+              },
+              {
+                "displayName": "Economy",
+                "abbreviation": "ECN",
+                "description": "Slower than Standard. Uses 7200 RPM disk without Fast Cache.",
+                "id": "ECONOMY",
+                "default": false,
+                "available": true,
+                "variableIops": false
+              }
+            ],
+            "cpuSpeed": [
+              {
+                "displayName": "Standard",
+                "description": "Standard CPU Speed",
+                "id": "STANDARD",
+                "default": true,
+                "available": true
+              },
+              {
+                "displayName": "High Performance",
+                "description": "Faster and more consistent than Standard. Suitable for applications that are more CPU intensive.",
+                "id": "HIGHPERFORMANCE",
+                "default": false,
+                "available": true
+              }
+            ],
+            "property": [
+              {
+                "name": "MIN_DISK_SIZE_GB",
+                "value": "1"
+              },
+              {
+                "name": "MAX_TOTAL_STORAGE_GB",
+                "value": "3000"
+              },
+              {
+                "name": "MAX_DISK_SIZE_GB",
+                "value": "1000"
+              },
+              {
+                "name": "MAX_CPU_COUNT",
+                "value": "32"
+              },
+              {
+                "name": "MIN_MEMORY_GB",
+                "value": "1"
+              },
+              {
+                "name": "MAX_MEMORY_GB",
+                "value": "256"
+              },
+              {
+                "name": "ANTI_AFFINITY_ENABLED",
+                "value": "true"
+              },
+              {
+                "name": "ADVANCED_VIRTUALIZATION_ENABLED",
+                "value": "true"
+              }
+            ],
+            "id": "DEV_GEO1_1_CORK-01",
+            "default": true
+          },
+          {
+            "displayName": "Cluster2",
+            "description": "Cluster2",
+            "diskSpeed": [
+              {
+                "displayName": "Standard",
+                "abbreviation": "STD",
+                "description": "Standard Disk Speed",
+                "id": "STANDARD",
+                "default": true,
+                "available": true,
+                "variableIops": false
+              },
+              {
+                "displayName": "Provisioned IOPS",
+                "abbreviation": "PIOPS",
+                "description": "User can choose specific IOPS separate from size of disk",
+                "variableIopLimits": {
+                  "minDiskIops": 16,
+                  "maxDiskIops": 15000,
+                  "minIopsPerGb": 3,
+                  "maxIopsPerGb": 15
+                },
+                "id": "PROVISIONEDIOPS",
+                "default": false,
+                "available": true,
+                "variableIops": true
+              },
+              {
+                "displayName": "High Performance",
+                "abbreviation": "HPF",
+                "description": "Faster than Standard. Uses 15000 RPM disk with Fast Cache.",
+                "id": "HIGHPERFORMANCE",
+                "default": false,
+                "available": true,
+                "variableIops": false
+              },
+              {
+                "displayName": "Economy",
+                "abbreviation": "ECN",
+                "description": "Slower than Standard. Uses 7200 RPM disk without Fast Cache.",
+                "id": "ECONOMY",
+                "default": false,
+                "available": true,
+                "variableIops": false
+              }
+            ],
+            "cpuSpeed": [
+              {
+                "displayName": "Standard",
+                "description": "Standard CPU Speed",
+                "id": "STANDARD",
+                "default": true,
+                "available": true
+              },
+              {
+                "displayName": "High Performance",
+                "description": "Faster and more consistent than Standard. Suitable for applications that are more CPU intensive.",
+                "id": "HIGHPERFORMANCE",
+                "default": false,
+                "available": true
+              }
+            ],
+            "property": [
+              {
+                "name": "MIN_DISK_SIZE_GB",
+                "value": "1"
+              },
+              {
+                "name": "MAX_TOTAL_STORAGE_GB",
+                "value": "3000"
+              },
+              {
+                "name": "MAX_DISK_SIZE_GB",
+                "value": "1000"
+              },
+              {
+                "name": "MAX_CPU_COUNT",
+                "value": "24"
+              },
+              {
+                "name": "MIN_MEMORY_GB",
+                "value": "1"
+              },
+              {
+                "name": "MAX_MEMORY_GB",
+                "value": "64"
+              },
+              {
+                "name": "ANTI_AFFINITY_ENABLED",
+                "value": "true"
+              },
+              {
+                "name": "ADVANCED_VIRTUALIZATION_ENABLED",
+                "value": "false"
+              }
+            ],
+            "id": "DEV_GEO1_1_CORK-02",
+            "default": false
+          }
+        ],
+        "property": [
+          {
+            "name": "SHARED_DATASTORES",
+            "value": "false"
+          },
+          {
+            "name": "MIN_DISK_COUNT",
+            "value": "0"
+          },
+          {
+            "name": "MAX_DISK_COUNT",
+            "value": "60"
+          },
+          {
+            "name": "MAX_DISK_SIZE_GB",
+            "value": "1000"
+          },
+          {
+            "name": "MIN_DISK_SIZE_GB",
+            "value": "1"
+          },
+          {
+            "name": "MAX_TOTAL_STORAGE_GB",
+            "value": "3000"
+          },
+          {
+            "name": "MAX_TOTAL_IMAGE_STORAGE_GB",
+            "value": "3000"
+          },
+          {
+            "name": "MAX_CPU_COUNT",
+            "value": "32"
+          },
+          {
+            "name": "MIN_MEMORY_GB",
+            "value": "1"
+          },
+          {
+            "name": "MAX_MEMORY_GB",
+            "value": "256"
+          },
+          {
+            "name": "VMWARE_HARDWARE_VERSION",
+            "value": "vmx-13"
+          },
+          {
+            "name": "ANTI_AFFINITY_ENABLED",
+            "value": "true"
+          },
+          {
+            "name": "ADVANCED_VIRTUALIZATION_ENABLED",
+            "value": "true"
+          },
+          {
+            "name": "MAX_MEMBERS_PER_SECURITY_GROUP",
+            "value": "100"
+          },
+          {
+            "name": "SECURITY_GROUPS_ENABLED",
+            "value": "true"
+          },
+          {
+            "name": "MAX_SECURITY_GROUPS_PER_NETWORK_DOMAIN",
+            "value": "300"
+          }
+        ],
+        "maintenanceStatus": "NORMAL",
+        "type": "VMWARE"
+      },
+      "consoleAccess": {
+        "maintenanceStatus": "NORMAL"
+      },
+      "monitoring": {
+        "maintenanceStatus": "NORMAL"
+      },
+      "snapshot": {
+        "targetDatacenterIds": [
+          "DEV_GEO1_2_GALWAY"
+        ],
+        "property": [
+          {
+            "name": "MAX_MANUAL_SNAPSHOTS_PER_SERVER",
+            "value": "5"
+          },
+          {
+            "name": "MAX_TOTAL_SNAPSHOT_STORAGE_GB",
+            "value": "30000"
+          },
+          {
+            "name": "MANUAL_SNAPSHOT_RETENTION_DAYS",
+            "value": "14"
+          },
+          {
+            "name": "ARCHIVE_ENABLED",
+            "value": "true"
+          },
+          {
+            "name": "RETENTION_DAYS_BEFORE_ARCHIVE",
+            "value": "7"
+          },
+          {
+            "name": "ARCHIVE_INFORMATION",
+            "value": "Some information about archiving your snapshots in a different geo"
+          },
+          {
+            "name": "LONG_TERM_IMAGE_RETENTION_ENABLED",
+            "value": "false"
+          }
+        ],
+        "maintenanceStatus": "NORMAL"
+      },
+      "drs": {
+        "targetDatacenterIds": [
+          "DEV_GEO1_2_GALWAY"
+        ],
+        "property": [
+          {
+            "name": "MAX_DRS_JOURNAL_SIZE_GB",
+            "value": "10000"
+          }
+        ],
+        "maintenanceStatus": "NORMAL"
+      },
+      "id": "DEV_GEO1_1_CORK",
+      "type": "MCP 2.0"
+    },
+    {
+      "displayName": "DEV Geo1 Galway",
+      "city": "Galway",
+      "state": "Connaght",
+      "country": "Ireland",
+      "vpn": [
+        {
+          "url": "https://ash99-dev-2.cloud-vpn.net",
+          "vpnAccess": "VPN_SINGLE_FACTOR",
+          "regionalVpn": false
+        }
+      ],
+      "ftpsHost": "ftps-ash99-dev.mcp-services.net",
+      "networking": {
+        "property": [
+          {
+            "name": "RATIO_PUBLIC_IPS_PER_SERVER",
+            "value": "3"
+          },
+          {
+            "name": "MAX_VLANS_PER_NETWORK_DOMAIN",
+            "value": "30"
+          },
+          {
+            "name": "MAX_POOL_MEMBERS_PER_POOL",
+            "value": "100"
+          },
+          {
+            "name": "MAX_FIREWALL_RULES_PER_NETWORK_DOMAIN",
+            "value": "1000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENERS_PER_NETWORK_DOMAIN",
+            "value": "100"
+          },
+          {
+            "name": "MAX_POOLS_PER_NETWORK_DOMAIN",
+            "value": "100"
+          },
+          {
+            "name": "MAX_NODE_CONNECTION_LIMIT",
+            "value": "100000"
+          },
+          {
+            "name": "MAX_NODE_CONNECTION_RATE_LIMIT",
+            "value": "4000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENER_CONNECTION_LIMIT",
+            "value": "100000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENER_CONNECTION_RATE_LIMIT",
+            "value": "4000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENERS_WITH_SSL",
+            "value": "100"
+          },
+          {
+            "name": "DEFAULT_CIPHERS",
+            "value": "MEDIUM:HIGH:!EXPORT:!ADH:!MD5:!RC4:!SSLv2:!SSLv3:!ECDHE+AES-GCM:!ECDHE+AES:!ECDHE+3DES:!ECDHE_ECDSA:!ECDH_RSA:!ECDH_ECDSA:@SPEED"
+          },
+          {
+            "name": "PRIVATE_KEY_ACCEPTABLE_BIT_LENGTHS",
+            "value": "512,1024,2048"
+          }
+        ],
+        "maintenanceStatus": "NORMAL",
+        "type": "2"
+      },
+      "hypervisor": {
+        "diskSpeed": [
+          {
+            "displayName": "Standard",
+            "abbreviation": "STD",
+            "description": "Standard Disk Speed",
+            "id": "STANDARD",
+            "default": true,
+            "available": true,
+            "variableIops": false
+          },
+          {
+            "displayName": "Provisioned IOPS",
+            "abbreviation": "PIOPS",
+            "description": "User can choose specific IOPS separate from size of disk",
+            "variableIopLimits": {
+              "minDiskIops": 16,
+              "maxDiskIops": 15000,
+              "minIopsPerGb": 3,
+              "maxIopsPerGb": 15
+            },
+            "id": "PROVISIONEDIOPS",
+            "default": false,
+            "available": true,
+            "variableIops": true
+          },
+          {
+            "displayName": "High Performance",
+            "abbreviation": "HPF",
+            "description": "Faster than Standard. Uses 15000 RPM disk with Fast Cache.",
+            "id": "HIGHPERFORMANCE",
+            "default": false,
+            "available": true,
+            "variableIops": false
+          },
+          {
+            "displayName": "Economy",
+            "abbreviation": "ECN",
+            "description": "Slower than Standard. Uses 7200 RPM disk without Fast Cache.",
+            "id": "ECONOMY",
+            "default": false,
+            "available": true,
+            "variableIops": false
+          }
+        ],
+        "cpuSpeed": [
+          {
+            "displayName": "Standard",
+            "description": "Standard CPU Speed",
+            "id": "STANDARD",
+            "default": true,
+            "available": true
+          },
+          {
+            "displayName": "High Performance",
+            "description": "Faster and more consistent than Standard. Suitable for applications that are more CPU intensive.",
+            "id": "HIGHPERFORMANCE",
+            "default": false,
+            "available": true
+          }
+        ],
+        "property": [
+          {
+            "name": "MIN_DISK_COUNT",
+            "value": "0"
+          },
+          {
+            "name": "MAX_DISK_COUNT",
+            "value": "60"
+          },
+          {
+            "name": "MAX_DISK_SIZE_GB",
+            "value": "1000"
+          },
+          {
+            "name": "MIN_DISK_SIZE_GB",
+            "value": "1"
+          },
+          {
+            "name": "MAX_TOTAL_STORAGE_GB",
+            "value": "3000"
+          },
+          {
+            "name": "MAX_TOTAL_IMAGE_STORAGE_GB",
+            "value": "3000"
+          },
+          {
+            "name": "MAX_CPU_COUNT",
+            "value": "32"
+          },
+          {
+            "name": "MIN_MEMORY_GB",
+            "value": "1"
+          },
+          {
+            "name": "MAX_MEMORY_GB",
+            "value": "256"
+          },
+          {
+            "name": "VMWARE_HARDWARE_VERSION",
+            "value": "vmx-13"
+          },
+          {
+            "name": "ANTI_AFFINITY_ENABLED",
+            "value": "true"
+          },
+          {
+            "name": "ADVANCED_VIRTUALIZATION_ENABLED",
+            "value": "true"
+          },
+          {
+            "name": "MAX_MEMBERS_PER_SECURITY_GROUP",
+            "value": "100"
+          },
+          {
+            "name": "SECURITY_GROUPS_ENABLED",
+            "value": "true"
+          },
+          {
+            "name": "MAX_SECURITY_GROUPS_PER_NETWORK_DOMAIN",
+            "value": "300"
+          }
+        ],
+        "maintenanceStatus": "NORMAL",
+        "type": "VMWARE"
+      },
+      "consoleAccess": {
+        "maintenanceStatus": "NORMAL"
+      },
+      "monitoring": {
+        "maintenanceStatus": "NORMAL"
+      },
+      "snapshot": {
+        "targetDatacenterIds": [
+          "DEV_GEO1_1_CORK"
+        ],
+        "property": [
+          {
+            "name": "MAX_MANUAL_SNAPSHOTS_PER_SERVER",
+            "value": "5"
+          },
+          {
+            "name": "MAX_TOTAL_SNAPSHOT_STORAGE_GB",
+            "value": "30000"
+          },
+          {
+            "name": "MANUAL_SNAPSHOT_RETENTION_DAYS",
+            "value": "14"
+          },
+          {
+            "name": "ARCHIVE_ENABLED",
+            "value": "true"
+          },
+          {
+            "name": "RETENTION_DAYS_BEFORE_ARCHIVE",
+            "value": "1"
+          },
+          {
+            "name": "ARCHIVE_INFORMATION",
+            "value": "Some information about archiving your snapshots in a different geo"
+          },
+          {
+            "name": "LONG_TERM_IMAGE_RETENTION_ENABLED",
+            "value": "false"
+          }
+        ],
+        "maintenanceStatus": "NORMAL"
+      },
+      "drs": {
+        "targetDatacenterIds": [
+          "DEV_GEO1_1_CORK"
+        ],
+        "property": [
+          {
+            "name": "MAX_DRS_JOURNAL_SIZE_GB",
+            "value": "10000"
+          }
+        ],
+        "maintenanceStatus": "NORMAL"
+      },
+      "id": "DEV_GEO1_2_GALWAY",
+      "type": "MCP 2.0"
+    },
+    {
+      "displayName": "DEV Geo1 Limerick",
+      "city": "Limerick",
+      "state": "Munster",
+      "country": "Ireland",
+      "vpn": [
+        {
+          "url": "https://ash99-dev-2.cloud-vpn.net",
+          "vpnAccess": "VPN_SINGLE_FACTOR",
+          "regionalVpn": false
+        }
+      ],
+      "ftpsHost": "ftps-ash99-dev.mcp-services.net",
+      "networking": {
+        "property": [
+          {
+            "name": "RATIO_PUBLIC_IPS_PER_SERVER",
+            "value": "3"
+          },
+          {
+            "name": "MAX_VLANS_PER_NETWORK_DOMAIN",
+            "value": "30"
+          },
+          {
+            "name": "MAX_POOL_MEMBERS_PER_POOL",
+            "value": "100"
+          },
+          {
+            "name": "MAX_FIREWALL_RULES_PER_NETWORK_DOMAIN",
+            "value": "1000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENERS_PER_NETWORK_DOMAIN",
+            "value": "100"
+          },
+          {
+            "name": "MAX_POOLS_PER_NETWORK_DOMAIN",
+            "value": "100"
+          },
+          {
+            "name": "MAX_NODE_CONNECTION_LIMIT",
+            "value": "100000"
+          },
+          {
+            "name": "MAX_NODE_CONNECTION_RATE_LIMIT",
+            "value": "4000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENER_CONNECTION_LIMIT",
+            "value": "100000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENER_CONNECTION_RATE_LIMIT",
+            "value": "4000"
+          },
+          {
+            "name": "MAX_VIRTUAL_LISTENERS_WITH_SSL",
+            "value": "100"
+          },
+          {
+            "name": "DEFAULT_CIPHERS",
+            "value": "MEDIUM:HIGH:!EXPORT:!ADH:!MD5:!RC4:!SSLv2:!SSLv3:!3DES:!TLSv1:!ECDHE:!ECDH_RSA:!ECDH_ECDSA:!ECDHE_ECDSA:@SPEED"
+          },
+          {
+            "name": "PRIVATE_KEY_ACCEPTABLE_BIT_LENGTHS",
+            "value": "512,1024,2048"
+          }
+        ],
+        "maintenanceStatus": "NORMAL",
+        "type": "2"
+      },
+      "hypervisor": {
+        "diskSpeed": [
+          {
+            "displayName": "Standard",
+            "abbreviation": "STD",
+            "description": "Standard Disk Speed",
+            "unavailableReason": "standard disk speed disabled",
+            "id": "STANDARD",
+            "default": true,
+            "available": true,
+            "variableIops": false
+          },
+          {
+            "displayName": "Private",
+            "abbreviation": "PVT",
+            "description": "EPC private disk speed",
+            "id": "PRIVATE",
+            "default": false,
+            "available": true,
+            "variableIops": false
+          }
+        ],
+        "cpuSpeed": [
+          {
+            "displayName": "Standard",
+            "description": "Standard CPU Speed",
+            "id": "STANDARD",
+            "default": true,
+            "available": true
+          },
+          {
+            "displayName": "High Performance",
+            "description": "Faster and more consistent than Standard. Suitable for applications that are more CPU intensive.",
+            "id": "HIGHPERFORMANCE",
+            "default": false,
+            "available": true
+          }
+        ],
+        "property": [
+          {
+            "name": "MIN_DISK_COUNT",
+            "value": "0"
+          },
+          {
+            "name": "MAX_DISK_COUNT",
+            "value": "60"
+          },
+          {
+            "name": "MAX_DISK_SIZE_GB",
+            "value": "1000"
+          },
+          {
+            "name": "MIN_DISK_SIZE_GB",
+            "value": "1"
+          },
+          {
+            "name": "MAX_TOTAL_STORAGE_GB",
+            "value": "3000"
+          },
+          {
+            "name": "MAX_TOTAL_IMAGE_STORAGE_GB",
+            "value": "3000"
+          },
+          {
+            "name": "MAX_CPU_COUNT",
+            "value": "32"
+          },
+          {
+            "name": "MIN_MEMORY_GB",
+            "value": "1"
+          },
+          {
+            "name": "MAX_MEMORY_GB",
+            "value": "256"
+          },
+          {
+            "name": "VMWARE_HARDWARE_VERSION",
+            "value": "vmx-13"
+          },
+          {
+            "name": "ANTI_AFFINITY_ENABLED",
+            "value": "false"
+          },
+          {
+            "name": "ADVANCED_VIRTUALIZATION_ENABLED",
+            "value": "false"
+          },
+          {
+            "name": "SECURITY_GROUPS_ENABLED",
+            "value": "false"
+          }
+        ],
+        "maintenanceStatus": "NORMAL",
+        "type": "VMWARE"
+      },
+      "consoleAccess": {
+        "maintenanceStatus": "NORMAL"
+      },
+      "monitoring": {
+        "maintenanceStatus": "NORMAL"
+      },
+      "snapshot": {
+        "property": [
+          {
+            "name": "MAX_MANUAL_SNAPSHOTS_PER_SERVER",
+            "value": "10"
+          },
+          {
+            "name": "MAX_TOTAL_SNAPSHOT_STORAGE_GB",
+            "value": "30000"
+          },
+          {
+            "name": "MANUAL_SNAPSHOT_RETENTION_DAYS",
+            "value": "14"
+          },
+          {
+            "name": "ARCHIVE_ENABLED",
+            "value": "false"
+          },
+          {
+            "name": "LONG_TERM_IMAGE_RETENTION_ENABLED",
+            "value": "false"
+          }
+        ],
+        "maintenanceStatus": "NORMAL"
+      },
+      "id": "DEV_GEO1_3_LIMERICK",
+      "type": "MCP 2.0"
+    },
+    {
+      "displayName": "DEV Geo1 Waterford",
+      "city": "Waterford",
+      "state": "Munster",
+      "country": "Ireland",
+      "vpn": [
+        {
+          "url": "ash99-dev-4.cloud-vpn.net",
+          "vpnAccess": "VPN_SINGLE_FACTOR",
+          "regionalVpn": false
+        }
+      ],
+      "ftpsHost": "ftps-ash99-dev.mcp-services.net",
+      "networking": {
+        "property": [
+          {
+            "name": "RATIO_PUBLIC_IPS_PER_SERVER",
+            "value": "3"
+          },
+          {
+            "name": "MAX_SERVER_TO_VIP_CONNECTIONS",
+            "value": "20"
+          }
+        ],
+        "maintenanceStatus": "NORMAL",
+        "type": "1"
+      },
+      "hypervisor": {
+        "diskSpeed": [
+          {
+            "displayName": "Standard",
+            "abbreviation": "STD",
+            "description": "Standard Disk Speed",
+            "id": "STANDARD",
+            "default": true,
+            "available": true,
+            "variableIops": false
+          }
+        ],
+        "cpuSpeed": [
+          {
+            "displayName": "Standard",
+            "description": "Standard CPU Speed",
+            "id": "STANDARD",
+            "default": true,
+            "available": true
+          },
+          {
+            "displayName": "High Performance",
+            "description": "Faster and more consistent than Standard. Suitable for applications that are more CPU intensive.",
+            "id": "HIGHPERFORMANCE",
+            "default": false,
+            "available": true
+          }
+        ],
+        "property": [
+          {
+            "name": "MIN_DISK_COUNT",
+            "value": "0"
+          },
+          {
+            "name": "MAX_DISK_COUNT",
+            "value": "60"
+          },
+          {
+            "name": "MAX_DISK_SIZE_GB",
+            "value": "1000"
+          },
+          {
+            "name": "MIN_DISK_SIZE_GB",
+            "value": "1"
+          },
+          {
+            "name": "MAX_TOTAL_STORAGE_GB",
+            "value": "3000"
+          },
+          {
+            "name": "MAX_TOTAL_IMAGE_STORAGE_GB",
+            "value": "2600"
+          },
+          {
+            "name": "MAX_CPU_COUNT",
+            "value": "8"
+          },
+          {
+            "name": "MIN_MEMORY_GB",
+            "value": "1"
+          },
+          {
+            "name": "MAX_MEMORY_GB",
+            "value": "8"
+          },
+          {
+            "name": "VMWARE_HARDWARE_VERSION",
+            "value": "vmx-11"
+          },
+          {
+            "name": "ANTI_AFFINITY_ENABLED",
+            "value": "true"
+          },
+          {
+            "name": "ADVANCED_VIRTUALIZATION_ENABLED",
+            "value": "false"
+          },
+          {
+            "name": "SECURITY_GROUPS_ENABLED",
+            "value": "false"
+          }
+        ],
+        "maintenanceStatus": "NORMAL",
+        "type": "VMWARE"
+      },
+      "consoleAccess": {
+        "maintenanceStatus": "NORMAL"
+      },
+      "monitoring": {
+        "maintenanceStatus": "NORMAL"
+      },
+      "drs": {
+        "targetDatacenterIds": [
+          "DEV_GEO1_1_CORK"
+        ],
+        "property": [
+          {
+            "name": "MAX_DRS_JOURNAL_SIZE_GB",
+            "value": "1000"
+          }
+        ],
+        "maintenanceStatus": "NORMAL"
+      },
+      "id": "DEV_GEO1_4_WATERFORD",
+      "type": "MCP 1.0"
+    }
+  ],
+  "pageNumber": 1,
+  "pageCount": 4,
+  "totalCount": 4,
+  "pageSize": 250
+}
