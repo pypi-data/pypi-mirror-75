@@ -1,0 +1,6 @@
+include LICENSE README.md
+recursive-include sortabletable/locale *
+recursive-include sortabletable/templates *
+include sortabletable/static/sortabletable/css/main.css
+include sortabletable/static/sortabletable/js/main.js
+recursive-exclude * *.pyc
