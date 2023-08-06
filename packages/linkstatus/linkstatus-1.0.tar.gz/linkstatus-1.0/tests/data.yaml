@@ -1,0 +1,75 @@
+# Mapping of dir and files as per links and status.
+
+# Dirs and files with status
+data:
+  parent:
+  files:
+    text_file:
+      'https://github.com/pythonpune/linkstatus':
+        status: True
+        line: 'L5'
+      'http://www.google.com':
+        status: True
+        line: 'L6'
+      'https://example.com':
+        status: True
+        line: 'L7'
+      'https://github.com/xyz_foo':
+        status: False
+        line: 'L8'
+    markdown_file.md:
+      'https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet#links':
+        status: True
+        line: 'L4'
+      'www.google.com':
+        status: False
+        line: 'L6'
+      'http://www.google.com':
+        status: True
+        line: 'L8'
+      'https://www.google.com':
+        status: True
+        line: 'L10'
+      'https://github.com/pythonpune/linkstatus':
+        status: True
+        line: 'L12'
+      'http://www.example.com':
+        status: True
+        line: 'L24'
+      'https://www.mozilla.org':
+        status: True
+        line: 'L28'
+      'http://slashdot.org':
+        status: True
+        line: 'L30'
+      'http://www.foo.com':
+        status: True
+        line: 'L32'
+      'https://github.com/pythonpune/linkcheck':
+        status: False
+        line: 'L34'
+      'https://github.com//pythonpune/':
+        status: True
+        line: 'L39'
+      'http://localhost:8080':
+        status: False
+        line: 'L41'
+      'https://localhost:8080/foo':
+        status: False
+        line: 'L43'
+recursive:
+  parent: "data"
+  files:
+    recursive_text_file.txt:
+      'https://github.com/pythonpune/linkstatus':
+        status: True
+        line: 'L5'
+      'http://www.google.com':
+        status: True
+        line: 'L6'
+      'https://example.com':
+        status: True
+        line: 'L7'
+      'https://github.com/xyz_foo':
+        status: False
+        line: 'L8'
