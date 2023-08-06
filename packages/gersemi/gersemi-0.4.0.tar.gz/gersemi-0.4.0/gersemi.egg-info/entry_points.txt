@@ -1,0 +1,3 @@
+[console_scripts]
+gersemi = gersemi.__main__:main
+
