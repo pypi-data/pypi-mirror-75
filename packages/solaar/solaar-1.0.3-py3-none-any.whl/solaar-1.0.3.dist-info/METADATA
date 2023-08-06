@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: solaar
+Version: 1.0.3
+Summary: Linux devices manager for the Logitech Unifying Receiver.
+Home-page: http://pwr-solaar.github.io/Solaar/
+Author: Daniel Pavel
+License: GPLv2
+Platform: linux
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: X11 Applications :: GTK
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: DFSG approved
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Requires-Dist: pyudev (>=0.13)
+
+Solaar is a Linux device manager for Logitech's Unifying Receiver peripherals.
+It is able to pair/unpair devices with the receiver, for many devices show
+battery status, and show and modify some of the modifiable features of devices.
+
