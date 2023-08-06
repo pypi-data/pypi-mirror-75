@@ -1,0 +1,16 @@
+MGEmasker-0.1.9.dist-info/METADATA,sha256=ULXti94KsmhRcPbo-9-Qcto3WJIcaScOTg6x2gKzsyc,3811
+MGEmasker-0.1.9.dist-info/RECORD,,
+MGEmasker-0.1.9.dist-info/WHEEL,sha256=NzFAKnL7g-U64xnS1s5e3mJnxKpOTeOtlXdFwS9yNXI,92
+MGEmasker-0.1.9.dist-info/entry_points.txt,sha256=UXSIbUJab5BTYWb6mPoAPvYea8bRw86Vu3BiNcHBjM0,63
+MGEmasker-0.1.9.dist-info/top_level.txt,sha256=4t3VehQGD0CEJCAZsRbVuyOFNa0ErVvgyUvnjMnVbHQ,11
+mge_masker/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mge_masker/mge_masker_functions.py,sha256=Fxi5aMV7BrT8FUBo0PCai6bG6k1GboFJY5cnBGzJvmM,8403
+mge_masker/mge_patterns.txt,sha256=vCphO6SgYJ9fx9LlILhEtgdYcJeXeo_mxFvz6nJ8Xx8,146
+mge_masker/run_mge_masker.py,sha256=QOnE4n2pySzg0ceZDgyXo-MVWWdsN28BDy07nfdqGh4,4057
+mge_masker/tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mge_masker/tests/test_find_mges.py,sha256=XKyDQecBa7j1yC57EsTMJqJBNXqUVrpsZEMydogyh8c,5123
+mge_masker/tests/test_mask_mges.py,sha256=IdGEXop45CJRvo2EI-JhMYlD33YItKhr7-4FF8Q-wLc,2471
+mge_masker/tests/data/test.gbk,sha256=vffRLJqWUPBV43__uEVncpVSmddGTZHCtoAghliKfDQ,3924
+mge_masker/tests/data/test.gff,sha256=Hm_r1DyRM5AadZ4i-YAMvBTQmBsH2JHrrdxFTas88jc,222
+mge_masker/tests/data/test_alignment.fas,sha256=T43IOxvCHkA_qA38VCKNah_efcn5lmn0vQHR_7XgNNE,2039
+mge_masker/tests/data/test_alignment.masked.fas,sha256=yf5HH6uUQNY4libyVm4R-UGyDdQS3QUJ2Xam88hwNfM,2040
