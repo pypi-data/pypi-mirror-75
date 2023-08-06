@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: lykkellemainisrael
+Version: 0.0.1
+Summary: Modules pertaining to lykkellemainisrael
+Home-page: https://dev.azure.com/lykkelle/Lykkelle/_git/Lykkellescripts
+Author: Lykkelle Inc
+Author-email: admin@lykkelle.com
+License: UNKNOWN
+Description: This is package that contains all modules needed to run
+        the israel program i.e. prio 0
+        Contents:
+            1. mainmasterprogeod0 - israel mastering
+            2.  maincalculationprogasia0 - israel calculations
+            3. healthcheckasia0 - exceptions and health checks
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
