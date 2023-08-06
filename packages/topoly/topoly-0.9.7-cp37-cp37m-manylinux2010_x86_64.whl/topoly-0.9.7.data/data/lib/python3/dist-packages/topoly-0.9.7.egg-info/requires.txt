@@ -1,0 +1,5 @@
+matplotlib>=3.0.0
+numpy>=1.15
+argparse>=1.4
+scipy>1.0.0
+biopython>1.60
