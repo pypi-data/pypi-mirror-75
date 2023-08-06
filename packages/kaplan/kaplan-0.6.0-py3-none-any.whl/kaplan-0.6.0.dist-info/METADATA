@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: kaplan
+Version: 0.6.0
+Summary: A computer-assisted translation tool package
+Home-page: https://github.com/kaplanPRO/kaplanpy
+Author: Çağatay Onur Şengör
+Author-email: contact@csengor.com
+License: UNKNOWN
+Project-URL: Kaplan Desktop, https://sourceforge.net/projects/kaplan-desktop
+Project-URL: Kaplan Homepage, https://kaplan.pro
+Keywords: CAT,computer-assisted translation,computer-aided translation,translation,free-to-use
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Description-Content-Type: text/markdown
+Requires-Dist: lxml
+Requires-Dist: regex
+
+# kaplanpy
+
+
