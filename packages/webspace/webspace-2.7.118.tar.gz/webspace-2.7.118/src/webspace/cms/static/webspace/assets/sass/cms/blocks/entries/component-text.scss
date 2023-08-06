@@ -1,0 +1,43 @@
+.component_text {
+  .component-text-container {
+    display: flex;
+    flex-wrap: wrap;
+
+    @include xssm() {
+      .component-container {
+        margin: 20px 0;
+      }
+    }
+
+    @include md() {
+      .component-container {
+        margin: 0 20px;
+      }
+    }
+
+    .component-container, .text-container {
+      flex: 100%;
+
+      @include md() {
+        flex: 1;
+      }
+    }
+
+    @include xssm() {
+      .sizer-container {
+        justify-content: flex-start;
+      }
+    }
+
+    .text-container.reverse {
+      order: -1;
+      text-align: right;
+
+      @include xssm() {
+        .sizer-container {
+          justify-content: flex-end;
+        }
+      }
+    }
+  }
+}
