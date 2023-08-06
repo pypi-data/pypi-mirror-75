@@ -1,0 +1,3 @@
+[console_scripts]
+catastro-to-mongodb = catastro_to_mongodb:cli
+
