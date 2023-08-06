@@ -1,0 +1,14 @@
+networkx
+numpy
+matplotlib
+imageio
+dataclasses
+tqdm
+joblib
+seaborn
+mlflow
+gym
+uvicorn
+aiofiles
+fastapi
+reinforcement-learning-keras==0.5.0
