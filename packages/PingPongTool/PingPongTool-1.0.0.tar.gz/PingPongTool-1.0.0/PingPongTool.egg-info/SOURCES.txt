@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+PingPongTool/PingPongTool.py
+PingPongTool/__init__.py
+PingPongTool.egg-info/PKG-INFO
+PingPongTool.egg-info/SOURCES.txt
+PingPongTool.egg-info/dependency_links.txt
+PingPongTool.egg-info/not-zip-safe
+PingPongTool.egg-info/requires.txt
+PingPongTool.egg-info/top_level.txt
