@@ -1,0 +1,15 @@
+README.md
+setup.py
+rnc/__init__.py
+rnc/corpora.py
+rnc/corpora_logging.py
+rnc/corpora_requests.py
+rnc/examples.py
+rnc.egg-info/PKG-INFO
+rnc.egg-info/SOURCES.txt
+rnc.egg-info/dependency_links.txt
+rnc.egg-info/not-zip-safe
+rnc.egg-info/requires.txt
+rnc.egg-info/top_level.txt
+tests/__init__.py
+tests/main_corpus_tests.py
