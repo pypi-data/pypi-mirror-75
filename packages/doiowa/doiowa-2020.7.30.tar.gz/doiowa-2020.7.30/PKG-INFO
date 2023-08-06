@@ -1,0 +1,13 @@
+Metadata-Version: 1.2
+Name: doiowa
+Version: 2020.7.30
+Summary: A library to manage DOIs at the Iowa State University Library.
+Home-page: https://github.com/isu-meta/doiowa
+Author: Wesley Teal
+Author-email: wteal@iastate.edu
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
