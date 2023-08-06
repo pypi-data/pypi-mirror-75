@@ -1,0 +1,14 @@
+Metadata-Version: 1.2
+Name: flagger
+Version: 3.0.2
+Summary: An open source Python SDK for feature flagging (feature gating, feature toggles)
+Home-page: https://airdeploy.io
+Maintainer: engineering
+Maintainer-email: engineering@airdeploy.io
+License: MIT
+Description: An open source Python SDK for feature flagging (feature gating, feature toggles). 
+        Documentation available at https://docs.airdeploy.io
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python

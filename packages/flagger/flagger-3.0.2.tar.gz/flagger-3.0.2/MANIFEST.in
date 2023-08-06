@@ -1,0 +1,3 @@
+include flagger/*.dll
+include flagger/*.so
+include flagger/*.dylib

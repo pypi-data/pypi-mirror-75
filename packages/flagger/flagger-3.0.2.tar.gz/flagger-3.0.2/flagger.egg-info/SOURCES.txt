@@ -1,0 +1,14 @@
+MANIFEST.in
+setup.py
+flagger/__init__.py
+flagger/flagger-386.dll
+flagger/flagger-amd64.dll
+flagger/flagger.py
+flagger/libflagger-386.so
+flagger/libflagger-amd64.so
+flagger/libflagger.dylib
+flagger/version.py
+flagger.egg-info/PKG-INFO
+flagger.egg-info/SOURCES.txt
+flagger.egg-info/dependency_links.txt
+flagger.egg-info/top_level.txt
