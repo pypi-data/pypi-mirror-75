@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: trafficserver-exporter
+Version: 0.4.0
+Summary: Traffic Server metrics exporter for Prometheus
+Home-page: UNKNOWN
+Author: Greg Dallavalle
+Author-email: UNKNOWN
+License: Apache Software License 2.0
+Keywords: prometheus monitoring trafficserver
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Information Technology
+Classifier: Intended Audience :: System Administrators
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: System :: Networking :: Monitoring
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Dist: prometheus-client (>=0.0.11)
+Requires-Dist: pyyaml (>=3.12)
+Requires-Dist: requests (>=2.0.0)
+
+
+trafficserver_exporter
+----------------------
+
+An Apache Traffic Server metrics exporter for Prometheus.  Uses the
+stats_over_http plugin to translate JSON data into Prometheus format.
+
+
+
