@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+s3_client/__init__.py
+s3_client/s3_client.py
+s3_client.egg-info/PKG-INFO
+s3_client.egg-info/SOURCES.txt
+s3_client.egg-info/dependency_links.txt
+s3_client.egg-info/entry_points.txt
+s3_client.egg-info/requires.txt
+s3_client.egg-info/top_level.txt
