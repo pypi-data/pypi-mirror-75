@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: tensorflow-enterprise-addons
+Version: 0.1.1
+Summary: Client-side library suite of TensorFlow Enterprise on Google CloudPlatform (GCP), which implements specific integration between GCP andTensorFlow APIs.
+Home-page: https://github.com/GoogleCloudPlatform/tensorflow-gcp-tools
+Author: Google LLC
+License: Apache 2.0
+Project-URL: Source, https://github.com/GoogleCloudPlatform/tensorflow-gcp-tools
+Keywords: tensorflow enterprise gcp google cloud addons cloudAI deep learning hyperparameter tuning
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.5, <4
+Requires-Dist: absl-py
+Requires-Dist: cloudpickle
+Requires-Dist: google-api-python-client
+Requires-Dist: google-auth
+Requires-Dist: keras-tuner
+Requires-Dist: tensorflow (<3.0,>=1.15.0)
+Requires-Dist: tensorflow-datasets (<3.1.0)
+Provides-Extra: tests
+Requires-Dist: mock ; extra == 'tests'
+Requires-Dist: numpy ; extra == 'tests'
+
+UNKNOWN
+
+
