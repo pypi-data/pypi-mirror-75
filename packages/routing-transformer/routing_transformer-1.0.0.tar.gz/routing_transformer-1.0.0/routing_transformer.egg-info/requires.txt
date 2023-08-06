@@ -1,0 +1,5 @@
+torch
+local-attention
+product-key-memory
+mixture-of-experts
+axial-positional-embedding>=0.1.0
