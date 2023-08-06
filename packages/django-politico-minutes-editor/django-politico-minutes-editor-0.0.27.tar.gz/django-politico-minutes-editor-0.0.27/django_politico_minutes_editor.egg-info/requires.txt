@@ -1,0 +1,6 @@
+djangorestframework-camel-case
+django-concurrency
+whitenoise
+
+[test]
+pytest

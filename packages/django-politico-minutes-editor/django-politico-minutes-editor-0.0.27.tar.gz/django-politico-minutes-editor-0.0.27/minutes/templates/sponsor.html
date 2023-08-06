@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+<title>POLITICO Minutes | Sponsors</title>
+{% endblock %}
+
+{% block api %}
+  {{ block.super }}
+  <meta name="SPONSOR" content="{{ sponsor }}">
+{% endblock %}
+
+{% block styles %}
+  {{ block.super }}
+
+  <link rel="stylesheet" href="{% static 'minutes/css/main.sponsor.css' %}">
+{% endblock %}
+
+{% block app %}
+<script type="text/javascript" src="{% static 'minutes/js/main.sponsor.js' %}"></script>
+{% endblock %}
