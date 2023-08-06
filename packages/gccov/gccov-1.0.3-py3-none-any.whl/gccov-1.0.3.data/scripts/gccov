@@ -1,0 +1,22 @@
+#!python
+
+__author__ = 'Jie Li'
+__copyright__ = 'Copyright 2019-2020'
+__credits__ = ['Jie Li']
+__email__ = 'mm.jlli6t@gmail.com'
+__status__ = 'Development'
+
+import os
+import sys
+
+import gccov
+
+from gccov.workflow import read_arg
+from gccov.workflow import stream
+
+if __name__ == '__main__':
+	if len(sys.argv) == 1:
+		sys.argv.append('-h')
+		read_arg(sys.argv)
+
+	stream.exe(sys.argv)
