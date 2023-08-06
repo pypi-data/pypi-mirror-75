@@ -1,0 +1,8 @@
+[console_scripts]
+jlpm = jupyterlab.jlpmapp:main
+jupyter-lab = jupyterlab.labapp:main
+jupyter-labextension = jupyterlab.labextensions:main
+
+[pytest11]
+pytest_jupyterlab = jupyterlab.pytest_plugin
+
