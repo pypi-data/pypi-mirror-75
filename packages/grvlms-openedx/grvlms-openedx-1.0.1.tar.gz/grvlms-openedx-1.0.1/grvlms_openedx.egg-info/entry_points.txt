@@ -1,0 +1,3 @@
+[console_scripts]
+grvlms = grvlms.commands.cli:main
+
