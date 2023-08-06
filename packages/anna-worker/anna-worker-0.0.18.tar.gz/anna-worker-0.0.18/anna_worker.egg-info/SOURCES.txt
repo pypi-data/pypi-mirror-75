@@ -1,0 +1,11 @@
+README.md
+setup.py
+anna_worker/__init__.py
+anna_worker/__main__.py
+anna_worker/job.py
+anna_worker/worker.py
+anna_worker.egg-info/PKG-INFO
+anna_worker.egg-info/SOURCES.txt
+anna_worker.egg-info/dependency_links.txt
+anna_worker.egg-info/requires.txt
+anna_worker.egg-info/top_level.txt
