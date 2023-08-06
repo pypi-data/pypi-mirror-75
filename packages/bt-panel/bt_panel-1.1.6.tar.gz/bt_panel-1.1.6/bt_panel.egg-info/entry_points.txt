@@ -1,0 +1,3 @@
+[console_scripts]
+bt_panel = bt_panel.__init__:main
+

@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: bt_panel
+Version: 1.1.6
+Summary: this project is btpanel
+Home-page: https://github.com/zhaoheng12/bt_panel/
+Author: zhaohengping
+Author-email: 18438697706@163.com
+Maintainer: zhoukunpeng
+Maintainer-email: 18749679769@163.com
+License: GPL-2.0
+Description: # bt_panel
+        # 自动修改 7.4.2 版本的 panelPlugin.py  config.py
+        # 禁止跟新新的版本
+        # 运行命令  bt_panel
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License (GPL)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=2.6, <=3.9
+Description-Content-Type: text/markdown
