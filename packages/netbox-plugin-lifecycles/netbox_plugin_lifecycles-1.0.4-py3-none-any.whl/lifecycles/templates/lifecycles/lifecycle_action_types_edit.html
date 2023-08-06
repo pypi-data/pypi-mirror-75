@@ -1,0 +1,12 @@
+{% extends 'utilities/obj_edit.html' %}
+{% load form_helpers %}
+
+{% block form %}
+<div class="panel panel-default">
+ <div class="panel-heading"><strong>Action type</strong></div>
+ <div class="panel-body">
+  {% render_field form.name %}
+ </div>
+</div>
+
+{% endblock %}
