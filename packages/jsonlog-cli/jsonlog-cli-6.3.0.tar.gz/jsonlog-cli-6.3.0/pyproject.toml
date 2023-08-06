@@ -1,0 +1,30 @@
+[build-system]
+requires = ["poetry"]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "jsonlog-cli"
+version = "6.3.0"
+authors = ["Sam Clements <sam@borntyping.co.uk>"]
+description = "Convert structured JSON logs to human-readable output"
+homepage = "https://github.com/borntyping/jsonlog/tree/master/jsonlog-cli"
+repository = "https://github.com/borntyping/jsonlog"
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+click = "*"
+jsonlog = "*"
+pydantic = "^1.5.1,<1.6.0"
+python = "^3.6"
+typing-extensions = "*; python_version<3.8"
+xdg = "*"
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+flake8 = "*"
+mypy = "*"
+pytest = "*"
+
+[tool.poetry.scripts]
+jsonlog = 'jsonlog_cli.cli:main'
