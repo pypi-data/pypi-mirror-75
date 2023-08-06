@@ -1,0 +1,32 @@
+{% load django_ledger %}
+
+<div class="table-container">
+    <table class="table is-fullwidth">
+        <thead>
+        <tr>
+            <th>Status</th>
+            <th>Description</th>
+            <th>Ledger</th>
+            <th>Created</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+
+        {% for job in import_jobs %}
+            <tr>
+                <td>{{ job.status }}</td>
+                <td>{{ job.description }}</td>
+                <td>{{ job.ledger }}</td>
+                <td>{{ job.created }}</td>
+                <td>
+                    <a class="button is-small is-info is-outlined"
+                       href="{% url 'django_ledger:data-import-job-txs' entity_slug=view.kwargs.entity_slug job_pk=job.uuid %}">Txs</a>
+                </td>
+            </tr>
+        {% endfor %}
+
+        </tbody>
+    </table>
+
+</div>
