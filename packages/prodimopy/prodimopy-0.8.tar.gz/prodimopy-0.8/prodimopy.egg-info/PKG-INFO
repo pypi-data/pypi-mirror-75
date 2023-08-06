@@ -1,0 +1,24 @@
+Metadata-Version: 1.1
+Name: prodimopy
+Version: 0.8
+Summary: Python tools for ProDiMo.
+Home-page: https://bitbucket.org/cheesyog/prodimopy
+Author: Christian Rab
+Author-email: rab@astro.rug.nl
+License: MIT License
+Description: prodimopy
+        =========
+        
+        Python package for plotting and analyzing ProDiMo_ (PROtoplanetary DIsk MOdel) results.
+        See the project homepage_ for more details.
+        
+        
+        .. _ProDiMo: https://www.astro.rug.nl/~prodimo/
+        .. _homepage: https://bitbucket.org/cheesyog/prodimopy
+Keywords: astronomy astrophysics star-formation protoplanetary-disks
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
