@@ -1,0 +1,18 @@
+Metadata-Version: 1.2
+Name: pyunitgen
+Version: 0.0.1a2
+Summary: A python unittest generator for all your python files.
+Home-page: https://github.com/eirtscience/pyunitgen
+Author: Fangnikoue Evarist
+Author-email: malevae@gmail.com
+License: UNKNOWN
+Description: 
+        # `Pyunitgen`
+        
+        Creating a software application or program is an easy task, howerver a great functional software application is a task that require you to master different level of the SDLC, this, my friend is the haderst task for you as a software developer. One of the area that most software developer lake expertize is the ability to write a `unittest`. A unit testing is another application within your application, is like a `RY(Repeat Yourself)` principale. But we do that often when it comes to unittesting our code. `unittest` is the driver of any software application, failed to do that, make your software look like a water basket with unseen hole, when looking into the basket, there is no way you can tell whether the basket has a hole or not, but when trying pouring water into it, you will know that the basket is not in the great shape, so it is your software application. Believe it or not , most of us do a `unittest`, either manually or using a python `unittest tools`, but the question we will ask is , which one is efficient and can proove to other team member, that your code works well.
+        Some developers want to write the unittest code, but they lake time due to the deadline. Others use manually testing, which in one hand a lot of time consumming, again Others prefer use of `TDD` approach which is double the time of the application delivery. With all that different approaches, do you think that the user cares ?, at the end of the day the `unittest` is made for developers to developers and no one has time to read all your `unittest` codes. So if no one has time to read all your `unittest` codes, can developers fake `unittest`?, yes they can. To make your life easier and solve all above problems, I came up with `pyunitgen`, the first python automatic `unittest` generator that allow you to focus on your actual features. With `pyunitgen`, you are forcing the developer to describe/comment his code and `pyunitgen` will take care of the `unittest`.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
