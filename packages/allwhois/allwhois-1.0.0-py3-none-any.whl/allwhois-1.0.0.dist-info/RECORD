@@ -1,0 +1,17 @@
+allwhois/__init__.py,sha256=QSIYDxoGJRKbYoCWJ_R4OeyaBdh_ngPndPBLUV2uJvA,113
+allwhois/_filecache.py,sha256=BhLWPYM6jfLbZof3gHSDiY1PAA_Rp799RW8EJcUd71g,4504
+allwhois/normalise.py,sha256=fwLX7hpNjU56fZuLf7ad8f4M807kHU0gTnd4DDd6pp8,24769
+allwhois/parser.py,sha256=fd5HPe7yMNKIsjPJxAyzA7PBwP1UFCLuRAolL-JCIpc,11587
+allwhois/query.py,sha256=bAXz2O-TerSOkRy6FoqyowtIz-FqYS7wCs68kRKrGsg,4948
+allwhois/version.py,sha256=x5hm3VFsdsTmdL8nrSJCxUDSQl1tZqAhfp8K96f3z1E,51
+tests/__init__.py,sha256=ZwqMG3aeDuPzwgF946HHrHRHnXmwbU4Lpl7ccOX-0m8,168
+tests/allwhois_tests/__init__.py,sha256=auUZJgpS4WgONF565R5mMtkFrudkcXb8CvYmg2EzRKE,219
+tests/allwhois_tests/results.py,sha256=_8txo5A8LHUQpdfpQtLBgkoZ9zAS6L9z1SRCWRvWf0A,20216
+tests/allwhois_tests/test_dates.py,sha256=XHMlmiZOqwRc83TdhLagzGdv2lm5yU_lx-Ah0O-0bUU,453
+tests/allwhois_tests/test_domain_lookups.py,sha256=CEtoVAZUWERgN3P6hoUkxe7GSUQ6JDq5z0g08mv-AkI,1544
+tests/allwhois_tests/test_unicode_domains.py,sha256=PmdKQfp6vPkFnoE--6bWifKHdd1bY3IhZEVhRmO1UZg,349
+allwhois-1.0.0.dist-info/LICENSE,sha256=_cq_renYrC4JKuk7PKBGOp2tji5J51TCSP0NU6QTDDg,1062
+allwhois-1.0.0.dist-info/METADATA,sha256=dEGjsmHTmTEojG83UkySOGuMK9IuBVC8TqPj7fUtnCA,2552
+allwhois-1.0.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+allwhois-1.0.0.dist-info/top_level.txt,sha256=qH34KFELcJZh5mRi2kOTnHp-CRYUFh654X1BfaoniDU,15
+allwhois-1.0.0.dist-info/RECORD,,
