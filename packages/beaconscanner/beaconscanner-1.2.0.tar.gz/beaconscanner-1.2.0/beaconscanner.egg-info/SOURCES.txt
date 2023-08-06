@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+beaconscanner/__init__.py
+beaconscanner/const.py
+beaconscanner/device_filters.py
+beaconscanner/nrf.py
+beaconscanner/scanner.py
+beaconscanner/utils.py
+beaconscanner.egg-info/PKG-INFO
+beaconscanner.egg-info/SOURCES.txt
+beaconscanner.egg-info/dependency_links.txt
+beaconscanner.egg-info/requires.txt
+beaconscanner.egg-info/top_level.txt
