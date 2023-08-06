@@ -1,0 +1,3 @@
+[console_scripts]
+fbarber=fastx_barber.scripts.barber:main
+
