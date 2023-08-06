@@ -1,0 +1,9 @@
+urllib3>=1.9
+
+[sqlalchemy]
+geojson>=2.5.0
+sqlalchemy<1.4,>=1.0
+
+[test]
+zc.customdoctests>=1.0.1
+zope.testing
