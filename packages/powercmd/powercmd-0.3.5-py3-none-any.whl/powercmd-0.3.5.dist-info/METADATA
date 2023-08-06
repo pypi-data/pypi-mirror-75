@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: powercmd
+Version: 0.3.5
+Summary: A generic framework to build typesafe line-oriented command interpreters
+Home-page: http://github.com/dextero/powercmd
+Author: Marcin Radomski
+Author-email: marcin@mradomski.pl
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: prompt-toolkit (>=2.0)
+
+# powercmd
+
+An extension of the standard cmd module
+(https://docs.python.org/3.5/library/cmd.html) that uses type annotations
+to ensure type-safety of defined commands.
+
+Requires Python 3.5+.
+
+## Features
+
+* automatic conversion of user input into types specified in annotations
+* intelligent (and customizable!) argument tab-completion
+* prefix, snake-case-prefix and fuzzy command matching
+
+
