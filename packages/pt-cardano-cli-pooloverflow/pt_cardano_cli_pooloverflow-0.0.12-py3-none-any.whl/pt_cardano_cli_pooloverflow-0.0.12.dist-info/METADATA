@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: pt-cardano-cli-pooloverflow
+Version: 0.0.12
+Summary: A simple auto-complete prompt for cardano-cli
+Home-page: https://github.com/pooloverflow/pt-cardano-cli
+Author: pooloverflow
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: prompt-toolkit (>=3.0.5)
+
+# ptcardanocli
+A simple auto-complete prompt for cardano-cli
+
+![feature gif](https://github.com/pooloverflow/pt-cardano-cli/raw/master/file/feature.gif)
+
+## Install
+
+```
+pip install pt-cardano-cli-pooloverflow
+```
+
+After Installation, ptccli will be added to PATH.
+
+## Usage
+
+Required an environment variable for then path of cardano-cli.
+
+```
+CARDANO_CLI_PATH="cardano-cli" ptccli
+CARDANO_CLI_PATH="podman run -it --rm pooloverflow/cardano-image:v1.18.0 cardano-cli" ptccli
+```
+
+## Docker
+
+```
+podman run -it --rm -e CARDANO_CLI_PATH="<cardano_cli_path>" -v /path/to/ccli:/path/to/ccli pooloverflow/pt-cardano-cli:v0.0.11 
+```
+
+
