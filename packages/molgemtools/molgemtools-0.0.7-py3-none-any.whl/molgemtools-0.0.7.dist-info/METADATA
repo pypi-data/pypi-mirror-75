@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: molgemtools
+Version: 0.0.7
+Summary: Tools for working with molecular geometry data.
+Home-page: https://gitlab.com/d_attila/molgemtools.git
+Author: Attila Dékány
+Author-email: dekanyattilaadam@gmail.com
+License: MIT
+Project-URL: Documentation, https://d_attila.gitlab.io/molgemtools/
+Project-URL: Source Code, https://gitlab.com/d_attila/molgemtools.git
+Keywords: computational chemistry,molecular geometry,molecular shape matching,Z-matrix,Cartesian coordinates
+Platform: any
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Requires-Dist: numpy
+
+It provides:
+
+    - Opening molecular `.xyz` files.
+    - Helps generating nicely formatted Molpro or Gaussian input files
+      for quantum chemical calculations.
+    - Conversion between Cartesian and internal coordinate
+      representations.
+    - Molecular shape matching based on the Kabsch-Umeyama algorithm.
+    - Calculating atomic distances, bond angles and dihedral angles.
+    - Calculating the principal moments of inertia.
+    - Generating permuted geometries.
+    - Calculating the Euler angles from 3-dimensional rotation
+      matrices.
+    - Calculating the molecular adjacency list based on atomic
+      distances.
+    - Some chemical graph-theoretical tools derived from the adjacency
+      list.
+
+Limitations:
+
+    - Only supporting dummy atoms for converting internal coordinate
+      representations (Z-matrices) to Cartesian.
+    - A Cartesian representation can be converted to Z-matrix if all
+      atoms (with the exception of the first) are connected to at
+      least one atom with an index lower than its own.
+
