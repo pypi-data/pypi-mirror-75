@@ -1,0 +1,187 @@
+{
+  "hideOriginalBody": true,
+  "type": "AdaptiveCard",
+  "padding": "none",
+  "body": [
+    {
+      "type": "ColumnSet",
+      "padding": {
+        "top": "default",
+        "left": "default",
+        "bottom": "none",
+        "right": "default"
+      },
+      "columns": [
+        {
+          "type": "Column",
+          "verticalContentAlignment": "Center",
+          "items": [
+            {
+              "type": "TextBlock",
+              "verticalContentAlignment": "Center",
+              "horizontalAlignment": "Center",
+              "size": "Large",
+              "text": "Site Check Scanner",
+              "isSubtle": true
+            }
+          ],
+          "width": "stretch"
+        },
+        {
+          "type": "Column",
+          "verticalContentAlignment": "Center",
+          "items": [
+            {
+              "verticalContentAlignment": "Center",
+              "type": "Image",
+              "url": "https://www.geo-instruments.com/wp-content/uploads/geo-logo-238x55.jpg",
+              "width": "80px",
+              "altText": "Geo Logo"
+            }
+          ],
+          "width": "auto"
+        }
+      ]
+    },
+    {
+      "separator": true,
+      "spacing": "medium",
+      "type": "Container",
+      "padding": {
+        "top": "none",
+        "left": "default",
+        "bottom": "none",
+        "right": "default"
+      },
+      "items": [
+        {
+          "type": "TextBlock",
+          "size": "Medium",
+          "weight": "Bolder",
+          "text": "upsondrivevms"
+        },
+        {
+          "type": "TextBlock",
+          "text": "Below are the sensors that need to be looked into.",
+          "wrap": true
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "spacing": "small",
+      "padding": {
+        "top": "none",
+        "left": "default",
+        "bottom": "none",
+        "right": "default"
+      },
+      "items": [
+        {
+          "spacing": "small",
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "No Issues"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "Up-to-date",
+                  "color": "good"
+                }
+              ]
+            },
+            {
+              "type": "Column",
+              "width": "stretch",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "text": "2020-07-14 18:08:26"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "spacing": "small",
+      "type": "Container",
+      "style": "emphasis",
+      "padding": {
+        "top": "small",
+        "left": "default",
+        "bottom": "small",
+        "right": "default"
+      },
+      "items": [
+        {
+          "type": "ColumnSet",
+          "columns": [
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "weight": "Bolder",
+                  "text": "upsondrivevms"
+                }
+              ],
+              "width": "stretch"
+            },
+            {
+              "type": "Column",
+              "width": "stretch"
+            },
+            {
+              "type": "Column",
+              "items": [
+                {
+                  "type": "TextBlock",
+                  "weight": "Bolder",
+                  "text": ""
+                }
+              ],
+              "width": "stretch"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "padding": {
+        "top": "none",
+        "left": "default",
+        "bottom": "default",
+        "right": "default"
+      },
+      "items": [
+        {
+          "type": "TextBlock",
+          "weight": "Bolder",
+          "text": "Project Website"
+        }
+      ],
+      "selectAction": {
+        "type": "Action.OpenUrl",
+        "title": "View Monday",
+        "url": "https://upsondrivevms.geo-instruments.com/index.php"
+      }
+    }
+  ],
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0"
+}
