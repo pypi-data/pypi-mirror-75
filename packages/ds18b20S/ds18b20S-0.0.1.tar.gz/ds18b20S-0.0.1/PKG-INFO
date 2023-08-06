@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: ds18b20S
+Version: 0.0.1
+Summary: A small package for ds18b20S temperature sensor
+Home-page: https://github.com/sahakyansahak/ds18b20S
+Author: Sahak
+Author-email: sahak.sahakyan2017@gmail.com
+License: UNKNOWN
+Description: ds18b20S
+        DS18B20 Temperature sensor library
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
