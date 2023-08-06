@@ -1,0 +1,27 @@
+---
+site_name: "WEBSITE name"
+site_description: "This website is awesome."
+site_copyright: "CC BY-NC-ND 4.0"
+site_author: "Nameless Author"
+site_author_email: "author@email.com"
+
+canonical_uri: "http://your-site-uri/"
+#base_uri: "blog/"
+
+feed_format: "atom"
+comments: "no"
+
+site_language: "en"
+encoding: "utf-8"
+locale: "en_US.UTF-8"
+
+max_entries: 8
+default_category: "Miscellaneous"
+
+datefmt_home: "%F"
+datefmt_entry: "%c"
+datefmt_list: "%b %_d, %Y"
+
+extra_dirs: ['media']
+...
+

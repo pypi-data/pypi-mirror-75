@@ -1,0 +1,91 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: 1\n"
+"POT-Creation-Date: 2012-09-27 18:33+0200\n"
+"PO-Revision-Date: 2020-03-17 12:02+0200\n"
+"Last-Translator: J. A. Corbal <jacorbal@gmail.com>\n"
+"Language-Team: Español\n"
+"Language: es_CL\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: initnew/templates/base.html.j2:58 templates/entries.html.j2:2
+msgid "Blog"
+msgstr "Blog"
+
+#: initnew/templates/base.html.j2:60 templates/archive.html.j2:2 templates/archive.html.j2:3 templates/archive.html.j2:9
+msgid "Archive"
+msgstr "Archivo"
+
+#: initnew/templates/base.html.j2:64 templates/tagcloud.html.j2:2 templates/tagcloud.html.j2:3 templates/tagcloud.html.j2:9 templates/tag.html.j2:6
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: templates/tag.html.j2:7 templates/tag.html.j2:14
+msgid "Entries tagged"
+msgstr "Entradas etiquetadas"
+
+#: initnew/templates/base.html.j2:49 templates/catcloud.html.j2:2 templates/catcloud.html.j2:3 templates/catcloud.html.j2:9 templates/cat.html.j2:6
+msgid "Categories"
+msgstr "Categorías"
+
+#: templates/cat.html.j2:7 templates/cat.html.j2:14
+msgid "Entries categorized"
+msgstr "Entradas categorizadas en"
+
+# Take in consideration the surrounding spaces
+#: templates/entry.html.j2:43 templates/entry.html.j2:44
+msgid " and "
+msgstr " y "
+
+#: templates/archive.html.j2:26 templates/entry.html.j2:22 templates/tag.html.j2:25 templates/cat.html.j2:24
+msgid "published on"
+msgstr "publicado el"
+
+#:  templates/entry.html.j2:15
+msgid "published for first time on"
+msgstr "publicado por primera vez el"
+
+#:  templates/entry.html.j2:18
+msgid "updated on"
+msgstr "revisado el"
+
+#: templates/entry.html.j2:41
+msgid "This entry is tagged"
+msgstr "Esta entrada está etiquetada como"
+
+#: templates/entry.html.j2:41
+msgid "This entry is not tagged"
+msgstr "Esta entrada no está etiquetada"
+
+#: templates/entry.html.js:48
+msgid "and categorized"
+msgstr "y categorizada en"
+
+#: initnew/templates/base.html.j2:66
+msgid "Projects"
+msgstr "Proyectos"
+
+#: initnew/templates/base.html.j2:71
+msgid "Feed"
+msgstr "Fuente"
+#msgstr "Redifusión"
+
+#: initnew/templates/base.html.j2:90
+msgid "Content licensed under"
+msgstr "Contenido bajo licencia"
+
+#: initnew/templates/base.html.j2:35
+msgid "Recent posts"
+msgstr "Entradas recientes"
+
+#: templates/entries.html.j2:26 templates/entries.html.j2:30 templates/entries.html.j2:31 templates/entries.html.j2:35 templates/entries.html.j2:36
+msgid "Previous"
+msgstr "Anterior"
+
+#: templates/entries.html.j2:45 templates/entries.html.j2:46 templates/entries.html.j2:48
+msgid "Next"
+msgstr "Siguiente"
+

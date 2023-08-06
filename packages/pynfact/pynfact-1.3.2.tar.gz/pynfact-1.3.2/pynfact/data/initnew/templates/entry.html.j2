@@ -1,0 +1,65 @@
+{% extends "base.html.j2" %}
+{% block metadescription %} ({{ entry.raw_title }}){% endblock %}
+{% block title %}{{ entry.raw_title }}{% endblock %}
+
+{% block body %}
+
+<article class="entry"
+         itemscope
+         itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="author" content="{{ entry.author }}">
+    <header>
+        <h1 class="title" itemprop="headline">
+            {{- entry.title -}}
+            {%- if entry.private %} <span class="private">[PRIV]</span>{%- endif -%}
+        </h1>
+        {% if entry.mdate %}
+        <p class="date">
+            {% trans %}published for first time on{% endtrans %}
+            <time datetime="{{ entry.odate_html }}"
+                  itemprop="datePublished">{{ entry.odate }}</time>
+            <br>
+            {% trans %}updated on{% endtrans %}
+            <time datetime="{{ entry.mdate_html }}"
+                  itemprop="dateModified">{{ entry.mdate }}</time>
+        {% else %}
+        <p class="date">
+            {% trans %}published on{% endtrans %}
+            <time datetime="{{ entry.odate_html }}"
+                  itemprop="datePublished">{{ entry.odate }}</time>
+        {% endif %}
+    </header>
+
+    <section class="entry hyphenate prettify" role="main">
+        {{ entry.content }}
+    </section>
+
+    <footer>
+        {%- if entry.tag_list != [''] %}
+        <p class="tags"
+           itemprop="keywords">
+           {% if not entry.tag_list %}
+            {% trans %}This entry is not tagged{% endtrans %};<br>
+           {% else %}
+            {% trans %}This entry is tagged{% endtrans %}
+            {% for tag in entry.tag_list|sort(case_sensitive=true) %}
+                {%- if not loop.first and not loop.last %}, {% endif -%}
+                {%- if loop.last and not loop.first %}{% trans %} and {% endtrans %}{% endif -%}
+                <a rel="tag" href="{{ base_uri }}tags/{{ slugify(tag) }}"
+                   title="{{ tag }}">{{ tag }}</a>
+            {%- endfor %};<br>
+           {% endif %}
+            {%- trans %}and categorized{% endtrans %}
+            <a href="{{ entry.category_uri }}" title="{{ entry.category }}">{{ entry.category }}</a>.
+        {%- endif %}
+    </footer>
+</article>
+
+{% if entry.site_comments and entry.comments and not entry.private %}
+<section id="comments">
+    <!-- Your comments script here -->
+</section>
+{% endif %}
+
+{% endblock %}
+

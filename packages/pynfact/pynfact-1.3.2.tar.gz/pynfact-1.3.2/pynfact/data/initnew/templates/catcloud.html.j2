@@ -1,0 +1,26 @@
+{% extends "base.html.j2" %}
+{% block metadescription %} ({% trans %}Categories{% endtrans %}){% endblock %}
+{% block title %}{% trans %}Categories{% endtrans %}{% endblock %}
+
+{% block body %}
+
+<article class="page">
+    <header>
+        <h1>{% trans %}Categories{% endtrans %}</h1>
+    </header>
+
+    <section class="page hyphenate prettify">
+        {%- if categories %}
+        <ul class="tagcloud">
+            {%- for catinfo in categories %}{%- for category in catinfo | dictsort %}
+            <li><a href="{{ base_uri}}categories/{{ slugify(category[0]) }}"
+                   title="{{ category[0] }}"><span style="font-size: {{ category[1] }}%;">{{ category[0] }}</span></a>
+            {%- endfor %}{%- endfor %}
+        </ul>
+        {%- endif %}
+    </section>
+
+</article>
+
+{% endblock %}
+

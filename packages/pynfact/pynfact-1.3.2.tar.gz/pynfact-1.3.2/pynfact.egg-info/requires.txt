@@ -1,0 +1,8 @@
+docutils>=0.15
+feedgen>=0.9.0
+jinja2>=2.7
+markdown>=3.0.0
+pygments>=2.0.2
+python-dateutil>=2.0
+pyyaml>=5.1
+unidecode>=0.4.9

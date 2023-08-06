@@ -1,0 +1,44 @@
+{% extends "base.html.j2" %}
+{% block metadescription %} ({% trans %}Categories{% endtrans %}){% endblock %}
+{% block title %}{% trans %}Categories{% endtrans %}{% endblock %}
+
+{% block body %}
+
+<article class="page">
+    <header>
+        <h1>{% trans %}Categories{% endtrans %}</h1>
+    </header>
+
+    <section class="page hyphenate prettify">
+        {%- if categories %}
+        <ul>
+            {%- for category in categories | dictsort %}
+            <li>{{ category[0] }}
+
+                <ul>
+                    {%- for entry in category[1] %}
+                        <li><a href="{{ base_uri }}{{ entry.uri }}"
+                               title="{{ entry.title | striptags}}">{{ entry.title }}</a>,
+                            <!-- {% trans %}published on{% endtrans %} -->
+                            {{ entry.odate }}
+                    {%- endfor %}
+                </ul>
+            {%- endfor %}
+        </ul>
+        {%- else %}
+        <!-- No entries -->
+        <h2>nichts, nada, niente, nothing, nix, rien, nihil, niks,
+            asgjë, ništa, nic, nič, nimic, noget, niets, nenio, miski,
+            wala, mikään ei, res, semmi, ekkert, nekas, niekas,
+            ingenting, không, 何も, 무, 無, ничего, ништо, ништа,
+            нічога, нічого, ոչինչ, нищо, τίποτα,
+            <span class="rtl">שום דבר</span>,
+            <span class="rtl">لا شيء</span>,
+            Ø, {},...</h2>
+        {%- endif %}
+    </section>
+
+</article>
+
+{% endblock %}
+

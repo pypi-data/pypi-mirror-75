@@ -1,0 +1,945 @@
+/* vim:ft=css:fenc=utf-8:fdm=marker:
+ *
+ * Default light style for PynFact static web generator
+ *
+ * Keywords: simple, minimalistic, light, one column, white, sans-serif
+ *
+ * Author: J. A. Corbal, <http://jacorbal.es> (blog)
+ *
+ * 2012-2020
+ */
+
+/* @import("reset.css"); */
+
+
+/* General style {{{ */
+body {
+    background-color: #fff;
+    color: #000;
+    font: 1em/1.6em 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    margin: 0 auto;
+    padding: 0;
+}
+
+body, input, select, textarea {
+    hyphens: auto;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+
+ /* font-variant-numeric: stacked-fractions !important; */
+ /* font-variant-alternates: historical-forms !important; */
+    font-variant-ligatures: contextual !important;
+ /* font-variant-ligatures: historical-ligatures !important; */
+    font-variant-ligatures: common-ligatures !important;
+ /* text-rendering: optimizeLegibility !important; */
+
+    font-kerning: normal;
+
+    /* format: feature-tag=[0,1] with 0 to disable, 1 to enable */
+    font-feature-settings:         "kern", "vkrn", "init", "medi", "liga";
+    -ms-font-feature-settings:     "kern", "vkrn", "init", "medi", "liga";
+    -moz-font-feature-settings:    "kern", "vkrn", "init", "medi", "liga";
+ /* -webkit-font-feature-settings: "kern", "vkrn", "init", "medi", "liga"; */
+}
+
+.center {
+    margin: auto;
+    text-align: center;
+}
+
+.rtl { direction: rtl !important; }
+.ltr { direction: ltr !important; }
+.left { float: left !important; }
+.right { float: right !important; }
+
+.block { display: block; }
+
+.hidden { display: none !important; }
+
+
+/* Highlight references */
+:target, table:target td {
+    background-color: #ffc;
+}
+
+/* Small caps. */
+.sc  { font-variant: small-caps; }
+.lsc, .century, .chapter, .property, .acronym {
+    font-variant: small-caps;
+    text-transform: lowercase;
+}
+
+.lsc {
+    font-size: 1.125em;
+}
+
+.century, .chapter, .property {
+    font-size: 1.125em;
+}
+
+.acronym {
+    font-size: 1.125em;
+}
+
+/* Private notice */
+.private {
+    color: #39c;
+    font-variant: small-caps;
+    text-transform: lowercase;
+}
+
+span.highlight {
+    color: #39c;
+}
+
+/* Strong font */
+strong { font-weight: 400; }
+
+/* Italic within italic is normal style */
+cite > cite,
+cite > em,
+em > cite,
+em > em {
+    font-style: normal;
+}
+
+cite, em,
+cite > em > em,
+em > em > cite,
+em > em > em {
+    font-style: italic;
+}
+
+.unem {
+    font-style: normal !important;
+}
+
+.em {
+    font-style: italic !important;
+}
+
+/* Units *never* in italics even when inside an italicized block.
+ * Always, **always**, **ALWAYS** in normal font (RAE has spoken!) */
+.unit { font-style: normal !important; }
+
+blockquote {
+    text-align: justify;
+    font-size: 0.85em;
+    margin: 1.5em 2.25em;
+ /* font-size: 0.85em; */
+}
+
+.nowrap {
+    white-space:nowrap;
+}
+
+li { display: list-item; }
+ul li { list-style: disc; }
+ol, ul,  dl { margin: 1.12em 0; }
+ol, ul, dd  { margin-left: 2.5em; }
+ol { list-style-type: decimal; }
+
+ins { text-decoration: underline; }
+del { text-decoration: line-through; }
+
+big { font-size: 1.17em; }
+small { font-size: 0.83em; }
+small.medium { font-size: 0.915em; }
+
+.subscript, .superscript,
+sub, sup {
+    font-size: 0.83em;
+    position: relative;
+    vertical-align: baseline;
+}
+
+sup { top: -0.4em; }
+sub { top: 0.4em; }
+
+.subscript { vertical-align: sub; }
+.superscript { vertical-align: super; }
+
+.footnote-reference, a.footnote-reference {
+    font-size: 0.83em;
+    vertical-align: super;
+    text-decoration: none;
+}
+
+/* Subscripts and superscripts for the same variable */
+/* First the superscript, then the subscript */
+sub.supsub {
+    position: relative;
+    left: -0.95em;
+    bottom: -2px;
+}
+
+sup.supsub {
+    position: relative;
+    left: 0.1em;
+    top: -2px;
+}
+
+/* First the subscript, then the superscript */
+sub.subsup {
+    position: relative;
+    left: 0;
+    bottom: -2px;
+}
+
+sub.subsup + sup.subsup {
+    position: relative;
+    left: -0.4em;
+    top: -8px;
+}
+
+/*}}}*/
+
+
+/* Equations {{{*/
+span.center {
+    display: block;
+    text-align: center;
+}
+
+.equation, .math, .definition {
+    font-size: 0.938em;
+}
+
+em.equation,
+span.equation {
+    display: block;
+    font-family: 'Merriweather', 'Gilda Display', 'Rosarivo', serif;
+    font-style: italic;
+    margin: 0.5em auto;
+    text-align: center;
+    text-indent: 0;
+}
+
+.equation-number {
+    text-align: right;
+}
+
+em.math, span.math,
+em.var, span.var,
+em.variable, span.variable {
+    font-family: 'Merriweather', 'Gilda Display', 'Rosarivo', serif;
+    font-style: italic;
+    padding-right: -0.5ex;
+    white-space:nowrap;
+}
+
+div.definition {
+    background-color: #f3f3f3;
+    border: 1px dotted #ccc;
+    display: block;
+    font-family: 'Merriweather', 'Gilda Display', 'Rosarivo', serif;
+    padding: 1em;
+    margin: 1em auto;
+    text-align: justify;
+}
+
+div.definition span.term {
+    font-style: italic;
+    font-weight: 300;
+}
+
+div.definition strong {
+    font-weight: 400;
+}
+
+div.definition ul li {
+    list-style-type: square;
+}
+
+h2 > div.definition,
+h3 > div.definition,
+h4 > div.definition {
+    margin-top: 0;
+}
+
+/*}}}*/
+
+
+/* Greek text {{{*/
+*[lang|="el"] {
+    font-family: 'Alegreya Sans', 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 1.16em;
+}
+
+/*}}}*/
+
+
+/* Links {{{*/
+a {
+    color: #000;
+    font-weight: 400;
+    text-decoration: underline;
+}
+
+a.invisible {
+    color: inherit;
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #39c;
+}
+
+/*a.external:after,*/
+a[href^="mailto"]:after {
+    content: '\2709'; /* Envelope (✉) */
+ /* font-size: 75%; */
+    font-size: 95%;
+}
+
+a[href^="http"] img:after,
+a[href^="ftp"] img:after {
+    content: '';
+}
+
+a[href^="http"]:after,
+a[href^="ftp"]:after {
+    content: '\2197'; /* NE arrow (↗) */
+ /* content: '\1f517';*/ /* Link symbol (🔗) */
+    font-size: 75%;
+}
+
+a.invisible:after {
+    content: '';
+}
+
+/* Do not break article links */
+section.entry a {
+    white-space: nowrap;
+}
+
+/* }}} */
+
+
+/* Entries overview {{{*/
+div.entry-overview {
+    margin: 1.5em 8em 1.5em 6.25em;
+}
+
+div.entry-overview strong,
+div.entry-overview div.summary,
+div.entry-overview div.summary p {
+    display: inline;
+    line-height: 1.5em;
+}
+
+div.entry-overview div.detail strong {
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
+    font-size: 1.25em;
+}
+div.entry-overview div.detail a {
+    font-weight: inherit;
+    text-decoration: none;
+}
+
+div.entry-overview div.summary,
+div.entry-overview div.info,
+div.entry-overview div.summary p {
+    margin: 0;
+    padding: 0;
+}
+
+div.entry-overview div.detail {
+    margin-left: 8em;
+}
+
+div.entry-overview div.no-summary {
+    padding-bottom: 2em;
+}
+
+div.entry-overview div.info span.date {
+    color: #39c;
+}
+
+div.entry-overview div.info span.category {
+    color: #888;
+    font-size: 0.875em;
+}
+
+div.entry-overview div.info span.category > a {
+    text-decoration: none;
+    font-weight: normal;
+    color: #888;
+}
+
+div.entry-overview div.info span.category > a:hover {
+    text-decoration: underline;
+}
+
+div.entry-overview div.info {
+    float: left;
+    font-size: 0.875em;
+    padding-top: 0.2em;
+    text-align: right;
+    width: 7.5em;
+}
+
+div.paginator {
+    margin: 2.25em 0 0 0;
+    text-align: center;
+}
+
+div.paginator strong {
+    font-style: italic;
+    font-weight: normal;
+}
+
+div.paginator .separator {
+    margin: 0 0.5em;
+}
+
+div.paginator .disabled {
+}
+
+/*}}}*/
+
+
+/* Headlines {{{*/
+h1, h2, h3, h4, h5, h6 {
+    color: #333;
+    font-family: 'Lato', 'Open Sans', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    hyphens: none !important;
+}
+
+h4 { font-weight: 400; }
+
+h1 a, h2 a, h3 a, h4 a,h5 a, h6 a {
+    text-decoration: none;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
+    text-decoration: underline;
+}
+
+h1.title {
+    margin-bottom: 0;
+    width: 75%;
+}
+
+h1, h2 {
+    margin: 1em 0 0.625em 0;
+}
+
+h1 {
+    font-size: 2.625em;
+    line-height: 1.25em;
+}
+
+h2 {
+    font-size: 2em;
+    line-height: 1.25em;
+}
+
+h3 {
+    font-size: 1.25em;
+    font-weight: 400;
+}
+
+/*}}}*/
+
+
+/* Layout elements {{{*/
+div#container {
+    width: 46.5em;
+    margin: 3em auto;
+    padding: 0;
+}
+
+div#container > header {
+    height: 1.5em;
+    margin-bottom: 2.625em;
+}
+
+div#container > header > div.main_title {
+    float: left;
+}
+
+div#container > header > nav.navigator a {
+    text-transform: lowercase;
+}
+
+div#container > header > nav {
+    float: right;
+}
+
+div#container > header > nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+div#container > header > nav ul li {
+    display: inline;
+    margin: 0 0.125em;
+    padding: 0;
+}
+
+div#container > section.body  {
+    clear: both;
+    margin-bottom: 1em; /* 16px = 1em */
+}
+
+div#container > footer {
+    color: #666;
+    font-size: 1em;
+    text-align: center;
+}
+
+div#container > footer p {
+    margin: 0;
+    text-align: center;
+    text-indent: 0;
+}
+
+section.entry h2,
+section.entry h3,
+section.entry h4,
+section.entry h5,
+section.entry h6 {
+    margin-top: 1em; /* 16px = 1em */
+    margin-bottom: 0.35em; /* 5px = ~1ex*/
+}
+
+/*}}}*/
+
+
+/* Blockquotes, lists and other Margins and stuff {{{*/
+div.vseparator {
+    margin: 1.5em 0;
+}
+
+/* Two break lines is an context change, i.e. 'asterism' */
+section.entry div.line-block:before {
+    color: #333;
+    content: '\2042'; /* asterism (⁂) */
+    /* content: '* * *' */
+    display: block;
+    margin-top: 0.5em;
+    text-align: center;
+}
+section.entry div.line-block:after {
+}
+
+section.entry div.line-block  {
+    border: 0;
+    height: auto;
+    margin: 0 0 0.5em 0; /* <-- correction so this will be *centered* */
+    text-align: center;
+    width: auto;
+}
+
+article + section#comments:before {
+    border-top: 1px dotted #ccc;
+    content: "\2029"; /* Paragraph separator */
+    display: block;
+    text-align: center;
+}
+article + section#comments {
+    margin-top: 2.25em;
+}
+
+dt {
+ /* margin: 25px 0 16px 0; */
+    margin: 1.5em 0 0 0;
+    padding: 0;
+}
+
+dd {
+ /* margin: 16px 0 25px 40px; */
+    margin: 0 0 1.5em 2.5em;
+    padding: 0;
+}
+
+ol {
+    list-style-type: decimal;
+}
+
+ul ol, ol ul, ul ul, ol ol {
+    margin: 0.625em 0;
+    padding: 0 0 0 2.5em;
+}
+
+li {
+    padding: 0;
+}
+
+li p {
+    margin: 0;
+    text-indent: 0 !important;
+}
+
+header + section > ol:first-child,
+header + section > ul:first-child,
+header + section > p:first-child {
+    margin-top: 1em;
+}
+
+h1 + p.date {
+    text-indent: 0;
+}
+h1 + p.date time.timeago:before { content: ', ' }
+h1 + p.date time.timeago:after { content: '' }
+
+/*}}}*/
+
+
+/* Code formatting {{{*/
+span.color-box, span.username,
+pre, code, tt {
+    font-family: 'Anonymous Pro', 'Ubuntu Mono', 'Consolas',
+                 'Deja Vu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco',
+                 'Courier New', monospace;
+ /* font-size: 15px; */ /* ~0.9em / ~11pt */
+    font-size: 1.05em;
+}
+
+.underline { border-bottom: 1px solid #666; }
+.overline {  border-top:    1px solid #666; }
+
+
+span.color-box {
+    border: 1px solid #333;
+    padding: 0 1px;
+}
+
+pre {
+    background: none;
+    line-height: 1.3;
+    padding: 0;
+}
+
+code, tt {
+    background-color: #fbfcfd;
+    border-radius: 5px;
+}
+
+div.flairs {
+    /* margin: 1em auto; */
+    text-align: center;
+}
+
+div.flairs a:after {
+    content: '';
+}
+
+/*}}}*/
+
+
+/* Tables {{{*/
+table {
+    background-color: #fafafa;
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    caption-side: bottom;
+    font-size: 0.85em;
+    margin: 0.5em auto;
+}
+td, th {
+    border: 1px solid #ccc;
+    padding: 0.125em 0.750em;
+}
+
+td {
+    vertical-align: middle;
+}
+
+div.definition table.empty,
+table.empty,
+table.undecorated {
+    background-color: transparent;
+    font-size: 1em;
+    border: none;
+}
+table.empty td,
+table.undecorated td {
+    border: none;
+}
+
+/*}}}*/
+
+
+/* Images & figures (alignment things) {{{*/
+figure {
+    margin: 1em 0 !important;
+}
+
+/*caption,*/figcaption {
+    font-size: 0.85em;
+}
+
+figure > img {
+    margin: 0;
+}
+
+figure.align-center > img,
+figure > img.align-center {
+    width: 100%;
+}
+figure.center > figcaption,
+figure.align-center > figcaption,
+figure > img.align-center + figcaption {
+    text-align: center;
+}
+
+figure.align-right > img,
+figure > img.align-right {
+    float: right;
+    margin-left: 0.85em;
+}
+figure.align-right > figcaption,
+figure.align-right > img + figcaption,
+figure > img.align-right + figcaption {
+    text-align: right;
+}
+
+figure.align-left > img,
+figure > img.align-left {
+    float: left;
+    margin-right: 0.85em;
+}
+figure.align-left > figcaption,
+figure.align-left > img + figcaption,
+figure > img.align-left + figcaption {
+    text-align: left;
+}
+
+figcaption .math {
+    white-space: normal;
+}
+
+/*}}}*/
+
+
+/* Social {{{*/
+article.entry div.social {
+    float: left;
+}
+
+/*}}}*
+
+
+/* Tags {{{*/
+article.entry p.tags {
+    margin-top: 2.25em;
+    text-align: right !important;
+    text-indent: 0;
+}
+
+ul.tagcloud {
+    font-size: 1em;
+    list-style: none;
+    margin: 2.25em 0;
+    padding: 0;
+    text-align: center;
+}
+
+ul.tagcloud li {
+    display: inline;
+    margin: 0;
+    padding: 0 0.625em;
+}
+
+ul.tagcloud a {
+    white-space: nowrap;
+}
+
+/*}}}*/
+
+
+/* Footnotes {{{*/
+table.footnote td.label {
+    vertical-align: top;
+}
+
+dl.footnote {
+    font-size: 0.9em;
+    text-align: justify;
+}
+
+table.footnote {
+    background: inherit;
+    border: none;
+    font-size: 0.9em;
+    text-align: justify;
+    width: 100%;
+}
+
+table.footnote th,
+table.footnote tr,
+table.footnote td {
+    border: none;
+}
+
+table.footnote th {
+    font-weight: 300;
+    text-align: right;
+}
+
+div.footnote,
+div.sfootnote {
+    font-size: 0.9em;
+    text-align: justify;
+}
+
+div.sfootnote {
+    padding-left: 2.25em;
+    text-indent: -1em;
+}
+div.sfootnote div {
+    margin-bottom: 0.35em;
+}
+
+sup a {
+    text-decoration: none;
+}
+
+table.footnote a[href^="#fnref"],
+table.footnote a.footnote-reference[href^="#id"],
+div.footnote a[href^="#fnref"],
+div.sfootnote a[href^="#sfnref"] {
+    font-weight: 400;
+    text-decoration: none;
+}
+
+/* FIXME/NOTE
+ * Fixes the bug of the double reference in the Python Markdown plugin,
+ * although it can make some backreferences invisible when not desired,
+ * in very few cases. */
+/*
+div.footnote a[href^="#fnref:"]{
+   display: none; 
+}
+*/
+
+dl.footnote dd a:after,
+table.footnote a:after,
+div.footnote a:after,
+div.sfootnote a:after {
+    content: '';
+}
+
+dl.footnote dt a.supescript {
+    vertical-align: middle;
+}
+
+dl.footnote dt.label span.superscript a {
+    text-decoration: none;
+}
+
+dl.footnote dd a,
+table.footnote a,
+div.footnote a {
+    font-weight: inherit;
+    text-decoration: underline;
+}
+
+div.footnote hr {
+    display: none;
+}
+
+p + table.footnote {
+    margin-top: 2em;
+}
+
+/* div.sfootnote:before, */
+div.footnote:before {
+    content: '\2029' /* paragraph separator */
+}
+
+div.sfootnote p,
+div.footnote p {
+    text-indent: 0;
+}
+
+dl.footnote dt.label {
+    float: left;
+    font-size: 1.2em;
+    text-align: right;
+    margin: 0;
+}
+
+dl.footnote dd {
+    margin: 1em;
+    padding: 0em;
+}
+
+dl.footnote dd p {
+    text-indent: 0;
+}
+
+/*}}}*/
+
+
+/* Separators {{{*/
+section.entry hr {
+    border: 0;
+    height: auto;
+    text-align: center;
+    width: auto;
+}
+
+/*
+section.entry hr:after {
+    content: '\2042';
+}
+*/
+
+hr {
+    border-color: #333;
+    border-width: 1px 0 0 0;
+}
+
+body > div#container > hr {
+    margin-top: 2.8em;
+    margin-bottom: 0.35em;
+}
+
+/*}}}*/
+
+
+/* LaTeX & BIBTeX {{{*/
+span.bibtex, span.latex, span.tex {
+    font-family: 'CMU Serif', cmr10, LMRoman10-Regular,
+                 'Times New Roman',
+                 'Nimbus Roman No9 L', Times, serif;
+    letter-spacing: -0.05ex;
+}
+
+span.bibtex {
+    font-variant: small-caps;
+}
+
+span.bibtex sub, span.tex sub, span.latex sub, span.latex sup {
+    text-transform: uppercase;
+}
+
+span.bibtex sub, span.tex sub, span.latex sub {
+    margin-left: -0.1667em;
+    margin-right: -0.125em;
+    vertical-align: -0.5ex;
+}
+
+span.bibtex, span.bibtex sub, span.tex,
+span.latex, span.tex sub, span.latex sub {
+    font-size: 1em;
+}
+
+span.latex sup {
+    font-size: 0.7em;
+    margin-left: -0.44em;
+    margin-right: -0.15em;
+    vertical-align: 0.28em;
+}
+
+/*}}}*/
+

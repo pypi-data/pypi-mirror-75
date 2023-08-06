@@ -1,0 +1,3 @@
+[console_scripts]
+pynfact = pynfact.__main__:main
+
