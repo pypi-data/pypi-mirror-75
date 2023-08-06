@@ -1,0 +1,15 @@
+qr_payment_slip/__init__.py,sha256=HpfGnCyLrlb3UlDQ7fVHZRhropRp1kGYpZHueMLM_hs,99
+qr_payment_slip/address.py,sha256=PrzA9OGqOQ7EBv1j3YO8CqYmELmCmM5CJLHNm_gidUA,5253
+qr_payment_slip/bill.py,sha256=ORdejfLznMi5kRnUhkLcdVqehXUfmL6PGU-hj2hrv9E,11895
+qr_payment_slip/errors.py,sha256=lhjl-TI6Sfiz9UkRpfdUzV8N5_C5vaSZfn1XGGz9jUA,200
+qr_payment_slip/printer.py,sha256=0v132bGIGlDZfItVDVRwaoQlmOjHpSpTXU9hnXKxffU,19209
+tests/__init__.py,sha256=HHjHAUsckO4-Hs6oEhXuTTFRt7r7v3qSFi7X41BegkY,251
+tests/test_address.py,sha256=kj3PjIPsex_B4z-sUBm-siVN_PFkH8fU73_ucArfIp8,4268
+tests/test_integration.py,sha256=1dkJH41dEbsGtlVu3idA13fyb5By93wsB5jMwWMWCsU,1242
+tests/test_printer.py,sha256=JPQd0GZafyJALFydQ1p-caVH4tYwV7-oTDowT2gjKzA,1739
+tests/test_qrbill.py,sha256=NkIWXcM_WWBC2ncSHkGVXHT2siHFqpzH7raalqFuw_Q,3058
+QR_payment_slip-0.1.0.dist-info/LICENSE.TXT,sha256=-DHn7tV3SBaHqbwLSAJOXkC29lX83gc-3pZLUL5dVdk,7815
+QR_payment_slip-0.1.0.dist-info/METADATA,sha256=fYHkmEgfc3oBoLqFBGfboJWPhI1LB65IhHGCu95DIRY,2294
+QR_payment_slip-0.1.0.dist-info/WHEEL,sha256=YUYzQ6UQdoqxXjimOitTqynltBCkwY6qlTfTh2IzqQU,97
+QR_payment_slip-0.1.0.dist-info/top_level.txt,sha256=dzf3bs18qG3LFLEUgBrNCZQirg1cJGW9qxu_LbGfOyE,22
+QR_payment_slip-0.1.0.dist-info/RECORD,,
