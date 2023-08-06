@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+sirex/__init__.py
+sirex/file.py
+sirex/future_release.py
+sirex/numeric.py
+sirex/string.py
+sirex/utils.py
+sirex.egg-info/PKG-INFO
+sirex.egg-info/SOURCES.txt
+sirex.egg-info/dependency_links.txt
+sirex.egg-info/top_level.txt
