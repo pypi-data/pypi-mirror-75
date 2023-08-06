@@ -1,0 +1,51 @@
+Metadata-Version: 2.1
+Name: discord-ext-flags
+Version: 0.0.1a0
+Summary: Flag parsing command argument support for discord.py.
+Home-page: https://github.com/Ext-Creators/discord-ext-flags
+Author: Ext-Creators
+License: Apache Software License
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=3.5.3
+Description-Content-Type: text/x-rst
+
+discord-ext-flags
+=================
+
+This is a placeholder readme
+
+
+Installation
+------------
+
+Note whether extension is on PyPI here.
+
+.. code-block:: sh
+
+    python -m pip install discord-ext-flags
+
+
+Usage
+-----
+
+.. code-block:: py
+
+    # Usage examples will go here
+
+
