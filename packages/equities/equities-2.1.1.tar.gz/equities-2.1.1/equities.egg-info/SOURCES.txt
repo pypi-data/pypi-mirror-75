@@ -1,0 +1,12 @@
+LICENSE
+README.md
+requirements.txt
+setup.py
+equities/__init__.py
+equities.egg-info/PKG-INFO
+equities.egg-info/SOURCES.txt
+equities.egg-info/dependency_links.txt
+equities.egg-info/requires.txt
+equities.egg-info/top_level.txt
+equities/config/essential.yaml
+equities/data/__init__.py
