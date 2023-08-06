@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+google/__init__.py
+google/cloud/__init__.py
+google/cloud/audit/__init__.py
+google/cloud/audit/audit_log_pb2.py
+google_cloud_audit_log.egg-info/PKG-INFO
+google_cloud_audit_log.egg-info/SOURCES.txt
+google_cloud_audit_log.egg-info/dependency_links.txt
+google_cloud_audit_log.egg-info/namespace_packages.txt
+google_cloud_audit_log.egg-info/requires.txt
+google_cloud_audit_log.egg-info/top_level.txt
