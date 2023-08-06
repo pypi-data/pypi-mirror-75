@@ -1,0 +1,21 @@
+
+"""
+.. module:: map
+.. synopsis: module for a map object
+"""
+from duel.map import Map
+
+class DesolateDesertMap(Map):
+    """Class representing a Specific Map
+        """
+    def __init__(self):
+        assets_dict = {
+            "Tile": "Resources/Images/DesolateDesertTile.png",
+            "Background": "Resources/Images/DesolateDesertBG.png",
+            "Spike": "Resources/Images/DesolateDesertSpike.png",
+            "MontoyaFlag": "Resources/Images/MontoyaFlag.png",
+            "ZorroFlag": "Resources/Images/ZorroFlag.png",
+            "KingFlag":"Resources/Images/KingArthurFlag.png"
+        }
+        Map.__init__(self, 1000, 600, -130, 140, 675, 140, assets_dict, "Resources/desolateDesertMap.txt")
+        self.songName = "Desolate Desert"
