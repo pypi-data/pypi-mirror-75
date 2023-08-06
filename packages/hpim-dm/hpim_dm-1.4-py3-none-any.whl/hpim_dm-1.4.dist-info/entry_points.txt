@@ -1,0 +1,3 @@
+[console_scripts]
+hpim-dm = hpimdm.Run:main
+
