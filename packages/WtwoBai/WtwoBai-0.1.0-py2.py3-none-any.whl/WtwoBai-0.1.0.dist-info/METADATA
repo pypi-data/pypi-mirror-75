@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: WtwoBai
+Version: 0.1.0
+Summary: A python library for love.
+Home-page: https://github.com/WangRongsheng/WtwoBai
+Author: Wang2Bai1314
+Author-email: fujingshusheng@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+
+
+# WtwoBai
+
+## Usage
+
+A python library for love.
+
+## Installation
+
+You can install, upgrade, uninstall count-line with these commands(without $):
+
+```html
+$ pip install WtwoBai
+$ pip install --upgrade WtwoBai
+$ pip unstall WtwoBai
+```
+
+
