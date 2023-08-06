@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: selenium_enhancer
+Version: 0.1.8
+Summary: A package to enhance your Selenium WebDriver experience
+Home-page: https://github.com/dannybrown37/SeleniumEnhancer
+Author: Danny Brown
+Author-email: dannybrown37@gmail.com
+License: UNKNOWN
+Description: # Installation
+        
+        ```
+        pip install selenium-enhancer
+        ```
+        
+        # Setting Up a Driver
+        
+        [ChromeDriver](https://chromedriver.chromium.org/) is recommended as it has more options, but Firefox and IE drivers are compatible as well. Set the path to your chosen driver as a system environment variable named CHROME_DRIVER FIREFOX_DRIVER, or IE_DRIVER.
+        
+        # Examples
+        
+        See/run `examples.py` for usage examples.
+        
+        # Miscellaneous
+        
+        [PyPi](https://pypi.org/project/selenium-enhancer/)
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
