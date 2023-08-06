@@ -1,0 +1,17 @@
+README.txt
+setup.py
+NMRPyStar.egg-info/PKG-INFO
+NMRPyStar.egg-info/SOURCES.txt
+NMRPyStar.egg-info/dependency_links.txt
+NMRPyStar.egg-info/top_level.txt
+nmrpystar/__init__.py
+nmrpystar/cleantokens.py
+nmrpystar/hierarchical.py
+nmrpystar/nmrstarast.py
+nmrpystar/parser.py
+nmrpystar/scanner.py
+nmrpystar/starast.py
+nmrpystar/unparse/__init__.py
+nmrpystar/unparse/combinators.py
+nmrpystar/unparse/cst.py
+nmrpystar/unparse/maybeerror.py
