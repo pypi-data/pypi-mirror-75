@@ -1,0 +1,95 @@
+Metadata-Version: 2.1
+Name: nasim
+Version: 0.6.0
+Summary: A simple and fast simulator for remote network pen-testing
+Home-page: https://networkattacksimulator.readthedocs.io
+Author: Jonathon Schwartz
+Author-email: Jonathon.Schwartz@anu.edu.au
+License: MIT
+Project-URL: Documentation, https://networkattacksimulator.readthedocs.io
+Project-URL: Source, https://github.com/Jjschwartz/NetworkAttackSimulator/
+Description: **Status**: Still under development, interface is stable but expect some more features and bug fixes
+        
+        Network Attack Simulator
+        ========================
+        
+        |docs|
+        
+        Network Attack Simulator (NASim) is a simulated computer network complete with vulnerabilities, scans and exploits designed to be used as a testing environment for AI agents and planning techniques applied to network penetration testing.
+        
+        
+        Installation
+        ------------
+        
+        The easiest way to install the latest version of NASim hosted on PyPi is via pip::
+        
+          $ pip install nasim
+        
+        
+        To get the latest bleeding edge version and install in development mode see the `Install docs <https://networkattacksimulator.readthedocs.io/en/latest/tutorials/installation.html>`_
+        
+        
+        Using with OpenAI gym
+        ---------------------
+        
+        NASim implements the `Open AI Gym <https://github.com/openai/gym>`_ environment interface and so can be used with any algorithm that is developed for that interface.
+        
+        See `Starting NASim using OpenAI gym <file:///home/jonathon/Documents/rl_pentesting/NetworkAttackSimulator/docs/build/html/tutorials/gym_load.html#gym-load-tute>`_.
+        
+        
+        Documentation
+        -------------
+        
+        The documentation is available at: https://networkattacksimulator.readthedocs.io/
+        
+        Authors
+        -------
+        
+        **Jonathon Schwartz** - Jonathon.schwartz@anu.edu.au
+        
+        License
+        -------
+        
+        `MIT`_ © 2020, Jonathon Schwartz
+        
+        .. _MIT: LICENSE
+        
+        
+        Future Features
+        ---------------
+        
+        - Priviledge Escalation
+        - Host based firewalls
+        
+        
+        What's new
+        ----------
+        
+        - 2020-08-02 (v 0.6.0) (MINOR release)
+          + Implemented compatibility with gym.make()
+          + Updated docs for loading and interactive with NASimEnv
+          + Added extra functions to nasim.scenarios to make it easier to load scenarios seperately to a NASimEnv
+          + Fixed bug to do with class attributes and creating different scenarios in same python session
+          + Fixed up bruteforce agent and tests
+        - 2020-07-31 (v 0.5.0) (MINOR release)
+          + First official release on PyPi
+          + Cleaned up dependencies, setup.py, etc and some small fixes
+        
+        
+        .. |docs| image:: https://readthedocs.org/projects/networkattacksimulator/badge/?version=latest
+            :target: https://networkattacksimulator.readthedocs.io/en/latest/?badge=latest
+            :alt: Documentation Status
+            :scale: 100%
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+Provides-Extra: dqn
+Provides-Extra: docs
+Provides-Extra: test
+Provides-Extra: all
