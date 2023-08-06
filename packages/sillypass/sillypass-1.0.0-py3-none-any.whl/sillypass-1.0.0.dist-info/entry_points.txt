@@ -1,0 +1,3 @@
+[console_scripts]
+sillypass = sillypass.__main__:main
+
