@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+hfhd/__init__.py
+hfhd/hd.py
+hfhd/hf.py
+hfhd/loss.py
+hfhd/sim.py
+hfhd.egg-info/PKG-INFO
+hfhd.egg-info/SOURCES.txt
+hfhd.egg-info/dependency_links.txt
+hfhd.egg-info/requires.txt
+hfhd.egg-info/top_level.txt
