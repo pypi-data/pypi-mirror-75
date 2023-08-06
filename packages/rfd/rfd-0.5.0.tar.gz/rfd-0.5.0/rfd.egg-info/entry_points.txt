@@ -1,0 +1,3 @@
+[console_scripts]
+rfd = rfd.__main__:cli
+
