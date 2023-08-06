@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: singa-auto
+Version: 0.3.2
+Summary: The SINGA-Auto
+Home-page: https://github.com/nusdbsystem/singa-auto.git
+Author: Naili
+Author-email: xingnaili14@gmail.com
+License: Apache
+Platform: UNKNOWN
+Requires-Dist: docker
+Requires-Dist: requests
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: temp
+Requires-Dist: Pillow
+Requires-Dist: requests-toolbelt
+
+UNKNOWN
+
+
