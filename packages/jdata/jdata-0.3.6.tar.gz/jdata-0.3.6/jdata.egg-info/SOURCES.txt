@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+jdata/__init__.py
+jdata/cmd.py
+jdata/jdata.py
+jdata/jfile.py
+jdata.egg-info/PKG-INFO
+jdata.egg-info/SOURCES.txt
+jdata.egg-info/dependency_links.txt
+jdata.egg-info/top_level.txt
+test/testjd.py
