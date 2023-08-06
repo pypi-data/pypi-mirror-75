@@ -1,0 +1,37 @@
+[package]
+name = "taxonomy"
+version = "0.6.0"
+authors = ["Roderick Bovee & One Codex <vincent@onecodex.com>"]
+description = "Routines for loading, saving, and manipulating taxonomic trees"
+keywords = ["taxonomy", "bioinformatics"]
+categories = ["command-line-utilities", "science"]
+repository = "https://github.com/onecodex/taxonomy"
+license = "MIT"
+readme = "./README.md"
+edition = "2018"
+
+[dependencies]
+memchr = "2.2.1"
+pyo3 = { version = "0.11", optional = true }
+quick-xml = "0.18"
+serde = { version = "1.0.104", features = ["derive"] }
+serde_json = "1.0.44"
+
+[features]
+python = ["pyo3/extension-module"]
+python_test = ["pyo3"]
+
+[lib]
+crate-type=["cdylib", "rlib"]
+bench = false
+
+[dev-dependencies]
+criterion = "^0.3"
+rand = "^0.7"
+
+[[bench]]
+name = "taxonomy"
+harness = false
+
+[package.metadata.maturin]
+classifier = ["Intended Audience :: Science/Research", "Programming Language :: Python :: 3", "License :: OSI Approved :: MIT License", "Topic :: Scientific/Engineering :: Bio-Informatics"]
