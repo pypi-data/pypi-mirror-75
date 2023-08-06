@@ -1,0 +1,11 @@
+README.md
+setup.py
+yourbase/__init__.py
+yourbase/pytest.py
+yourbase/sitecustomize.py
+yourbase.egg-info/PKG-INFO
+yourbase.egg-info/SOURCES.txt
+yourbase.egg-info/dependency_links.txt
+yourbase.egg-info/entry_points.txt
+yourbase.egg-info/requires.txt
+yourbase.egg-info/top_level.txt
