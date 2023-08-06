@@ -1,0 +1,3 @@
+[console_scripts]
+iotexetl = iotexetl.cli:cli
+
