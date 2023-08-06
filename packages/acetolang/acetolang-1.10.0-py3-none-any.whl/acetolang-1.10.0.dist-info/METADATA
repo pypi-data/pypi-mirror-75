@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: acetolang
+Version: 1.10.0
+Summary: A programming language on a Hilbert curve
+Author: L3viathan
+Author-email: git@l3vi.de
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: hilbertcurve (>=1.0.3,<2.0.0)
