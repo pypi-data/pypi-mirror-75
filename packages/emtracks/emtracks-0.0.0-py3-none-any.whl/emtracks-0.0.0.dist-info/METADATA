@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: emtracks
+Version: 0.0.0
+Summary: Particle in EM fields track calculator
+Home-page: https://github.com/FMS-Mu2e/particle_EM_tracks
+Author: Cole Kampa
+Author-email: ckampa13@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: matplotlib
+Requires-Dist: pypdt
+Requires-Dist: dill
+
+# emtracks
+A Python interface for calculating the trajectory of charged particles in an EM field.
+
+
