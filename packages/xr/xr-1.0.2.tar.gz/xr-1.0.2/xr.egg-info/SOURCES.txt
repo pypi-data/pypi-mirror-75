@@ -1,0 +1,15 @@
+README.md
+setup.py
+test/test_escaping.py
+test/test_leaf_nodes.py
+test/test_operations.py
+test/test_rfc5322.py
+test/test_splitting.py
+xr/__init__.py
+xr.egg-info/PKG-INFO
+xr.egg-info/SOURCES.txt
+xr.egg-info/dependency_links.txt
+xr.egg-info/requires.txt
+xr.egg-info/top_level.txt
+xr/regex/__init__.py
+xr/regex/rfc5322.py
