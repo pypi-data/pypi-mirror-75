@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: drivebuild-client
+Version: 0.41
+Summary: A client for accessing a DriveBuild MainApp.
+Home-page: UNKNOWN
+Author: Stefan Huber
+Author-email: huberst@fim.uni-passau.de
+License: MIT
+Project-URL: Source, https://github.com/TrackerSB/DriveBuild
+Platform: UNKNOWN
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: dill
+Requires-Dist: flask
+Requires-Dist: protobuf
+
+# DriveBuild client
+## Install
+The client is available as Python package at [https://pypi.org/project/drivebuild-client/](https://pypi.org/project/drivebuild-client/) and there is no need to install any part of the client.
+
+
