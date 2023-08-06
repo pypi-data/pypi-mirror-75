@@ -1,0 +1,349 @@
+Metadata-Version: 2.1
+Name: janggu
+Version: 0.9.9
+Summary: Utilities and datasets for deep learning in genomics
+Home-page: https://github.com/BIMSBbioinfo/janggu
+Author: Wolfgang Kopp
+Author-email: wolfgang.kopp@mdc-berlin.de
+License: GPL-3.0
+Keywords: genomics,epigenomics,bioinformatics,deep learning,machine learning
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Utilities
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: Biopython
+Requires-Dist: h5py
+Requires-Dist: pybedtools
+Requires-Dist: pydot
+Requires-Dist: pysam (<=0.15.3)
+Requires-Dist: pyBigWig
+Requires-Dist: progress
+Requires-Dist: matplotlib
+Requires-Dist: seaborn
+Requires-Dist: scikit-learn
+Requires-Dist: scipy
+Provides-Extra: tf
+Requires-Dist: tensorflow (==1.14) ; extra == 'tf'
+Requires-Dist: keras (<2.3) ; extra == 'tf'
+Provides-Extra: tf2
+Requires-Dist: tensorflow (==2.2) ; extra == 'tf2'
+Requires-Dist: keras (==2.4) ; extra == 'tf2'
+Provides-Extra: tf2_gpu
+Requires-Dist: tensorflow-gpu (==2.2) ; extra == 'tf2_gpu'
+Requires-Dist: keras (==2.4) ; extra == 'tf2_gpu'
+Provides-Extra: tf_gpu
+Requires-Dist: tensorflow-gpu (==1.14) ; extra == 'tf_gpu'
+Requires-Dist: keras (<2.3) ; extra == 'tf_gpu'
+
+=====================================
+Janggu - Deep learning for Genomics
+=====================================
+
+
+
+.. image:: jangguhex.png
+   :width: 40%
+   :alt: Janggu logo
+   :align: center
+
+Janggu is a python package that facilitates deep learning in the context of
+genomics. The package is freely available under a GPL-3.0 license.
+
+.. image:: Janggu-visAbstract.png
+   :width: 50%
+   :alt: Janggu visual abstract
+   :align: center
+
+
+In particular, the package allows for easy access to
+typical **Genomics data formats**
+and **out-of-the-box evaluation** (for keras models specifically) so that you can concentrate
+on designing the neural network architecture for the purpose
+of quickly testing biological hypothesis.
+A comprehensive documentation is available `here <https://janggu.readthedocs.io/en/latest>`_.
+
+Hallmarks of Janggu:
+---------------------
+
+1. Janggu provides special **Genomics datasets** that allow you to access raw data in FASTA, BAM, BIGWIG, BED and GFF file format.
+2. Various **normalization** procedures are supported for dealing with of the genomics dataset, including 'TPM', 'zscore' or custom normalizers.
+3. Biological features can be represented in terms of higher-order sequence features, e.g. di-nucleotide based features.
+4. The dataset objects are directly consumable with neural networks for example implemented using `keras <https://keras.io>`_ or using `scikit-learn <https://scikit-learn.org/stable/index.html>`_ (see src/examples in this repository).
+5. Numpy format output of a keras model can be converted to represent genomic coverage tracks, which allows exporting the predictions as BIGWIG files and visualization of genome browser-like plots.
+6. Genomic datasets can be stored in various ways, including as numpy array, sparse dataset or in hdf5 format.
+7. Caching of Genomic datasets avoids time consuming preprocessing steps and facilitates fast reloading.
+8. Janggu provides a wrapper for `keras <https://keras.io>`_ models with built-in logging functionality and automatized result evaluation.
+9. Janggu supports input feature importance attribution using the integrated gradients method and variant effect prediction assessment.
+10. Janggu provides a utilities such as keras layer for scanning both DNA strands for motif occurrences.
+
+Getting started
+----------------
+
+Janggu makes it easy to access data from genomic file formats and utilize it for
+machine learning purposes.
+
+.. code-block:: python
+
+  dna = Bioseq.create_from_genome('dna', refgenome=<refgenome.fa>, roi=<roi.bed>)
+  labels = Cover.create_from_bed('labels', bedfiles=<labels.bed>, roi=<roi.bed>)
+
+  kerasmodel.fit(dna, labels)
+
+A range of examples can be found in './src/examples' of this repository,
+which includes jupyter notebooks that illustrate Janggu's functionality
+and how it can be used with popular deep learning frameworks, including
+keras, sklearn or pytorch.
+
+Why the name Janggu?
+---------------------
+
+`Janggu <https://en.wikipedia.org/wiki/Janggu>`_ is a Korean percussion
+instrument that looks like an hourglass.
+
+Like the two ends of the instrument, the philosophy of the
+Janggu package is to help with the two ends of a
+deep learning application in genomics,
+namely data acquisition and evaluation.
+
+
+
+Installation
+============
+
+A list of python dependencies is defined in `setup.py`.
+Additionally, `bedtools <https://bedtools.readthedocs.io/>`_ is required for `pybedtools` which `janggu` depends on.
+
+Janggu depends on tensorflow and keras.
+To install janggu with tensorflow version 1 and 2 use
+
+::
+
+   # to install with tensorflow==1.14 and keras==2.2
+   pip install janggu[tf] # or janggu[tf_gpu] 
+
+   # to install with tensorflow==2.2 and keras==2.4
+   pip install janggu[tf2] # or janggu[tf2_gpu] 
+
+
+Alternatively, you can install tensorflow and keras via
+the conda environment using
+
+::
+
+   # tensorflow v1
+   conda install tensorflow==1.14 keras==2.2  # or tensorflow-gpu
+
+   # tensorflow v2
+   conda install tensorflow==2.2 keras==2.4  # or tensorflow-gpu
+
+Further information regarding the installation of tensorflow can be found on
+the official `tensorflow webpage <https://www.tensorflow.org>`_
+
+To verify that the installation works try to run the example contained in the
+janggu package as follows
+
+::
+
+   git clone https://github.com/BIMSBbioinfo/janggu
+   cd janggu
+   python ./src/examples/classify_fasta.py single
+
+A model is then trained to predict the class labels of two sets of toy sequencesby scanning the forward strand for sequence patterns and using an ordinary mono-nucleotide one-hot sequence encoding.
+The entire training process takes a few minutes on CPU backend.
+Eventually, some example prediction scores are shown for Oct4 and Mafk sequences. The accuracy should be around 85% and individual example prediction scores should tend to be higher for Oct4 than for Mafk.
+
+You may also try to rerun the training by evaluating sequences features on both
+strands and using higher-order sequence encoding using i.e. the command-line arguments: `dnaconv -order 2`.
+Accuracies and prediction scores for the individual example sequences should improve compared to the previous example.
+
+Citation
+========
+
+| Kopp, W., Monti, R., Tamburrini, A., Ohler, U., Akalin, A. Deep learning for genomics using Janggu. Nat Commun 11, 3488 (2020). https://doi.org/10.1038/s41467-020-17155-y
+
+
+Changelog
+=========
+0.9.9 (2020-08-04)
+-------------------
+
+- Added compatibility and tests for tensorflow 2.2.
+- Adapted setup.py to enable the use with tensorflow 1.14 and tensorflow 2.2 and compatible keras versions, respectively.
+- Expanded mode option for Cover.create_from_bed. New options: 'bedgraph', 'score_category' (synonym for 'categorical'), 'name_category'
+- Fixed mode='categorical'/'score_category' behaviour for Cover.create_from_bed
+- Mode 'bedgraph' enables compatibility with bedgraph format.
+- Fixed issue with intervals overhanging the chromosome ends and intervals on non-existing chromosomes for Cover.create_from_bigwig and Cover.create_from_bam.
+- Fixed issue in building DnaConv2D wrapper if the forward and revcomp layers were already built.
+
+0.9.8 (2020-07-13)
+------------------
+
+- Improved JangguSequence which can be used with keras and tensorflow 2.0
+
+0.9.7 (2020-05-07)
+------------------
+
+- Performance improvement for loading BED files.
+- If no binsize is supplied, the binsize is detected automatically as the longest interval in the roi. Previously automatic detection was only offered if all intervals were of equal length, otherwise, a binsize needed to be specified manually.
+
+0.9.6 (2020-02-26)
+------------------
+
+- Retired support for python 2.7
+- RandomShift wrapper for data augmentation applied to DNA/Protein sequences was added by (thanks to @remomomo).
+- Bedgraph files can be read using Cover.create_from_bed
+- Improved efficiency of Cover.export_to_bigwig
+- Improved efficiency of Cover.create_from_bed
+- Internal refactoring
+
+0.9.5 (2019-10-17)
+------------------
+
+- Variant effect prediction: added annotation argument which enables strand-specific variant effect predictions using the strandedness of features in the annotation file.
+- Variant effect prediction: added ignore_reference_match argument which enables ignores mismatching nucleotides between the VCF reference base and the reference genome. By default, variant effects are only evaluated if the nucleotides agree in the reference genome and the VCF file.
+- Added file validity check
+- Added option to control verbosity 
+- Improved efficiency for reading BAM and BIGWIG files
+- Create a new cachefile with random_state only for not storing the whole genome
+- Relaxed constraint for using resolution > 1 with ROI intervals. Still the interval starts have to be divisible by the resolution. Otherwise, weird rounding errors might occur.
+- Fixed issue due to different numbers of network output layers.
+- Added seperate dataversion to better control when cache files need to be reloaded from scratch.
+
+0.9.4 (2019-07-15)
+------------------
+
+- Added SqueezeDim wrapper for compatibility with sklearn
+- Added Transpose wrapper, replaces channel_last option of the datasets
+- Loading paired-end bam-files with pairedend='5pend' option counts both ends now.
+- resolution option added to create_from_array
+- Relaxed restriction for sequence feature order
+- Cover access via interval now returns nucleotide-resolution data regardless of the store_whole_genome option to ensure consistency.
+- Refactoring
+
+
+0.9.3 (2019-07-08)
+------------------
+
+- View mechanism added which allows to reuse the same dataset for different purposes, e.g. training set and test set.
+- Added a dataset randomization which allows to internally randomize the data in order to avoid having to use shuffle=True with the fit method. This allows fetch randomized data in coherent chunks from hdf5 format files which improves access time.
+- Added lazy loading mechanism for DNA and BED files, which defer the determination of the genome size to the dataset creation phase, but does not perform it when loading cached files to improve reload time.
+- Caching logic improved in order to maximize the amount of reusability of dataset. For example, when the whole genome is loaded, the data can later be reloaded with different binsizes.
+- Variant effect prediction functionality added.
+- Improved efficiency for loading coverage from an array.
+- Added axis option to ReduceDim
+- Added Track classes to improve flexibility on plotGenomeTrack
+
+0.9.2 (2019-05-04)
+------------------
+
+- Bugfix: Bioseq caching mechanism fixed.
+
+0.9.1 (2019-05-03)
+------------------
+
+- Removed HTSeq dependence in favour of pybedtools for parsing BED, GFF, etc. This also introduces the requirement to have bedtools installed on the system, but it allows to parse BED-like files faster and more conveniently.
+- Internal rearrangements for GenomicArray store_whole_genome=False. Now the data is stored as one array in a dict-like handle with the dummy key 'data' rather than storing the data in a fragmented fashion using as key-values the genomic interval and the respective coverages associated with them. This makes storage and processing more efficient.
+- Bugfix: added conditions property to wrapper datasets.
+
+0.9.0 (2019-03-20)
+------------------
+
+Added various features and bug fixes:
+
+Changes in janggu.data
+
+- Added new dataset wrapper to remove NaNs: NanToNumConverter
+- Added new dataset wrappers for data augmentation: RandomOrientation, RandomSignalScale
+- Adapted ReduceDim wrapper: added aggregator argument
+- plotGenomeTrack added figsize option
+- plotGenomeTrack added other plot types, including heatmap and seqplot.
+- plotGenomeTrack refactoring of internal code
+- Bioseq bugfix: Fixed issue for reverse complementing N's in the sequence.
+- GenomicArray: condition, order, resolution are not read from the cache anymore, but from the arguments to avoid inconsistencies
+- Normalization of Cover can handle a list of normalizer callables which are applied in turn
+- Normaliation and Transformation: Added PercentileTrimming, RegionLengthNormalization, LogTransform
+- ZScore and ZScoreLog do not apply RegionLengthNormalization by default anymore.
+- janggu.data version-aware caching of datasets included
+- Added copy method for janggu datasets.
+- split_train_test refactored
+- removed obsolete transformations attribute from the datasets
+- Adapted the documentation
+- Refactoring according to suggestions from isort and pylint
+
+Changes in janggu
+
+- Added input_attribution via integrated gradients for feature importance assignment
+- Performance scoring by name for Janggu.evaluate for a number common metrices, including ROC, PRC, correlation, variance explained, etc.
+- training.log is stored by default for each model
+- Added model_from_json, model_from_yaml wrappers
+- inputlayer decorator only instantiates Input layers if inputs == None, which makes the use of inputlayer less restrictive when using nested functions
+- Added create_model method to create a keras model directly
+- Adapted the documentation
+- Refactoring according to suggestions from isort and pylint
+
+
+0.8.6 (2019-03-03)
+------------------
+
+- Bugfix for ROIs that reach beyond the chromosome when loading Bioseq datasets. Now, zero-padding is performed for intervals that stretch over the sequence ends.
+
+0.8.5 (2019-01-09)
+------------------
+
+- Updated abstract, added logo
+- Utility: janggutrim command line tool for cutting bed file regions to avoid unwanted rounding effects. If rounding issues are detected an error is raised.
+- Caching mechanism revisited. Caching of datasets is based on determining the sha256 hash of the dataset. If the data or some parameters change, the files are automatically reloaded. Consequently, the arguments overwrite and datatags become obsolete and have been marked for deprecation.
+- Refactored access of GenomicArray
+- Added ReduceDim wrapper to convert a 4D Cover object to a 2D table-like object.
+
+0.8.4 (2018-12-11)
+------------------
+
+- Updated installation instructions in the readme
+
+0.8.3 (2018-12-05)
+------------------
+
+- Fixed issues for loading SparseGenomicArray
+- Made GenomicIndexer.filter_by_region aware of flank
+- Fixed BedLoader of partially overlapping ROI and bedfiles issue using filter_by_region.
+- Adapted classifier, license and keywords in setup.py
+- Fixed hyperlinks
+
+0.8.2 (2018-12-04)
+------------------
+
+- Bugfix for zero-padding functionality
+- Added ndim for keras compatibility
+
+0.8.1 (2018-12-03)
+------------------
+
+- Bugfix in GenomicIndexer.create_from_region
+
+0.8.0 (2018-12-02)
+------------------
+
+- Improved test coverage
+- Improved linter issues
+- Bugs fixed
+- Improved documentation for scorers
+- Removed kwargs for scorers and exporters
+- Adapted exporters to classes
+
+
+0.7.0 (2018-12-01)
+------------------
+
+- First public version
+
+
