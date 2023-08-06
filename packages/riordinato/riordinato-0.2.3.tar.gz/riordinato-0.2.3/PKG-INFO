@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: riordinato
+Version: 0.2.3
+Summary: organize your files with prefixes
+Home-page: https://github.com/DAN-pix/Riordinato
+License: MIT
+Keywords: organize,riordinato,prefixes,dir
+Author: Dan-
+Author-email: misternutel@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Project-URL: Repository, https://github.com/DAN-pix/Riordinato
+Description-Content-Type: text/markdown
+
+Organize your files automatically just by using prefixes
+
+### example video
+
+[![asciicast](https://asciinema.org/a/ROPMams9fQwUBU5Ajo90X5ki4.svg)](https://asciinema.org/a/ROPMams9fQwUBU5Ajo90X5ki4)
+
+## install
+
+`pip3 install riordinator`
+
