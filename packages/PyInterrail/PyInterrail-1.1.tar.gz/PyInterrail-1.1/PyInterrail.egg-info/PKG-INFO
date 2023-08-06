@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: PyInterrail
+Version: 1.1
+Summary: Python interface for Interrail API
+Home-page: https://github.com/untalturner/PyInterrail
+Author: Daniel Turner Cebriá
+Author-email: daniel.turner.cebria@gmail.com
+License: Apache License 2.0
+Description: # PyInterrail
+        Python interface for Interrail API
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
