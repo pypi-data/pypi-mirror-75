@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: expertsender-python
+Version: 0.1.5
+Summary: An unofficial API wrapper for Expertsender
+Home-page: https://github.com/r4h4/Expertsender-Python
+Author: Karsten Eckhardt
+Author-email: karsten.eckhardt@gmail.com
+License: MIT
+Download-URL: https://github.com/r4h4/Expertsender-Python/archive/v0.1.5.tar.gz
+Description: # Expertsender Python API Wrapper
+        
+Keywords: expertsender,email,marketing,api
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
