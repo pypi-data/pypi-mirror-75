@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: testlinkwrapper
+Version: 0.1.9
+Summary: Wrapper for test tool Testlink
+Home-page: https://github.com/Manzanero/testlinkwrapper
+Author: Alejandro Manzanero
+Author-email: alejmans@domain.com
+License: MIT
+Download-URL: https://github.com/Manzanero/testlinkwrapper/archive/v_0_1_9.tar.gz
+Description: # testlinkwrapper
+        
+        Wrapper for test tool Testlink
+        
+        ## sample usage
+        ```python
+        from testlinkwrapper import TestLinkWrapper
+        
+        TESTLINK_URL = 'http://xxx'
+        TESTLINK_DEVKEY = 'xxx'
+        tlw = TestLinkWrapper(TESTLINK_URL, TESTLINK_DEVKEY)
+        for project in tlw.projects:
+            print(project.name)
+        ```
+        TESTLINK_URL and TESTLINK_DEVKEY as environment variables:
+        ```python
+        tlw = TestLinkWrapper()
+        for project in tlw.projects:
+            print(project.name)
+        ```
+Keywords: test,testlink,wrapper
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
