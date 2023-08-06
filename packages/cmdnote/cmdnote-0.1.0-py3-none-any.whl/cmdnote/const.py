@@ -1,0 +1,14 @@
+import os
+
+CMDNOTE_DIRECTORY = os.path.expanduser('~/.cmdnote')
+NOTEBOOK_FILE = os.path.join(CMDNOTE_DIRECTORY, 'notebook')
+CONFIG_FILE = os.path.join(CMDNOTE_DIRECTORY, 'config')
+
+KEY_CTRL_C = '\x03'
+
+ACTION_EXECUTE = 'execute'
+ACTION_ABORT = 'abort'
+
+CONFIG_KEY_CAPACITY = 'capacity'
+CONFIG_DEFAULT_CAPACITY = 1024
+CONFIG_DEFAULT = {CONFIG_KEY_CAPACITY: CONFIG_DEFAULT_CAPACITY}
