@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: mdapi-messages
+Version: 1.0.0
+Summary: A schema package for messages sent by mdapi
+Home-page: https://pagure.io/mdapi-messages
+Maintainer: Fedora Infrastructure Team
+Maintainer-email: infrastructure@lists.fedoraproject.org
+License: GPLv2+
+Description: # mdapi messages
+        
+        A schema package for [mdapi](https://pagure.io/mdapi).
+        
+        See the [detailed documentation](https://fedora-messaging.readthedocs.io/en/latest/messages.html) on packaging your schemas.
+        
+Keywords: fedora
+Platform: Fedora
+Platform: GNU/Linux
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
