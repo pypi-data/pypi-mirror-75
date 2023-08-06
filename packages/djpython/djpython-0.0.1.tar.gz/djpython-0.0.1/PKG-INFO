@@ -1,0 +1,25 @@
+Metadata-Version: 1.1
+Name: djpython
+Version: 0.0.1
+Summary: Audio Processing package
+Home-page: UNKNOWN
+Author: Abhinav Jha
+Author-email: abitnav@gmail.com
+License: MIT
+Description: This is a simple remixing tool for python which can create fusion of two or more songs change its tempo,frequency etc 
+        
+        
+        Change Log
+        ==========
+        
+        0.0.1 (4/8/2020)
+        -------------------
+        - First Release
+        
+Keywords: audio
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
