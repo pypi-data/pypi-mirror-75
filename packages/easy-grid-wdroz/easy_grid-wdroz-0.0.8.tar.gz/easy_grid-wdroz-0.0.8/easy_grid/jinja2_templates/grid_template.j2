@@ -1,0 +1,9 @@
+#!/bin/bash
+{% for grid_parameter in grid_parameters %}
+#$ {{grid_parameter.name}} {{grid_parameter.value}}{% endfor %}
+
+{% for export_parameter in export_parameters %}
+export {{export_parameter.name}}={{export_parameter.value}}{% endfor %}
+
+# The script to run on the grid
+{{ python_executable }} {{ script_name }} {% for script_parameter in script_parameters %} {{ script_parameter }}{% endfor %}
