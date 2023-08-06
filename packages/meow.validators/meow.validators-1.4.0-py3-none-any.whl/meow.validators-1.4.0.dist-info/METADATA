@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: meow.validators
+Version: 1.4.0
+Summary: Data validation
+Home-page: https://github.com/aachurin/meow.validators
+Author: Andrey Churin
+Maintainer: Andrey Churin
+Maintainer-email: aachurin@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Description-Content-Type: text/markdown
+
+<p align="center">
+    <img src="https://raw.githubusercontent.com/aachurin/meow.validators/master/logo.svg" alt="Meow Validators" />
+</p>
+<p align="center">
+    <b>Meow Validators</b>
+</p>
+
+<p align="center">
+<a href="https://travis-ci.com/github/aachurin/meow.validators">
+    <img src="https://travis-ci.com/aachurin/meow.validators.svg?branch=master" alt="Build Status">
+</a>
+<a href="https://codecov.io/gh/aachurin/meow.validators">
+    <img src="https://codecov.io/gh/aachurin/meow.validators/branch/master/graph/badge.svg" alt="codecov">
+</a>
+<a href="https://pypi.python.org/pypi/meow.validators">
+    <img src="https://badge.fury.io/py/meow.validators.svg" alt="Package version">
+</a>
+</p>
+
+
