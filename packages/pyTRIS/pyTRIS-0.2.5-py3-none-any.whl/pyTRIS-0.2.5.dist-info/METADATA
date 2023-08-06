@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pyTRIS
+Version: 0.2.5
+Summary: Simple no-dependencies API wrapper for Highways England's WebTRIS Traffic Flow API
+Home-page: https://github.com/asongtoruin/pyTRIS
+Author: Adam Ruszkowski
+License: UNKNOWN
+Project-URL: Source, https://github.com/asongtoruin/pyTRIS/
+Keywords: transport
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+
+# pyTRIS
+![Pytest](https://github.com/asongtoruin/pyTRIS/workflows/Pytest/badge.svg)
+[![codecov](https://codecov.io/gh/asongtoruin/pyTRIS/branch/master/graph/badge.svg)](https://codecov.io/gh/asongtoruin/pyTRIS)
+[![PyPI version](https://badge.fury.io/py/pyTRIS.svg)](https://pypi.org/project/pyTRIS/)
+
+A simple API wrapper for Highways England's WebTRIS Traffic Flow API. 
+Documentation is available [here](https://asongtoruin.github.io/pyTRIS).
+
+
