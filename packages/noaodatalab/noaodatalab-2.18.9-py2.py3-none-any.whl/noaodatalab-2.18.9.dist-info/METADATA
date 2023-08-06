@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: noaodatalab
+Version: 2.18.9
+Summary: Tools for interacting with NOAO Data Lab.
+Home-page: https://github.com/noaodatalab/datalab/
+Author: M.J. Graham, M.J. Fitzpatrick, D.L. Nidever, R. Nikutta
+Author-email: graham@noao.edu, fitz@noao.edu, dnidever@noao.edu, nikutta@noao.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Requires: requests (>=2.7)
+Requires: httplib2
+Requires: numpy (>=1.13)
+Requires: astropy
+Requires: pyvo
+Requires: matplotlib
+Requires: pandas
+Requires-Dist: requests (>=2.7)
+Requires-Dist: httplib2
+Requires-Dist: numpy (>=1.13)
+Requires-Dist: astropy
+Requires-Dist: pyvo
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+
+Tools for interacting with the NOAO Data Lab services
+
+
