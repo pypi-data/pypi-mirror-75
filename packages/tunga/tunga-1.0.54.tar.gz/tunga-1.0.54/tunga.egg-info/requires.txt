@@ -1,0 +1,15 @@
+pandas
+bs4
+emoji
+tweepy
+TurkishStemmer
+textblob
+grpcio
+price_parser
+zemberek_grpc
+multi_rake
+sklearn
+pytorch-transformers==1.2.0
+torch==1.4.0
+torchvision==0.5.0
+transformers==2.9.0
