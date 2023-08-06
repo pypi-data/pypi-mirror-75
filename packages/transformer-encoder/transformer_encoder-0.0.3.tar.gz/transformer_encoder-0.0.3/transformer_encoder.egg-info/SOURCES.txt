@@ -1,0 +1,15 @@
+README.md
+setup.py
+transformer_encoder/__init__.py
+transformer_encoder/encoder.py
+transformer_encoder/encoder_layer.py
+transformer_encoder/feed_forward.py
+transformer_encoder/layer_norm.py
+transformer_encoder/multi_head_attention.py
+transformer_encoder.egg-info/PKG-INFO
+transformer_encoder.egg-info/SOURCES.txt
+transformer_encoder.egg-info/dependency_links.txt
+transformer_encoder.egg-info/top_level.txt
+transformer_encoder/utils/__init__.py
+transformer_encoder/utils/positional_encoding.py
+transformer_encoder/utils/warmup_optimizer.py
