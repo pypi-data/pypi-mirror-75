@@ -1,0 +1,3 @@
+[console_scripts]
+teamscale-cli = teamscale_precommit_client.precommit_client:run
+
