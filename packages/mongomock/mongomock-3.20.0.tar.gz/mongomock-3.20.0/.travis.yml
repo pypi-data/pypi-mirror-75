@@ -1,0 +1,61 @@
+language: python
+cache: pip
+os: linux
+dist: xenial
+env:
+  global:
+    - MONGODB=4.1.1
+jobs:
+  include:
+    - python: 2.7
+      env: TOX_ENV=py27
+    - python: 2.7
+      env: TOX_ENV=py27-mock-pymongo-pyexecjs
+    - python: pypy
+      env: TOX_ENV=pypy-mock-pymongo-pyexecjs
+    - python: 3.4
+      env: TOX_ENV=py34-pymongo-pyexecjs
+    - python: 3.5
+      env: TOX_ENV=py35-pymongo-pyexecjs
+    - python: 3.6
+      env: TOX_ENV=py36-pymongo-pyexecjs
+    - python: 3.7
+      env: TOX_ENV=py37-pymongo-pyexecjs
+    - python: 3.8
+      env: TOX_ENV=py38
+    - python: 3.8
+      env: TOX_ENV=py38-pymongo
+    - python: 3.8
+      env: TOX_ENV=py38-pyexecjs
+    - python: 3.8
+      env: TOX_ENV=py38-pymongo361-pyexecjs
+    - python: 3.8
+      env: TOX_ENV=py38-pymongo-pyexecjs
+    - env: TOX_ENV=pep8
+    - env: TOX_ENV=pylint
+script:
+  - tox -e $TOX_ENV
+before_install:
+  - "sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10"
+  - "sudo apt-get update"
+before_script:
+  - mkdir ${PWD}/mongodb-linux-x86_64-${MONGODB}/data
+  - ${PWD}/mongodb-linux-x86_64-${MONGODB}/bin/mongod --dbpath ${PWD}/mongodb-linux-x86_64-${MONGODB}/data --logpath ${PWD}/mongodb-linux-x86_64-${MONGODB}/mongodb.log --fork
+  - "until nc -z localhost 27017; do echo Waiting for MongoDB; sleep 1; done"
+after_script:
+  - pkill mongod
+install:
+  - wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-${MONGODB}.tgz
+  - tar xzf mongodb-linux-x86_64-${MONGODB}.tgz
+  - ${PWD}/mongodb-linux-x86_64-${MONGODB}/bin/mongod --version
+  - pip install tox
+deploy:
+  provider: pypi
+  username: vmalloc
+  distributions: "bdist_wheel sdist"
+  password:
+    secure: sNOkUNFfWKGsRy4BI+1jyqycZGSMiXTLtpCrX1mTuvjddbndULrHL3ecIPsCno49/nPR4Gww+e9U3HXc8LKJ9qR4mJ8bVCNiHO5GlGVnpV+wdGh9LVnsU1LWwuD8uWlLyTSOKP+ZmerCw7tGACYiv0e9zp8SqZXCH6VS+sAGFxU=
+  on:
+    tags: true
+    all_branches: true
+    repo: mongomock/mongomock
