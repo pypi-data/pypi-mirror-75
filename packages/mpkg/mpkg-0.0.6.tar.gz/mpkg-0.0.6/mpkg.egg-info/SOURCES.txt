@@ -1,0 +1,15 @@
+README.md
+setup.py
+mpkg/__init__.py
+mpkg/cli.py
+mpkg/common.py
+mpkg/config.py
+mpkg/extras.py
+mpkg/load.py
+mpkg/utils.py
+mpkg.egg-info/PKG-INFO
+mpkg.egg-info/SOURCES.txt
+mpkg.egg-info/dependency_links.txt
+mpkg.egg-info/entry_points.txt
+mpkg.egg-info/requires.txt
+mpkg.egg-info/top_level.txt
