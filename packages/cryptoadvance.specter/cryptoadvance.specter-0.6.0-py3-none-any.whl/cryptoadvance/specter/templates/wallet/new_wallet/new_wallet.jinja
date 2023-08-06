@@ -1,0 +1,91 @@
+{% extends "base.jinja" %}
+{% block main %}
+	<form action="./" method="POST">
+		<div class="center">
+			Name it &nbsp; &nbsp;<input type="text" name="wallet_name" class="inline" value="{{ wallet_name }}" placeholder="Name your wallet">
+		</div>
+		<br>
+		<h1>Type of the wallet</h1>
+		<nav class="row">
+			<label>
+				<input type="radio" name="type" value="{{'sh-wsh' if wallet_type == 'multisig' else 'sh-wpkh'}}"
+				class="hidden" onchange="updateType(this.value);">
+				<div class="btn radio left">Nested Segwit</div>
+			</label>
+			<label>
+				<input type="radio" name="type" value="{{'wsh' if wallet_type == 'multisig' else 'wpkh'}}" checked 
+				class="hidden" onchange="updateType(this.value);">
+				<div class="btn radio right">Segwit</div>
+			</label>
+		</nav>
+
+		<div class="note">
+			<center>
+				<br><b>Segwit</b> uses bech32-encoded addresses (bc1), <b>Nested Segwit</b> makes it compatible with legacy software. Don't use legacy.
+			</center>
+		</div>
+		{% if wallet_type == 'multisig' %}
+			<br>
+			<div class="center">
+				Using 
+				<input class="inline" type="number" name="sigs_required" min=1 max="{{ sigs_total }}" step=1 value="{{ sigs_required }}" />
+				<input type="hidden" name="sigs_required" value="{{ sigs_required }}"/>
+				of 
+				<input class="inline" type="number" name="sigs_total" min=2 max="{{ sigs_total }}" step=1 value="{{ sigs_total }}"/>
+			</div>
+			<br>
+			<h1>Pick the devices you want to use as cosigners</h1>
+		{% else %}
+			<div class="spacer"></div>
+			<h1>Pick the device you want to use</h1>
+		{% endif %}
+		<div class="row overflow">
+			{% for device_name in specter.device_manager.devices_names %}
+				{% set device = specter.device_manager.devices[device_name] %}
+				<label>
+					<input type="{{ 'checkbox' if wallet_type == 'multisig' else 'radio' }}" name="devices" value="{{ device.alias }}" class="hidden" data-key-types='{{ device.key_types(specter.chain) | tojson }}' chain="{{specter.chain}}">
+					<div class="small-card radio">
+						{% if device.device_type in ['specter', 'coldcard', 'trezor', 'ledger'] %}
+							<img src="/static/img/{{ device.device_type }}_icon.svg" width="18px">
+						{% else %}
+							<img src="/static/img/other_icon.svg" width="18px">
+						{% endif %}
+						{{ device_name }}
+					</div>
+				</label>
+			{% endfor %}
+		</div>
+		<button type="submit" name="action" value="device" class="btn centered">Continue</button>
+		<br>
+		<div class="note">
+			<center>
+				{% if wallet_type == 'multisig' %}
+					We use sorted multisig (BIP-67), so <b>order is NOT important.</b><br>
+				{% else %}
+					On the next page we will ask you to choose the keys.
+				{% endif %}
+			</center>
+		</div>
+	</form>
+{% endblock %}
+{% block scripts %}
+<script type="text/javascript">
+	function updateType(val){
+		let devs = document.getElementsByName('devices');
+		devs.forEach(dev => {
+			let types = JSON.parse(dev.getAttribute('data-key-types'));
+			dev.disabled = !(types.includes("") || types.includes(val));
+			if(dev.disabled){
+				dev.checked = false;
+			}
+		});
+	}
+	// initial trigger
+	let els = document.getElementsByName("type");
+	els.forEach(el=>{
+		if (el.checked){
+			updateType(el.value);
+		}
+	})
+</script>
+{% endblock %}

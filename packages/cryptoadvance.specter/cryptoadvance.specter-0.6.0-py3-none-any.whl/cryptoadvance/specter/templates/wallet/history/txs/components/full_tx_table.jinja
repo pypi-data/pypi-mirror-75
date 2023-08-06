@@ -1,0 +1,14 @@
+{% from 'wallet/history/components/tx_item.jinja' import tx_item %}
+
+{# 
+    full_tx_table - List of the entire wallet transactions hisory
+    Parameters:
+    - transactions: Transactions to list in the table
+    - wallet: Wallet object
+    - specter: Specter object
+ #}
+{% macro full_tx_table(transactions, wallet, specter) -%}
+    {% for tx in transactions %}
+        {{ tx_item(tx, wallet, specter) }}
+    {% endfor %}
+{%- endmacro %}

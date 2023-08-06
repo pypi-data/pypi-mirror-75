@@ -1,0 +1,97 @@
+{% extends "wallet/components/wallet_tab.jinja" %}
+{% set tab = 'wallet_settings' %}
+{% block content %}<br>
+	<h1>Keypool control</h1>
+	<form action="." method="POST" class="padded" style="width: 500px">
+		<div>Currently watching {{ wallet.keypool }} receiving and {{ wallet.change_keypool }} change addresses.</div>
+		<div class="row aligned">
+			<div style="flex-grow: 1">Watch <input type="number" name="keypooladd" value="100" step="1" style="margin: 10px" class="inline"> more addresses </div>
+			<button type="submit" name="action" value="keypoolrefill" class="btn" style="max-width: 130px; margin-left: 20px">Add</button>
+		</div>
+	</form>
+
+	<form action="." method="POST" class="padded" style="width: 500px">
+		{% if wallet.rescan_progress %}
+			<div class="row aligned">
+				<div style="margin-right: 30px; flex-grow: 1;">Rescanning blockchain: {{"%.2f" % (wallet.rescan_progress*100)}}%</div>
+				<button type="submit" name="action" value="abortrescan" class="btn" style="max-width: 130px; margin-left: 20px">Abort rescan</button>
+			</div>
+		{% else %}
+			Rescan blockchain from block:<br>
+			<div class="row aligned">
+				{% if specter.info.chain == "main" %}
+					{% set startblock=(481824 if not specter.info['pruned'] or specter.info['pruneheight'] < 481824 else specter.info['pruneheight']) %}
+				{% else %}
+					{% set startblock=(0 if not specter.info['pruned'] else specter.info['pruneheight']) %}
+				{% endif %}
+				<input type="number" name="startblock" value="{{startblock}}" style="margin-right: 10px" min="{{startblock}}">
+				<button type="submit" name="action" value="rescanblockchain" class="btn">Rescan</button>
+			</div>
+			{% if specter.info['pruned']  %}
+				<div class="note center full-width">Note: You are using a pruned node. Rescan is limited by the pruned height to block: {{specter.info['pruneheight']}}</div>
+			{% endif %}
+			<div class="note center"><b>481824</b> was the first Segwit block.</div>
+		{% endif %}
+	</form>
+	<br>
+	<h1>Wallet Devices</h1>
+	<div class="row overflow">
+		{% for device in wallet.devices %}
+			<a href="{{ url_for('device', device_alias=device.alias) }}" style="text-decoration: none;">
+				<div class="small-card radio">
+					{% if device.device_type in ['specter', 'coldcard', 'trezor', 'ledger'] %}
+						<img src="/static/img/{{ device.device_type }}_icon.svg" width="18px">
+					{% else %}
+						<img src="/static/img/other_icon.svg" width="18px">
+					{% endif %}
+					{{ device.name }}
+				</div>
+			</a>
+		{% endfor %}
+	</div>
+	<br>
+	{% set supports_export_to_device = [] %}
+	{% for device in wallet.devices if device.exportable_to_wallet %}
+		{% set supports_export_to_device = supports_export_to_device.append(device) %}
+	{% endfor %}
+	{% if supports_export_to_device != [] %}
+		<h1>Export To Device</h1>
+		<div class="note center">
+			Import this wallet to a device by scanning its QR code or importing its data file.
+		</div>
+
+		{% for device in wallet.devices %}
+			{% if device.exportable_to_wallet %}
+				{% if device.wallet_export_type == 'file' %}
+					<a 
+					download="{{ wallet.name }}"
+					href="data:text/plain;charset=US-ASCII,{{ device.export_wallet(wallet) }}"
+					{% if device.device_type == 'coldcard' %}
+						onclick="showNotification('Import wallet file to your ColdCard: Settings -> Multisig Wallets -> Import from SD', 0)"
+					{% endif %}
+					class="btn centered padded">
+						Download {{ device.name }} file
+					</a>
+				{% elif device.wallet_export_type == 'qr' %}
+					<button onclick="showPageOverlay('{{ device.alias }}_export_qr_code')" type="button" class="btn centered padded">Show {{ device.name }} QR Code</button>
+					<div id="{{ device.alias }}_export_qr_code" style="display: none;">
+						<h1>Scan this with your {{ device.name }} device </h1>
+						<qr-code value="{{ device.export_wallet(wallet) }}" width="400"></qr-code>
+					</div>
+				{% endif %}
+			{% endif %}
+		{% endfor %}
+		<br>
+	{% endif %}
+	
+	<h1>Export To Wallet Software</h1>
+	<div class="note center">
+		Import this wallet to another Specter instance or other supported wallet softwares by scanning the QR code or importing the JSON file.
+	</div>
+	<button onclick="showPageOverlay('account_map_export')" type="button" class="btn centered padded">Export</button>
+	{% include "wallet/settings/components/export_wallet_account_map.jinja" %}
+	<form action="." method="POST" class="padded" style="width: 500px">
+		<h1>Delete Wallet</h1>
+		<button type="submit" name="action" value="deletewallet" class="btn danger centered" style="max-width: 160px;">Delete Wallet</button>
+	</form>
+{% endblock %}
