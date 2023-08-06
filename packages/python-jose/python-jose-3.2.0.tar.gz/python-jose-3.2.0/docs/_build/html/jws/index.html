@@ -1,0 +1,193 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JSON Web Signature &mdash; python-jose 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="python-jose 0.2.0 documentation" href="../index.html" />
+    <link rel="next" title="JSON Web Token" href="../jwt/index.html" />
+    <link rel="prev" title="python-jose" href="../index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../jwt/index.html" title="JSON Web Token"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="python-jose"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">python-jose 0.2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="json-web-signature">
+<h1>JSON Web Signature<a class="headerlink" href="#json-web-signature" title="Permalink to this headline">¶</a></h1>
+<p>JSON Web Signatures (JWS) are used to digitally sign a JSON encoded
+object and represent it as a compact URL-safe string.</p>
+<div class="section" id="supported-algorithms">
+<h2>Supported Algorithms<a class="headerlink" href="#supported-algorithms" title="Permalink to this headline">¶</a></h2>
+<p>The following algorithms are currently supported.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Algorithm Value</th>
+<th class="head">Digital Signature or MAC Algorithm</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>HS256</td>
+<td>HMAC using SHA-256 hash algorithm</td>
+</tr>
+<tr class="row-odd"><td>HS384</td>
+<td>HMAC using SHA-384 hash algorithm</td>
+</tr>
+<tr class="row-even"><td>HS512</td>
+<td>HMAC using SHA-512 hash algorithm</td>
+</tr>
+<tr class="row-odd"><td>RS256</td>
+<td>RSASSA using SHA-256 hash algorithm</td>
+</tr>
+<tr class="row-even"><td>RS384</td>
+<td>RSASSA using SHA-384 hash algorithm</td>
+</tr>
+<tr class="row-odd"><td>RS512</td>
+<td>RSASSA using SHA-512 hash algorithm</td>
+</tr>
+<tr class="row-even"><td>ES256</td>
+<td>ECDSA using SHA-256 hash algorithm</td>
+</tr>
+<tr class="row-odd"><td>ES384</td>
+<td>ECDSA using SHA-384 hash algorithm</td>
+</tr>
+<tr class="row-even"><td>ES512</td>
+<td>ECDSA using SHA-512 hash algorithm</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="signing-tokens">
+<h3>Signing tokens<a class="headerlink" href="#signing-tokens" title="Permalink to this headline">¶</a></h3>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">jose</span> <span class="kn">import</span> <span class="n">jws</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">signed</span> <span class="o">=</span> <span class="n">jws</span><span class="o">.</span><span class="n">sign</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="s1">&#39;secret&#39;</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;HS256&#39;</span><span class="p">)</span>
+<span class="go">&#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYiJ9.jiMyrsmD8AoHWeQgmxZ5yq8z0lXS67_QGs52AzC8Ru8&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="verifying-token-signatures">
+<h3>Verifying token signatures<a class="headerlink" href="#verifying-token-signatures" title="Permalink to this headline">¶</a></h3>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">jws</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">signed</span><span class="p">,</span> <span class="s1">&#39;secret&#39;</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;HS256&#39;</span><span class="p">])</span>
+<span class="go">{&#39;a&#39;: &#39;b&#39;}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">JSON Web Signature</a><ul>
+<li><a class="reference internal" href="#supported-algorithms">Supported Algorithms</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#signing-tokens">Signing tokens</a></li>
+<li><a class="reference internal" href="#verifying-token-signatures">Verifying token signatures</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">python-jose</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../jwt/index.html"
+                        title="next chapter">JSON Web Token</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/jws/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../jwt/index.html" title="JSON Web Token"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../index.html" title="python-jose"
+             >previous</a> |</li>
+        <li><a href="../index.html">python-jose 0.2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Michael Davis.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

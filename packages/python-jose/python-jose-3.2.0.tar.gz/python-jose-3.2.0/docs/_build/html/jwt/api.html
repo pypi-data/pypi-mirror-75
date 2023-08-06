@@ -1,0 +1,303 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JWT API &mdash; python-jose 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="python-jose 0.2.0 documentation" href="../index.html" />
+    <link rel="next" title="JWK API" href="../jwk/api.html" />
+    <link rel="prev" title="JWS API" href="../jws/api.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../jwk/api.html" title="JWK API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../jws/api.html" title="JWS API"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">python-jose 0.2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-jose.jwt">
+<span id="jwt-api"></span><h1>JWT API<a class="headerlink" href="#module-jose.jwt" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="jose.jwt.decode">
+<tt class="descclassname">jose.jwt.</tt><tt class="descname">decode</tt><big>(</big><em>token</em>, <em>key</em>, <em>algorithms=None</em>, <em>options=None</em>, <em>audience=None</em>, <em>issuer=None</em>, <em>subject=None</em>, <em>access_token=None</em><big>)</big><a class="headerlink" href="#jose.jwt.decode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verifies a JWT string&#8217;s signature and validates reserved claims.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>token</strong> (<em>str</em>) &#8211; A signed JWS to be verified.</li>
+<li><strong>key</strong> (<em>str or dict</em>) &#8211; A key to attempt to verify the payload with. Can be
+individual JWK or JWK set.</li>
+<li><strong>algorithms</strong> (<em>str or list</em>) &#8211; Valid algorithms that should be used to verify the JWS.</li>
+<li><strong>audience</strong> (<em>str</em>) &#8211; The intended audience of the token.  If the &#8220;aud&#8221; claim is
+included in the claim set, then the audience must be included and must equal
+the provided claim.</li>
+<li><strong>issuer</strong> (<em>str or iterable</em>) &#8211; Acceptable value(s) for the issuer of the token.
+If the &#8220;iss&#8221; claim is included in the claim set, then the issuer must be
+given and the claim in the token must be among the acceptable values.</li>
+<li><strong>subject</strong> (<em>str</em>) &#8211; The subject of the token.  If the &#8220;sub&#8221; claim is
+included in the claim set, then the subject must be included and must equal
+the provided claim.</li>
+<li><strong>access_token</strong> (<em>str</em>) &#8211; An access token string. If the &#8220;at_hash&#8221; claim is included in the
+claim set, then the access_token must be included, and it must match
+the &#8220;at_hash&#8221; claim.</li>
+<li><strong>options</strong> (<em>dict</em>) &#8211; <p>A dictionary of options for skipping validation steps.</p>
+<dl class="docutils">
+<dt>defaults = {</dt>
+<dd>&#8216;verify_signature&#8217;: True,
+&#8216;verify_aud&#8217;: True,
+&#8216;verify_iat&#8217;: True,
+&#8216;verify_exp&#8217;: True,
+&#8216;verify_nbf&#8217;: True,
+&#8216;verify_iss&#8217;: True,
+&#8216;verify_sub&#8217;: True,
+&#8216;verify_jti&#8217;: True,
+&#8216;verify_at_hash&#8217;: True,
+&#8216;require_aud&#8217;: False,
+&#8216;require_iat&#8217;: False,
+&#8216;require_exp&#8217;: False,
+&#8216;require_nbf&#8217;: False,
+&#8216;require_iss&#8217;: False,
+&#8216;require_sub&#8217;: False,
+&#8216;require_jti&#8217;: False,
+&#8216;require_at_hash&#8217;: False,
+&#8216;leeway&#8217;: 0,</dd>
+</dl>
+<p>}</p>
+</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"><dl class="docutils">
+<dt>The dict representation of the claims set, assuming the signature is valid</dt>
+<dd><p class="first last">and all requested data validation passes.</p>
+</dd>
+</dl>
+</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">dict</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><ul class="first last simple">
+<li><strong>JWTError</strong> &#8211; If the signature is invalid in any way.</li>
+<li><strong>ExpiredSignatureError</strong> &#8211; If the signature has expired.</li>
+<li><strong>JWTClaimsError</strong> &#8211; If any claim is invalid in any way.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">payload</span> <span class="o">=</span> <span class="s1">&#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYiJ9.jiMyrsmD8AoHWeQgmxZ5yq8z0lXS67_QGs52AzC8Ru8&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jwt</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">payload</span><span class="p">,</span> <span class="s1">&#39;secret&#39;</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="s1">&#39;HS256&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="jose.jwt.encode">
+<tt class="descclassname">jose.jwt.</tt><tt class="descname">encode</tt><big>(</big><em>claims</em>, <em>key</em>, <em>algorithm='HS256'</em>, <em>headers=None</em>, <em>access_token=None</em><big>)</big><a class="headerlink" href="#jose.jwt.encode" title="Permalink to this definition">¶</a></dt>
+<dd><p>Encodes a claims set and returns a JWT string.</p>
+<p>JWTs are JWS signed objects with a few reserved claims.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>claims</strong> (<em>dict</em>) &#8211; A claims set to sign</li>
+<li><strong>key</strong> (<em>str or dict</em>) &#8211; The key to use for signing the claim set. Can be
+individual JWK or JWK set.</li>
+<li><strong>algorithm</strong> (<em>str, optional</em>) &#8211; The algorithm to use for signing the
+the claims.  Defaults to HS256.</li>
+<li><strong>headers</strong> (<em>dict, optional</em>) &#8211; A set of headers that will be added to
+the default headers.  Any headers that are added as additional
+headers will override the default headers.</li>
+<li><strong>access_token</strong> (<em>str, optional</em>) &#8211; If present, the &#8216;at_hash&#8217; claim will
+be calculated and added to the claims present in the &#8216;claims&#8217;
+parameter.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The string representation of the header, claims, and signature.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Raises JWTError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first last">If there is an error encoding the claims.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">jwt</span><span class="o">.</span><span class="n">encode</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="s1">&#39;secret&#39;</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;HS256&#39;</span><span class="p">)</span>
+<span class="go">&#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYiJ9.jiMyrsmD8AoHWeQgmxZ5yq8z0lXS67_QGs52AzC8Ru8&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="jose.jwt.get_unverified_claims">
+<tt class="descclassname">jose.jwt.</tt><tt class="descname">get_unverified_claims</tt><big>(</big><em>token</em><big>)</big><a class="headerlink" href="#jose.jwt.get_unverified_claims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the decoded claims without verification of any kind.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>token</strong> (<em>str</em>) &#8211; A signed JWT to decode the headers from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The dict representation of the token claims.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Raises JWTError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">If there is an exception decoding the token.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="jose.jwt.get_unverified_header">
+<tt class="descclassname">jose.jwt.</tt><tt class="descname">get_unverified_header</tt><big>(</big><em>token</em><big>)</big><a class="headerlink" href="#jose.jwt.get_unverified_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the decoded headers without verification of any kind.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>token</strong> (<em>str</em>) &#8211; A signed JWT to decode the headers from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The dict representation of the token headers.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Raises JWTError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">If there is an exception decoding the token.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="jose.jwt.get_unverified_headers">
+<tt class="descclassname">jose.jwt.</tt><tt class="descname">get_unverified_headers</tt><big>(</big><em>token</em><big>)</big><a class="headerlink" href="#jose.jwt.get_unverified_headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the decoded headers without verification of any kind.</p>
+<p>This is simply a wrapper of get_unverified_header() for backwards
+compatibility.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>token</strong> (<em>str</em>) &#8211; A signed JWT to decode the headers from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The dict representation of the token headers.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Raises JWTError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">If there is an exception decoding the token.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../jws/api.html"
+                        title="previous chapter">JWS API</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../jwk/api.html"
+                        title="next chapter">JWK API</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/jwt/api.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../jwk/api.html" title="JWK API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../jws/api.html" title="JWS API"
+             >previous</a> |</li>
+        <li><a href="../index.html">python-jose 0.2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Michael Davis.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

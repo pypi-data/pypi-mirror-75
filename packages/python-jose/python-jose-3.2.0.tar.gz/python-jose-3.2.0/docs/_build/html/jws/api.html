@@ -1,0 +1,255 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JWS API &mdash; python-jose 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="python-jose 0.2.0 documentation" href="../index.html" />
+    <link rel="next" title="JWT API" href="../jwt/api.html" />
+    <link rel="prev" title="JSON Web Key" href="../jwk/index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../jwt/api.html" title="JWT API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../jwk/index.html" title="JSON Web Key"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">python-jose 0.2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="module-jose.jws">
+<span id="jws-api"></span><h1>JWS API<a class="headerlink" href="#module-jose.jws" title="Permalink to this headline">¶</a></h1>
+<dl class="function">
+<dt id="jose.jws.get_unverified_claims">
+<tt class="descclassname">jose.jws.</tt><tt class="descname">get_unverified_claims</tt><big>(</big><em>token</em><big>)</big><a class="headerlink" href="#jose.jws.get_unverified_claims" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the decoded claims without verification of any kind.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>token</strong> (<em>str</em>) &#8211; A signed JWS to decode the headers from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The str representation of the token claims.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">str</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Raises JWSError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">If there is an exception decoding the token.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="jose.jws.get_unverified_header">
+<tt class="descclassname">jose.jws.</tt><tt class="descname">get_unverified_header</tt><big>(</big><em>token</em><big>)</big><a class="headerlink" href="#jose.jws.get_unverified_header" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the decoded headers without verification of any kind.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>token</strong> (<em>str</em>) &#8211; A signed JWS to decode the headers from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The dict representation of the token headers.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Raises JWSError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">If there is an exception decoding the token.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="jose.jws.get_unverified_headers">
+<tt class="descclassname">jose.jws.</tt><tt class="descname">get_unverified_headers</tt><big>(</big><em>token</em><big>)</big><a class="headerlink" href="#jose.jws.get_unverified_headers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the decoded headers without verification of any kind.</p>
+<p>This is simply a wrapper of get_unverified_header() for backwards
+compatibility.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>token</strong> (<em>str</em>) &#8211; A signed JWS to decode the headers from.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">The dict representation of the token headers.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">dict</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Raises JWSError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">If there is an exception decoding the token.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="jose.jws.sign">
+<tt class="descclassname">jose.jws.</tt><tt class="descname">sign</tt><big>(</big><em>payload</em>, <em>key</em>, <em>headers=None</em>, <em>algorithm='HS256'</em><big>)</big><a class="headerlink" href="#jose.jws.sign" title="Permalink to this definition">¶</a></dt>
+<dd><p>Signs a claims set and returns a JWS string.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>payload</strong> (<em>str or dict</em>) &#8211; A string to sign</li>
+<li><strong>key</strong> (<em>str or dict</em>) &#8211; The key to use for signing the claim set. Can be
+individual JWK or JWK set.</li>
+<li><strong>headers</strong> (<em>dict, optional</em>) &#8211; A set of headers that will be added to
+the default headers.  Any headers that are added as additional
+headers will override the default headers.</li>
+<li><strong>algorithm</strong> (<em>str, optional</em>) &#8211; The algorithm to use for signing the
+the claims.  Defaults to HS256.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The string representation of the header, claims, and signature.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Raises JWSError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first last">If there is an error signing the token.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">jws</span><span class="o">.</span><span class="n">sign</span><span class="p">({</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="s1">&#39;b&#39;</span><span class="p">},</span> <span class="s1">&#39;secret&#39;</span><span class="p">,</span> <span class="n">algorithm</span><span class="o">=</span><span class="s1">&#39;HS256&#39;</span><span class="p">)</span>
+<span class="go">&#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYiJ9.jiMyrsmD8AoHWeQgmxZ5yq8z0lXS67_QGs52AzC8Ru8&#39;</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="jose.jws.verify">
+<tt class="descclassname">jose.jws.</tt><tt class="descname">verify</tt><big>(</big><em>token</em>, <em>key</em>, <em>algorithms</em>, <em>verify=True</em><big>)</big><a class="headerlink" href="#jose.jws.verify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Verifies a JWS string&#8217;s signature.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>token</strong> (<em>str</em>) &#8211; A signed JWS to be verified.</li>
+<li><strong>key</strong> (<em>str or dict</em>) &#8211; A key to attempt to verify the payload with. Can be
+individual JWK or JWK set.</li>
+<li><strong>algorithms</strong> (<em>str or list</em>) &#8211; Valid algorithms that should be used to verify the JWS.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">The str representation of the payload, assuming the signature is valid.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">str</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Raises JWSError:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><p class="first last">If there is an exception verifying a token.</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="s1">&#39;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhIjoiYiJ9.jiMyrsmD8AoHWeQgmxZ5yq8z0lXS67_QGs52AzC8Ru8&#39;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">jws</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="s1">&#39;secret&#39;</span><span class="p">,</span> <span class="n">algorithms</span><span class="o">=</span><span class="s1">&#39;HS256&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../jwk/index.html"
+                        title="previous chapter">JSON Web Key</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../jwt/api.html"
+                        title="next chapter">JWT API</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/jws/api.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../jwt/api.html" title="JWT API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../jwk/index.html" title="JSON Web Key"
+             >previous</a> |</li>
+        <li><a href="../index.html">python-jose 0.2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Michael Davis.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

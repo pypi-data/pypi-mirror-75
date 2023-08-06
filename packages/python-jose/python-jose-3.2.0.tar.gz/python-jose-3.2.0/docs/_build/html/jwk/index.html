@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>JSON Web Key &mdash; python-jose 0.2.0 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="python-jose 0.2.0 documentation" href="../index.html" />
+    <link rel="next" title="JWS API" href="../jws/api.html" />
+    <link rel="prev" title="JSON Web Token" href="../jwt/index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../jws/api.html" title="JWS API"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../jwt/index.html" title="JSON Web Token"
+             accesskey="P">previous</a> |</li>
+        <li><a href="../index.html">python-jose 0.2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="json-web-key">
+<h1>JSON Web Key<a class="headerlink" href="#json-web-key" title="Permalink to this headline">¶</a></h1>
+<p>JSON Web Keys (JWK) are a JSON data structure representing a cryptographic key.</p>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="verifying-token-signatures">
+<h3>Verifying token signatures<a class="headerlink" href="#verifying-token-signatures" title="Permalink to this headline">¶</a></h3>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">jose</span> <span class="kn">import</span> <span class="n">jwk</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">jose.utils</span> <span class="kn">import</span> <span class="n">base64url_decode</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">token</span> <span class="o">=</span> <span class="s2">&quot;eyJhbGciOiJIUzI1NiIsImtpZCI6IjAxOGMwYWU1LTRkOWItNDcxYi1iZmQ2LWVlZjMxNGJjNzAzNyJ9.SXTigJlzIGEgZGFuZ2Vyb3VzIGJ1c2luZXNzLCBGcm9kbywgZ29pbmcgb3V0IHlvdXIgZG9vci4gWW91IHN0ZXAgb250byB0aGUgcm9hZCwgYW5kIGlmIHlvdSBkb24ndCBrZWVwIHlvdXIgZmVldCwgdGhlcmXigJlzIG5vIGtub3dpbmcgd2hlcmUgeW91IG1pZ2h0IGJlIHN3ZXB0IG9mZiB0by4.s0h6KThzkfBBBkLspW1h84VsJZFTsPPqMDA7g1Md7p0&quot;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hmac_key</span> <span class="o">=</span> <span class="p">{</span>
+<span class="go">    &quot;kty&quot;: &quot;oct&quot;,</span>
+<span class="go">    &quot;kid&quot;: &quot;018c0ae5-4d9b-471b-bfd6-eef314bc7037&quot;,</span>
+<span class="go">    &quot;use&quot;: &quot;sig&quot;,</span>
+<span class="go">    &quot;alg&quot;: &quot;HS256&quot;,</span>
+<span class="go">    &quot;k&quot;: &quot;hJtXIZ2uSN5kbQfbtTNWbpdmhkV8FJG-Onbc6mxCcYg&quot;</span>
+<span class="go">}</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">key</span> <span class="o">=</span> <span class="n">jwk</span><span class="o">.</span><span class="n">construct</span><span class="p">(</span><span class="n">hmac_key</span><span class="p">)</span>
+<span class="go">&gt;&gt;&gt;</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">message</span><span class="p">,</span> <span class="n">encoded_sig</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">decoded_sig</span> <span class="o">=</span> <span class="n">base64url_decode</span><span class="p">(</span><span class="n">encoded_sig</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">key</span><span class="o">.</span><span class="n">verify</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">decoded_sig</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="note">
+<h2>Note<a class="headerlink" href="#note" title="Permalink to this headline">¶</a></h2>
+<p>python-jose requires the use of public keys, as opposed to X.509 certificates.  If you have an X.509 certificate that you would like to convert to a public key that python-jose can consume, you can do so with openssl.</p>
+<div class="code bash highlight-python"><div class="highlight"><pre><span></span>&gt; openssl x509 -pubkey -noout &lt; cert.pem
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">JSON Web Key</a><ul>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#verifying-token-signatures">Verifying token signatures</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#note">Note</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../jwt/index.html"
+                        title="previous chapter">JSON Web Token</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../jws/api.html"
+                        title="next chapter">JWS API</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="../_sources/jwk/index.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="right" >
+          <a href="../jws/api.html" title="JWS API"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../jwt/index.html" title="JSON Web Token"
+             >previous</a> |</li>
+        <li><a href="../index.html">python-jose 0.2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2015, Michael Davis.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
