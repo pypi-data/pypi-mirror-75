@@ -1,0 +1,4 @@
+[console_scripts]
+initmigrate = sample.init:main
+runmyserver = sample.run:main
+
