@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: Input-Tools
+Version: 1.0
+Summary: A Python Package to easily simulate input events
+Home-page: https://github.com/Ahaan123/InputTools
+Author: Ahaan Pandya
+License: MIT
+Description: # Input-Tools
+        
+        This package can be used to simulate any sort of input event
+        
+        ## Usage
+        
+        This is an example of simulating a left mouse click-
+        
+        left_click_mouse()
+        
+        Note- This package only works with Python 3
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
