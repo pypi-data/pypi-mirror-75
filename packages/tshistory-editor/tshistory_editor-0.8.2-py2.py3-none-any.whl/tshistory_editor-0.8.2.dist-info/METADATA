@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: tshistory-editor
+Version: 0.8.2
+Summary: Web tool to edit time series
+Home-page: https://hg.sr.ht/~pythonian/tshistory_editor
+Author: Pythonian
+Author-email: arnaud.campeas@pythonian.fr, aurelien.campes@pythonian.fr
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Database
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development :: Version Control
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Description-Content-Type: text/markdown
+Requires-Dist: flask
+Requires-Dist: tshistory-supervision
+Requires-Dist: plotly (==4.9.0)
+Requires-Dist: dash (==1.13.4)
+Requires-Dist: dash-core-components (==1.10.1)
+Requires-Dist: dash-renderer (==1.5.1)
+Requires-Dist: dash-html-components (==1.0.3)
+Requires-Dist: dash-table (==4.8.1)
+
+TSHISTORY EDITOR
+=================
+
+This is a [tshistory][tshistory] plugin which provides a flask blueprint
+to allow series edition.
+
+[tshistory]: https://hg.sr.ht/~pythonian/tshistory
+
+This provides a browser for time series, allowing online edition of
+values.  If the [tshistory_formula][tshistory_formula] component is
+installed, formula components will also be shown.
+
+[tshistory_formula]: https://hg.sr.ht/~pythonian/tshistory_formula
+
+
+Basic edition abilities:
+
+![editor](editor.png)
+
+Formula display:
+
+![editor formula](editor_alias.png)
+
+
+
