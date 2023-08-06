@@ -1,0 +1,139 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/empty.proto";
+
+
+import "organization.proto";
+import "account.proto";
+import "billing.proto";
+import "common.proto";
+import "conversation.proto";
+import "collaboration.proto";
+
+option java_package = "io.calixa.domain.event";
+option java_multiple_files = true;
+option optimize_for = SPEED;
+
+package calixa.domain.event;
+
+enum EventType {
+    EVENT_TYPE_UNSPECIFIED = 0;
+    CREATED = 1;
+    UPDATED = 2;
+    DELETED = 3;
+}
+
+message Entity {
+
+    // These fields have been removed from the Proto. See the "oneof" block
+    // below.
+    reserved 103, 104;
+
+    oneof entity {
+        calixa.domain.organization.Organization organization = 1;
+        calixa.domain.organization.OrganizationUser organization_user = 2;
+        calixa.domain.organization.PushNotificationConfig push_notification_config = 3;
+        calixa.domain.organization.AccessKey access_key = 4;
+
+        calixa.domain.collaboration.Thread note_thread = 50;
+        calixa.domain.collaboration.Message note_message = 51;
+
+        calixa.domain.account.Account account = 100;
+        calixa.domain.account.AccountUser account_user = 101;
+        calixa.domain.account.AccountUserRole account_user_role = 102;
+
+        // The following fields have been removed:
+        //   calixa.domain.account.AccountUserAssociation account_user_association = 103;
+        //   calixa.domain.account.AccountAssociation account_association = 104;
+        //
+        // EntityAssociationMutation should be used instead.
+
+        calixa.domain.billing.Invoice invoice = 200;
+        calixa.domain.billing.Product product = 201;
+        calixa.domain.billing.Plan plan = 202;
+        calixa.domain.billing.Subscription subscription = 203;
+        calixa.domain.billing.InvoiceLineItem invoice_line_item = 204;
+        calixa.domain.billing.SubscriptionItem subscription_item = 205;
+        calixa.domain.billing.Charge charge = 206;
+        calixa.domain.billing.SavedPaymentMethod saved_payment_method = 207;
+        calixa.domain.billing.Refund refund = 208;
+
+        calixa.domain.conversation.Conversation conversation = 300;
+        calixa.domain.conversation.Message message = 301;
+        calixa.domain.conversation.Attachment attachment = 302;
+        calixa.domain.conversation.LatestMessage latest_message = 303;
+    }
+}
+
+message AssociationMetadata {
+    oneof metadata {
+        calixa.domain.account.AccountUserRole account_user_role = 1;
+    }
+}
+
+// Represents bidirectional association between two entities (such as when a user is added to
+// an account).
+message EntityAssociationMutation {
+    Entity entity1 = 1;
+    Entity entity2 = 2;
+
+    // previous association
+    AssociationMetadata previous = 3;
+
+    // current association
+    AssociationMetadata current = 4;
+}
+
+message EntityMutation {
+    // The previous state of the entity (if any). For DELETED events, this contains the previous
+    // state of an entity before it was deleted.
+    Entity previous = 8;
+
+    // The current state of the entity. For both CREATED or UPDATED events, this field captures the current
+    // state of the entity after all updates have been applied.
+    Entity current = 9;
+}
+
+// This message is only a skeleton for now. Events are immutable so they do not contain an "updated_at" field.
+message Event {
+    string organization_id = 1;
+    string event_id = 2;
+    google.protobuf.Timestamp created_at = 3;
+
+    calixa.domain.common.RequestContext request_context = 5;
+
+    // The following fields describe the nature of the event
+    EventType type = 6;
+    google.protobuf.FieldMask update_mask = 7;
+
+    oneof mutation {
+        EntityMutation entity = 8;
+        EntityAssociationMutation association = 9;
+    }
+}
+
+service EventService {
+    rpc Evince (Event) returns (EvinceResponse);
+    rpc EvinceBatch (EventList) returns (EvinceResponse);
+}
+
+service EventLogService {
+    rpc GetEvents (GetEventsRequest) returns (stream Event);
+}
+
+message GetEventsRequest {
+    string organization_id = 1;
+
+    // TODO(freds): Consider adding query params to limit time range (i.e. from and to timestamps)
+    //              as well as filters on event sources.
+}
+
+message EventList {
+    repeated Event events = 1;
+}
+
+message EvinceResponse {
+    // Intentionally left blank
+}
