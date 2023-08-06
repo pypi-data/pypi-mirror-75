@@ -1,0 +1,13 @@
+zc.buildout
+zc.recipe.egg
+django>=1.8
+
+[gunicorn]
+gunicorn
+
+[nose]
+django_nose
+
+[pytest]
+pytest
+pytest-django
