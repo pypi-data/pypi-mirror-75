@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: pysnobal
+Version: 0.2.1
+Summary: Take 2 for pysnobal in pure python
+Home-page: https://github.com/scotthavens/pysnobal
+Author: USDA ARS Northwest Watershed Research Center
+Author-email: snow@ars.usda.gov
+License: CC0 1.0
+Keywords: pysnobal
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: CC0 1.0 Universal (CC0 1.0) Public Domain Dedication
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (<1.19.0)
+Requires-Dist: inicheck
+Requires-Dist: pandas
+Requires-Dist: pytz
+Requires-Dist: setuptools-scm (<4.2)
+
+# PySnobal
+
+Python implemenation of the Snobal model at a point or over a grid. This package has converted all the original C code to Python.
+
+## Todo
+
+Lots
+
+
