@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        version-upper=version_upper:cli
+    
