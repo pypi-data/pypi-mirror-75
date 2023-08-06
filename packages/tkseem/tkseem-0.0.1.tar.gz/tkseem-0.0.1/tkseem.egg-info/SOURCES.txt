@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.py
+tkseem/__init__.py
+tkseem/test.py
+tkseem/tokenizers.py
+tkseem/util.py
+tkseem.egg-info/PKG-INFO
+tkseem.egg-info/SOURCES.txt
+tkseem.egg-info/dependency_links.txt
+tkseem.egg-info/not-zip-safe
+tkseem.egg-info/requires.txt
+tkseem.egg-info/top_level.txt
+tkseem/dictionaries/cached.pl
+tkseem/dictionaries/normalization_dictionary.pl
+tkseem/dictionaries/vocab.pl
