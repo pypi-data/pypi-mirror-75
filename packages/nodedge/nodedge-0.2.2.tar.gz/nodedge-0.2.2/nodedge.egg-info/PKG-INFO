@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: nodedge
+Version: 0.2.2
+Summary: Graphical editor for physical modeling and simulation.
+Home-page: https://www.nodedge.io
+Author: Anthony De Bortoli
+Author-email: anthony.debortoli@nodedge.io
+License: MIT
+Description: =======
+        Nodedge
+        =======
+        Graphical editor for physical modeling and simulation.
+        https://www.nodedge.io
+        
+        .. image:: https://badge.fury.io/py/nodedge.svg
+           :target: https://badge.fury.io/py/nodedge
+           :alt: PyPI - Nodedge Version
+        
+        .. image:: https://img.shields.io/pypi/pyversions/nodedge
+           :target: https://badge.fury.io/py/nodedge
+           :alt: PyPI - Python Version
+        
+        .. image:: https://img.shields.io/badge/license-GPL3.0-blue.svg?style=flat
+           :target: https://choosealicense.com/licenses/gpl-3.0/
+           :alt: License
+        
+        .. image:: https://travis-ci.org/nodedge/nodedge.svg?branch=master
+           :target: https://travis-ci.org/nodedge/nodedge
+           :alt: Test Status
+        
+        .. image:: https://codecov.io/gh/nodedge/nodedge/branch/master/graph/badge.svg
+           :target: https://codecov.io/gh/nodedge/nodedge
+           :alt: Test Coverage
+        
+        .. image:: https://readthedocs.org/projects/nodedge/badge/?version=latest
+           :target: https://nodedge.readthedocs.io/en/latest/?badge=latest
+           :alt: Documentation Status
+        
+        .. image:: https://img.shields.io/badge/code%20style-black-000000.svg
+           :target: https://github.com/psf/black
+           :alt: Code Style
+        
+        
+        How to install
+        --------------
+        :code:`pip install nodedge`
+        
+        
+        
+        =======
+        History
+        =======
+        
+        0.1.0 (2019-12-12)
+        ------------------
+        * First release as a library
+        
+        0.2.0 (2020-01-06)
+        ------------------
+        * First implementation of calculator functions
+        
+        0.2.1 (2020-03-22)
+        ------------------
+        * Cleaning and add documentation
+        
+        0.2.2 (2020-08-02)
+        ------------------
+        * Improve style.
+        * Add history dock widget.
+        * Add scene items dock widget.
+        * Fix crash after edge deletion.
+        
+        
+        
+        
+        
+Keywords: nodedge,editor,graphical-programming,simulation,physical-modeling,control-systems,dynamic-systems,python3,qt5,pyside2,platform-indenpendent,windows,linux,macos
+Platform: Windows
+Platform: Linux
+Platform: Mac OS-X
+Platform: Unix
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
