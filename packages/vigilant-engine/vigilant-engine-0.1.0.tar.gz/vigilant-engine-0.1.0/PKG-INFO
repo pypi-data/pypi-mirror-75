@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: vigilant-engine
+Version: 0.1.0
+Summary: A Monopoly-like engine for making games.
+Home-page: https://github.com/AxisAndAllies/vigilant-engine
+Author: Awesome Soul
+Author-email: business@nurascene.com
+License: MIT
+Description: 
+        ![img](docs/logo.png)
+        
+        # Vigilant
+        
+        A game like Monopoly
+        
+        
+        ## Developing
+        
+        First, install a local copy
+        
+            pip install .
+        
+        You can run `test.py`
+        
+            make run
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown

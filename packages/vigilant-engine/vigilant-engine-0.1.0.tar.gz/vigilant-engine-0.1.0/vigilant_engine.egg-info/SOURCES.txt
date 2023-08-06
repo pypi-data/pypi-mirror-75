@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+vigilant/__init__.py
+vigilant/__version__.py
+vigilant/board.py
+vigilant/dice.py
+vigilant/game.py
+vigilant/player.py
+vigilant/property_list.json
+vigilant_engine.egg-info/PKG-INFO
+vigilant_engine.egg-info/SOURCES.txt
+vigilant_engine.egg-info/dependency_links.txt
+vigilant_engine.egg-info/requires.txt
+vigilant_engine.egg-info/top_level.txt
