@@ -1,0 +1,23 @@
+%YAML 1.1
+---
+$schema: "http://stsci.edu/schemas/yaml-schema/draft-01"
+id: "http://weldx.bam.de/schemas/weldx/stromquelle-1.0.0"
+tag: "tag:weldx.bam.de:weldx/stromquelle-1.0.0"
+
+title: stromquelle
+
+type: object
+properties:
+  name: string
+  model: string
+  serial: int
+  p1:
+    $ref: "tag:xarray-1.0.0"
+  p2: # strom
+    $ref: "tag:measurement-1.0.0"
+    dimension: "current"
+
+required: [frac,arr]
+additionalProperties: true
+dimension_p2: "current"
+...
