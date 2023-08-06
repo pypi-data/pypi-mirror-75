@@ -1,0 +1,3 @@
+[console_scripts]
+arbin_echem_tools = arbin_echem_tools.cli:main
+
