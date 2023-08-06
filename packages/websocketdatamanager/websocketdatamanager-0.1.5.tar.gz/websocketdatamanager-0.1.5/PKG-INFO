@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: websocketdatamanager
+Version: 0.1.5
+Summary: Websocket data manager, from rmq to ws
+Home-page: https://gitlab.com/pineiden/websocketsoftware
+Author: David Pineda Osorio
+Author-email: dpineda@csn.uchile.cl
+License: GPLv3
+Description: Websocket Data Manager
+        ========================
+        
+        Este módulo permite administrar datos provenientes de canales websockets, y gestionarlos
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
