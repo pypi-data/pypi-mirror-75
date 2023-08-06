@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: wigrad
+Version: 1.6
+Summary: Caclulates the spectral-angular distribution of the number of photons emitted by one electron in a wiggler
+Home-page: https://github.com/IharLobach/wigrad.git
+Author: Ihar Lobach
+Author-email: ilobach@uchicago.edu
+License: MIT
+Download-URL: https://github.com/IharLobach/wigrad/archive/v1.6.tar.gz
+Description: UNKNOWN
+Keywords: wiggler,undulator,spectrum
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
