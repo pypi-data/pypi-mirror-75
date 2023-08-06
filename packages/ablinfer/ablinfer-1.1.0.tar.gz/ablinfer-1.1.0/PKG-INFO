@@ -1,0 +1,12 @@
+Metadata-Version: 1.2
+Name: ablinfer
+Version: 1.1.0
+Summary: Library for dispatching medical images to registration and segmentation toolkits.
+Home-page: https://github.com/Auditory-Biophysics-Lab/ablinfer
+Author: Ben Connors
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.3
