@@ -1,0 +1,18 @@
+include *.txt
+
+include docs/Makefile
+include docs/make.bat
+include docs/source/conf.py
+include docs/source/flask_redoc.rst
+include docs/source/index.rst
+include docs/source/modules.rst
+
+recursive-include example *
+
+recursive-include flask_redoc/templates *
+recursive-include flask_redoc/static/js *
+
+recursive-include tests *.json
+recursive-include tests *.py
+recursive-include tests *.yml
+
