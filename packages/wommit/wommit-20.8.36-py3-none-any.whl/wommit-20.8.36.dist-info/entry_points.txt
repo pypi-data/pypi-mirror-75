@@ -1,0 +1,6 @@
+[console_scripts]
+commit=wommit.cli:c
+shapeit=wommit.cli:cli
+wmt=wommit.cli:c
+wommit=wommit.cli:cli
+
