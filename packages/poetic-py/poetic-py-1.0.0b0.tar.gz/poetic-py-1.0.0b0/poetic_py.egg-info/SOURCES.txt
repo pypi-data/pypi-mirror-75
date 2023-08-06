@@ -1,0 +1,15 @@
+MANIFEST.in
+README.txt
+setup.py
+poetic/__init__.py
+poetic/__main__.py
+poetic/gui.py
+poetic/predictor.py
+poetic/results.py
+poetic/util.py
+poetic/data/word_dictionary_complete.txt
+poetic_py.egg-info/PKG-INFO
+poetic_py.egg-info/SOURCES.txt
+poetic_py.egg-info/dependency_links.txt
+poetic_py.egg-info/requires.txt
+poetic_py.egg-info/top_level.txt
