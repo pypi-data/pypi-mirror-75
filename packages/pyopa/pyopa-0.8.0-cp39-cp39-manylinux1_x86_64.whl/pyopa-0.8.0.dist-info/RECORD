@@ -1,0 +1,16 @@
+pyopa/aligner.py,sha256=QA2RhiNbTCSF5yRNBr30geGjunhoGsCLfeFs0_oT8hI,1735
+pyopa/__init__.py,sha256=7tGoqH65wb7ZMPZ5c8FHLsrEzP8uRWwVHuG4bDc0vZc,169
+pyopa/matrices/jtt.dat,sha256=wI0_LQE5UCn_miZhf97D-OW6ZfuNxWemirHt8oNr0E0,2960
+pyopa/matrices/json/logPAM1_unscaled.json,sha256=jGpqk8a0Uf2p41jOs1we1PCP5NZ5IPGk87_LlhHw6Ks,8382
+pyopa/matrices/json/logPAM1.json,sha256=f3Y3mU0a3ENI5LChGhSG6Swf1WqkM9JbR-gqGhrdaUo,9510
+pyopa/matrices/json/all_matrices.json,sha256=06QhtfHhd2W_5TCu6JXeKls6naMYYdxyIOE8KwMAz4E,10824093
+pyopa/backend/pyopa.cpython-39-x86_64-linux-gnu.so,sha256=is2qnLk7xu3nnnkCY_OacqFDm1LmFOpScF0cI9BW30A,1696240
+pyopa/backend/cpyopa.pxd,sha256=RoPcWA-iqKNfWXRsJLqNJjzwQ-C0nVHfw5yCrY_LYp4,2445
+pyopa/backend/pyopa.pyx,sha256=b6GHBDhRHEitZcRgahTl-G_zgi9NYgc20qel13J4Yjk,27607
+pyopa/backend/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+pyopa/backend/pyopa.c,sha256=-hw02H1BlVLoMU3kTaG8IqRXHXIjHSBZnprrdK1yDNs,1034935
+pyopa-0.8.0.dist-info/WHEEL,sha256=MPzLoODanKXQG5ZYPOvHn6Z_wVzQEe1kTJVxw9nhrDM,108
+pyopa-0.8.0.dist-info/top_level.txt,sha256=utnj_HVbWklBWNiZzpqxC7RRpQA_tfABbQGfs1MSRgQ,6
+pyopa-0.8.0.dist-info/RECORD,,
+pyopa-0.8.0.dist-info/LICENSE,sha256=HyVuytGSiAUQ6ErWBHTqt1iSGHhLmlC8fO7jTCuR8dU,16725
+pyopa-0.8.0.dist-info/METADATA,sha256=IxrcIQZHnFzD9fDECP4wbN74qOB3f0Ys3xeIvktWJMY,2014
