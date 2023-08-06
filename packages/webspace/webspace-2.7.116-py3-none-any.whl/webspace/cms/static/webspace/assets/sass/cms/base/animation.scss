@@ -1,0 +1,42 @@
+@mixin keyframes($name) {
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
+  @-moz-keyframes #{$name} {
+    @content;
+  }
+  @-ms-keyframes #{$name} {
+    @content;
+  }
+  @keyframes #{$name} {
+    @content;
+  }
+}
+
+/* Fade Up */
+
+.fade-up {
+  opacity: 0;
+  transform: translate3d(0,40px,0)
+}
+
+.fade-up.start {
+  opacity: 1;
+  transform: translate3d(0,0,0);
+  animation: fadeIn ease 2s;
+  -webkit-animation: fadeIn ease 2s;
+  -moz-animation: fadeIn ease 2s;
+  -o-animation: fadeIn ease 2s;
+  -ms-animation: fadeIn ease 2s;
+}
+
+@include keyframes(fadeIn) {
+  0% {
+    opacity: 0;
+    transform: translate3d(0,40px,0)
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0,0,0);
+  }
+}
