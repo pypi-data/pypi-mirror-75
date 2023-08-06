@@ -1,0 +1,178 @@
+{% extends "layout/control.html" %}
+
+{% block title %}我的视频{% endblock %}
+
+{% block content %}
+<div class="layui-container">
+    <table id="waterfall" lay-filter="waterfall"></table>
+</div>
+{% endblock %}
+
+{% block script %}
+{% raw %}
+<script type="text/html" id="toolbar">
+    <div class="layui-inline">
+        <input type="text" id="title" placeholder="视频标题" autocomplete="off" class="layui-input"
+            style="height:26px;width:auto;margin-left:0px">
+    </div>
+    <a class="layui-btn layui-btn-xs" id="choose"><i class="layui-icon layui-icon-add-1"></i>选择</a>
+    <a class="layui-btn layui-btn-xs" id="upload"><i class="layui-icon layui-icon-upload-drag"></i>上传</a>
+</script>
+<script type="text/html" id="action">
+    <a class="layui-btn layui-btn-xs" lay-event="play">播放</a>
+    <a class="layui-btn layui-btn-xs layui-btn-danger" lay-event="remove">删除</a>
+</script>
+{% endraw %}
+<script>
+    layui.use(['table', 'util', 'layer', 'upload', 'picbed'], function () {
+        var $ = layui.jquery,
+            table = layui.table,
+            layer = layui.layer,
+            upload = layui.upload,
+            picbed = layui.picbed,
+            util = layui.util;
+
+        function resize_window() {
+            if(document.createEvent) {
+                var event = document.createEvent("HTMLEvents");
+                event.initEvent("resize", true, true);
+                window.dispatchEvent(event);
+            } else if(document.createEventObject) {
+                window.fireEvent("onresize");
+            }
+        }
+
+        function render_upload() {
+            upload.render({
+                elem: "#choose",
+                url: '{{ url_for("api.ep", Object="picbed-video", Action="upload")|safe }}',
+                data: {
+                    title: function () {
+                        return $('#title').val();
+                    }
+                },
+                exts: 'mp4|ogg|ogv|webm|3gp',
+                accept: 'video',
+                acceptMime: 'video/mp4,video/ogg,video/webm,video/3gpp,video/quicktime',
+                auto: false,
+                bindAction: "#upload",
+                field: 'picbed',
+                size: 1024 * 10,
+                multiple: false,
+                drag: true,
+                before: function(obj) {
+                    layer.load();
+                },
+                done: function (res) {
+                    layer.closeAll('loading');
+                    if (res.code === 0) {
+                        layer.msg("上传成功", {icon: 1, time: 1000}, function() {
+                            wt.reload();
+                        });
+                    } else {
+                        layer.msg(res.msg, {icon: 2});
+                    }
+                },
+            });
+        }
+
+        var wt = table.render({
+            elem: '#waterfall',
+            url: '{{ url_for("api.ep", Object="picbed-video", Action="waterfall")|safe }}',
+            method: 'post',
+            page: true,
+            skin: 'line',
+            size: 'sm',
+            toolbar: '#toolbar',
+            cols: [
+                [{
+                        field: 'sha',
+                        fixed: 'left',
+                        hide: true,
+                    }, {
+                        field: 'filename',
+                        title: '文件名',
+                    }, {
+                        field: 'sender',
+                        title: '存储在',
+                        hide: true,
+                    }, {
+                        field: 'title',
+                        title: '标题',
+                    }, {
+                        field: 'ctime',
+                        title: '创建时间',
+                        width: 180,
+                        templet: function (d) {
+                            return util.toDateString(parseInt(d.ctime) * 1000);
+                        }
+                    },
+                    {
+                        fixed: 'right',
+                        width: 120,
+                        align: 'left',
+                        toolbar: '#action'
+                    }
+                ]
+            ],
+            done: function () {
+                render_upload();
+            }
+        });
+
+        table.on('tool(waterfall)', function (obj) {
+            var data = obj.data;
+            var layEvent = obj.event;
+            var tr = obj.tr;
+            if (layEvent === 'play') {
+                layer.open({
+                    type: 1,
+                    title: false,
+                    area: '400px',
+                    maxHeight: parseInt(document.documentElement.clientHeight * 0.8) + 'px',
+                    maxmin: true,
+                    shade: 0.1,
+                    closeBtn: false,
+                    shadeClose: true,
+                    scrollbar: true,
+                    resize: false,
+                    content: '<video src="' + data.src + '" autoplay controls style="top:0; left:0; width:100%; height:100%">抱歉，您的浏览器不支持内嵌视频！</video>',
+                    success: function (layero, index) {
+                        layero[0].querySelector(".layui-layer-setwin .layui-layer-min").remove();
+                        layero[0].querySelector(".layui-layer-content").style.overflowY = "hidden";
+                        var v = layero[0].querySelector('video');
+                        v.onloadedmetadata = function(e) {
+                            var vWidth = v.videoWidth,
+                            vHieght = v.videoHeight;
+                            if (vWidth > 800) {
+                                vWidth = vWidth / 2;
+                                vHieght = vHieght / 2;
+                            }
+                            layer.style(index, {
+                                width: vWidth + 'px',
+                                height: vHieght + 'px',
+                            });
+                            resize_window();
+                        }
+                    }
+                });
+            } else if (layEvent === 'remove') {
+                layer.confirm('确认删除此视频？', {
+                    icon: 3,
+                    title: false,
+                    shade: 0.1
+                }, function (index) {
+                    layer.close(index);
+                    picbed.ajax('{{ url_for("api.ep", Object="picbed-video", Action="remove")|safe }}', function (res) {
+                        layer.msg("已删除", {icon: 1});
+                        obj.del();
+                    }, {
+                        method: 'POST',
+                        data: {sha: data.sha}
+                    });
+                });
+            }
+        });
+    });
+</script>
+{% endblock %}
