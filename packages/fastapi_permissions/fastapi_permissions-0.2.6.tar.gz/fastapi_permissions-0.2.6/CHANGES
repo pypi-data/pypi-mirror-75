@@ -1,0 +1,49 @@
+0.2.6 - OpenAPI Tests, Aug. 2020
+--------------------------------
+
+ - Changed the list based ACLs in the example app to catch errors in the test
+ - Added tests for the OpenAPI specification of the example app
+   This is a reaction to the "List Fix" problems I had and that were finally
+   resolved by William.
+
+
+0.2.5 - List Fix II, Jul. 2020
+------------------------------
+
+ - While providing a fix for ACLs as a list, another serious error was
+   introduced. Luckily William tried this out and provided a (hopefully)
+   final fix.
+
+
+0.2.4 - List Fix, Jul. 2020
+---------------------------
+
+ - When providing ACLs as a list, the permissions are now checked correctly
+   (Thanks to William for pointing out this issue)
+
+
+0.2.2 - Heartbeat, Feb. 2020
+----------------------------
+
+ - A quick reminder that this is not dead yet.
+ - Added pre-commit hook and isort for imports
+ - Some adjustments in the Makefile.
+
+
+0.2.1 - Depends
+---------------
+
+ - wrapping the result of permission_dependency_factory in Depends(),
+   simplifying the use in path operation functions
+
+
+0.2.0 - unpyramidify
+--------------------
+
+ - Removing some ideas borrowed from pyramid and some personal preference.
+
+
+0.1.0  - initial release
+------------------------
+
+ - First working implementation
