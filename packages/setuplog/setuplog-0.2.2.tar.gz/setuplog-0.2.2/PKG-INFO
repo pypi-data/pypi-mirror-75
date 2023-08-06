@@ -1,0 +1,50 @@
+Metadata-Version: 2.1
+Name: setuplog
+Version: 0.2.2
+Summary: 
+Home-page: https://github.com/schireson/setuplog
+License: MIT
+Keywords: logging,logger,log
+Requires-Python: >=3.6.0,<4
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Project-URL: Repository, https://github.com/schireson/setuplog
+Description-Content-Type: text/markdown
+
+![CircleCI](https://img.shields.io/circleci/build/gh/schireson/setuplog/master) [![codecov](https://codecov.io/gh/schireson/setuplog/branch/master/graph/badge.svg)](https://codecov.io/gh/schireson/setuplog) [![Documentation Status](https://readthedocs.org/projects/setuplog/badge/?version=latest)](https://setuplog.readthedocs.io/en/latest/?badge=latest)
+
+## The pitch
+
+Logging setup is one of those annoying things that one finds themselves relearning
+every time a new project is started.
+
+`setuplog` attempts to centralize, and simplify the set of decisions one needs to make
+when bootstrapping a project.
+
+```python
+# app.py
+from setuplog import setup_logging
+
+setup_logging(
+    log_level='INFO',
+    namespace='project_name',
+
+    # opt into {}-style formatting!
+    style='format',
+)
+
+# elsewhere
+from setuplog import log
+
+log.info('Info!')
+```
+
+## Installing
+
+```bash
+pip install "setuplog"
+```
+
