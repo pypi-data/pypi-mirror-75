@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: datakitchen-api-tools
+Version: 0.2.5
+Summary: Python libray for working with DataKitchen's API
+Home-page: https://github.com/
+Author: Armand Halbert
+Author-email: armand@datakitchen.io
+License: UNKNOWN
+Description: #Datakitchen API Tools
+        
+        Python library for interacting with the Datakitchen API
+        
+        ##Install
+        
+        `pip install datakitchen_api_tools` 
+        
+        ##Using the library
+        
+        ###Establishing a connection
+        
+        Create a DKConnection object:
+        
+        `conn = DKConnection("cloud.datakitchen.io", '<USERNAME>', '<PASSWORD>')`
+        
+        
+        ###Methods
+        
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
