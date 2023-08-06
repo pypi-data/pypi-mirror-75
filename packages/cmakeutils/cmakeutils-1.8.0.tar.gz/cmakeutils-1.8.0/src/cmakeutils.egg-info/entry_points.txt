@@ -1,0 +1,5 @@
+[console_scripts]
+cmake_compile = cmakeutils.cmake_compile:main
+cmake_setup = cmakeutils.cmake_setup:main
+ninja_setup = cmakeutils.ninja_setup:main
+

@@ -1,0 +1,15 @@
+LICENSE.txt
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+src/cmakeutils/__init__.py
+src/cmakeutils/cmake_compile.py
+src/cmakeutils/cmake_setup.py
+src/cmakeutils/ninja_setup.py
+src/cmakeutils.egg-info/PKG-INFO
+src/cmakeutils.egg-info/SOURCES.txt
+src/cmakeutils.egg-info/dependency_links.txt
+src/cmakeutils.egg-info/entry_points.txt
+src/cmakeutils.egg-info/requires.txt
+src/cmakeutils.egg-info/top_level.txt
