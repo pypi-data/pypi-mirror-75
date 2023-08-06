@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+src/flake8_assert_msg/__init__.py
+src/flake8_assert_msg/flake8_assert_msg.py
+src/flake8_assert_msg/version.py
+src/flake8_assert_msg.egg-info/PKG-INFO
+src/flake8_assert_msg.egg-info/SOURCES.txt
+src/flake8_assert_msg.egg-info/dependency_links.txt
+src/flake8_assert_msg.egg-info/entry_points.txt
+src/flake8_assert_msg.egg-info/requires.txt
+src/flake8_assert_msg.egg-info/top_level.txt
