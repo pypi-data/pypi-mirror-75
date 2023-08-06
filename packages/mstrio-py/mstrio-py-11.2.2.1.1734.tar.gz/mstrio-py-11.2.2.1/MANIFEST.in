@@ -1,0 +1,5 @@
+graft connector-jupyter
+prune tests
+prune sphinx
+include version.txt
+exclude check_python_version.sh

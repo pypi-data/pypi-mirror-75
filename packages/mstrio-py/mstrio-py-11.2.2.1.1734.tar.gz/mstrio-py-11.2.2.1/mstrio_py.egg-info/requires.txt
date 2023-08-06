@@ -1,0 +1,8 @@
+requests
+requests_futures
+pandas
+numpy>=1.18.1
+tqdm>=4.41.1
+jupyter_contrib_nbextensions>=0.5.1
+ipywidgets>=7.5.1
+packaging

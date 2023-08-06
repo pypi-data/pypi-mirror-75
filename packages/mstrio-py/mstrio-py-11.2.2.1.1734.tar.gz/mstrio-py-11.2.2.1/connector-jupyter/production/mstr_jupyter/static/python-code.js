@@ -1,0 +1,318 @@
+/* eslint-disable indent */
+define([], () => class PythonCode {
+  constructor(...args) {
+    if (args.length) {
+      if ('username' in args[0]) {
+        [
+          this.authenticationDetails,
+          this.dataframeDetails,
+          this.otherDetails,
+        ] = args;
+      } else if ('customEnvironment' in args[0]) {
+        [this.otherDetails] = args;
+      } else {
+        [
+          this.dataframeDetails,
+          this.otherDetails,
+        ] = args;
+      }
+    }
+  }
+
+
+  // code preparation functions
+  static code = { // static reference to available functions returning python code - for JupyterCell reference use
+    forInitialEngine: {
+      name: 'forInitialEngine',
+      required: 'otherDetails[customEnvironment]',
+    },
+    forApplyingStep: {
+      name: 'forApplyingStep',
+      required: 'otherDetails[customEnvironment]\nargs: step [Object]',
+    },
+    forCredentials: {
+      name: 'forCredentials',
+      required: 'authenticationDetails[user, password]',
+    },
+    forImport: {
+      name: 'forImport',
+      arguments: 'includeCredentials = false',
+      required: 'authenticationDetails[user, password, envUrl, loginMode]\ndataframeDetails[name, projectId, datasetType, datasetId, body]',
+    },
+    forExport: {
+      name: 'forExport',
+      arguments: 'includeCredentials = false',
+      required: 'authenticationDetails[user, password, envUrl, loginMode]\ndataframeDetails[projectId, selectedDataframes]\notherDetails[saveAsName, description, certify, folderId, customEnvironment]',
+    },
+    forUpdate: {
+      name: 'forUpdate',
+      arguments: 'includeCredentials = false',
+      required: 'authenticationDetails[user, password, envUrl, loginMode]\ndataframeDetails[projectId, datasetId]\notherDetails[updatePolicies, customEnvironment]',
+    },
+    forGettingDataframesNames: {
+      name: 'forGettingDataframesNames',
+      required: 'none',
+    },
+    forGettingKernelInfo: {
+      name: 'forGettingKernelInfo',
+      required: 'none',
+    },
+    forGettingPackageVersionNumber: {
+      name: 'forGettingPackageVersionNumber',
+      required: 'none',
+    },
+    forGettingDataframeData: {
+      name: 'forGettingDataframeData',
+      required: 'dataframeDetails[name]\n(optional)otherDetails[rows]',
+    },
+    forModelingGatheredData: {
+      name: 'forModelingGatheredData',
+      required: 'dataframeDetails[name]\n(optional)otherDetails[rows]',
+    },
+    forDataframeColumnsSelection: {
+      name: 'forDataframeColumnsSelection',
+      required: 'dataframeDetails[selectedObjects, name]\notherDetails[customEnvironment]',
+    },
+  }
+
+  static capitalize = (string) => (
+    !string
+      ? ''
+      : string.charAt(0).toUpperCase() + string.slice(1)
+  )
+
+  static oneLine = (multilinePythonCode) => (
+    !multilinePythonCode
+      ? ''
+      : multilinePythonCode.trim()
+        .replace(/\n/gi, ' ')
+        .replace(/\s{2,}/gi, ' ')
+  )
+  // ---
+
+  generateConnectionCode = (forEndUser = false, datasetType) => {
+    const { url, loginMode, identityToken } = this.authenticationDetails;
+    const { projectId } = this.dataframeDetails;
+    const importCode = `
+from mstrio.connection import Connection
+from mstrio.${datasetType.toLowerCase()} import ${datasetType}
+from getpass import getpass
+`.trim();
+
+    const credentialsCode = forEndUser
+? `
+mstr_username = input("Username: ")
+mstr_password = getpass("Password: ")
+mstr_login_mode = ${loginMode}
+`.trim()
+: `
+mstr_identity_token = "${identityToken}"
+`.trim();
+
+    const authCode = `
+mstr_base_url = "${url}"
+mstr_project_id = "${projectId}"
+${credentialsCode}
+`.trim();
+
+    const connectionCode = forEndUser
+      ? 'mstr_connection = Connection(mstr_base_url, mstr_username, mstr_password, project_id=mstr_project_id, login_mode=mstr_login_mode, verbose=False)'
+      : 'mstr_connection = Connection(mstr_base_url, project_id=mstr_project_id, identity_token=mstr_identity_token, verbose=False)';
+
+    return `${importCode}\n\n${authCode}\n\n${connectionCode}`;
+  }
+
+
+  forInitialEngine = () => {
+    const { customEnvironment } = this.otherDetails;
+
+    return (`
+import pandas as pd
+
+def create_custom_env():
+    output={}
+    for el in globals().keys():
+        if el[0]!='_' and isinstance(globals()[el], pd.core.frame.DataFrame):
+            output[el] = globals()[el]
+    return output
+
+
+def update_custom_env():
+    global ${customEnvironment}
+    new_${customEnvironment} = ${customEnvironment}
+    for el in globals().keys():
+        if el[0]!='_' and isinstance(globals()[el], pd.core.frame.DataFrame) and not el in new_${customEnvironment}.keys():
+            new_${customEnvironment}[el] = globals()[el]
+    return new_${customEnvironment}
+    `).trim();
+  }
+
+  forImport = (forEndUser = false) => {
+    const { name, datasetType, datasetId, body: { attributes, metrics, filters }, instanceId } = this.dataframeDetails;
+
+    const variableName = `${/\d/gi.test(name[0]) ? 'var_' : ''}${
+      name
+        .replace(/ /gi, '_')
+        .replace(/[^A-Za-z0-9_]/gi, '')
+    }`;
+
+    const datasetTypeFirstUp = PythonCode.capitalize(datasetType);
+    const connectionCode = this.generateConnectionCode(forEndUser, datasetTypeFirstUp);
+    const instanceIdCode = forEndUser ? '' : `, ${instanceId ? `"${instanceId}"` : 'None'}`;
+
+    const applyFiltersContent = attributes.length + metrics.length + filters.length === 0
+      ? 'attributes = None, metrics = None, attr_elements = None'
+      : PythonCode.oneLine(`
+attributes = ${JSON.stringify(attributes)},
+metrics = ${JSON.stringify(metrics)},
+attr_elements = ${filters.length > 0 ? JSON.stringify(filters) : 'None'}
+`);
+
+    return (`
+# Import ${name} ${datasetTypeFirstUp} from MicroStrategy
+${connectionCode}
+
+${variableName} = ${datasetTypeFirstUp}(mstr_connection, "${datasetId}"${instanceIdCode})
+${variableName}.apply_filters(${applyFiltersContent})
+${variableName}.to_dataframe()
+${variableName}_df = ${variableName}.dataframe
+
+${variableName}_df
+    `).trim();
+  }
+
+
+  forExport = (forEndUser = false) => {
+    const { selectedDataframes } = this.dataframeDetails;
+    const { saveAsName, description, certify, folderId, customEnvironment } = this.otherDetails;
+
+    const tablesCode = selectedDataframes.map(({ name, attributes, metrics }) => PythonCode.oneLine(`
+mstr_dataset.add_table(name="${name}",
+  data_frame=${customEnvironment}['${name}'],
+  update_policy="add",
+  to_metric=${metrics.length ? JSON.stringify(metrics) : 'None'},
+  to_attribute=${attributes.length ? JSON.stringify(attributes) : 'None'})
+`))
+    .join('\n');
+
+    const connectionCode = this.generateConnectionCode(forEndUser, 'Dataset');
+
+    return (`
+# Export ${saveAsName} Dataset to MicroStrategy
+${connectionCode}
+
+mstr_dataset = Dataset(mstr_connection, name="${saveAsName}"${description ? `, description="${description}"` : ''})
+${tablesCode}
+mstr_dataset.create(folder_id="${folderId}")
+${certify ? 'mstr_dataset.certify()' : ''}
+    `).trim();
+  }
+
+
+  forUpdate = (forEndUser = false) => {
+    const { datasetId, datasetName } = this.dataframeDetails;
+    const { updatePolicies, customEnvironment } = this.otherDetails;
+
+    const connectionCode = this.generateConnectionCode(forEndUser, 'Dataset');
+    const tables = updatePolicies.map(({ tableName, updatePolicy }) => (
+      PythonCode.oneLine(`mstr_dataset.add_table(name="${tableName}",
+        data_frame=${customEnvironment}['${tableName}'],
+        update_policy="${updatePolicy}")`)));
+
+    return (`
+# Update ${datasetName} Dataset at MicroStrategy
+${connectionCode}
+
+mstr_dataset = Dataset(mstr_connection, dataset_id="${datasetId}")
+${tables.join('\n')}
+
+mstr_dataset.update()
+    `).trim();
+  }
+
+
+  forGettingDataframesNames = () => (`
+import pandas as pd
+
+dataframe_names=[]
+for el in dir():
+  if isinstance(locals()[el], pd.core.frame.DataFrame) and el[0]!='_':
+      dataframe_names.append(el)
+
+import_string = ""
+for df_name in dataframe_names:
+  import_string += '{"name":"' + df_name + '","rows":' + str(eval(df_name + '.shape[0]')) + ',"columns":' + str(eval(df_name + '.shape[1]')) + '},'
+
+"[" + import_string[0:len(import_string) - 1] + "]"
+  `).trim()
+
+  // TODO: recreate information about path to Python
+  // Windows: !where python
+  // UNIX: !which python
+  forGettingKernelInfo = () => (`
+i1 = !jupyter --version
+i2 = !python --version
+${PythonCode.oneLine(`
+'{"Jupyter Version":"' + str(i1[0]).replace(" ", "").replace(",", " - ").replace("\\\\", "").replace("'", "") +
+'","Python Version":"' + str(i2[0]).replace("\\\\", "").replace("'", "") + '"}'
+`)}
+  `).trim();
+
+  forGettingPackageVersionNumber = () => (`
+pip show mstrio-py
+  `).trim();
+
+
+  forGettingDataframeData = () => {
+    const { name } = this.dataframeDetails;
+    const { rows = 10 } = (this.otherDetails || {});
+
+    return `${name}[:${rows}].to_json(orient='records')`;
+  }
+
+
+  forModelingGatheredData = () => {
+    const { name } = this.dataframeDetails;
+    const { rows = 10 } = (this.otherDetails || {});
+
+    return (`
+from mstrio.utils.model import Model
+
+arg_for_model = [{'table_name': 'selected_df', 'data_frame': ${name}[:${rows}]}]
+model = Model(tables=arg_for_model, name='preview_table_types', ignore_special_chars=True)
+
+model.get_model()
+    `).trim();
+  }
+
+
+  forDataframeColumnsSelection = () => {
+    const { selectedObjects, name } = this.dataframeDetails;
+    const { customEnvironment } = this.otherDetails;
+
+    return (`
+cols_to_leave = ${JSON.stringify(selectedObjects)}
+final_cols = [name for name in ${customEnvironment}['${name}'].columns if name not in cols_to_leave]
+${customEnvironment}['${name}'] = ${customEnvironment}['${name}'].drop(columns=final_cols)
+    `).trim();
+  }
+
+
+  forApplyingStep = (step) => {
+    const { customEnvironment } = this.otherDetails;
+    const { type, oldName, newName, dfName = '' } = step;
+
+    switch (type) {
+      case 'RENAME_DF':
+        return (`
+${customEnvironment}['${newName}'] = ${customEnvironment}['${oldName}']
+del ${customEnvironment}['${oldName}']
+        `).trim();
+      case 'RENAME_OBJ':
+        return (`
+${customEnvironment}['${dfName}'] = ${customEnvironment}['${dfName}'].rename(columns = {'${oldName}': '${newName}'})
+        `).trim();
+      default: return '';
+    }
+  }
+});
