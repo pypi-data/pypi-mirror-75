@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.py
+mictools/__init__.py
+mictools/mtest.py
+mictools/null.py
+mictools/pval.py
+mictools/strength.py
+mictools/utils.py
+mictools.egg-info/PKG-INFO
+mictools.egg-info/SOURCES.txt
+mictools.egg-info/dependency_links.txt
+mictools.egg-info/entry_points.txt
+mictools.egg-info/requires.txt
+mictools.egg-info/top_level.txt
+scripts/__init__.py
+scripts/mictools_cmd.py

@@ -1,0 +1,20 @@
+Metadata-Version: 1.2
+Name: mictools
+Version: 1.1.4
+Summary: MICtools
+Home-page: https://github.com/minepy/mictools
+Author: Davide Albanese
+Author-email: davide.albanese@gmail.com
+Maintainer: Davide Albanese
+Maintainer-email: davide.albanese@gmail.com
+License: GPLv3
+Download-URL: https://github.com/minepy/mictools/releases
+Description: MICtools is an open source pipeline which combines the
+        TIC_e and MIC_e measures into a two-step procedure that allows to
+        identify relationships of various degrees of complexity in large datasets. TIC_e
+        is used to perform efficiently a high throughput screening of all the possible
+        pairwise relationships assessing their significance, while MIC_e is used to rank 
+        the subset of significant associations on the bases of their strength. Homepage:
+        https://github.com/minepy/mictools.
+        
+Platform: UNKNOWN
