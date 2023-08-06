@@ -1,0 +1,14 @@
+click
+jsonschema
+packaging
+plumbum
+pulpcore-client
+pyxdg
+requests
+
+[dev]
+coveralls
+pre-commit
+sphinx
+wheel
+twine
