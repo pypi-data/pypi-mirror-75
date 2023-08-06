@@ -1,0 +1,4 @@
+include README.rst
+include ultrastar_pitch/binaries/pca_components.npy
+include ultrastar_pitch/binaries/pca_mean.npy
+include ultrastar_pitch/binaries/tf2_256_96_12_stft_pca_stat.onnx
