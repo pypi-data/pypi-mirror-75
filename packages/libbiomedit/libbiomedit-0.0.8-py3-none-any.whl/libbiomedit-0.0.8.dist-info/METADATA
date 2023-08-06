@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: libbiomedit
+Version: 0.0.8
+Summary: Shared library for arround biomedit data transfer
+Home-page: https://gitlab.com/biomedit/libbiomedit
+Author: Robin Engler, Jaroslaw Surkont, Riccardo Muri, Gerhard Bräunlich, Christian Ribeaud
+Author-email: Robin.Engler@sib.swiss, riccardo.murri@id.ethz.ch, jaroslaw.surkont@unibas.ch, gerhard.braeunlich@id.ethz.ch, christian.ribeaud@karakun.com
+License: LGPL3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: gpg-lite (>=0.6.10)
+Requires-Dist: dataclasses ; python_version < "3.7"
+
+[![pipeline status](https://gitlab.com/biomedit/libbiomedit/badges/master/pipeline.svg)](https://gitlab.com/biomedit/libbiomedit/-/commits/master)
+[![coverage report](https://gitlab.com/biomedit/libbiomedit/badges/master/coverage.svg)](https://gitlab.com/biomedit/libbiomedit/-/commits/master)
+
+# libbiomedit
+
+Shared library for biomedIT projects.
+
+
