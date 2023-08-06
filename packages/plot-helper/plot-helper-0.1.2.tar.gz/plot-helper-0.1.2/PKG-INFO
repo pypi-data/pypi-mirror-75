@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: plot-helper
+Version: 0.1.2
+Summary: A context manager for matplotlib figures. It creates a new pair of figure/axes upon entry and saves, plots, and clears the figure on exit.
+License: MIT
+Author: Saad Khan
+Author-email: skhan8@mail.einstein.yu.edu
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: matplotlib (>=3.2.2,<4.0.0)
