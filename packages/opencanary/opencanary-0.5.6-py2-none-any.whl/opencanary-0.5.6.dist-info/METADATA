@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: opencanary
+Version: 0.5.6
+Summary: OpenCanary daemon
+Home-page: http://www.thinkst.com/
+Author: Thinkst Applied Research
+Author-email: info@thinkst.com
+License: BSD
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Framework :: Twisted
+Classifier: Topic :: System :: Networking
+Classifier: Topic :: Security
+Classifier: Topic :: System :: Networking :: Monitoring
+Classifier: Natural Language :: English
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: POSIX :: BSD :: FreeBSD
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: BSD License
+Requires-Python: ==2.7.*
+Requires-Dist: Twisted (==19.10.0)
+Requires-Dist: pyasn1 (==0.4.5)
+Requires-Dist: cryptography (==3.0)
+Requires-Dist: simplejson (==3.16.0)
+Requires-Dist: requests (==2.21.0)
+Requires-Dist: zope.interface (==4.6.0)
+Requires-Dist: PyPDF2 (==1.26.0)
+Requires-Dist: fpdf (==1.7.2)
+Requires-Dist: passlib (==1.7.1)
+Requires-Dist: Jinja2 (==2.10.0)
+Requires-Dist: ntlmlib (==0.72)
+Requires-Dist: bcrypt (==3.1.7)
+Requires-Dist: wsgiref (==0.1.2)
+Requires-Dist: hpfeeds (==1.0)
+
+A low interaction honeypot intended to be run on internal networks.
+
+
