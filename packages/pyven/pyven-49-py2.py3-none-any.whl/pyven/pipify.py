@@ -1,0 +1,75 @@
+# Copyright 2013, 2014, 2015, 2016, 2017, 2020 Andrzej Cichocki
+
+# This file is part of pyven.
+#
+# pyven is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# pyven is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with pyven.  If not, see <http://www.gnu.org/licenses/>.
+
+from . import workingversion
+from .projectinfo import ProjectInfo
+from .sourceinfo import SourceInfo
+from .util import tomlquote
+from argparse import ArgumentParser
+from aridity.model import Text
+from pkg_resources import resource_filename
+import itertools, os, subprocess, sys
+
+def pyquote(context, resolvable): # TODO LATER: Already exists in aridity.
+    return Text(repr(resolvable.resolve(context).value))
+
+def pipify(info, version = workingversion):
+    release = version != workingversion
+    description, url = info.descriptionandurl() if release and not info.config.proprietary else [None, None]
+    config = info.config.createchild()
+    config.put('version', scalar = version)
+    config.put('description', scalar = description)
+    config.put('long_description', text = 'long_description()' if release else repr(None))
+    config.put('url', scalar = url)
+    if not release:
+        config.put('author', scalar = None)
+    config.put('py_modules', scalar = info.py_modules())
+    config.put('install_requires', scalar = info.allrequires() if release else info.remoterequires())
+    config.put('scripts', scalar = info.scripts())
+    config.put('console_scripts', scalar = info.console_scripts())
+    config.put('universal', number = int({2, 3} <= set(info.config.pyversions)))
+    nametoquote = [
+        ['setup.py', pyquote],
+        ['setup.cfg', None],
+    ]
+    with config.repl() as repl:
+        seen = set()
+        for name in itertools.chain(pyvenbuildrequires(info), info.config.build.requires):
+            if name not in seen:
+                seen.add(name)
+                repl.printf("build requires += %s", name)
+        if seen != {'setuptools', 'wheel'}:
+            nametoquote.append(['pyproject.toml', lambda c, r: Text(tomlquote(r.resolve(c).cat()))])
+    for name, quote in nametoquote:
+        config.put('"', function = quote)
+        config.processtemplate(
+                resource_filename(__name__, name + '.aridt'), # TODO: Make aridity get the resource.
+                os.path.abspath(os.path.join(info.projectdir, name)))
+
+def pyvenbuildrequires(info):
+    yield 'setuptools'
+    yield 'wheel'
+    if SourceInfo(info.projectdir).pyxpaths:
+        yield 'Cython'
+
+def main_pipify():
+    parser = ArgumentParser()
+    parser.add_argument('-f')
+    config = parser.parse_args()
+    info = ProjectInfo.seek('.') if config.f is None else ProjectInfo('.', config.f)
+    pipify(info)
+    subprocess.check_call([sys.executable, 'setup.py', 'egg_info'], cwd = info.projectdir)
