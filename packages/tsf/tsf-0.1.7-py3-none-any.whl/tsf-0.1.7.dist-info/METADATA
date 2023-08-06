@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: tsf
+Version: 0.1.7
+Summary: A library to forecast timeseires data
+Home-page: UNKNOWN
+Author: Tanushree Halder, Pronojit Saha
+Author-email: tanushree.halder@abzooba.com, pronojit.saha@abzooba.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: cython (==0.29.14)
+Requires-Dist: numpy (>=1.16)
+Requires-Dist: pandas
+Requires-Dist: arch
+Requires-Dist: statsmodels
+Requires-Dist: pmdarima
+
+# Time Series Forecaster
+
+[![Build Status](https://travis-ci.org/joemccann/dillinger.svg?branch=master)](https://travis-ci.org/joemccann/dillinger)
+
+An automated machine learning toolkit for timeseries forecasting built using python and its libraries.
+
+### Features
+
+Takes an input time series (uni-variate or multi-variate) and performs the following functionalities.
+
+- Pre-processing, Imputations, Stationarity Check
+- Transformations (to achieve stationarity, if required)
+- Timeseries modeling to select the best model based on RMSE
+  - [Holt-Winter Linear](https://www.statsmodels.org/dev/generated/statsmodels.tsa.holtwinters.Holt.html), [Holt-Winter Trend](https://www.statsmodels.org/dev/generated/statsmodels.tsa.holtwinters.ExponentialSmoothing.html), [ARIMA](https://www.statsmodels.org/stable/generated/statsmodels.tsa.arima_model.ARIMA.html), [SARIMAX](https://www.statsmodels.org/dev/generated/statsmodels.tsa.statespace.sarimax.SARIMAX.html), [AutoARIMA](https://alkaline-ml.com/pmdarima/auto_examples/arima/example_auto_arima.html), [Linear Regression](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LinearRegression.html), [Random Forest](https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestRegressor.html)
+- Reverse Transformations (if required)
+- Returns the forecasts for the user specified periods and the best model RMSE
+
+### Requirements
+
+- Python>=3.4
+
+### Installation
+
+```sh
+$ pip3 install tsf
+```
+
+### Simple Usage
+
+```sh
+>>> import pandas as pd
+>>> ts_data = pd.read_csv('ts_data.csv')
+>>> from tsf.forecaster import TimeSeriesForecaster as tsf
+>>> ts_model = tsf()
+>>> forecasted, training_predicted, rmse = ts_model.forecast(ts_data=ts_data, forecast_feature='Close', forecast_periods=3)
+```
+
+|             |                                                                                                                                                                                                                                                                                                |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Parameters: | _ts_data_: Time Series data frame for which forecast is to be generated <br></br> _forecast_feature_: The feature/endog variable which is to be forecasted <br></br> _forecast_periods_: Number of future periods for which to generate forecast                                               |
+| Attributes: | _forecasted_: The forecasted time series using the best model for the number of periods mentioned by _forecast_periods_ <br></br> _training_predicted_: The predictions on the training data used to built the timeseries model <br></br> _rmse_: RMSE on the training data for the best model |
+
+Console Output
+
+```sh
+The root mean square error for the forecast is 0.934
+The number of predictions requested is 3 and predictions are as below:
+36    718.050266
+37    771.421601
+38    829.542411
+```
+
+### Detailed Description
+
+The code takes the timeseries data and follows the steps below to forecast timeseries for the specified future periods.
+
+1.  Preprocess Timeseries Data - Missing values are handled using forward fill
+2.  Data is then checked for stationarity using Dickey-Fuller Statistical Test
+    1.  Threshold/Critical Value for the test is set to 1%
+    2.  If the Statistical Value of the test statistic is less than 1% critical value, then the timeseries is considered to be stationary
+3.  If the timeseries is stationary (result of step 2), then modeling is performed on the data using various timeseries modeling techniques (as mentioned in Features section) and best model is selected based on RMSE to output the forecasted value for fuuture periods specified by the user.
+4.  If the timeseries is not stationary:
+    1.  First log transformation is performed and step 2 is repeated.
+    2.  If found stationary, step 3 is performed else the next transformations are performed in the following order : Moving Average, Exponentially weighted moving average, Differencing, Second Order Differencing
+    3.  For all these transformations Step 2 and Step 3 are performed
+    4.  If no transformation makes the timeseries stationary, then timeseries modeling cannot be performed
+5.  For the timeseries which returns the forecast values as a result of step 3, reverse transformations are performed to scale back the data to original scale. For example: If data acheieved stationarity through Log Transformation then reverse log transformation is performed.
+
+

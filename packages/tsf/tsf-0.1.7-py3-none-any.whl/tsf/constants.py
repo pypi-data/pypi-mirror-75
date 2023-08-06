@@ -1,0 +1,24 @@
+# -*- coding: utf-8 -*-
+
+import numpy as np
+
+# VALUES
+LOG_DAYS = 15
+SECONDS_IN_DAY = 86400
+DATE_FORMAT = '%Y-%m-%d'
+HALFLIFE = 6
+DECAY_LOG_CONSTANT = 0.5
+VALID_SERIES_LENGTH = 15
+MSE_FINAL = np.inf
+RARE_LEVEL_THRESHOLD = 0.05
+DECIDE_CAT_NUM_THRESHOLD = 0.9
+
+# TIMESERIES_STAT_TEST_THRESHOLD
+TIMESERIES_THRESHOLD_CRITICAL_VALUE = '1%'
+
+# Flag
+NO_TIMESERIES_FLAG = False
+INVALID = {False}
+
+# Interpolate models
+INTERPOLATE_MODELS = ['ffill', 'bfill', 'linear', 'time', 'spline']

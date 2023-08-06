@@ -1,0 +1,3 @@
+[console_scripts]
+timeseries_forecaster = forecaster.__main__:main
+
