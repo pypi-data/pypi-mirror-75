@@ -1,0 +1,12 @@
+[udata.harvesters]
+maaf = udata_gouvfr.harvesters.maaf:MaafBackend
+
+[udata.models]
+gouvfr = udata_gouvfr.models
+
+[udata.themes]
+gouvfr = udata_gouvfr.theme
+
+[udata.views]
+gouvfr = udata_gouvfr.views
+
