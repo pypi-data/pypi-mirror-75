@@ -1,0 +1,98 @@
+{
+"BOARD":
+{
+	"import":"from pinpong.board import Board",
+	"api":"Board(boardname, port)\n  @boardname   主板名称，当前支持uno leonardo mega2560 microbit\n  @port        串口名字，不填写系统会自动选择合适的端口\nget_i2c_master(bus_num) : 获取I2C主机控制器\n  @bus_num     I2C主机控制器编号"
+},
+
+"SERVO":
+{
+	"import":"from pinpong.board import Board,Pin\nfrom pinpong.libs.servo import Servo",
+	"api":"Servo(board, pin_obj)\n  @board     使用Board类构造出来的主板\n  @pin_obj   使用Pin类构造出来的对象，舵机连接到引脚\nangle(value): 舵机转动角度\n  @value     舵机转动的角度，范围(0-180)\n"
+},
+
+"LCD1602_I2C":
+{
+	"import":"from pinpong.board import Board\nfrom pinpong.libs.lcd1602 import LCD1602_I2C",
+	"api":"LCD1602_I2C(board, i2c_addr)\n  @board 使用Board类构造出来的主板\n  @i2c_addr   液晶的i2c地址\nclear(): 清屏\nbacklight(on): 打开关闭背光\n  @on True 打开背光  False 关闭背光\ndisplay(on):   打开关闭显示\n  @on True 打开显示  False 关闭显示\nset_cursor(x, y): 设置光标位置\n  @x 光标的x坐标\n  @y 光标的y坐标\nprint(s): 在液晶上显示内容\n  @s 显示的内容，可以是字符串，数字等格式\nscroll_left():向左滚屏一个字符宽度\nscroll_right():向右滚屏一个字符宽度"
+},
+
+"MLX90614":
+{
+	"import":"from pinpong.board import Board\nfrom pinpong.libs.dfrobot_mlx90614 import MLX90614",
+	"api":"MLX90614(board, i2c_addr)\n  @board      使用Board类构造出来的主板\n  @i2c_addr   传感器的i2c地址，如果不传入，默认是0x5A\n\nobj_temp_c(): 获取目标温度，单位为摄氏度\nenv_temp_c(): 获取环境温度，单位为摄氏度\nobj_temp_f(): 获取目标温度，单位为华氏度\nenv_temp_f(): 获取环境温度，单位为华氏度"
+},
+
+"TCS34725":
+{
+	"import":"from pinpong.board import Board\nfrom pinpong.libs.dfrobot_tcs34725 import TCS34725",
+	"api":"TCS34725(board)\n  @board   使用Board类构造出来的主板\nbegin(): 初始化传感器\n  返回值   True 初始化成功  False 初始化失败\nget_rgbc(): 获取目标的r,g,b,c值\n  返回值   由(r,g,b,c)组成的tuple"
+},
+
+"URM09":
+{
+	"import":"from pinpong.board import Board\nfrom pinpong.libs.dfrobot_urm09 import URM09",
+	"api":"URM09(board, pin_obj)\n  @board 使用Board类构造出来的主板\n  @i2c_addr   传感器的i2c地址，如果不传入，默认是0x11\ntemp_c(): 获取温度，单位为摄氏度\ndistance_cm(): 获取距离，单位为厘米"
+},
+
+"DHT11":
+{
+	"import":"from pinpong.board import Board,Pin,DHT11",
+	"api":"DHT11(board, pin_obj)\n  @board     使用Board类构造出来的主板\n  @pin_obj   使用Pin类构造出来的对象, 连接DHT11的引脚\ntemp_c(): 获取温度值，单位为摄氏度\nhumidity(): 相对湿度值，范围0-100"
+},
+
+"DHT22":
+{
+	"import":"from pinpong.board import Board,Pin,DHT22",
+	"api":"DHT22(board, pin_obj)\n  @board 使用Board类构造出来的主板\n  @pin_obj 使用Pin类构造出来的对象, 连接DHT22的引脚\ntemp_c(): 获取温度值，单位为摄氏度\nhumidity(): 相对湿度值，范围0-100"
+},
+
+"NEOPIXEL":
+{
+	"import":"from pinpong.board import Board,Pin,NeoPixel",
+	"api":"NeoPixel(board, pin_obj, num)\n  @board     使用Board类构造出来的主板\n  @pin_obj   使用Pin类构造出来的对象, 连接灯带的引脚, 可使用Pin.D0-Dx或Pin.A0-Pin.Ax\n  @num       连接的灯珠数量\n[](i,v): 设置灯珠颜色，用法 np[i]=v\n  @i:    灯珠编号，从0开始\n  @v:    颜色值，tuple类型(r,g,b) r,g,b取值范围0-255"
+},
+
+"SR04_URM10":
+{
+	"import":"from pinpong.board import Board,Pin,SR04_URM10",
+	"api":"SR04_URM10(board, trigger_pin_obj, echo_pin_obj)\n  @board             使用Board类构造出来的主板\n  @trigger_pin_obj   使用Pin类构造出来的对象, 触发测量引脚\n  @echo_pin_obj      使用Pin类构造出来的对象, 接收反馈引脚\ndistance_cm(): 读取超声波距离，单位为厘米"
+},
+
+"RGB1602":
+{
+	"import":"from pinpong.board import Board\nfrom pinpong.libs.rgb1602 import RGB1602",
+	"api":"RGB1602(board, i2c_addr)\n  @board      使用Board类构造出来的主板\n  @i2c_addr   液晶的i2c地址\nclear(): 清屏\nset_rgb(r, g, b):设置背光颜色\n  @r   背光r分量值\n  @g   背光g分量值\n  @b   背光b分量值\nbacklight(on): 打开关闭背光\n  @on  True 打开背光  False 关闭背光\ndisplay(on):   打开关闭显示\n  @on  True 打开显示  False 关闭显示\nset_cursor(x, y): 设置光标位置\n  @x   光标的x坐标\n  @y   光标的y坐标\nprint(s): 在液晶上显示内容\n  @s   显示的内容，可以是字符串，数字等格式\nscroll_left():向左滚屏一个字符宽度\nscroll_right():向右滚屏一个字符宽度"
+},
+
+"TONE":
+{
+	"import":"from pinpong.board import Board,Pin,Tone",
+	"api":"Tone(board, pin_obj)\n  @board 使用Board类构造出来的主板\n  @pin_obj   使用Pin类构造出来的对象, 发出声音的引脚\non():  打开声音\noff(): 关闭声音\nfreq(v): 设置或获得声音频率\n  @v        用户设置的频率值\n            不传值  返回当前频率\ntone(freq, duration)：播放特定频率固定时间\n  @freq     播放的频率\n  @duration 播放的时间长度，单位为毫秒，0表示永远播放"
+},
+
+"SOFTSPI":
+{
+	"import":"from pinpong.board import Board,Pin,SoftSPI",
+	"api":"SoftSPI(self, board, baudrate, polarity, phase, bits, sck, mosi, miso)\n  @board      使用Board类构造出来的主板\n  @baudrate   使用Pin类构造出来的对象\n  @polarity   空闲时clk引脚的电平\n  @phase      SPI在SCLK第几个边沿开始采样（0:第一个边沿开始; 1:第二个边沿开始）\n  @bits       默认传输8 bits，不可更改\n  @sck        Pin对象，时钟引脚\n  @mosi       Pin对象，数据输出引脚\n  @miso       Pin对象，数据输入引脚\n\nread(num, default_value=0xff): 读取num个数据\n  @num:           读取的数据字节数\n  @default_value  读过过程中发送过去的值，不填写默认发送0xff\nreadinto(buf): 从spi总线读取数据到buf中\n  @buf:           bytearray格式的缓冲，读取数据字节长度为buf的长度\nwrite(buf): 将buf中的数据写入到spi总线\nwrite_readinto(wbuf, rbuf): 将wbuf中的数据写入spi总线，同时从spi总线读取数据到rbuf，两个buf长度相等\n  @wbuf           bytearray格式的缓冲，写入wbuf的长度的数据字节\n  @rbuf           bytearray格式的缓冲，读取rbuf的长度的数据字节"
+},
+
+"PWM":
+{
+	"import":"from pinpong.board import Board,Pin,PWM",
+	"api":"PWM(board, pin_obj)\n  @board    使用Board类构造出来的主板\n  @pin_obj  使用Pin类构造出来的对象\nfreq(v): 设置pwm频率\n  @v:       用户设置的频率值\n            不传值  返回当前频率\nduty(v): 设置pwm占空比\n  @v:        用户设置的占空比 范围 0-100\n             不传值  返回当前占空比\ndeinit(): 取消次引脚PWM功能"
+},
+
+"ADC":
+{
+	"import":"from pinpong.board import Board,Pin,ADC",
+	"api":"ADC(board, pin_obj)\n  @board     使用Board类构造出来的主板\n  @pin_obj   使用Pin类构造出来的对象,只能使用Pin.A0-Pin.Ax\nread(): 读取引脚电平，范围（0-1024）"
+},
+
+"PIN":
+{
+	"import":"from pinpong.board import Board,Pin",
+	"api":"Pin(board, pin, mode)\n  @board 使用Board类构造出来的主板\n  @pin   Pin.D0-Pin.Dx 或 Pin.A0-Pin.Ax\n  @mode  Pin.IN Pin.OUT Pin.PULL_UP Pin.PULL_DOWN\nvalue(v): 设置或读取引脚电平\n  @v:    0 输出低电平，1 输出高电平\n         不传值  输入模式下读取引脚电平\non(): 输出高电平\noff(): 输出低电平\nirq(trigger, handler):将引脚设置为中断模式\n  @trigger   IRQ_RISING 上升沿触发 IRQ_FALLING 下降沿触发\n  @handler   中断被触发后的回调函数"
+}
+
+}
