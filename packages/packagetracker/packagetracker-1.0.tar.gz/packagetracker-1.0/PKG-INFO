@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: packagetracker
+Version: 1.0
+Summary: Shipment Tracker API used to conveniently implement in code to track packages that are carried by UPS, USPS, and FEDEX
+Home-page: https://github.com/wahmed937/packagetracker
+Author: Wasi Ahmed, Areeq Hasan
+Author-email: wasi.shams.ahmed@gmail.com
+License: UNKNOWN
+Description: Shipment Tracker API used to conveniently implement in code to track packages that are carried by UPS, USPS, and FEDEX
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
