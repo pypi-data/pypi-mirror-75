@@ -1,0 +1,23 @@
+Metadata-Version: 1.1
+Name: procyonlexer
+Version: 1.0
+Summary: Adds lexer for Procyon (.pn) files
+Home-page: https://github.com/arescentral/procyon/tree/master/misc/pygments
+Author: Chris Pickel
+Author-email: sfiera@twotaled.com
+License: Apache Software License
+Description: UNKNOWN
+Keywords: procyon pn pygments plugin
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Text Processing :: Filters
+Classifier: Topic :: Text Processing :: Markup
+Classifier: Topic :: Utilities
