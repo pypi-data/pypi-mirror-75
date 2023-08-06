@@ -1,0 +1,103 @@
+[tool.poetry]
+name = "jaeger"
+version = "0.5.2"
+description = "Controllers for the SDSS-V FPS"
+authors = ["José Sánchez-Gallego <gallegoj@uw.edu>"]
+license = "BSD-3-Clause"
+readme = "README.md"
+homepage = "https://github.com/sdss/jaeger"
+repository = "https://github.com/sdss/jaeger"
+documentation = "https://sdss-jaeger.readthedocs.io/en/latest/"
+keywords = ["astronomy", "software"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Topic :: Documentation :: Sphinx",
+    "Topic :: Software Development :: Libraries :: Python Modules"
+]
+packages = [
+    { include = "jaeger", from = "python" }
+]
+include = ["README.md", "python/jaeger/etc/*"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+numpy = "^1.15.1"
+Click = "^7.0"
+python-can = "^3.1.1"
+progressbar2 = "^3.39.3"
+sdss-drift = ">=0.1.1"
+sdss-clu = "^0.3.0"
+pyserial = {version = "^3.4", optional = true}
+sdssdb = ">=0.4.5"
+sdsstools = {version = ">=0.2.0", extras = ["dev"]}
+Sphinx = {version = "^3.0", optional = true}
+sphinx-click = {version = "^2.3.0", optional = true}
+
+[tool.poetry.dev-dependencies]
+ipython = "*"
+matplotlib = "*"
+invoke = "*"
+flake8 = "*"
+doc8 = ">=0.8.0"
+pytest = ">=6.0"
+pytest-asyncio = "*"
+pytest-cov = "*"
+pytest-sugar = "*"
+isort = ">=5.0.0"
+codecov = ">=2.0.15"
+coverage = {version = ">=5.0", extras = ["toml"]}
+asynctest = {version=">=0.13.0", python="~3.7"}
+asyncmock = {version=">=0.4.2", python="~3.7"}
+Sphinx = {version = ">=3.0"}
+sphinx-click = {version = ">=2.3.0"}
+ipdb = ">=0.13.3"
+
+[tool.poetry.extras]
+docs = ["Sphinx", "sphinx-click"]
+serial = ["pyserial"]
+
+[tool.poetry.scripts]
+jaeger = "jaeger.__main__:jaeger"
+
+[tool.isort]
+line_length = 89
+sections = ["FUTURE", "STDLIB", "THIRDPARTY", "SDSS", "FIRSTPARTY", "LOCALFOLDER"]
+default_section = "THIRDPARTY"
+known_first_party = ["jaeger"]
+known_sdss = ["sdsstools", "sdssdb", "drift", "clu"]
+balanced_wrapping = true
+include_trailing_comma = false
+lines_after_imports = 2
+use_parentheses = true
+
+[tool.pytest.ini_options]
+addopts = "--cov jaeger --cov-report xml --cov-report html --cov-report term"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore:.+unknown positioners.+",
+    "ignore:.+from the database.+"
+]
+
+[tool.coverage.run]
+branch = true
+include = ["python/jaeger/*"]
+omit = [
+    "*/__main__.py",
+    "*/__init__.py",
+    "*/cannet.py"
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "class AsyncioExecutor",
+    "def convert_kaiju_trajectory",
+    "def _process_replies(cmds)",
+    "class CANnetInterface"
+]
+
+[build-system]
+requires = ["poetry-core>=1.0.0a9"]
+build-backend = "poetry.core.masonry.api"
