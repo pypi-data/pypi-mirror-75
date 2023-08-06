@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: Orange3-Network
+Version: 1.5.1
+Summary: Networks add-on for Orange 3 data mining software package.
+Home-page: https://github.com/biolab/orange3-network
+Author: Laboratory of Bioinformatics, FRI UL
+Author-email: info@biolab.si
+License: GPLv3
+Keywords: network,network analysis,network layout,network visualization,data mining,machine learning,artificial intelligence,orange,orange3 add-on
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Environment :: Console
+Classifier: Environment :: Plugins
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Description-Content-Type: text/markdown
+Requires-Dist: pyqtgraph (>=0.9.10)
+Requires-Dist: numpy (>=1.8.0)
+Requires-Dist: Orange3 (>=3.20)
+Provides-Extra: gui
+Requires-Dist: AnyQt ; extra == 'gui'
+Provides-Extra: rest
+Requires-Dist: numpydoc ; extra == 'rest'
+
+Orange3 Network
+===============
+
+Orange3-Network is an add-on for Orange data mining software package. It
+provides network visualization and network analysis tools. The widgets enable
+network generation, statistical analysis, computation of clusters, network
+transformation and more.
+See [documentation](http://orange3-network.readthedocs.org/).
+
+Features
+--------
+#### Create networks
+* read network from file
+* construct exemplary networks
+* constructs a network from distances between instances
+
+#### Network analysis
+* visually explore the network
+* statistical analysis of network data
+* detect clusters in a network
+
