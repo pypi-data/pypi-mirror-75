@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: TextVectorizer
+Version: 0.1.0
+Summary: Feature Engineering for Textual Data
+Home-page: https://github.com/itsshavar/TextVectorizer
+Author: Shashi Tripathi, Rahul Kumar Yadav
+Author-email: shashi.123.prakash@gmail.com,rahulkryadav93@gmail.com
+License: UNKNOWN
+Description: # TextVectorizer
+        A Library for representation learning of Text using Transformers such as BERT, AlBERT, RoBERTA and spacy
+        
+        # Text Annotation
+        >>> from TextVectorizer import Vectorizer
+        >>> from TextVectorizer import Vectorizer
+        >>> vec = Vectorizer('bert')
+        >>> for i in vec.annotate('Hi I am Rahul'):
+        ...     print(i.text,i.pos_)
+        Hi INTJ
+        I PRON
+        am AUX
+        Rahul PROPN
+        
+        # Document Similarity
+        >>> from TextVectorizer import Vectorizer
+        >>> vec = Vectorizer()
+        >>> doc1  = 'Apple is a company'
+        >>> doc2 = 'Apple is fruit'
+        >>> vec.similarity(doc1,doc2)
+        0.622238214831199
+        
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
