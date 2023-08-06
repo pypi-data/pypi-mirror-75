@@ -1,0 +1,31 @@
+Debian:
+  pkgs:
+    - ipset
+    - iptables
+  pip:
+    - aiorun
+    - ipsetpy
+    - odoopbx
+    - OdooRPC
+    - https://github.com/litnimax/panoramisk/archive/master.zip
+    - pastebin
+    - setproctitle
+    - terminado
+    - tornado-httpclient-session
+
+RedHat:
+  pkgs:
+    - gcc
+    - ipset
+    - iptables
+    - python36-devel
+  pip:
+    - aiorun
+    - ipsetpy
+    - odoopbx
+    - OdooRPC
+    - https://github.com/litnimax/panoramisk/archive/master.zip
+    - pastebin
+    - setproctitle
+    - terminado
+    - tornado-httpclient-session

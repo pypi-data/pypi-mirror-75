@@ -1,0 +1,18 @@
+[Unit]
+Description=OdooPBX Agent
+After=network.target
+
+[Service]
+Environment=LANG=C.UTF-8
+Type=simple
+User=root
+ExecStart=/usr/bin/env odoopbx run agent
+Restart=on-failure
+RestartSec=10
+RemainAfterExit=no
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=odoopbx-agent
+
+[Install]
+WantedBy=multi-user.target
