@@ -1,0 +1,2 @@
+recursive-include orm_collector/ *.py
+recursive-include orm_collector/ *.json

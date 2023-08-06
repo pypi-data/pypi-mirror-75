@@ -1,0 +1,8 @@
+-e git+git@gitlab.csn.uchile.cl:dpineda/collector.git@ba34074a3d18d31365fd1e0dc313f65a16237bda#egg=collector
+-e git+git@gitlab.com:pineiden/datadbs.git@14554339712cf66ecd6fda9332568bd5bfd73835#egg=datadbs
+-e git+git@gitlab.csn.uchile.cl:dpineda/dataprotocols.git@617bf79737ec1b8456b2d9f051a62b4b49eef460#egg=dataprotocols
+-e git+git@gitlab.com:pineiden/gus.git@f860d4719f2d67fb0674e5b17c311f4b6f778535#egg=gnsocket
+-e git+git@gitlab.csn.uchile.cl:dpineda/networktools.git@1f199cde350c2399dff5983cc7fb604ce62cbaab#egg=networktools
+-e git+git@gitlab.csn.uchile.cl:dpineda/orm_collector.git@e03e59c2ba8dddecf4f37d0d9801425b2b329dc1#egg=orm_collector
+-e git+git@gitlab.com:pineiden/queuetools.git@79fe5c895e600504573ce4c581e63ce7520aeaf8#egg=queuetools
+-e git+git@gitlab.csn.uchile.cl:dpineda/tasktools.git@e7596ed19132d593000af6a7b4fc248e5eb11171#egg=tasktools

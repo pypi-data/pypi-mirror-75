@@ -1,0 +1,731 @@
+                     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+                         SISTEMA GNSS COLLECTOR
+
+                      David Pineda @ CSN-Geodesia
+                     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+
+                               Junio 2020
+
+
+Table of Contents
+─────────────────
+
+1. Versión
+2. Introducción
+3. Características
+4. Requisitos de Hardware
+5. Requisitos de Software
+6. Instalación
+7. Montar Rethinkdb
+8. Probar Rethinkdb
+9. Interfaz RethinkDB
+10. Crear database en postgresql
+11. Crear el *schema* de *orm_collector*
+.. 1. Cargando los datos de ambiente
+.. 2. Utilizando un json
+.. 3. Crear el esquema.
+12. Cargar datos a database
+13. Crear Ambiente Virtual
+14. Parámetros en ambiente virtual
+15. Crear JSON
+16. Iniciar Collector
+17. El registro de eventos o LOG
+18. Recomendaciones para comenzar a desarrollar con GNSS Collector
+19. Herramientas de Utilidad
+.. 1. Leer directo a una estación
+.. 2. Monitorear tabla rethinkdb
+
+
+
+
+
+1 Versión
+═════════
+
+  Manual GNSS Collector V.1.0.0
+
+
+2 Introducción
+══════════════
+
+  El sistema *GNSS Collector* es un servicio que debe operar en un
+  servidor *Gnu/Linux*.
+
+  Realiza la adquisición en tiempo real los datos de toda una red de
+  sensores *GNSS* y los almacena en una base de datos *RethinkDB* para
+  la consulta rápida y posteriores usos.
+
+  Si no se cumplen los requisitos de software necesarios, no podrá
+  correr.
+
+  Garantiza, bajo la responsabilidad del usuario, la adquisición los
+  datos de aquellas estaciones que tengan un montaje de comunicaciones
+  adecuado.
+
+  Cada estación en particular debe tener disponible la entrada TCP/IP
+  para conectarse al *socket-server* del equipo.
+
+  El dimensionamiento del sistema se debe dar en medida de la cantidad
+  de estaciones que deseas adquirir en tiempo real.
+
+  Este es un manual de instalación, no la documentación para
+  desarrolladores.
+
+
+3 Características
+═════════════════
+
+  • Lectura y decodificación de estaciones o fuentes con datos emitidos
+    en protocolos {GSOF, ERYO}
+  • Almacenamiento en tiempo real de datos en RethinkDB
+  • Activación de un socket server para la administración en vivo de las
+    estaciones.
+  • Sistema configurable y dimensionable según lo que se necesite
+
+
+4 Requisitos de Hardware
+════════════════════════
+
+  Tener un servidor con las siguientes características:
+
+  • 8 núcleos disponibles (mínimo)
+  • 64GB de ram
+  • 2T de disco duro
+
+
+5 Requisitos de Software
+════════════════════════
+
+  Debes tener instalado lo siguiente.
+
+  • Gnu/Linux [debian] o [Centos] (última versión)
+  • Python 3.7, <https://www.python.org/>
+  • RethinkDB 2.4, <https://rethinkdb.com/>
+  • PostgreSQL 12, <https://www.postgresql.org/>
+  • PostGIS, <https://postgis.net/>
+  • GDAL-dev, <https://gdal.org/>
+
+
+[debian] <https://www.debian.org/>
+
+[Centos] <https://www.centos.org/>
+
+
+6 Instalación
+═════════════
+
+  Una vez se tengan los requisitos de software será posible instalar el
+  sistema *GNSS Collector* de la siguiente manera.
+
+  Utilizando el gestor de instalaciones para python *pip*.
+
+  ┌────
+  │ pip install gnss_collector
+  └────
+
+  O bien, desde el repositorio
+
+  ┌────
+  │ git clone https://gitlab.com/pineiden/collector.git
+  │ cd collector
+  │ python setup.py install
+  └────
+
+  Todo esto considerando que o estás en *ambiente virtual* o bien te
+  aseguras que la versión de *python* es igual o superior a *3.7*.
+
+
+7 Montar Rethinkdb
+══════════════════
+
+  Una vez que se tenga instalado *Rethinkdb* se deben definir
+  necesariamente algunos parámetros para la correcta operación.
+
+  Dirigirse a la siguiente dirección como *root* o *sudo*.
+
+  ┌────
+  │ cd /etc/rethinkdb/instances.d
+  └────
+
+  Crear una copia del archivo de configuración ubicada en
+  */etc/rethinkdb* a *instances.d/*
+
+  Editar el archivo con al menos los siguientes parámetros
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Parámetro    Valor              Comentario                               
+  ──────────────────────────────────────────────────────────────────────────
+   runuser      rethinkdb          usuario                                  
+   rungroup     rethinkdb          group                                    
+   directory    /var/data/rdb      dónde se almacenan los datos             
+   log-fle      /var/data/rdb_log  dónde está el log                        
+   bind         all                habilitar acceso a la red                
+   driver-port  28015              puerto de conexión clientes              
+   http-port    8080               puerto de acceso interfaz administración 
+   cores        10                 cantidad de núcleos disponibles para rdb 
+   cache-size   14000              espacio en RAM habilitado                
+   io-threads   64                 cantidad de hilos operando               
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Verificar correctamente la edición, con el siguiente comando podrás
+  ver si está bien editado (/suponiendo/ que tu archivo es
+  *my_rdb.conf*).
+
+  ┌────
+  │ grep -v "#" my_rdb.conf|sed '/^$/d'
+  └────
+
+  Ahora, un paso *importante* es inicializar la *database* en la
+  dirección acordada en tu archivo.
+
+  ┌────
+  │ rethinkdb create -d /ruta/directorio
+  └────
+
+  Iniciar rethinkdb
+
+  ┌────
+  │ systemctl start rethinkdb
+  └────
+
+  Como extra, algo que también se puede hacer, es tener conectadas en
+  modo *cluster* diversas instancias *RethinkDB*.
+
+
+8 Probar Rethinkdb
+══════════════════
+
+  Si necesitas verificar que la database *rethinkdb* que montaste está
+  corriendo bien, te recomiendo probar con el siguiente programa de
+  prueba del módulo *data_rdb*
+
+  En la carpeta *tests*, el script *crea_perfiles.py*. Si lo inicias con
+  los parámetros de conexión adecuados realizará algunas acciones
+  básicas de interacción, como
+
+  • listar databases
+  • crear database
+  • listar tablas
+  • crear tablas
+  • crear index extra
+  • añadir datos
+
+  ┌────
+  │ python crea_perfiles.py
+  └────
+
+  Puedes clonar el módulo desde acá:
+
+  <https://gitlab.com/pineiden/datadbs-rethinkdb>
+
+
+9 Interfaz RethinkDB
+════════════════════
+
+  Una interfaz RethinkDB, es una plataforma web que te permite
+  visualizar las bases de datos, tablas, escrituras y lecturas al
+  sistema.
+
+  <file:./img/rdb_gui.png>
+
+  También, podrás realizar consultas *RQL* directamente desde la pestaña
+  'Data Explorer'.
+
+
+10 Crear database en postgresql
+═══════════════════════════════
+
+  Primero debemos crear la base de datos en postgresql.
+
+  Como root, accede al usuario postgres, así:
+
+  ┌────
+  │ su
+  │ su postgres
+  │ psql
+  └────
+
+  Crea el rol de usuario, con los permisos necesarios.
+
+  ┌────
+  │ create role collector;
+  │ alter role collector with superuser;
+  │ alter role collector with login;
+  │ create database collector;
+  │ alter role collector with password 'INGRESA-NUEVA-PASSWORD';
+  │ grant all privileges on database collector to collector;
+  └────
+
+  Conectate a la nueva database y crea las extensiones *gis*.
+
+  ┌────
+  │ \c collector;
+  │ CREATE EXTENSION postgis;
+  │ CREATE EXTENSION postgis_topology;
+  │ CREATE EXTENSION fuzzystrmatch;
+  │ CREATE EXTENSION address_standardizer;
+  │ CREATE EXTENSION address_standardizer_data_us;
+  │ CREATE EXTENSION postgis_tiger_geocoder;
+  │ CREATE EXTENSION postgis_sfcgal;
+  └────
+
+  Busca en tu sistema, en la configuración de *postgresql* el archivo
+  *pg_hba.conf*
+
+  ┌────
+  │ find -iname "pg_hba.conf"
+  └────
+
+  Editalo y modifica la línea, de *peer* a *md5*:
+
+  ┌────
+  │ local  	all		all					md5
+  └────
+
+  Reinicia *postgresql* desde el sistema *systemctl*.
+
+  ┌────
+  │ systemctl restart postgresql
+  └────
+
+  Con esto, para probar deberías poder acceder de la siguiente manera en
+  tu usuario de trabajo. Ingresando la *password que escogiste*.
+
+  ┌────
+  │ psql -U collector -d collector -W
+  └────
+
+
+11 Crear el *schema* de *orm_collector*
+═══════════════════════════════════════
+
+  Ahora, en tu instalación de *gnss_collector*, se habilitaron comandos
+  para crear el *esquema collector* en la *database* y cargar los datos.
+
+  Para crear el esquema:
+
+  ┌────
+  │ orm_create_db --help
+  └────
+
+  Necesitarás los datos de acceso a la database, hay dos caminos.
+
+
+11.1 Cargando los datos de ambiente
+───────────────────────────────────
+
+  En el archivo *postactivate* de tu ambiente, poner los siguientes
+  parámetros para cargar al iniciar el ambiente
+
+  ┌────
+  │ export COLLECTOR_DBUSER='collector'
+  │ export COLLECTOR_DBPASS='TU-PASSWORD-DB'
+  │ export COLLECTOR_DBNAME='collector'
+  │ export COLLECTOR_DBHOST='localhost'
+  │ export COLLECTOR_DBPORT=5432
+  └────
+
+  ¿No lo encuentras? El siguiente comando te dará la ruta.
+
+  ┌────
+  │ find -iname "postactivate"|grep NOMBRE_AMBIENTE
+  └────
+
+
+11.2 Utilizando un json
+───────────────────────
+
+  Crea un archivo *dbdata.json* que sea así:
+
+  ┌────
+  │ {
+  │     "dbname":"collector",
+  │     "dbuser":"collector",
+  │     "dbpass":"TU-PASSWORD-DB",
+  │     "dbhost":"localhost",
+  │     "dbport":"5432"
+  │ }
+  └────
+
+
+11.3 Crear el esquema.
+──────────────────────
+
+  Dependiendo el caso, entregando correctamente los datos de acceso.
+
+  Para datos cargados en ambiente virtual
+
+  ┌────
+  │ orm_create_db --env
+  └────
+
+  Para datos en json, avisamos que no se usan los datos de ambiente y
+  entregamos la *ruta al archivo json*.
+
+  ┌────
+  │ orm_create_db --no-env --conf dbdata.json
+  └────
+
+
+12 Cargar datos a database
+══════════════════════════
+
+  Teniendo tu red, deberías crear los siguientes archivos *csv* con los
+  campos siguientes.
+
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Archivo       Campos                                                                   
+  ────────────────────────────────────────────────────────────────────────────────────────
+   dbtype.csv    id;typedb;name;url;data_list                                             
+   dbdata.csv    id;code;path;host;port;user;passw;info;dbtype;dbname                     
+   protocol.csv  id;name;ref;class_name;git                                               
+   network.csv   id;name;description                                                      
+   server.csv    id;host_name;host_ip;gnsocket;activated                                  
+   station.csv   id;code;name;host;interface_port;protocol_host;port;ECEF_X;ECEF_Y;ECEF_Z 
+   (sigue)       ;db;protocol;active;server_id;network_id                                 
+  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+  Ver en la carpeta *ejemplos_csv*.
+
+  En este caso, es necesario comprender que la *información* que
+  aparezca en *station* que está relacionada con alguna tabla anterior
+  *debe existir* en la tabla relacionada.
+
+  El nombre de los archivos puede cambiar si entregas un *json* con las
+  siguientes características.
+
+  ┌────
+  │ {
+  │     "protocol": "protocol.csv",
+  │     "dbdata": "dbdata.csv",
+  │     "dbtype": "dbtype.csv",
+  │     "server": "server.csv",
+  │     "network":"network.csv",
+  │     "station": "station.csv"
+  │ }
+  └────
+
+  Y los archivos deben estar contenidos, por defecto, en la misma
+  carpeta. Aunque si entregas adecuadamente el *json* las rutas puedes
+  cambiarlas. Para cargar los datos también debes entregar la
+  información de *dbdata*.
+
+  El comando se usa así:
+
+  ┌────
+  │ orm_load_data --help
+  └────
+
+  Para *GNSS Collector* el esquema será *collector*.
+
+  Si tu carpeta con datos es *./fixtures*, el comando podría ser así:
+
+  ┌────
+  │ orm_load_data --name collector --env --path fixtures
+  └────
+
+  Para el caso en que tomes los datos de acceso desde el ambiente y tus
+  archivos de datos en esa carpeta.
+
+  También, puede darse el caso de agregar datos en particular de una o
+  pocas estaciones extra. El comando debería poder acceder a leer los
+  archivos de manera ordenada y bien configurados, de ser así cargaría
+  los nuevos datos.
+
+
+13 Crear Ambiente Virtual
+═════════════════════════
+
+  Para crear una ambiente virtual se debe instalar *virtualenvwrapper*
+
+  ┌────
+  │ pip install virtualenvwrapper --user
+  └────
+
+  Y asociar los siguientes parámetros a un archivo ubicado en tu $HOME,
+  llamémosle *.ambiente*, en este caso para *python38* que compilé desde
+  la fuente:
+
+  ┌────
+  │ # añadir path de instalacion de binarios de  python38 
+  │ PATH=$PATH:~/.local/bin:/opt/python38/bin
+  │ export WORKON_HOME=$HOME/.virtualenvs
+  │ export PROJECT_HOME=$HOME/proyectos
+  │ # binario de python asociado al ambiente
+  │ export VIRTUALENV_PYTHON=/opt/python38/bin/python3
+  │ export VIRTUALENVWRAPPER_PYTHON=/opt/python38/bin/python3
+  │ # ruta donde está script virtualenvwrapper
+  │ source ~/.local/bin/virtualenvwrapper.sh
+  └────
+
+  Luego añadir a *~/.bashrc* al final.
+
+  ┌────
+  │ source ~/.ambiente
+  └────
+
+  Con esto, abrir nueva pestaña, crear ambiente
+
+  ┌────
+  │ mkvirtualenv collector
+  └────
+
+  E instalar todo los módulos que necesites, por ejemplo:
+
+  ┌────
+  │ pip install gnss_collector
+  └────
+
+  Se habilitará con esto el archivo *postactivate* para cargar los
+  parámetros de ambiente.
+
+  ┌────
+  │ ~/.virtualenvs/collector/bin/postactivate
+  └────
+
+
+14 Parámetros en ambiente virtual
+═════════════════════════════════
+
+  Si escoges correr el sistema bajo un ambiente virtual, el archivo
+  postactivate debería tener, al menos lo siguiente.
+
+  ┌────
+  │ export ENV=collector
+  │ export PROJECT=CSN
+  │ # este valor coherente a la tabla server.csv que 
+  │ # activaras
+  │ export SERVER_NAME='pruebas'
+  │ # datos de base de datos
+  │ export COLLECTOR_DBUSER='collector'
+  │ export COLLECTOR_DBPASS='TU_PASSWORD_DATABASE'
+  │ export COLLECTOR_DBNAME='collector'
+  │ export COLLECTOR_DBHOST='localhost'
+  │ export COLLECTOR_DBPORT=5432
+  │ # En relación a dimensionamiento del collector
+  │ export COLLECTOR_EST_X_PROC=8
+  │ export COLLECTOR_TSLEEP=1
+  │ export COLLECTOR_WORKERS=8
+  │ export GSOF_TIMEOUT=8
+  │ export CLL_GROUP="[\"ALL\"]"
+  │ export COLLECTOR_SOCKET_IP="10.54.218.39"
+  │ export COLLECTOR_SOCKET_PORT=6677
+  │ export RDB_HOST='10.54.217.15'
+  │ export RDB_PORT=29015
+  │ export LOG_STA=true
+  │ export CLL_STATUS="ALL"
+  │ export LOG_PATH=$HOME"/collector_log"
+  │ export DT_CRITERIA=5
+  └────
+
+
+15 Crear JSON
+═════════════
+
+  De manera análoga, si corres el sistema *GNSS Collector* sin tener un
+  ambiente virtual activado o los parámetros activados en ambiente, usar
+  un *json* es buena opción.
+
+  ┌────
+  │ {
+  │   "schema":"collector",
+  │   "cll_group": "[\"ALL\"]",
+  │   "est_by_proc": 4,
+  │   "tsleep": 1,
+  │   "workers": 12,
+  │   "gsof_timeout": 20,
+  │   "rdb_host": "localhost",
+  │   "rdb_port": 28015,
+  │   "cll_status": "ALL",
+  │   "socket_ip": "localhost_ip",
+  │   "socket_port": 6677,
+  │   "log_path": "~/collector_log",
+  │   "dbdata": {
+  │     "dbname": "nombre database",
+  │     "dbuser": "nombre de usuario",
+  │     "dbpass": "password para el usuario",
+  │     "dbhost": "host de database",
+  │     "dbport": "puerto de database"
+  │   },
+  │   "server_name": "collector"
+  │ }
+  └────
+
+
+16 Iniciar Collector
+════════════════════
+
+  Para iniciar un sistema collector puedes realizarlo de dos maneras.
+
+  Tomando los parámetros del ambiente virtual:
+
+  ┌────
+  │ collector --env
+  └────
+
+  Tomando del archivo de configuración *json*
+
+  ┌────
+  │ collector --no-env --conf collector.json
+  └────
+
+
+17 El registro de eventos o LOG
+═══════════════════════════════
+
+  Una vez que se inicia el sistema *GNSS Collector* cada evento o falla
+  del sistema se registrará en el directorio definido por *LOG_PATH*,
+  modularmente hay subdirectorios para:
+
+  • Conexión a base de datos ORM
+  • Conexión a protocolo
+  • Engine (sistema collector)
+  • Conexión a RethinkDB
+
+  En caso de errores es bueno consultar estos archivos y valerse de los
+  comanodos {ls, find, grep, awk} para encontrar la información.
+
+
+18 Recomendaciones para comenzar a desarrollar con GNSS Collector
+═════════════════════════════════════════════════════════════════
+
+  Para quienes deseen activar o desarrollar características extras,
+  recomiendo crear un archivo con funciones de utilidad para la gestión
+  de los valores de ambiente, archivos y módulos extras.
+
+  Cómo base, trabajar con ambiente virtual.
+
+  ┌────
+  │ export before=$(pwd)
+  │ export FUNC_NAME=funciones.tpl.sh
+  │ 
+  │ function search_path(){
+  │     cd ~
+  │     result=$(find -iname "${FUNC_NAME}" 2>/dev/null)
+  │     cd $before
+  │     echo $result    
+  │ }
+  │ 
+  │ path=$HOME$(search_path|sed 's/^\.//g'|sed "s|/$FUNC_NAME||g")
+  │ echo "Path to file: "$path
+  │ export FN_PATH=$path
+  │ 
+  │ function show(){
+  │ # Mostrar las variables de ambiente
+  │ # poner path de venv postactivate:
+  │ 
+  │ cat $WORKON_HOME/$ENV/bin/postactivate 
+  │ }
+  │ 
+  │ function show_fn(){
+  │ cat $FN_PATH/$FUNC_NAME
+  │ }
+  │ 
+  │ function edit_fn(){
+  │ emacs $FN_PATH/$FUNC_NAME 
+  │ }
+  │ 
+  │ # buscar valores de estaciones 
+  │ # se ubican en carpeta fixtures
+  │ # uso
+  │ # station CODE_ESTACION
+  │ function station(){
+  │     cd $FN_PATH
+  │     cd ..
+  │     path=$(pwd)
+  │     st=$1
+  │     if [ "${#st}" -ge "1" ]; then
+  │     awk -F';' '{print $2,$4":"$5 ,$6, $7}' fixtures/station.csv|grep $1; 
+  │     else
+  │     awk -F';' '{print $2,$4":"$5 ,$6, $7}' fixtures/station.csv	
+  │     fi
+  │ }
+  │ 
+  │ function edit_env(){
+  │ nano $WORKON_HOME/$ENV/bin/postactivate 
+  │ }
+  │ 
+  │ function save_env(){
+  │ show > ${ENV}_file
+  │ }
+  │ 
+  │ function pysep(){
+  │ # instalar en modo desarrollo
+  │ python setup.py develop
+  │ }
+  │ 
+  │ function gitignore(){
+  │ echo "Creating gitignore"
+  │ cp $FN_PATH/gitignore $(pwd)/gitignore
+  │ git add .
+  │ git commit -m "Se crea o actualiza gitignore en proyecto"
+  │ }
+  └────
+
+
+19 Herramientas de Utilidad
+═══════════════════════════
+
+19.1 Leer directo a una estación
+────────────────────────────────
+
+  Para leer datos directamente desde una estación o fuente de datos,
+  mediante un protocolo disponible (GSOF, ERYO) se deben considerar los
+  siguientes parámetros.
+
+  code
+        código de estación
+  host
+        url de host de la estación
+  port
+        puerto de conexión
+  limit
+        cantidad de muestras
+  data_file
+        solo para comando protocol
+
+  Se dispone de los siguientes comandos:
+
+  protocol
+        se debe escoger protocolo y entregar los parámetros
+  gsof
+        de uso directo, entregar los parámetros
+  eryo
+        de uso directo, entregar los parámetros.
+
+  Para más información.
+
+  ┌────
+  │ protocol --help
+  │ gsof --help
+  │ eryo --help
+  └────
+
+
+19.2 Monitorear tabla rethinkdb
+───────────────────────────────
+
+  Si deseamos monitorear o extraer datos de una tabla en tiempo real,
+  está disponible el comando *rdb_monitor*, requiere los siguientes
+  parámetros.
+
+  conf
+        archivo json para conectarse a un rdb
+  limite
+        cantidad de muestras
+  destino
+        archivo dónde se almacenan las muestras obtenidas
+  sleep
+        tiempo de descanzo entre cada muestra, recomendable igual o
+        superior al periodo de generación de datos.
+  station
+        código de estación
+  table_name
+        nombre de tabla.
+
+  Para la ayuda.
+
+  ┌────
+  │ rdb_monitor --help
+  └────

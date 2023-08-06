@@ -1,0 +1,2 @@
+id;code;name;host;interface_port;protocol_host;port;ECEF_X;ECEF_Y;ECEF_Z;db;protocol;active;server_id
+2;MQLA;Michilla;101.241.217.12;21155;101.241.217.12;21162;1289220.453;-1539677.875;-2341183.069;MQLA_GSOF;GSOF;false;1

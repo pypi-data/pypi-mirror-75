@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: gnss_collector
+Version: 2.0.1
+Summary: Data Collector, for timeseries stations with ip:port address
+Home-page: http://gitlab.csn.uchile.cl/dpineda/collector
+Author: David Pineda Osorio
+Author-email: dpineda@csn.uchile.cl
+License: MIT
+Description: GPS Network Socket
+        ======================
+        
+        This module has a class GPSNetworkSocket and test scripts (server and client)
+        
+        Advice
+        -------
+        
+        This project has no extra requeriment python modules.
+        
+        TO DO
+        ------
+        
+        * Documentation
+        * Examples
+        * Test with IP Socket
+        
+Keywords: collector,gnss,scheduler,async,multiprocess
+Platform: UNKNOWN
+Description-Content-Type: text/markdown

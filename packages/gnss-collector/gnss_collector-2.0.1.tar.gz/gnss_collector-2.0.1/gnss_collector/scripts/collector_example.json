@@ -1,0 +1,22 @@
+{
+  "SCHEMA":"collector",
+  "CLL_GROUP": "[\"ALL\"]",
+  "EST_BY_PROC": 4,
+  "TSLEEP": 1,
+  "WORKERS": 12,
+  "GSOF_TIMEOUT": 20,
+  "RDB_HOST": "localhost",
+  "RDB_PORT": 28015,
+  "CLL_STATUS": "ALL",
+  "SOCKET_IP": "localhost_ip",
+  "SOCKET_PORT": 6677,
+  "LOG_PATH": "~/collector_log",
+  "DBDATA": {
+    "dbname": "nombre database",
+    "dbuser": "nombre de usuario",
+    "dbpass": "password para el usuario",
+    "dbhost": "host de database",
+    "dbport": "puerto de database"
+  },
+  "SERVER_NAME": "pruebas"
+}
