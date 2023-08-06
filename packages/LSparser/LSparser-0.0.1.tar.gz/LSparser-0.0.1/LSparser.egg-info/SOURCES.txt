@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+LSparser/__init__.py
+LSparser/__version__.py
+LSparser/command.py
+LSparser/core.py
+LSparser/parser.py
+LSparser/strSimilarity.py
+LSparser.egg-info/PKG-INFO
+LSparser.egg-info/SOURCES.txt
+LSparser.egg-info/dependency_links.txt
+LSparser.egg-info/top_level.txt
