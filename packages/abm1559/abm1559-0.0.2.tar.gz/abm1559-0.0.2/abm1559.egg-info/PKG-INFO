@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: abm1559
+Version: 0.0.2
+Summary: Agent-based simulation environment for EIP 1559
+Home-page: https://github.com/barnabemonnot/abm1559
+Author: Barnabé Monnot
+Author-email: barnabe.monnot@ethereum.org
+License: MIT
+Description: # abm1559
+        
+        Agent-based simulation environment for EIP 1559.
+        
+Platform: UNKNOWN
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
