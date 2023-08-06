@@ -1,0 +1,59 @@
+language: python
+sudo: false
+dist: xenial
+python:
+   - "3.5"
+   - "3.6"
+   - "3.7"
+   - "3.8"
+env:
+   - DJANGO='django>=2.0,<2.1.0' TESTDB=sqlite
+   - DJANGO='django>=2.0,<2.1.0' TESTDB=postgres
+   - DJANGO='django>=2.1,<2.2.0' TESTDB=sqlite
+   - DJANGO='django>=2.1,<2.2.0' TESTDB=postgres
+   - DJANGO='django>=2.2,<3.0' TESTDB=sqlite
+   - DJANGO='django>=2.2,<3.0' TESTDB=postgres
+   - DJANGO='django>=3.0,<3.1.0' TESTDB=sqlite
+   - DJANGO='django>=3.0,<3.1.0' TESTDB=postgres
+   - DJANGO='https://github.com/django/django/archive/master.tar.gz' TESTDB=sqlite
+   - DJANGO='https://github.com/django/django/archive/master.tar.gz' TESTDB=postgres
+
+matrix:
+   exclude:
+      - python: "3.5"
+        env: DJANGO='django>=3.0,<3.1.0' TESTDB=sqlite
+      - python: "3.5"
+        env: DJANGO='django>=3.0,<3.1.0' TESTDB=postgres
+      - python: "3.5"
+        env: DJANGO='https://github.com/django/django/archive/master.tar.gz' TESTDB=sqlite
+      - python: "3.5"
+        env: DJANGO='https://github.com/django/django/archive/master.tar.gz' TESTDB=postgres
+      - python: "3.8"
+        env: DJANGO='django>=2.0,<2.1.0' TESTDB=sqlite
+      - python: "3.8"
+        env: DJANGO='django>=2.0,<2.1.0' TESTDB=postgres
+      - python: "3.8"
+        env: DJANGO='django>=2.1,<2.2.0' TESTDB=sqlite
+      - python: "3.8"
+        env: DJANGO='django>=2.1,<2.2.0' TESTDB=postgres
+
+   allow_failures:
+      - env: DJANGO='https://github.com/django/django/archive/master.tar.gz' TESTDB=postgres
+      - env: DJANGO='https://github.com/django/django/archive/master.tar.gz' TESTDB=sqlite
+
+services:
+   - postgresql
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+
+before_install:
+   - if [ "$TESTDB" = "postgres" ]; then pip install -q psycopg2 ; fi
+# command to install dependencies,
+install:
+   # Install the right version of Django first
+   - pip install "$DJANGO"
+   - pip install -r requirements.txt -r requirements-dev.txt
+# command to run tests
+script: NOSE_WITH_COVERAGE=1 NOSE_COVER_PACKAGE=wafer python manage.py test
