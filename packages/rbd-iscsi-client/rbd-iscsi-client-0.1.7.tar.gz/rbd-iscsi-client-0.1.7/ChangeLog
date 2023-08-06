@@ -1,0 +1,23 @@
+CHANGES
+=======
+
+v0.1.7
+------
+
+* Updated .travis.yml
+* Update to work with py38
+* Rename \_\_version\_\_ to version
+* more
+* more readthedocs.yml
+* try and fix readthedocs.yml
+* Added .readthedocs.yml
+* Fixed more README issues
+* Updated README for requirements and install
+* Release cleanup
+* Update setting version from pbr
+* Update some documentation
+* remove manifest
+* Fix pep8
+* renamed rbd\_iscsi\_client to client
+* Added basic unit tests
+* Initial commit
