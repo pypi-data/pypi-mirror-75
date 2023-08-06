@@ -1,0 +1,2172 @@
+import base64
+import inspect
+import json
+import logging
+import os
+import re
+import urllib.parse
+import zipfile
+
+from datetime import date, timedelta
+from functools import wraps
+from io import BytesIO
+from selenium import webdriver
+from selenium.common.exceptions import ElementClickInterceptedException
+from selenium.common.exceptions import ElementNotInteractableException
+from selenium.common.exceptions import InvalidSelectorException
+from selenium.common.exceptions import NoSuchElementException
+from selenium.common.exceptions import NoSuchFrameException
+from selenium.common.exceptions import NoSuchWindowException
+from selenium.common.exceptions import StaleElementReferenceException
+from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import WebDriverException
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.alert import Alert
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.remote.command import Command
+from selenium.webdriver.remote.webelement import WebElement
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.ui import WebDriverWait
+from time import strftime, localtime
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+from webdriver_manager.microsoft import IEDriverManager, EdgeChromiumDriverManager
+
+from .utils import INI, HOWS, Utils, YML
+
+
+class Spydr:
+    """Spydr WebDriver
+
+    Keyword Arguments:
+        auth_username (str): Username for HTTP Basic/Digest Auth. Defaults to None.
+        auth_password (str): Password for HTTP Basic/Digest Auth. Defaults to None.
+        browser (str): Browser to drive.  Defaults to 'chrome'.
+            Supported browsers: 'chrome', 'edge', 'firefox', 'ie', 'safari'.
+        extension_root (str): The directory of Extensions. Defaults to './extensions'.
+        headless (bool): Headless mode. Defaults to False.
+        ini (str/INI): INI File as INI instance. Defaults to None.
+        locale (str): Browser locale.  Defaults to 'en'.
+        log_indent (int): Indentation for logging messages. Defaults to 2.
+        log_level (str): Logging level: 'INFO' or 'DEBUG'. Defaults to None.
+            When set to 'INFO', `info()` messages will be shown.
+            When set to 'DEBUG', `debug()`, `info()` and called methods will be shown.
+        screen_root (str): The directory of saved screenshots. Defaults to './screens'.
+        timeout (int): Timeout for implicitly_wait, page_load_timeout, and script_timeout. Defaults to 30.
+        window_size (str): The size of the window when headless.  Defaults to '1280,720'.
+        yml (str/bytes/os.PathLike/YML): Read YAML File as YML instance.  Defaults to None.
+
+    Raises:
+        InvalidSelectorException: Raise an error when locator is invalid
+        NoSuchElementException: Raise an error when no element is found
+        WebDriverException: Raise an error when Spydr encounters an error
+
+    Returns:
+        Spydr: An instance of Spydr Webdriver
+    """
+
+    browsers = ('chrome', 'edge', 'firefox', 'ie', 'safari')
+    """tuple: Supported Browsers"""
+
+    by = By
+    """selenium.webdriver.common.by.By: Set of supported locator strategies"""
+
+    ec = expected_conditions
+    """Pre-defined Expected Conditions"""
+
+    keys = Keys
+    """selenium.webdriver.common.keys.Keys: Pre-defined keys codes"""
+
+    wait = WebDriverWait
+    """selenium.webdriver.support.ui.WebDriverWait: WebDriverWait"""
+
+    def __init__(self,
+                 auth_username=None,
+                 auth_password=None,
+                 browser='chrome',
+                 extension_root='./extensions',
+                 headless=False,
+                 ini=None,
+                 locale='en',
+                 log_indent=2,
+                 log_level=None,
+                 screen_root='./screens',
+                 timeout=30,
+                 window_size='1280,720',
+                 yml=None):
+        self.auth_username = auth_username
+        self.auth_password = auth_password
+        self.browser = browser.lower()
+        self.extension_root = extension_root
+        self.headless = headless
+        self.ini = ini
+        self.log_indent = log_indent if isinstance(log_indent, int) else 2
+        self.log_level = logging.getLevelName(log_level) if log_level in ['DEBUG', 'INFO'] else 50
+        self.screen_root = screen_root
+        self.window_size = window_size
+        self.yml = yml
+        self.locale = self._format_locale(locale)
+        self.driver = self._get_webdriver()
+        self.logger = self._get_logger()
+        self.timeout = timeout
+
+    def abspath(self, filename, suffix=None, root=os.getcwd(), mkdir=True):
+        """abspath(filename, suffix='.png', root=os.getcwd(), mkdir=True)
+        Resolve file to absolute path and create all directories if missing.
+
+        Args:
+            filename (str): File name
+            suffix (str, optional): File suffix. Defaults to None.
+            root (str, optional): Root directory. Defaults to `os.getcwd()`.
+            mkdir (bool, optional): Create directores in the path. Defaults to True.
+
+        Returns:
+            str: Absolute path of the file
+        """
+        return Utils.to_abspath(filename, suffix=suffix, root=root, mkdir=mkdir)
+
+    def actions(self):
+        """Initialize an ActionChains.
+
+        Returns:
+            ActionChains: An instance of ActionChains
+        """
+        return ActionChains(self.driver)
+
+    def add_cookie(self, cookie):
+        """Add a cookie to your current session.
+
+        Args:
+            cookie (dict): A dictionary object.
+                Required keys are "name" and "value".
+                Optional keys are "path", "domain", "secure", and "expiry".
+
+        Usage:
+            spydr.add_cookie({'name': 'foo', 'value': 'bar'})
+        """
+        self.driver.add_cookie(cookie)
+
+    def alert_accept(self, alert=None):
+        """Accept the alert available.
+
+        Keyword Arguments:
+            alert (Alert, optional): Alert instance. Defaults to None.
+        """
+        if isinstance(alert, Alert):
+            alert.accept()
+        else:
+            self.switch_to_alert().accept()
+
+    def alert_dismiss(self, alert=None):
+        """Dismiss the alert available.
+
+        Keyword Arguments:
+            alert (Alert, optional): Alert instance. Defaults to None.
+        """
+        if isinstance(alert, Alert):
+            alert.dismiss()
+        else:
+            self.switch_to_alert().dismiss()
+
+    def alert_sendkeys(self, keys_to_send, alert=None):
+        """Send keys to the alert.
+
+        Args:
+            keys_to_send (str): Text to send
+
+        Keyword Arguments:
+            alert (Alert, optional): Alert instance. Defaults to None.
+        """
+        if isinstance(alert, Alert):
+            alert.send_keys(keys_to_send)
+        else:
+            self.switch_to_alert().send_keys(keys_to_send)
+
+    def alert_text(self, alert=None):
+        """Get the text of the alert.
+
+        Keyword Arguments:
+            alert (Alert, optional): Alert Instance. Defaults to None.
+        """
+        if isinstance(alert, Alert):
+            alert.text
+        else:
+            self.switch_to_alert().text
+
+    def back(self):
+        """Goes one step backward in the browser history"""
+        self.driver.back()
+
+    def blank(self):
+        """Open a blank page."""
+        self.open('about:blank')
+
+    def blur(self, locator):
+        """Trigger blur event on the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        self.execute_script('arguments[0].blur();', self.find_element(locator))
+
+    def css_property(self, locator, name):
+        """The value of CSS property.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            name (str): CSS property name
+
+        Returns:
+            str: CSS property value
+        """
+        return self.find_element(locator).value_of_css_property(name)
+
+    def checkbox_to_be(self, locator, is_checked, method='click'):
+        """Set the checkbox, identified by the locator, to the given state (is_checked).
+
+        Args:
+            locator (str/WebElement): The locator to identify the checkbox or WebElement
+            is_checked (bool): whether the element to be checked
+
+        Keyword Arguments:
+            method (str): Methods to toggle checkbox: click, space.  Defaults to 'click'.
+
+        Raises:
+            InvalidSelectorException: Raise an error when the element is not a checkbox
+        """
+        element = self.find_element(locator)
+
+        if element.tag_name != 'input' and element.get_attribute('type') != 'checkbox':
+            raise InvalidSelectorException(
+                f'Element is not a checkbox: {locator}')
+
+        if element.is_selected() != is_checked:
+            if method == 'click':
+                self.js_click(element)
+            elif method == 'space':
+                element.send_keys(self.keys.SPACE)
+            else:
+                raise WebDriverException(f'Unknown method: {method}')
+
+    def checkboxes_to_be(self, locator, is_checked, method='click'):
+        """Set all checkboxes, identified by the locator, to the given state (is_checked).
+
+        Args:
+            locator (str): The locator to identify all the checkboxes
+            is_checked (bool): whether the checkboxes to be checked
+
+        Keyword Arguments:
+            method (str): Methods to toggle checkbox: click, space.  Defaults to 'click'.
+        """
+        elements = self.find_elements(locator)
+
+        for element in elements:
+            self.checkbox_to_be(element, is_checked, method=method)
+
+    def clear(self, locator):
+        """Clear the text of a text input element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        self.find_element(locator).clear()
+
+    def clear_and_send_keys(self, locator, *keys):
+        """Clear the element first and then send the given keys.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        self.find_element(locator).clear_and_send_keys(*keys)
+
+    def click(self, locator):
+        """Click the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        self.wait_until(lambda _: self._is_element_clicked(locator))
+
+    def click_with_offset(self, locator, x_offset=1, y_offset=1):
+        """Click the element from x and y offsets.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Keyword Arguments:
+            x_offset (int, optional): X offset from the left of the element. Defaults to 1.
+            y_offset (int, optional): Y offset from the top of the element. Defaults to 1.
+        """
+        element = self.find_element(locator)
+        self.wait_until_enabled(element)
+        self.actions().move_to_element_with_offset(
+            element, x_offset, y_offset).click().perform()
+
+    def close(self):
+        """Close the window."""
+        self.driver.close()
+
+    def ctrl_click(self, locator):
+        """Ctrl-click the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        element = self.find_element(locator)
+        control = self.keys.CONTROL
+
+        self.actions().key_down(control).click(element).key_up(control).perform()
+
+    @property
+    def current_url(self):
+        """Get the URL of the current page.
+
+        Returns:
+            str: URL of the page
+        """
+        return self.driver.current_url
+
+    def date_from_delta(self, days, format='%m/%d/%Y'):
+        """Get the date by the given delta from today.
+
+        Examples:
+            | date_today() => 2020/12/10
+            | date_from_delta(1) => 2020/12/11
+            | date_from_delta(-1) => 2020/12/09
+
+        Args:
+            days (int): Delta days from today
+
+        Keyword Arguments:
+            format (str, optional): Date format. Defaults to '%m/%d/%Y'.
+
+        Returns:
+            str: Delta date from today
+        """
+        delta = date.today() + timedelta(days=days)
+        return delta.strftime(format)
+
+    def date_today(self, format='%m/%d/%Y'):
+        """Get Today's date.
+
+        Keyword Arguments:
+            format (str, optional): Date format. Defaults to '%m/%d/%Y'.
+
+        Returns:
+            str: Today's date in the given format
+        """
+        return date.today().strftime(format)
+
+    def debug(self, message):
+        """Log **DEBUG** messages.
+
+        Args:
+            message (str): **DEBUG** message
+        """
+        self.logger.debug(message)
+
+    def delete_all_cookies(self):
+        """Delete all cookies in the scope of the session."""
+        self.driver.delete_all_cookies()
+
+    def delete_cookie(self, name):
+        """Delete a cookie with the given name.
+
+        Args:
+            name (str): Name of the cookie
+        """
+        self.driver.delete_cookie(name)
+
+    @property
+    def desired_capabilities(self):
+        """Get driver's current desired capabilities.
+
+        Returns:
+            dict: A dictionary object of the current capabilities
+        """
+        return self.driver.desired_capabilities
+
+    def double_click(self, locator):
+        """Double-click the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        element = self.find_element(locator)
+        self.actions().move_to_element(element).double_click().perform()
+
+    def double_click_with_offset(self, locator, x_offset=1, y_offset=1):
+        """Double-click the element from x and y offsets.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Keyword Arguments:
+            x_offset (int): X offset from the left of the element. Defaults to 1.
+            y_offset (int): Y offset from the top of the element. Defaults to 1.
+        """
+        element = self.find_element(locator)
+        self.actions().move_to_element_with_offset(
+            element, x_offset, y_offset).double_click().perform()
+
+    def drag_and_drop(self, source_locator, target_locator):
+        """Hold down the left mouse button on the source element,
+        then move to the target element and releases the mouse button.
+
+        Args:
+            source_locator (str/WebElement): The element to mouse down
+            target_locator (str/WebElement): The element to mouse up
+        """
+        source_element = self.find_element(source_locator)
+        target_element = self.find_element(target_locator)
+        self.actions().drag_and_drop(source_element, target_element()).perform()
+
+    def drag_and_drop_by_offset(self, source_locator, x_offset, y_offset):
+        """Hold down the left mouse button on the source element,
+        then move to the target offset and releases the mouse button.
+
+        Args:
+            source_locator (str/WebElement): The element to mouse down
+
+        Keyword Arguments:
+            x_offset (int): X offset to move to
+            y_offset (int): Y offset to move to
+        """
+        source_element = self.find_element(source_locator)
+        self.actions().drag_and_drop_by_offset(
+            source_element, x_offset, y_offset).perform()
+
+    @property
+    def driver(self):
+        """Instance of Selenium WebDriver.
+
+        Returns:
+            WebDriver: Instance of Selenium WebDriver
+        """
+        return self.__driver
+
+    @driver.setter
+    def driver(self, driver_):
+        self.__driver = driver_
+
+    def execute_async_script(self, script, *args):
+        """Asynchronously execute JavaScript in the current window or frame.
+
+        Args:
+            script (str): JavaScript to execute
+            *args: Any applicable arguments for JavaScript
+
+        Returns:
+            Any applicable return from JavaScript
+        """
+        return self.driver.execute_async_script(script, *args)
+
+    def execute_script(self, script, *args):
+        """Synchronously execute JavaScript in the current window or frame.
+
+        Args:
+            script (str): JavaScript to execute
+            *args: Any applicable arguments for JavaScript
+
+        Returns:
+            Any applicable return from JavaScript
+        """
+        return self.driver.execute_script(script, *args)
+
+    def find_element(self, locator):
+        """Find the element by the given locator.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Raises:
+            NoSuchElementException: Raise an error when no element found
+
+        Returns:
+            WebElement: The element found
+        """
+        if isinstance(locator, WebElement):
+            return locator
+
+        element = None
+        how, what = self._parse_locator(locator)
+
+        if how == HOWS['css']:
+            matched = re.search(r'(.*):eq\((\d+)\)', what)
+            if matched:
+                new_what, nth = matched.group(1, 2)
+                try:
+                    element = self.find_elements(f'css={new_what}')[int(nth)]
+                except IndexError:
+                    raise NoSuchElementException(
+                        f'{locator} does not have {nth} element')
+
+        if not element:
+            element = self.wait_until(
+                lambda _: self.is_located(locator))
+
+            if not isinstance(element, WebElement):
+                raise NoSuchElementException(
+                    f'Cannot locate element in the given time using: {locator}')
+
+        return element
+
+    def find_elements(self, locator):
+        """Find all elements by the given locator.
+
+        Args:
+            locator (str): The locator to identify the elements or list[WebElement]
+
+        Returns:
+            list[WebElement]: All elements found
+        """
+        if isinstance(locator, (list, tuple)) and all(isinstance(el, WebElement) for el in locator):
+            return locator
+
+        how, what = self._parse_locator(locator)
+        elements = self.driver.find_elements(how, what)
+
+        return elements
+
+    def focus(self, locator):
+        """Trigger focus event on the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        self.execute_script(
+            'arguments[0].focus();', self.find_element(locator))
+
+    def forward(self):
+        """Goes one step forward in the browser history."""
+        self.driver.forward()
+
+    def fullscreen_window(self):
+        """Invokes the window manager-specific 'full screen' operation."""
+        self.driver.fullscreen_window()
+
+    def get_attribute(self, locator, name):
+        """Get the given attribute or property of the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            name (str): Attribute name
+
+        Returns:
+            bool/str/None: The attribute value
+        """
+        return self.find_element(locator).get_attribute(name)
+
+    def get_cookie(self, name):
+        """Get the cookie by name.
+
+        Args:
+            name (str): The name of the cookie
+
+        Returns:
+            dict/None: Return the cookie or None if not found.
+        """
+        return self.driver.get_cookie(name)
+
+    def get_cookies(self):
+        """Get the cookies visible in the current session.
+
+        Returns:
+            list[dict]: Return cookies in a set of dictionaries
+        """
+        return self.driver.get_cookies()
+
+    def get_ini_key(self, key, section=None):
+        """Get value of the given key from INI.
+
+        Args:
+            key (str): Key name
+            section: INI section.  Defaults to the default section.
+
+        Returns:
+            Value (any data type JSON supports)
+        """
+        if self.ini:
+            return self.ini.get_key(key, section)
+
+    def get_property(self, locator, name):
+        """Get the given property of the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            name (str): Property name
+
+        Returns:
+            bool/dict/int/list/str/None: The property value
+        """
+        return self.find_element(locator).get_property(name)
+
+    def get_screenshot_as_base64(self):
+        """Get a screenshot of the current window as a base64 encoded string.
+
+        Returns:
+            str: Base64 encoded string of the screenshot
+        """
+        self.wait_until_page_loaded()
+        return self.driver.get_screenshot_as_base64()
+
+    def get_screenshot_as_file(self, filename):
+        """Save a screenshot of the current window to filename (PNG).
+
+        Default directory for saved screenshots is defined in: screen_root.
+
+        Args:
+            filename (str): Filename of the screenshot
+
+        Returns:
+            bool: Whether the file is saved
+        """
+        self.wait_until_page_loaded()
+        return self.driver.get_screenshot_as_file(self.abspath(filename, suffix='.png', root=self.screen_root))
+
+    def get_screenshot_as_png(self):
+        """Get a screenshot of the current window as a binary data.
+
+        Returns:
+            bytes: Binary data of the screenshot
+        """
+        self.wait_until_page_loaded()
+        return self.driver.get_screenshot_as_png()
+
+    def get_window_position(self, window_handle='current'):
+        """Get the x and y position of the given window.
+
+        Keyword Arguments:
+            window_handle (str, optional): The handle of the window. Defaults to 'current'.
+
+        Returns:
+            dict: The position of the window as dict: {'x': 0, 'y': 0}
+        """
+        return self.driver.get_window_position(window_handle)
+
+    def get_window_rect(self):
+        """Get the x, y, height, and width of the current window.
+
+        Returns:
+           dict: The position, height, and width as dict: {'x': 0, 'y': 0, 'width': 100, 'height': 100}
+        """
+        return self.driver.get_window_rect()
+
+    def get_window_size(self, window_handle='current'):
+        """Get the width and height of the given window.
+
+        Keyword Arguments:
+            window_handle (str, optional): The handle of the window. Defaults to 'current'.
+
+        Returns:
+            dict: The height and width of the window as dict: {'width': 100, 'height': 100}
+        """
+        return self.driver.get_window_size(window_handle)
+
+    def has_attribute(self, locator, attribute):
+        """Check if the element has the given attribute.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            attribute (str): Attribute name
+
+        Returns:
+            bool: Whether the attribute exists
+        """
+        return self.execute_script(
+            'return arguments[0].hasAttribute(arguments[1]);', self.find_element(locator), attribute)
+
+    def hide(self, locator):
+        """Hide the element."""
+        self.execute_script(
+            'arguments[0].style.display = "none";', self.find_element(locator))
+
+    def highlight(self, locator, hex_color='#ff3'):
+        """Highlight the element with the given color.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Keyword Arguments:
+            hex_color (str, optional): Hex color. Defaults to '#ff3'.
+        """
+        self.execute_script(
+            'arguments[0].style.backgroundColor = `${arguments[1]}`;', self.find_element(locator), hex_color)
+
+    @property
+    def implicitly_wait(self):
+        """Timeout for implicitly wait.
+
+        Returns:
+            int: The timeout of implicitly wait
+        """
+        return self.__implicitly_wait
+
+    @implicitly_wait.setter
+    def implicitly_wait(self, seconds):
+        self.__implicitly_wait = seconds
+        self.driver.implicitly_wait(seconds)
+
+    def info(self, message):
+        """Log **INFO** messages.
+
+        Args:
+            message (str): **INFO** Message
+        """
+        self.logger.info(message)
+
+    @property
+    def ini(self):
+        """INI file as an INI instance.
+
+        Returns:
+            INI: INI instance
+        """
+        return self.__ini
+
+    @ini.setter
+    def ini(self, file):
+        if isinstance(file, INI):
+            self.__ini = file
+        else:
+            self.__ini = INI(file) if file else None
+
+    def is_displayed(self, locator):
+        """Check if the element is visible.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            bool: Whether the element is visible
+        """
+        return self.find_element(locator).is_displayed()
+
+    def is_enabled(self, locator):
+        """Check if the element is enabled.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            bool: Whether the element is enabled
+        """
+        return self.find_element(locator).is_enabled()
+
+    def is_located(self, locator, seconds=None):
+        """Check if the element is located in the given seconds.
+
+        Args:
+            locator (str): The locator to identify the element
+
+        Keyword Arguments:
+            seconds (int, optional): Seconds to wait until giving up. Defaults to `self.implicitly_wait`.
+
+        Returns:
+            False/WebElement: Return False if not located.  Return WebElement if located.
+        """
+        how, what = self._parse_locator(locator)
+
+        orig_implicitly_wait = self.implicitly_wait
+        seconds = seconds if seconds else orig_implicitly_wait
+
+        if seconds != orig_implicitly_wait:
+            self.implicitly_wait = seconds
+
+        try:
+            return self.wait(self.driver, seconds).until(lambda wd: wd.find_element(how, what))
+        except (NoSuchElementException, NoSuchWindowException, StaleElementReferenceException, TimeoutException):
+            return False
+        finally:
+            if seconds != orig_implicitly_wait:
+                self.implicitly_wait = orig_implicitly_wait
+
+    def is_page_loaded(self):
+        """Check if `document.readyState` is `complete`.
+
+        Returns:
+            bool: Whether the page is loaded
+        """
+        return self.execute_script('return document.readyState == "complete";')
+
+    def is_selected(self, locator):
+        """Check if the element is selected.
+
+        Can be used to check if a checkbox or radio button is selected.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            bool: Whether the element is selected
+        """
+        return self.find_element(locator).is_selected()
+
+    def is_text_in_element(self, locator, text):
+        """Check if the element contains the given `text`.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            text (str): Text to check
+
+        Returns:
+            bool: Whether the element has the given text
+        """
+        return text in self.find_element(locator).text
+
+    def is_value_in_element_attribute(self, locator, attribute, value):
+        """Check if the element's attribute contains the given `value`.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            attribute (str): Attribute name
+            value (str): value to check
+
+        Returns:
+            bool: Whether value is found in the element's attribute
+        """
+        return value in self.find_element(locator).get_attribute(attribute)
+
+    def js_click(self, locator):
+        """Call `HTMLElement.click()` using JavaScript.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        self.execute_script(
+            'arguments[0].click();', self.find_element(locator))
+
+    def location(self, locator):
+        """The location of the element in the renderable canvas.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            dict: The location of the element as dict: {'x': 0, 'y': 0}
+        """
+        return self.find_element(locator).location
+
+    def maximize_window(self):
+        """Maximize the current window."""
+        if not self.headless:
+            self.driver.maximize_window()
+
+    def maximize_to_screen(self):
+        """Maximize the current window to match the screen size."""
+        size = self.execute_script(
+            'return { width: window.screen.width, height: window.screen.height };')
+        self.set_window_position(0, 0)
+        self.set_window_size(size['width'], size['height'])
+
+    def minimize_window(self):
+        """Minimize the current window."""
+        if not self.headless:
+            self.driver.minimize_window()
+
+    def move_by_offset(self, x_offset, y_offset):
+        """Moving the mouse to an offset from current mouse position.
+
+        Keyword Arguments:
+            x_offset (int): X offset
+            y_offset (int): Y offset
+        """
+        self.actions().move_by_offset(x_offset, y_offset).perform()
+
+    def move_to_element(self, locator):
+        """Moving the mouse to the middle of the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        element = self.find_element(locator)
+        self.actions().move_to_element(element).perform()
+
+    def move_to_element_with_offset(self, locator, x_offset=1, y_offset=1):
+        """Move the mouse by an offset of the specified element.
+        Offsets are relative to the top-left corner of the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Keyword Arguments:
+            x_offset (int, optional): X offset. Defaults to 1.
+            y_offset (int, optional): Y offset. Defaults to 1.
+        """
+        element = self.find_element(locator)
+        self.actions().move_to_element_with_offset(
+            element, x_offset, y_offset).perform()
+
+    def new_tab(self):
+        """Open a new tab.
+
+        Returns:
+            str: Window handle of the new tab
+        """
+        self.execute_script('window.open();')
+        return self.window_handles[-1]
+
+    def new_window(self, name):
+        """Open a new window.
+
+        Args:
+            name (str): Name of the window
+
+        Returns:
+            str: Window handle of the new window
+        """
+        self.execute_script('''
+            var w = Math.max(
+                document.documentElement.clientWidth, window.innerWidth || 0
+            );
+            var h = Math.max(
+                document.documentElement.clientHeight, window.innerHeight || 0
+            );
+            window.open("about:blank", arguments[0], `width=${w},height=${h}`);
+        ''', name)
+        return self.window_handles[-1]
+
+    def open(self, url, new_tab=False):
+        """Load the web page by its given URL.
+
+        Args:
+            url (str): URL of the web page
+            new_tab (bool, optional): Whether to open in a new tab. Defaults to False.
+
+        Returns:
+            list[str]: List of [current_window_handle, new_tab_window_handle]
+        """
+        current_handle = self.window_handle
+
+        if new_tab:
+            new_handle = self.new_tab()
+            self.switch_to_window(new_handle)
+
+        self.driver.get(url)
+
+        return [current_handle, new_handle] if new_tab else [current_handle, None]
+
+    def open_data_as_url(self, data, mediatype='text/html', encoding='utf-8'):
+        """Use Data URL to open `data` as inline document.
+
+        Args:
+            data (str): Data to be open as inline document
+            mediatype (str, optional): MIME type. Defaults to 'text/html'.
+            encoding (str, optional): Data encoding. Defaults to 'utf-8'.
+        """
+        base64_encoded = base64.b64encode(bytes(data, encoding))
+        base64_data = str(base64_encoded, encoding)
+        self.open(f'data:{mediatype};base64,{base64_data}')
+
+    def open_file(self, filename):
+        """Open file with the browser.
+
+        Args:
+            filename (str): File name
+
+        Raises:
+            WebDriverException: Raise an error when filename is not found
+        """
+        file_ = self.abspath(filename, mkdir=False)
+
+        if os.path.isfile(file_):
+            html_path = file_.replace('\\', '/')
+            self.open(f'file:///{html_path}')
+        else:
+            raise WebDriverException(f'Cannot find file: ${file_}')
+
+    def open_file_as_url(self, filename, mediatype='text/html', encoding='utf-8'):
+        """Use Data URL to open file content as inline document.
+
+        Args:
+            filename (str): File name
+            mediatype (str, optional): MIME type. Defaults to 'text/html'.
+            encoding (str, optional): File encoding. Defaults to 'utf-8'.
+
+        Raises:
+            WebDriverException: Raise an error when filename is not found
+        """
+        file_ = self.abspath(filename, mkdir=False)
+
+        if os.path.isfile(file_):
+            data = open(file_, 'r', encoding=encoding).read()
+            self.open_data_as_url(data, mediatype=mediatype, encoding=encoding)
+        else:
+            raise WebDriverException(f'Cannot find file: ${file_}')
+
+    def open_with_auth(self, url, username=None, password=None):
+        """Load the web page by adding username and password to the URL
+
+        Args:
+            url (str): URL of the web page
+
+        Keyword Arguments:
+            username (str, optional): Username. Defaults to auth_username or None.
+            password (str, optional): Password. Defaults to auth_password or None.
+        """
+        username = username or self.auth_username
+        password = password or self.auth_password
+
+        if username and password and self.browser != 'chrome':
+            encoded_username = urllib.parse.quote(username)
+            encoded_password = urllib.parse.quote(password)
+
+            split_result = urllib.parse.urlsplit(url)
+            split_result_with_auth = split_result._replace(
+                netloc=f'{encoded_username}:{encoded_password}@{split_result.netloc}')
+
+            url_with_auth = urllib.parse.urlunsplit(split_result_with_auth)
+
+            self.open(url_with_auth)
+        else:
+            self.open(url)
+
+    @property
+    def page_load_timeout(self):
+        """Timeout for page load
+
+        Returns:
+            int: Page load timeout
+        """
+        return self.__page_load_timeout
+
+    @page_load_timeout.setter
+    def page_load_timeout(self, seconds):
+        self.__page_load_timeout = seconds
+        self.driver.set_page_load_timeout(seconds)
+
+    @property
+    def page_source(self):
+        """Get the source of the current page.
+
+        Returns:
+            str: The source of the current page
+        """
+        return self.driver.page_source
+
+    def quit(self):
+        """Quit the Spydr webdriver."""
+        self.driver.quit()
+
+    def refresh(self):
+        """Refresh the current page."""
+        self.driver.refresh()
+
+    def refresh_until_page_changed(self, seconds=10):
+        """Refresh the page (every 2 seconds) until the page changes or until the given time.
+
+        Args:
+            seconds (int, optional): Time allowed to refresh. Defaults to 10.
+
+        Returns:
+            bool: Whether the page is changed
+        """
+        return self.wait(self.driver, seconds, poll_frequency=2).until(lambda _: self._is_page_changed_after_refresh())
+
+    def rect(self, locator):
+        """Get the size and location of the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            dict: The size and location of the element as dict: {'x': 0, 'y': 0, 'width': 100, 'height': 100}
+        """
+        return self.find_element(locator).rect
+
+    def remove_attribute(self, locator, attribute):
+        """Remove the given attribute from the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            attribute (str): Attribute name
+        """
+        self.execute_script('''
+            var element = arguments[0];
+            var attributeName = arguments[1];
+            if (element.hasAttribute(attributeName)) {
+                element.removeAttribute(attributeName);
+            }
+        ''', self.find_element(locator), attribute)
+
+    def right_click(self, locator):
+        """Right-click on the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        element = self.find_element(locator)
+        self.actions().move_to_element(element).context_click().perform()
+
+    def right_click_with_offset(self, locator, x_offset=1, y_offset=1):
+        """Right-click on the element with x and y offsets
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Keyword Arguments:
+            x_offset (int, optional): X offset from the left of the element. Defaults to 1.
+            y_offset (int, optional): Y offset from the top of the element. Defaults to 1.
+        """
+        element = self.find_element(locator)
+
+        self.actions().move_to_element_with_offset(
+            element, x_offset, y_offset).context_click().perform()
+
+    def save_ini(self):
+        """Save INI file."""
+        if self.ini:
+            self.ini.save()
+
+    def save_screenshot(self, filename):
+        """Save a screenshot of the current window to filename (PNG).
+
+        Default directory for saved screenshots is defined in: screen_root.
+
+        Args:
+            filename (str): Filename of the screenshot
+
+        Returns:
+            bool: Whether the file is saved
+        """
+        self.wait_until_page_loaded()
+        return self.driver.save_screenshot(self.abspath(filename, suffix='.png', root=self.screen_root))
+
+    def screenshot(self, locator, filename):
+        """Save a screenshot of the current element to the filename (PNG).
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            filename ([type]): Filename of the screenshot
+
+        Returns:
+            bool: Whether the file is saved
+        """
+        return self.find_element(locator).screenshot(self.abspath(filename, suffix='.png', root=self.screen_root))
+
+    def screenshot_as_base64(self, locator):
+        """Get the screenshot of the current element as a Base64 encoded string
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            str: Base64 encoded string of the screenshot
+        """
+        return self.find_element(locator).screenshot_as_base64
+
+    def screenshot_as_png(self, locator):
+        """Get the screenshot of the current element as a binary data.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            bytes: Binary data of the screenshot
+        """
+        return self.find_element(locator).screenshot_as_png
+
+    @property
+    def script_timeout(self):
+        """Timeout for script.
+
+        Returns:
+            int: Script timeout
+        """
+        return self.__script_timeout
+
+    @script_timeout.setter
+    def script_timeout(self, seconds):
+        self.__script_timeout = seconds
+        self.driver.set_script_timeout(seconds)
+
+    def scroll_into_view(self, locator, align_to=True):
+        """Scroll the element's parent to be visible.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Keyword Arguments:
+            align_to (bool, optional): When True, align the top of the element to the top.
+                When False, align the bottom of the element to the bottom. Defaults to True.
+        """
+        self.execute_script(
+            'arguments[0].scrollIntoView(arguments[1]);', self.find_element(locator), align_to)
+
+    def select_to_be(self, option_locator):
+        """Select the given `option` in the `select` drop-down menu.
+
+        Args:
+            option_locator (str/WebElement): The locator to identify the element or WebElement
+
+        Raises:
+            InvalidSelectorException: Raise an error when the element is not an option
+        """
+        option_element = self.find_element(option_locator)
+
+        if option_element.tag_name != 'option':
+            raise InvalidSelectorException(
+                f'Element is not an option: {option_locator}')
+
+        self.click(option_element)
+
+    def select_to_be_all(self, select_locator):
+        """Select all `option` in a **multiple** `select` drop-down menu.
+
+        Args:
+            select_locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        select = self.find_element(select_locator)
+        self._multiple_select_to_be(select, True)
+
+    def select_to_be_none(self, select_locator):
+        """De-select all `option` in a **multiple** `select` drop-down menu.
+
+        Args:
+            select_locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        select = self.find_element(select_locator)
+        self._multiple_select_to_be(select, False)
+
+    def selected_options(self, select_locator, by='value'):
+        """Get values of **selected** `option` in a `select` drop-down menu.
+
+        Args:
+            select_locator (str/WebElement): The locator to identify the element or WebElement
+
+        Keyword Arguments:
+            by (str): Get selected options by value, text, or index.  Defaults to 'value'.
+
+        Raises:
+            InvalidSelectorException: Raise an error when element is not a select element
+            WebDriverException: Raise an error when the given `by` is unsupported
+
+        Returns:
+            list[int/str]: list of values of all selected options
+        """
+        select = self.find_element(select_locator)
+        options = []
+
+        if select.tag_name != 'select':
+            raise InvalidSelectorException(
+                f'Element is not a select: {select_locator}')
+
+        if self.browser == 'ie':
+            multiple = select.get_attribute('multiple')
+
+            for option in select.find_elements('tag_name=option'):
+                if option.is_selected():
+                    options.append(option)
+                    if not multiple:
+                        break
+        else:
+            options.extend(select.get_property('selectedOptions'))
+
+        if by == 'value':
+            return [opt.get_attribute('value') for opt in options]
+        elif by == 'text':
+            return [opt.text for opt in options]
+        elif by == 'index':
+            return [opt.get_property('index') for opt in options]
+        else:
+            raise WebDriverException(f'Unsupported selected options by: {by}')
+
+    def send_keys(self, locator, *keys):
+        """Simulate typing into the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            *keys: Any combinations of strings
+        """
+        self.find_element(locator).send_keys(*keys)
+
+    def set_attribute(self, locator, attribute, value):
+        """Set the given value to the attribute of the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            attribute (str): Attribute name
+            value (str): Attribute name
+        """
+        self.execute_script('''
+            var element = arguments[0];
+            var attribute = arguments[1];
+            var value = arguments[2];
+            element.setAttribute(attribute, value);
+        ''', self.find_element(locator), attribute, value)
+
+    def set_ini_key(self, key, value, section=None):
+        """Set the value of the given key in INI.
+
+        Args:
+            key (str): Key name
+            value: Value (any data type JSON supports)
+            section: INI section.  Defaults to the default section.
+        """
+        if self.ini:
+            self.ini.set_key(key, value)
+
+    def set_window_position(self, x, y, window_handle='current'):
+        """Set the x and y position of the current window
+
+        Args:
+            x (int): x-coordinate in pixels
+            y (int): y-coordinate in pixels
+
+        Keyword Arguments:
+            window_handle (str, optional): Window handle. Defaults to 'current'.
+
+        Returns:
+            dict: Window rect as dict: {'x': 0, 'y': 0, 'width': 100, 'height': 100}
+        """
+        return self.driver.set_window_position(x, y, window_handle)
+
+    def set_window_rect(self, x=None, y=None, width=None, height=None):
+        """Set the x, y, width, and height of the current window.
+
+        Keyword Arguments:
+            x (int, optional): x-coordinate in pixels. Defaults to None.
+            y (int, optional): y-coordinate in pixels. Defaults to None.
+            width (int, optional): Window width in pixels. Defaults to None.
+            height (int, optional): Window height in pixels. Defaults to None.
+
+        Returns:
+            dict: Window rect as dict: {'x': 0, 'y': 0, 'width': 100, 'height': 100}
+        """
+        return self.driver.set_window_rect(x, y, width, height)
+
+    def set_window_size(self, width, height, window_handle='current'):
+        """Set the width and height of the current window.
+
+        Args:
+            width (int, optional): Window width in pixels. Defaults to None.
+            height (int, optional): Window height in pixels. Defaults to None.
+
+        Keyword Arguments:
+            window_handle (str, optional): Window handle. Defaults to 'current'.
+
+        Returns:
+            dict: Window rect as dict: {'x': 0, 'y': 0, 'width': 100, 'height': 100}
+        """
+        return self.driver.set_window_size(width, height, window_handle)
+
+    def shift_click_from_and_to(self, from_locator, to_locator):
+        """Shift click from `from_locator` to `to_locator`.
+
+        Args:
+            from_locator (str/WebElement): The locator to identify the element or WebElement
+            to_locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        from_element = self.find_element(from_locator)
+        to_element = self.find_element(to_locator)
+        shift = self.keys.SHIFT
+
+        self.actions().key_down(shift).click(from_element).click(
+            to_element).key_up(shift).perform()
+
+    def show(self, locator):
+        """Show the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        self.execute_script(
+            'arguments[0].style.display = "";', self.find_element(locator))
+
+    def size(self, locator):
+        """The size of the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            dict: The size of the element as dict: {'width': 100, 'height': 100}
+        """
+        return self.find_element(locator).size
+
+    def sleep(self, seconds):
+        """Sleep the given seconds.
+
+        Args:
+            seconds (int): Seconds to sleep
+        """
+        try:
+            self.wait(self.driver, seconds).until(lambda _: False)
+        except:
+            pass
+
+    def submit(self, locator):
+        """Submit a form.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+        """
+        self.find_element(locator).submit()
+
+    @property
+    def switch_to_active_element(self):
+        """Switch to active element.
+
+        Returns:
+            WebElement: Active Element
+        """
+        return self.driver.switch_to.active_element
+
+    @property
+    def switch_to_alert(self):
+        """Switch to alert.
+
+        Returns:
+            Alert: Alert
+        """
+        return self.driver.switch_to.alert
+
+    def switch_to_default_content(self):
+        """Switch to default content."""
+        self.driver.switch_to.default_content()
+
+    def switch_to_frame(self, frame_locator):
+        """Switch to frame.
+
+        Args:
+            frame_locator (str/WebElement): The locator to identify the frame or WebElement
+        """
+        self.driver.switch_to.frame(self.find_element(frame_locator))
+
+    def switch_to_frame_and_wait_until_elment_located_in_frame(self, frame_locator, element_locator):
+        """Switch to the given frame and wait until the element is located within the frame.
+
+        Args:
+            frame_locator (str/WebElement): The locator to identify the frame or WebElement
+            element_locator (str): The locator to identify the element
+
+        Returns:
+            False/WebElement: Return False if not located.  Return WebElement if located.
+        """
+        self.wait_until_frame_available_and_switch(frame_locator)
+        return self.wait_until(lambda _: self.is_located(element_locator))
+
+    def switch_to_last_window_handle(self):
+        """Switch to the last opened tab or window."""
+        self.switch_to_window(self.window_handles[-1])
+
+    def switch_to_parent_frame(self):
+        """Switch to parent frame."""
+        self.driver.switch_to.parent_frame()
+
+    def switch_to_window(self, window_name):
+        """Switch to window.
+
+        Args:
+            window_name (str): Window name
+        """
+        self.driver.switch_to.window(window_name)
+
+    def t(self, key, **kwargs):
+        """Get value from YML instance by using "dot notation" key.
+
+        Examples:
+            | # YAML
+            | today:
+            |   dashboard:
+            |     search: '#search'
+            |     name: 'Name is {name}'
+            |
+            | t('today.dashboard.search') => '#search'
+            | t('today.dashboard.name', name='Spydr') => 'Name is Spydr'
+
+        Args:
+            key (str): Dot notation key
+
+        Keyword Arguments:
+            **kwargs: Format key value (str) with `str.format(**kwargs)`.
+
+        Returns:
+            value of dot notation key
+        """
+        return self.yml.t(key, **kwargs)
+
+    def tag_name(self, locator):
+        """Get the element's tagName
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            str: tagName
+        """
+        return self.find_element(locator).tag_name
+
+    def text(self, locator, typecast=str):
+        """The element's text.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            typecast: Typecast the returned text.  Defaults to `str`.
+
+        Returns:
+            str: The text of the element
+        """
+        return typecast(self.find_element(locator).text)
+
+    def texts(self, locator, typecast=str):
+        """All Elements' text.
+
+        Args:
+            locator (str): The locator to identify the elements or list[WebElement]
+            typecast: Typecast the returned text.  Defaults to `str`.
+
+        Returns:
+            list[str]: Elements' text
+        """
+        return [typecast(element.text) for element in self.find_elements(locator)]
+
+    def text_to_file(self, text, filename, suffix):
+        """Write text to the given filename
+
+        Args:
+            text (str): Text to write
+            filename (str): filename of the text file
+            suffix (str): suffix of the text file
+
+        Returns:
+            str: Absolute path of the file
+        """
+        file_ = self.abspath(filename, suffix=suffix)
+
+        with open(file_, 'w') as text_file:
+            text_file.write(text)
+
+        return file_
+
+    @property
+    def timeout(self):
+        """Spydr webdriver timeout for implicitly_wait, page_load_timeout, and script_timeout
+
+        Returns:
+            [int]: Spydr webdriver timeout
+        """
+        return self.__timeout
+
+    @timeout.setter
+    def timeout(self, seconds):
+        self.__timeout = seconds
+        self.implicitly_wait = seconds
+        self.page_load_timeout = seconds
+        self.script_timeout = seconds
+
+    @staticmethod
+    def timestamp(prefix='', suffix=''):
+        """Get current local timestamp with optional prefix and/or suffix.
+
+        Keyword Arguments:
+            prefix (str, optional): Prefix for timestamp. Defaults to ''.
+            suffix (str, optional): Suffix for timestamp. Defaults to ''.
+
+        Returns:
+            str: Timestamp with optional prefix and suffix
+        """
+        timestamp = strftime(r'%Y%m%d%H%M%S', localtime())
+        return f'{prefix}{timestamp}{suffix}'
+
+    @property
+    def title(self):
+        """Get the title of the current page.
+
+        Returns:
+            str: Title of the current page
+        """
+        return self.driver.title
+
+    def trigger(self, locator, event):
+        """Trigger the given event on the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            event (str): Event name
+        """
+        self.execute_script('''
+            var element = arguments[0];
+            var eventName = arguments[1];
+            var event = new Event(eventName, {"bubbles": false, "cancelable": false});
+            element.dispatchEvent(event);
+        ''', self.find_element(locator), event)
+
+    def value(self, locator, typecast=str):
+        """Get the value of the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            typecast: Typecast the returned text.  Defaults to `str`.
+
+        Returns:
+            str: Value of the given element
+        """
+        return typecast(self.find_element(locator).value)
+
+    def values(self, locator, typecast=str):
+        """Get the values of the elements.
+
+        Args:
+            locator (str): The locator to identify the elements or list[WebElement]
+            typecast: Typecast the returned text.  Defaults to `str`.
+
+        Returns:
+            list[str]: Values of the given elements
+        """
+        return [typecast(element.value) for element in self.find_elements(locator)]
+
+    def wait_until(self, method, timeout=None, poll_frequency=0.5, ignored_exceptions=None):
+        """Create a WebDriverWait instance and wait until the given method is evaluated to not False.
+
+        Args:
+            method (callable): Method to call
+
+        Keyword Arguments:
+            poll_frequency (float, optional): Sleep interval between method calls. Defaults to 0.5.
+            ignored_exceptions (list[Exception], optional): Exception classes to ignore during calls. Defaults to None.
+
+        Returns:
+            Any applicable return from the method call
+        """
+        return self.wait(self.driver, self.timeout, poll_frequency, ignored_exceptions).until(method)
+
+    def wait_until_alert_present(self):
+        """Wait until alert is present.
+
+        Returns:
+            False/Alert: Return False if not present.  Return Alert if present.
+        """
+        return self.wait_until(lambda _: self.ec.alert_is_present)
+
+    def wait_until_attribute_contains(self, locator, attribute, value):
+        """Wait until the element's attribute contains the given value.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            attribute (str): Attribute name
+            value (str): value to check
+
+        Returns:
+            bool: Whether value is found in the element's attribute
+        """
+        return self.wait_until(lambda _: self.is_value_in_element_attribute(locator, attribute, value))
+
+    def wait_until_frame_available_and_switch(self, frame_locator):
+        """Wait until the given frame is available and switch to it.
+
+        Args:
+            frame_locator (str/WebElement): The locator to identify the frame or WebElement
+        """
+        self.wait_until(lambda _: self._is_frame_switched(frame_locator))
+
+    def wait_until_enabled(self, locator):
+        """Wait until the element is enabled.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            bool: Whether the element is enabled
+        """
+        return self.wait_until(lambda _: self.is_enabled(locator))
+
+    def wait_until_loading_finished(self, locator, seconds=2):
+        """Wait until `loading` element shows up and then disappears.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Keyword Arguments:
+            seconds (int, optional): Seconds to give up waiting. Defaults to 2.
+
+        Returns:
+            bool: Whether the element is not visible
+        """
+        try:
+            self.wait(self.driver, seconds).until(lambda _: self.is_displayed(locator))
+            return self.wait_until_not_visible(locator, seconds=seconds)
+        except (NoSuchElementException, StaleElementReferenceException, TimeoutException):
+            return True
+
+    def wait_until_not(self, method):
+        """Create a WebDriverWait instance and wait until the given method is evaluated to False.
+
+        Args:
+            method (callable): Method to call
+
+        Returns:
+            Any applicable return from the method call
+        """
+        return self.wait(self.driver, self.timeout).until_not(method)
+
+    def wait_until_not_visible(self, locator, seconds=2):
+        """Wait until the element is not visible in the given seconds.
+
+        Args:
+            locator (str): The locator to identify the element
+
+        Keyword Arguments:
+            seconds (int, optional): Seconds to give up waiting. Defaults to 2.
+
+        Returns:
+            bool: Whether the element is not visible
+        """
+        how, what = self._parse_locator(locator)
+        self.implicitly_wait = seconds
+
+        try:
+            return self.wait(self.driver, seconds).until(lambda wd: not wd.find_element(how, what))
+        except (NoSuchElementException, StaleElementReferenceException, TimeoutException):
+            return True
+        finally:
+            self.implicitly_wait = self.timeout
+
+    def wait_until_number_of_windows_to_be(self, number):
+        """Wait until number of windows matches the given number.
+
+        Args:
+            number (int): Number of windows
+
+        Returns:
+            bool: Whether number of windows matching the given number
+        """
+        return self.wait_until(self.ec.number_of_windows_to_be(number))
+
+    def wait_until_page_loaded(self):
+        """Wait until `document.readyState` is `complete`."""
+        self.wait_until(lambda _: self.is_page_loaded())
+
+    def wait_until_selected(self, locator):
+        """Wait until the element is selected.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            bool: Whether the element is selected
+        """
+        return self.wait_until(lambda _: self.is_selected(locator))
+
+    def wait_until_selection_to_be(self, locator, is_selected):
+        """Wait until the element's `selected` state to match the given state.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            is_selected (bool): Element's `selected` state
+
+        Returns:
+            bool: Whether the element's `selected` state matching the given state
+        """
+        return self.wait_until(lambda _: self.is_selected(locator) == is_selected)
+
+    def wait_until_text_contains(self, locator, text):
+        """Wait until the element's text contains the given text.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            text (str): Text to match
+
+        Returns:
+            bool: Whether the element's text containing the given text
+        """
+        return self.wait_until(lambda _: self.is_text_in_element(locator, text))
+
+    def wait_until_text_equal_to(self, locator, text):
+        """Wait until the element's text equal to the given text.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            text (str): Text to not match
+
+        Returns:
+            bool: Whether the element's text equal to the given text
+        """
+        return self.wait_until(lambda _: text == self.find_element(locator).text)
+
+    def wait_until_text_excludes(self, locator, text):
+        """Wait until the element's text to exclude the given text.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            text (str): Text to not match
+
+        Returns:
+            bool: Whether the element's text excluding the given text
+        """
+        return self.wait_until(lambda _: text not in self.find_element(locator).text)
+
+    def wait_until_text_not_equal_to(self, locator, text):
+        """Wait until the element's text not equal to the given text.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+            text (str): Text to not match
+
+        Returns:
+            bool: Whether the element's text not equal to the given text
+        """
+        return self.wait_until(lambda _: text != self.find_element(locator).text)
+
+    def wait_until_title_contains(self, title):
+        """Wait until the title of the current page contains the given title.
+
+        Args:
+            title (str): Title to match
+
+        Returns:
+            bool: Whether the title containing the given title
+        """
+        return self.wait_until(self.ec.title_contains(title))
+
+    def wait_until_url_contains(self, url):
+        """Wait until the URL of the current window contains the given URL.
+
+        Args:
+            url (str): URL to match
+
+        Returns:
+            bool: Whether the URL containing the given URL
+        """
+        return self.wait_until(self.ec.url_contains(url))
+
+    def wait_until_visible(self, locator):
+        """Wait until the element is visible.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            bool: Whether the element is visible
+        """
+        return self.wait_until(lambda _: self.is_displayed(locator))
+
+    def wait_until_visible_and_get_elmement(self, locator):
+        """Wait until the element is visible and return the element.
+
+        Args:
+            locator (str/WebElement): The locator to identify the element or WebElement
+
+        Returns:
+            WebElement: WebElement
+        """
+        self.wait_until_visible(locator)
+        return self.find_element(locator)
+
+    @property
+    def window_handle(self):
+        """Return the handle of the current window.
+
+        Returns:
+            str: The current window handle
+        """
+        return self.driver.current_window_handle
+
+    @property
+    def window_handles(self):
+        """Return the handles of all windows within the current session.
+
+        Returns:
+            list[str]: List of all window handles
+        """
+        return self.driver.window_handles
+
+    @property
+    def yml(self):
+        """YAML file as YML instance.
+
+        Returns:
+            YML: YML instance
+        """
+        return self.__yml
+
+    @yml.setter
+    def yml(self, file):
+        if isinstance(file, YML):
+            self.__yml = file
+        else:
+            self.__yml = YML(file)
+
+    def zoom(self, scale):
+        """Set the zoom factor of a document defined by the viewport.
+
+        Args:
+            scale (float/str): Zoom factor: 0.8, 1.5, or '150%'
+        """
+        self.execute_script('document.body.style.zoom = arguments[0];', scale)
+
+    def _auth_extension_as_base64(self, username, password):
+        bytes_ = self._auth_extension_as_bytes(username, password)
+        return base64.b64encode(bytes_).decode('ascii')
+
+    def _auth_extension_as_bytes(self, username, password):
+        manifest = {
+            "manifest_version": 2,
+            "name": 'Spydr Authentication Extension',
+            "version": '1.0.0',
+            "permissions": ['<all_urls>', 'webRequest', 'webRequestBlocking'],
+            "background": {
+                "scripts": ['background.js']
+            }
+        }
+
+        background = '''
+            var username = '%s';
+            var password = '%s';
+
+            chrome.webRequest.onAuthRequired.addListener(
+                function handler(details) {
+                    if (username == null) {
+                        return { cancel: true };
+                    }
+
+                    var authCredentials = { username: username, password: username };
+                    // username = password = null;
+
+                    return { authCredentials: authCredentials };
+                },
+                { urls: ['<all_urls>'] },
+                ['blocking']
+            );
+        ''' % (username, password)
+
+        buffer = BytesIO()
+        zip = zipfile.ZipFile(buffer, 'w')
+        zip.writestr('manifest.json', json.dumps(manifest))
+        zip.writestr('background.js', background)
+        zip.close()
+
+        return buffer.getvalue()
+
+    def _auth_extension_as_file(self, username, password, suffix='.crx'):
+        bytes_ = self._auth_extension_as_bytes(username, password)
+        filename = self.abspath('spydr_auth', suffix=suffix, root=self.extension_root)
+
+        f = open(filename, 'wb')
+        f.write(bytes_)
+        f.close()
+
+        return filename
+
+    def _chrome_options(self):
+        # https://chromium.googlesource.com/chromium/src/+/master/chrome/common/chrome_switches.cc
+        # https://chromium.googlesource.com/chromium/src/+/master/chrome/common/pref_names.cc
+        options = webdriver.ChromeOptions()
+
+        options.add_argument('allow-running-insecure-content')
+        options.add_argument('ignore-certificate-errors')
+        options.add_argument('ignore-ssl-errors=yes')
+
+        options.add_experimental_option(
+            "excludeSwitches", ['enable-automation', 'enable-logging'])
+        options.add_experimental_option('useAutomationExtension', False)
+        options.add_experimental_option("prefs", {
+            "credentials_enable_service": False,
+            "intl": {
+                "accept_languages": self.locale
+            },
+            "profile": {
+                "password_manager_enabled": False
+            }
+        })
+
+        if self.headless:
+            options.add_argument('headless')
+            options.add_argument(f'window-size={self.window_size}')
+        else:
+            # Extension can only be installed when not headless
+            if self.auth_username and self.auth_password:
+                options.add_encoded_extension(self._auth_extension_as_base64(
+                    self.auth_username, self.auth_password))
+
+        return options
+
+    def _decorator(self, fn):
+        @wraps(fn)
+        def wrapper(*args, **kwargs):
+            # namespace = inspect.currentframe().f_back.f_locals
+            namespace = inspect.stack()[0].frame.f_back.f_locals
+            if 'self' not in namespace or not isinstance(namespace['self'], self.__class__):
+                p1_args = ', '.join(f'{str(x).strip()}' for x in args)
+                p2_args = ', '.join([f'{k}={str(v).strip()}' for k, v in kwargs.items()])
+                fn_name = fn.__name__
+                fn_arguments = ", ".join(x for x in [p1_args, p2_args] if x)
+                self.debug(f'{fn_name}({fn_arguments})')
+            return fn(*args, **kwargs)
+        return wrapper
+
+    def _firefox_options(self):
+        profile = webdriver.FirefoxProfile()
+        profile.accept_untrusted_certs = True
+        profile.assume_untrusted_cert_issuer = False
+        # profile.set_preference(
+        #     'network.automatic-ntlm-auth.trusted-uris', '.companyname.com')
+        profile.set_preference('intl.accept_languages', self.locale)
+
+        options = webdriver.FirefoxOptions()
+        options.profile = profile
+
+        if self.headless:
+            options.add_argument('--headless')
+
+        return options
+
+    def _format_locale(self, locale):
+        locale = locale.replace('_', '-')
+        pattern = r'(-[a-zA-Z]{2})$'
+
+        if self.browser == 'firefox':
+            return re.sub(pattern, lambda m: m.group().lower(), locale)
+
+        return re.sub(pattern, lambda m: m.group().upper(), locale)
+
+    def _get_logger(self):
+        logger = logging.getLogger(__name__)
+        logger.setLevel(self.log_level)
+
+        ch = logging.StreamHandler()
+        ch.setLevel(self.log_level)
+
+        formatter = logging.Formatter(
+            f'{" " * self.log_indent}%(asctime)s.%(msecs)03d> %(message)s', datefmt=r'%Y-%m-%d %H:%M:%S')
+
+        ch.setFormatter(formatter)
+        logger.addHandler(ch)
+
+        return logger
+
+    def _get_webdriver(self):
+        path = os.getcwd()
+        config = {'path': path, 'log_level': 50}
+
+        if self.browser not in self.browsers:
+            raise WebDriverException(f'Unsupported browser: {self.browser}')
+
+        if self.browser == 'chrome':
+            return webdriver.Chrome(
+                executable_path=ChromeDriverManager(**config).install(), options=self._chrome_options())
+        elif self.browser == 'edge':
+            return webdriver.Edge(EdgeChromiumDriverManager(**config).install())
+        elif self.browser == 'firefox':
+            return webdriver.Firefox(
+                executable_path=GeckoDriverManager(**config).install(), options=self._firefox_options(), service_log_path=os.path.devnull)
+        elif self.browser == 'ie':
+            return webdriver.Ie(executable_path=IEDriverManager(**config).install(), options=self._ie_options())
+        elif self.browser == 'safari':
+            return webdriver.Safari()
+
+    def _ie_options(self):
+        options = webdriver.IeOptions()
+        options.ensure_clean_session = True
+        options.full_page_screenshot = True
+        options.ignore_protected_mode_settings = True
+        options.ignore_zoom_level = True
+        options.native_events = False
+        return options
+
+    def _is_element_clicked(self, locator):
+        try:
+            element = self.find_element(locator)
+            if not element.is_displayed() or not element.is_enabled():
+                return False
+            element.click()
+            return True
+        except (NoSuchWindowException, ElementClickInterceptedException, ElementNotInteractableException, StaleElementReferenceException):
+            return False
+
+    def _is_frame_switched(self, locator):
+        try:
+            self.switch_to_frame(locator)
+            return True
+        except NoSuchFrameException:
+            return False
+
+    def _is_page_changed_after_refresh(self):
+        before_page = self.page_source
+        self.refresh()
+        self.wait_until_page_loaded()
+        return before_page != self.page_source
+
+    def _multiple_select_to_be(self, element, state):
+        if not isinstance(element, WebElement):
+            raise WebDriverException(f'Not WebElement: {element}')
+
+        if element.tag_name != 'select':
+            raise WebDriverException(f'Element is not a select: {element}')
+
+        if element.get_attribute('multiple'):
+            for option in element.find_elements('css=option'):
+                if option.is_selected() != state:
+                    option.click()
+        else:
+            raise WebDriverException(
+                f'Element is not a multiple select: {element}')
+
+    def _parse_locator(self, locator):
+        how, what = Utils.parse_locator(locator)
+
+        if how == 'yml':
+            if self.yml:
+                return Utils.parse_locator(self.t(what))
+            else:
+                raise WebDriverException(
+                    'Cannot use "yml=" as locator strategy when the instance is not assigned with .yml file.')
+
+        return how, what
+
+    def __getattribute__(self, fn_name):
+        log_level = object.__getattribute__(self, 'log_level')
+        fn_method = object.__getattribute__(self, fn_name)
+        if logging.DEBUG >= log_level and not fn_name.startswith('_') and fn_name not in ['debug', 'info', 't'] and hasattr(fn_method, '__self__'):
+            decorator = object.__getattribute__(self, '_decorator')
+            return decorator(fn_method)
+        return fn_method
+
+
+#
+# --- WebElement Method Additions ---
+#
+# Goals:
+#   - Add additional functionality to WebElement
+#   - Override WebElement methods to accommodate Spydr locator formats (Utils.parse_locator)
+#
+# Mthods to add:
+#   - WebElement.clear_and_send_keys
+#   - WebElement.css_property
+#
+# Methods to override:
+#   - WebElement.find_element
+#   - WebElement.find_elements
+#
+def _web_element_clear_and_send_keys(self, *keys):
+    self.clear()
+    self.send_keys(*keys)
+    return self
+
+
+def _web_element_find_element(self, locator):
+    how, what = Utils.parse_locator(locator)
+    return self._execute(Command.FIND_CHILD_ELEMENT, {"using": how, "value": what})['value']
+
+
+def _web_element_find_elements(self, *locator):
+    how, what = Utils.parse_locator(*locator)
+    return self._execute(Command.FIND_CHILD_ELEMENTS,  {"using": how, "value": what})['value']
+
+
+@property
+def _web_element_value(self):
+    return self.get_attribute('value')
+
+
+def _web_element__str__(self):
+    return self.get_attribute('outerHTML')
+
+
+WebElement.clear_and_send_keys = _web_element_clear_and_send_keys
+WebElement.css_property = WebElement.value_of_css_property
+WebElement.find_element = _web_element_find_element
+WebElement.find_elements = _web_element_find_elements
+WebElement.value = _web_element_value
+WebElement.__str__ = _web_element__str__
