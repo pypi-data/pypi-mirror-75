@@ -1,0 +1,8 @@
+kubernetes
+
+[test]
+flake8==3.5
+pytest
+pytest-mock
+coverage==4.5.2
+codecov==2.0.15
