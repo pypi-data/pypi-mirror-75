@@ -1,0 +1,3 @@
+[console_scripts]
+devcube = devcube.cli:main
+

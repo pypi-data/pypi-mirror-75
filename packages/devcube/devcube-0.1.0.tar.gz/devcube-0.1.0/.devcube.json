@@ -1,0 +1,11 @@
+{
+    "global_config": {
+        "working_dir": "."
+    },
+    "env": {
+        "name": "hello",
+        "image": "python:3-slim",
+        "entry_point": "/bin/bash",
+        "container_working_dir": "/devcube"
+    }
+}
