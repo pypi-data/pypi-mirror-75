@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: agpypeline
+Version: 0.0.39
+Summary: Installable package for entrypoint and drone-specific environment code within a transformer
+Home-page: https://github.com/AgPipeline/agpypeline
+Author: Jacob van der Leeuw
+Author-email: jvanderleeuw@email.arizona.edu
+License: UNKNOWN
+Description: Package containing entrypoint.py from entrypoint code and environment.py for drone-specific environment code. This allows for transformers to havecommon entrypoint and environment code in an installable package
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
