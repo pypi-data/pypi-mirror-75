@@ -1,0 +1,9 @@
+pytango
+click
+treelib
+gevent
+tabulate
+colorful
+
+[repl]
+prompt_toolkit>=3.0.3
