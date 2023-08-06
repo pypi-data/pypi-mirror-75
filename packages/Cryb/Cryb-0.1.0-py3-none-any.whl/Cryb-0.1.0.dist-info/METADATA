@@ -1,0 +1,22 @@
+Metadata-Version: 2.0
+Name: Cryb
+Version: 0.1.0
+Summary: Cryptocurrency data scraper
+Home-page: https://github.com/yetisir/cryb
+Author: M. Yetisir
+Author-email: yetisir@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Provides-Extra: dev
+Requires-Dist: arctic (>=1.79)
+Provides-Extra: dev
+Requires-Dist: coveralls (>=2.0); extra == 'dev'
+Requires-Dist: mkdocs (>=1.1); extra == 'dev'
+Requires-Dist: pip-tools (>=5.1); extra == 'dev'
+Requires-Dist: pytest (>=5.4); extra == 'dev'
+Requires-Dist: pytest-cov (>=2.8); extra == 'dev'
+Requires-Dist: pytest-flake8 (>=1.0); extra == 'dev'
+
+UNKNOWN
+
+
