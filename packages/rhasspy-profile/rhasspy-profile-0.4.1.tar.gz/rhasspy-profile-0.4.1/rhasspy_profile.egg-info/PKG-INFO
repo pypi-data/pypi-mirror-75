@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: rhasspy-profile
+Version: 0.4.1
+Summary: UNKNOWN
+Home-page: https://github.com/rhasspy/rhasspy-profile
+Author: Michael Hansen
+Author-email: mike@rhasspy.org
+License: UNKNOWN
+Description: # Rhasspy Profile
+        
+        [![Continous Integration](https://github.com/rhasspy/rhasspy-profile/workflows/Tests/badge.svg)](https://github.com/rhasspy/rhasspy-profile/actions)
+        [![GitHub license](https://img.shields.io/github/license/rhasspy/rhasspy-profile.svg)](https://github.com/rhasspy/rhasspy-profile/blob/master/LICENSE)
+        
+        Manages profiles settings for [Rhasspy](https://github.com/synesthesiam/rhasspy).
+        
+        ## Requirements
+        
+        * Python 3.7
+        
+        ## Installation
+        
+        ```bash
+        $ git clone https://github.com/rhasspy/rhasspy-profile
+        $ cd rhasspy-profile
+        $ ./configure
+        $ make
+        $ make install
+        ```
+        
+        ## Running
+        
+        ```bash
+        $ bin/rhasspy-profile <ARGS>
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown

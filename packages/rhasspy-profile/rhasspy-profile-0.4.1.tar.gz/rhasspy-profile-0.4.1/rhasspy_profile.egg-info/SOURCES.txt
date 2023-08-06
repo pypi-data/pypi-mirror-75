@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+VERSION
+requirements.txt
+setup.cfg
+setup.py
+rhasspy_profile.egg-info/PKG-INFO
+rhasspy_profile.egg-info/SOURCES.txt
+rhasspy_profile.egg-info/dependency_links.txt
+rhasspy_profile.egg-info/requires.txt
+rhasspy_profile.egg-info/top_level.txt
+rhasspyprofile/__init__.py
+rhasspyprofile/__main__.py
+rhasspyprofile/download.py
+rhasspyprofile/profile.py
+rhasspyprofile/py.typed
