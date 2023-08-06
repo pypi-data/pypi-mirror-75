@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: kiacopy
+Version: 0.3.0
+Summary: kiacopy can make k-independent traveling salesman problem
+Home-page: https://github.com/ganariya/kiacopy
+Author: ganariya
+Author-email: ganariya2525@gmail.com
+License: MIT license
+Keywords: kiacopy
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Requires-Dist: Click (>=7.0)
+Requires-Dist: networkx
+Requires-Dist: tsplib95
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: pandas
+
+=======
+kiacopy
+=======
+
+
+.. image:: https://img.shields.io/pypi/v/kiacopy.svg
+        :target: https://pypi.python.org/pypi/kiacopy
+
+.. image:: https://img.shields.io/travis/ganariya/kiacopy.svg
+        :target: https://travis-ci.com/ganariya/kiacopy
+
+.. image:: https://readthedocs.org/projects/kiacopy/badge/?version=latest
+        :target: https://kiacopy.readthedocs.io/en/latest/?badge=latest
+        :alt: Documentation Status
+
+
+
+
+kiacopy can make k-independent traveling salesman problem
+
+
+* Free software: MIT license
+* Documentation: https://kiacopy.readthedocs.io.
+
+
+Features
+--------
+
+* TODO
+
+Credits
+-------
+
+This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+
+.. _Cookiecutter: https://github.com/audreyr/cookiecutter
+.. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+
+
+=======
+History
+=======
+
+0.1.0 (2020-07-18)
+------------------
+
+* First release on PyPI.
+
+
