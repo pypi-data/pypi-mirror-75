@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: gps-building-blocks
+Version: 0.1.12
+Summary: Modules and tools useful for use with advanced data solutions on Google Ads, Google Marketing Platform and Google Cloud.
+Home-page: https://github.com/google/gps_building_blocks
+Author: gPS Team
+Author-email: no-reply@google.com
+License: Apache Software License
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Internet
+Classifier: Topic :: Scientific/Engineering
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Operating System :: OS Independent
+Requires-Dist: absl-py (==0.9.0)
+Requires-Dist: google-api-core (==1.17.0)
+Requires-Dist: google-api-python-client (==1.9.1)
+Requires-Dist: google-auth (==1.16.0)
+Requires-Dist: google-cloud-bigquery (==1.22.0)
+Requires-Dist: google-cloud-storage (==1.28.1)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: dataclasses ; python_version < "3.7"
+
+# gPS Solutions - Core Libraries Repository
+
+**This is not an official Google product.**
+
+This repository contains modules and tools useful for use with advanced data
+solutions on Google Ads, Google Marketing Platform and Google Cloud. It is
+maintained by a team of Customer Solutions Engineers (CSE) and Data Scientists
+(DS) working within Google's Technical Solutions (gTech) Professional Services
+organization (gPS).
+
+Contributions are highly encouraged; see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Additional Documentation
+
+Language specific documentation can be found within the corrosponding folders.
+
+ - [Python](py/README.md)
+
+
+
