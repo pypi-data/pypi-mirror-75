@@ -1,0 +1,268 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mrs_spec_chan tutorial &#8212; AstroCabTools 0.9.3 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mrs_det_plot tutorial" href="mrs_det_plot_tutorial.html" />
+    <link rel="prev" title="Mrs_chan tutorial" href="mrs_chan_tutorial.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mrs_det_plot_tutorial.html" title="Mrs_det_plot tutorial"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mrs_chan_tutorial.html" title="Mrs_chan tutorial"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AstroCabTools 0.9.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Mrs_spec_chan tutorial</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mrs-spec-chan-tutorial">
+<span id="id1"></span><h1>Mrs_spec_chan tutorial<a class="headerlink" href="#mrs-spec-chan-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Mrs_spec_chan transform and represent into a plot the relationship between an emitted wavelength (<span class="math notranslate nohighlight">\(\lambda_{emt}\)</span>) and its associated flux (<span class="math notranslate nohighlight">\(uJy\)</span>), being the second functionalities:</p>
+<ul class="simple">
+<li><p>Represent multiples relationships from the same spectrum or diferent ones as well as to be able to hide or show them.</p></li>
+<li><p>Know in which of the MIRS sub bands, NIRSpec IFU ranges and NIRS gaps, the relationship falls.</p></li>
+<li><p>Know which of the different lines of interest matches the relationship.</p></li>
+<li><p>Represent specific spectrums.</p></li>
+</ul>
+<p>To make the emitted wavelengths avaliable to be characterized from the different sub bands as well as to compare it with the flux on the same plot:
+* Both values must be shifted into an observed wavelength(lambda obs= and it associated flux with the value of a redshift(z).
+* The flux value must be normalized, in this case, based on the closest value to 10 microns.</p>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>To execute and use the tool, the next libraries need to be installed:</p>
+<ul class="simple">
+<li><p>Python (tested for 3.8)</p></li>
+<li><p>Matplotlib (tested for 3.1.2)</p></li>
+<li><p>Numpy (1.81.1)</p></li>
+<li><p>PyQt5 (5.14.0)</p></li>
+<li><p>Seaborn (0.9.0)</p></li>
+</ul>
+</div>
+<div class="section" id="data-insertion">
+<h2>Data insertion<a class="headerlink" href="#data-insertion" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="spectrum-loading">
+<h3>Spectrum loading<a class="headerlink" href="#spectrum-loading" title="Permalink to this headline">¶</a></h3>
+<p>To use all the options that the tool as, an spectrum or spectra need to be loaded and represented clicking on the “Load spectra” button in <a class="reference internal" href="mrs_chan_tutorial.html#figure1"><span class="std std-numref">Fig. 1</span></a>.</p>
+<div class="figure align-default" id="figure1">
+<img alt="_images/proj2-in1.PNG" src="_images/proj2-in1.PNG" />
+</div>
+<p>Once it has been clicked, a new window will appear. On this window, the “Select Directory” button must be pressed, allowing to select the directory where the spectra that are going to be loaded are (see <a class="reference internal" href="mrs_chan_tutorial.html#figure2"><span class="std std-numref">Fig. 2</span></a>). Once a directory has been selected, it will appear a list that corresponds to the “.txt” files that are assumed to be the spectra, however only the files that have the format described in <a class="reference internal" href="mrs_chan_tutorial.html#overview"><span class="std std-ref">Overview</span></a> will be able to load.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Each “.txt” item from the lsit is composed of:</p>
+<ul class="simple">
+<li><p>A disabled checkbox that will allow to include the spectrum on the list that will be loaded if it’s checked or not.</p></li>
+<li><p>A text field, that will neable the checkbox element and corresponds with the redshift value that will be applied to the spectrum associated with it.</p></li>
+<li><p>A label that shows the path of the “.txt” file.</p></li>
+</ul>
+</div>
+<div class="figure align-default" id="figure2">
+<img alt="_images/proj2-in2.PNG" src="_images/proj2-in2.PNG" />
+</div>
+<p>Because the specturm is added to the list of the ones that are going to be loaded once its corresponding checkbox has been checked, it’s also possible to select different spectra from different directories pressing the “Select Directory” button again to change it.</p>
+<p>Once the spectra have been selected, the user can click on the “Accept” button to load them or to click on the “Cancel” button to close it and remove the spectra selected if any have been selected (see <a class="reference internal" href="mrs_chan_tutorial.html#figure3"><span class="std std-numref">Fig. 3</span></a>).</p>
+<div class="figure align-default" id="figure3">
+<img alt="_images/proj2-in4.png" src="_images/proj2-in4.png" />
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To be able to load the spectra, the “.txt” files must satisfy these requirements:</p>
+<ol class="arabic simple">
+<li><p>Use UTF-8 encoding.</p></li>
+<li><p>Have only two columns separated with a space.</p></li>
+<li><p>The first column corresponds with the wavelength values.</p></li>
+<li><p>The second column corresponds with the flux values.</p></li>
+</ol>
+</div>
+<p>After finishing all changes, all the components on the main window will be enabled, and multiple elements that will be described on the next points will appear on the canvas.</p>
+</div>
+<div class="section" id="spectrum-visualization">
+<h3>Spectrum visualization<a class="headerlink" href="#spectrum-visualization" title="Permalink to this headline">¶</a></h3>
+<p>THe canvas represent amongst the sepctrum or spectram different elements:</p>
+<ol class="arabic simple">
+<li><p>The MRS sub bands, show as rectangles of different color that overlap each other based on the values that corresponds to them as well as text that indicate which rectangle corresponds to which sub band.</p></li>
+<li><p>The NIRSpec IFU ranges, show most of them as rectangles of different color. Because on the of them covers not also all the NIRSpec IFU ranges but also some of the MRS sub bands, is represented with two red vertical lines that marks the range.</p></li>
+<li><p>The NIRSpec gap range of values represented as vertical lines. To simplifty the amount of values for each disperser, each range of vertical lines only represent the whole range for eeach dispereser.</p></li>
+</ol>
+<p>In order to analyce the plot and each one of the elements, all the canvas can be zoomed in or out with the mouse wheel and move the plot after or before applying the zoom (see <a class="reference internal" href="#figure4"><span class="std std-numref">Fig. 9</span></a>).</p>
+<div class="figure align-default" id="figure4">
+<img alt="_images/proj2-re1.png" src="_images/proj2-re1.png" />
+</div>
+</div>
+<div class="section" id="channel-selection">
+<h3>Channel selection<a class="headerlink" href="#channel-selection" title="Permalink to this headline">¶</a></h3>
+<p>To observe specific elements, the tool provides the options to show and hide each one of them using the checkboxes located at the bottom of the main window.</p>
+<p>Once the spectra have been loaded, all checkboxe are selected by default, however, if one of the is unchecked, the once associated, will hide on the canvas. In <a class="reference internal" href="#figure5"><span class="std std-numref">Fig. 10</span></a>, the MRS sub band has been unchecked as an example.</p>
+<div class="figure align-default" id="figure5">
+<img alt="_images/proj2-re6.png" src="_images/proj2-re6.png" />
+</div>
+</div>
+<div class="section" id="spectrum-management">
+<h3>Spectrum management<a class="headerlink" href="#spectrum-management" title="Permalink to this headline">¶</a></h3>
+<p>THe posibility to hide the elements, as show in the last header, also applies to the spectra, which can be hidden.</p>
+<p>Above the canvas,it appears a component that correspond to a list element, which shows all the spectra selected with its corresponding redshift, but not only shows them, they can be hidden and removed from the specturm list (see <a class="reference internal" href="#figure6"><span class="std std-numref">Fig. 11</span></a>), which mean that tom make them appear on the canvas, they mus be selected again. To give the possibility to do such options, two components were used:</p>
+<ul class="simple">
+<li><p>A checkbox, checked by default, that will show or hide the spectrum on the canvas.</p></li>
+<li><p>A button with a “D” letter that will delete the spectrum from the list and remove it from the canvas.</p></li>
+</ul>
+<p>If all the spectra are deleted, all componentes will be disabled, and the canvas will be cleared.</p>
+<div class="figure align-default" id="figure6">
+<img alt="_images/proj2-re7.png" src="_images/proj2-re7.png" />
+</div>
+</div>
+<div class="section" id="optional-wavelength-values-representation">
+<h3>Optional wavelength values representation<a class="headerlink" href="#optional-wavelength-values-representation" title="Permalink to this headline">¶</a></h3>
+<p>Aside from the elements of the canvas, spcific wavelength values can be added after it’s corresponded redshift is applied to each one. In order to add them, the wavelength values must be written on the text fields tht appear on the top of the main window separated with commas and the redshift that is going to be applied to each one respectively. After writting the values, if the button, to the right of the text fileds is clicked, will update the canvas with the new wavelengths, represented as pink vertical lines with its corresponding observed wavelength value on the top axis (see <a class="reference internal" href="#figure7"><span class="std std-numref">Fig. 12</span></a>).</p>
+<div class="figure align-default" id="figure7">
+<img alt="_images/proj2-re10.png" src="_images/proj2-re10.png" />
+</div>
+<p>In case new spectra want to be loaded, the right button will need to be clicked to update the canvas.</p>
+</div>
+<div class="section" id="lines-of-interest-representation">
+<h3>Lines of interest representation<a class="headerlink" href="#lines-of-interest-representation" title="Permalink to this headline">¶</a></h3>
+<p>In connection with the optional wavelengths, multiples lines of interest can be selected to be shown in the canvas. To be able to select the items, first of all, the “Load loi” button need to be clicked, to appear a new window with a list of lines of interest items to be selected with the left checkbox on each one of them (see <a class="reference internal" href="#figure8"><span class="std std-numref">Fig. 13</span></a>).</p>
+<div class="figure align-default" id="figure8">
+<img alt="_images/proj2-re5.png" src="_images/proj2-re5.png" />
+</div>
+<p>After accepting to load the lines of interest, each one of them will appear on a purple vertical lin with it’s corresponding type on the top axis (see <a class="reference internal" href="#figure9"><span class="std std-numref">Fig. 14</span></a>).</p>
+<div class="figure align-default" id="figure9">
+<img alt="_images/proj2-re9.png" src="_images/proj2-re9.png" />
+</div>
+<p>It’s also possible to select or delete the current ones doing the same process in this subsection.</p>
+</div>
+<div class="section" id="save-representation">
+<h3>Save representation<a class="headerlink" href="#save-representation" title="Permalink to this headline">¶</a></h3>
+<p>The canvas can also be saved as a “.png” file clicking the “Save as png” button on the top of the main window.</p>
+<div class="figure align-default" id="figure10">
+<img alt="_images/proj2-re3.png" src="_images/proj2-re3.png" />
+</div>
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>On the first example in <a class="reference internal" href="mrs_chan_tutorial.html#example1"><span class="std std-numref">Fig. 4</span></a>, multiple spectra have been loaded with different redshift for each one and only the MRS sub bands values to be shown.</p>
+<div class="figure align-default" id="example1">
+<img alt="_images/proj2-re11.png" src="_images/proj2-re11.png" />
+</div>
+<p>On the second, one spectrum has been loaded with the redshift value of 4.12, two optional wavelengths with a redshift value of 4.5 and two lines of interest, as show in <a class="reference internal" href="mrs_chan_tutorial.html#example2"><span class="std std-numref">Fig. 5</span></a>.</p>
+<div class="figure align-default" id="example2">
+<img alt="_images/proj2-re12.png" src="_images/proj2-re12.png" />
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Mrs_spec_chan tutorial</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#data-insertion">Data insertion</a><ul>
+<li><a class="reference internal" href="#spectrum-loading">Spectrum loading</a></li>
+<li><a class="reference internal" href="#spectrum-visualization">Spectrum visualization</a></li>
+<li><a class="reference internal" href="#channel-selection">Channel selection</a></li>
+<li><a class="reference internal" href="#spectrum-management">Spectrum management</a></li>
+<li><a class="reference internal" href="#optional-wavelength-values-representation">Optional wavelength values representation</a></li>
+<li><a class="reference internal" href="#lines-of-interest-representation">Lines of interest representation</a></li>
+<li><a class="reference internal" href="#save-representation">Save representation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mrs_chan_tutorial.html"
+                        title="previous chapter">Mrs_chan tutorial</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mrs_det_plot_tutorial.html"
+                        title="next chapter">Mrs_det_plot tutorial</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mrs_spec_chan_tutorial.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mrs_det_plot_tutorial.html" title="Mrs_det_plot tutorial"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mrs_chan_tutorial.html" title="Mrs_chan tutorial"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AstroCabTools 0.9.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Mrs_spec_chan tutorial</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Alejandro Gorgues.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
+    </div>
+  </body>
+</html>
