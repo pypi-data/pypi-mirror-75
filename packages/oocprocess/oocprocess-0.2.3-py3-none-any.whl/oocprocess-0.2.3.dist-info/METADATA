@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: oocprocess
+Version: 0.2.3
+Summary: Out-of-core Processing
+Home-page: https://gitlab.com/alanxuliang/a1704_oocprocess
+Author: Alan Xu
+Author-email: bireme@gmail.com
+License: MIT
+Keywords: ooc data processing
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: GIS
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: zarr
+Requires-Dist: dask
+Requires-Dist: h5py
+Requires-Dist: xarray
+Requires-Dist: gdal
+Requires-Dist: lxml
+Requires-Dist: scikit-learn
+
+UNKNOWN
+
+
