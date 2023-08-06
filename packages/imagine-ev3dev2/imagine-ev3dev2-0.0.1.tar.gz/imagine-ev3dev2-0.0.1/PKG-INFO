@@ -1,0 +1,35 @@
+Metadata-Version: 1.1
+Name: imagine-ev3dev2
+Version: 0.0.1
+Summary: FLL focused ev3dev2 framework
+Home-page: https://github.com/innova-fll/imagine
+Author: FLL Team # and #38147
+Author-email: team.innova.fll@gmail.com
+License: Type license() to see the full license text
+Download-URL: https://github.com/innova-fll/imagine/archive/0.0.1.tar.gz
+Description: *******
+        imagine
+        *******
+        
+        Install
+        #######
+        
+        Drag-and-drop the `imagine` folder in the root directory of your project
+        
+        Publishing
+        ##########
+        
+        ::
+          python setup.py sdist
+          pip install twine
+          twine upload dist/*
+        
+        Credits
+        #######
+        
+        * Original Repository: https://github.com/KePeterZ/imagine
+        * Original Author: KePeterZ (https://github.com/KePeterZ)
+        * Team # 
+        * Team #38147
+        
+Platform: UNKNOWN
