@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: alagitpull
+Version: 0.0.25rc2
+Summary: Cleverly-named alabaster sub-theme for git-pull projects
+License: MIT
+Author: Tony Narlock
+Author-email: tony@git-pull.com
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: alabaster (<0.8)
