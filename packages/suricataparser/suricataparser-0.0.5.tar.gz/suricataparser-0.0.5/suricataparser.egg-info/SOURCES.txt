@@ -1,0 +1,12 @@
+LICENSE
+README.rst
+setup.cfg
+setup.py
+suricataparser/__init__.py
+suricataparser/exceptions.py
+suricataparser/parse.py
+suricataparser/rule.py
+suricataparser.egg-info/PKG-INFO
+suricataparser.egg-info/SOURCES.txt
+suricataparser.egg-info/dependency_links.txt
+suricataparser.egg-info/top_level.txt
