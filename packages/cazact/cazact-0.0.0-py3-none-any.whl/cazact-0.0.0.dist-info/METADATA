@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: cazact
+Version: 0.0.0
+Summary: Property and Casualty Loss Models
+Home-page: https://github.com/genedan/cazact
+Author: Gene Dan
+Author-email: genedan@gmail.com
+License: UNKNOWN
+Project-URL: Documentation, https://genedan.com/cazact/docs
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
+
+# cazact
+Property and Casualty Loss Models
+
+
