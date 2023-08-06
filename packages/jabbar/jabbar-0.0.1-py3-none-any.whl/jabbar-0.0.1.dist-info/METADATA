@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: jabbar
+Version: 0.0.1
+Summary: Just Another Beautiful progress BAR
+Home-page: https://github.com/yannikschaelte/jabbar
+Author: Yannik Schaelte
+Author-email: yannik.schaelte@gmail.com
+Maintainer: Yannik Schaelte
+Maintainer-email: yannik.schaelte@gmail.com
+License: MIT
+Download-URL: https://github.com/yannikschaelte/jabbar/releases
+Project-URL: But Tracker, https://github.com/yannikschaelte/jabbar/issues
+Project-URL: Source Code, https://github.com/yannikschaelte/jabbar
+Project-URL: Documentation, https://github.com/yannikschaelte/jabbar
+Keywords: Progress bar,Status bar,Jabberwocky
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.7
+
+jabbar
+======
+
+Just Another Beautiful progress BAR.
+
+jabbar is a python package implementing a simple progress bar.
+
+
+Install
+-------
+
+jabbar can be installed from `PyPI <https://pypi.python.org>`_ via
+
+.. code-block:: sh
+
+    $ pip install jabbar
+
+or from the latest code on `GitHub <https://github.com/yannikschaelte/jabbar>`_ with
+
+.. code-block:: sh
+
+    $ pip install git+https://github.com/yannikschaelte/jabbar.git
+
+
+Get started
+-----------
+
+TODO
+
+License
+-------
+
+jabbar is available under a MIT license.
+
+
