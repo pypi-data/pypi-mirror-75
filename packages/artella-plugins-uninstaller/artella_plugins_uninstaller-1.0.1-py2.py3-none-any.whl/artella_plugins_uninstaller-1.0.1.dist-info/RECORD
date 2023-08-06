@@ -1,0 +1,14 @@
+artella/__init__.py,sha256=b4ew1taJzo-7bGrcdWLDwxbxq1uuH8J5I3dDk5c-oaY,233
+artella/plugins/__init__.py,sha256=9Cyq98s1475R3DMojzS4EB_tdQQUW74bUkWi-G-7qwE,241
+artella/plugins/uninstaller/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+artella/plugins/uninstaller/__version__.py,sha256=Z8sei2Shelev6L2A7z8P4I2bVIYN9B-c5CSv37hABuQ,409
+artella/plugins/uninstaller/_version.py,sha256=jZt0Fr2hWYNfcCp-CjGVt4xSJ2lYgw9IR1W2P0BZMXg,497
+artella/plugins/uninstaller/uninstaller.py,sha256=Tuc8Y1YGYxwAA-lmdHjYNTGstvb8TgcRX9mOK-I98LY,3419
+artella/plugins/uninstaller/maya/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+artella/plugins/uninstaller/maya/uninstaller.py,sha256=HQpKmR6rZxzvI1XC6yP2aYxLV_uZmIvTjtwdRC-RDnw,2232
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_plugin.py,sha256=013JmKGlaElYnNdtjAcomlG7vWIr3cGUMLeki_LtWs0,164
+artella_plugins_uninstaller-1.0.1.dist-info/METADATA,sha256=vuB0cObrkYsokQZFiarbeeByNUKBbnY0UDBb1df5lYI,1386
+artella_plugins_uninstaller-1.0.1.dist-info/WHEEL,sha256=kGT74LWyRUZrL4VgLh6_g12IeVl_9u9ZVhadrgXZUEY,110
+artella_plugins_uninstaller-1.0.1.dist-info/top_level.txt,sha256=AbqY0GnW-7zeK-j_jK_IkNrYTU41RoI77xGK-1ucYw0,14
+artella_plugins_uninstaller-1.0.1.dist-info/RECORD,,
