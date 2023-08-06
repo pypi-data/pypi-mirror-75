@@ -1,0 +1,6 @@
+python-multipart==0.0.5
+
+[dev]
+pytest
+pytest-pep8
+pytest-cov
