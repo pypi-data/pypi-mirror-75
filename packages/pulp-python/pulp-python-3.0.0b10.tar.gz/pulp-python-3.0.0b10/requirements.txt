@@ -1,0 +1,5 @@
+pulpcore>=3.5,<3.6
+pkginfo
+packaging
+requirements-parser
+bandersnatch
