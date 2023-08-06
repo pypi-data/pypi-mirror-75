@@ -1,0 +1,106 @@
+Metadata-Version: 2.1
+Name: metriculous
+Version: 0.2.0
+Summary: Very unstable library containing utilities to measure and visualize statistical properties of machine learning models.
+Home-page: https://github.com/metriculous-ml/metriculous
+License: MIT
+Keywords: metriculous,machine,learning,metrics,statistics,data science,evaluation,regression,classification,residual plot,ROC curve,PR curve,confusion matrix,statistical performance,ML,deep learning,scikit-learn,bokeh,forecasting
+Author: Marlon
+Maintainer: Marlon
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Software Development :: Quality Assurance
+Requires-Dist: assertpy (>=0.14.0)
+Requires-Dist: bokeh (>=2.1.1,<3.0.0)
+Requires-Dist: jupyter (>=1.0,<2.0)
+Requires-Dist: numpy (>=1.16)
+Requires-Dist: pandas (>=0.24.0)
+Requires-Dist: scikit-learn (>=0.21.2)
+Project-URL: Repository, https://github.com/metriculous-ml/metriculous
+Description-Content-Type: text/markdown
+
+<p align="center">
+    <a href="https://mybinder.org/v2/gh/metriculous-ml/metriculous/master?filepath=notebooks">
+        <img alt="Launch Binder" src="https://mybinder.org/badge_logo.svg">
+    </a>
+    <a href="https://github.com/ambv/black">
+        <img alt="Code style: black" src="https://img.shields.io/badge/code%20style-black-000000.svg">
+    </a>
+</p>
+
+# __`metriculous`__
+Unstable python library with utilities to measure, visualize and compare statistical properties of machine learning models. Breaking improvements to be expected.
+
+
+# Installation
+```console
+$ pip install metriculous
+```
+
+Or, for the latest unreleased version:
+```console
+$ pip install git+https://github.com/metriculous-ml/metriculous.git
+```
+
+Or, to avoid getting surprised by breaking changes:
+```console
+$ pip install git+https://github.com/metriculous-ml/metriculous.git@YourFavoriteCommit
+```
+
+
+# Usage
+
+### Comparing Regression Models  [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/metriculous-ml/metriculous/master?filepath=notebooks%2Fquickstart_regression.py)
+
+```python
+import numpy as np
+
+# Mock the ground truth, a one-dimensional array of floats
+ground_truth = np.random.random(300)
+
+# Mock the output of a few models
+perfect_model = ground_truth
+noisy_model = ground_truth + 0.1 * np.random.randn(*ground_truth.shape)
+random_model = np.random.randn(*ground_truth.shape)
+zero_model = np.zeros_like(ground_truth)
+
+import metriculous
+
+metriculous.compare_regressors(
+    ground_truth=ground_truth,
+    model_predictions=[perfect_model, noisy_model, random_model, zero_model],
+    model_names=["Perfect Model", "Noisy Model", "Random Model", "Zero Model"],
+).save_html("comparison.html").display()
+```
+
+This will save an HTML file with common regression metrics and charts, and if you are working in a [Jupyter notebook](https://github.com/jupyter/notebook) will display the output right in front of you:
+
+
+![Screenshot of Metriculous Regression Metrics](./imgs/metriculous_regression_screen_shot_table.png)
+![Screenshot of Metriculous Regression Figures](./imgs/metriculous_regression_screen_shot_figures.png)
+
+### Comparing Classification Models [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/metriculous-ml/metriculous/master?filepath=notebooks%2Fquickstart_classification.py)
+For an example that evaluates and compares classifiers please refer to the [quickstart notebook for classification](notebooks/quickstart_classification.ipynb).
+
+
+# Development
+
+### Poetry
+This project uses [poetry](https://poetry.eustace.io/) to manage
+dependencies. Please make sure it is installed for the required python version. Then install the dependencies with `poetry install`.
+
+### Makefile
+A Makefile is used to automate common development workflows. Type `make` or `make help` to see a list of available commands. Before commiting changes it is recommended to run `make format check test`.
+
