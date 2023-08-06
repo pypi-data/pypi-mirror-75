@@ -1,0 +1,12 @@
+loguru>=0.4.1
+click
+torch==1.5.1
+transformers
+smart-open>=2.0.0
+wheel
+tqdm
+uvicorn
+fastapi
+sklearn
+nltk>=3.4.5
+tabulate
