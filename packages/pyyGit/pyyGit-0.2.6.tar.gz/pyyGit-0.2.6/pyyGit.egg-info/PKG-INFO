@@ -1,0 +1,33 @@
+Metadata-Version: 1.2
+Name: pyyGit
+Version: 0.2.6
+Summary: the missing Python git module
+Home-page: https://github.com/TheTechRobo/PyGit
+Author: ittussarom retals mail ynohtna
+Author-email: thetechrobo@outlook.com
+License: DBAD-clean
+Project-URL: Documentation, https://github.com/thetechrobo/PyGit/wiki
+Project-URL: Source, https://github.com/thetechrobo/pygit
+Project-URL: Tracker, https://github.com/thetechrobo/pygit/issues
+Description: # pyGit
+        A small module for running Git operations...
+        
+        **Check out [Palc](https://github.com/thetechrobo/python-text-calculator), it's even better than pyGit**
+        
+        **NOTE: pyGit has not finished development yet. Use with caution!**
+        
+        ![pyGit in use](https://thetechrobo.github.io/resources-online/PyGit_GIFv3.gif)
+        
+        **NOTE 2: pyGit is STILL BEING MAINTAINED. It's just not my priority, as I've been pretty busy lately.**
+        
+        Documentation and details are in the [wiki](https://github.com/thetechrobo/pygit/wiki).
+        
+        # Installing from PyPI
+        pyGit is on PyPI with the name `pyyGit` (due to another project with the name pyGit). However, you still need to use `import pygit` or `from pygit import *` instead of `import pyygit` or `from pyygit import *`. Because the *package name* is pygit but the PyPI name is pyyGit.
+        
+Keywords: git,easy,thetechrobo
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
