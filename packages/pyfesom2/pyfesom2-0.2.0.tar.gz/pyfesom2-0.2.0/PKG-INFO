@@ -1,0 +1,181 @@
+Metadata-Version: 1.1
+Name: pyfesom2
+Version: 0.2.0
+Summary: FESOM2 tools
+Home-page: https://github.com/koldunovn/pyfesom2
+Author: FESOM team
+Author-email: koldunovn@gmail.com
+License: MIT license
+Download-URL: https://github.com/FESOM/pyfesom2/archive/0.2.0.tar.gz
+Description: pyfesom2
+        ========
+        
+        
+        [![Build Status](https://travis-ci.org/koldunovn/pyfesom2.svg?branch=master)](https://travis-ci.org/koldunovn/pyfesom2)
+        [![Documentation Status](https://readthedocs.org/projects/pyfesom2/badge/?version=latest)](https://pyfesom2.readthedocs.io/en/latest/?badge=latest)
+        
+        
+        FESOM2 tools
+        
+        
+        * Free software: MIT license
+        * Documentation: https://pyfesom2.readthedocs.io.
+        
+        
+        Installation
+        ------------
+        The only supported way now it to use `conda`. The short guide how to install it can be found for [Linux/Mac](https://github.com/koldunovn/python_for_geosciences/blob/master/README.md#getting-started-for-linuxmac) and [Windows](https://github.com/koldunovn/python_for_geosciences/blob/master/README.md#getting-started-for-windows). For now we are not testing for Windows, and there is no garantee that pyfesom2 will work on this OS. 
+        
+        The easiest way is to install latest stable version from `conda-forge`:
+        
+            conda config --add channels conda-forge
+            conda install pyfesom2
+        
+        Development Installation
+        ------------------------
+        If you plan to change the code inside the package, you have to install it in "development" mode.
+        After you install `conda` (python 3.7 environment is recomendes), clone the source code:
+        
+        
+            git clone https://github.com/FESOM/pyfesom2.git
+        
+        
+        Create pyfesom2 environment by:
+        
+            conda env create -f ./pyfesom2/ci/requirements-py37.yml
+        
+        
+        Activate the environment
+        
+            conda activate pyfesom2
+        
+        
+        Install pyfesom2
+        
+            cd pyfesom2
+            pip install -e .
+        
+        
+        Usage of tools
+        --------------
+        Below are couple of examples of CLI tools usage. 
+        For now two tools are available: `pfplot` (plot variable on the map) and `pfinterp` (interpolate scalar values to regular grid). You can get complete list of options by executing:
+        
+            pfplot -h
+        
+        
+        To plot temperature field one can do:
+        
+            pfplot ./CORE_MESH/ ./CORE_out/ temp
+        
+        
+        where `./CORE_MESH` is path to the mesh, `./CORE_out/` is path to the folder with results and `temp` is the name of the variable. By defauld `pfplot` will try to plot the mean values from the year 1948 at the surface (0 depth) on a global 360/180 map. Make sure you have write permissions to the folder with the mesh, since pfplot will save interpolation information, so next time it is not calculated but just loaded from the file.
+        
+        To plot the different year:
+        
+            pfplot ./CORE_MESH/ ./CORE_out/ temp -y 2000
+        
+        
+        Plot different depth:
+        
+            pfplot ./CORE_MESH/ ./CORE_out/ temp -y 2000 -d 100
+        
+        
+        Plot mean over several years:
+        
+            pfplot ./CORE_MESH/ ./CORE_out/ temp -y 1948,1949,1950
+        
+        
+        Plot mean over several years by specifying the range:
+        
+            pfplot ./CORE_MESH/ ./CORE_out/ temp -y 1948:1955
+        
+        
+        Plot with North Polar Stereo projection (you have to specify different bounding box with `-b`)
+        
+            pfplot ./CORE_MESH/ ./CORE_out/ temp -y 2000 -b -180 180 60 90 -m np
+        
+        
+        Features
+        --------
+        
+        * TODO
+        
+        Credits
+        -------
+        
+        This package was created with Cookiecutter_ and the `audreyr/cookiecutter-pypackage`_ project template.
+        
+        .. _Cookiecutter: https://github.com/audreyr/cookiecutter
+        .. _`audreyr/cookiecutter-pypackage`: https://github.com/audreyr/cookiecutter-pypackage
+        
+        
+        =======
+        History
+        =======
+        
+        0.2.0 (2020-08-05)
+        ------------------
+        
+        Breaking changes
+        ----------------
+        
+        * depricate ``plot_transect`` and ``hofm_plot`` functions. Replaced with more general ``plot_xyz`` function.
+        * replace ``transect_uv`` with ``get_transect_uv``.
+        * remove Basemap dependency and all code related to Basemap.
+        
+        New Features
+        ------------
+        
+        * ``plot_vector`` - plotting vector on a map.
+        * ``plot_xyz`` - ploting, for example, transect or hovmoeller diagrams.
+        * ``get_transect`` - returns the data for transect, that then should be used with ``plot_xyz`` to plot.
+        * ``tplot`` - plotting on original FESOM mesh, without interpolation.
+        * ``compute_face_coords`` - compute coordinates (centers) of elements (triangles).
+        * ``cut_region`` - cut region from the mesh.
+        * ``xmoc_data`` - compute moc for selected region
+        * ``get_mask`` - create mask of the region (e.g. Atlantic or Pacific Ocean).
+        
+        Bug fixes
+        ---------
+        
+        * fix ``get_cmap`` to cpmply with new matplotlib versions.
+        * fix RTD builds on master (by `Suvarchal Kumar Cheedela <https://github.com/suvarchal>`_).
+        * fix issue with time module change after python 3.7 (by `Paul Gierz <https://github.com/pgierz>`_)
+        
+        Documentation
+        -------------
+        
+        * Notebook example for vector plotting.
+        * Notebook example for plotting on original mesh with``tplot``.
+        * Notebook example for very fast plotting with `geoviews <https://geoviews.org/>`_ .
+        * Notebook example for xMOC plotting.
+        
+        Internal Changes
+        ----------------
+        
+        * general cleaning up of the code
+        * split ``plot`` function to make it more readable.
+        * refactor ``tonodes`` function, allow xarray in ``tonodes3d``
+        * add tests for transects.
+        
+        0.1.1 (2019-02-12)
+        ------------------
+        
+        * Fixes for PyPI
+        
+        0.1.0 (2019-02-12)
+        ------------------
+        
+        * First release on PyPI.
+        
+Keywords: pyfesom2
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
