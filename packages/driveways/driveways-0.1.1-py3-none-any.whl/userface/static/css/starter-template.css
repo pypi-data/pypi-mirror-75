@@ -1,0 +1,33 @@
+body {
+  padding-top: 5rem;
+
+}
+
+.starter-template {
+  padding: 3rem 1.5rem;
+  text-align: center;
+  color: #003366;
+}
+
+
+
+
+.navbar {
+  color: #003366;
+}
+
+.bg-dark {
+    background-color: #003366!important;
+}
+
+.btn-success {
+    color: #fff;
+    background-color: #003366;
+    border-color: #004085;
+}
+
+.btn-success:hover {
+    color: #003366;
+    background-color: #fff;
+    border-color: #004085;
+}
