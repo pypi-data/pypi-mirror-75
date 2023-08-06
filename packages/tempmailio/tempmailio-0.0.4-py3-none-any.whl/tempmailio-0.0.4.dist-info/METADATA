@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: tempmailio
+Version: 0.0.4
+Summary: python wrapper for tempmail.io
+Home-page: https://github.com/kkristof200/py_tempmailio
+Author: Kristof
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: jsoncodable
+Requires-Dist: kcu
+
+# tempmailio
+
+![python_version](https://img.shields.io/static/v1?label=Python&message=3.5%20|%203.6%20|%203.7&color=blue) [![PyPI downloads/month](https://img.shields.io/pypi/dm/tempmailio?logo=pypi&logoColor=white)](https://pypi.python.org/pypi/tempmailio)
+
+## Description
+
+python wrapper for tempmail.io
+
+## Install
+
+````bash
+pip install tempmailio
+# or
+pip3 install tempmailio
+````
+
+## Usage
+
+```python
+import time
+
+from tempmailio import *
+
+mail = TempMailI0(
+    user_name='test',
+    domain=Domain.cloudmail()
+)
+
+success = mail.create_email()
+
+print(mail.email_address)
+
+while True:
+    inbox = mail.get_inbox()
+
+    if len(inbox) > 0mermaid :
+        inbox[0].jsonprint()
+        exit(0)
+
+    time.sleep(2.5)
+```
+
+
