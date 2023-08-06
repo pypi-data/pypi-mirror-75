@@ -1,0 +1,68 @@
+Metadata-Version: 2.1
+Name: package-name-exporter
+Version: 0.0.0
+Summary: Export python packages installed to txt, pdf and xls format
+Home-page: https://github.com/Allwin12/package-name-exporter
+Author: Allwin Raju
+Author-email: allwindicaprio@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: xlwt (>=1.3)
+Requires-Dist: fpdf (>=1.7)
+
+# Package name exporter
+This python package will let you export your installed packages to txt, pdf and xls format.
+This package is the advanced version of the 
+
+```python
+pip freeze > requirements.txt
+```
+
+## Installation
+
+* Install this package from pypi.org 
+
+```python
+pip install package-name-exporter
+```
+* clone this repo and run 
+
+```python
+python setup.py install
+```
+
+## Usage
+
+This library helps you to export the installed packages into txt, xls and pdf format
+
+### pdf format
+
+```python
+from package_name_exporter.exporter import PackageNameExporter
+
+my_class = PackageNameExporter()
+my_class.get_packages_list('pdf', 'filename.pdf')
+```
+
+### xls format
+```python
+from package_name_exporter.exporter import PackageNameExporter
+
+my_class = PackageNameExporter()
+my_class.get_packages_list('xls', 'filename.xls')
+```
+
+### txt format
+```python
+from package_name_exporter.exporter import PackageNameExporter
+
+my_class = PackageNameExporter()
+my_class.get_packages_list('txt', 'filename.txt')
+```
+
+
