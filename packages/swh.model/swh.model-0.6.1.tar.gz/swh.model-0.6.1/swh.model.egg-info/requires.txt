@@ -1,0 +1,22 @@
+attrs
+attrs_strict>=0.0.7
+deprecated
+hypothesis
+iso8601
+python-dateutil
+typing_extensions
+vcversioner
+
+[:python_version < "3.6"]
+pyblake2
+
+[cli]
+swh.core
+Click
+dulwich
+
+[testing]
+Click
+dulwich
+pytest
+pytz
