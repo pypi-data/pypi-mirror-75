@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: communities
+Version: 1.0.5
+Summary: Library of algorithms for detecting communities in graphs
+Home-page: https://github.com/shobrook/communities
+Author: shobrook
+Author-email: shobrookj@gmail.com
+License: MIT
+Description: # communities
+        Library of algorithms for detecting communities in graphs
+        
+Keywords: graph,louvain,community,clustering,detection,girvan-newman,hierarchical
+Platform: UNKNOWN
+Requires-Python: >=3
+Description-Content-Type: text/markdown
