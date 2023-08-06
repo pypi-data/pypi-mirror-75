@@ -1,0 +1,64 @@
+* Weighted Ensemble Python (wepy)
+
+[[./info/logo/wepy.svg]]
+
+[[https://adicksonlab.github.io/wepy/index.html][Sphinx Documentation]]
+
+[[https://github.com/ADicksonLab/wepy/blob/master/info/README.org][Plaintext Org-Mode Docs]]
+
+Modular implementation and framework for running weighted ensemble (WE)
+simulations in pure python, where the aim is to have simple things
+simple and complicated things possible. The latter being the priority.
+
+The goal of the architecture is that it should be highly modular to
+allow extension, but provide a "killer app" for most uses that just
+works, no questions asked.
+
+Comes equipped with support for [[https://github.com/pandegroup/openmm][OpenMM]] molecular dynamics,
+parallelization using multiprocessing, the [[http://pubs.acs.org/doi/abs/10.1021/jp411479c][WExplore]] 
+and REVO (Resampling Ensembles by Variance Optimization) resampling
+algorithms, and an HDF5 file format and library for storing and
+querying your WE datasets that can be used from the command line.
+
+The deeper architecture of ~wepy~ is intended to be loosely coupled,
+so that unforeseen use cases can be accomodated, but tightly
+integrated for the most common of use cases, i.e. molecular dynamics.
+
+This allows freedom for fast development of new methods.
+
+Full [[https://github.com/ADicksonLab/wepy/blob/master/info/introduction.org][introduction]].
+
+** Installation
+
+Also see: [[info/installation.org][Installation Instructions]]
+
+To install from pip:
+
+#+BEGIN_SRC bash
+  pip install wepy[all]
+#+END_SRC
+
+Which will install most dependencies.
+
+To install the optional, but likely desired feature, OpenMM you should
+probably just use the omnia channel on conda, otherwise you will need
+to compile it yourself.
+
+#+BEGIN_SRC bash
+  conda install -c omnia openmm
+#+END_SRC
+
+Check its installed by running the command line interface:
+
+#+begin_src bash :tangle check_installation.bash
+wepy --help
+#+end_src
+
+** Citations
+
+Current [[https://zenodo.org/badge/latestdoi/101077926][Zenodo DOI]]
+
+Lotz and Dickson. 2020. in preparation.
+
+
+
