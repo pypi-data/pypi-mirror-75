@@ -1,0 +1,16 @@
+textX
+textX-jinja
+textx-lang-questionnaire
+click
+appdirs
+jinja2
+
+[dev]
+wheel
+
+[test]
+flake8
+tox
+coverage
+coveralls
+pytest
