@@ -1,0 +1,6 @@
+pytest-runner
+nornir==2.4.0
+netmiko==2.4.2
+hier_config==v1.6.1
+keyring>=21.2.1
+keyrings.alt>=3.4.0
