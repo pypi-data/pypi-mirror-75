@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: OASYS1-PaNOSC
+Version: 0.0.2
+Summary: OASYS extension for PaNOSC
+Home-page: https://github.com/PaNOSC-ViNYL/OASYS1-PaNOSC
+Author: Manuel Sanchez del Rio, Aljosa Hafner
+Author-email: srio@esrf.eu,  aljosa.hafner@ceric-eric.eu
+License: GPLv3
+Download-URL: https://github.com/PaNOSC-ViNYL/OASYS1-PaNOSC
+Description: # OASYS1-PaNOSC
+        OASYS extensions for PaNOSC
+        
+        This repository contains extensions to Oasys developed by PaNOSC. 
+        
+Keywords: PaNOSC,WP5,simulations,oasys1
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: X11 Applications :: Qt
+Classifier: Environment :: Console
+Classifier: Environment :: Plugins
+Classifier: Programming Language :: Python :: 3
+Classifier: Intended Audience :: Science/Research
