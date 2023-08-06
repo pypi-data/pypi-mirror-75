@@ -1,0 +1,3 @@
+[console_scripts]
+igem-wikisync = igem_wikisync.cli:main
+
