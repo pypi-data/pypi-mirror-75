@@ -1,0 +1,6 @@
+webob
+six<2,>=1.9
+
+[flask]
+flask
+blinker
