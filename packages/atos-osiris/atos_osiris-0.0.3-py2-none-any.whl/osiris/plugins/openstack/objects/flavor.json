@@ -1,0 +1,53 @@
+{	
+	"name": "flavor",
+	"attributes": [
+		{
+			"name": "ID",
+			"type": "litteral"
+		},
+		{
+			"name": "Name",
+			"type": "litteral"
+		},
+		{
+			"name": "RAM",
+			"type": "litteral"
+		},
+		{
+			"name": "Disk",
+			"type": "litteral"
+		},
+		{
+			"name": "Ephemeral",
+			"type": "litteral"
+		},
+		{
+			"name": "VCPUs",
+			"type": "litteral"
+		},
+		{
+			"name": "Is Public",
+			"type": "litteral"
+		},
+		{
+			"name": "Swap",
+			"type": "litteral"
+		},
+		{
+			"name": "RXTX Factor",
+			"type": "litteral"
+		},
+		{
+			"name": "Properties",
+			"type": "litteral"
+		}
+	],
+	"id":[
+		"id"
+	],
+	"actions": {
+		"introspect": ["flavorIntrospect"],
+		"create": ["openstack", "flavor", "create @Name", "--ram @RAM", "--disk @Disk", "--ephemeral @Ephemeral", "--vcpus @VCPUs", "@IsPublic", "--swap @Swap", "--rxtx-factor @RXTXFactor", "--property @Properties"],
+		"delete": [""]
+	}
+}

@@ -1,0 +1,68 @@
+{
+	"name": "server", 
+	"attributes": [
+		{
+			"name": "ID",
+			"type": "litteral"
+		},
+		{
+			"name": "Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Status",
+			"type": "litteral"
+		},
+		{
+			"name": "Task State",
+			"type": "litteral"
+		},
+		{
+			"name": "Power State",
+			"type": "litteral"
+		},
+		{
+			"name": "Networks",
+			"type": "reference",
+			"target": "network"
+		},
+		{
+			"name": "Image Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Image ID", 
+			"type": "reference",
+			"target": "image"
+		},
+		{
+			"name": "Flavor Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Flavor ID",
+			"type": "reference",
+			"target": "flavor"
+		},
+		{
+			"name": "Availability Zone",
+			"type": "reference",
+			"target": "Availability Zone"
+		},
+		{
+			"name": "Host",
+			"type": "reference",
+			"target": "host"
+		},
+		{
+			"name": "Properties",
+			"type": "litteral"
+		}
+	],
+	"id": "id",
+	"actions": {
+			"introspect": ["openstack", "server", "list", "--quiet", "--long", "-f json"],
+			"create": [""],
+			"delete": [""]
+		}
+}

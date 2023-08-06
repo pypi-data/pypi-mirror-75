@@ -1,0 +1,45 @@
+{
+    "name": "user",
+    "attributes": [
+        {
+            "name": "ID",
+            "type": "litteral"
+        },
+        {
+            "name": "Name",
+            "type": "litteral"
+        },
+        {
+            "name": "Project",
+            "type": "reference",
+            "target": "project"
+        },
+        {
+            "name": "Domain",
+            "type": "reference",
+            "target": "domain"
+        },
+        {
+            "name": "Description",
+            "type": "litteral"
+        },
+        {
+            "name": "Email",
+            "type": "litteral"
+        },
+        {
+            "name": "Enabled",
+            "type": "litteral"
+        }
+    ],
+    "id":[
+		"id"
+	],
+    "actions": {
+
+        "introspect": ["userIntrospect"],
+		"create": [""],
+		"delete": [""]
+
+    }
+}

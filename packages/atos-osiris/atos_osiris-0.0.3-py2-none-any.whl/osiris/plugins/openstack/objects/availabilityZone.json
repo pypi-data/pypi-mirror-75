@@ -1,0 +1,39 @@
+{
+	"name": "availabilityZone",
+	"attributes": [
+		{
+			"name": "Zone Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Zone Status",
+			"type": "litteral"
+		},
+		{
+			"name": "Zone Resource",
+			"type": "litteral"
+		},
+		{
+			"name": "Host Name",
+			"type": "reference",
+			"target": "host"
+		},
+		{
+			"name": "Service Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Service Status",
+			"type": "litteral"
+		}
+	],
+	"id":[
+		"id"
+	],
+	"actions":{
+		"introspect": ["openstack", "availability", "zone", "list", "--long", "-f json"],
+		"create": [""],
+		"delete": [""]
+	}
+
+}

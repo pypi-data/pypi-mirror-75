@@ -1,0 +1,50 @@
+
+{	
+	"name": "endpoint",
+	"attributes": [	
+		{
+			"name": "ID",
+			"type": "litteral"
+		},
+		{
+			"name": "Region",
+			"type": "litteral"
+		},
+		{
+			"name": "Service Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Service Type",
+			"type": "litteral"
+		},
+		{
+			"name": "Enabled",
+			"type": "litteral"
+		},
+		{
+			"name": "Interface",
+			"type": "litteral"
+		},
+		{
+			"name": "URL",
+			"type": "litteral"
+		}
+	],
+	"id":[
+		"id"
+	],
+	"actions": {
+		"introspect": ["openstack", "endpoint", "list", "-f json"],
+		"create": [""],
+		"delete": [""]
+	}
+
+}	
+	
+
+	
+	
+	
+	
+	

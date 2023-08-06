@@ -1,0 +1,60 @@
+{
+	"name": "network",
+	"attributes": [
+		{
+			"name": "ID",
+			"type": "litteral"
+		},
+		{
+			"name": "Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Status",
+			"type": "litteral"
+		},
+		{
+			"name": "Project",
+			"type": "reference",
+			"target": "project"
+		},
+		{
+			"name": "State",
+			"type": "litteral"
+		},
+		{
+			"name": "Shared",
+			"type": "litteral"
+		},
+		{
+			"name": "Subnets",
+			"type": "reference",
+			"target": "subnet"
+		},
+		{
+			"name": "Network Type",
+			"type": "litteral"
+		},
+		{
+			"name": "Router Type", 
+			"type": "litteral"
+		},
+		{
+			"name": "Availability Zones",
+			"type": "reference",
+			"target": "Availability Zone"
+		},
+		{
+			"name": "Tags", 
+			"type": "litteral"
+		}
+	],
+	"id":[
+		"id"
+	],
+	"actions": {
+		"introspect": ["openstack", "network", "list", "--long", "-f json"],
+		"create": [""],
+		"delete": [""]
+	}
+}
