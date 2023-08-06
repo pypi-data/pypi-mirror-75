@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+dis_client_sdk/DisClient.py
+dis_client_sdk/README.md
+dis_client_sdk/__init__.py
+dis_client_sdk.egg-info/PKG-INFO
+dis_client_sdk.egg-info/SOURCES.txt
+dis_client_sdk.egg-info/dependency_links.txt
+dis_client_sdk.egg-info/requires.txt
+dis_client_sdk.egg-info/top_level.txt
