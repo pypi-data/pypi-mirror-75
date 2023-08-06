@@ -1,0 +1,8 @@
+[console_scripts]
+ico2jpg = img2img:ico2jpg
+ico2png = img2img:ico2png
+jpg2ico = img2img:jpg2ico
+jpg2png = img2img:jpg2png
+png2ico = img2img:png2ico
+png2jpg = img2img:png2jpg
+
