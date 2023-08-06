@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: mlreflect
+Version: 0.14.0
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Alessandro Greco
+Author-email: alessandro.greco@uni-tuebingen.de
+License: GPL3
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Requires-Dist: refl1d
+Requires-Dist: tensorflow
+Requires-Dist: scipy
+Requires-Dist: keras
+Requires-Dist: pandas
+Requires-Dist: tqdm
+Requires-Dist: h5py
+Requires-Dist: numpy
+
+UNKNOWN
+
+
