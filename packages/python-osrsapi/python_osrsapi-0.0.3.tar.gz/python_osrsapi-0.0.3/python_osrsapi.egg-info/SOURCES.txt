@@ -1,0 +1,16 @@
+README.md
+setup.cfg
+setup.py
+osrs_api/__init__.py
+osrs_api/const.py
+osrs_api/grandexchange.py
+osrs_api/hiscores.py
+osrs_api/item.py
+osrs_api/items_osrs.json
+osrs_api/priceinfo.py
+osrs_api/pricetrend.py
+osrs_api/skill.py
+python_osrsapi.egg-info/PKG-INFO
+python_osrsapi.egg-info/SOURCES.txt
+python_osrsapi.egg-info/dependency_links.txt
+python_osrsapi.egg-info/top_level.txt
