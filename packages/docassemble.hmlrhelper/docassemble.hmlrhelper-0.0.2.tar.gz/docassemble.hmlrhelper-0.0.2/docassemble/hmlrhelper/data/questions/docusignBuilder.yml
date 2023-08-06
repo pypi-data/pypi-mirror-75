@@ -1,0 +1,222 @@
+---
+#event: send_for_esignature
+mandatory: True
+code: |
+  if electronic_signatures:
+    deliver_to
+    doc_review
+    signature_request = DocuSign()
+    data_sent, data_received, status_code = signature_request.get_signatures(all_recipients,document_bundle,send_immediately=True,email_subject="Important: Please sign your transfer deed")
+    if status_code == 201:
+      signature_success
+    else:
+      signature_fail
+  else:
+    doc_review
+    finish_without_esignature  
+---
+code: |
+  routingOrder = 1
+  tabXPosition = 222
+  tabYPosition = 50
+  all_recipients = []
+  for r in transferors:
+    #add the signatory
+    signatoryDeedText = 'Signed as a deed by ' + r.name.full(middle="full").upper()
+    signatory = {}
+    signatory['name'] = r.name.firstlast()
+    signatory['email'] = r.name.email
+    signatory['group'] = 'signers'
+    signatory['routingOrder'] = routingOrder
+    signatory['tabs'] = [
+        {
+            'type': 'text',
+            'tabLabel': generate_anchor('text', r.name.email),
+            'value': signatoryDeedText,
+            'locked': 'true',
+            'xPosition': tabXPosition,
+            'yPosition': tabYPosition,
+            'documentId': '1',
+            'pageNumber': '3'
+        },
+        {
+          'type': 'signHere',
+          'xPosition': tabXPosition + 230,
+          'yPosition': tabYPosition - 33,
+          'documentId': '1',
+          'pageNumber': '3'
+        }
+      ]
+    signatory['smsAuthentication'] = {
+        'senderProvidedNumbers': [r.name.mobile_number]
+      }
+    signatory['idCheckConfigurationName'] = 'SMS Auth $'
+    signatory['requireIdLookup'] = True
+    all_recipients.append(signatory)
+
+    tabYPosition = tabYPosition + 20
+    routingOrder = routingOrder + 1
+
+    #add the witness
+    witness = {}
+    witness['name'] = r.witness.name.firstlast()
+    witness['email'] = r.witness.name.email
+    witness['group'] = 'signers'
+    witness['routingOrder'] = routingOrder
+    witness['tabs'] = [
+        {
+            'type': 'text',
+            'tabLabel': generate_anchor('text', r.witness.name.email),
+            'value': 'In the presence of:',
+            'locked': 'true',
+            'xPosition': tabXPosition,
+            'yPosition': tabYPosition,
+            'documentId': '1',
+            'pageNumber': '3'
+        },
+        {
+          'type': 'signHere',
+          'xPosition': tabXPosition + 105,
+          'yPosition': tabYPosition - 33,
+          'documentId': '1',
+          'pageNumber': '3'
+        },
+        {
+            'type': 'text',
+            'tabLabel': generate_anchor('text', r.witness.name.first),
+            'value': r.witness.name.full(middle="full").upper(),
+            'locked': 'true',
+            'xPosition': tabXPosition,
+            'yPosition': tabYPosition + 10,
+            'documentId': '1',
+            'pageNumber': '3'
+        },
+        {
+            'type': 'text',
+            'tabLabel': generate_anchor('text', r.witness.address.address),
+            'value': 'of ' + r.witness.address.address.upper(),
+            'locked': 'true',
+            'xPosition': tabXPosition,
+            'yPosition': tabYPosition + 20,
+            'documentId': '1',
+            'pageNumber': '3'
+        },
+      ]
+    witness['smsAuthentication'] = {
+        'senderProvidedNumbers': [r.witness.name.mobile_number]
+      }
+    witness['idCheckConfigurationName'] = 'SMS Auth $'
+    witness['requireIdLookup'] = True
+    all_recipients.append(witness)
+
+    tabYPosition = tabYPosition + 40
+    routingOrder = routingOrder + 1
+
+  # do the same here for transferees (Note: it is only necessary for transferres to sign in certain circumstances, however we include them here to show the resulting layout in docusign works okay)
+  for r in transferees:
+    #add the signatory
+    signatoryDeedText = 'Signed as a deed by ' + r.name.full(middle="full").upper()
+    signatory = {}
+    signatory['name'] = r.name.firstlast()
+    signatory['email'] = r.name.email
+    signatory['group'] = 'signers'
+    signatory['routingOrder'] = routingOrder
+    signatory['tabs'] = [
+        {
+            'type': 'text',
+            'tabLabel': generate_anchor('text', r.name.email),
+            'value': signatoryDeedText,
+            'locked': 'true',
+            'xPosition': tabXPosition,
+            'yPosition': tabYPosition,
+            'documentId': '1',
+            'pageNumber': '3'
+        },
+        {
+          'type': 'signHere',
+          'xPosition': tabXPosition + 230,
+          'yPosition': tabYPosition - 33,
+          'documentId': '1',
+          'pageNumber': '3'
+        }
+      ]
+    signatory['smsAuthentication'] = {
+        'senderProvidedNumbers': [r.name.mobile_number]
+      }
+    signatory['idCheckConfigurationName'] = 'SMS Auth $'
+    signatory['requireIdLookup'] = True
+    all_recipients.append(signatory)
+
+    tabYPosition = tabYPosition + 20
+    routingOrder = routingOrder + 1
+
+    #add the witness
+    witness = {}
+    witness['name'] = r.witness.name.firstlast()
+    witness['email'] = r.witness.name.email
+    witness['group'] = 'signers'
+    witness['routingOrder'] = routingOrder
+    witness['tabs'] = [
+        {
+            'type': 'text',
+            'tabLabel': generate_anchor('text', r.witness.name.email),
+            'value': 'In the presence of:',
+            'locked': 'true',
+            'xPosition': tabXPosition,
+            'yPosition': tabYPosition,
+            'documentId': '1',
+            'pageNumber': '3'
+        },
+        {
+          'type': 'signHere',
+          'xPosition': tabXPosition + 105,
+          'yPosition': tabYPosition - 33,
+          'documentId': '1',
+          'pageNumber': '3'
+        },
+        {
+            'type': 'text',
+            'tabLabel': generate_anchor('text', r.witness.name.first),
+            'value': r.witness.name.full(middle="full").upper(),
+            'locked': 'true',
+            'xPosition': tabXPosition,
+            'yPosition': tabYPosition + 10,
+            'documentId': '1',
+            'pageNumber': '3'
+        },
+        {
+            'type': 'text',
+            'tabLabel': generate_anchor('text', r.witness.address.address),
+            'value': 'of ' + r.witness.address.address.upper(),
+            'locked': 'true',
+            'xPosition': tabXPosition,
+            'yPosition': tabYPosition + 20,
+            'documentId': '1',
+            'pageNumber': '3'
+        },
+      ]
+    witness['smsAuthentication'] = {
+        'senderProvidedNumbers': [r.witness.name.mobile_number]
+      }
+    witness['idCheckConfigurationName'] = 'SMS Auth $'
+    witness['requireIdLookup'] = True
+    all_recipients.append(witness)
+
+    tabYPosition = tabYPosition + 40
+    routingOrder = routingOrder + 1
+
+    new_recipient = {}
+    new_recipient['name'] = deliver_to.name.firstlast()
+    new_recipient['email'] = deliver_to.email
+    new_recipient['group'] = 'certifiedDeliveries'
+    new_recipient['routingOrder'] = routingOrder + 1
+    all_recipients.append(new_recipient)
+
+  document_bundle=[
+        {
+            'name': "Completed TR1 for Signatures",
+            'fileExtension': 'pdf',
+            'documentBase64': make_document_base64(transfer_of_whole_doc.pdf.path())
+        }
+  ]
+---  

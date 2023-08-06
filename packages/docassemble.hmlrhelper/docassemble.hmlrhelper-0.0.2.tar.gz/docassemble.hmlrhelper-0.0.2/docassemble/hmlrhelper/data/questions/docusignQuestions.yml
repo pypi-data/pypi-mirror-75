@@ -1,0 +1,45 @@
+---
+objects:
+  deliver_to: Individual
+---
+question: |
+  What is the name and email address of the person who will check this document over once it has been signed?
+subquestion: |
+  <p>Probably you, or else the conveyancer acting in this transaction.</p>
+fields:
+  - First Name: deliver_to.name.first
+  - Last Name: deliver_to.name.last
+  - Email: deliver_to.email
+    datatype: email
+---
+question: Interview Completed
+event: finish_without_esignature
+subquestion: |
+  <p><b>Your document was generated succesfully.</b></p>
+buttons:
+  - Exit: exit
+---
+question: Document sent successfully to Docusign for Signatures
+event: signature_success
+subquestion: |
+  <p><b>Your document has been sent to Docusign.</b></p>
+  <p>The first signatory in the document has been notified to start the signatory process.</p>
+  <p>The person who needs to check the document over will receive a notification once everyone has signed it.</p>
+  <p>If you need to check the status of the document you can review it through Docusign at any time.</p>
+buttons:
+  - Exit: exit
+---
+question: Attempt to Send document For Signature Not Successful
+event: signature_fail
+subquestion: |
+  The data that was sent to the server is:
+
+  ${ data_sent }
+
+  The data returned from the server is:
+
+  ${ data_received }
+
+  The status code of message returned from the server is:
+
+  ${ status_code }

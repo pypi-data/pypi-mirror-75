@@ -1,0 +1,30 @@
+---
+metadata:
+  title: |
+    Transfer of whole of registered title(s) (TR1) Helper
+  short title: |
+    TR1
+  description: |
+    A tool to prepare a TR1 and optionally continue to submit it for esignature through Docusign
+  authors:
+    - name: Matthew Pennington
+      organization: n/a
+  revision_date: 2020-07-27
+  tags:
+    - TR1
+    - HMLR
+  error help: |
+    We are sorry but an error has occurred.
+    Please email [Tonic Workflows](mailto:workflow@tonic.works) for support.
+  exit url: /
+---
+features:
+  question back button: True
+  navigation back button: False
+  progress bar: True
+---
+include:
+  - tr1Questions.yml
+---
+include:
+  - tr1Output.yml
