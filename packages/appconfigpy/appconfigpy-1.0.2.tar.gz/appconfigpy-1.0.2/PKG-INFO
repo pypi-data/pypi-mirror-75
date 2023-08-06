@@ -1,0 +1,152 @@
+Metadata-Version: 2.1
+Name: appconfigpy
+Version: 1.0.2
+Summary: A Python library to create/load an application configuration file.
+Home-page: https://github.com/thombashi/appconfigpy
+Author: Tsuyoshi Hombashi
+Author-email: tsuyoshi.hombashi@gmail.com
+License: MIT License
+Project-URL: Source, https://github.com/thombashi/appconfigpy
+Project-URL: Tracker, https://github.com/thombashi/appconfigpy/issues
+Description: .. contents:: **appconfigpy**
+           :backlinks: top
+           :local:
+        
+        
+        Summary
+        =======
+        A Python library to create/load an application configuration file.
+        
+        
+        .. image:: https://badge.fury.io/py/appconfigpy.svg
+            :target: https://badge.fury.io/py/appconfigpy
+            :alt: PyPI package version
+        
+        .. image:: https://img.shields.io/pypi/pyversions/appconfigpy.svg
+            :target: https://pypi.org/project/appconfigpy
+            :alt: Supported Python versions
+        
+        .. image:: https://img.shields.io/pypi/implementation/appconfigpy.svg
+            :target: https://pypi.org/project/appconfigpy
+            :alt: Supported Python implementations
+        
+        Installation
+        ============
+        
+        Install from PyPI
+        ------------------------------
+        ::
+        
+            pip install appconfigpy
+        
+        Install from PPA (for Ubuntu)
+        ------------------------------
+        ::
+        
+            sudo add-apt-repository ppa:thombashi/ppa
+            sudo apt update
+            sudo apt install python3-appconfigpy
+        
+        
+        Usage
+        =====
+        
+        Create a configuration file from user inputs
+        -------------------------------------------------------
+        .. code:: python
+        
+            # configure.py
+        
+            from appconfigpy import ConfigItem, ConfigManager, DefaultDisplayStyle
+        
+            app_config_mgr = ConfigManager(
+                config_name="example",
+                config_items=[
+                    ConfigItem(
+                        name="token",
+                        initial_value=None,
+                        prompt_text="API Token",
+                        default_display_style=DefaultDisplayStyle.PART_VISIBLE,
+                    ),
+                    ConfigItem(name="path", prompt_text="ABC Path", initial_value="."),
+                ],
+            )
+        
+            app_config_mgr.configure()
+        
+        
+        .. code::
+        
+            $ ./configure.py
+            API Token: abcdefghijklmn
+            ABC Path [.]:
+            $ cat ~/.example
+            {
+                "path": ".",
+                "token": "abcdefghijklmn"
+            }
+        
+        Load a configuration file
+        -------------------------------------------------------
+        .. code:: python
+        
+            # load.py
+        
+            from appconfigpy import ConfigItem, ConfigManager, DefaultDisplayStyle
+        
+            app_config_mgr = ConfigManager(
+                config_name="example",
+                config_items=[
+                    ConfigItem(
+                        name="token",
+                        initial_value=None,
+                        prompt_text="API Token",
+                        default_display_style=DefaultDisplayStyle.PART_VISIBLE,
+                    ),
+                    ConfigItem(name="path", prompt_text="ABC Path", initial_value="."),
+                ],
+            )
+        
+            print(app_config_mgr.load())
+        
+        .. code::
+        
+            $ ./load.py
+            {'token': 'abcdefghijklmn', 'path': '.'}
+        
+        
+        Dependencies
+        ============
+        Python 3.5+
+        
+        Optional Dependencies
+        ------------------------------------
+        - `click <https://palletsprojects.com/p/click/>`__
+        - `loguru <https://github.com/Delgan/loguru>`__
+            - Used for logging if the package installed
+        - `pathvalidate <https://github.com/thombashi/pathvalidate>`__
+        - `simplejson <https://github.com/simplejson/simplejson>`__
+        - `typepy <https://github.com/thombashi/typepy>`__
+        
+Keywords: configuration
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.5
+Description-Content-Type: text/x-rst
+Provides-Extra: logging
+Provides-Extra: test

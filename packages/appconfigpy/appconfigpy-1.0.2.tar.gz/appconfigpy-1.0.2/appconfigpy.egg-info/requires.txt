@@ -1,0 +1,6 @@
+
+[logging]
+loguru<1,>=0.4.1
+
+[test]
+pytest
