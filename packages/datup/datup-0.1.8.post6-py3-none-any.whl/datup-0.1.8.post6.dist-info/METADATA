@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: datup
+Version: 0.1.8-6
+Summary: The version of this library and document is V 0.1.8_6
+Home-page: https://datup.ai
+Author: Datup DevOps
+Author-email: devops@datup.ai
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: boto3
+Requires-Dist: statsmodels (==0.11.0)
+Requires-Dist: s3fs
+Requires-Dist: scipy
+Requires-Dist: sklearn
+
+# datup                                                   
+
+## How is it work?
+    import datup as dt
+
+## To Instance the Class
+    ins = dt.Datup("aws_acces_key_id","aws_secret_access_key","datalake")
+
+## Is necessary invoke all time the instance object?
+Yes, is necessary invoke all time the instance object since, the functions must
+write in /tmp/ log file as default. In documentation will find how to use the class
+and change default values.
+
+## Example of a method with the callable instance
+    dt.check_data_format(ins,dataframe)
+
+## Can I test my updates?
+Yes, there is a file called _testing.ipynb where you can test your changes. The variables, 
+must be initialized always for modularity.
+
+## Where can I find some documentation?
+You can find the documentation in the next address: http://18.234.95.22/
+Documentation as the library is on beta mode, for that reason write to cristhianpo@datup.ai for
+whatever bug
+
+
