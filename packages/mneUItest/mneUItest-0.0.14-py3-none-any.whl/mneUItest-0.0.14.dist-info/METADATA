@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: mneUItest
+Version: 0.0.14
+Summary: A small example package
+Home-page: https://github.com/pypa/sampleproject
+Author: Example Author
+Author-email: author@example.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: autoreject (>=0.2)
+Requires-Dist: matplotlib (>=3.2)
+Requires-Dist: mne (>=0.20)
+Requires-Dist: numpy (>=1.19)
+Requires-Dist: PyQt5 (>=5.10)
+Requires-Dist: python-picard (>=0.4)
+Requires-Dist: QtPy (>=1.9)
+Requires-Dist: scikit-learn (>=0.23)
+Requires-Dist: scipy (>=1.5)
+
+# Example Package
+
+This is a simple example package. You can use
+[Github-flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+to write your content.
+
