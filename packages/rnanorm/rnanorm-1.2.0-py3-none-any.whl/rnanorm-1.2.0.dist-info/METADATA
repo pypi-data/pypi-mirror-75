@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: rnanorm
+Version: 1.2.0
+Summary: Normalization of RNA-seq gene expression.
+Home-page: https://github.com/genialis/rnaseq-normalization/
+License: UNKNOWN
+Author: Genialis, Inc.
+Author-email: miha@genialis.com
+Requires-Python: >=3.6, <3.9
+Description-Content-Type: text/x-rst
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: black ; extra == "linters"
+Requires-Dist: pydocstyle ; extra == "linters"
+Requires-Dist: isort ; extra == "linters"
+Requires-Dist: flake8 ; extra == "linters"
+Requires-Dist: pytest ; extra == "test"
+Provides-Extra: linters
+Provides-Extra: test
+
+====================
+RNASeq normalization
+====================
+
+|build| |black| |pypi_version| |pypi_pyversions| |pypi_downloads|
+
+.. |build| image:: https://github.com/genialis/rnaseq-normalization/workflows/build/badge.svg?branch=master
+    :target: https://github.com/genialis/rnaseq-normalization/actions?query=branch%3Amaster
+    :alt: Build Status
+
+.. |black| image:: https://img.shields.io/badge/code%20style-black-000000.svg
+    :target: https://github.com/psf/black
+    :alt: Code Style Black
+
+.. |pypi_version| image:: https://img.shields.io/pypi/v/rnanorm.svg
+    :target: https://pypi.org/project/rnanorm
+    :alt: Version on PyPI
+
+.. |pypi_pyversions| image:: https://img.shields.io/pypi/pyversions/rnanorm.svg
+    :target: https://pypi.org/project/rnanorm
+    :alt: Supported Python versions
+
+.. |pypi_downloads| image:: https://pepy.tech/badge/rnanorm
+    :target: https://pepy.tech/project/rnanorm
+    :alt: Number of downloads from PyPI
+
+Normalization of RNA-seq gene expression. Supported methods: Transcript per kilobase million (TPM) and Counts per million (CPM).
+
+Usage
+=====
+
+Install ``rnanorm`` Python package:
+
+.. code::
+
+    pip install rnanorm
+
+Run ``rnanorm`` command line tool:
+
+.. code::
+
+    rnanorm expr.tsv --cpm-output=expr.cpm.tsv --tpm-output=expr.tpm.tsv --gene-lengths=lengths.tsv
+
+Contributing
+============
+
+Install ``rnanorm`` Python package for development:
+
+.. code::
+
+    flit install --deps=all --symlink
+
+Run all tests and linters:
+
+.. code::
+
+    tox
+
+
