@@ -1,0 +1,3 @@
+[console_scripts]
+lyrics = lyric_scraper.main:to_get_lyrics
+
