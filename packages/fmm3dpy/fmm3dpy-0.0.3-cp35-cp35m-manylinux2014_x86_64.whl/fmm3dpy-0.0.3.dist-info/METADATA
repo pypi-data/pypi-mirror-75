@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: fmm3dpy
+Version: 0.0.3
+Summary: This pacakge contains basic routines for Laplace and Helmholtz fast multipole methods in three dimensions
+Home-page: UNKNOWN
+Author: Zydrunas Gimbutas, Leslie Greengard, Libin Lu, Jeremy Magland, Dhairya Malhotra, Michael O'Neil, Manas Rachh, and Vladimir Rokhlin
+Author-email: mrachh@flatironinstitute.org
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0.0
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: pytest
+
+Flatiron Institute Fast Multipole Libraries 
+
+This codebase is a set of libraries to compute N-body interactions
+governed by the Laplace and Helmholtz equations, to a specified
+precision, in three dimensions, on a multi-core shared-memory machine.
+
+Please see the [online documentation](https://fmm3d.readthedocs.io),
+or its equivalent [user manual](fmm3d_manual.pdf).
+
+
