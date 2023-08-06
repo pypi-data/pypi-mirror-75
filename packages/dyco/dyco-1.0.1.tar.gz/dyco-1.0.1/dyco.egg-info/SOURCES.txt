@@ -1,0 +1,17 @@
+README.md
+setup.cfg
+setup.py
+dyco/__init__.py
+dyco/analyze.py
+dyco/correction.py
+dyco/dyco.py
+dyco/files.py
+dyco/lag.py
+dyco/loop.py
+dyco/plot.py
+dyco/setup_dyco.py
+dyco.egg-info/PKG-INFO
+dyco.egg-info/SOURCES.txt
+dyco.egg-info/dependency_links.txt
+dyco.egg-info/requires.txt
+dyco.egg-info/top_level.txt
