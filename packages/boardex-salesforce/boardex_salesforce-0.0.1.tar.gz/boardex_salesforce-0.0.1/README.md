@@ -1,0 +1,122 @@
+# Introduction
+
+1. boardex_salesforce package connects to salesforce bulk api. Downloads contact and accounts data.
+2. Uploads the downloaded data to BoardEx SFTP for concordance.
+3. Uploads BoardExID to salesforce from the concordance results.
+
+## Requirements
+1. BoardEx app on salesforce
+2. Python 3
+
+## Installation
+
+```bash
+pip install boardex-salesforce
+```
+
+## Overview
+boardex_salesforce package has pre-build modules. The two main ones are:
+
+1. run_daily
+2. run_monthly
+
+
+## Usage
+```python
+
+from boardex_salesforce import config
+
+config.username = 'username@salesforce.com'
+config.password='salesforcePassword'
+config.security_token='salesforce_security_token'
+```
+
+# run_daily
+```python
+from boardex_salesforce import run_daily
+
+run_daily.run_daily()
+```
+
+This script calls the methods:
+1. download_ContactDetails_from_sf
+2. download_UserDetails_from_sf
+
+They download all the user relationship and contact details and place them in a download folder.
+
+
+# run_daily
+```python
+from boardex_salesforce import run_monthly
+
+run_monthly.run_monthly()
+```
+
+Please note if sftp is not being used, a folder must be created with the name 'upload' and 
+place all the output csv files from BoardEx inside the upload folder
+
+This script calls the methods:
+1. upload_to_sf
+2. download_company_from_sf
+3. download_contact_from_sf
+4. download_ContactDetails_from_sf
+5. download_UserDetails_from_sf
+
+upload_to_sf uploads all the contact and conpany csv OUT file to salesforce
+
+# Parameters accessible from config
+
+-------------------------------------------------------------------------------------------------------------------------
+Boardex sftp credentials
+
+The sftp credentials are provided by BoardEx, leave empty if not provided
+```python
+config.myHostname
+config.myPassword
+config.myUsername
+```
+
+-------------------------------------------------------------------------------------------------------------------------
+Upload to sftp
+
+1. To upload to sftp server, sftp credentials are required and set upload_to_sftp = True
+2. By default the upload_to_sftp is set to false. (The csv files will not be uploaded to the sftp server)
+
+
+```python
+config.upload_to_sftp = False
+```
+
+-------------------------------------------------------------------------------------------------------------------------
+log level
+
+1. Python has 6 log levels: CRITICAL, ERROR, WARNING, INFO, DEBUG and NOTSET
+2. The default log level is set to CRITICAL if not selected
+3. If log_level is NOTSET, no logs will be provided
+
+```python
+config.log_level = 'DEBUG'
+```
+
+-------------------------------------------------------------------------------------------------------------------------
+query_email 
+ 
+query_email is a boolean if set to True downloads email address from salesforce
+
+1. If set to False, Email data will not be retrieved from the contact_query
+
+```python
+config.query_email = True 
+```
+
+-------------------------------------------------------------------------------------------------------------------------
+path_local_temp
+
+Specifies where to place the logs, download and upload folder on local machine
+
+```python
+config.config.path_local_temp
+```
+
+
+
