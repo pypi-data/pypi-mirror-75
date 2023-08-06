@@ -1,0 +1,11 @@
+setuptools>=38.3.0
+mbstrdecoder<2,>=1.0.0
+typepy[datetime]<2,>=1.1.1
+
+[logging]
+loguru<1,>=0.4.1
+
+[test]
+pytest
+pytest-md-report
+termcolor
