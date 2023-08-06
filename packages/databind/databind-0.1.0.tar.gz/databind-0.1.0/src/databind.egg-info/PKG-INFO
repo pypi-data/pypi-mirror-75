@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: databind
+Version: 0.1.0
+Summary: Databind is a library inspired by Jackson-databind to describe and bind data models for object-oriented programming. The "databind" package is a placeholder for it's namespace packages "databind.core", etc.
+Home-page: UNKNOWN
+Author: Niklas Rosenstein
+Author-email: nrosenstein@palantir.com
+License: MIT
+Description: # databind
+        
+        Databind is a library inspired by Jackson-databind to describe and bind
+        data models for object-oriented programming.
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
