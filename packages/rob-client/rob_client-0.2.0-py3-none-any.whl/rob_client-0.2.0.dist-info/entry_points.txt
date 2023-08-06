@@ -1,0 +1,3 @@
+[console_scripts]
+rob = robclient.cli.base:cli
+
