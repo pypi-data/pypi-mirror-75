@@ -1,0 +1,14 @@
+README.rst
+setup.cfg
+setup.py
+setux/distros/__init__.py
+setux/distros/debian.py
+setux/distros/fedora.py
+setux/distros/manjaro.py
+setux/distros/mint.py
+setux/distros/mx.py
+setux_distros.egg-info/PKG-INFO
+setux_distros.egg-info/SOURCES.txt
+setux_distros.egg-info/dependency_links.txt
+setux_distros.egg-info/requires.txt
+setux_distros.egg-info/top_level.txt
