@@ -1,0 +1,5 @@
+graft lambdasoc/software/bios/3rdparty/compiler-rt/lib/builtins
+include lambdasoc/software/bios/Makefile
+graft lambdasoc/software/bios/src
+include lambdasoc/software/bios/toolchain.mk
+graft lambdasoc/software/bios/util
