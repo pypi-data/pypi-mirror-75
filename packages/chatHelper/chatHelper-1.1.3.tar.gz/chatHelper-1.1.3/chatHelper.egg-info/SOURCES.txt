@@ -1,0 +1,11 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+chatHelper/__init__.py
+chatHelper/chat.py
+chatHelper.egg-info/PKG-INFO
+chatHelper.egg-info/SOURCES.txt
+chatHelper.egg-info/dependency_links.txt
+chatHelper.egg-info/requires.txt
+chatHelper.egg-info/top_level.txt
