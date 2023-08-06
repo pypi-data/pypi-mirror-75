@@ -1,0 +1,7 @@
+NumPy>=1.5
+
+[Doc]
+Sphinx>=1.1
+
+[Tests]
+guidata>=1.7.0
