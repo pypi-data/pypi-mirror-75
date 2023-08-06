@@ -1,0 +1,3 @@
+[dffml.model]
+xgbregressor = dffml_model_xgboost.xgbregressor:XGBRegressorModel
+

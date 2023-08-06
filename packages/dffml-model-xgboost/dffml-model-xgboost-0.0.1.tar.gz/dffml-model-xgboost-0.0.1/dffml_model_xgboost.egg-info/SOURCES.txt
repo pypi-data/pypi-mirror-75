@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+setup_common.py
+dffml_model_xgboost/__init__.py
+dffml_model_xgboost/version.py
+dffml_model_xgboost/xgbregressor.py
+dffml_model_xgboost.egg-info/PKG-INFO
+dffml_model_xgboost.egg-info/SOURCES.txt
+dffml_model_xgboost.egg-info/dependency_links.txt
+dffml_model_xgboost.egg-info/entry_points.txt
+dffml_model_xgboost.egg-info/requires.txt
+dffml_model_xgboost.egg-info/top_level.txt
+tests/__init__.py
+tests/test_model.py
