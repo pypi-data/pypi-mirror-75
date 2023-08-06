@@ -1,0 +1,809 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WORC.featureprocessing.ComBat &mdash; WORC 3.3.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> WORC
+          
+
+          
+            
+            <img src="../../../_static/WORC_Logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/features.html">Radiomics Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/additionalfunctionality.html">Additional functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/developerdocumentation.html">Developer documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/file_description.html">Resource File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autogen/WORC.html">WORC Package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WORC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>WORC.featureprocessing.ComBat</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for WORC.featureprocessing.ComBat</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="c1"># Copyright 2020 Biomedical Imaging Group Rotterdam, Departments of</span>
+<span class="c1"># Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">scipy.io</span> <span class="k">as</span> <span class="nn">sio</span>
+<span class="kn">import</span> <span class="nn">WORC.IOparser.file_io</span> <span class="k">as</span> <span class="nn">wio</span>
+<span class="kn">import</span> <span class="nn">WORC.IOparser.config_io_combat</span> <span class="k">as</span> <span class="nn">cio</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">WORC.addexceptions</span> <span class="k">import</span> <span class="n">WORCValueError</span><span class="p">,</span> <span class="n">WORCKeyError</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">from</span> <span class="nn">sys</span> <span class="k">import</span> <span class="n">platform</span>
+<span class="kn">from</span> <span class="nn">WORC.featureprocessing.VarianceThreshold</span> <span class="k">import</span> <span class="n">selfeat_variance</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">neuroCombat</span> <span class="k">import</span> <span class="n">neuroCombat</span>
+<span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;agg&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">WORC.featureprocessing.Imputer</span> <span class="k">import</span> <span class="n">Imputer</span>
+
+
+<div class="viewcode-block" id="ComBat"><a class="viewcode-back" href="../../../autogen/WORC.featureprocessing.html#WORC.featureprocessing.ComBat.ComBat">[docs]</a><span class="k">def</span> <span class="nf">ComBat</span><span class="p">(</span><span class="n">features_train_in</span><span class="p">,</span> <span class="n">labels_train</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">features_train_out</span><span class="p">,</span>
+           <span class="n">features_test_in</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">features_test_out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+           <span class="n">VarianceThreshold</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">scaler</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">logarithmic</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Apply ComBat feature harmonization.</span>
+
+<span class="sd">    Based on: https://github.com/Jfortin1/ComBatHarmonization</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Load the config</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;############################################################&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;#                    Initializing ComBat.                  #&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;############################################################</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">cio</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">excluded_features</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;excluded_features&#39;</span><span class="p">]</span>
+
+    <span class="c1"># If mod, than also load moderating labels</span>
+    <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;mod&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;[]&#39;</span><span class="p">:</span>
+        <span class="n">label_names</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">label_names</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;mod&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Load the features for both training and testing, match with batch and mod parameters</span>
+    <span class="n">label_data_train</span><span class="p">,</span> <span class="n">image_features_train</span> <span class="o">=</span>\
+        <span class="n">wio</span><span class="o">.</span><span class="n">load_features</span><span class="p">(</span><span class="n">features_train_in</span><span class="p">,</span> <span class="n">patientinfo</span><span class="o">=</span><span class="n">labels_train</span><span class="p">,</span>
+                          <span class="n">label_type</span><span class="o">=</span><span class="n">label_names</span><span class="p">)</span>
+
+    <span class="n">feature_labels</span> <span class="o">=</span> <span class="n">image_features_train</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">image_features_train</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">image_features_train</span><span class="p">]</span>
+    <span class="n">label_data_train</span><span class="p">[</span><span class="s1">&#39;patient_IDs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">label_data_train</span><span class="p">[</span><span class="s1">&#39;patient_IDs&#39;</span><span class="p">])</span>
+
+    <span class="c1"># Exclude features</span>
+    <span class="k">if</span> <span class="n">excluded_features</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Excluding features containing: </span><span class="si">{excluded_features}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="c1"># Determine indices of excluded features</span>
+        <span class="n">included_feature_indices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">excluded_feature_indices</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">fnum</span><span class="p">,</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">feature_labels</span><span class="p">):</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">e</span> <span class="ow">in</span> <span class="n">i</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">excluded_features</span><span class="p">):</span>
+                <span class="n">included_feature_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fnum</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">excluded_feature_indices</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fnum</span><span class="p">)</span>
+
+        <span class="c1"># Actually exclude the features</span>
+        <span class="n">image_features_train_combat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="n">included_feature_indices</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">image_features_train</span><span class="p">]</span>
+        <span class="n">feature_labels_combat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">feature_labels</span><span class="p">)[</span><span class="n">included_feature_indices</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+        <span class="n">image_features_train_noncombat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="n">excluded_feature_indices</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">image_features_train</span><span class="p">]</span>
+        <span class="n">feature_labels_noncombat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">feature_labels</span><span class="p">)[</span><span class="n">excluded_feature_indices</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">image_features_train_combat</span> <span class="o">=</span> <span class="n">image_features_train</span>
+        <span class="n">feature_labels_combat</span> <span class="o">=</span> <span class="n">feature_labels</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+        <span class="n">image_features_train_noncombat</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">feature_labels_noncombat</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Detect NaNs, otherwise first feature imputation is required</span>
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">image_features_train_combat</span><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> [WARNING] NaNs detected, applying median imputation&#39;</span><span class="p">)</span>
+        <span class="n">imputer</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
+        <span class="n">imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">image_features_train_combat</span><span class="p">)</span>
+        <span class="n">image_features_train_combat</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">image_features_train_combat</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">imputer</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Apply a scaler to the features</span>
+    <span class="k">if</span> <span class="n">scaler</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Fitting scaler on dataset.&#39;</span><span class="p">)</span>
+        <span class="n">scaler</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">image_features_train_combat</span><span class="p">)</span>
+        <span class="n">image_features_train_combat</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">image_features_train_combat</span><span class="p">)</span>
+
+    <span class="c1"># Remove features with a constant value</span>
+    <span class="k">if</span> <span class="n">VarianceThreshold</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Applying variance threshold on dataset.&#39;</span><span class="p">)</span>
+        <span class="n">image_features_train_combat</span><span class="p">,</span> <span class="n">feature_labels_combat</span><span class="p">,</span> <span class="n">VarSel</span> <span class="o">=</span>\
+            <span class="n">selfeat_variance</span><span class="p">(</span><span class="n">image_features_train_combat</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">feature_labels_combat</span><span class="p">]))</span>
+        <span class="n">feature_labels_combat</span> <span class="o">=</span> <span class="n">feature_labels_combat</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">features_test_in</span><span class="p">:</span>
+        <span class="n">label_data_test</span><span class="p">,</span> <span class="n">image_features_test</span> <span class="o">=</span>\
+            <span class="n">wio</span><span class="o">.</span><span class="n">load_features</span><span class="p">(</span><span class="n">features_test_in</span><span class="p">,</span> <span class="n">patientinfo</span><span class="o">=</span><span class="n">labels_test</span><span class="p">,</span>
+                              <span class="n">label_type</span><span class="o">=</span><span class="n">label_names</span><span class="p">)</span>
+
+        <span class="n">image_features_test</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">image_features_test</span><span class="p">]</span>
+        <span class="n">label_data_test</span><span class="p">[</span><span class="s1">&#39;patient_IDs&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">label_data_test</span><span class="p">[</span><span class="s1">&#39;patient_IDs&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="n">excluded_features</span><span class="p">:</span>
+            <span class="n">image_features_test_combat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="n">included_feature_indices</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">image_features_test</span><span class="p">]</span>
+            <span class="n">image_features_test_noncombat</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">i</span><span class="p">)[</span><span class="n">excluded_feature_indices</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">image_features_test</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">image_features_test_combat</span> <span class="o">=</span> <span class="n">image_features_test</span>
+            <span class="n">image_features_test_noncombat</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># Apply imputation if required</span>
+        <span class="k">if</span> <span class="n">imputer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">image_features_test_combat</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">image_features_test_combat</span><span class="p">)</span>
+
+        <span class="c1"># Apply a scaler to the features</span>
+        <span class="k">if</span> <span class="n">scaler</span><span class="p">:</span>
+            <span class="n">image_features_test_combat</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">image_features_test_combat</span><span class="p">)</span>
+
+        <span class="c1"># Remove features with a constant value</span>
+        <span class="k">if</span> <span class="n">VarianceThreshold</span><span class="p">:</span>
+            <span class="n">image_features_test_combat</span> <span class="o">=</span> <span class="n">VarSel</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">image_features_test_combat</span><span class="p">)</span>
+
+        <span class="n">all_features</span> <span class="o">=</span> <span class="n">image_features_train_combat</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">+</span> <span class="n">image_features_test_combat</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">all_labels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">label_data_train</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="n">all_labels</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label_data_train</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">+</span> <span class="n">label_data_test</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">][</span><span class="n">i</span><span class="p">,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+        <span class="n">all_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">all_labels</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">all_features</span> <span class="o">=</span> <span class="n">image_features_train_combat</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+        <span class="n">all_labels</span> <span class="o">=</span> <span class="n">label_data_train</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+
+    <span class="c1"># Convert data to a single array</span>
+    <span class="n">all_features_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">all_features</span><span class="p">)</span>
+    <span class="n">all_labels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">all_labels</span><span class="p">)</span>
+
+    <span class="c1"># Apply logarithm if required</span>
+    <span class="k">if</span> <span class="n">logarithmic</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Taking log10 of features before applying ComBat.&#39;</span><span class="p">)</span>
+        <span class="n">all_features_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">all_features_matrix</span><span class="p">)</span>
+
+    <span class="c1"># Convert all_labels to dictionary</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">all_labels</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="c1"># No mod variables</span>
+        <span class="n">all_labels</span> <span class="o">=</span> <span class="p">{</span><span class="n">label_data_train</span><span class="p">[</span><span class="s1">&#39;label_name&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]:</span> <span class="n">all_labels</span><span class="p">}</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">all_labels</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">label_data_train</span><span class="p">[</span><span class="s1">&#39;label_name&#39;</span><span class="p">],</span> <span class="n">all_labels</span><span class="p">)}</span>
+
+    <span class="c1"># Split labels in batch and moderation labels</span>
+    <span class="n">bat</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;mod&#39;</span><span class="p">]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Using batch variable </span><span class="si">{bat}</span><span class="s1">, mod variables </span><span class="si">{mod}</span><span class="s1">.&#39;</span><span class="p">)</span>
+    <span class="n">batch</span> <span class="o">=</span> <span class="p">[</span><span class="n">all_labels</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">all_labels</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;batch&#39;</span><span class="p">]]</span>
+    <span class="n">batch</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;mod&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;[]&#39;</span><span class="p">:</span>
+        <span class="n">mod</span> <span class="o">=</span> <span class="kc">None</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">mod</span> <span class="o">=</span> <span class="p">[</span><span class="n">all_labels</span><span class="p">[</span><span class="n">l</span><span class="p">]</span> <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">all_labels</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="k">if</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;mod&#39;</span><span class="p">]]</span>
+
+    <span class="c1"># Set parameters for output files</span>
+    <span class="n">parameters</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;batch&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;batch&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;mod&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;mod&#39;</span><span class="p">],</span>
+                  <span class="s1">&#39;par&#39;</span><span class="p">:</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;par&#39;</span><span class="p">]}</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Image features: ComBat corrected&#39;</span>
+    <span class="n">panda_labels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;parameters&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;patient&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;feature_values&#39;</span><span class="p">,</span>
+                    <span class="s1">&#39;feature_labels&#39;</span><span class="p">]</span>
+    <span class="n">feature_labels</span> <span class="o">=</span> <span class="n">feature_labels_combat</span> <span class="o">+</span> <span class="n">feature_labels_noncombat</span>
+
+    <span class="c1"># Convert all inputs to arrays with right shape</span>
+    <span class="n">all_features_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">all_features_matrix</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">mod</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">mod</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mod</span><span class="p">))</span>
+
+    <span class="c1"># Patients identified with batch -1.0 should be skipped</span>
+    <span class="n">skipname</span> <span class="o">=</span> <span class="s1">&#39;Image features: ComBat skipped&#39;</span>
+    <span class="n">ntrain</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_features_train_combat</span><span class="p">)</span>
+    <span class="n">ndel</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">features_test_out</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">bnum</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
+        <span class="n">bnum</span> <span class="o">-=</span> <span class="n">ndel</span>
+        <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">bnum</span> <span class="o">&lt;</span> <span class="n">ntrain</span> <span class="o">-</span> <span class="n">ndel</span><span class="p">:</span>
+                <span class="c1"># Training patient</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;train&#39;</span><span class="p">)</span>
+                <span class="n">pid</span> <span class="o">=</span> <span class="n">label_data_train</span><span class="p">[</span><span class="s1">&#39;patient_IDs&#39;</span><span class="p">][</span><span class="n">bnum</span><span class="p">]</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">features_train_out</span><span class="p">[</span><span class="n">bnum</span><span class="p">]</span>
+
+                <span class="c1"># Combine ComBat and non-ComBat features</span>
+                <span class="n">feature_values_temp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">all_features_matrix</span><span class="p">[:,</span> <span class="n">bnum</span><span class="p">])</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">image_features_train_noncombat</span><span class="p">[</span><span class="n">bnum</span><span class="p">])</span>
+
+                <span class="c1"># Delete patient for later processing</span>
+                <span class="k">del</span> <span class="n">label_data_train</span><span class="p">[</span><span class="s1">&#39;patient_IDs&#39;</span><span class="p">][</span><span class="n">bnum</span><span class="p">]</span>
+                <span class="k">del</span> <span class="n">image_features_train_noncombat</span><span class="p">[</span><span class="n">bnum</span><span class="p">]</span>
+                <span class="k">del</span> <span class="n">features_train_out</span><span class="p">[</span><span class="n">bnum</span><span class="p">]</span>
+                <span class="n">image_features_train_combat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">image_features_train_combat</span><span class="p">,</span> <span class="n">bnum</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Test patient</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;test&#39;</span><span class="p">)</span>
+                <span class="n">pid</span> <span class="o">=</span> <span class="n">label_data_test</span><span class="p">[</span><span class="s1">&#39;patient_IDs&#39;</span><span class="p">][</span><span class="n">bnum</span> <span class="o">-</span> <span class="n">ntrain</span><span class="p">]</span>
+                <span class="n">out</span> <span class="o">=</span> <span class="n">features_test_out</span><span class="p">[</span><span class="n">bnum</span> <span class="o">-</span> <span class="n">ntrain</span><span class="p">]</span>
+
+                <span class="c1"># Combine ComBat and non-ComBat features</span>
+                <span class="n">feature_values_temp</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">all_features_matrix</span><span class="p">[:,</span> <span class="n">bnum</span><span class="p">])</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">image_features_test_noncombat</span><span class="p">[</span><span class="n">bnum</span> <span class="o">-</span> <span class="n">ntrain</span><span class="p">])</span>
+
+                <span class="c1"># Delete patient for later processing</span>
+                <span class="k">del</span> <span class="n">label_data_test</span><span class="p">[</span><span class="s1">&#39;patient_IDs&#39;</span><span class="p">][</span><span class="n">bnum</span> <span class="o">-</span> <span class="n">ntrain</span><span class="p">]</span>
+                <span class="k">del</span> <span class="n">image_features_test_noncombat</span><span class="p">[</span><span class="n">bnum</span> <span class="o">-</span> <span class="n">ntrain</span><span class="p">]</span>
+                <span class="k">del</span> <span class="n">features_test_out</span><span class="p">[</span><span class="n">bnum</span> <span class="o">-</span> <span class="n">ntrain</span><span class="p">]</span>
+                <span class="n">image_features_test_combat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">image_features_test_combat</span><span class="p">,</span> <span class="n">bnum</span> <span class="o">-</span> <span class="n">ntrain</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="c1"># Delete some other variables for later processing</span>
+            <span class="n">all_features_matrix</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">all_features_matrix</span><span class="p">,</span> <span class="n">bnum</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">mod</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">mod</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">mod</span><span class="p">,</span> <span class="n">bnum</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+            <span class="n">batch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">bnum</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+            <span class="c1"># Notify user</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;[WARNING] Skipping patient </span><span class="si">{pid}</span><span class="s1"> as batch variable is -1.0.&#39;</span><span class="p">)</span>
+
+            <span class="c1"># Sort based on feature label</span>
+            <span class="n">feature_labels_temp</span><span class="p">,</span> <span class="n">feature_values_temp</span> <span class="o">=</span>\
+                <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">feature_labels</span><span class="p">,</span> <span class="n">feature_values_temp</span><span class="p">)))</span>
+
+            <span class="c1"># Convert to pandas Series and save as hdf5</span>
+            <span class="n">panda_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">parameters</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">feature_values_temp</span><span class="p">,</span>
+                                    <span class="n">feature_labels_temp</span><span class="p">],</span>
+                                   <span class="n">index</span><span class="o">=</span><span class="n">panda_labels</span><span class="p">,</span>
+                                   <span class="n">name</span><span class="o">=</span><span class="n">skipname</span>
+                                   <span class="p">)</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Saving image features to: </span><span class="si">{out}</span><span class="s1">.&#39;</span><span class="p">)</span>
+            <span class="n">panda_data</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">out</span><span class="p">,</span> <span class="s1">&#39;image_features&#39;</span><span class="p">)</span>
+
+            <span class="n">ndel</span> <span class="o">+=</span> <span class="mi">1</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">features_test_out</span><span class="p">)</span>
+    <span class="c1"># Run ComBat in Matlab</span>
+    <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;matlab&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Executing ComBat through Matlab&#39;</span><span class="p">)</span>
+        <span class="n">data_harmonized</span> <span class="o">=</span> <span class="n">ComBatMatlab</span><span class="p">(</span><span class="n">dat</span><span class="o">=</span><span class="n">all_features_matrix</span><span class="p">,</span>
+                                       <span class="n">batch</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span>
+                                       <span class="n">command</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;matlab&#39;</span><span class="p">],</span>
+                                       <span class="n">mod</span><span class="o">=</span><span class="n">mod</span><span class="p">,</span>
+                                       <span class="n">par</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;par&#39;</span><span class="p">],</span>
+                                       <span class="n">per_feature</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;per_feature&#39;</span><span class="p">])</span>
+
+    <span class="k">elif</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;language&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;python&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Executing ComBat through neuroComBat in Python&#39;</span><span class="p">)</span>
+        <span class="n">data_harmonized</span> <span class="o">=</span> <span class="n">ComBatPython</span><span class="p">(</span><span class="n">dat</span><span class="o">=</span><span class="n">all_features_matrix</span><span class="p">,</span>
+                                       <span class="n">batch</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span>
+                                       <span class="n">mod</span><span class="o">=</span><span class="n">mod</span><span class="p">,</span>
+                                       <span class="n">eb</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;eb&#39;</span><span class="p">],</span>
+                                       <span class="n">par</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;par&#39;</span><span class="p">],</span>
+                                       <span class="n">per_feature</span><span class="o">=</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;ComBat&#39;</span><span class="p">][</span><span class="s1">&#39;per_feature&#39;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">WORCKeyError</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Language </span><span class="si">{config[&#39;ComBat&#39;][&#39;language&#39;]}</span><span class="s2"> unknown.&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Convert values back if logarithm was used</span>
+    <span class="k">if</span> <span class="n">logarithmic</span><span class="p">:</span>
+        <span class="n">data_harmonized</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">data_harmonized</span>
+
+    <span class="c1"># Convert again to train hdf5 files</span>
+    <span class="n">feature_values_train_combat</span> <span class="o">=</span> <span class="p">[</span><span class="n">data_harmonized</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">image_features_train_combat</span><span class="p">))]</span>
+    <span class="k">for</span> <span class="n">fnum</span><span class="p">,</span> <span class="n">i_feat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">feature_values_train_combat</span><span class="p">):</span>
+        <span class="c1"># Combine ComBat and non-ComBat features</span>
+        <span class="n">feature_values_temp</span> <span class="o">=</span> <span class="n">i_feat</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">+</span> <span class="n">image_features_train_noncombat</span><span class="p">[</span><span class="n">fnum</span><span class="p">]</span>
+
+        <span class="c1"># Sort based on feature label</span>
+        <span class="n">feature_labels_temp</span><span class="p">,</span> <span class="n">feature_values_temp</span> <span class="o">=</span>\
+            <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">feature_labels</span><span class="p">,</span> <span class="n">feature_values_temp</span><span class="p">)))</span>
+
+        <span class="c1"># Convert to pandas Series and save as hdf5</span>
+        <span class="n">pid</span> <span class="o">=</span> <span class="n">label_data_train</span><span class="p">[</span><span class="s1">&#39;patient_IDs&#39;</span><span class="p">][</span><span class="n">fnum</span><span class="p">]</span>
+        <span class="n">panda_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">parameters</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">feature_values_temp</span><span class="p">,</span>
+                                <span class="n">feature_labels_temp</span><span class="p">],</span>
+                               <span class="n">index</span><span class="o">=</span><span class="n">panda_labels</span><span class="p">,</span>
+                               <span class="n">name</span><span class="o">=</span><span class="n">name</span>
+                               <span class="p">)</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Saving image features to: </span><span class="si">{features_train_out[fnum]}</span><span class="s1">.&#39;</span><span class="p">)</span>
+        <span class="n">panda_data</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">features_train_out</span><span class="p">[</span><span class="n">fnum</span><span class="p">],</span> <span class="s1">&#39;image_features&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Repeat for testing if required</span>
+    <span class="k">if</span> <span class="n">features_test_in</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">image_features_test_combat</span><span class="p">))</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">data_harmonized</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">feature_values_test_combat</span> <span class="o">=</span> <span class="p">[</span><span class="n">data_harmonized</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">data_harmonized</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">image_features_test_combat</span><span class="p">),</span> <span class="n">data_harmonized</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])]</span>
+        <span class="k">for</span> <span class="n">fnum</span><span class="p">,</span> <span class="n">i_feat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">feature_values_test_combat</span><span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">fnum</span><span class="p">)</span>
+            <span class="c1"># Combine ComBat and non-ComBat features</span>
+            <span class="n">feature_values_temp</span> <span class="o">=</span> <span class="n">i_feat</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">+</span> <span class="n">image_features_test_noncombat</span><span class="p">[</span><span class="n">fnum</span><span class="p">]</span>
+
+            <span class="c1"># Sort based on feature label</span>
+            <span class="n">feature_labels_temp</span><span class="p">,</span> <span class="n">feature_values_temp</span> <span class="o">=</span>\
+                <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="nb">sorted</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">feature_labels</span><span class="p">,</span> <span class="n">feature_values_temp</span><span class="p">)))</span>
+
+            <span class="c1"># Convert to pandas Series and save as hdf5</span>
+            <span class="n">pid</span> <span class="o">=</span> <span class="n">label_data_test</span><span class="p">[</span><span class="s1">&#39;patient_IDs&#39;</span><span class="p">][</span><span class="n">fnum</span><span class="p">]</span>
+            <span class="n">panda_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">parameters</span><span class="p">,</span> <span class="n">pid</span><span class="p">,</span> <span class="n">feature_values_temp</span><span class="p">,</span>
+                                    <span class="n">feature_labels_temp</span><span class="p">],</span>
+                                   <span class="n">index</span><span class="o">=</span><span class="n">panda_labels</span><span class="p">,</span>
+                                   <span class="n">name</span><span class="o">=</span><span class="n">name</span>
+                                   <span class="p">)</span>
+
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Saving image features to: </span><span class="si">{features_test_out[fnum]}</span><span class="s1">.&#39;</span><span class="p">)</span>
+            <span class="n">panda_data</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">features_test_out</span><span class="p">[</span><span class="n">fnum</span><span class="p">],</span> <span class="s1">&#39;image_features&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ComBatPython"><a class="viewcode-back" href="../../../autogen/WORC.featureprocessing.html#WORC.featureprocessing.ComBat.ComBatPython">[docs]</a><span class="k">def</span> <span class="nf">ComBatPython</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">mod</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                 <span class="n">eb</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">per_feature</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">plotting</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run the ComBat Function python script.</span>
+
+<span class="sd">    par = 0 is non-parametric.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># convert inputs to neuroCombat format.</span>
+    <span class="n">covars</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+    <span class="n">categorical_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="n">covars</span><span class="p">[</span><span class="s1">&#39;batch&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span>
+    <span class="k">if</span> <span class="n">mod</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">i_mod</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">mod</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]):</span>
+            <span class="n">label</span> <span class="o">=</span> <span class="n">f</span><span class="s1">&#39;mod_</span><span class="si">{i_mod}</span><span class="s1">&#39;</span>
+            <span class="n">covars</span><span class="p">[</span><span class="n">label</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">m</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mod</span><span class="p">[:,</span> <span class="n">i_mod</span><span class="p">]]</span>
+            <span class="n">categorical_cols</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+
+    <span class="n">covars</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">covars</span><span class="p">)</span>
+    <span class="n">batch_col</span> <span class="o">=</span> <span class="s1">&#39;batch&#39;</span>
+    <span class="k">if</span> <span class="n">par</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">parametric</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">elif</span> <span class="n">par</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">parametric</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Par should be 0 or 1, now </span><span class="si">{par}</span><span class="s1">.&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">eb</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">eb</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">elif</span> <span class="n">eb</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">eb</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;eb should be 0 or 1, now </span><span class="si">{eb}</span><span class="s1">.&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">per_feature</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">per_feature</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">elif</span> <span class="n">per_feature</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">per_feature</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;per_feature should be 0 or 1, now </span><span class="si">{per_feature}</span><span class="s1">.&#39;</span><span class="p">)</span>
+
+    <span class="c1"># execute ComBat</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">per_feature</span><span class="p">:</span>
+        <span class="n">data_harmonized</span> <span class="o">=</span> <span class="n">neuroCombat</span><span class="p">(</span><span class="n">dat</span><span class="o">=</span><span class="n">dat</span><span class="p">,</span> <span class="n">covars</span><span class="o">=</span><span class="n">covars</span><span class="p">,</span> <span class="n">batch_col</span><span class="o">=</span><span class="n">batch_col</span><span class="p">,</span>
+                                      <span class="n">categorical_cols</span><span class="o">=</span><span class="n">categorical_cols</span><span class="p">,</span>
+                                      <span class="n">eb</span><span class="o">=</span><span class="n">eb</span><span class="p">,</span> <span class="n">parametric</span><span class="o">=</span><span class="n">parametric</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">per_feature</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Executing ComBat per feature.&#39;</span><span class="p">)</span>
+        <span class="n">data_harmonized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">dat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+        <span class="c1"># Shape: (features, samples)</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">dat</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+            <span class="k">if</span> <span class="n">eb</span><span class="p">:</span>
+                <span class="c1"># Copy feature + random noise</span>
+                <span class="n">random_feature</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+                <span class="n">feat_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">dat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:],</span> <span class="n">dat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">+</span> <span class="n">random_feature</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="c1"># Just use the single feature</span>
+                <span class="n">feat_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">dat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]])</span>
+
+            <span class="n">feat_temp</span> <span class="o">=</span> <span class="n">neuroCombat</span><span class="p">(</span><span class="n">dat</span><span class="o">=</span><span class="n">feat_temp</span><span class="p">,</span> <span class="n">covars</span><span class="o">=</span><span class="n">covars</span><span class="p">,</span>
+                                    <span class="n">batch_col</span><span class="o">=</span><span class="n">batch_col</span><span class="p">,</span>
+                                    <span class="n">categorical_cols</span><span class="o">=</span><span class="n">categorical_cols</span><span class="p">,</span>
+                                    <span class="n">eb</span><span class="o">=</span><span class="n">eb</span><span class="p">,</span> <span class="n">parametric</span><span class="o">=</span><span class="n">parametric</span><span class="p">)</span>
+            <span class="n">data_harmonized</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="n">feat_temp</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="p">:]</span>
+
+            <span class="k">if</span> <span class="n">plotting</span><span class="p">:</span>
+                <span class="n">feat1</span> <span class="o">=</span> <span class="n">dat</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="n">feat1_harm</span> <span class="o">=</span> <span class="n">data_harmonized</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feat1</span><span class="p">))</span>
+
+                <span class="n">feat1_b1</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">feat1</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">]</span>
+                <span class="n">feat1_b2</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">feat1</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mf">2.0</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feat1_b1</span><span class="p">))</span>
+                <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">feat1_b2</span><span class="p">))</span>
+
+                <span class="n">feat1_harm_b1</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">feat1_harm</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mf">1.0</span><span class="p">]</span>
+                <span class="n">feat1_harm_b2</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">feat1_harm</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">b</span> <span class="o">==</span> <span class="mf">2.0</span><span class="p">]</span>
+
+                <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+                <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">feat1_b1</span><span class="p">))),</span> <span class="n">feat1_b1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">feat1_b2</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">feat1_b2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Before Combat&#39;</span><span class="p">)</span>
+
+                <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">feat1_b1</span><span class="p">))),</span> <span class="n">feat1_harm_b1</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+                <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">feat1_b2</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">feat1_harm_b2</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+                <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;After Combat&#39;</span><span class="p">)</span>
+
+                <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;per_feature should be False or True, now </span><span class="si">{per_feature}</span><span class="s1">.&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data_harmonized</span></div>
+
+
+<div class="viewcode-block" id="Synthetictest"><a class="viewcode-back" href="../../../autogen/WORC.featureprocessing.html#WORC.featureprocessing.ComBat.Synthetictest">[docs]</a><span class="k">def</span> <span class="nf">Synthetictest</span><span class="p">(</span><span class="n">n_patients</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">n_features</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">eb</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+                  <span class="n">per_feature</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">difscale</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">logarithmic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                  <span class="n">oddpatient</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">oddfeat</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">samefeat</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Test for ComBat with Synthetic data.&quot;&quot;&quot;</span>
+    <span class="n">features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_features</span><span class="p">,</span> <span class="n">n_patients</span><span class="p">))</span>
+    <span class="n">batch</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+    <span class="c1"># First batch: Gaussian with loc 0, scale 1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_patients</span><span class="o">/</span><span class="mi">2</span><span class="p">)):</span>
+        <span class="n">feat_temp</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">oddpatient</span><span class="p">:</span>
+            <span class="n">feat_temp</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">10.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">)]</span>
+        <span class="k">elif</span> <span class="n">oddfeat</span><span class="p">:</span>
+            <span class="n">feat_temp</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">10000.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="n">samefeat</span><span class="p">:</span>
+            <span class="n">feat_temp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="n">features</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">feat_temp</span>
+        <span class="n">batch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1"># Get directions for features</span>
+    <span class="n">directions</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">):</span>
+        <span class="n">direction</span> <span class="o">=</span> <span class="n">random</span><span class="o">.</span><span class="n">random</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">direction</span> <span class="o">&gt;</span> <span class="mf">0.5</span><span class="p">:</span>
+            <span class="n">directions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">directions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+
+    <span class="c1"># First batch: Gaussian with loc 5, scale 1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n_patients</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">n_patients</span><span class="p">):</span>
+        <span class="n">feat_temp</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="n">direction</span><span class="o">*</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">)]</span>
+        <span class="k">if</span> <span class="n">oddfeat</span><span class="p">:</span>
+            <span class="n">feat_temp</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">5.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mf">10000.0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)]</span>
+
+        <span class="k">if</span> <span class="n">difscale</span><span class="p">:</span>
+            <span class="n">feat_temp</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span> <span class="o">+</span> <span class="mi">1000</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">feat_temp</span><span class="p">]</span>
+
+        <span class="n">feat_temp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">feat_temp</span><span class="p">,</span> <span class="n">directions</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">samefeat</span><span class="p">:</span>
+            <span class="n">feat_temp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+
+        <span class="n">features</span><span class="p">[:,</span> <span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">feat_temp</span>
+        <span class="n">batch</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+    <span class="c1"># Create mod var</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="p">[[</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_patients</span><span class="p">)]]</span>
+
+    <span class="c1"># Apply ComBat</span>
+    <span class="n">batch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">batch</span><span class="p">])</span>
+    <span class="n">mod</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">mod</span><span class="p">))</span>
+    <span class="k">if</span> <span class="n">logarithmic</span><span class="p">:</span>
+        <span class="n">minfeat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">features</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">minfeat</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1E-100</span><span class="p">)</span>
+
+    <span class="n">data_harmonized</span> <span class="o">=</span> <span class="n">ComBatPython</span><span class="p">(</span><span class="n">dat</span><span class="o">=</span><span class="n">features</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span> <span class="n">mod</span><span class="o">=</span><span class="n">mod</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="n">par</span><span class="p">,</span>
+                                   <span class="n">eb</span><span class="o">=</span><span class="n">eb</span><span class="p">,</span> <span class="n">per_feature</span><span class="o">=</span><span class="n">per_feature</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">logarithmic</span><span class="p">:</span>
+        <span class="n">data_harmonized</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">**</span> <span class="n">data_harmonized</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">minfeat</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_features</span><span class="p">):</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">n_patients</span><span class="o">/</span><span class="mi">2</span><span class="p">))),</span> <span class="n">features</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">n_patients</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n_patients</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_patients</span><span class="o">/</span><span class="mi">2</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">features</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_patients</span><span class="o">/</span><span class="mi">2</span><span class="p">):],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Before Combat&#39;</span><span class="p">)</span>
+
+        <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplot</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">n_patients</span><span class="o">/</span><span class="mi">2</span><span class="p">))),</span> <span class="n">data_harmonized</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="nb">int</span><span class="p">(</span><span class="n">n_patients</span><span class="o">/</span><span class="mi">2</span><span class="p">)],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">)</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">n_patients</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_patients</span><span class="o">/</span><span class="mi">2</span><span class="p">)))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">data_harmonized</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n_patients</span><span class="o">/</span><span class="mi">2</span><span class="p">):],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;After Combat&#39;</span><span class="p">)</span>
+
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;combat_par</span><span class="si">{par}</span><span class="s1">_eb</span><span class="si">{eb}</span><span class="s1">_perfeat</span><span class="si">{per_feature}</span><span class="s1">_feat</span><span class="si">{i}</span><span class="s1">.png&#39;</span><span class="p">)</span></div>
+
+    <span class="c1"># Logarithmic: not useful, as we have negative numbers, and (almost) zeros.</span>
+    <span class="c1"># so combat gives unuseful results.</span>
+    <span class="c1"># Same feature twice with eb and par: nans</span>
+
+
+<div class="viewcode-block" id="ComBatMatlab"><a class="viewcode-back" href="../../../autogen/WORC.featureprocessing.html#WORC.featureprocessing.ComBat.ComBatMatlab">[docs]</a><span class="k">def</span> <span class="nf">ComBatMatlab</span><span class="p">(</span><span class="n">dat</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">mod</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">par</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">per_feature</span><span class="o">=</span><span class="s1">&#39;true&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run the ComBat Function Matlab script.</span>
+
+<span class="sd">    par = 0 is non-parametric.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Mod: default argument is empty list</span>
+    <span class="k">if</span> <span class="n">mod</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">mod</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># TODO: Add check whether matlab executable is found</span>
+
+    <span class="c1"># Save the features in a .mat MatLab Compatible format</span>
+    <span class="c1"># NOTE: Should change this_folder to a proper temporary directory</span>
+    <span class="n">this_folder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">realpath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+    <span class="n">tempdir</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">gettempdir</span><span class="p">()</span>
+    <span class="n">tempfile_in</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tempdir</span><span class="p">,</span> <span class="s1">&#39;combat_input.mat&#39;</span><span class="p">)</span>
+    <span class="n">tempfile_out</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">tempdir</span><span class="p">,</span> <span class="s1">&#39;combat_output.mat&#39;</span><span class="p">)</span>
+    <span class="n">ComBatFolder</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">this_folder</span><span class="p">),</span>
+                                <span class="s1">&#39;external&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;ComBatHarmonization&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;Matlab&#39;</span><span class="p">,</span>
+                                <span class="s1">&#39;scripts&#39;</span><span class="p">)</span>
+
+    <span class="nb">dict</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;output&#39;</span><span class="p">:</span> <span class="n">tempfile_out</span><span class="p">,</span>
+            <span class="s1">&#39;ComBatFolder&#39;</span><span class="p">:</span> <span class="n">ComBatFolder</span><span class="p">,</span>
+            <span class="s1">&#39;datvar&#39;</span><span class="p">:</span> <span class="n">dat</span><span class="p">,</span>
+            <span class="s1">&#39;batchvar&#39;</span><span class="p">:</span> <span class="n">batch</span><span class="p">,</span>
+            <span class="s1">&#39;modvar&#39;</span><span class="p">:</span> <span class="n">mod</span><span class="p">,</span>
+            <span class="s1">&#39;parvar&#39;</span><span class="p">:</span> <span class="n">par</span><span class="p">,</span>
+            <span class="s1">&#39;per_feature&#39;</span><span class="p">:</span> <span class="n">per_feature</span>
+            <span class="p">}</span>
+
+    <span class="n">sio</span><span class="o">.</span><span class="n">savemat</span><span class="p">(</span><span class="n">tempfile_in</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span>
+
+    <span class="c1"># Make sure there is no tempfile out from the previous run</span>
+    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">tempfile_out</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tempfile_out</span><span class="p">)</span>
+
+    <span class="c1"># Run ComBat</span>
+    <span class="n">currentdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">()</span>
+    <span class="k">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;linux&quot;</span> <span class="ow">or</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;linux2&quot;</span><span class="p">:</span>
+        <span class="n">commandseparator</span> <span class="o">=</span> <span class="s1">&#39; ; &#39;</span>
+    <span class="k">elif</span> <span class="n">platform</span> <span class="o">==</span> <span class="s2">&quot;win32&quot;</span><span class="p">:</span>
+        <span class="n">commandseparator</span> <span class="o">=</span> <span class="s1">&#39; &amp; &#39;</span>
+
+    <span class="c1"># BIGR Cluster: /cm/shared/apps/matlab/R2015b/bin/matlab</span>
+    <span class="n">regcommand</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;cd &quot;&#39;</span> <span class="o">+</span> <span class="n">this_folder</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">commandseparator</span> <span class="o">+</span>
+                  <span class="s1">&#39;&quot;&#39;</span> <span class="o">+</span> <span class="n">command</span> <span class="o">+</span> <span class="s1">&#39;&quot; -nodesktop -nosplash -nojvm -r &quot;combatmatlab(&#39;</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">tempfile_in</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="s1">&#39;)&quot;&#39;</span> <span class="o">+</span>
+                  <span class="n">commandseparator</span> <span class="o">+</span>
+                  <span class="s1">&#39;cd &quot;&#39;</span> <span class="o">+</span> <span class="n">currentdir</span> <span class="o">+</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Executing ComBat in Matlab through command: </span><span class="si">{regcommand}</span><span class="s1">.&#39;</span><span class="p">)</span>
+    <span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">regcommand</span><span class="p">,</span>
+                            <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                            <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                            <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span>
+                            <span class="p">)</span>
+    <span class="n">proc</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+    <span class="n">stdout_value</span><span class="p">,</span> <span class="n">stderr_value</span> <span class="o">=</span> <span class="n">proc</span><span class="o">.</span><span class="n">communicate</span><span class="p">()</span>
+
+    <span class="c1"># BUG: Waiting does not work, just wait for output to arrive, either with</span>
+    <span class="c1"># the actual output or an error message</span>
+    <span class="n">succes</span> <span class="o">=</span> <span class="kc">False</span>
+    <span class="k">while</span> <span class="n">succes</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">tempfile_out</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">mat_dict</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">tempfile_out</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">data_harmonized</span> <span class="o">=</span> <span class="n">mat_dict</span><span class="p">[</span><span class="s1">&#39;data_harmonized&#39;</span><span class="p">]</span>
+                    <span class="n">succes</span> <span class="o">=</span> <span class="kc">True</span>
+                <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                    <span class="k">try</span><span class="p">:</span>
+                        <span class="n">message</span> <span class="o">=</span> <span class="n">mat_dict</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span>
+                        <span class="k">raise</span> <span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Error in Matlab ComBat execution: </span><span class="si">{message}</span><span class="s1">.&#39;</span><span class="p">)</span>
+                    <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                        <span class="k">pass</span>
+            <span class="k">except</span> <span class="p">(</span><span class="n">sio</span><span class="o">.</span><span class="n">matlab</span><span class="o">.</span><span class="n">miobase</span><span class="o">.</span><span class="n">MatReadError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+                <span class="k">pass</span>
+
+    <span class="c1"># Check if expected output file exists</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">tempfile_out</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Error in Matlab ComBat execution: command: </span><span class="si">{regcommand}</span><span class="s1">, stdout: </span><span class="si">{stdout_value}</span><span class="s1">, stderr: </span><span class="si">{stderr_value}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Read the output from ComBat</span>
+    <span class="n">mat_dict</span> <span class="o">=</span> <span class="n">sio</span><span class="o">.</span><span class="n">loadmat</span><span class="p">(</span><span class="n">tempfile_out</span><span class="p">)</span>
+    <span class="n">data_harmonized</span> <span class="o">=</span> <span class="n">mat_dict</span><span class="p">[</span><span class="s1">&#39;data_harmonized&#39;</span><span class="p">]</span>
+    <span class="n">data_harmonized</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">data_harmonized</span><span class="p">)</span>
+
+    <span class="c1"># Remove temporary files</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tempfile_out</span><span class="p">)</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">tempfile_in</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">data_harmonized</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 -- 2020, Biomedical Imaging Group Rotterdam, Departments of Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Developer documentation &mdash; WORC 3.3.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Resource File Formats" href="file_description.html" />
+    <link rel="prev" title="FAQ" href="faq.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WORC
+          
+
+          
+            
+            <img src="../_static/WORC_Logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Radiomics Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additionalfunctionality.html">Additional functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adding-a-feature-processing-toolbox">Adding a feature processing toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-and-example-data">Testing and example data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adding-methods-to-hyperoptimization">Adding methods to hyperoptimization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="file_description.html">Resource File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../autogen/WORC.html">WORC Package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WORC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Developer documentation</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/static/developerdocumentation.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developer-documentation">
+<h1>Developer documentation<a class="headerlink" href="#developer-documentation" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="adding-a-feature-processing-toolbox">
+<h2>Adding a feature processing toolbox<a class="headerlink" href="#adding-a-feature-processing-toolbox" title="Permalink to this headline">¶</a></h2>
+<p>We suggest to use the wrapping we did around the PyRadiomics toolbox as an example.</p>
+<ol class="arabic">
+<li><p>Check if config type is in <code class="docutils literal notranslate"><span class="pre">fastr.types</span></code>: else, make your own. See
+the <a class="reference external" href="https://github.com/MStarmans91/WORC/tree/master/WORC/resources/fastr_types/">WORC datatypes</a>
+for examples.</p></li>
+<li><p>Make a fastr tool, which basically is a XML wrapper around your tool telling fastr
+what the inputs and outputs are. You can take our wrappers around pyradiomics as example:
+see <a class="reference external" href="https://github.com/MStarmans91/WORC/blob/master/WORC/resources/fastr_tools/pyradiomics/pyradiomics.xml/">the command line wrapper</a>
+for when your toolbox is command line executable, or the <a class="reference external" href="https://github.com/MStarmans91/WORC/blob/master/WORC/resources/fastr_tools/pyradiomics/CF_pyradiomics.xml/">Python wrapper</a>
+for when your toolbox needs an interpreter such as Python. In the latter case, you will also need to include
+an actual script using the interpreter, which is by default placed in the bin folder together
+with the wrapper. The script will need to parse the arguments defined in the XML,
+see <a class="reference external" href="https://github.com/MStarmans91/WORC/blob/master/WORC/resources/fastr_tools/pyradiomics/bin/CF_pyradiomics_tool.py/">here</a>
+for the one using PyRadiomics.</p>
+<p>For more information, visit <a class="reference external" href="https://fastr.readthedocs.io/en/stable/static/user_manual.html#create-your-own-tool/">the fastr documentation</a>.</p>
+</li>
+<li><p>In WORC, go to the <a class="reference internal" href="../autogen/WORC.html#WORC.WORC.WORC.add_feature_calculator" title="WORC.WORC.WORC.add_feature_calculator"><code class="xref py py-mod docutils literal notranslate"><span class="pre">WORC.WORC.WORC.add_feature_calculator</span></code></a> function and change the following:</p></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><p>Add a converter for your config file if you do not use the .ini format WORC by default uses.</p></li>
+<li><p>If you followed a, also add a config safe function to <a class="reference internal" href="../autogen/WORC.html#WORC.WORC.WORC.save_config" title="WORC.WORC.WORC.save_config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">WORC.WORC.WORC.save_config</span></code></a>.</p></li>
+<li><p>Make sure you add both sources and sinks for your tools.</p></li>
+<li><p>Link these sources and sinks to the fastr network in the <code class="xref py py-mod docutils literal notranslate"><span class="pre">WORC.WORCWORC.set</span></code> function.</p></li>
+<li><p>Add part to feature converter</p></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><p>To convert the feature files from your toolbox to WORC compatible format,
+add the neccesary functionality to the <a class="reference internal" href="../autogen/WORC.featureprocessing.html#module-WORC.featureprocessing.FeatureConverter" title="WORC.featureprocessing.FeatureConverter"><code class="xref py py-mod docutils literal notranslate"><span class="pre">WORC.featureprocessing.FeatureConverter</span></code></a>
+function.</p></li>
+<li><p>Tell WORC to use your feature calculator by changing the relevant config field: <code class="docutils literal notranslate"><span class="pre">config['General']['FeatureCalculators]</span></code>.</p></li>
+</ol>
+</div>
+<div class="section" id="testing-and-example-data">
+<h2>Testing and example data<a class="headerlink" href="#testing-and-example-data" title="Permalink to this headline">¶</a></h2>
+<p>WIP</p>
+</div>
+<div class="section" id="adding-methods-to-hyperoptimization">
+<h2>Adding methods to hyperoptimization<a class="headerlink" href="#adding-methods-to-hyperoptimization" title="Permalink to this headline">¶</a></h2>
+<p>WIP</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="file_description.html" class="btn btn-neutral float-right" title="Resource File Formats" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="faq.html" class="btn btn-neutral float-left" title="FAQ" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 -- 2020, Biomedical Imaging Group Rotterdam, Departments of Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

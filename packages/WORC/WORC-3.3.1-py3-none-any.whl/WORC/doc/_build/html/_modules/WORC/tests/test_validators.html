@@ -1,0 +1,310 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WORC.tests.test_validators &mdash; WORC 3.3.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> WORC
+          
+
+          
+            
+            <img src="../../../_static/WORC_Logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/features.html">Radiomics Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/additionalfunctionality.html">Additional functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/developerdocumentation.html">Developer documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/file_description.html">Resource File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autogen/WORC.html">WORC Package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WORC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>WORC.tests.test_validators</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for WORC.tests.test_validators</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">pathlib</span> <span class="k">import</span> <span class="n">Path</span>
+<span class="kn">import</span> <span class="nn">pytest</span>
+<span class="kn">from</span> <span class="nn">unittest.mock</span> <span class="k">import</span> <span class="n">MagicMock</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+
+<span class="kn">from</span> <span class="nn">WORC.validators.preflightcheck</span> <span class="k">import</span> <span class="n">InvalidLabelsValidator</span>
+<span class="kn">import</span> <span class="nn">WORC.addexceptions</span> <span class="k">as</span> <span class="nn">ae</span>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Test to see what happens if a valid configuration is given to the InvalidLabelsValidator.</span>
+<span class="sd">Under normal circumstances this should not throw any exception and thus return as a passed test.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="test_invalidlabelsvalidator_validconfig"><a class="viewcode-back" href="../../../autogen/WORC.tests.html#WORC.tests.test_validators.test_invalidlabelsvalidator_validconfig">[docs]</a><span class="k">def</span> <span class="nf">test_invalidlabelsvalidator_validconfig</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tmpdirname</span><span class="p">:</span>
+        <span class="n">validator</span> <span class="o">=</span> <span class="n">InvalidLabelsValidator</span><span class="p">()</span>
+
+        <span class="n">experiment</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+        <span class="n">experiment</span><span class="o">.</span><span class="n">_labels_file_train</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">tmpdirname</span><span class="p">)</span> <span class="o">/</span> <span class="s1">&#39;patients.csv&#39;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">experiment</span><span class="o">.</span><span class="n">_labels_file_train</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+            <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Patient,mock</span>
+<span class="s2">pat001,1</span>
+<span class="s2">pat002,1</span>
+<span class="s2">pat003,0</span>
+<span class="s2">pat004,0&quot;&quot;&quot;</span><span class="p">)</span>
+
+        <span class="n">res</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">do_validation</span><span class="p">(</span><span class="n">experiment</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="n">res</span> <span class="o">==</span> <span class="kc">True</span></div>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Test to see what happens if an invalid configuration is given to the InvalidLabelsValidator.</span>
+<span class="sd">Under normal circumstances this test should pass due to an exception being thrown as the label file contains patient</span>
+<span class="sd">as the first column instead of Patient.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="test_invalidlabelsvalidator_patientcolumn"><a class="viewcode-back" href="../../../autogen/WORC.tests.html#WORC.tests.test_validators.test_invalidlabelsvalidator_patientcolumn">[docs]</a><span class="k">def</span> <span class="nf">test_invalidlabelsvalidator_patientcolumn</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tmpdirname</span><span class="p">:</span>
+        <span class="n">validator</span> <span class="o">=</span> <span class="n">InvalidLabelsValidator</span><span class="p">()</span>
+
+        <span class="n">experiment</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+        <span class="n">experiment</span><span class="o">.</span><span class="n">_labels_file_train</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">tmpdirname</span><span class="p">)</span> <span class="o">/</span> <span class="s1">&#39;patients.csv&#39;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">experiment</span><span class="o">.</span><span class="n">_labels_file_train</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+            <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;patient,mock</span>
+<span class="s2">pat001,1</span>
+<span class="s2">pat002,1</span>
+<span class="s2">pat003,0</span>
+<span class="s2">pat004,0&quot;&quot;&quot;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e_info</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">do_validation</span><span class="p">(</span><span class="n">experiment</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="s2">&quot;needs to be named Patient&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e_info</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Test to see what happens if an invalid configuration is given to the InvalidLabelsValidator.</span>
+<span class="sd">Under normal circumstances this test should pass due to an exception being thrown as the patient names are</span>
+<span class="sd">substrings of eachother.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="test_invalidlabelsvalidator_patientsubstring"><a class="viewcode-back" href="../../../autogen/WORC.tests.html#WORC.tests.test_validators.test_invalidlabelsvalidator_patientsubstring">[docs]</a><span class="k">def</span> <span class="nf">test_invalidlabelsvalidator_patientsubstring</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tmpdirname</span><span class="p">:</span>
+        <span class="n">validator</span> <span class="o">=</span> <span class="n">InvalidLabelsValidator</span><span class="p">()</span>
+
+        <span class="n">experiment</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+        <span class="n">experiment</span><span class="o">.</span><span class="n">_labels_file_train</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">tmpdirname</span><span class="p">)</span> <span class="o">/</span> <span class="s1">&#39;patients.csv&#39;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">experiment</span><span class="o">.</span><span class="n">_labels_file_train</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+            <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Patient,mock</span>
+<span class="s2">pat111,1</span>
+<span class="s2">pat11,1</span>
+<span class="s2">pat1,0&quot;&quot;&quot;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e_info</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">do_validation</span><span class="p">(</span><span class="n">experiment</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="s2">&quot;Found subject(s) that are a substring of other subject(s)&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e_info</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Test to see what happens if an invalid configuration is given to the InvalidLabelsValidator.</span>
+<span class="sd">Under normal circumstances this test should pass due to an exception being thrown as the columns / labels are</span>
+<span class="sd">substrings of eachother.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="test_invalidlabelsvalidator_columnsubstring"><a class="viewcode-back" href="../../../autogen/WORC.tests.html#WORC.tests.test_validators.test_invalidlabelsvalidator_columnsubstring">[docs]</a><span class="k">def</span> <span class="nf">test_invalidlabelsvalidator_columnsubstring</span><span class="p">():</span>
+    <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">tmpdirname</span><span class="p">:</span>
+        <span class="n">validator</span> <span class="o">=</span> <span class="n">InvalidLabelsValidator</span><span class="p">()</span>
+
+        <span class="n">experiment</span> <span class="o">=</span> <span class="n">MagicMock</span><span class="p">()</span>
+        <span class="n">experiment</span><span class="o">.</span><span class="n">_labels_file_train</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">tmpdirname</span><span class="p">)</span> <span class="o">/</span> <span class="s1">&#39;patients.csv&#39;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">experiment</span><span class="o">.</span><span class="n">_labels_file_train</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">fh</span><span class="p">:</span>
+            <span class="n">fh</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&quot;&quot;Patient,mock1,mock111,mock1111,mock01</span>
+<span class="s2">pat01,1,1,1,1</span>
+<span class="s2">pat02,1,1,1,1</span>
+<span class="s2">pat03,1,1,1,1&quot;&quot;&quot;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">pytest</span><span class="o">.</span><span class="n">raises</span><span class="p">(</span><span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e_info</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">do_validation</span><span class="p">(</span><span class="n">experiment</span><span class="p">)</span>
+
+        <span class="k">assert</span> <span class="s2">&quot;Found label(s) that are a substring of other label(s)&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e_info</span><span class="o">.</span><span class="n">value</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 -- 2020, Biomedical Imaging Group Rotterdam, Departments of Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,373 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WORC.processing.preprocessing &mdash; WORC 3.3.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> WORC
+          
+
+          
+            
+            <img src="../../../_static/WORC_Logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/features.html">Radiomics Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/additionalfunctionality.html">Additional functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/developerdocumentation.html">Developer documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/file_description.html">Resource File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autogen/WORC.html">WORC Package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WORC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>WORC.processing.preprocessing</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for WORC.processing.preprocessing</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="c1"># Copyright 2017-2020 Biomedical Imaging Group Rotterdam, Departments of</span>
+<span class="c1"># Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">import</span> <span class="nn">SimpleITK</span> <span class="k">as</span> <span class="nn">sitk</span>
+<span class="kn">import</span> <span class="nn">pydicom</span>
+<span class="kn">import</span> <span class="nn">WORC.IOparser.config_preprocessing</span> <span class="k">as</span> <span class="nn">config_io</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">WORC.processing.segmentix</span> <span class="k">import</span> <span class="n">dilate_contour</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+
+<div class="viewcode-block" id="preprocess"><a class="viewcode-back" href="../../../autogen/WORC.processing.html#WORC.processing.preprocessing.preprocess">[docs]</a><span class="k">def</span> <span class="nf">preprocess</span><span class="p">(</span><span class="n">imagefile</span><span class="p">,</span> <span class="n">config</span><span class="p">,</span> <span class="n">metadata</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Apply preprocessing to an image to prepare it for feture extration.&quot;&quot;&quot;</span>
+    <span class="c1"># Read the config, image and if given masks and metadata</span>
+    <span class="n">config</span> <span class="o">=</span> <span class="n">config_io</span><span class="o">.</span><span class="n">load_config</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+    <span class="n">image</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">ReadImage</span><span class="p">(</span><span class="n">imagefile</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">metadata</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">pydicom</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">ReadImage</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+
+    <span class="c1"># Convert image to Hounsfield units if type is CT</span>
+    <span class="n">image_type</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;ImageFeatures&#39;</span><span class="p">][</span><span class="s1">&#39;image_type&#39;</span><span class="p">]</span>
+    <span class="c1"># NOTE: We only do this if the input is a DICOM folder</span>
+    <span class="k">if</span> <span class="s1">&#39;CT&#39;</span> <span class="ow">in</span> <span class="n">image_type</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">imagefile</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Converting intensity to Hounsfield units.&#39;</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="o">*</span><span class="n">metadata</span><span class="o">.</span><span class="n">RescaleSlope</span> <span class="o">+</span>\
+            <span class="n">metadata</span><span class="o">.</span><span class="n">RescaleIntercept</span>
+
+    <span class="c1"># Apply the preprocessing</span>
+    <span class="k">if</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;Preprocessing&#39;</span><span class="p">][</span><span class="s1">&#39;Normalize&#39;</span><span class="p">]:</span>
+        <span class="n">method</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;Preprocessing&#39;</span><span class="p">][</span><span class="s1">&#39;Method&#39;</span><span class="p">]</span>
+        <span class="n">normalize</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;Preprocessing&#39;</span><span class="p">][</span><span class="s1">&#39;Normalize_ROI&#39;</span><span class="p">]</span>
+        <span class="n">dilate</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;Preprocessing&#39;</span><span class="p">][</span><span class="s1">&#39;ROIdilate&#39;</span><span class="p">]</span>
+        <span class="n">radius</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;Preprocessing&#39;</span><span class="p">][</span><span class="s1">&#39;ROIdilateradius&#39;</span><span class="p">]</span>
+        <span class="n">ROIDetermine</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;Preprocessing&#39;</span><span class="p">][</span><span class="s1">&#39;ROIDetermine&#39;</span><span class="p">]</span>
+        <span class="n">metadata</span> <span class="o">=</span> <span class="n">config</span><span class="p">[</span><span class="s1">&#39;General&#39;</span><span class="p">][</span><span class="s1">&#39;AssumeSameImageAndMaskMetadata&#39;</span><span class="p">]</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">normalize_image</span><span class="p">(</span><span class="n">image</span><span class="o">=</span><span class="n">image</span><span class="p">,</span>
+                                <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+                                <span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span>
+                                <span class="n">Normalize_ROI</span><span class="o">=</span><span class="n">normalize</span><span class="p">,</span>
+                                <span class="n">Dilate_ROI</span><span class="o">=</span><span class="n">dilate</span><span class="p">,</span>
+                                <span class="n">ROI_dilate_radius</span><span class="o">=</span><span class="n">radius</span><span class="p">,</span>
+                                <span class="n">ROIDetermine</span><span class="o">=</span><span class="n">ROIDetermine</span><span class="p">,</span>
+                                <span class="n">AssumeSameImageAndMaskMetadata</span><span class="o">=</span><span class="n">metadata</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;No preprocessing was applied.&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">image</span></div>
+
+
+<div class="viewcode-block" id="normalize_image"><a class="viewcode-back" href="../../../autogen/WORC.processing.html#WORC.processing.preprocessing.normalize_image">[docs]</a><span class="k">def</span> <span class="nf">normalize_image</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;z_score&#39;</span><span class="p">,</span> <span class="n">Normalize_ROI</span><span class="o">=</span><span class="s1">&#39;Full&#39;</span><span class="p">,</span>
+                    <span class="n">Dilate_ROI</span><span class="o">=</span><span class="s1">&#39;True&#39;</span><span class="p">,</span>
+                    <span class="n">ROI_dilate_radius</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">ROIDetermine</span><span class="o">=</span><span class="s1">&#39;Provided&#39;</span><span class="p">,</span>
+                    <span class="n">AssumeSameImageAndMaskMetadata</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Apply normalization to an image.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    image: ITK Image</span>
+<span class="sd">        Image to normalize</span>
+<span class="sd">    mask: None or ITK Image</span>
+<span class="sd">        Optional: mask to be used for normalization</span>
+<span class="sd">    method: string, default z_score</span>
+<span class="sd">        Method to be used for normalization.</span>
+<span class="sd">    Normalize_ROI: string, default Full</span>
+<span class="sd">        ROI to use for normalization</span>
+<span class="sd">    Dilate_ROI: string, default True</span>
+<span class="sd">        Whether to dilate the ROI or not</span>
+<span class="sd">    ROI_dilate_radius: int, default 5</span>
+<span class="sd">        Radius to use for ROI dilation.</span>
+<span class="sd">    ROIDetermine: string, default provided</span>
+<span class="sd">        Whether mask is used as ROI or it is determined, e.g. through Otsu.</span>
+<span class="sd">    AssumeSameImageAndMaskMetadata: boolean</span>
+<span class="sd">        If True, copy metadata from image to mask.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">Normalize_ROI</span> <span class="o">==</span> <span class="s1">&#39;Full&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Apply z-scoring on full image.&#39;</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">Normalize</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">Normalize_ROI</span> <span class="o">==</span> <span class="s1">&#39;True&#39;</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Apply scaling of image based on a Region Of Interest.&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Dilate the mask if required</span>
+        <span class="k">if</span> <span class="n">Dilate_ROI</span> <span class="o">==</span> <span class="s1">&#39;True&#39;</span><span class="p">:</span>
+            <span class="n">radius</span> <span class="o">=</span> <span class="n">ROI_dilate_radius</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;Dilating ROI with radius </span><span class="si">{radius}</span><span class="s2">.&quot;</span><span class="p">)</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">GetArrayFromImage</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">dilate_contour</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">radius</span><span class="p">)</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+            <span class="n">mask</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">GetImageFromArray</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">ROIDetermine</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="s1">&#39;Mask input required for ROI normalization.&#39;</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">ROIDetermine</span> <span class="o">==</span> <span class="s1">&#39;Otsu&#39;</span><span class="p">:</span>
+                <span class="n">mask</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">sitk</span><span class="o">.</span><span class="n">OtsuThreshold</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IOError</span><span class="p">(</span><span class="n">f</span><span class="s2">&quot;</span><span class="si">{ROIDetermine}</span><span class="s2"> is not a valid method!&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;z_score&#39;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Apply scaling using z-scoring based on the ROI&#39;</span><span class="p">)</span>
+
+                <span class="c1"># Cast to float to allow proper processing</span>
+                <span class="n">image</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">Cast</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+                <span class="n">mask</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">Cast</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+                <span class="n">LabelFilter</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">LabelStatisticsImageFilter</span><span class="p">()</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">LabelFilter</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">AssumeSameImageAndMaskMetadata</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;[WORC Warning] error: </span><span class="si">{e}</span><span class="s1">.&#39;</span><span class="p">)</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;[WORC Warning] Assuming image and mask have same metadata.&#39;</span><span class="p">)</span>
+                        <span class="n">mask</span><span class="o">.</span><span class="n">CopyInformation</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+                        <span class="n">LabelFilter</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+                <span class="n">ROI_mean</span> <span class="o">=</span> <span class="n">LabelFilter</span><span class="o">.</span><span class="n">GetMean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">ROI_std</span> <span class="o">=</span> <span class="n">LabelFilter</span><span class="o">.</span><span class="n">GetSigma</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+                <span class="n">image</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">ShiftScale</span><span class="p">(</span><span class="n">image</span><span class="p">,</span>
+                                        <span class="n">shift</span><span class="o">=-</span><span class="n">ROI_mean</span><span class="p">,</span>
+                                        <span class="n">scale</span><span class="o">=</span><span class="mf">1.0</span><span class="o">/</span><span class="n">ROI_std</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;minmed&#39;</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Apply scaling using the minimum and median of the ROI&#39;</span><span class="p">)</span>
+                <span class="n">image</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">Cast</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+                <span class="n">mask</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">Cast</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+                <span class="n">LabelFilter</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">LabelStatisticsImageFilter</span><span class="p">()</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">LabelFilter</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">RuntimeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">AssumeSameImageAndMaskMetadata</span><span class="p">:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;[WORC Warning] error: </span><span class="si">{e}</span><span class="s1">.&#39;</span><span class="p">)</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;[WORC Warning] Assuming image and mask have same metadata.&#39;</span><span class="p">)</span>
+                        <span class="n">mask</span><span class="o">.</span><span class="n">CopyInformation</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+                        <span class="n">LabelFilter</span><span class="o">.</span><span class="n">Execute</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">mask</span><span class="p">)</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+                <span class="n">ROI_median</span> <span class="o">=</span> <span class="n">LabelFilter</span><span class="o">.</span><span class="n">GetMedian</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                <span class="n">ROI_minimum</span> <span class="o">=</span> <span class="n">LabelFilter</span><span class="o">.</span><span class="n">GetMinimum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+                <span class="n">image</span> <span class="o">=</span> <span class="n">sitk</span><span class="o">.</span><span class="n">ShiftScale</span><span class="p">(</span><span class="n">image</span><span class="p">,</span>
+                                        <span class="n">shift</span><span class="o">=-</span><span class="n">ROI_minimum</span><span class="p">,</span>
+                                        <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="o">/</span><span class="n">ROI_median</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">image</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 -- 2020, Biomedical Imaging Group Rotterdam, Departments of Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

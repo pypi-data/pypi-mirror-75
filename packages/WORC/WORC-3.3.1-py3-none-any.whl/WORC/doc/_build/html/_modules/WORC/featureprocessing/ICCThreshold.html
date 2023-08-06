@@ -1,0 +1,387 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WORC.featureprocessing.ICCThreshold &mdash; WORC 3.3.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> WORC
+          
+
+          
+            
+            <img src="../../../_static/WORC_Logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/features.html">Radiomics Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/additionalfunctionality.html">Additional functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/developerdocumentation.html">Developer documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/file_description.html">Resource File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autogen/WORC.html">WORC Package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WORC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>WORC.featureprocessing.ICCThreshold</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for WORC.featureprocessing.ICCThreshold</h1><div class="highlight"><pre>
+<span></span><span class="ch">#!/usr/bin/env python</span>
+
+<span class="c1"># Copyright 2016-2020 Biomedical Imaging Group Rotterdam, Departments of</span>
+<span class="c1"># Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands</span>
+<span class="c1">#</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1"># you may not use this file except in compliance with the License.</span>
+<span class="c1"># You may obtain a copy of the License at</span>
+<span class="c1">#</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1"># See the License for the specific language governing permissions and</span>
+<span class="c1"># limitations under the License.</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.base</span> <span class="k">import</span> <span class="n">BaseEstimator</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection.base</span> <span class="k">import</span> <span class="n">SelectorMixin</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">WORC.classification.metrics</span> <span class="k">import</span> <span class="n">ICC</span>
+<span class="kn">import</span> <span class="nn">WORC.IOparser.file_io</span> <span class="k">as</span> <span class="nn">wio</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+
+<div class="viewcode-block" id="ICCThreshold"><a class="viewcode-back" href="../../../autogen/WORC.featureprocessing.html#WORC.featureprocessing.ICCThreshold.ICCThreshold">[docs]</a><span class="k">class</span> <span class="nc">ICCThreshold</span><span class="p">(</span><span class="n">BaseEstimator</span><span class="p">,</span> <span class="n">SelectorMixin</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Object to fit feature selection based on intra- or inter-class correlation</span>
+<span class="sd">    coefficient as defined by</span>
+
+<span class="sd">    Shrout, Patrick E., and Joseph L. Fleiss. &quot;Intraclass correlations: uses</span>
+<span class="sd">    in assessing rater reliability.&quot; Psychological bulletin 86.2 (1979): 420.</span>
+<span class="sd">    http://rokwa.x-y.net/Shrout-Fleiss-ICC.pdf</span>
+
+<span class="sd">    For the intra-class, we use ICC(3,1).For the inter-class ICC, we should use</span>
+<span class="sd">    ICC(2,1) according to definitions of the paper, but according to radiomics</span>
+<span class="sd">    literatue (https://www.tandfonline.com/doi/pdf/10.1080/0284186X.2018.1445283?needAccess=true,</span>
+<span class="sd">    https://www.tandfonline.com/doi/pdf/10.3109/0284186X.2013.812798?needAccess=true),</span>
+<span class="sd">    we use ICC(3,1) anyway.</span>
+
+<span class="sd">    The default threshold of 0.75 is also based on the literature metioned</span>
+<span class="sd">    above.</span>
+
+<span class="sd">    &#39;&#39;&#39;</span>
+<div class="viewcode-block" id="ICCThreshold.__init__"><a class="viewcode-back" href="../../../autogen/WORC.featureprocessing.html#WORC.featureprocessing.ICCThreshold.ICCThreshold.__init__">[docs]</a>    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ICCtype</span><span class="o">=</span><span class="s1">&#39;intra&#39;</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.75</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        ICCtype: string, default &#39;intra&#39;</span>
+<span class="sd">                Type of ICC used. intra results in ICC(3,1), inter in ICC(2,1)</span>
+<span class="sd">        threshold: float, default 0.75</span>
+<span class="sd">                Threshold for ICC-value in order for feature to be selected</span>
+
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ICCtype</span> <span class="o">=</span> <span class="n">ICCtype</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span></div>
+
+<div class="viewcode-block" id="ICCThreshold.fit"><a class="viewcode-back" href="../../../autogen/WORC.featureprocessing.html#WORC.featureprocessing.ICCThreshold.ICCThreshold.fit">[docs]</a>    <span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X_trains</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Select only features specificed by the metric and threshold per patient.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        X_trains: numpy array, mandatory</span>
+<span class="sd">                Array containing feature values used for model_selection.</span>
+<span class="sd">                Number of objects on first axis, features on second axis, observers on third axis.</span>
+
+<span class="sd">        Y_train: numpy array, mandatory</span>
+<span class="sd">                Array containing the binary labels for each object in X_train.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">selectrows</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">metric_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+        <span class="c1"># Perform the statistical test for each feature</span>
+        <span class="n">n_patient</span> <span class="o">=</span> <span class="n">X_trains</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">n_feat</span> <span class="o">=</span> <span class="n">X_trains</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">n_observers</span> <span class="o">=</span> <span class="n">X_trains</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i_feat</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_feat</span><span class="p">):</span>
+            <span class="c1"># Select only this specific feature for all objects</span>
+            <span class="n">fv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">n_patient</span><span class="p">,</span> <span class="n">n_observers</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">i_obs</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_observers</span><span class="p">):</span>
+                <span class="n">fv</span><span class="p">[:,</span> <span class="n">i_obs</span><span class="p">]</span> <span class="o">=</span> <span class="n">X_trains</span><span class="p">[:,</span> <span class="n">i_feat</span><span class="p">,</span> <span class="n">i_obs</span><span class="p">]</span>
+
+            <span class="c1"># Compute the ICC</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">metric_value</span> <span class="o">=</span> <span class="n">ICC</span><span class="p">(</span><span class="n">fv</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ICCtype</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;[WORC Warning] &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;. Replacing metric value by 1.&#39;</span><span class="p">)</span>
+                <span class="n">metric_value</span> <span class="o">=</span> <span class="mi">1</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">metric_values</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">metric_value</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">metric_value</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">selectrows</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i_feat</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ICCThreshold.transform"><a class="viewcode-back" href="../../../autogen/WORC.featureprocessing.html#WORC.featureprocessing.ICCThreshold.ICCThreshold.transform">[docs]</a>    <span class="k">def</span> <span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputarray</span><span class="p">):</span>
+        <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">        Transform the inputarray to select only the features based on the</span>
+<span class="sd">        result from the fit function.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        inputarray: numpy array, mandatory</span>
+<span class="sd">                Array containing the items to use selection on. The type of</span>
+<span class="sd">                item in this list does not matter, e.g. floats, strings etc.</span>
+<span class="sd">        &#39;&#39;&#39;</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="bp">self</span><span class="o">.</span><span class="n">selectrows</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">inputarray</span><span class="p">])</span></div>
+
+    <span class="k">def</span> <span class="nf">_get_support_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="c1"># NOTE: metric is required for the Selector class, but can be empty</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="convert_features_ICC_threshold"><a class="viewcode-back" href="../../../autogen/WORC.featureprocessing.html#WORC.featureprocessing.ICCThreshold.convert_features_ICC_threshold">[docs]</a><span class="k">def</span> <span class="nf">convert_features_ICC_threshold</span><span class="p">(</span><span class="n">features_in</span><span class="p">,</span> <span class="n">csv_out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                                   <span class="n">features_out</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.75</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    For features from multiple observers, compute ICC, return values,</span>
+<span class="sd">    and optionally apply thresholding and save output.</span>
+
+<span class="sd">    features_in: list, containing one list per observer.</span>
+<span class="sd">    csv_out: csv file, name of file to which ICC values should be written</span>
+<span class="sd">    features_out: list, containing file names of output features.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># Load the features per observer</span>
+    <span class="n">all_features</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">fnum</span><span class="p">,</span> <span class="n">feat_obs</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">features_in</span><span class="p">):</span>
+        <span class="c1"># Load features</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">image_features</span> <span class="o">=</span>\
+            <span class="n">wio</span><span class="o">.</span><span class="n">load_data</span><span class="p">([</span><span class="n">feat_obs</span><span class="p">])</span>
+
+        <span class="c1"># Assume all observers have the same features extracted</span>
+        <span class="k">if</span> <span class="n">fnum</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">feature_labels</span> <span class="o">=</span> <span class="n">image_features</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+
+        <span class="c1"># Extract only feature values</span>
+        <span class="n">image_features</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">image_features</span><span class="p">]</span>
+        <span class="n">all_features</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">image_features</span><span class="p">)</span>
+
+    <span class="c1"># Convert to array and transpose, so we have (patient, feat, observer)</span>
+    <span class="n">all_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">all_features</span><span class="p">)</span>
+    <span class="n">all_features</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">all_features</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
+
+    <span class="c1"># Compute the ICC</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Computing ICC.&#39;</span><span class="p">)</span>
+    <span class="n">ICCthresholder</span> <span class="o">=</span> <span class="n">ICCThreshold</span><span class="p">(</span><span class="n">threshold</span><span class="o">=</span><span class="n">threshold</span><span class="p">)</span>
+    <span class="n">ICCthresholder</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">all_features</span><span class="p">)</span>
+
+    <span class="c1"># Extract the metric values and save to csv if required</span>
+    <span class="k">if</span> <span class="n">csv_out</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Saving ICC metric values to csv.&#39;</span><span class="p">)</span>
+        <span class="n">ICCs</span> <span class="o">=</span> <span class="n">ICCthresholder</span><span class="o">.</span><span class="n">metric_values</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">feature_labels</span><span class="p">,</span> <span class="n">ICCs</span><span class="p">),</span>
+                          <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;feature_label&#39;</span><span class="p">,</span> <span class="s1">&#39;ICC&#39;</span><span class="p">])</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">csv_out</span><span class="p">)</span>
+
+    <span class="c1"># Save the thresholded features if required:</span>
+    <span class="k">if</span> <span class="n">features_out</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1"> Saving selected features to hdf5.&#39;</span><span class="p">)</span>
+        <span class="c1"># Select feature labels</span>
+        <span class="n">fl</span> <span class="o">=</span> <span class="n">ICCthresholder</span><span class="o">.</span><span class="n">transform</span><span class="p">([</span><span class="n">feature_labels</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">i_obs</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">]):</span>
+            <span class="c1"># Select/hreshold feature values</span>
+            <span class="n">fv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">all_features</span><span class="p">[:,</span> <span class="p">:,</span> <span class="n">i_obs</span><span class="p">])</span>
+            <span class="n">fv</span> <span class="o">=</span> <span class="n">ICCthresholder</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">fv</span><span class="p">)</span>
+
+            <span class="k">for</span> <span class="n">i_patient</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">all_features</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
+                <span class="c1"># Extract feature values for this patient</span>
+                <span class="n">fv_pat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">fv</span><span class="p">[</span><span class="n">i_patient</span><span class="p">,</span> <span class="p">:])</span>
+
+                <span class="c1"># Convert to pandas Series and save as hdf5</span>
+                <span class="n">panda_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">fv_pat</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">fl</span><span class="o">.</span><span class="n">tolist</span><span class="p">()],</span>
+                                       <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;feature_values&#39;</span><span class="p">,</span>
+                                              <span class="s1">&#39;feature_labels&#39;</span><span class="p">],</span>
+                                       <span class="n">name</span><span class="o">=</span><span class="s1">&#39;Image features&#39;</span>
+                                       <span class="p">)</span>
+
+                <span class="n">output</span> <span class="o">=</span> <span class="n">features_out</span><span class="p">[</span><span class="n">i_obs</span><span class="p">][</span><span class="n">i_patient</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Saving image features to </span><span class="si">{output}</span><span class="s1">.&#39;</span><span class="p">)</span>
+                <span class="n">panda_data</span><span class="o">.</span><span class="n">to_hdf</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="s1">&#39;image_features&#39;</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 -- 2020, Biomedical Imaging Group Rotterdam, Departments of Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

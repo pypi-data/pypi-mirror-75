@@ -1,0 +1,314 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>tests Package &mdash; WORC 3.3.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="tools Package" href="WORC.tools.html" />
+    <link rel="prev" title="statistics Package" href="WORC.statistics.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WORC
+          
+
+          
+            
+            <img src="../_static/WORC_Logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../static/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/features.html">Radiomics Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/additionalfunctionality.html">Additional functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/developerdocumentation.html">Developer documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/file_description.html">Resource File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/changelog.html">Changelog</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="WORC.html">WORC Package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="WORC.html#id1"><code class="xref py py-mod docutils literal notranslate"><span class="pre">WORC</span></code> Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WORC.html#module-WORC.WORC"><code class="xref py py-mod docutils literal notranslate"><span class="pre">WORC</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WORC.html#module-WORC.addexceptions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">addexceptions</span></code> Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="WORC.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="WORC.IOparser.html">IOparser Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.classification.html">classification Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.detectors.html">detectors Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.exampledata.html">exampledata Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.facade.html">facade Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.fastrconfig.html">fastrconfig Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.featureprocessing.html">featureprocessing Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.plotting.html">plotting Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.processing.html">processing Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.resources.html">resources Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.statistics.html">statistics Package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">tests Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-WORC.tests.test_combat"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_combat</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-WORC.tests.test_helpers"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_helpers</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-WORC.tests.test_iccthreshold"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_iccthreshold</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-WORC.tests.test_validators"><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_validators</span></code> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.tools.html">tools Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.validators.html">validators Package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WORC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="WORC.html">WORC Package</a> &raquo;</li>
+        
+      <li>tests Package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/autogen/WORC.tests.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tests-package">
+<h1>tests Package<a class="headerlink" href="#tests-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-WORC.tests.test_combat">
+<span id="test-combat-module"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_combat</span></code> Module<a class="headerlink" href="#module-WORC.tests.test_combat" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="WORC.tests.test_combat.test_combat">
+<code class="descclassname">WORC.tests.test_combat.</code><code class="descname">test_combat</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/WORC/tests/test_combat.html#test_combat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.tests.test_combat.test_combat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test ComBat feature harmonization.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="WORC.tests.test_combat.test_combat_fastr">
+<code class="descclassname">WORC.tests.test_combat.</code><code class="descname">test_combat_fastr</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/WORC/tests/test_combat.html#test_combat_fastr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.tests.test_combat.test_combat_fastr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test ComBat feature harmonization.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-WORC.tests.test_helpers">
+<span id="test-helpers-module"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_helpers</span></code> Module<a class="headerlink" href="#module-WORC.tests.test_helpers" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="WORC.tests.test_helpers.find_exampledatadir">
+<code class="descclassname">WORC.tests.test_helpers.</code><code class="descname">find_exampledatadir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/WORC/tests/test_helpers.html#find_exampledatadir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.tests.test_helpers.find_exampledatadir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find WORC example data folder.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="WORC.tests.test_helpers.find_testdatadir">
+<code class="descclassname">WORC.tests.test_helpers.</code><code class="descname">find_testdatadir</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/WORC/tests/test_helpers.html#find_testdatadir"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.tests.test_helpers.find_testdatadir" title="Permalink to this definition">¶</a></dt>
+<dd><p>Find WORC test data folder.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-WORC.tests.test_iccthreshold">
+<span id="test-iccthreshold-module"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_iccthreshold</span></code> Module<a class="headerlink" href="#module-WORC.tests.test_iccthreshold" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="WORC.tests.test_iccthreshold.test_iccthreshold">
+<code class="descclassname">WORC.tests.test_iccthreshold.</code><code class="descname">test_iccthreshold</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/WORC/tests/test_iccthreshold.html#test_iccthreshold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.tests.test_iccthreshold.test_iccthreshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Test ICC Thresholding statistical testing and computation.</p>
+</dd></dl>
+
+</div>
+<div class="section" id="module-WORC.tests.test_validators">
+<span id="test-validators-module"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">test_validators</span></code> Module<a class="headerlink" href="#module-WORC.tests.test_validators" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="WORC.tests.test_validators.test_invalidlabelsvalidator_columnsubstring">
+<code class="descclassname">WORC.tests.test_validators.</code><code class="descname">test_invalidlabelsvalidator_columnsubstring</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/WORC/tests/test_validators.html#test_invalidlabelsvalidator_columnsubstring"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.tests.test_validators.test_invalidlabelsvalidator_columnsubstring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="WORC.tests.test_validators.test_invalidlabelsvalidator_patientcolumn">
+<code class="descclassname">WORC.tests.test_validators.</code><code class="descname">test_invalidlabelsvalidator_patientcolumn</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/WORC/tests/test_validators.html#test_invalidlabelsvalidator_patientcolumn"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.tests.test_validators.test_invalidlabelsvalidator_patientcolumn" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="WORC.tests.test_validators.test_invalidlabelsvalidator_patientsubstring">
+<code class="descclassname">WORC.tests.test_validators.</code><code class="descname">test_invalidlabelsvalidator_patientsubstring</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/WORC/tests/test_validators.html#test_invalidlabelsvalidator_patientsubstring"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.tests.test_validators.test_invalidlabelsvalidator_patientsubstring" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="WORC.tests.test_validators.test_invalidlabelsvalidator_validconfig">
+<code class="descclassname">WORC.tests.test_validators.</code><code class="descname">test_invalidlabelsvalidator_validconfig</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/WORC/tests/test_validators.html#test_invalidlabelsvalidator_validconfig"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.tests.test_validators.test_invalidlabelsvalidator_validconfig" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="WORC.tools.html" class="btn btn-neutral float-right" title="tools Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="WORC.statistics.html" class="btn btn-neutral float-left" title="statistics Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 -- 2020, Biomedical Imaging Group Rotterdam, Departments of Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

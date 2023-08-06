@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>validators Package &mdash; WORC 3.3.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="tools Package" href="WORC.tools.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WORC
+          
+
+          
+            
+            <img src="../_static/WORC_Logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../static/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/features.html">Radiomics Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/additionalfunctionality.html">Additional functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/developerdocumentation.html">Developer documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/file_description.html">Resource File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../static/changelog.html">Changelog</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="WORC.html">WORC Package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="WORC.html#id1"><code class="xref py py-mod docutils literal notranslate"><span class="pre">WORC</span></code> Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WORC.html#module-WORC.WORC"><code class="xref py py-mod docutils literal notranslate"><span class="pre">WORC</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="WORC.html#module-WORC.addexceptions"><code class="xref py py-mod docutils literal notranslate"><span class="pre">addexceptions</span></code> Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="WORC.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="WORC.IOparser.html">IOparser Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.classification.html">classification Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.detectors.html">detectors Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.exampledata.html">exampledata Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.facade.html">facade Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.fastrconfig.html">fastrconfig Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.featureprocessing.html">featureprocessing Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.plotting.html">plotting Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.processing.html">processing Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.resources.html">resources Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.statistics.html">statistics Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.tests.html">tests Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="WORC.tools.html">tools Package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">validators Package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#module-WORC.validators.preflightcheck"><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflightcheck</span></code> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WORC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="WORC.html">WORC Package</a> &raquo;</li>
+        
+      <li>validators Package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/autogen/WORC.validators.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="validators-package">
+<h1>validators Package<a class="headerlink" href="#validators-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-WORC.validators.preflightcheck">
+<span id="preflightcheck-module"></span><h2><code class="xref py py-mod docutils literal notranslate"><span class="pre">preflightcheck</span></code> Module<a class="headerlink" href="#module-WORC.validators.preflightcheck" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="WORC.validators.preflightcheck.AbstractValidator">
+<em class="property">class </em><code class="descclassname">WORC.validators.preflightcheck.</code><code class="descname">AbstractValidator</code><a class="reference internal" href="../_modules/WORC/validators/preflightcheck.html#AbstractValidator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.validators.preflightcheck.AbstractValidator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.7/library/abc.html#abc.ABC" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">abc.ABC</span></code></a></p>
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.AbstractValidator.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset({'_validate'})</em><a class="headerlink" href="#WORC.validators.preflightcheck.AbstractValidator.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.AbstractValidator.__dict__">
+<code class="descname">__dict__</code><em class="property"> = mappingproxy({'__module__': 'WORC.validators.preflightcheck', 'do_validation': &lt;function AbstractValidator.do_validation&gt;, '_generate_detector_message': &lt;function AbstractValidator._generate_detector_message&gt;, '_validate': &lt;function AbstractValidator._validate&gt;, '__dict__': &lt;attribute '__dict__' of 'AbstractValidator' objects&gt;, '__weakref__': &lt;attribute '__weakref__' of 'AbstractValidator' objects&gt;, '__doc__': None, '__abstractmethods__': frozenset({'_validate'}), '_abc_impl': &lt;_abc_data object&gt;})</em><a class="headerlink" href="#WORC.validators.preflightcheck.AbstractValidator.__dict__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.AbstractValidator.__module__">
+<code class="descname">__module__</code><em class="property"> = 'WORC.validators.preflightcheck'</em><a class="headerlink" href="#WORC.validators.preflightcheck.AbstractValidator.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.AbstractValidator.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#WORC.validators.preflightcheck.AbstractValidator.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="WORC.validators.preflightcheck.AbstractValidator.do_validation">
+<code class="descname">do_validation</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/WORC/validators/preflightcheck.html#AbstractValidator.do_validation"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.validators.preflightcheck.AbstractValidator.do_validation" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="WORC.validators.preflightcheck.EvaluateValidator">
+<em class="property">class </em><code class="descclassname">WORC.validators.preflightcheck.</code><code class="descname">EvaluateValidator</code><a class="reference internal" href="../_modules/WORC/validators/preflightcheck.html#EvaluateValidator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.validators.preflightcheck.EvaluateValidator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#WORC.validators.preflightcheck.AbstractValidator" title="WORC.validators.preflightcheck.AbstractValidator"><code class="xref py py-class docutils literal notranslate"><span class="pre">WORC.validators.preflightcheck.AbstractValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.EvaluateValidator.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset({})</em><a class="headerlink" href="#WORC.validators.preflightcheck.EvaluateValidator.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.EvaluateValidator.__module__">
+<code class="descname">__module__</code><em class="property"> = 'WORC.validators.preflightcheck'</em><a class="headerlink" href="#WORC.validators.preflightcheck.EvaluateValidator.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="WORC.validators.preflightcheck.InvalidLabelsValidator">
+<em class="property">class </em><code class="descclassname">WORC.validators.preflightcheck.</code><code class="descname">InvalidLabelsValidator</code><a class="reference internal" href="../_modules/WORC/validators/preflightcheck.html#InvalidLabelsValidator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.validators.preflightcheck.InvalidLabelsValidator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#WORC.validators.preflightcheck.AbstractValidator" title="WORC.validators.preflightcheck.AbstractValidator"><code class="xref py py-class docutils literal notranslate"><span class="pre">WORC.validators.preflightcheck.AbstractValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.InvalidLabelsValidator.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset({})</em><a class="headerlink" href="#WORC.validators.preflightcheck.InvalidLabelsValidator.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.InvalidLabelsValidator.__module__">
+<code class="descname">__module__</code><em class="property"> = 'WORC.validators.preflightcheck'</em><a class="headerlink" href="#WORC.validators.preflightcheck.InvalidLabelsValidator.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="WORC.validators.preflightcheck.MinSubjectsValidator">
+<em class="property">class </em><code class="descclassname">WORC.validators.preflightcheck.</code><code class="descname">MinSubjectsValidator</code><a class="reference internal" href="../_modules/WORC/validators/preflightcheck.html#MinSubjectsValidator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.validators.preflightcheck.MinSubjectsValidator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#WORC.validators.preflightcheck.AbstractValidator" title="WORC.validators.preflightcheck.AbstractValidator"><code class="xref py py-class docutils literal notranslate"><span class="pre">WORC.validators.preflightcheck.AbstractValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.MinSubjectsValidator.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset({})</em><a class="headerlink" href="#WORC.validators.preflightcheck.MinSubjectsValidator.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.MinSubjectsValidator.__module__">
+<code class="descname">__module__</code><em class="property"> = 'WORC.validators.preflightcheck'</em><a class="headerlink" href="#WORC.validators.preflightcheck.MinSubjectsValidator.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="WORC.validators.preflightcheck.SamplesWarning">
+<em class="property">class </em><code class="descclassname">WORC.validators.preflightcheck.</code><code class="descname">SamplesWarning</code><a class="reference internal" href="../_modules/WORC/validators/preflightcheck.html#SamplesWarning"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.validators.preflightcheck.SamplesWarning" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#WORC.validators.preflightcheck.AbstractValidator" title="WORC.validators.preflightcheck.AbstractValidator"><code class="xref py py-class docutils literal notranslate"><span class="pre">WORC.validators.preflightcheck.AbstractValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.SamplesWarning.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset({})</em><a class="headerlink" href="#WORC.validators.preflightcheck.SamplesWarning.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.SamplesWarning.__module__">
+<code class="descname">__module__</code><em class="property"> = 'WORC.validators.preflightcheck'</em><a class="headerlink" href="#WORC.validators.preflightcheck.SamplesWarning.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="WORC.validators.preflightcheck.SimpleValidator">
+<em class="property">class </em><code class="descclassname">WORC.validators.preflightcheck.</code><code class="descname">SimpleValidator</code><a class="reference internal" href="../_modules/WORC/validators/preflightcheck.html#SimpleValidator"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.validators.preflightcheck.SimpleValidator" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#WORC.validators.preflightcheck.AbstractValidator" title="WORC.validators.preflightcheck.AbstractValidator"><code class="xref py py-class docutils literal notranslate"><span class="pre">WORC.validators.preflightcheck.AbstractValidator</span></code></a></p>
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.SimpleValidator.__abstractmethods__">
+<code class="descname">__abstractmethods__</code><em class="property"> = frozenset({})</em><a class="headerlink" href="#WORC.validators.preflightcheck.SimpleValidator.__abstractmethods__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.SimpleValidator.__module__">
+<code class="descname">__module__</code><em class="property"> = 'WORC.validators.preflightcheck'</em><a class="headerlink" href="#WORC.validators.preflightcheck.SimpleValidator.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="WORC.validators.preflightcheck.ValidatorsFactory">
+<em class="property">class </em><code class="descclassname">WORC.validators.preflightcheck.</code><code class="descname">ValidatorsFactory</code><a class="reference internal" href="../_modules/WORC/validators/preflightcheck.html#ValidatorsFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.validators.preflightcheck.ValidatorsFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3.7/library/functions.html#object" title="(in Python v3.7)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.ValidatorsFactory.__dict__">
+<code class="descname">__dict__</code><em class="property"> = mappingproxy({'__module__': 'WORC.validators.preflightcheck', 'factor_validators': &lt;staticmethod object&gt;, '__dict__': &lt;attribute '__dict__' of 'ValidatorsFactory' objects&gt;, '__weakref__': &lt;attribute '__weakref__' of 'ValidatorsFactory' objects&gt;, '__doc__': None})</em><a class="headerlink" href="#WORC.validators.preflightcheck.ValidatorsFactory.__dict__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.ValidatorsFactory.__module__">
+<code class="descname">__module__</code><em class="property"> = 'WORC.validators.preflightcheck'</em><a class="headerlink" href="#WORC.validators.preflightcheck.ValidatorsFactory.__module__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="WORC.validators.preflightcheck.ValidatorsFactory.__weakref__">
+<code class="descname">__weakref__</code><a class="headerlink" href="#WORC.validators.preflightcheck.ValidatorsFactory.__weakref__" title="Permalink to this definition">¶</a></dt>
+<dd><p>list of weak references to the object (if defined)</p>
+</dd></dl>
+
+<dl class="staticmethod">
+<dt id="WORC.validators.preflightcheck.ValidatorsFactory.factor_validators">
+<em class="property">static </em><code class="descname">factor_validators</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="../_modules/WORC/validators/preflightcheck.html#ValidatorsFactory.factor_validators"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#WORC.validators.preflightcheck.ValidatorsFactory.factor_validators" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="WORC.tools.html" class="btn btn-neutral float-left" title="tools Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 -- 2020, Biomedical Imaging Group Rotterdam, Departments of Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

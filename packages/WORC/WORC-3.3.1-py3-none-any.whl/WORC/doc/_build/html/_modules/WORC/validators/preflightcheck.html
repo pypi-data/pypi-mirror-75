@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>WORC.validators.preflightcheck &mdash; WORC 3.3.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> WORC
+          
+
+          
+            
+            <img src="../../../_static/WORC_Logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/features.html">Radiomics Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/additionalfunctionality.html">Additional functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/developerdocumentation.html">Developer documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/file_description.html">Resource File Formats</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../static/changelog.html">Changelog</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autogen/WORC.html">WORC Package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">WORC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+      <li>WORC.validators.preflightcheck</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for WORC.validators.preflightcheck</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">abc</span> <span class="k">import</span> <span class="n">ABC</span><span class="p">,</span> <span class="n">abstractmethod</span>
+
+<span class="kn">from</span> <span class="nn">WORC.processing.label_processing</span> <span class="k">import</span> <span class="n">load_label_csv</span>
+<span class="kn">import</span> <span class="nn">WORC.addexceptions</span> <span class="k">as</span> <span class="nn">ae</span>
+
+<span class="c1"># Global variables</span>
+<span class="n">min_subjects</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">recommended_subjects</span> <span class="o">=</span> <span class="mi">50</span>
+
+
+<div class="viewcode-block" id="AbstractValidator"><a class="viewcode-back" href="../../../autogen/WORC.validators.html#WORC.validators.preflightcheck.AbstractValidator">[docs]</a><span class="k">class</span> <span class="nc">AbstractValidator</span><span class="p">(</span><span class="n">ABC</span><span class="p">):</span>
+    <span class="c1"># noinspection PyBroadException</span>
+<div class="viewcode-block" id="AbstractValidator.do_validation"><a class="viewcode-back" href="../../../autogen/WORC.validators.html#WORC.validators.preflightcheck.AbstractValidator.do_validation">[docs]</a>    <span class="k">def</span> <span class="nf">do_validation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="c1"># try:</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_validate</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">result</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="c1"># except:</span>
+        <span class="c1">#     result = False</span>
+
+        <span class="n">msg</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_detector_message</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">msg</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span></div>
+
+    <span class="k">def</span> <span class="nf">_generate_detector_message</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">validated_value</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{self.__class__.__name__[0:-8]}</span><span class="s2"> validated: </span><span class="si">{validated_value}</span><span class="s2">.&quot;</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="SimpleValidator"><a class="viewcode-back" href="../../../autogen/WORC.validators.html#WORC.validators.preflightcheck.SimpleValidator">[docs]</a><span class="k">class</span> <span class="nc">SimpleValidator</span><span class="p">(</span><span class="n">AbstractValidator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simpleworc</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_labels_file_train</span><span class="p">:</span>
+            <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">simpleworc</span><span class="p">,</span> <span class="s1">&#39;labels_file_train&#39;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">labels_file_train</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;No labels, use SimpleWorc().labels_from_this_file(**) to add labels.&#39;</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;No labels, use SimpleWorc().labels_from_this_file(**) to add labels.&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_label_names</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">label_names</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;No label(s) to predict selected. Use SimpleWorc().predict_labels(**) to select labels.&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_method</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;No method selected. Call function binary_classification(**) or regression(**) or survival(**) on SimpleWorc().&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_images_train</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="p">(</span><span class="n">ims</span><span class="p">,</span> <span class="n">segs</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">simpleworc</span><span class="o">.</span><span class="n">_images_train</span><span class="p">,</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_segmentations_train</span><span class="p">)):</span>
+                <span class="k">if</span> <span class="n">ims</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">!=</span> <span class="n">segs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                    <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Subjects in images_train and segmentations_train are not the same for modality </span><span class="si">{num}</span><span class="s1">.&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">simpleworc</span><span class="p">,</span> <span class="s1">&#39;images_train&#39;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">images_train</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">num</span><span class="p">,</span> <span class="p">(</span><span class="n">ims</span><span class="p">,</span> <span class="n">segs</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">simpleworc</span><span class="o">.</span><span class="n">images_train</span><span class="p">,</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">segmentations_train</span><span class="p">)):</span>
+                    <span class="k">if</span> <span class="n">ims</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span> <span class="o">!=</span> <span class="n">segs</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+                        <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Subjects in images_train and segmentations_train are not the same for modality </span><span class="si">{num}</span><span class="s1">.&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="MinSubjectsValidator"><a class="viewcode-back" href="../../../autogen/WORC.validators.html#WORC.validators.preflightcheck.MinSubjectsValidator">[docs]</a><span class="k">class</span> <span class="nc">MinSubjectsValidator</span><span class="p">(</span><span class="n">AbstractValidator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simpleworc</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_num_subjects</span> <span class="o">&lt;</span> <span class="n">min_subjects</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Less than </span><span class="si">{min_subjects}</span><span class="s1"> subjects (you have </span><span class="si">{simpleworc._num_subjects}</span><span class="s1">) will probably make WORC crash due to a split in the test/validation set having only one subject. Use at least </span><span class="si">{min_subjects}</span><span class="s1"> subjects or more.&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="EvaluateValidator"><a class="viewcode-back" href="../../../autogen/WORC.validators.html#WORC.validators.preflightcheck.EvaluateValidator">[docs]</a><span class="k">class</span> <span class="nc">EvaluateValidator</span><span class="p">(</span><span class="n">AbstractValidator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simpleworc</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_add_evaluation</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_images_train</span><span class="p">:</span>
+                <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">simpleworc</span><span class="p">,</span> <span class="s1">&#39;images_train&#39;</span><span class="p">):</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">images_train</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;You have added the evaluation pipeline, but have not provided images, which is currently required. We will work on this option in a future release.&#39;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;You have added the evaluation pipeline, but have not provided images, which is currently required. We will work on this option in a future release.&#39;</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="SamplesWarning"><a class="viewcode-back" href="../../../autogen/WORC.validators.html#WORC.validators.preflightcheck.SamplesWarning">[docs]</a><span class="k">class</span> <span class="nc">SamplesWarning</span><span class="p">(</span><span class="n">AbstractValidator</span><span class="p">):</span>
+    <span class="c1"># Not really a validator, but more a good practice. Hence this won&#39;t throw an exception but prints a warning instead.</span>
+    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simpleworc</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_method</span> <span class="o">==</span> <span class="s1">&#39;classification&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_num_subjects</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">simpleworc</span><span class="o">.</span><span class="n">_label_names</span><span class="p">)</span> <span class="o">*</span> <span class="n">recommended_subjects</span><span class="p">:</span> <span class="c1"># at least 100 subjects per label recommended</span>
+                <span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;Warning: at least {len(simpleworc._label_names) * recommended_subjects} subjects is recommended when predicting {len(simpleworc._label_names)} labels. Current subject count is: </span><span class="si">{simpleworc._num_subjects}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_method</span> <span class="o">==</span> <span class="s1">&#39;regression&#39;</span><span class="p">:</span>
+            <span class="c1"># TODO @martijn not sure how to tackle this, what would be a reasonable amount of subjects for regression?</span>
+            <span class="k">pass</span></div>
+
+
+<div class="viewcode-block" id="InvalidLabelsValidator"><a class="viewcode-back" href="../../../autogen/WORC.validators.html#WORC.validators.preflightcheck.InvalidLabelsValidator">[docs]</a><span class="k">class</span> <span class="nc">InvalidLabelsValidator</span><span class="p">(</span><span class="n">AbstractValidator</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_validate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">simpleworc</span><span class="p">):</span>
+        <span class="n">errstr</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">_labels_file_train</span><span class="p">:</span>
+                <span class="n">labels</span><span class="p">,</span> <span class="n">subjects</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_label_csv</span><span class="p">(</span><span class="n">simpleworc</span><span class="o">.</span><span class="n">_labels_file_train</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">simpleworc</span><span class="o">.</span><span class="n">labels_file_train</span><span class="p">:</span>
+                <span class="n">labels</span><span class="p">,</span> <span class="n">subjects</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">load_label_csv</span><span class="p">(</span><span class="n">simpleworc</span><span class="o">.</span><span class="n">labels_file_train</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;No labels, use SimpleWorc().labels_from_this_file(**) to add labels.&#39;</span><span class="p">)</span>
+
+        <span class="k">except</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCAssertionError</span> <span class="k">as</span> <span class="n">wae</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s1">&#39;First column should be patient ID&#39;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">wae</span><span class="p">):</span>
+                <span class="c1"># TODO: print wrong column name and file so that it is clear what needs to be replaced in which file</span>
+                <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">f</span><span class="s1">&#39;First column in the file given to SimpleWORC().labels_from_this_file(**) needs to be named Patient.&#39;</span><span class="p">)</span>
+
+        <span class="c1"># check labels for substrings of eachother</span>
+        <span class="n">labels_matches</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_all_substrings_for_array</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">labels_matches</span><span class="p">:</span>
+            <span class="c1"># if not empty we have a problem</span>
+            <span class="n">errstr</span> <span class="o">=</span> <span class="s2">&quot;Found label(s) that are a substring of other label(s). This is currently not allowed in WORC. Rename the following label(s):</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">matches</span> <span class="ow">in</span> <span class="n">labels_matches</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+                    <span class="n">errstr</span> <span class="o">+=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{label}</span><span class="s2"> is a substring of </span><span class="si">{match}</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="c1"># check subject names for substrings of eachother</span>
+        <span class="n">subjects_matches</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_all_substrings_for_array</span><span class="p">(</span><span class="n">subjects</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">subjects_matches</span><span class="p">:</span>
+            <span class="c1"># if not empty we have a problem</span>
+            <span class="n">errstr</span> <span class="o">=</span> <span class="s2">&quot;Found subject(s) that are a substring of other subject(s). This is currently not allowed in WORC. Rename the following subject(s):</span><span class="se">\n</span><span class="s2">&quot;</span>
+            <span class="k">for</span> <span class="n">subject</span><span class="p">,</span> <span class="n">matches</span> <span class="ow">in</span> <span class="n">subjects_matches</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">for</span> <span class="n">match</span> <span class="ow">in</span> <span class="n">matches</span><span class="p">:</span>
+                    <span class="n">errstr</span> <span class="o">+=</span> <span class="n">f</span><span class="s2">&quot;</span><span class="si">{subject}</span><span class="s2"> is a substring of </span><span class="si">{match}</span><span class="se">\n</span><span class="s2">&quot;</span>
+
+        <span class="k">if</span> <span class="n">errstr</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">ae</span><span class="o">.</span><span class="n">WORCValueError</span><span class="p">(</span><span class="n">errstr</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">_get_all_substrings_for_array</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arr</span><span class="p">):</span>
+        <span class="c1"># generate a dict with substrings of each element in array</span>
+        <span class="n">all_matches</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">strcmp</span> <span class="ow">in</span> <span class="n">arr</span><span class="p">:</span>
+            <span class="n">matches</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">arr</span> <span class="k">if</span> <span class="n">s</span> <span class="o">!=</span> <span class="n">strcmp</span> <span class="ow">and</span> <span class="n">strcmp</span> <span class="ow">in</span> <span class="n">s</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">matches</span><span class="p">:</span>
+                <span class="n">all_matches</span><span class="p">[</span><span class="n">strcmp</span><span class="p">]</span> <span class="o">=</span> <span class="n">matches</span>
+
+        <span class="k">return</span> <span class="n">all_matches</span></div>
+
+
+<div class="viewcode-block" id="ValidatorsFactory"><a class="viewcode-back" href="../../../autogen/WORC.validators.html#WORC.validators.preflightcheck.ValidatorsFactory">[docs]</a><span class="k">class</span> <span class="nc">ValidatorsFactory</span><span class="p">:</span>
+<div class="viewcode-block" id="ValidatorsFactory.factor_validators"><a class="viewcode-back" href="../../../autogen/WORC.validators.html#WORC.validators.preflightcheck.ValidatorsFactory.factor_validators">[docs]</a>    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">factor_validators</span><span class="p">():</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">SimpleValidator</span><span class="p">(),</span>
+            <span class="n">MinSubjectsValidator</span><span class="p">(),</span>
+            <span class="n">SamplesWarning</span><span class="p">(),</span>
+            <span class="n">EvaluateValidator</span><span class="p">(),</span>
+            <span class="n">InvalidLabelsValidator</span><span class="p">()</span>
+        <span class="p">]</span></div></div>
+
+
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span><span class="n">ValidatorsFactory</span><span class="p">]</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 -- 2020, Biomedical Imaging Group Rotterdam, Departments of Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

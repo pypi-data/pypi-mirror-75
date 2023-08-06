@@ -1,0 +1,876 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Changelog &mdash; WORC 3.3.1 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="WORC Package" href="../autogen/WORC.html" />
+    <link rel="prev" title="Resource File Formats" href="file_description.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> WORC
+          
+
+          
+            
+            <img src="../_static/WORC_Logo.svg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.3.1
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quick_start.html">Quick start guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user_manual.html">User Manual</a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html">Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="features.html">Radiomics Features</a></li>
+<li class="toctree-l1"><a class="reference internal" href="additionalfunctionality.html">Additional functionality</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developerdocumentation.html">Developer documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="file_description.html">Resource File Formats</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Changelog</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id1">3.3.1 - 2020-07-31</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#changed">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fixed">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">3.3.0 - 2020-07-28</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#added">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">3.2.2 - 2020-07-14</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id9">3.2.1 - 2020-07-02</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id13">3.2.0 - 2020-06-26</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id16">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id17">3.1.4 - 2020-05-26</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id18">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id19">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id20">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id21">3.1.3 - 2020-01-24</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id22">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id23">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id24">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id25">3.1.2 - 2019-12-09</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id26">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id27">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id28">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id29">3.1.1 - 2019-11-28</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id30">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id31">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id32">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id33">3.1.0 - 2019-10-16</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id34">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id35">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id36">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id37">3.0.0 - 2019-05-08</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id38">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id39">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id40">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id41">2.1.3 - 2019-04-08</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id42">Changed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id43">2.1.2 - 2019-04-02</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id44">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id45">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id46">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id47">2.1.1 - 2019-02-15</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id48">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id49">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id50">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id51">2.1.0 - 2018-08-09</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id52">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id53">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id54">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#id55">2.0.0 - 2018-02-13</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id56">Added</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id57">Changed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id58">Fixed</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#rc1-2017-05-08">1.0.0rc1 - 2017-05-08</a></li>
+</ul>
+</li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../autogen/WORC.html">WORC Package</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">WORC</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Changelog</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/static/changelog.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="changelog">
+<h1>Changelog<a class="headerlink" href="#changelog" title="Permalink to this headline">¶</a></h1>
+<p>All notable changes to this project will be documented in this file.</p>
+<p>The format is based on <a class="reference external" href="http://keepachangelog.com/">Keep a Changelog</a>
+and this project adheres to <a class="reference external" href="http://semver.org/">Semantic Versioning</a></p>
+<div class="section" id="id1">
+<h2>3.3.1 - 2020-07-31<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="changed">
+<h3>Changed<a class="headerlink" href="#changed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Updated to using tikzplotlib for conversion of figures to LaTeX instead
+of deprecated matplotlib2tikz.</p></li>
+<li><p>Output of evaluation pipeline now in separate subfolder.</p></li>
+<li><p>KNNImputer now also in sklearn, missingpy deprecated, so switched to
+sklearn KNNImputer.</p></li>
+</ul>
+</div>
+<div class="section" id="fixed">
+<h3>Fixed<a class="headerlink" href="#fixed" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bug in fixandscore when using resampling.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>3.3.0 - 2020-07-28<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="added">
+<h3>Added<a class="headerlink" href="#added" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Graphviz vizualization of network is now nicely grouped.</p></li>
+<li><p>Properly integrated ObjectSampler: various resampling options now available.</p></li>
+<li><p>Verbose option to fit and score tool</p></li>
+<li><p>Validator for PyRadiomics output.</p></li>
+<li><p>FAQ version to documentation</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h3>Changed<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Upgraded to new versions of sklearn (0.23.1) and imbalanced learn (0.7.0)</p></li>
+<li><p>Some defaults, based on computation time.</p></li>
+<li><p>Do not skip workflow if feature selection selects zero features,
+but disable the feature selection.</p></li>
+<li><p>Do not skip workflow if resampling is unsuccesfull,
+but disable the resampling.</p></li>
+<li><p>Default scaling is now not only Z-score, but also MinMax and Robust</p></li>
+<li><p>Renamed plot SVM function and all functions using it, as now
+we use all kinds of estimators.</p></li>
+<li><p>L1 penalty does not work with new standard LR solver. Removed L1 penalty.</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h3>Fixed<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bug when using both elastix and segmentix.</p></li>
+<li><p>Bug when using elastix in train-test workflow.</p></li>
+<li><p>IMPORTANT: Previously, all methods except the machine learning where fit on
+both the training and validation set together in fitandscore. This led
+to overfitting on the validation set. Now, these are properly split.</p></li>
+<li><p>Bugfix in Evaluate standalone for decompositon tool.</p></li>
+<li><p>Applied imputation in decomposition if NaNs are detected.</p></li>
+<li><p>In the facade ConfigBuilder, an error is raised when incorrect
+overrides are given.</p></li>
+<li><p>Bugfix in statistical feature test plotting.</p></li>
+<li><p>Bugfix in Evaluate when using ComBat</p></li>
+<li><p>Bugfix in feature converter of PyRadiomics when using 2D images.</p></li>
+<li><p>Catch Graphviz error.</p></li>
+<li><p>Bug in ICC.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id5">
+<h2>3.2.2 - 2020-07-14<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Added<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>In classify node, when using temporary saves, start from where
+the process previously stopped instead of from the beginning.</p></li>
+<li><p>Imputation to ComBat.</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h3>Changed<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Imputation is now the first step in the workflows. More logical as
+scaler and variance threshold can crash on missing values.</p></li>
+<li><p>In config, preprocessing fields are now actually called preprocessing and
+not normalize.</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h3>Fixed<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Preflightcheck now also compatible with BasicWORC.</p></li>
+<li><p>Bugfix in ComBat when not using mod variable and skipping patients.</p></li>
+<li><p>Bug in PyRadiomics feature converter: can now handle 2D images.</p></li>
+<li><p>ReliefSampleSize parameter is now a uniform distribution, which it should be.</p></li>
+<li><p>Gabor features now actually used in model instead of only computing them.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id9">
+<h2>3.2.1 - 2020-07-02<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id10">
+<h3>Added<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Major documentation update.</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h3>Changed<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>PyRadiomics setup not dependent on pre-install of numpy anymore, so altered
+travis, yml, setup, and documentation.</p></li>
+<li><p>PREDICT updated, change dependencies.</p></li>
+<li><p>Defaults are now a bit different: see argumentation in the documentation.
+Main thing is that PyRadiomics and PREDICT both compute certain features,
+so it’s redundant to use both. Additionally, the wavelet features
+from PyRadiomics add +1000 features, which did not seem to help in many
+experiments while majorly slowing down the computation.</p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h3>Fixed<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Catch error when PCA does not converge in fit and score function.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id13">
+<h2>3.2.0 - 2020-06-26<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id14">
+<h3>Added<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Labelprocessing can now also handle having patient ID in the feature files.
+Was required for ComBat.</p></li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h3>Changed<a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Output of plot_SVM function is better ordered.</p></li>
+<li><p>Several defaults, as we now have PyRadiomics fully embedded, resulting in
+a large increase in features.</p></li>
+<li><p>No more overrides for the full config, as the default now is the full config.</p></li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h3>Fixed<a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Cardinality of decomposition tool was incorrect.</p></li>
+<li><p>ComBat integration in WORC network now works properly.</p></li>
+<li><p>Documentation didn’t build due to C-extension dependencies of PyRadiomics,
+and thus therefore also PREDICT. Fixed in setup.py and readthedocs files.</p></li>
+<li><p>Documentation building.</p></li>
+<li><p>Bugfix in segmentix test output url.</p></li>
+<li><p>Bugfix in SimpleWORC facade when using features.</p></li>
+<li><p>Warning when using Evaluation pipeline without images.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id17">
+<h2>3.1.4 - 2020-05-26<a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id18">
+<h3>Added<a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Catch error if number of segmentations supplied does not match number of
+images.</p></li>
+<li><p>Add support in SimpleWORC and BasicWORC for multiple segmentations per
+patient.</p></li>
+<li><p>Chi2 test in statistical testing.</p></li>
+<li><p>fastr tool to make boxplots of all features, overall and per class.</p></li>
+<li><p>Added this boxplot tool to the evaluate workflow.</p></li>
+<li><p>Option in evaluation to overfit feature scaling to test set: should only
+be used to assess differences between the training and test sets, not
+in an actual model.</p></li>
+<li><p>Option to delete small objects in segmentation.</p></li>
+<li><p>Option to within the preprocessing, use a dilated ROI.</p></li>
+<li><p>Otsu thresholding as mask for preprocessing.</p></li>
+<li><p>Memory for each fastr node is now in a dictionary of the WORC object and can
+be easily changed.</p></li>
+<li><p>PyRadiomics now fully embedded and configurable.</p></li>
+<li><p>ComBat harmonization: currently as separate tool on full dataset,
+not in cross-validation.</p></li>
+<li><p>Computation of ICC, and thresholding object to use ICC for feature selection.</p></li>
+<li><p>Added groupwise feature selection per feature extraction toolbox.</p></li>
+<li><p>Feature converter tool, to convert features from a toolbox to WORC compatible
+format.</p></li>
+<li><p>RobustScaler for feature scaling.</p></li>
+<li><p>Decomposition to evaluate network.</p></li>
+<li><p>Combat: in WORK workflow.</p></li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h3>Changed<a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Resampling of objects is now after feature selection.</p></li>
+<li><p>Made plot_SVM function more memory efficient.</p></li>
+<li><p>For PCA, Relief, VarianceThreshold, and SelectFromModel feature selection,
+you can now simply supply a float to determine the percentage of times
+this method is used in the created workflows.</p></li>
+<li><p>Moved load_features from trainclassifier to file_io.</p></li>
+<li><p>Matching of PID from labels from label file to other objects is now all
+converted to lower case.</p></li>
+<li><p>Refactoring of WORC network building.</p></li>
+<li><p>Segmentix tool is cleaned up. Segmentix script is moved to processing.</p></li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h3>Fixed<a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Order of methods in preprocessing function of SearchCV did not correspond
+with that in fitandscore.</p></li>
+<li><p>Replace spaces in uri conversion of sources in SimpleWORC.</p></li>
+<li><p>Check whether all fitandscore jobs succeeded, otherwise throw error.</p></li>
+<li><p>Bug in PCA when n_components &gt; min(n_samples, n_features)</p></li>
+<li><p>Random seed is now set and passed to PCA, Relief and all classifiers
+for reproducability of the results.</p></li>
+<li><p>Evaluate can now also accept multiple feature toolboxes.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id21">
+<h2>3.1.3 - 2020-01-24<a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id22">
+<h3>Added<a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Some options for the plot_images slicer function.</p></li>
+<li><p>Validators to check your inputs before executing experiment.</p></li>
+<li><p>Timer in classification log.</p></li>
+<li><p>Backwards compatibility in fastr config.</p></li>
+<li><p>Option for fixed seed in cross-validation.</p></li>
+<li><p>BasicWORC Facade.</p></li>
+<li><p>Support for computing confidence intervals on differences between models.</p></li>
+<li><p>Error when config file cannot be found.</p></li>
+</ul>
+</div>
+<div class="section" id="id23">
+<h3>Changed<a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Preprocessor slows down progress and is not always neccesary. Made it optional.</p></li>
+<li><p>Moved the preprocessor to the SearchCV script to do once on the training set,
+not in within the algorithm optimization.</p></li>
+<li><p>Ensembling during training is turned-of, as it takes to much time. Only
+used when plotting the performance.</p></li>
+<li><p>Debug flag includes fixed seed in cross-validation.</p></li>
+<li><p>Joblib now uses by default only 1 core and threading backend.</p></li>
+</ul>
+</div>
+<div class="section" id="id24">
+<h3>Fixed<a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Bug in patient naming of plotting function: if ensembling was done in training,
+do not re-ensemble.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id25">
+<h2>3.1.2 - 2019-12-09<a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id26">
+<h3>Added<a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Support for Oncoradiomics RadiomiX tool</p></li>
+<li><p>Groupwise Search includes GLDZM, Fractal, location, NGTDM, NGLDM, wavelet,
+and rgrd features</p></li>
+<li><p>SimpleWORC now also accepts features instead of images and segs as input</p></li>
+<li><p>Preprocessor object to preprocess the features before any fitting algorithms
+are ran. Mostly to detect possible faults/errors in the data.</p></li>
+</ul>
+</div>
+<div class="section" id="id27">
+<h3>Changed<a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>On runtime, copy config.d file if it does not exist yet.</p></li>
+</ul>
+</div>
+<div class="section" id="id28">
+<h3>Fixed<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>KNN imputation gave an error if &gt;80% of the feature values were missing.
+Added preprocessing function to remove these features.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id29">
+<h2>3.1.1 - 2019-11-28<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id30">
+<h3>Added<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Travis continuous integration for Windows.</p></li>
+<li><p>Removed RT Struct Reader, as it was buggy and not used.</p></li>
+</ul>
+</div>
+<div class="section" id="id31">
+<h3>Changed<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>SimpleWORC now properly uses the fastr FileSystem plugin, instead
+of supplying the absolute filepaths.</p></li>
+</ul>
+</div>
+<div class="section" id="id32">
+<h3>Fixed<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Under Windows, creation of the fastr home folder if it did not exist
+did not work when using pip for installing. We now use a new feature
+of fastr to simply add the WORC folder to the fastr config
+at WORC import time.</p></li>
+<li><p>When debugging, override manual tempdir setting and always use default. On
+Windows, Travis gives errors if the tempdir is not in a vfs mount.</p></li>
+<li><p>Use shutil.move in the datadownloader, as os.rename could not overwrite files.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id33">
+<h2>3.1.0 - 2019-10-16<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id34">
+<h3>Added<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Thresholding option in plot_SVM.</p></li>
+<li><p>NPV (Negative Preditive Value) to classification metrics.</p></li>
+<li><p>Facade for easier interaction with WORC.</p></li>
+<li><p>Thresholding option in plot_SVM.</p></li>
+<li><p>Function to create fixed splits for cross validation.</p></li>
+<li><p>n_splits parameter for train-test cross validation.</p></li>
+<li><p>Added generalization score.</p></li>
+<li><p>Parameter to choose how many of the optimal settings to save (maxlen).</p></li>
+<li><p>Option to combine multiple onevsrest models in plot_SVM.</p></li>
+<li><p>StatsticalTestThreshold feature selection for multilabel problems.</p></li>
+<li><p>Support for test sets in which only one class is present in various
+plotting functions and the metrics.</p></li>
+<li><p>Installation: create fastr home if it does not exist yet.</p></li>
+<li><p>Boostrapping as performance evaluation in plot_SVM.</p></li>
+<li><p>Confidence intervals for boostrapping based on percentile.</p></li>
+<li><p>Catch for if patient is in the test set, but not the overall label set.</p></li>
+<li><p>Downloader for downloading example datasets.</p></li>
+<li><p>ReadTheDocs.yml for configuration of documentation.</p></li>
+<li><p>Unit test included in Travis.</p></li>
+<li><p>Various detectors.</p></li>
+</ul>
+</div>
+<div class="section" id="id35">
+<h3>Changed<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Plot_SVR is removed: it’s now embedded in plot_SVM.</p></li>
+<li><p>Moved statistical feature selection to last step in fit and score.</p></li>
+<li><p>Also the minimum train and validation score are now saved.</p></li>
+<li><p>Put scaler at top of fitandscore function.</p></li>
+<li><p>Make link in file conversion if output is same format as input.</p></li>
+<li><p>Sort keys in performance output JSON.</p></li>
+<li><p>VarianceThreshold features selection on by default.</p></li>
+<li><p>Removed grid_scores from SearchCV as support is dropped in sklearn &gt; 0.20</p></li>
+<li><p>Renamed IntermediateFacade to SimpleWORC</p></li>
+<li><p>Use inspect to find packagedir</p></li>
+</ul>
+</div>
+<div class="section" id="id36">
+<h3>Fixed<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Metric computation can now handle it when both the truth and the predicted
+labels are from a single class.</p></li>
+<li><p>Plotting module now correctly initialized.</p></li>
+<li><p>Plot_SVM now also works properly for regression.</p></li>
+<li><p>Masks for ROI normalization now properly added.</p></li>
+<li><p>Preprocessing: mask needed to be cast to binary.</p></li>
+<li><p>Failed workflows now return nan instead of zero for performance.</p></li>
+<li><p>Several bugs in multilabel performance evaluation</p></li>
+<li><p>Ring in segmentix was in sagital instead of axial direction.</p></li>
+<li><p>Added replacenan in features before applying SMOTE.</p></li>
+<li><p>Metadata test was not passed to calcfeatures: bugfix.</p></li>
+<li><p>Bugfix: overide labels in facade when predict_labels is called.</p></li>
+<li><p>Several bugfixes in the overrides in the facade configbuilder.</p></li>
+<li><p>Various print commands converted to Python3: .format prints were still
+left and sometimes buggy.</p></li>
+<li><p>StatisticalTestFeatures and PlotRankedScores tools only accepted cardinality
+of 1.</p></li>
+<li><p>Bugfixes in many plotting functions: opening files with ‘w’ instead of ‘wb’
+due to python3 conversion, Compatibility issues with plot_SVM due to
+conversion.</p></li>
+<li><p>Except error when Grahpviz is not installed.</p></li>
+<li><p>Symlinking in worccastcovert not supported by Windows, reverted to copying.</p></li>
+<li><p>Bugfix in create_ensemble in SearchCV when using ensemble = 1.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id37">
+<h2>3.0.0 - 2019-05-08<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id38">
+<h3>Added<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Now ported to Python3.6+ (Python 2 is no longer supported!). Thereby also
+to fastr3.</p></li>
+<li><p>Compatibility for Windows. Some small changes in functions, as some packages
+behaviour differently under Windows. Also, adjusted sink and source paths
+to use OS file separator.</p></li>
+<li><p>Config is now also a sink.</p></li>
+</ul>
+</div>
+<div class="section" id="id39">
+<h3>Changed<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>PCE and DTI node removed, as they were not open source.</p></li>
+<li><p>Pinfo file can now also be a csv. Txt is still supported.</p></li>
+<li><p>Use fastr as default for hyperparameter search parallelization instead
+of Joblib, as this is much more flexible.</p></li>
+<li><p>When the conffidence interval cannot be computed, just use the mean.</p></li>
+</ul>
+</div>
+<div class="section" id="id40">
+<h3>Fixed<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>WORC_config.py was not correctly copied in Windows due to incorrect path separation.</p></li>
+<li><p>Source creation for the config was only for Linux.</p></li>
+<li><p>In numpy 1.15&gt;, booleans cannot be subtracted. Fixed an error due to this in
+segmentix by using bitwise_xor instead.</p></li>
+<li><p>Bug when using masks, but not for all images, and segmentix.</p></li>
+<li><p>Cardinality of classify node was incorrect.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id41">
+<h2>2.1.3 - 2019-04-08<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id42">
+<h3>Changed<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>PREDICT was updated, so had to update the requirements. Changed it
+to a minimum of PREDICT to prevent these issues in the future.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id43">
+<h2>2.1.2 - 2019-04-02<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id44">
+<h3>Added<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Dummy workflow in segmentix and calcfeatures PREDICT tools.</p></li>
+<li><p>Added several new PREDICT parameters.</p></li>
+<li><p>Slicer tool.</p></li>
+</ul>
+</div>
+<div class="section" id="id45">
+<h3>Changed<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Memory for elastix tool is now larger.</p></li>
+</ul>
+</div>
+<div class="section" id="id46">
+<h3>Fixed<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h3>
+<p>-Evaluate framework now correctly adopts the name you give it.</p>
+</div>
+</div>
+<div class="section" id="id47">
+<h2>2.1.1 - 2019-02-15<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id48">
+<h3>Added<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Several new PREDICT variables to the config.</p></li>
+<li><p>Multilabel classification workflow.</p></li>
+<li><p>New oversampling strategy.</p></li>
+<li><p>RankedSVM multilabel classification and Relief feature selection.</p></li>
+</ul>
+</div>
+<div class="section" id="id49">
+<h3>Changed<a class="headerlink" href="#id49" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Major reduction in memory usage, especially due to PREDICT updates.</p></li>
+<li><p>Only use first configuration in the classify config.</p></li>
+<li><p>Outputs are now in multiple subfolders instead of one big folder.</p></li>
+</ul>
+</div>
+<div class="section" id="id50">
+<h3>Fixed<a class="headerlink" href="#id50" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Minor bug in test workflow: needed str of label in appending to classify.</p></li>
+<li><p>There was a bug in using a .ini file as a config.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id51">
+<h2>2.1.0 - 2018-08-09<a class="headerlink" href="#id51" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id52">
+<h3>Added<a class="headerlink" href="#id52" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Feature imputation settings in WORC config.</p></li>
+<li><p>PCA settings in WORC config.</p></li>
+<li><p>Dummy file, which can generally be accepted by WORC.</p></li>
+<li><p>Preprocessing is now a separate node before the calcfeatures node.</p></li>
+<li><p>Started working on a RTStructReader tool.</p></li>
+<li><p>Added EditElastixTransformFile node to set FinalBSplineInterpolationOrder to 0
+in Elastix. Neccesary for transforming segmentations.</p></li>
+<li><p>Registred image is also saved as a sink.</p></li>
+<li><p>Tex, Zip and PNG Datatypes</p></li>
+<li><p>Plot ROC tool for PREDICT</p></li>
+<li><p>Plot SVM tool for PREDICT</p></li>
+<li><p>Plot Barchart tool for PREDICT</p></li>
+<li><p>Plot Ranked Scores tool for PREDICT</p></li>
+<li><p>Plot statistical test tool for PREDICT</p></li>
+<li><p>Tools: Evaluation network. Can currently be run only serparately: future
+work includes the optional addition of the Evaluate network to the WORC network.</p></li>
+<li><p>Settings for PREDICT General, which contains the joblib Parallel settings and
+whether a temporary save will be made after each cross validation.</p></li>
+</ul>
+</div>
+<div class="section" id="id53">
+<h3>Changed<a class="headerlink" href="#id53" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Separate sinks for the output segmentations of the elastix and segmentix
+nodes.</p></li>
+<li><p>Switched from using PXCastConvert to WORCCastConvert, hence ITK is not
+anymore required as well as ITK tools.</p></li>
+</ul>
+</div>
+<div class="section" id="id54">
+<h3>Fixed<a class="headerlink" href="#id54" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Patientclass ID was used for both test and training. Now given separate names.</p></li>
+<li><p>When elastix is used but segmentix isn’t, there was a bug.</p></li>
+<li><p>DataFile dataype is now a TypeGroup instead of an URLType.</p></li>
+<li><p>Last transformation output from elastix is passed further to the network.</p></li>
+<li><p>Set FinalBSplineInterpolationOrder to 0 before transforming segmentation with
+transformix.</p></li>
+<li><p>Bug: when giving multiple feature sources, only the first was used.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="id55">
+<h2>2.0.0 - 2018-02-13<a class="headerlink" href="#id55" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id56">
+<h3>Added<a class="headerlink" href="#id56" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Elastix and transformix as separate workflow in the tools folder. Can be used
+through the WORC.Tools attribute.</p></li>
+<li><p>Example data for elastix and transformix tool.</p></li>
+<li><p>Workflow for separate training and testing set</p></li>
+<li><p>FASTR tool for applying ttest to all features. Works similar to the
+trainclassifier tool in terms of inputs and outputs.</p></li>
+</ul>
+</div>
+<div class="section" id="id57">
+<h3>Changed<a class="headerlink" href="#id57" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Option for multiple modalities. Supports infinitely many inputs per object.</p></li>
+<li><p>Moved many PREDICT parameters to the configuration file.</p></li>
+<li><p>When using a multimodal workflow with only a single segmentation,
+Elastix will automatically be used for registration. Note that you have to
+put the reference segmentation on the first modality!</p></li>
+</ul>
+</div>
+<div class="section" id="id58">
+<h3>Fixed<a class="headerlink" href="#id58" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Proper combining of features from multiple modalities to classify tool.</p></li>
+<li><p>Minor bugs in segmentix tool.</p></li>
+<li><p>For multiple modalities, add only optional sources like metadata when present.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="rc1-2017-05-08">
+<h2>1.0.0rc1 - 2017-05-08<a class="headerlink" href="#rc1-2017-05-08" title="Permalink to this headline">¶</a></h2>
+<p>First release</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../autogen/WORC.html" class="btn btn-neutral float-right" title="WORC Package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="file_description.html" class="btn btn-neutral float-left" title="Resource File Formats" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016 -- 2020, Biomedical Imaging Group Rotterdam, Departments of Medical Informatics and Radiology, Erasmus MC, Rotterdam, The Netherlands
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
