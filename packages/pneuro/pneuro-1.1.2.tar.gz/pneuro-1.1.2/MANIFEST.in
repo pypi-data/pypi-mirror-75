@@ -1,0 +1,5 @@
+recursive-include pneuro/templates *
+recursive-include pneuro/static *
+recursive-include pneuro/dataLoad *
+recursive-include pneuro/logs *
+recursive-include pneuro/models *
