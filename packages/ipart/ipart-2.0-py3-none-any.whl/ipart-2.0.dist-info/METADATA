@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: ipart
+Version: 2.0
+Summary: IPART is a Python package for the detection and tracking of atmospheric rivers from gridded IVT data using image-processing techniques.
+Home-page: https://github.com/ihesp/IPART
+Author: Guangzhi XU
+Author-email: xugzhi1987@gmail.com
+License: GPL-3
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Requires-Dist: netcdf4
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: scikit-image
+Requires-Dist: pandas
+Requires-Dist: basemap
+Requires-Dist: networkx
+
+UNKNOWN
+
+
