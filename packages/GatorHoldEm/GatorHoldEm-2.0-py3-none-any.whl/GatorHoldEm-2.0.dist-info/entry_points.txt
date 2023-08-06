@@ -1,0 +1,5 @@
+[console_scripts]
+buildai = GatorHoldEm.AiInstallation:main
+gatorholdem = GatorHoldEm.SocketIOClient:main
+gatorholdemserver = GatorHoldEm.SocketIOServer:main
+
