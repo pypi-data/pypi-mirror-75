@@ -1,0 +1,9 @@
+#!/usr/bin/env python
+import sys
+import dfx.ui_curses
+
+def main():
+    return dfx.ui_curses.main()
+
+if __name__=='__main__':
+    sys.exit(main())
