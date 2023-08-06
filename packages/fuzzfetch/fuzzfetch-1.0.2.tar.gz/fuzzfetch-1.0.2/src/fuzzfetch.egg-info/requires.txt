@@ -1,0 +1,20 @@
+configparser>=3.5.0
+pytz
+requests
+
+[:python_version < "3.3"]
+backports.shutil_which
+
+[:python_version < "3.6"]
+pathlib2
+
+[dev]
+tox
+
+[test]
+freezegun
+pytest
+pytest-cov
+pytest-flake8
+pytest-pylint
+requests-mock
