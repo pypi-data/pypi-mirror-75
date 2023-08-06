@@ -1,0 +1,17 @@
+pytest_drf/__init__.py,sha256=mpfGRB3sU99SxtZYpyeof1Wixx-aJ5VJfs5A_OHcOyo,219
+pytest_drf/authentication.py,sha256=psBcYgMisryHV_AaxbGsDw4wywVx71H9OdY4p0xYH2I,1837
+pytest_drf/authorization.py,sha256=5QXhSHh_jPWTHSTKZCrEZW90hZ6b-3qsT7oQUe7ikSI,445
+pytest_drf/client.py,sha256=hOpymu70zdTV0EiXyI1h3s5SUa1Fr5I01n7arr5BExQ,804
+pytest_drf/fixtures.py,sha256=lQ_kAowyWAUsZd7JXBLl2vA5o19FzHvs5SwJ7UDaj4M,1225
+pytest_drf/pagination.py,sha256=Yhk9wRWUwlvrXVBYBlPbz4A_hMCMrG8Nq75tZ-s40GI,1367
+pytest_drf/plugin.py,sha256=43cYmkud4G-0QS7hkVIQg-NNHEEjZcXQWB0eJ6wLMzo,56
+pytest_drf/status.py,sha256=0fmI3aPM7VVCjCZHvVl7P5ZXe-9XkB6HyExfxLYB3QI,3930
+pytest_drf/util/__init__.py,sha256=iStz6Mov0GaiHcFzpTxjBtmLy_EFFWPahEuGNRwop1Y,54
+pytest_drf/util/expressions.py,sha256=WJCB_XW887B4VYbtxR5rsJlZQ6rwBVs7j9rdvVMu754,935
+pytest_drf/util/metaclasses.py,sha256=J47JP-Nm3g7FWk_MNFh4Km4TkZ6Los1eF6TnWo-jFoI,3127
+pytest_drf/views.py,sha256=6kUj3t7x1tNq6-jXrXOT6D3hyihxaUhAQCfZ0k1cX1c,6043
+pytest_drf-1.0.0.dist-info/entry_points.txt,sha256=spHEdlWsj4heBaHVkkd4g-lks3KU8VOEnZ-Ebg2cGq4,34
+pytest_drf-1.0.0.dist-info/LICENSE,sha256=ZKNNrhdfrrEhd-10Vskh9F_MwBbsAeUJxvhsVHr4HV4,1074
+pytest_drf-1.0.0.dist-info/WHEEL,sha256=Q99itqWYDhV793oHzqzi24q7L7Kdiz6cb55YDfTXphE,84
+pytest_drf-1.0.0.dist-info/METADATA,sha256=O_U0pwY84nrPygEyM9P-YqfPacyH3OtQ-zDDJ0WO2E8,1201
+pytest_drf-1.0.0.dist-info/RECORD,,
