@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: rectangle-packer
+Version: 1.1.0
+Summary: Pack a set of rectangles into an enclosing rectangle with minimum area
+Home-page: https://github.com/Penlect/rectangle-packer
+Author: Daniel Andersson
+Author-email: daniel.4ndersson@gmail.com
+License: MIT
+Keywords: pack rectangle packing rectangles enclosing 2D
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+
+Welcome to rectangle-packer
+===========================
+
+|PyPI-Versions| |PyPI-Wheel| |PyPI-Downloads|
+
+|Build-Status| |Read-the-Docs| |GitHub-License|
+
+A Python module for rectangle packing utilities.
+
+* The latest documentation is available on `Read the Docs`_.
+* The source code is available on `GitHub`_.
+
+**Primary use:** Given a set of rectangles with fixed orientations,
+find an enclosing rectangle of minimum area that contains
+them all with no overlap.
+
+This project is inspired by the blog post
+`Fast Optimizing Rectangle Packing Algorithm for Building CSS Sprites
+<http://www.codeproject.com/Articles/210979/Fast-optimizing-rectangle-packing-algorithm-for-bu>`_
+written by Matt Perdeck.
+
+.. image:: http://www.standard-memory.com/static/misc/example.png
+    :alt: Example
+
+.. _Read the Docs: https://rectangle-packer.readthedocs.io/en/latest/
+.. _GitHub: https://github.com/Penlect/rectangle-packer
+
+
+.. |PyPI-Versions| image:: https://img.shields.io/pypi/pyversions/rectangle-packer.svg
+   :target: https://pypi.org/project/rectangle-packer
+.. |PyPI-Wheel| image:: https://img.shields.io/pypi/wheel/rectangle-packer.svg
+   :target: https://pypi.org/project/rectangle-packer
+.. |PyPI-Downloads| image:: https://img.shields.io/pypi/dm/rectangle-packer.svg
+   :target: https://pypi.org/project/rectangle-packer
+
+.. |Build-Status| image:: https://travis-ci.com/Penlect/rectangle-packer.svg?branch=master
+   :target: https://travis-ci.com/Penlect/rectangle-packer
+
+.. |Read-the-Docs| image:: https://img.shields.io/readthedocs/rectangle-packer.svg
+   :target: https://rectangle-packer.readthedocs.io/en/latest
+
+.. |GitHub-License| image:: https://img.shields.io/github/license/Penlect/rectangle-packer.svg
+   :target: https://raw.githubusercontent.com/Penlect/rectangle-packer/travis/LICENSE.md
+
