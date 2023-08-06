@@ -1,0 +1,3 @@
+[console_scripts]
+dqueue = dqueue.cli:main
+
