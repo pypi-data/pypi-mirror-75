@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+<span class="mainHeading"><a href="/bizzbuzz/home"><img src="{%  static "images/newlogo.png" %}" style="height: 140px; width: 180px;margin-top: -45px;"></a> </span>
+    <span class="subHeading"><a href="/bizzbuzz/selectchannel">Manage Company Subscriptions</a></span>
+    <span class="subHeading"><a href="/bizzbuzz/logout"> Logout</a></span>
+{#    <span class="subHeading"><a href=""> Settings</a></span>#}
+    <span class="subHeading" style="margin-left: 650px; color: white; text-transform:capitalize; ">Welcome <b>{{ name }}</b>!</span>
+</div>
+
+<div class="container">
+<div class="sidebar">
+    <img src="{% static "images/Amazon.png" %}" class="channel" style="height: 50px;padding-top: 45%;"></a>
+    <img src="{% static "images/apple.png" %}" class="channel" style="padding-top: 4%;"></a>
+
+    <img src="{% static "images/facebook.png" %}" class="channel" style="padding-top: 4%;"></a>
+    <img src="{% static "images/google.png" %}" class="channel" style="padding-top: 4%;"></a>
+
+    <img src="{% static "images/ibm.png" %}" class="channel" style="padding-top: 4%;"></a>
+    <img src="{% static "images/microsoft.png" %}" class="channel" style="padding-top: 4%;height: 55px;"></a>
+
+    <img src="{% static "images/netflix.png" %}" class="channel" style="width:80px;height: 60px;padding-top: 4%;margin-left: 15%;"></a>
+    <img src="{% static "images/oracle.png" %}" class="channel" style="width:90px;padding-top: 4%;margin-left: 15%;"></a>
+
+    <img src="{% static "images/sales.png" %}" class="channel" style="width:100px;height: 80px;padding-top: 4%;margin-left: 12%;"></a>
+    <img src="{% static "images/samsung.png" %}" class="channel" style="width:150px;height: 50px;padding-top: 4%;margin-left: -5%;"></a>
+
+    <img src="{% static "images/Sap.png" %}" class="channel" style="width:100px;height: 50px;padding-top: 4%;margin-left: 15%;"></a>
+    <img src="{% static "images/spacex.png" %}" class="channel" style="width:100px;height: 70px;padding-top: 4%;margin-left: 3%;"></a>
+
+    <img src="{% static "images/tesla.png" %}" class="channel" style="width:100px;height: 70px;padding-top: 4%;margin-left: 3%;"></a>
+    <img src="{% static "images/twitter.png" %}" class="channel" style="width:80px;height: 70px;padding-top: 4%;margin-left: 5%;"></a>
+</div>
+
+    <div class="feed">
+
+<form method="post">
+    {% csrf_token %}
+    <h1></h1>
+    <button type="submit" name="run_script" class="refresh">Refresh News</button>
+</form>
+
+     <div class="timeheading">
+        <h1>Recent</h1>
+     </div>
+
+     <div class="news">
+        <a href="">
+
+{% for title, url, summary, source, index, dates in articles %}
+    {%  if dates == True %}
+     <a target="_blank" rel="noopener noreferrer" href="{{ url }}">
+        <div class="newsCard">
+    <div class="textcontainer">
+        {% if source == "BI" %}
+                     <img src="{% static "images/bi-logo.png" %}" class="sourcelogo" style="height: 20px; margin-left:5px; margin-top:5px">
+        {%  endif %}
+        {% if source == "NYTIMES" %}
+                     <img src="{% static "images/nyt-logo.png" %}" class="sourcelogo" style="height: 40px; margin-left:5px; margin-top:5px">
+        {%  endif %}
+        {% if source == "TECH_TIMES" %}
+                     <img src="{% static "images/tt-logo.png" %}" class="sourcelogo" style="height: 30px; margin-left:5px; margin-top:5px">
+        {%  endif %}
+        {% if source == "FORBES" %}
+                     <img src="{% static "images/forbes-logo.png" %}" class="sourcelogo" style="color:white;height: 20px; margin-left:5px; margin-top:5px">
+        {%  endif %}
+        <a href="{{ url }}" style="color:white;">
+        <span class="author" style = "margin-right:20px; margin-bottom: 15px"> {{ title }} </span>
+        </a>
+       <details class="summary" style = "margin-right:20px; color: white;  border:none; background-color: #04B9D3;">
+           <summary> <u> Article Summary </u> </summary>{{ summary }} </details>
+        </div>
+     </div>
+     </a>
+    {% endif %}
+ {% endfor %}
+        </a>
+     </div>
+
+    <div class="timeheading">
+        <h1>Earlier</h1>
+    </div>
+
+        <div class="news" style="margin-bottom: 50px;">
+            <a href="">
+
+ {% for title, url, summary, source, index, dates in articles2 %}
+    {% if dates == False %}
+     <a target="_blank" rel="noopener noreferrer" href="{{ url }}">
+        <div class="newsCard">
+    <div class="textcontainer">
+        {% if source == "BI" %}
+                     <img src="{% static "images/bi-logo.png" %}" class="sourcelogo" style="height: 20px; margin-left:5px; margin-top:5px">
+        {%  endif %}
+        {% if source == "FORBES" %}
+                     <img src="{% static "images/forbes-logo.png" %}" class="sourcelogo" style="color:white;height: 20px; margin-left:5px; margin-top:5px">
+        {%  endif %}
+        {% if source == "NYTIMES" %}
+                     <img src="{% static "images/nyt-logo.png" %}" class="sourcelogo" style="height: 40px; margin-left:5px; margin-top:5px">
+        {%  endif %}
+        {% if source == "TECH_TIMES" %}
+                     <img src="{% static "images/tt-logo.png" %}" class="sourcelogo" style="height: 30px; margin-left:5px; margin-top:5px">
+        {%  endif %}
+        <a href="{{ url }}" style="color:white;">
+        <span class="author" style = "margin-right:20px; margin-bottom: 15px;"> {{ title }} </span>
+        </a>
+       <details class="summary" style = "margin-right:20px; color: white;  border:none; background-color: #04B9D3;">
+           <summary> <u> Article Summary </u> </summary>{{ summary }} </details>
+
+        </div>
+     </div>
+     </a>
+    {% endif %}
+ {% endfor %}
+        </a>
+</div>
+</div>
+</div>
+</body>
+</html>
