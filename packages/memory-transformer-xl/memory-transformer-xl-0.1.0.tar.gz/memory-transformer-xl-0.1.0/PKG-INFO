@@ -1,0 +1,16 @@
+Metadata-Version: 1.1
+Name: memory-transformer-xl
+Version: 0.1.0
+Summary: Memory Transformer-XL, a variant of Transformer-XL that uses linear attention update long term memory
+Home-page: https://github.com/lucidrains/memory-transformer-xl
+Author: Phil Wang
+Author-email: lucidrains@gmail.com
+License: MIT
+Description: UNKNOWN
+Keywords: attention mechanism,artificial intelligence,transformer,deep learning
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
