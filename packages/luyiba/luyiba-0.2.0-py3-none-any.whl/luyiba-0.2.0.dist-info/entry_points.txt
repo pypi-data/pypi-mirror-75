@@ -1,0 +1,3 @@
+[console_scripts]
+luyiba = luyiba.__main__:main
+
