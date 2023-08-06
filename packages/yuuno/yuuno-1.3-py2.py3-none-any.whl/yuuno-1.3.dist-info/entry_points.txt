@@ -1,0 +1,10 @@
+[yuuno.commands]
+jupyter = yuuno_ipython.commands:jupyter
+
+[yuuno.environments]
+load_ipython_extension = yuuno_ipython.ipython.environment:load_ipython_extension
+unload_ipython_extension = yuuno_ipython.ipython.environment:unload_ipython_extension
+
+[yuuno.extensions]
+ipy_vs = yuuno_ipython.ipy_vs.extension:IPythonVapoursynthExtension
+
