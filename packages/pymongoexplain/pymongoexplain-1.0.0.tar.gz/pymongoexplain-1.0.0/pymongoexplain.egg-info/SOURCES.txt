@@ -1,0 +1,17 @@
+README.rst
+setup.py
+pymongoexplain/__init__.py
+pymongoexplain/__main__.py
+pymongoexplain/commands.py
+pymongoexplain/explainable_collection.py
+pymongoexplain/utils.py
+pymongoexplain/version.py
+pymongoexplain.egg-info/PKG-INFO
+pymongoexplain.egg-info/SOURCES.txt
+pymongoexplain.egg-info/dependency_links.txt
+pymongoexplain.egg-info/entry_points.txt
+pymongoexplain.egg-info/requires.txt
+pymongoexplain.egg-info/top_level.txt
+test/test_cli_tool_script.py
+test/test_collection.py
+test/test_crud_v2.py
