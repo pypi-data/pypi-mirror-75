@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: SimpleGP
+Version: 0.9.5
+Summary: UNKNOWN
+Home-page: https://github.com/marcovirgolin/SimpleGP
+Author: Marco Virgolin
+Author-email: marco.virgolin@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.16.1)
+Requires-Dist: sklearn
+
+# Simple Genetic Programming 
+### For Symbolic Regression
+This Python 3 code is a simple implementation of genetic programming for symbolic regression, and has been developed for educational purposes.
+
+## Dependencies
+`numpy` & `sklearn`. The file `test.py` shows an example of usage.
+
+## Installation
+You can install it with pip using `python3 -m pip install --user simplegp`, or locally by downloading the code and running `python3 setup.py install --user`.
+
+## Reference
+If you use this code, please support our research by citing the [paper](https://arxiv.org/abs/2004.11170) that used it as a base to develop a [multi-objective version](https://github.com/marcovirgolin/pyNSGP):
+
+> M. Virgolin, A. De Lorenzo, E. Medvet, F. Randone. "Learning a Formula of Interpretability to Learn Interpretable Formulas". arXiv preprint arXiv:2004.11170 (2020)
+
+
