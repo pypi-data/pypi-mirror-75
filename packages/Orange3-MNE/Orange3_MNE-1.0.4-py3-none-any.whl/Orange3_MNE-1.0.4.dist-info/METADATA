@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: Orange3-MNE
+Version: 1.0.4
+Summary: Electrophysiological data processing widgets for Orange 3 based on the MNE for Python library.
+Home-page: https://gitlab.com/fifal/orange-mne-library
+Author: Filip Jani
+Author-email: jsem@filek.cz
+License: UNKNOWN
+Keywords: orange3 add-on mne eeg electrophysiology
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: mne (==0.20.3)
+Requires-Dist: PyQt5
+Requires-Dist: keras (==2.4.3)
+Requires-Dist: keras-metrics (==1.1.0)
+Requires-Dist: tensorflow (==2.2.0)
+
+MNE Widgets for Orange 3 is a python package, that provides methods from MNE for Python for Orange 3 in a form of widgets, 
+to allow for electrophysiological data processing.
+
+> *Note: This library was created as a part of the master's thesis to show that it is possible to use Orange 3 as a workflow management system for electrophysiological data processing. The widgets' functionality was verified on three existing experiments. Nevertheless, the library requires further development.* 
+
+### Installation
+1. The installation process is quite straightforward, first we need to install the Orange 3 tool:
+    > *Note: If you have Orange 3 already installed, you can skip this step and continue to step 2.*
+    ```bash
+    virtualenv orange          # Create a virtual environment
+    ./orange/Scripts/activate  # Activate the environment (source ./orange/Scripts/activate for linux)
+    pip install Orange3 PyQt5  # Install Orange 3 and PyQt library
+    ```
+2. Then run Orange: `python -m Orange.canvas`
+3. In Orange navigate to Options -> Add-ons
+4. Click on `Add more...` and enter the package name: `Orange3-MNE`
+5. Confirm the settings and Orange will install the library
+6. Restart Orange and the electrophysiological data processing library will be available
+
+### User's guide
+The documentation on how to use Orange 3 is available on its [homepage](https://orange.biolab.si/docs/).
+
+The documentation to widgets in this library can be found [here](https://gitlab.com/fifal/orange-mne-library/-/blob/master/docs/widgets.md).
+
