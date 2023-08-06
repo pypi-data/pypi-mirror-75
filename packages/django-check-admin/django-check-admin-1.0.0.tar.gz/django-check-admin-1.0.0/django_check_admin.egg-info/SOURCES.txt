@@ -1,0 +1,11 @@
+README.rst
+setup.cfg
+setup.py
+checkadmin/__init__.py
+checkadmin/apps.py
+checkadmin/checks.py
+django_check_admin.egg-info/PKG-INFO
+django_check_admin.egg-info/SOURCES.txt
+django_check_admin.egg-info/dependency_links.txt
+django_check_admin.egg-info/requires.txt
+django_check_admin.egg-info/top_level.txt

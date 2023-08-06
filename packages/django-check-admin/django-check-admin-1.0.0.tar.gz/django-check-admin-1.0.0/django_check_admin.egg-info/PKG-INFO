@@ -1,0 +1,81 @@
+Metadata-Version: 1.2
+Name: django-check-admin
+Version: 1.0.0
+Summary: A Django app to check that all models have been added to the Django admin site.
+Home-page: https://github.com/jdufresne/django-check-admin
+Author: Jon Dufresne
+Author-email: jon.dufresne@gmail.com
+License: BSD
+Description: ==================
+        django-check-admin
+        ==================
+        
+        django-check-admin is a Django app that adds a system check to verify that all
+        models have been registered with the Django admin site. This check is useful if
+        all models of a project should normally be registered.
+        
+        
+        Installation
+        ============
+        
+        Install the package with pip:
+        
+        .. code-block::
+        
+            $ pip install django-check-admin
+        
+        Add ``'checkadmin'`` to ``INSTALLED_APPS``.
+        
+        .. code-block:: python
+        
+            INSTALLED_APPS = [
+                ...
+                'checkadmin',
+            ]
+        
+        
+        Running
+        =======
+        
+        Use the Django management command ``check``:
+        
+        .. code-block::
+        
+            $ python manage.py check
+        
+        If a model is not registered with the Django admin site, an error will be
+        emitted. For example:
+        
+        .. code-block::
+        
+            The model myapp.MyModel is not registered with an admin site.
+        
+        If specific models should be ignored by the check, use
+        ``checkadmin.ignore()``:
+        
+        .. code-block:: python
+        
+            import checkadmin
+            from myapp.models import MyModel
+        
+            checkadmin.ignore(MyModel)
+        
+        Now, even if ``MyModel`` is not registered with an admin site, an error will
+        not be emitted.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
