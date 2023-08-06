@@ -1,0 +1,13 @@
+django<4.0,>=3.0
+djangorestframework<4.0,>=3.11
+google-cloud-pubsub<2.0,>=1.5.0
+herbie==1.0b1
+
+[dev]
+twine
+
+[tests]
+pytest<6.0,>=5.4.3
+pytest-django<4.0,>=3.7.0
+flake8>=3.8.0
+black==19.10b0

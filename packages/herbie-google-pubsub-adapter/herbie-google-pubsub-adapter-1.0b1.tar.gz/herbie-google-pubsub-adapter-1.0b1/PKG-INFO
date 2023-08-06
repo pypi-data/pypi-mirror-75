@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: herbie-google-pubsub-adapter
+Version: 1.0b1
+Summary: Herbie Adapter that publishes messages to Google Pubsub.
+Home-page: https://github.com/herbie/google-pubsub-adapter
+Author: Project A Services GmbH & Co. KG
+Author-email: herbie@project-a.com
+License: MIT
+Description: # Google Pubsub Adapter
+        
+        This Adapter is based on Django and provides a way to publish messages to Google Pubsub.
+        
+        It is meant to be used with [Herbie](https://github.com/herbie/herbie).
+        
+        The package already provides a Django app that just needs to be registered in the main Django app using Herbie.
+        
+        ## Installation
+        
+        1. Run the following
+        
+        ```
+            pip install herbie-google-pubsub-adapter
+        ```
+        
+        or add it to your app `requirements.txt` and update them running:
+        
+        ```
+            pip install -r requirements.txt
+        ```
+        
+        2. Add the adapter App to `Django Installed Apllications`:
+        
+        ```
+            INSTALLED_APPS = [
+                ...
+                'google_pubsub_adapter.apps.HerbieGooglePubsubAdapterConfig',
+                ...
+            ]
+        ```
+        
+        3. Add your Google Cloud Pubsub Credentials to the `django settings` file:
+        
+        ```
+        GCLOUD_PUBSUB_PROJECT_ID='pubsub_project_id'
+        ```
+        
+        4. Create the Topics according to the Business Schemas
+        
+        ```
+        python manage.py init_pubsub
+        ```
+        
+        An example Django application using this adapter can be found at the [Herbie Sandbox](https://github.com/herbie/sandbox) repository.
+        
+        ## Developing/Testing
+        
+        If you would like to further improve this package you'll need to install the dev/test requirmeents. 
+        
+        To to this run in your `virtual environment`
+        
+        ```
+            pip install -e .[tests]
+        ```
+        
+        This will install the needed packages (e.g: `pytest`) to run/test locally the package
+        
+        ### Black Formatter
+        
+        This package uses [Black](https://github.com/psf/black) as a code formatter. You should run it before 
+        pushing the code as the CI pipeline checks against it.
+        
+        ```
+            black --line-length 119 .
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Django :: 3.0
+Classifier: Framework :: Django :: 3.1
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: tests
