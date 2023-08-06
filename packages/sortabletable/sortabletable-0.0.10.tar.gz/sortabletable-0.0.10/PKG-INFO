@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: sortabletable
+Version: 0.0.10
+Summary: Sortable Table Django CMS Plugin
+Home-page: https://github.org/stefanw/sortabletable
+Author: Stefan Wehrmeyer
+Author-email: stefan.wehrmeyer@okfn.de
+License: MIT
+Description: # Sortable Table – a Django CMS Plugin
+        
+        ## Build frontend
+        
+        A build is included
+        
+        ```
+        npm install
+        npm run build
+        ```
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Internet :: WWW/HTTP
