@@ -1,0 +1,3 @@
+from djangosubscribe.querysets.CategoryModelQuerySet import CategoryModelQuerySet
+from djangosubscribe.querysets.QuickEmailSubscriptionModelQuerySet import QuickEmailSubscriptionModelQuerySet
+from djangosubscribe.querysets.BasicInformationModelQuerySet import BasicInformationModelQuerySet

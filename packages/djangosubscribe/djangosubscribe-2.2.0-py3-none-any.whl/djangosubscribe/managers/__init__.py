@@ -1,0 +1,3 @@
+from djangosubscribe.managers.CategoryModelManager import CategoryModelManager
+from djangosubscribe.managers.QuickEmailSubscriptionModelManager import QuickEmailSubscripionModelManager
+from djangosubscribe.managers.BasicInformationModelManager import BasicInformationModelManager
