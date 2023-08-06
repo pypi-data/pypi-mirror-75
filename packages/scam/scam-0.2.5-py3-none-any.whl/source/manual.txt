@@ -1,0 +1,104 @@
+
+Source Code Analyzing Machine
+This software attempts to analyze similarity in source code for the purpose of plagiarism detection. It supports the languages of Python and Java, but it can also analyze raw text which can be used for (although may not be as robust) other currently unsupported languages. This was built off of the revealed implementation details of the MOSS (Measure of Software Similarity) software. The document for such details can be found here:
+https://theory.stanford.edu/~aiken/publications/papers/sigmod03.pdf
+This document explains how to use the software as well as how it works. 
+
+How to Use It:
+Running a Comparison 
+Simply add files into the student file box by pressing the add file button at the top right, if you want to add boilerplate files, press the add boilerplate files button just below. If you see the files appear in the box, that means they’re added.  You can also clear these boxes with the buttons to the right. Be sure you have the analyzer you want to use selected, and when you’re ready hit compare. If you want to generate a text file as output, press the Tools button on the toolbar and press generate report after a comparison has been made. 
+
+Output
+**DISCLAIMER** 
+This software is a tool and is used to help identify files which are strongly similar, but a file being similar doesn’t mean actual plagiarism took place. It can help identify suspected plagiarism, but a human is still needed to look through the files and, along with other investigation, discern whether or not copying really took place. 
+Output will appear below and percentage is based on relative similarity. It tells what percentage of one file’s own fingerprints are not original but similar to another file. You can index through the files and their fingerprints with the buttons below. The fingerprints being shown on the frontend aren’t actually the same as those used on the backend to decide comparisons. That uses different parameters for performance purposes, the front end uses parameters for the winnowing algorithm meant to maximize the depth of the search, sometimes it will result in more or less fingerprints. You can press the important blocks button to view blocks of consecutive fingerprints, which may be more indicative of true plagiarism (these are based off of the ones generated from the backend). If you’d like to view all blocks or prints, you can press the view all button. The clear output button clears the output field (it won’t get rid of the text file). 
+
+Options
+Language determines what analyzer will be used, Java and Python are currently supported, but a text analyzer can be used if you want to analyze raw text, a different language, or are simply unsatisfied with the results of the Java/Python analyzers. Ignore count determines how many allowable common fingerprints there can be before it’s put into the output. k/Noise threshold determines what size a fingerprint should be in order for it to be truly considered a match to be factored into comparisons. The larger the k is, the more likely it is the fingerprint found was a true copy, but making it smaller makes it better able to detect reordering/repositioning of something copied and can find smaller matches. Window size determines the size of the window used in the winnowing algorithm. Blocksize determines the number of fingerprints there would be for them to be considered a most important match block, offset determines the allowable distance between fingerprints for them to be considered within the same block.
+
+The previous 4 options are more complicated but can be best left at these default values: 
+k/noise threshold: 50
+window size: 20
+blocksize: 3
+offset: 6
+
+
+How it Works 
+(files described here start at the path source/backend)
+
+Parsing Source Code + Tokenization (mostly analyzer.py)
+
+After reading in the raw file text, all whitespace is to be eliminated. This is essentially to prevent adding on a bunch of meaningless whitespace in order to attempt to throw off the algorithm, only the code itself is analyzed. All text is also brought to lowercase to prevent meaningless changing of cases that could also be used to throw off the algorithm even if the underlying text is the same. If the raw text analyzer is being used, fingerprints then begin to be developed, for source code further parsing and tokenization will also take place. Nondistinct characters (we called boilerplate characters) such as (for Python) parenthesis, colons, or ‘def’ are removed. Tokenization essentially involves taking the fundamental parts of the code and turning them into nondistinct tokens. For example, all variable names are changed to ‘v’, all function names to ‘f’, conditionals to ‘c', or loops to ‘l’. This is essentially to catch things like changing variable or function names or interchanging for loops and while loops which both do essentially the same thing in an attempt to dupe the algorithm. Comments, although they can be tokens, are usually removed altogether, as meaningless blocks of comments can be added to skew or throw off comparisons. We used the built in Python tokenizer to help tokenize Python code, and the javalang library to help tokenize Java code. A program such as this:
+
+#this program adds 2 numbers
+def sums():
+var1 = 1.5
+num2 = 6.3
+
+summation1 = 0
+if var1 == 1.5:
+summation1 = var1 + num2
+
+for i in range(0, 10):
+num2 += i
+
+# Display the sum
+print('The sum of {0} and {1} is {2}'.format(var1, num2, summation1)
+var3 = 3
+num4 = 9
+
+# Add two numbers
+summation2 = var3 + num4
+print('The sum of {0} and {1} is these 2 numbers: {2}'.format(var3, num4, summation2))
+sums()
+
+when parsed and tokenized may look like this:
+fv=1.5v=6.3v=0cv==1.5v=v+vlv+=vf’thesumof{0}and{1}is{2}’.fv,v,vv=3v=9v=v+vf'thesumof{0}and{1}isthese2numbers:{2}'.fv,v,vf
+
+Overall, the structure of the code itself is being most examined, rather than simply the text. This may lead to times where there seems to be a reasonably sized block of similar text between 2 files that doesn’t give a match. This doesn’t (necessarily) mean the analyzer isn’t working, but what appears to be a large block of text may only have a smaller underlying structure, at least as the analyzer sees it, that wasn’t big enough to be considered a match. There may also be times when text looks different but gives a match, this may be because things like naming or some other readily changeable property was different while underlying structure was considered similar enough to be a match.
+
+Winnowing Algorithm and Setting Up Fingerprints (winnowing.py)
+
+After parsing and/or tokenizing the file, the resulting string will be made into fingerprints, which are basically what are used for comparisons/analysis. First, the text is split up into k-grams, which will be a contiguous substring of length k (a changeable option). Below is an example taken from MOSS’s document:
+
+A do run run run, a do run run
+(original text)
+
+adorunrunrunadorunrun
+(irrelevant features removed/parsed)
+
+adoru dorun orunr runru unrun nrunr runru unrun nruna runad unado nador adoru dorun orunr runru unrun
+(splitting the text into k-grams with k = 5)
+
+There should be a k-gram at every position in the text, except for the last k - 1 positions. k is also called the noise threshold, in that it will determine the length a substring should be to be considered significant enough for comparison, smaller matching substrings may simply be coincidental and aren’t necessarily indicative of plagiarism. Those would be considered a part of the general “noise” and wouldn’t be compared. Generally, the larger the k, the more sure you can be that a similar k-gram found was a true copy because of how long the match was, however a smaller k will be better at finding things that were reordered or relocated throughout the document or a smaller match, so a good value to balance that should be chosen. After being split into k-grams, the k-grams are then all hashed.
+
+77 72 42 17 98 50 17 98 8 88 67 39 77 72 42 17 98
+(a hypothetical sequence of hashes from the k-grams)
+
+After this, the core winnowing algorithm takes place in order to derive the fingerprints, it essentially involves putting the hashes into a series of windows of size w and selecting minimum hash values. A more detailed description can be found in the document (https://theory.stanford.edu/~aiken/publications/papers/sigmod03.pdf) in section 3 which goes into it better, pseudocode for it can be found in section 5.2.
+
+17 17 8 39 17
+(the hashes that were chosen as fingerprints of the original text from the winnowing algorithm)
+
+We also keep track of the starting position of each fingerprint in the parsed text and the original unparsed substring in our fingerprint object (usually for displaying purposes). What comes out in the end would look something like this. 
+runru, 17, [3]    runru, 17, [6]    nruna, 8, [8]    nador, 39, [11]    runru 17, [15]
+These are essentially the fingerprints/identifiers that are chosen to make up a file and are what will be highlighted to the user on the front end. 
+
+Comparisons (interface.py)
+This takes place after all of the fingerprints in each file have been determined. Primarily, we use the compare_multiple_files function (with versions for text, Python, and Java) in order to do this, there are also single file functions that use different parameters for the winnowing algorithm that are used for the fingerprints viewable on the frontend. Files are first wrapped into filetofingerprint objects, comparisons between the objects take place, if two fingerprints between files share the same hash, then they’re considered a common fingerprint. This fingerprint can take place across multiple locations in each of the two documents, when viewing you’ll see all of the fingerprints at all of these locations across both files (essentially you’re indexing through the hashes). It should be kept in mind that a common fingerprint may share the same hash value number but the original substring they represent may not be exactly the same. 
+
+Boilerplate Files (interface.py)
+These are simply files that a student would be sanctioned to copy from. They come in the form of a parameter in the file comparing functions, and any fingerprints generated from these files are to be ignored in comparisons. One possible usage for this would be something like an answer key, or perhaps an example from a textbook or lecture slides/notes. 
+
+Percentage Similarity (interface.py)
+Percentage similarity, calculated through get_similarity, is based on the number of in-common fingerprints one file has with respect to another divided by its own total fingerprints. This means it’s a relative percentage and comparing file A to file B wouldn’t necessarily give the same percentage when comparing file B to file A, as it represents what percentage of its own fingerprints are shared by another file. 
+
+Most Important Matches (interface.py)
+This is an optional feature added primarily for visual purposes. It involves identifying whenever a sequence of the same consecutive fingerprints occurring in one file is also found in another file. Them being consecutive and the same would be indicative of a higher chance of it truly being plagiarism, and so they’re given a special highlight. Having made it myself, I can say (at least the way I implemented it) it was complicated enough to the point where it may not be worth trying to modify or improve. Blocksize (or sequence size) and offset are offered as parameters, with blocksize being the number of consecutive fingerprints there would need to be in order for it to be considered a most important sequence/block to be highlighted, and offset the allowable distance between fingerprints in order for them to be considered consecutive or in the same sequence. Remember this distance is calculated based on the positional distance in the parsed/tokenized string between fingerprints rather than the original unparsed file text. 
+
+Known Issues: 
+Lengthy string (often found in print functions) or data constants under certain circumstances can lead to skewed comparisons. The most important matches function was tested but may need to be tested more to assure it works. 
+
+Future Work:
+C++ is a popular language used at UF and so could be added, along with C. We looked at clang as one possible option for implementing this. Allowing to add files by a directory/folder rather than directly is something else that could be helpful that wouldn’t be too hard to implement. 
+
