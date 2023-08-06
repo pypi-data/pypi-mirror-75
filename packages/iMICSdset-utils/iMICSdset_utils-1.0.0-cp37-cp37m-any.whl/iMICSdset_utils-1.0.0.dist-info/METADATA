@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: iMICSdset-utils
+Version: 1.0.0
+Summary: Official APIs for the MS-COCO dataset
+Home-page: UNKNOWN
+Author: Ernest (Khashayar) Namdar
+Author-email: ernest.namdar@utoronto.ca
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: setuptools (>=18.0)
+Requires-Dist: cython (>=0.27.3)
+Requires-Dist: matplotlib (>=2.1.0)
+
+UNKNOWN
+
+
