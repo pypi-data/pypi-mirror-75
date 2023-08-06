@@ -1,0 +1,13 @@
+pygeogrids
+numpy
+pandas
+matplotlib
+configparser
+scipy
+cython
+more_itertools
+
+[testing]
+pytest==5.0.1
+pytest-cov
+pytest-mpl

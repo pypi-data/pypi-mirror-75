@@ -1,0 +1,18 @@
+name: ismn
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - cython
+  - numpy
+  - scipy
+  - pandas
+  - matplotlib<3.1.0
+  - cartopy
+  - netCDF4
+  - hdf5
+  - pip
+  - pip:
+     - pygeogrids
+     - configparser
+     - more_itertools
