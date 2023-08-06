@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: OpenOA
+Version: 0.0
+Summary: A package for collecting and assigning wind turbine metrics
+Home-page: https://github.com/NREL/OpenOA
+Author: NREL PRUF OA Team
+Author-email: openoa@nrel.gov
+License: None
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: pandas
+Requires-Dist: pygam
+Requires-Dist: geopandas
+Requires-Dist: tqdm
+Requires-Dist: statsmodels
+Requires-Dist: scikit-learn
+Requires-Dist: EIA-python
+Requires-Dist: requests
+
+UNKNOWN
+
+
