@@ -1,0 +1,13 @@
+README.md
+setup.py
+slack_watchman.egg-info/PKG-INFO
+slack_watchman.egg-info/SOURCES.txt
+slack_watchman.egg-info/dependency_links.txt
+slack_watchman.egg-info/entry_points.txt
+slack_watchman.egg-info/requires.txt
+slack_watchman.egg-info/top_level.txt
+watchman/__about__.py
+watchman/__init__.py
+watchman/__main__.py
+watchman/audit.py
+watchman/definitions.py
