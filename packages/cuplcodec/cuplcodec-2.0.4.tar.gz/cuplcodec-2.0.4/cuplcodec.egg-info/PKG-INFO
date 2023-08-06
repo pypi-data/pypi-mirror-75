@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: cuplcodec
+Version: 2.0.4
+Summary: Package for creating and decoding URLs that contain temperature and humidity samples.
+Home-page: https://github.com/cuplsensor/cuplcodec
+Author: Malcolm Mackay
+Author-email: malcolm@plotsensor.com
+License: UNKNOWN
+Description: # wscodec
+        Websensor Encoder and Decoder -- in development, not recommended for production use yet.
+        
+        
+        `pip install wscodec`
+        
+        Find documentation at https://wscodec.readthedocs.io/. This is very much a work in progress. 
+        A lot of it was written a while ago and is now out of date.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
