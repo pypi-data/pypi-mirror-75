@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: omi-async-http-client
+Version: 0.1.6
+Summary: An async http client implemented with [asyncio] and backends
+Home-page: https://github.com/limccn/omi_async_http_client
+Author: limccn
+Author-email: limccn@me.com
+License: Apache License 2.0
+Description: An async http client implemented with [asyncio] and backends,                         Supports both sync and async model to send http requests,                        The sync client is implemented with [requests]                         The async client is implemented with [aiohttp] and [httpx] client.                         
+Keywords: http_client,aio,async,asyncio
+Platform: any
