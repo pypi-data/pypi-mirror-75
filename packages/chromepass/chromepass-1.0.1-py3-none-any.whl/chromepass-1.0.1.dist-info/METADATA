@@ -1,0 +1,87 @@
+Metadata-Version: 2.1
+Name: chromepass
+Version: 1.0.1
+Summary: Fetching saved passwords from chrome database file
+Home-page: https://github.com/bierschi/chromepass
+Author: Christian Bierschneider
+Author-email: christian.bierschneider@web.de
+License: MIT
+Keywords: chrome,passwords,database,browser,windows,linux
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Requires-Dist: secretstorage (>=3.1.0)
+Requires-Dist: pycryptodomex
+Requires-Dist: win32crypt ; sys_platform == "win32"
+
+# chromepass
+- Fetching saved passwords from chrome database file
+- Supports Windows and Linux Platform
+
+<br>
+
+![Alt Text](chromepass.gif)
+
+
+## Installation
+
+install [chromepass]() with pip
+<pre><code>
+pip3 install chromepass
+</code></pre>
+
+or from source
+<pre><code>
+git clone https://github.com/bierschi/chromepass
+cd chromepass
+sudo python3 setup.py install
+</code></pre>
+
+
+## Usage and Examples
+Print the available arguments
+<pre><code>
+chromepass --help
+</code></pre>
+use it without any arguments
+<pre><code>
+chromepass
+</code></pre>
+or save the results to a file
+<pre><code>
+chromepass --file /home/christian/chromepass.txt
+</code></pre>
+
+## Executables
+
+Install pyinstaller with
+
+<pre><code>
+pip3 install pyinstaller
+</code></pre>
+
+create exe file
+<pre><code>
+pyinstaller --onefile --name chromepass chromepass/main.py
+</code></pre>
+
+## Changelog
+All changes and versioning information can be found in the [CHANGELOG](https://github.com/bierschi/chromepass/blob/master/CHANGELOG.rst)
+
+## License
+Copyright (c) 2020 Bierschneider Christian. See [LICENSE](https://github.com/bierschi/chromepass/blob/master/LICENSE)
+for details
+
+
