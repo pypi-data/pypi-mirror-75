@@ -1,0 +1,29 @@
+Metadata-Version: 1.1
+Name: brotli-file
+Version: 0.1.0
+Summary: 'Brotli file interface'
+Home-page: https://github.com/youknowone/brotli-file
+Author: Jeong YunWon
+Author-email: brotlifile@youknowone.org
+License: BSD 2-Clause License
+Description: brotli-file
+        ===========
+        
+        Add `brotli_file.open` as a file interface.
+        
+        .. code:: python
+        
+            import brotli_file
+        
+            f = brotli_file.open('test.br')
+            print(f.readline())  # any other method will work except for seek
+        
+Keywords: brotli,file
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
