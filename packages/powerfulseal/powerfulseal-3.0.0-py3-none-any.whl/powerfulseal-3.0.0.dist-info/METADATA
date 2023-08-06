@@ -1,0 +1,133 @@
+Metadata-Version: 2.1
+Name: powerfulseal
+Version: 3.0.0
+Summary: PowerfulSeal - a powerful testing tool for Kubernetes clusters
+Home-page: https://github.com/bloomberg/powerfulseal
+Author: Mikolaj Pawlikowski
+Author-email: mikolaj@pawlikowski.pl
+License: Apache 2.0
+Project-URL: Source, https://github.com/bloomberg/powerfulseal
+Project-URL: Tracker, https://github.com/bloomberg/powerfulseal/issues
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Quality Assurance
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Requires-Dist: ConfigArgParse (<1,>=0.11.0)
+Requires-Dist: Flask (<2,>=1.0.0)
+Requires-Dist: termcolor (<2,>=1.1.0)
+Requires-Dist: openstacksdk (<1,>=0.10.0)
+Requires-Dist: spur (<1,>=0.3.20)
+Requires-Dist: kubernetes (<12.0.0,>=11.0.0)
+Requires-Dist: PyYAML (<6,>=5.1.2)
+Requires-Dist: jsonschema (<4,>=3.0.2)
+Requires-Dist: boto3 (<2.0.0,>=1.5.15)
+Requires-Dist: azure-common (<2.0.0,>=1.1.23)
+Requires-Dist: azure-mgmt-resource (<3.0.0,>=2.2.0)
+Requires-Dist: azure-mgmt-network (<3.0.0,>=2.7.0)
+Requires-Dist: azure-mgmt-compute (<5.0.0,>=4.6.2)
+Requires-Dist: future (<1,>=0.16.0)
+Requires-Dist: requests (<3,>=2.21.0)
+Requires-Dist: prometheus-client (<0.4.0,>=0.3.0)
+Requires-Dist: flask-cors (<4,>=3.0.6)
+Requires-Dist: coloredlogs (<11.0.0,>=10.0.0)
+Requires-Dist: paramiko (<3,>=2.5.0)
+Requires-Dist: google-api-python-client (>=1.7.8)
+Requires-Dist: google-auth (>=1.6.2)
+Requires-Dist: google-auth-httplib2 (>=0.0.3)
+Requires-Dist: oauth2client (>=4.1.3)
+Requires-Dist: datadog (<1.0.0,>=0.29.0)
+Requires-Dist: python-dateutil (<2.7.0,>=2.5.3)
+Provides-Extra: testing
+Requires-Dist: pytest (<4,>=3.0) ; extra == 'testing'
+Requires-Dist: pytest-cov (<3,>=2.5) ; extra == 'testing'
+Requires-Dist: mock (<5,>=4) ; extra == 'testing'
+
+
+# PowerfulSeal
+
+[![Travis](https://img.shields.io/travis/bloomberg/powerfulseal.svg)](https://travis-ci.com/bloomberg/powerfulseal) [![PyPI](https://img.shields.io/pypi/v/powerfulseal.svg)](https://pypi.python.org/pypi/powerfulseal)
+
+**PowerfulSeal** injects failure into your Kubernetes clusters, so that you can detect problems as early as possible. It allows for writing scenarios describing complete [chaos experiments](https://principlesofchaos.org).
+
+<p align="center">
+  <img src="docs/media/powerful-seal.png" alt="Powerful Seal Logo" width="150"></a>
+  <br>
+  Embrace the inevitable failure. <strong>Embrace The Seal</strong>.
+  <br>
+</p>
+
+## [Documentation](https://bloomberg.github.io/powerfulseal)
+
+Please refer to the [Powerfulseal documentation](https://bloomberg.github.io/powerfulseal) to learn how to use it.
+
+## Highlights
+
+- works with `Kubernetes`, `OpenStack`, `AWS`, `Azure`, `GCP` and local machines
+- `yaml` [policies](https://bloomberg.github.io/powerfulseal/policies) describing complete chaos experiments
+- `Prometheus` and `Datadog` metrics collection
+- multiple [modes](https://bloomberg.github.io/powerfulseal/modes) for differnt use cases
+
+
+## Hello world!
+
+Just to give you a taste, here's an example policy. It will kill a single pod, and then check that the service continues responding to HTTP probes, to verify its resiliency to one of its pods going down.
+
+```yaml
+scenarios:
+- name: Kill one pod in my namespace, make sure the service responds
+  steps:
+  # kill a pod from `myapp` namespace
+  - podAction:
+      matches:
+        - namespace: myapp
+      filters:
+        - randomSample:
+            size: 1
+      actions:
+        - kill:
+            probability: 0.75
+  # check my service continues working
+  - probeHTTP:
+      target:
+        service:
+          name: my-service
+          namespace: myapp
+      endpoint: /healthz
+```
+
+Assuming that's in `policy.yml`, you can run it like this:
+
+```sh
+powerfulseal autonomous --policy-file ./policy.yaml
+```
+
+[Learn more](https://bloomberg.github.io/powerfulseal)
+
+## Installing
+
+- [docker hub](https://hub.docker.com/r/bloomberg/powerfulseal/tags): `docker pull bloomberg/powerfulseal:3.0.0`
+- [pip](https://pypi.org/project/powerfulseal/): `pip install powerfulseal`
+
+
+## Read about the PowerfulSeal
+
+- https://medium.com/faun/failures-are-inevitable-even-a-strongest-platform-with-concrete-operations-infrastructure-can-7d0c016430c6
+- https://www.techatbloomberg.com/blog/powerfulseal-testing-tool-kubernetes-clusters/
+- https://siliconangle.com/blog/2017/12/17/bloomberg-open-sources-powerfulseal-new-tool-testing-kubernetes-clusters/
+- https://github.com/ramitsurana/awesome-kubernetes#testing
+- https://github.com/ramitsurana/awesome-kubernetes#other-useful-videos
+- https://github.com/dastergon/awesome-chaos-engineering#notable-tools
+- https://www.linux.com/news/powerfulseal-testing-tool-kubernetes-clusters-0
+- https://www.infoq.com/news/2018/01/powerfulseal-chaos-kubernetes
+- [PowerfulSeal presentation at KubeCon 2017 Austin](https://youtu.be/00BMn0UjsG4)
+
+---
+
+## Footnotes
+
+PowerfulSeal logo Copyright 2018 The Linux Foundation, and distributed under the Creative Commons Attribution (CC-BY-4.0) [license](https://creativecommons.org/licenses/by/4.0/legalcode).
+
+
