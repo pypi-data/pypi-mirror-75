@@ -1,0 +1,7 @@
+include interactivemap/interactivemap.min.js
+include interactivemap/interactivemap.min.js.map
+include interactivemap/metadata.json
+include interactivemap/package-info.json
+include README.md
+include LICENSE
+include package.json

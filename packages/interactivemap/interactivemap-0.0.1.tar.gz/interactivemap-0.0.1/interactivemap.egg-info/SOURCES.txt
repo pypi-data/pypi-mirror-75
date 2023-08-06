@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.md
+package.json
+setup.py
+interactivemap/MapComponent.py
+interactivemap/__init__.py
+interactivemap/_imports_.py
+interactivemap/interactivemap.min.js
+interactivemap/interactivemap.min.js.map
+interactivemap/metadata.json
+interactivemap/package-info.json
+interactivemap.egg-info/PKG-INFO
+interactivemap.egg-info/SOURCES.txt
+interactivemap.egg-info/dependency_links.txt
+interactivemap.egg-info/top_level.txt
