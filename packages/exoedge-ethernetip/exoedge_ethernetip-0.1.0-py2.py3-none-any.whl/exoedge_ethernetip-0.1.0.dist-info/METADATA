@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: exoedge-ethernetip
+Version: 0.1.0
+Summary: An ExoEdge source for EtherNet/IP.
+Home-page: https://github.com/exosite/lib_exoedge_ethernetIP_python
+Author: Exosite LLC
+Author-email: support@exosite.com
+License: Apache 2.0
+Keywords: murano exosite iot iiot client gateway EtherNet/IP
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: System :: Operating System Kernels :: Linux
+Classifier: Topic :: Software Development :: Embedded Systems
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: >=3.6
+Requires-Dist: exoedge
+Requires-Dist: ifparser
+Requires-Dist: pycomm3 (>=0.9.0)
+
+Description
+############
+
+**Warning:** Currently only compatible with Python3 (>=3.6.1)
+
+The purpose of this repository is to provide an ExoEdge protocol source that can get read EtherNet/IP tags from a PLC.
+
+A protocol source (often just referred to as a "source") is the glue between ExoEdge and the field-bus that you want to get data to and from. It is helpful to think of a source as a plugin to ExoEdge.
+
+This source utilizes the `pycomm3 <https://pypi.org/project/pycomm3/>`_ library and is subject to the same restrictions.
+
+
+Install
+#########
+
+Installing a build can be done in several ways:
+
+Installing From Source
+"""""""""""""""""""""""
+
+.. code-block:: bash
+
+    $ python setup.py install
+
+
+Installing From Builds
+"""""""""""""""""""""""
+
+.. code-block:: bash
+
+    $ pip install dist/*.whl
+
+
+Installing From Builds
+"""""""""""""""""""""""
+
+.. code-block:: bash
+
+    $ pip install exoedge_ethernetip
+
+Usage
+#########
+Configure the channel in ExoSense by inputting an Application of 'EtherNetIP' and including both 'path' and 'tag' in the app_specfic_config
+
+.. image:: images/EtherNetIP_Configuration.png
+
+The `path` argument can take 3 forms:
+ - IP Address Only (10.20.30.100) - Use if PLC is in slot 0 or if connecting to CompactLogix
+
+ - IP Address/Slot (10.20.30.100/1) - Use if PLC is not in slot 0
+
+ - CIP Routing Path (10.20.30.100/backplane/3/enet/10.20.40.100/backplane/0) - Use for more complex routing
+
+
+
