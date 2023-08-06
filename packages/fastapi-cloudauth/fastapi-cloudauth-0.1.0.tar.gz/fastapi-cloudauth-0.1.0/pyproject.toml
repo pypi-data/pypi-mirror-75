@@ -1,0 +1,44 @@
+[tool.poetry]
+name = "fastapi-cloudauth"
+version = "0.1.0"
+description = "fastapi-cloudauth supports simple integration between FastAPI and cloud authentication services (AWS Cognito, Auth0)."
+authors = ["tokusumi <tksmtoms@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/tokusumi/fastapi-cloudauth"
+
+include = [
+    "LICENSE",
+]
+keywords = ["FastAPI", "authentication", "Auth0", "AWS Cognito"]
+classifiers = [
+    "Environment :: Web Environment",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Topic :: Security",
+    "Typing :: Typed",
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+fastapi = "^0.60.1"
+python-jose = "^3.2.0"
+requests = "^2.24.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.4.3"
+pytest-cov = "^2.10.0"
+flake8 = "^3.8.3"
+mypy = "^0.782"
+black = "^19.10b0"
+uvicorn = "^0.11.8"
+botocore = "^1.17.32"
+boto3 = "^1.14.32"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
