@@ -1,0 +1,25 @@
+pyserial
+PyDispatcher
+bottle
+Sphinx
+yappi
+intelhex
+setuptools<=44.1.1
+openwsn-coap>=0.0.7
+pycryptodome
+cbor
+hkdf
+paho-mqtt
+coloredlogs
+verboselogs
+click
+blessed
+ipaddr
+scapy
+sshtunnel
+iotlabcli
+appdirs
+
+[:sys_platform == "win32"]
+pywin32
+colorama
