@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: rl-tools
+Version: 0.0.1
+Summary: A general toolset for reinforcement learning (RL)
+Home-page: https://github.com/gxywy/rl-tools
+Author: Gong Xiaoyu
+Author-email: gxywy@hotmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.0
+Description-Content-Type: text/markdown
+
+# rl-tools
+
+![PyPI](https://img.shields.io/pypi/v/rl-tools?style=flat-square) ![GitHub](https://img.shields.io/github/license/gxywy/rl-tools?style=flat-square) ![GitHub last commit](https://img.shields.io/github/last-commit/gxywy/rl-tools?style=flat-square)
+
+ This is a simple toolset for reinforcement learning (RL).
+
+## Installation
+
+from PIP
+
+```
+pip install rl_tools
+```
+
+from source
+
+```shell
+python setup.py install
+```
+
+## Usage
+
+**As a alone script:**
+
+for example:
+
+```
+python -m rl_tools.plotter --save --show
+```
+
+- [enjoy.py](./rl_tools/enjoy.py)  enjoy the trained model, and track avg, med, std, min, max reward of episodes.
+- [plotter.py](./rl_tools/plotter.py) plot learning curves for training , see [rl-plotter](https://github.com/gxywy/rl-plotter) for detail.
+- [scheduler.py](./rl_tools/scheduler.py)  set training scheduler for tasks.
+
+
+
+**In RL agent:**
+
+for example:
+
+```
+from rl_tools.evaluator import Evaluator
+from rl_tools.logger import Logger
+```
+
+- [evaluator.py](./rl_tools/evaluator.py) evaluate model while training.
+- [logger.py](./rl_tools/logger.py) track learning process while training (same format as OpenAI baseline).
+
