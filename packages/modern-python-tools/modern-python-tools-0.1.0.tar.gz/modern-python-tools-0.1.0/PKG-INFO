@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: modern-python-tools
+Version: 0.1.0
+Summary: Playing with modern Python tools
+Home-page: https://github.com/taquitochowder/modern-python-tools
+License: MIT
+Keywords: hypermodern
+Author: Thakee Chowdhury
+Author-email: thakeechow@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: desert (>=2020.1.6,<2021.0.0)
+Requires-Dist: marshmallow (>=3.7.1,<4.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Project-URL: Repository, https://github.com/taquitochowder/modern-python-tools
+Description-Content-Type: text/markdown
+
+# modern-python-tools
+
+[![Tests](https://github.com/taquitochowder/modern-python-tools/workflows/Tests/badge.svg)](https://github.com/taquitochowder/modern-python-tools/actions?workflow=Tests)
+[![Codecov](https://codecov.io/gh/taquitochowder/modern-python-tools/branch/master/graph/badge.svg)](https://codecov.io/gh/taquitochowder/modern-python-tools)
+
+
+Playing with modern Python tools (<https://cjolowicz.github.io/posts/hypermodern-python-01-setup/>)
+
