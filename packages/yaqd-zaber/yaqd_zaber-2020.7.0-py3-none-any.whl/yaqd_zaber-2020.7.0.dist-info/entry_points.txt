@@ -1,0 +1,3 @@
+[console_scripts]
+yaqd-zaber-binary=yaqd_zaber._zaber_binary:ZaberBinary.main
+
