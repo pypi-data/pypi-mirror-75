@@ -1,0 +1,3 @@
+[console_scripts]
+autoneuro_pypi = autoneuro_pypi.__main__:main
+
