@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: regionmask
+Version: 0.6.0
+Summary: plotting and creation of masks for spatial regions
+Home-page: https://github.com/mathause/regionmask
+Author: mathause
+Author-email: mathias.hauser@env.ethz.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Classifier: Topic :: Scientific/Engineering :: GIS
+Requires-Python: >=2.7
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: shapely
+Requires-Dist: six
+Requires-Dist: rasterio
+Requires-Dist: cartopy
+Requires-Dist: geopandas
+Requires-Dist: affine
+Requires-Dist: xarray
+Requires-Dist: pooch
+Provides-Extra: docs
+Requires-Dist: numpydoc ; extra == 'docs'
+Requires-Dist: jupyter ; extra == 'docs'
+Requires-Dist: nbconvert ; extra == 'docs'
+
+See https://regionmask.readthedocs.io
+
+
