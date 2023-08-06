@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: pclog
+Version: 0.1.0
+Summary: Pretty Color Log
+Home-page: https://gitlab.com/abrosimov.a.a/pclog
+Author: Anton Abrosimov
+Author-email: anton@abrosimov.online
+License: GNU General Public License v3
+Project-URL: Bug Tracker, https://gitlab.com/abrosimov.a.a/pclog/-/issues
+Project-URL: Documentation, https://gitlab.com/abrosimov.a.a/pclog/-/wikis/home
+Project-URL: Source Code, https://gitlab.com/abrosimov.a.a/pclog
+Keywords: logging,formatter
+Platform: any
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Logging
+Classifier: Topic :: Terminals
+Classifier: Topic :: Utilities
+Classifier: Typing :: Typed
+Requires-Python: >=3.7.0
+Description-Content-Type: text/x-rst
+Requires-Dist: pygments
+
+Pretty Color Log for Python
+===========================
+
+Status: **Alpha**
+
+
