@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: systemonachip
+Version: 0.0.1
+Summary: A framework for building system-on-a-chips with nMigen
+Home-page: UNKNOWN
+Author: Scott Shawcroft
+Author-email: scott@chickadee.tech
+License: BSD
+Project-URL: Source Code, https://github.com/tannewt/systemonachip
+Project-URL: Bug Tracker, https://github.com/tannwet/systemonachip/issues
+Platform: UNKNOWN
+Requires-Dist: nmigen (<0.3,>=0.1)
+
+UNKNOWN
+
+
