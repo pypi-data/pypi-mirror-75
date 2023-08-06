@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: chippy-emu
+Version: 0.1.0
+Summary: Chip-8 interpreter
+Home-page: https://github.com/lggruspe/chippy
+Author: Levi Gruspe
+Author-email: mail.levig@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Games/Entertainment
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: pygame
+
+chippy
+======
+
+`chippy` is a Chip-8 interpreter built using Pygame.
+
+
+Installation
+------------
+
+```bash
+pip install chippy-emu
+```
+
+License
+-------
+
+MIT.
+
+
