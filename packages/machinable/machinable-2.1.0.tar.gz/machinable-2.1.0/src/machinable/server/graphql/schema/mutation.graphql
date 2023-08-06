@@ -1,0 +1,13 @@
+type Mutation {
+    execute(data: ExecutionInput): Execution
+}
+
+input ExecutionInput {
+    task: JSON
+    storage: JSON
+    driver: JSON
+}
+
+type Execution {
+    task_id: String
+}

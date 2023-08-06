@@ -1,0 +1,13 @@
+pytest-cov
+pytest
+pytest-ordering
+black
+isort
+# optional dependencies
+numpy
+ray[tune]
+pandas
+tabulate
+ariadne
+starlette
+uvicorn
