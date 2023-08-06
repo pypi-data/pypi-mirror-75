@@ -1,0 +1,2 @@
+(self.webpackJsonp=self.webpackJsonp||[]).push([[36],{819:function(e,r,n){"use strict";n.r(r),n.d(r,"codeMirror",(function(){return c})),n.d(r,"codeMirrorCss",(function(){return i}));var s=n(512),o=n.n(s),t=n(720),a=(n(721),n(722),n(12));o.a.commands.save=e=>{Object(a.a)(e.getWrapperElement(),"editor-save")};const c=o.a,i=t.a}}]);
+//# sourceMappingURL=chunk.d6418acf334ec20494d0.js.map
