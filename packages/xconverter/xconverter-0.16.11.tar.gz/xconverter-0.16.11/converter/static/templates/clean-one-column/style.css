@@ -1,0 +1,1202 @@
+/*
+Gabarit personnalisé Érudit. Version du 8 juillet 2020. Gabarit sur une colonne.
+*/
+
+
+/* Éléments de l’en-tête */
+
+.cover .journal-title {
+display: block;
+font-size: 10px;
+font-family: "Maax Mono";
+text-align:center;
+line-height: 1.2;
+}
+
+.cover .issue-label {
+display: block;
+font-size: 10px;
+font-family: "Maax Mono";
+text-align:center;
+}
+
+
+/* Éléments du pied de page */
+
+.cover .license .statement {
+display: block;
+font-size: 10px;
+font-family: "Maax Mono";
+}
+
+.cover .article-id {
+font-size: 10px;
+font-family: "Maax Mono";
+font-style:normal;
+display: block;
+}
+
+.cover .license .creative-commons {
+display: block;
+width: 70%;
+}
+
+
+/* Éléments de titre du document */
+
+.article .title-group .article-title {
+text-align:left;
+font-size:28px;
+color: #000;
+font-family: "Maax";
+font-weight: 500;
+margin:100px 0px 20px;
+}
+
+.article .title-group .subtitle {
+text-align:left;
+font-size:21px;
+color: #000;
+font-family: "Maax";
+font-weight: 500;
+margin:10px 0px 10px;
+}
+
+.article .title-group .reviewed-product {
+color:#000;
+font-size:28px;
+text-align: left;
+margin:100px 0px 20px;
+font-family: "Maax";
+font-weight: 500;
+}
+
+.article .trans-title-group .trans-title {
+text-align:left;
+font-size:21px;
+margin:10px 0px 10px;
+color: #7F7F7F;
+font-family: "Maax";
+font-weight: 500;
+font-style: italic;
+}
+
+
+/* Contributeurs */
+
+.contrib-group {
+margin:25px 0px 40px;
+color:#000;
+font-family: "Maax";
+}
+
+.contrib-group .contrib {
+font-style:normal;
+font-size:12px;
+line-height:1.2em;
+text-align:left;
+display: list-item;
+list-style:none;
+font-family: "Maax";
+}
+
+.contrib .name {
+margin-top:10px;
+font-weight: bold;
+font-family: "Maax";
+}
+
+.name .surname {
+margin-top:0px;
+text-transform:uppercase;
+font-family: "Maax";
+}
+
+.contrib .institution {
+font-family: "Maax Mono";
+}
+
+.contrib .email {
+font-family: "Maax Mono";
+}
+
+
+/* Notes éditoriales */
+
+.article .editorial-notes {
+  border-top: 1px solid #CCCCCC;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 100%;
+  color: #000;
+  margin:25px 0px 20px;
+  font-family: "Maax";
+}
+
+.article .editorial-notes .title {
+  text-align:left;
+  font-size:10px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin:20px auto 10px 0px;
+  color:#000;
+  break-after: avoid!important;
+}
+
+.article .editorial-notes .note  {
+  display: list-item;
+  list-style:none;
+  line-height: 1.2em;
+    width: 100%;
+}
+
+.article .editorial-notes .note .title  {
+  text-align:left;
+  font-size:10px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin:20px auto 10px 0px;
+  color:#000;
+  line-height: 1.2em;
+    width: 100%;
+}
+
+.article .editorial-notes .note p {
+  text-align: left;
+  font-size:10px;
+  line-height: 1.2em;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #000;
+  font-family: "Maax Mono";
+      width: 100%;
+}
+
+
+/* Bloc résumé */
+
+.abstract-group {
+margin-bottom:80px;
+padding-left: 0px;
+padding-right: 12px;
+padding-bottom: 5px;
+border-top: 1px solid #CCCCCC;
+padding-top: 20px;
+width: 100%;
+}
+
+.abstract-group .abstract .title {
+text-align:left;
+font-size:14px;
+font-family:"Maax";
+font-weight: bold;
+margin:20px auto auto 0px;
+color:#000;
+break-after: avoid!important;
+}
+
+.abstract p {
+text-align: left;
+font-size:12px;
+line-height:1.2;
+}
+
+.abstract-group .kwd-group {
+  padding-top: 15px;
+  font-family: "Noto Serif", serif;
+}
+
+.abstract-group .kwd-group .title {
+  text-align:left;
+  font-size:14px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin:20px auto auto 0px;
+  color:#000;
+  break-after: avoid!important;
+}
+
+.abstract-group .kwd-group ul li {
+  line-height: 1.0;
+  font-family: "Noto Serif", serif;
+}
+
+.kwd-group ul {
+text-align:left;
+font-size:12px;
+}
+
+.kwd-group li {
+text-align:left;
+font-size:12px;
+}
+
+.kwd-group li:not(:last-child):after {
+content:";";
+}
+
+
+/* Body */
+
+.article * {
+font-family: "Noto Serif", serif;
+}
+
+.body {
+  page-break-before: always;
+  border-top: 1px solid #CCCCCC;
+  padding-bottom: 20px;
+}
+
+p {
+margin-bottom:0;
+font-size:12px;
+orphans: 3;
+widows: 2;
+text-align: left;
+line-height: 1.5;
+}
+
+
+/* Éléments de titre de section */
+
+.sec .title {
+text-align:left;
+font-size:21px;
+font-family: "Maax";
+font-weight: bold;
+margin:35px auto 15px;
+color:#ff4242;
+break-after: avoid!important;
+}
+
+.sec .sec .title {
+text-align:left;
+font-size:14px;
+font-family: "Maax";
+font-weight: bold;
+margin:35px auto 15px;
+color:#ff4242;
+break-after: avoid!important;
+}
+
+.sec .sec .sec .title {
+text-align:left;
+font-size:12.6px;
+font-family:"Maax";
+font-weight: normal;
+margin:35px auto 15px;
+color:#ff4242;
+break-after: avoid!important;
+}
+
+.sec .sec .sec .sec .title {
+text-align:left;
+font-size:9.8px;
+font-family:"Maax";
+font-weight: normal;
+margin:35px auto 15px;
+color:#ff4242;
+break-after: avoid!important;
+}
+
+.sec .sec .sec .sec .sec .title {
+text-align:left;
+font-size:8.4px;
+font-family:"Maax";
+font-weight: normal;
+margin:35px auto 15px;
+color:#ff4242;
+break-after: avoid!important;
+}
+
+
+/* Bloc de citation */
+
+.block-citation {
+font-size: 10px;
+width:85%;
+padding-left:40px;
+border-left: 1px solid #CCCCCC;
+padding-right:0;
+padding-bottom: 20px;
+margin:20px auto;
+color: #000;
+line-height: 1.2;
+}
+
+.block-citation p {
+  orphans: 3;
+  font-size: 10px;
+  line-height: 1.5;
+  text-align: left;
+  font-family: "Noto Serif", serif;
+}
+
+.block-citation p + p {
+  text-indent:0;
+}
+
+.block-citation .attrib {
+display: block;
+text-align: right;
+color: #707070;
+font-size: 10px;
+margin-top: 25px;
+font-family: "Maax";
+font-weight: 400;
+}
+
+
+/* Verbatim */
+
+.verbatim {
+  font-size: 12px;
+  line-height: 1.5;
+  width:85%;
+  padding-left:20px;
+  padding-right:0px;
+  padding-bottom: 20px;
+  margin:20px auto;
+  color: #000;
+}
+
+.verbatim p {
+  font-size: 10px;
+  line-height: 1.2;
+  font-family: "Noto Serif", serif;
+}
+
+.verbatim p + p {
+  text-indent:0;
+}
+
+.verbatim .attrib {
+  display: block;
+  text-align: right;
+  color: #707070;
+  font-size: 10px;
+  margin-top: 25px;
+  font-family: "Maax";
+  font-weight: 400;
+}
+
+
+/* Liens internes ou hyperliens */
+
+a:link,a:visited,a:hover,a:active {
+color:#ff4242;
+text-decoration:none;
+}
+
+a[href^="http:"]:link,a[href^="http:"]:visited,a[href^="http:"]:hover,a[href^="http:"]:active  {
+  color:#ff4242;
+  text-decoration:none;
+}
+
+
+/* Exposants */
+
+.xref {
+  font-size: 8px;
+}
+
+
+/* Éléments de liste */
+
+ol  {
+    margin-top:15px;
+    font-size: 12px;
+  font-family: "Noto Serif", serif;
+}
+
+ul {
+    margin-top:15px;
+}
+
+ol p {
+line-height:1.5em;
+}
+
+ul p {
+line-height:1.5em;
+}
+
+
+/* Disp-quote */
+
+.disp-quote {
+margin:35px 0 20px;
+}
+
+.disp-quote p {
+  font-size: 12px;
+  font-family: "Maax";
+  font-weight: 400;
+  line-height: 1.5;
+  width:85%;
+  padding-left:20px;
+  padding-right:0;
+  margin:20px auto;
+  color: #000;
+}
+
+.disp-quote p + p {
+  text-indent:0;
+}
+
+.dispo-quote .attrib {
+  display: block;
+  text-align: right;
+  color: #707070;
+  font-size: 10px;
+  margin-top: 25px;
+  font-family: "Maax";
+  font-weight: 400;
+}
+
+
+/* Épigraphe */
+
+.epigraph {
+width:80%;
+margin-left:0px;
+}
+
+.epigraph p {
+  font-size: 12px;
+  font-family: "Maax";
+  font-weight: 400;
+  line-height: 1.5;
+  padding-right:0;
+  color: #000;
+  margin:30px 0px 20px 0px;
+}
+
+.epigraph p + p {
+  text-indent:0;
+}
+
+.epigraph .attrib {
+  display: block;
+  text-align: left;
+  color: #707070;
+  font-size: 10px;
+  font-family: "Maax";
+  font-weight: 400;
+  margin:25px 0px 20px 0px;
+}
+
+
+/* Dédicace */
+
+.dedication {
+  margin:35px 0px 20px 0px;
+}
+
+.dedication p {
+  font-size: 12px;
+  font-family: "Maax";
+  font-weight: 400;
+  line-height: 1.5;
+  padding-right:0;
+  color: #000;
+}
+
+
+/* Encadré */
+
+.boxed-text {
+margin-top: 30px;
+margin-bottom: 30px;
+background-color: white;
+width:95%;
+font-size:10px;
+border: 1px solid #CCCCCC;
+break-after: avoid!important;
+}
+
+.boxed-text .boxed-header {
+border-bottom: 1px solid #CCCCCC;
+padding-top:8px;
+text-align: left;
+break-after: avoid!important;
+}
+
+.boxed-text .boxed-header .label {
+color:#7f7f7f;
+display:block;
+padding-bottom:14px;
+line-height:1em;
+font-size:12px;
+font-family: "Maax";
+font-weight: bold;
+break-after: avoid!important;
+}
+
+.boxed-text .boxed-header .caption .title {
+color:#7f7f7f;
+font-style: normal;
+font-family: "Maax";
+font-weight: bold;
+break-after: avoid!important;
+}
+
+.boxed-text .boxed-content {
+font-size:10px;
+break-after: avoid!important;
+}
+
+.boxed-text .boxed-content .sec .title {
+  color:#7f7f7f;
+  font-style: normal;
+  font-family: "Maax";
+  font-weight: bold;
+  font-size:12px;
+  margin-top: 10px;
+  break-after: avoid!important;
+}
+
+
+/* Exemple */
+
+.example {
+background-color:#f7f7f7;
+border:none;
+break-inside:avoid!important;
+width:100%;
+margin:auto;
+margin-bottom:30px;
+margin-top:30px;
+padding:10px;
+font-size:12px;
+line-height: 1.2;
+}
+
+.example .label {
+color:#7f7f7f;
+padding-bottom:5px;
+font-weight: bold;
+font-family: "Maax";
+}
+
+.example .caption .title {
+color:#000;
+font-weight: bold;
+font-family: "Maax";
+font-size:12px;
+}
+
+.example p {
+color:#000;
+line-height: 1.2;
+font-family: "Noto Serif", serif;
+}
+
+.example p + p {
+  text-indent:0;
+}
+
+
+/* Équation dans le flot du texte */
+
+.disp-formula {
+  break-inside: avoid!important;
+  color:#000;
+  padding-top:20px;
+  font-weight:400;
+font-family: "Noto Serif", serif;
+  font-size: 12px;
+}
+
+.disp-formula .label {
+color:#000;
+padding-top:20px;
+font-weight:400;
+display: block;
+font-family: "Maax";
+font-size: 12px;
+}
+
+.disp-formula .image-float img {
+  margin:auto;
+  margin-top:30px;
+  margin-bottom: 60px;
+}
+
+
+/* Figure */
+
+.fig {
+width:100%;
+margin:auto;
+margin-top:30px;
+margin-bottom: 60px;
+font-size:12px;
+border-top: 1px solid #CCCCCC;
+padding-top: 20px;
+break-inside:avoid!important;
+}
+
+.fig .fig-header {
+margin-bottom:20px;
+text-align: left;
+break-after: avoid!important;
+}
+
+.fig .fig-header * {
+    font-size:12px;
+}
+
+.fig .fig-header .label {
+color:#000;
+padding-top:20px;
+padding-bottom: 20px;
+font-weight:400;
+display: block;
+font-family: "Maax";
+font-size: 12px;
+}
+
+.fig .fig-header .title {
+font-size:12px!important;
+line-height:1.5em!important;
+margin-bottom:14px!important;
+color: #000!important;
+font-weight: bold!important;
+font-style: normal!important;
+}
+
+.fig .fig-header .caption .title {
+font-size:12px;
+line-height:1.5em;
+margin-bottom:14px;
+color: #000;
+font-weight: bold;
+font-style: normal;
+}
+
+.fig .figure-notes {
+  padding-bottom: 5px;
+}
+
+.fig .figure-notes p {
+  text-align: left;
+  color: #000;
+  font-size: 10px;
+  margin-top: 0.75em;
+  font-family: "Maax";
+}
+
+.fig .attrib {
+  display: block;
+  text-align: right;
+  color: #707070;
+  font-size: 10px;
+  margin-top: 25px;
+  font-family: "Maax";
+  font-weight: 400;
+}
+
+
+/* Groupe de figures */
+
+.fig-group {
+width:100%;
+margin:auto;
+margin-bottom:10px;
+margin-top:30px;
+font-size:12px;
+border-top: 1px solid #CCCCCC;
+padding-top: 20px;
+break-inside:avoid!important;
+}
+
+.fig-group .fig-group-header {
+margin-bottom:20px;
+text-align: left;
+break-after: avoid!important;
+}
+
+.fig-group .fig-group-header .label {
+  color:#000;
+  padding-top:20px;
+  padding-bottom: 20px;
+  font-weight:400;
+  display: block;
+  font-family: "Maax";
+  font-size: 12px;
+}
+
+.fig-group .fig-group-header .title {
+  font-size:12px!important;
+  line-height:1.5em!important;
+  margin-bottom:14px!important;
+  color: #000!important;
+  font-weight: bold!important;
+  font-style: normal!important;
+}
+
+.fig-group .fig-group-header .caption .title {
+  font-size:12px;
+  line-height:1.5em;
+  margin-bottom:14px;
+  color: #000;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.fig-group .figure-notes p {
+  display: block;
+  text-align: left;
+  color: #000;
+  font-size: 12px;
+  margin-top: 0.75em;
+  font-family: "Maax";
+  font-weight: 400;
+}
+
+.fig-group .attrib {
+  display: block;
+  text-align: right;
+  color: #707070;
+  font-size: 10px;
+  margin-top: 25px;
+  font-family: "Maax";
+  font-weight: 400;
+}
+
+.fig-group .fig-group-content .fig {
+border:none;
+}
+
+.fig-group .fig-group-content img {
+max-height: 50%;
+width: auto;
+}
+
+/* Tableau */
+
+.table-wrap {
+margin-bottom:70px;
+position:relative;
+left:0;
+right:0;
+top:30px;
+text-align:center;
+border-top: 1px solid #CCCCCC;
+padding-top: 20px;
+break-inside:avoid!important;
+}
+
+.table-wrap .table-wrap-header {
+  margin-bottom:20px;
+  text-align: left;
+  break-after: avoid!important;
+}
+
+.table-wrap .table-wrap-header * {
+  font-size: 12px;
+}
+
+.table-wrap .table-wrap-header .label {
+  color:#000;
+  padding-top:20px;
+  padding-bottom: 20px;
+  font-weight:400;
+  display: block;
+  font-family: "Maax";
+  font-size: 12px;
+}
+
+.table-wrap .table-wrap-header .title {
+  font-size:12px!important;
+  line-height:1.5em!important;
+  margin-bottom:14px!important;
+  color: #000!important;
+  font-weight: bold!important;
+  font-style: normal!important;
+}
+
+.table-wrap .table-wrap-header .caption .title {
+  font-size:12px;
+  line-height:1.5em;
+  margin-bottom:14px;
+  color: #000;
+  font-weight: bold;
+  font-style: normal;
+}
+
+.table-wrap .table-wrap-content table {
+position:relative;
+display:inline;
+margin-left:15px;
+margin-right:15px;
+}
+
+.table-wrap .table-notes {
+  padding-bottom: 15px;
+  padding-top: 10px;
+    text-align: left;
+}
+
+.table-wrap .table-notes .caption-note .content p {
+  text-align: left;
+  color: #000;
+  font-size: 10px;
+  margin-top: 0.75em;
+  font-family: "Maax";
+}
+
+.table-wrap .table-notes .note .label {
+  text-align: left;
+  color: #000;
+  font-size: 10px;
+  margin-top: 0.75em;
+  font-family: "Maax";
+}
+
+.table-wrap .table-notes .note .content p {
+  text-align: left;
+  color: #000;
+  font-size: 10px;
+  margin-top: 0.75em;
+  font-family: "Maax";
+}
+
+
+/* Groupe de tableaux */
+
+.table-wrap-group .table-wrap-group-header .label {
+  color:#000;
+  padding-top:40px;
+  padding-bottom: 10px;
+  font-weight:400;
+  display: block;
+  font-family: "Maax";
+  font-size: 12px;
+  break-after: avoid!important;
+}
+
+
+/* Tableau texte (non pris en charge) */
+
+table th {
+border-bottom:solid 1px #000;
+border-top:solid 1px #000;
+color:#000;
+font-size:9px;
+}
+
+table td {
+border-bottom:solid 1px #000;
+font-size:9px;
+}
+
+.table-wrap .attrib {
+  display: block;
+  text-align: right;
+  color: #707070;
+  font-size: 10px;
+  margin-top: 25px;
+  font-family: "Maax";
+  font-weight: 400;
+}
+
+
+/* Audio */
+
+.media-audio-group {
+    break-inside: avoid !important;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.media-audio-group .media-audio-group-caption {
+    font-size: 12px;
+    text-align: left;
+    margin-bottom: 5px;
+    padding-bottom: 0px;
+}
+
+.media-audio-group .media-audio-group-caption .label {
+}
+
+.media-audio-group .media-audio-group-caption .caption {
+    font-size: 12px;
+    font-weight: bold;
+    color: #000;
+}
+
+.media-audio-group .media-audio-group-caption .caption p {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Maax"
+}
+
+.media-audio-group .media-audio-group-caption .caption p + p {
+  text-indent:0;
+}
+
+.media-audio-group .media-audio-group-content {
+  margin-top: 5px;
+  padding-top: 0px;
+}
+
+.media-audio-group .media_print_note {
+  margin-top: 10px;
+    font-size: 12px;
+}
+
+
+/* Vidéo */
+
+.media-video-group {
+    break-inside: avoid !important;
+margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.media-video-group .media-video-group-caption {
+    font-size: 12px;
+    text-align: left;
+}
+
+.media-video-group .media-video-group-caption * {
+  font-size:12px;
+  text-align:left;
+  display: list-item;
+  list-style:none;
+}
+
+.media-video-group .media-video-group-caption .label {
+}
+
+.media-video-group .media-video-group-caption .caption {
+  font-size: 12px;
+  font-weight: bold;
+  color: #000;
+}
+
+.media-video-group .media-video-group-caption .caption p {
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  font-family: "Maax";
+}
+
+.media-video-group .media-video-group-content {
+  margin-top: 10px;
+}
+
+.media-video-group .media_print_note {
+  margin-top: 10px;
+    font-size: 12px;
+}
+
+.media-video-group .media-video-group-caption .caption p + p {
+  text-indent:0;
+}
+
+
+/* Remerciements */
+
+.ack-group .title {
+  text-align:left;
+  font-size:21px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin:35px auto 15px;
+  color:#ff4242;
+  break-after: avoid!important;
+}
+
+
+/* Notes biographiques */
+
+.bio-notes .title {
+  text-align:left;
+  font-size:21px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin:35px auto 15px;
+  color:#ff4242;
+  break-after: avoid!important;
+}
+
+
+/* Notes de fin de document */
+
+.footnotes .title {
+  text-align:left;
+  font-size:21px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin:35px auto 15px;
+  color:#ff4242;
+  break-after: avoid!important;
+}
+
+.footnotes .footnote .label {
+    color:#ff4242;
+    font-family: "Maax";
+    font-size: 12px;
+}
+
+.footnotes .footnote {
+    text-align: left;
+}
+
+.footnotes .footnote p {
+  font-size: 12px;
+font-family: "Noto Serif", serif;
+}
+
+.footnotes .footnote p ol {
+      margin-top:15px;
+    font-size: 12px;
+  font-family: "Noto Serif", serif;
+}
+
+.footnotes .footnote p ul {
+  margin-top:15px;
+  font-size: 12px;
+font-family: "Noto Serif", serif;
+}
+
+.footnotes .footnote p ol li {
+display: block;
+}
+
+.footnotes .footnote p ul li {
+display: block;
+}
+
+
+/* Références bibliographiques */
+
+.ref-list .title {
+  text-align:left;
+  font-size:21px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin:35px auto 15px;
+  color:#ff4242;
+  break-after: avoid!important;
+}
+
+.ref-list .ref {
+    text-align: left;
+}
+
+.ref-list .ref-list-sec .title {
+  text-align:left;
+  font-size:14px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin:35px auto 15px;
+  color:#ff4242;
+  break-after: avoid!important;
+}
+
+.ref-list ul {
+margin:0;
+padding:0;
+list-style:none;
+text-align:left;
+}
+
+.ref-list li {
+margin:0;
+padding:0;
+list-style:none;
+/*padding-left:20px;
+text-indent:-20px; */
+font-size:12px;
+}
+
+.ref-list .doi {
+display:inline;
+}
+
+
+/* Annexes */
+
+.annexes {
+    page-break-before: always!important;
+}
+
+.annexes .title {
+  display: inline;
+  text-align:left;
+  font-size:21px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin:35px auto 15px;
+  color:#ff4242;
+  break-after: avoid!important;
+  break-before: avoid!important;
+}
+
+.annexes .annex {
+    break-after: avoid!important;
+    break-before: avoid!important;
+}
+
+.annexes .annex .title {
+  display: inline;
+  font-size:14px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin: 35px auto 15px;
+  break-after: avoid!important;
+  break-before: avoid!important;
+}
+
+.annexes .annex .label {
+  display: inline;
+  font-size:14px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin: 35px auto 15px;
+  break-after: avoid!important;
+  color: #ff4242;
+    break-before: avoid!important;
+}
+
+.annexes .annex .image-float img {
+margin:auto;
+font-size:12px;
+border:solid 1px #000;
+padding:10px;
+break-inside:avoid!important;
+width: auto;
+}
+
+.annexes .annex .sec  {
+  break-after: avoid!important;
+  break-before: avoid!important;
+  margin-top: 10px;
+}
+
+.annexes .annex .sec .title {
+  break-after: avoid!important;
+  break-before: avoid!important;
+}
+
+.annexes .annex .sec .label {
+  break-after: avoid!important;
+  break-before: avoid!important;
+}
+
+.annex .sec .title {
+  display: inline;
+  text-align:left;
+  font-size:14px;
+  font-family:"Maax";
+  font-weight: bold;
+  margin:35px auto 15px;
+  color:#ff4242;
+  break-after: avoid!important;
+}

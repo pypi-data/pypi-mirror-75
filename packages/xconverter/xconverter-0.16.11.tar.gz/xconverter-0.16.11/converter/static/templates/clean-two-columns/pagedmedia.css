@@ -1,0 +1,105 @@
+@media print {
+
+    @page :first {
+        padding-bottom: 30px;
+        @top-right {
+            content: element(journal-title) '\A' element(issue-label) ;
+            font-size: 10px;
+            line-height: 1.5em;
+            font-family: "Maax";
+        }
+        @bottom-left {
+            content: element(creative);
+            font-size: 10px;
+            text-align: center;
+            white-space: pre-line;
+            line-height: 1.5em;
+            font-family: "Maax";
+        }
+        @bottom-center {
+            content: element(statement) element(doi);
+            text-align: center;
+            white-space: pre-line;
+            line-height: 1.5em;
+            font-family: "Maax";
+        }
+        @bottom-right {
+            content: counter(page);
+            font-size: 10px;
+            padding-bottom: 20px;
+            font-family: "Maax";
+        }
+    }
+
+    @page :left {
+        padding-bottom: 30px;
+        @top-right {
+            content: element(journal-title) '\A' element(issue-label) ;
+            font-size: 10px;
+            line-height: 1.5em;
+            font-family: "Maax";
+        }
+        @bottom-right {
+            content: counter(page);
+            font-size: 10px;
+            padding-bottom: 20px;
+            font-family: "Maax";
+        }
+    }
+
+    @page :right {
+        padding-bottom: 30px;
+        @bottom-left {
+            content: element(creative);
+            font-size: 10px;
+            text-align: center;
+            white-space: pre-line;
+            line-height: 1.5em;
+            font-family: "Maax";
+        }
+        @bottom-center {
+            content: element(statement) element(doi);
+            text-align: center;
+            white-space: pre-line;
+            line-height: 1.5em;
+            font-family: "Maax";
+        }
+        @bottom-right {
+            content: counter(page);
+            font-size: 10px;
+            padding-bottom: 20px;
+            font-family: "Maax";
+        }
+    }
+
+    @media print {
+        .block-citation p {
+            orphans: 3;
+            widows: 2
+        }
+    }
+
+    head, head > meta {
+        display:inline;
+    }
+
+    div[class="journal-title"] {
+        position: running(journal-title);
+    }
+
+    div[class="issue-label"] {
+        position: running(issue-label);
+    }
+
+    div[class="statement"] {
+        position: running(statement);
+    }
+
+    div[class="article-id"] {
+        position: running(doi);
+    }
+
+    div[class="creative-commons"] {
+        position: running(creative);
+    }
+}

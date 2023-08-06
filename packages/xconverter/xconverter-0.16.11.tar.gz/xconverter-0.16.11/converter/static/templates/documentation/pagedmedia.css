@@ -1,0 +1,64 @@
+@media print {
+    
+    @page {
+        padding-bottom: 30px;
+        @top-right {
+            content: string(journal-title) '\A' string(issue-label) ;
+            font-size: 10px;
+            line-height: 1.5em;
+        }
+        @bottom-left {
+            content: element(creative);
+            font-size: 10px;
+            text-align: center;
+            white-space: pre-line;
+            line-height: 1.5em;
+        }
+        @bottom-center {
+            content: element(statement) element(doi);
+            text-align: center;
+            white-space: pre-line;
+            line-height: 1.5em;
+        }
+        @bottom-right {
+            content: counter(page);
+            font-size: 14px;
+            padding-bottom: 20px;
+        }
+    }
+
+    @media print {
+        .block-citation p {
+            orphans: 3;
+            widows: 2
+        }
+    }
+
+    head, head > meta {
+        display:inline;
+    }
+
+    meta[name="journal-title"] {
+        string-set: journal-title attr(content);
+    }
+
+    meta[name="issue-label"] {
+        string-set: issue-label attr(content);
+    }
+
+    meta[name="license"] {
+        string-set: license attr(content);
+    }
+
+    div[class="statement"] {
+        position: running(statement);
+    }
+
+    div[class="article-id"] {
+        position: running(doi);
+    }
+
+    div[class="creative-commons"] {
+        position: running(creative);
+    }
+}
