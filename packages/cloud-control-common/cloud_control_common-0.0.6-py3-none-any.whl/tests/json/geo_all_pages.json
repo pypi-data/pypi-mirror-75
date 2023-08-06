@@ -1,0 +1,71 @@
+[
+  {
+    "pageNumber": 1,
+    "pageCount": 3,
+    "geographicRegion": [
+      {
+        "isHome": true,
+        "cloudApiHost": "api-ash99-dev.mcp-services.net",
+        "timeZone": "America/New_York",
+        "vpnAccess": [
+          {
+            "value": "VPN_MULTI_FACTOR",
+            "default": false
+          },
+          {
+            "value": "VPN_SINGLE_FACTOR",
+            "default": true
+          }
+        ],
+        "cloudUiUrl": "https://ui-ash99-dev.mcp-services.net",
+        "monitoringUrl": "https://10.148.74.10",
+        "name": "DEV GEO 1",
+        "state": "ENABLED",
+        "ftpsHost": "ftps-ash99-dev.mcp-services.net",
+        "id": "dev_geo1"
+      },
+      {
+        "isHome": false,
+        "cloudApiHost": "api-ash99-dev-geo2.mcp-services.net",
+        "timeZone": "America/Los_Angeles",
+        "vpnAccess": [
+          {
+            "value": "VPN_MULTI_FACTOR",
+            "default": false
+          },
+          {
+            "value": "VPN_SINGLE_FACTOR",
+            "default": true
+          }
+        ],
+        "cloudUiUrl": "https://ui-ash99-dev.mcp-services.net",
+        "ftpsHost": "ftps-ash99-dev-geo2.mcp-services.net",
+        "name": "DEV GEO 2",
+        "state": "NOT_ENABLED",
+        "id": "dev_geo2"
+      },
+      {
+        "isHome": false,
+        "cloudApiHost": "api-ash99-dev-geo3.mcp-services.net",
+        "timeZone": "Europe/Amsterdam",
+        "vpnAccess": [
+          {
+            "value": "VPN_MULTI_FACTOR",
+            "default": false
+          },
+          {
+            "value": "VPN_SINGLE_FACTOR",
+            "default": true
+          }
+        ],
+        "cloudUiUrl": "https://ui-ash99-dev.mcp-services.net",
+        "ftpsHost": "ftps-ash99-dev-geo3.mcp-services.net",
+        "name": "DEV GEO 3",
+        "state": "NOT_ENABLED",
+        "id": "dev_geo3"
+      }
+    ],
+    "totalCount": 3,
+    "pageSize": 250
+  }
+]
