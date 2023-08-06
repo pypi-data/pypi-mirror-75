@@ -1,0 +1,15 @@
+nose
+nose-progressive
+coverage
+sphinx>=1.4.3
+sphinxcontrib-napoleon
+coveralls
+bokeh
+jupyter
+ipywidgets
+statsmodels
+twine
+wheel
+pytest
+pytest-mpl
+pytest-cov
