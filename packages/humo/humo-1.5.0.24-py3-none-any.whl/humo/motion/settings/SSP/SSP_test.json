@@ -1,0 +1,73 @@
+{
+    "BeltekName": {
+        "L": "S018196L - ",
+        "R": "S018197R - "
+    },
+    "KistlerName": [
+        "Imported Kistler Force Plate (External Amplifier) - Force",
+        "Kistler Force Plate (External Amplifier) - Force"
+    ],
+    "EMGdevice": [
+        "Delsys - voltage",
+        "Delsys[1000Hz] - voltage"
+    ],
+    "Trigger": [
+        "Generic Analog - Electric Potential",
+        "Imported Generic Analog - Electric Potential",
+        "oisaka - Electric Potential",
+        "trigger - Electric Potential"
+    ],
+    "JointCenterlist": [
+        "rajc",
+        "rcl",
+        "rejc",
+        "rfe",
+        "rfo",
+        "rhjc",
+        "rhn",
+        "rhu",
+        "rkjc",
+        "rra",
+        "rsjc",
+        "rti",
+        "rto",
+        "rrwjc",
+        "lajc",
+        "lcl",
+        "lejc",
+        "lfe",
+        "lfo",
+        "lhjc",
+        "lhn",
+        "lhu",
+        "lkjc",
+        "lra",
+        "lsjc",
+        "lti",
+        "lto",
+        "lrwjc",
+        "trx",
+        "pel",
+        "hed"
+    ],
+    "OFM_list": null,
+    "OSSCA_list": null,
+    "density" :{
+        "hand":1.16,
+        "forearm":1.13,
+        "upperarm":1.07,
+        "forearm_hand":1.14,
+        "total_arm":1.11,
+        "foot":1.10,
+        "leg":1.09,
+        "thigh":1.05,
+        "foot_leg":1.09,
+        "total_leg":1.06,
+        "head_neck":1.11,
+        "shoulder":1.04,
+        "thorax":0.92,
+        "trunk":1.03
+    }
+    
+
+}

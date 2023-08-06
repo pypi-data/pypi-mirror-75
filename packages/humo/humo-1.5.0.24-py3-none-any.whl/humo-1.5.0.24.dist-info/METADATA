@@ -1,0 +1,92 @@
+Metadata-Version: 2.1
+Name: humo
+Version: 1.5.0.24
+Summary: A toolkit for non-programmer to wrangle the motion data measured by 3D motion analyzer
+Home-page: https://sites.google.com/view/pythonforeveryone/python-for-evryone
+Author: Akira Kobayashi
+Author-email: 1991003n@spu.ac.jp
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+
+# humo
+![Badge Status](https://ci-as-a-service)
+
+A toolkit for non-programmer to wrangle the motion data measured by 3D motion analyzer
+
+## Description
+
+A toolkit for non-programmer to wrangle the motion data measured by 3D motion analyzer
+
+
+***DEMO:***
+
+## Features
+
+- Intuitive operability
+- Seamlessly from data shaping to analysis
+
+For more information, see [humo -HP]().
+
+## Requirement
+
+- numpy
+- scipy
+- pandas
+- matplotlib
+
+## Usage
+
+### quick start
+```python
+import humo
+
+# loading data and making humo object
+data = humo.dataIO.load_data() # open pkl file
+cfg = humo.dataIO.load_cfg() # open cfg.json
+obj = humo.motion.CoreMain(data, cfg) # make humo object
+
+# get right shoulder angle
+Rsho = obj.getJointAngle("Rshoulder")
+
+# get multi data
+shoulder = obj.getJointAngle(["Rshoulder","Lshoulder"])
+shoulder.Lshoulder # getting Lshoulder angle
+shoulder.Lshoulder.x # getting Lshoulder x axis angle
+```
+
+## Installation
+
+ ```python
+pip install humo
+```
+
+## Anything Else
+
+The pickle data needed to create a humo object is created from a csv file.
+By converting it to a pickle file, very fast data loading can be achieved.
+
+```python
+import humo
+
+# Procedure to convert csv file to pkl file
+c2p = humo.Preprocess.convert2pkl() # opening csv file
+c2p.datacleansing() # cleansing csv data
+c2p.convert2pkl() # save csv file as pkl file
+```
+
+## Author
+
+[akira6](kobayashi.akira.5312@gmail.com)
+
+## License
+
+[MIT](http://b4b4r07.mit-license.org)
+
+
+

@@ -1,0 +1,9 @@
+[console_scripts]
+gdrive = cli.opendir:gdrive
+mdlink = cli.md2jupyter:main
+mdlink2 = cli.md2jupyter:main2
+open = cli.opendir:dir_open
+search = cli.dir:searchwith_gdrive
+shortlink = cli.md2jupyter:main3
+test = cli.spep:main
+

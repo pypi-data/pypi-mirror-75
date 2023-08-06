@@ -1,0 +1,29 @@
+{
+    "BeltekName": {
+        "L": "S018196L - ",
+        "R": "S018197R - "
+    },
+    "KistlerName": [
+        "Imported Kistler Force Plate (External Amplifier) - Force",
+        "Kistler Force Plate (External Amplifier) - Force"
+    ],
+    "EMGdevice": [
+        "Delsys - voltage",
+        "Delsys[1000Hz] - voltage"
+    ],
+    "Trigger": [
+        "Generic Analog - Electric Potential",
+        "Imported Generic Analog - Electric Potential",
+        "oisaka - Electric Potential",
+        "trigger - Electric Potential"
+    ],
+    "JointCenterlist": [
+        "pelvis",
+        "RFemur",
+        "RTibia",
+        "LFemur",
+        "RTibia"
+    ],
+    "OFM_list": null,
+    "OSSCA_list": null
+}

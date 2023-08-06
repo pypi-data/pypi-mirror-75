@@ -1,0 +1,5 @@
+{
+    "msg001": "@isMarkerName\" in module \"check_Columns.py\" has Error.\n- Error code : 001\n{}\nThere is not \"{}\" in the marker header.\nMake sure that the specified marker name is in the marker header.\n{}\n",
+    "msg002": "@ColumnsName\" in \"Core_common.py\" has Error.\n- Error code : 002\n{}\n At the stage of attaching the decorator, \nthere is a possibility that the argument is wrong or not specified.\n{}\n",
+    "msg003": "@retrivingData\" in module \"retrivinData.py\" has Error.\n- Error code : 003\n{}\n{} marker data  contains NaN value. \nStop the program, because there is a possibility that an analysis error may occur.\n{}\n"
+}
