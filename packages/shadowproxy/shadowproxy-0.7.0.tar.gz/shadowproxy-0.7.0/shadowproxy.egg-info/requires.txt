@@ -1,0 +1,6 @@
+pycryptodome>=3.4.3
+curio==0.9
+pylru>=1.0.9
+iofree>=0.2.4
+httptools
+hkdf
