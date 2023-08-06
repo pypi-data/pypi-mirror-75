@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: pumpkin_supmcu
+Version: 0.2.9
+Summary: A library to interface with Pumpkin SupMCU modules via I2C
+Home-page: https://gitlab.com/pumpkin-space-systems/public/pumpkin-supmcu
+Author: James Womack
+Author-email: info@pumpkininc.com
+License: UNKNOWN
+Description: # pumpkin_supmcu Package
+        
+        The `pumpkin_supmcu` package has the following functionality:
+        
+        * Discover all telemetry items on a module, and put into telemetry definitions.
+        * Parse any telemetry item on a module given a module telemetry definition.
+        * Provide a universal I2C interface to integrate multiple I2C Masters.
+        * Request telemetry from any SupMCU module via I2C interface.
+        * Write commands to SupMCU modules via I2C interface.
+        
+        The documentation for the `pumpkin_supmcu` package can be [found here](https://pumpkin-supmcu.readthedocs.io/en/latest/index.html).
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
