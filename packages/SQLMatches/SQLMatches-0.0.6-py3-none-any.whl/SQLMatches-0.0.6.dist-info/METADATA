@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: SQLMatches
+Version: 0.0.6
+Summary: SQLMatches is a free & open source software built aroundgiving players & communities easy access to match records & demos.
+Home-page: https://github.com/WardPearce/SQLMatches
+Author: WardPearce
+Author-email: wardpearce@protonmail.com
+License: GPL v3
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: starlette
+Requires-Dist: asyncpg
+Requires-Dist: aiomysql
+Requires-Dist: aiosqlite
+Requires-Dist: databases
+Requires-Dist: aiofiles
+Requires-Dist: jinja2
+Requires-Dist: itsdangerous
+Requires-Dist: uvicorn
+Requires-Dist: sqlalchemy
+Requires-Dist: aiohttp
+Requires-Dist: wtforms
+Requires-Dist: starlette-wtf
+Requires-Dist: webargs
+Requires-Dist: webargs-starlette
+Requires-Dist: aiob2
+Requires-Dist: marshmallow
+
+UNKNOWN
+
+
