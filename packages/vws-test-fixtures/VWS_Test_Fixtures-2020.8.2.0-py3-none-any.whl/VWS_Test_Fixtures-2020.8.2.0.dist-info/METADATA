@@ -1,0 +1,94 @@
+Metadata-Version: 2.1
+Name: VWS-Test-Fixtures
+Version: 2020.8.2.0
+Summary: Authentication and authorization tools for interacting with the Vuforia Web Services (VWS) API.
+Home-page: https://github.com/VWS-Python/vws-test-fixtures
+Author: Adam Dangoor
+Author-email: adamdangoor@gmail.com
+License: MIT License
+Keywords: vuforia vws
+Platform: UNKNOWN
+Classifier: Operating System :: POSIX
+Classifier: Environment :: Web Environment
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Framework :: Pytest
+Description-Content-Type: text/x-rst
+Requires-Dist: Pillow (==7.2.0)
+Requires-Dist: pytest (==6.0.1)
+Provides-Extra: dev
+Requires-Dist: PyGithub (==1.51) ; extra == 'dev'
+Requires-Dist: Sphinx-Substitution-Extensions (==2020.7.4.1) ; extra == 'dev'
+Requires-Dist: autoflake (==1.3.1) ; extra == 'dev'
+Requires-Dist: check-manifest (==0.42) ; extra == 'dev'
+Requires-Dist: doc8 (==0.8.1) ; extra == 'dev'
+Requires-Dist: flake8-commas (==2.0.0) ; extra == 'dev'
+Requires-Dist: flake8-quotes (==3.2.0) ; extra == 'dev'
+Requires-Dist: flake8 (==3.8.3) ; extra == 'dev'
+Requires-Dist: freezegun (==0.3.15) ; extra == 'dev'
+Requires-Dist: isort (==4.3.21) ; extra == 'dev'
+Requires-Dist: mypy (==0.782) ; extra == 'dev'
+Requires-Dist: pydocstyle (==5.0.2) ; extra == 'dev'
+Requires-Dist: pip-check-reqs (==2.1.1) ; extra == 'dev'
+Requires-Dist: pylint (==2.5.3) ; extra == 'dev'
+Requires-Dist: pyroma (==2.6) ; extra == 'dev'
+Requires-Dist: pytest-cov (==2.10.0) ; extra == 'dev'
+Requires-Dist: sphinx-autodoc-typehints (==1.11.0) ; extra == 'dev'
+Requires-Dist: sphinx (==3.1.2) ; extra == 'dev'
+Requires-Dist: sphinxcontrib.spelling (==5.2.0) ; extra == 'dev'
+Requires-Dist: twine (==3.2.0) ; extra == 'dev'
+Requires-Dist: vulture (==1.6) ; extra == 'dev'
+Requires-Dist: yapf (==0.30.0) ; extra == 'dev'
+Provides-Extra: packaging
+
+|Build Status| |codecov| |PyPI| |Documentation Status|
+
+VWS Test Fixtures
+==================
+
+``pytest`` fixtures for testing tools with the Vuforia Web Services (VWS) API.
+
+Installation
+------------
+
+.. code:: sh
+
+   pip install vws-test-fixtures
+
+This is tested on Python 3.8+.
+
+Example usage
+-------------
+
+.. code:: python
+
+   # A test to be run by pytest
+   def test_example(high_quality_image: io.BytesIO) -> None:
+       image_file_bytes = high_quality_image.getvalue()
+       ...
+
+``high_quality_image`` returns an image file which is expected to have a 'success' status when added to a target, and a high tracking rating.
+
+``image_file_failed_state`` is expected to be accepted by the add and update target endpoints, but get a "failed" status.
+
+``png_too_large`` is a PNG which has dimensions whcih are too large to be added to a Vuforia database.
+
+... and more, see the `full documentation <https://vws-test-fixtures.readthedocs.io/en/latest>`__ for details of all fixtures provided.
+
+Full Documentation
+------------------
+
+See the `full documentation <https://vws-test-fixtures.readthedocs.io/en/latest>`__.
+
+.. |Build Status| image:: https://github.com/VWS-Python/vws-test-fixtures/workflows/CI/badge.svg
+   :target: https://github.com/VWS-Python/vws-test-fixtures/actions
+.. |codecov| image:: https://codecov.io/gh/VWS-Python/vws-test-fixtures/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/VWS-Python/vws-test-fixtures
+.. |Documentation Status| image:: https://readthedocs.org/projects/vws-test-fixtures/badge/?version=latest
+   :target: https://vws-test-fixtures.readthedocs.io/en/latest/?badge=latest
+   :alt: Documentation Status
+.. |PyPI| image:: https://badge.fury.io/py/VWS-Test-Fixtures.svg
+   :target: https://badge.fury.io/py/VWS-Test-Fixtures
+
+
