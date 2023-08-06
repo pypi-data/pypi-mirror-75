@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: timecast-nightly
+Version: 0.4.0.dev20200802173114
+Summary: Performant, composable online learning
+Home-page: https://github.com/google/timecast
+Author: Google AI Princeton
+Author-email: dsuo@google.com
+License: UNKNOWN
+Description: # timecast
+        
+        Performant, composable online learning
+        
+        [![pypi](https://badgen.net/pypi/v/timecast)](https://pypi.org/project/timecast/)
+        [![pyversions](https://raw.githubusercontent.com/google/timecast/master/.github/badges/python_versions.svg?sanitize=true)](https://pypi.org/project/timecast)
+        [![security: bandit](https://raw.githubusercontent.com/google/timecast/master/.github/badges/bandit.svg?sanitize=true)](https://github.com/PyCQA/bandit)
+        [![Code style: black](https://raw.githubusercontent.com/google/timecast/master/.github/badges/black.svg?sanitize=true)](https://github.com/psf/black)
+        [![License: MIT](https://raw.githubusercontent.com/google/timecast/master/.github/badges/mit.svg?sanitize=true)](https://github.com/google/timecast/blob/master/LICENSE)
+        
+        [![build](https://github.com/google/timecast/workflows/build/badge.svg)](https://github.com/google/timecast/actions)
+        [![coverage](https://badgen.net/codecov/c/github/google/timecast)](https://codecov.io/github/google/timecast)
+        [![Documentation Status](https://readthedocs.org/projects/timecast/badge/?version=latest)](https://timecast.readthedocs.io/en/latest/?badge=latest)
+        [![doc coverage](https://raw.githubusercontent.com/google/timecast/master/.github/badges/docstring_coverage.svg?sanitize=true)](https://readthedocs.org/projects/timecast/)
+        [![tests](https://img.shields.io/azure-devops/tests/google/timecast/2?compact_message)](https://dev.azure.com/google/timecast/_build?definitionId=2&_a=summary)
+        
+        ## Getting started
+        
+        ```bash
+        pip install timecast
+        ```
+        
+        To get the latest version (i.e., `master`):
+        
+        ```bash
+        pip install timecast-nightly
+        ```
+        
+        Please see documentation [here](https://timecast.readthedocs.io/en/latest).
+        
+        ## For developers
+        
+        Please see
+        [CONTRIBUTING.md](https://github.com/google/timecast/blob/master/CONTRIBUTING.md)
+        for instructions.
+        
+        ## Disclaimer
+        
+        This is not an officially supported Google product.
+        
+Keywords: timeseries,time,series,analysis,online,learning
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: docs
