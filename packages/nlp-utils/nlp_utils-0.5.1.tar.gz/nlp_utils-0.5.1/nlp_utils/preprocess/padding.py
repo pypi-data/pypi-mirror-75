@@ -1,0 +1,3 @@
+from micro_toolkit.data_process.text_sequence_padding import TextSequencePadding
+
+SequencePaddding = TextSequencePadding
