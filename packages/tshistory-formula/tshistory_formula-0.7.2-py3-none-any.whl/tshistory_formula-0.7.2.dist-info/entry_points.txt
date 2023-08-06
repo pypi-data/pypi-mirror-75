@@ -1,0 +1,9 @@
+[tshistory.subcommands]
+formula-init-db = tshistory_formula.cli:init_db
+ingest-formulas = tshistory_formula.cli:ingest_formulas
+migrate-0.6-to-0.7 = tshistory_formula.cli:migrate
+shell = tshistory_formula.cli:shell
+test-formula = tshistory_formula.cli:test_formula
+typecheck-formula = tshistory_formula.cli:typecheck_formula
+update-formula-metadata = tshistory_formula.cli:update_metadata
+
