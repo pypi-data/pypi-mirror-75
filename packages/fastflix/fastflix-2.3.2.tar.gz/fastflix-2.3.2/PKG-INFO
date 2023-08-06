@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: fastflix
+Version: 2.3.2
+Summary: Easy to use video encoder GUI wrapper
+License: MIT
+Author: Chris Griffith
+Author-email: chris@cdgriffith.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: PySide2 (>=5.15.0,<6.0.0)
+Requires-Dist: appdirs (>=1.4.4,<2.0.0)
+Requires-Dist: python-box[all] (>=5.0.1,<6.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Requires-Dist: reusables (>=0.9.5,<0.10.0)
+Requires-Dist: ruamel.yaml (>=0.16.10,<0.17.0)
+Requires-Dist: shiboken2 (>=5.15.0,<6.0.0)
+Description-Content-Type: text/markdown
+
+[![Build status](https://ci.appveyor.com/api/projects/status/208k29cvoq8xwf8j/branch/master?svg=true)](https://ci.appveyor.com/project/cdgriffith/fastflix/branch/master)
+
+# FastFlix
+
+FastFlix is a AV1 and HEVC encoder, GIF maker, and general ffmpeg command wrapper.
+
+It can encode videos into HEVC, AV1, GIF, and VP9, and is easily extendable!
+
+Read more about it and the licensing in the [docs](docs/README.md) folder.
+
+![preview](https://raw.githubusercontent.com/cdgriffith/binary-files/fast-flix/media/fastflix/2.0.0/main.png)
+
+
+# Encoders
+
+Currently there is support for:
+
+* HEVC (libx265)
+* AV1 (SVT-AV1)
+* AV1 (FFMPEG libaom - currently very slow)
+* VP9
+* GIF
+
+
+# Releases
+
+## Windows
+View the [releases](https://github.com/cdgriffith/FastFlix/releases) for 64 bit Windows binaries (Generated via Appveyor and also [available there](https://ci.appveyor.com/project/cdgriffith/fastflix)).
+
+## MacOS and Linux
+
+Please use [pipx](https://pipxproject.github.io/pipx/installation/) to install as a properly virtualized app
+
+```
+pipx install fastflix
+```
+
+## Running from source code or without pipx
+
+```
+git clone https://github.com/cdgriffith/FastFlix.git
+cd FastFlix
+python3 -m venv venv
+. venv/bin/activate
+pip install -r requirements.txt
+python -m flix
+```
+
+# License
+
+Copyright (C) 2019-2020 Chris Griffith
+
+This software is licensed under the MIT which you can read in the `LICENSE` file.
+
+This software dynamically links PySide2 which is [LGPLv3 licensed](https://doc.qt.io/qt-5/lgpl.html) and can change the
+library used by specifying two environment variables, `SHIBOKEN2` and `PYSIDE2` which must point to the `__init__.py` file for the respective libraries.
+
+
