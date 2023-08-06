@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: dpct
+Version: 0.0.1
+Summary: A library for combining Deep Learning and Perceptual Control Theory reorganisation
+Home-page: https://github.com/perceptualrobots/dpct/tree/master/
+Author: Rupert Young
+Author-email: rupert@perceptualrobots.com
+License: Apache Software License 2.0
+Keywords: pct,control systems,robotics,psychology,deep learning
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Deep PCT
+> A library for combining Deep Learning and Perceptual Control Theory reorganisation.
+
+
+This file will become your README and also the index of your documentation.
+
+## Install
+
+`pip install dpct`
+
+## How to use
+
+Fill me in please! Don't forget code examples:
+
+```python
+1+1
+```
+
+
+
+
+    2
+
+
+
+
