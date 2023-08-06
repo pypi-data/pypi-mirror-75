@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+bleuper/__init__.py
+bleuper/bleu.py
+bleuper/sentence.py
+bleuper.egg-info/PKG-INFO
+bleuper.egg-info/SOURCES.txt
+bleuper.egg-info/dependency_links.txt
+bleuper.egg-info/top_level.txt
