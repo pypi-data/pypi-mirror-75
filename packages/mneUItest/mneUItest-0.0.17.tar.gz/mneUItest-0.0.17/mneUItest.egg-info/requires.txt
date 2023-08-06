@@ -1,0 +1,9 @@
+autoreject>=0.2
+matplotlib<3.3,>=3.2
+mne>=0.20
+numpy>=1.19
+PyQt5>=5.10
+python-picard>=0.4
+QtPy>=1.9
+scikit-learn>=0.23
+scipy>=1.5
