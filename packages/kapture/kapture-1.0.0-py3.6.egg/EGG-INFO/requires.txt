@@ -1,0 +1,14 @@
+numpy
+numpy-quaternion
+numba
+matplotlib
+scipy
+tqdm
+Pillow==7.2.0
+requests
+pyyaml
+wcmatch
+torch==1.4.0
+
+[dev]
+pytest
