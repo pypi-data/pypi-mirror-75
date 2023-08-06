@@ -1,0 +1,16 @@
+
+[dev]
+coverage
+sphinx
+towncrier
+
+[docs]
+sphinx
+towncrier
+
+[release]
+wheel
+twine
+
+[tests]
+coverage

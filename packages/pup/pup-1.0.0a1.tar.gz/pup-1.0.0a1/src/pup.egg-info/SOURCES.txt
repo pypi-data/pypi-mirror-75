@@ -1,0 +1,13 @@
+LICENSE
+README.rst
+setup.cfg
+setup.py
+src/pup/__init__.py
+src/pup/__main__.py
+src/pup.egg-info/PKG-INFO
+src/pup.egg-info/SOURCES.txt
+src/pup.egg-info/dependency_links.txt
+src/pup.egg-info/entry_points.txt
+src/pup.egg-info/not-zip-safe
+src/pup.egg-info/requires.txt
+src/pup.egg-info/top_level.txt
