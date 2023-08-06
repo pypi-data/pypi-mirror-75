@@ -1,0 +1,12 @@
+six
+
+[dev]
+pytest
+pytest-cov
+pytest-datafiles
+python-coveralls
+flake8
+
+[docs]
+sphinx
+sphinx-rtd-theme

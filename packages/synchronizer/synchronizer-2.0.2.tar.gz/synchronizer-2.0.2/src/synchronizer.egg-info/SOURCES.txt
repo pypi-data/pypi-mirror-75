@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+src/synchronizer/__init__.py
+src/synchronizer/copier.py
+src/synchronizer/logger.py
+src/synchronizer/syncstatus.py
+src/synchronizer/utils.py
+src/synchronizer.egg-info/PKG-INFO
+src/synchronizer.egg-info/SOURCES.txt
+src/synchronizer.egg-info/dependency_links.txt
+src/synchronizer.egg-info/requires.txt
+src/synchronizer.egg-info/top_level.txt
+src/synchronizer/cfg/config.json
