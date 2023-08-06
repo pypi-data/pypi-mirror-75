@@ -1,0 +1,6 @@
+[phovea.config]
+tdp_core = tdp_core:phovea_config
+
+[phovea.registry]
+tdp_core = tdp_core:phovea
+
