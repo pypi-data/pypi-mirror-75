@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: dadjokes-plus-plus
+Version: 1.0
+Summary: Dad jokes on steroids.
+Home-page: https://github.com/ahmedkhalf/dadjokes-plus-plus
+Author: Ahmed Khalf
+Author-email: ahmedkhalf567@gmail.com
+License: MIT
+Download-URL: https://github.com/ahmedkhalf/dadjokes-plus-plus/archive/1.0.tar.gz
+Description: dadjokes-plus-plus
+        
+Keywords: SOME,MEANINGFULL,KEYWORDS
+Platform: UNKNOWN
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Terminals
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Provides-Extra: test
