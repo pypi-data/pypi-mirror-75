@@ -1,0 +1,3 @@
+[console_scripts]
+hwglance = hwglance.__console__:main
+
