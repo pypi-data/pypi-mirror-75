@@ -1,0 +1,4 @@
+[console_scripts]
+pyEWFmount = ewf_mount.script:main
+pyMountEWF = ewf_mount.script:main
+
