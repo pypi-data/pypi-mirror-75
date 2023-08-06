@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: simple-rest-call
+Version: 0.1b3
+Summary: Simple RESTful Call
+Home-page: https://github.com/DataBooster/PyWebApi
+Author: Abel Cheng
+Author-email: abelcys@gmail.com
+License: MIT
+Keywords: RESTful,Request,JSON,WebAPI,DateTime,Windows,Authentication
+Platform: any
+Requires-Python: >=3.6
+Requires-Dist: requests-negotiate-sspi
+Requires-Dist: jsonpickle
+Requires-Dist: python-dateutil
+
+
+simple_rest_call
+
+This module wraps `Requests <https://requests.readthedocs.io/>`_ into a simple call, 
+specifically for JSON-request and JSON-response with datetime support. By default, 
+Windows single sign-on authentication is used for convenience in enterprise environment.
+
+.. code-block:: python
+
+    rest(url:str, data=None, method:str='POST', auth=(None,None), **kwargs)
+
+:url: The URL for the RESTful call.
+:data: The payload to be passed in the request body. Any incoming Python object will be encoded as JSON content
+       except it is already a string or bytes. ``Content-Type: application/json; charset=utf-8`` will be added into 
+       the request header if the object is converted to JSON inside this function.
+:method: (default: ``POST``) Method for the request: ``GET``, ``POST``, ``PUT``, ``PATCH``, ``DELETE``, ``OPTIONS``, or ``HEAD``.
+:auth: *(The user's default credentials are used for Windows single sign-on by default)* Auth tuple to enable Basic/Digest/Custom HTTP Auth.
+:kwargs: (optional) Please refer to https://requests.readthedocs.io for other optional arguments.
+:return: A JSON decoded object if the response content type is a valid JSON, otherwise the text content will be tried to return.
+
+|
+
+A quick example can be found from https://github.com/DataBooster/PyWebApi/blob/master/Sample/UserApps/MdxReader/mdx_task.py
+
+|
+
+| Homepage and documentation: https://github.com/DataBooster/PyWebApi
+| Copyright (c) 2020 Abel Cheng
+| License: MIT
+
+
