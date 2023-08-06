@@ -1,0 +1,15 @@
+README.md
+setup.cfg
+setup.py
+MGEmasker.egg-info/PKG-INFO
+MGEmasker.egg-info/SOURCES.txt
+MGEmasker.egg-info/dependency_links.txt
+MGEmasker.egg-info/entry_points.txt
+MGEmasker.egg-info/requires.txt
+MGEmasker.egg-info/top_level.txt
+mge_masker/__init__.py
+mge_masker/mge_masker_functions.py
+mge_masker/run_mge_masker.py
+mge_masker/tests/__init__.py
+mge_masker/tests/test_find_mges.py
+mge_masker/tests/test_mask_mges.py

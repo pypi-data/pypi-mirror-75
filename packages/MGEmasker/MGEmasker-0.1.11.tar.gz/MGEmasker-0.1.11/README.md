@@ -1,0 +1,95 @@
+## MGE Masker
+
+This package finds MGEs based on annotations in a rich sequence file (Genbank or EMBL).
+There are 3 subcommands
+
+1. **find_mges** Search a rich sequence file for features annotated with text that suggests a MGE-associated element
+2. **mask_mges** Mask regions from a pseudogenome alignment with the regions in a GFF file produced using the find_mges command
+1. **default_matches** Show the default regex patterns used when searching for MGEs. This can be overridden by providing a similarly formatted file using the -m parameter with the find_mges command
+
+### Deafult patterns matched
+```
+.*\b[tT]ranspos
+.*\b[pP]hage
+.*\b[rR]epeat
+.*\b[rR]eptitive
+.*\b[iI]nsertion sequence
+.*\bIS
+.*\b[tT]n
+.*\b[iI]ntegr
+.*\b[Cc]onjug
+.*\b[Pp]lasmid
+```
+
+### Installation
+Python3 only
+
+```
+pip install MGEmasker
+```
+or
+```
+pip3 install MGEmasker
+```
+
+### Usage
+```
+usage: mge_masker [-h] {find_mges,mask_mges,default_matches} ...
+
+A module to find MGEs in a rich sequence file and mask regions corresponding to the MGEs in a pseudogenome alignment.
+
+The find_mges command searches a gbk or embl file for features that have MGE-associated annotations.
+It writes a GFF file containing the positions of the matched features.
+
+The mask_mges command takes a GFF file produced using the find_mges command and masks those regions in all sequences of a pseudogenome alignment based on the reference sequence used to find MGEs.
+
+positional arguments:
+  {find_mges,mask_mges,default_matches}
+                        The following commands are available. Type mge_masker
+                        <COMMAND> -h for more help on a specific commands
+    find_mges           Search a rich sequence file for features annotated
+                        with text that suggests a MGE-associated element
+    mask_mges           Mask regions from a pseudogenome alignment with the
+                        regions in a GFF file produced using the find_mges
+                        command
+    default_matches     Show the default regex patterns used when searching
+                        for MGEs
+
+optional arguments:
+  -h, --help            show this help message and exit
+```
+
+
+#### find_mges usage
+```
+usage: mge_masker find_mges [-h] -g GENOME_FILE_PATH [-f {genbank,embl}]
+                            [-i MERGE_INTERVAL] [-m MGE_FILE_PATH]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -g GENOME_FILE_PATH, --genome_file_path GENOME_FILE_PATH
+                        path to a genome file
+  -f {genbank,embl}, --file_format {genbank,embl}
+                        genome file format
+  -i MERGE_INTERVAL, --merge_interval MERGE_INTERVAL
+                        The maximum distance between MGEs when performing the
+                        merging step (Default 1000bp)
+  -m MGE_FILE_PATH, --mge_file_path MGE_FILE_PATH
+                        path to a file containing regex MGE annotations
+```
+
+#### mask_mges usage
+```
+usage: mge_masker mask_mges [-h] -f FASTA_PATH -g GFF_FILE_PATH
+                            [-m MASKING_CHARACTER]
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -f FASTA_PATH, --fasta_path FASTA_PATH
+                        path to either a single fasta reference or a
+                        pseudogenome alignment file
+  -g GFF_FILE_PATH, --gff_file_path GFF_FILE_PATH
+                        path to a gff file containing MGE regions to be masked
+  -m MASKING_CHARACTER, --masking_character MASKING_CHARACTER
+                        character used to mask (default: N)
+```
