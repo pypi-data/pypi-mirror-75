@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: picardapi
+Version: 1.1.0
+Summary: UNKNOWN
+Home-page: https://home.picard.io/
+Author: picard_username
+Author-email: brig@trialomics.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: simplejson (>=3.6.5)
+Requires-Dist: Unidecode (>=0.04.21)
+Requires-Dist: requests (>=2.5.1)
+Requires-Dist: ipaddress (>=1.0.16)
+Requires-Dist: ujson (>=1.35)
+Requires-Dist: Babel (>=2.4.0)
+Requires-Dist: Faker (==0.7.15)
+Requires-Dist: underscore.py (>=0.1.6)
+
+UNKNOWN
+
+
