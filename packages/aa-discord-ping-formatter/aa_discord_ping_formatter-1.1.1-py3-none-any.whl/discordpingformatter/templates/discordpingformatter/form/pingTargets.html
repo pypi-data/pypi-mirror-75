@@ -1,0 +1,30 @@
+<div class="form-group clearfix">
+    <label class="col-md-3 control-label" for="pingTarget">Ping Target</label>
+    <div class="col-md-9">
+        <select id="pingTarget" name="pingTarget" class="form-control">
+            <option value="@here">@here</option>
+            <option value="@everyone">@everyone</option>
+
+            {% if additionalPingTargets|length > 0 %}
+                <option value="" disabled></option>
+                <optgroup label="Additionally configured ping targets">
+                    {% load update_variable %}
+                    {% with "false" as showPingTarget %}
+                        {% for pingTarget in additionalPingTargets %}
+                            {% update_variable "false" as showPingTarget %}
+
+                            {% for group in userGroups %}
+                                {% if showPingTarget == "false" %}
+                                    {% if pingTarget.restrictedToGroup|length == 0 or group.id in pingTarget.restrictedToGroup %}
+                                        <option value="{{ pingTarget.roleId }}">@{{ pingTarget.roleName }}</option>
+                                        {% update_variable "true" as showPingTarget %}
+                                    {% endif %}
+                                {% endif %}
+                            {% endfor %}
+                        {% endfor %}
+                    {% endwith %}
+                </optgroup>
+            {% endif %}
+        </select>
+    </div>
+</div>
