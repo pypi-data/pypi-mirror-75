@@ -1,0 +1,43 @@
+[tool.poetry]
+name = "bbrecon"
+version = "0.0.7"
+description = "A client library and CLI for accessing the Bug Bounty Recon API"
+
+authors = []
+
+readme = "README.md"
+packages = [
+    {include = "bbrecon"}, {include = "bin"},
+]
+include = ["CHANGELOG.md", "bbrecon/py.typed"]
+
+[tool.poetry.scripts]
+bbrecon = 'bin.app:main'
+
+[tool.poetry.dependencies]
+python = "^3.8"
+httpx = "^0.13.3"
+typer = {extras = ["all"], version = "^0.3.1"}
+tabulate = "^0.8.7"
+pydantic = "^1.6.1"
+
+
+[tool.poetry.dev-dependencies]
+black = "^19.10b0"
+pytest = "^5.4.3"
+pre-commit = "^2.6.0"
+flake8 = "^3.8.3"
+pytest-cov = "^2.10.0"
+validators = "^0.16.0"
+[tool.black]
+line-length = 88
+target_version = ['py38']
+exclude = '''
+(
+  /(
+    | \.git
+    | \.venv
+    | \.mypy_cache
+  )/
+)
+'''
