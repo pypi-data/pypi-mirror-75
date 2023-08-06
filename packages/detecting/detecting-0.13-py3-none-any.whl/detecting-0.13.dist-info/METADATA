@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: detecting
+Version: 0.13
+Summary: detecting
+Home-page: https://github.com/Qinbf/detecting
+Author: QinBingFeng
+Author-email: 114479602@qq.com
+License: MIT
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: tensorflow
+Requires-Dist: numpy
+Requires-Dist: matplotlib
+Requires-Dist: opencv-python
+Requires-Dist: h5py
+Requires-Dist: yacs
+Provides-Extra: coco
+Requires-Dist: pycocotools ; extra == 'coco'
+Provides-Extra: map
+Requires-Dist: tqdm ; extra == 'map'
+
+## detection
+
+
+
+
+------------------
+
+
+
