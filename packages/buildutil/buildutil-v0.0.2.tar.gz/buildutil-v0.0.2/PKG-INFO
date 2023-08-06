@@ -1,0 +1,33 @@
+Metadata-Version: 1.1
+Name: buildutil
+Version: v0.0.2
+Summary: Build utils
+Home-page: https://github.com/tedicreations/buildutil
+Author: Kanelis Elias
+Author-email: hkanelhs@yahoo.gr
+License: MIT
+Download-URL: https://github.com/TediCreations/buildutil/archive/v0.0.2.tar.gz
+Description: # Buildutils
+        
+        Utilities for build system
+        
+        [![Build Status](https://travis-ci.org/TediCreations/buildutil.svg?branch=master)](https://travis-ci.org/TediCreations/buildutil)
+        
+        ### Installation
+        
+        ```sh
+        $ pip install buildutil
+        ```
+        
+        # License
+        
+        MIT
+        
+Keywords: build,make,util
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
