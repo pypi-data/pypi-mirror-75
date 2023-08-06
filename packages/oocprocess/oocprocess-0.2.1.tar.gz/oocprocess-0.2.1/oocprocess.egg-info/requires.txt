@@ -1,0 +1,9 @@
+numpy
+pandas
+zarr
+dask
+h5py
+xarray
+GDAL>=2.0
+lxml
+scikit-learn>=0.18
