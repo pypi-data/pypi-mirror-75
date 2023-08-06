@@ -1,0 +1,9 @@
+numpy
+matplotlib
+opencv-python
+h5py
+yacs
+tqdm
+
+[coco]
+pycocotools
