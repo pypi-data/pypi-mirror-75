@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: pelutils
+Version: 0.1.2
+Summary: Utility functions that are commmonly useful
+Home-page: https://github.com/peleiden/pelutils
+Author: Søren Winkel Holm, Asger Laurits Schultz
+Author-email: swholm@protonmail.com
+License: GPL-v2
+Download-URL: https://pypi.org/project/pelutils/
+Description: # pelutils
+        Utility functions that we commonly use including flexible parser, logger and time taker.
+        
+        ## Parser
+        A combination of parsing CLI and config file arguments which allows for a powerful, easy-to-use workflow.
+        Useful for parametric methods such as machine learning.
+        
+        ## Logger
+        Easy to use logger which fit common needs.
+        
+        ## TickTock
+        Simple time taker inspired by Matlab Tic, Toc.
+        
+        ## DataStorage
+        Mutation of dataclass that saves/loads its fields from disk
+        
+        
+        # 0.1.2
+            - Update documentation for logger and ticktock
+            - Fix bug where seperator was not an argument to Logger.__call__
+        # 0.1.0
+            - Include DataStorage
+            - Logger can throw errors and handle seperators
+            - TickTock includes time handling and units
+            - Minor parser path changes
+        # 0.0.1
+            - Logger, Parser, TickTock added from previous projects
+        
+Keywords: utility,logger,parser,profiling
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
