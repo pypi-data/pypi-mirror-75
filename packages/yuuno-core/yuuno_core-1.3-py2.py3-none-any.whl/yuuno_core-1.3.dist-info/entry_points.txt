@@ -1,0 +1,3 @@
+[console_scripts]
+yuuno = yuuno.console_scripts:main
+
