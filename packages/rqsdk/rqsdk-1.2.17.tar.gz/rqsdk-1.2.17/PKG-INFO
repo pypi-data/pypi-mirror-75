@@ -1,0 +1,21 @@
+Metadata-Version: 1.2
+Name: rqsdk
+Version: 1.2.17
+Summary: Ricequant Native SDK
+Home-page: https://www.ricequant.com/
+Author: Ricequant
+Author-email: public@ricequant.com
+License: UNKNOWN
+Description-Content-Type: UNKNOWN
+Description: UNKNOWN
+Keywords: rqsdk
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Environment :: Console
+Requires-Python: >=3.5
