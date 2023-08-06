@@ -1,0 +1,317 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.9.9
+# options: -q -O2 -IC:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders -o C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/build/intern/cycles/kernel/shaders/node_wave_texture.oso
+shader node_wave_texture
+param	int	use_mapping	0		%read{2,2} %write{2147483647,-1}
+param	matrix	mapping	0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0		%read{3,3} %write{2147483647,-1}
+param	string	type	"bands"		%read{7,15} %write{2147483647,-1}
+param	string	profile	"sine"		%read{97,97} %write{2147483647,-1}
+param	float	Scale	5		%read{4,4} %write{2147483647,-1}
+param	float	Distortion	0		%read{19,95} %write{2147483647,-1}
+param	float	Detail	2		%read{27,27} %write{2147483647,-1}
+param	float	DetailScale	1		%read{21,21} %write{2147483647,-1}
+param	point	Vector	0 0 0		%read{1,1} %write{0,0} %initexpr
+oparam	float	Fac	0		%read{112,112} %write{101,110}
+oparam	color	Color	0 0 0		%read{2147483647,-1} %write{112,112}
+global	point	P	%read{0,0} %write{2147483647,-1}
+local	float	___782_f	%read{32,58} %write{32,53}
+local	float	___798_fscale	%read{32,51} %write{23,46}
+local	float	___798_amp	%read{32,59} %write{24,46}
+local	float	___798_sum	%read{32,91} %write{25,90}
+local	float	___798_octaves	%read{29,48} %write{28,28}
+local	int	___798_n	%read{32,85} %write{29,29}
+local	int	___799_i	%read{32,46} %write{31,46}
+local	float	___800_t	%read{32,46} %write{32,46}
+local	float	___798_rmd	%read{49,80} %write{48,48}
+local	float	___801_t	%read{59,59} %write{56,58}
+local	float	___801_sum2	%read{77,80} %write{60,77}
+local	float	___808_n	%read{96,110} %write{6,106}
+local	point	p	%read{3,4} %write{1,3}
+temp	point	$tmp1	%read{9,21} %write{4,4}
+const	string	$const1	"wave"		%read{5,5} %write{2147483647,-1}
+const	float	$const2	0		%read{6,107} %write{2147483647,-1}
+const	string	$const3	"bands"		%read{7,7} %write{2147483647,-1}
+temp	int	$tmp2	%read{8,8} %write{7,7}
+const	int	$const4	0		%read{9,31} %write{2147483647,-1}
+temp	float	$tmp3	%read{11,11} %write{9,9}
+const	int	$const5	1		%read{10,87} %write{2147483647,-1}
+temp	float	$tmp4	%read{11,11} %write{10,10}
+temp	float	$tmp5	%read{13,13} %write{11,11}
+const	int	$const6	2		%read{12,72} %write{2147483647,-1}
+temp	float	$tmp6	%read{13,13} %write{12,12}
+temp	float	$tmp7	%read{14,14} %write{13,13}
+const	float	$const7	10		%read{14,14} %write{2147483647,-1}
+const	string	$const8	"rings"		%read{15,15} %write{2147483647,-1}
+temp	int	$tmp8	%read{16,16} %write{15,15}
+temp	float	$tmp9	%read{18,18} %write{17,17}
+const	float	$const9	20		%read{18,18} %write{2147483647,-1}
+temp	int	$tmp10	%read{20,20} %write{19,19}
+temp	float	$tmp11	%read{93,93} %write{81,91}
+temp	point	$tmp12	%read{32,51} %write{21,21}
+const	string	$const10	"fractal_noise"		%read{22,22} %write{2147483647,-1}
+const	float	$const11	1		%read{23,109} %write{2147483647,-1}
+const	float	$const12	16		%read{27,27} %write{2147483647,-1}
+const	string	$const13	"clamp"		%read{26,26} %write{2147483647,-1}
+temp	float	$tmp13	%read{28,28} %write{27,27}
+temp	int	$tmp14	%read{30,46} %write{31,46}
+temp	point	$tmp15	%read{32,46} %write{32,46}
+const	string	$const14	"safe_noise"		%read{34,52} %write{2147483647,-1}
+const	string	$const15	"noise"		%read{35,53} %write{2147483647,-1}
+temp	int	$tmp16	%read{32,46} %write{32,46}
+const	float	$const16	0.5		%read{38,101} %write{2147483647,-1}
+temp	float	$tmp17	%read{32,46} %write{32,46}
+const	float	$const17	2		%read{44,93} %write{2147483647,-1}
+temp	int	$tmp18	%read{2147483647,-1} %write{32,46}
+temp	float	$tmp19	%read{48,48} %write{47,47}
+temp	int	$tmp20	%read{50,50} %write{49,49}
+temp	point	$tmp21	%read{53,53} %write{51,51}
+temp	int	$tmp22	%read{55,55} %write{54,54}
+temp	float	$tmp23	%read{60,60} %write{59,59}
+temp	int	$tmp24	%read{62,62} %write{61,61}
+temp	float	$tmp25	%read{67,67} %write{62,62}
+temp	int	$tmp26	%read{64,64} %write{63,63}
+temp	int	$tmp27	%read{65,65} %write{64,64}
+temp	int	$tmp28	%read{66,66} %write{65,65}
+temp	float	$tmp29	%read{67,67} %write{66,66}
+temp	float	$tmp30	%read{68,68} %write{67,67}
+temp	int	$tmp31	%read{70,70} %write{69,69}
+temp	int	$tmp32	%read{71,71} %write{70,70}
+temp	float	$tmp33	%read{76,76} %write{71,71}
+temp	int	$tmp34	%read{73,73} %write{72,72}
+temp	int	$tmp35	%read{74,74} %write{73,73}
+temp	int	$tmp36	%read{75,75} %write{74,74}
+temp	float	$tmp37	%read{76,76} %write{75,75}
+temp	float	$tmp38	%read{77,77} %write{76,76}
+temp	float	$tmp39	%read{79,79} %write{78,78}
+temp	float	$tmp40	%read{81,81} %write{79,79}
+temp	float	$tmp41	%read{81,81} %write{80,80}
+temp	int	$tmp42	%read{84,84} %write{83,83}
+temp	float	$tmp43	%read{89,89} %write{84,84}
+temp	int	$tmp44	%read{86,86} %write{85,85}
+temp	int	$tmp45	%read{87,87} %write{86,86}
+temp	int	$tmp46	%read{88,88} %write{87,87}
+temp	float	$tmp47	%read{89,89} %write{88,88}
+temp	float	$tmp48	%read{90,90} %write{89,89}
+temp	float	$tmp49	%read{94,94} %write{93,93}
+temp	float	$tmp50	%read{95,95} %write{94,94}
+temp	float	$tmp51	%read{96,96} %write{95,95}
+const	string	$const18	"sine"		%read{97,97} %write{2147483647,-1}
+temp	int	$tmp52	%read{98,98} %write{97,97}
+temp	float	$tmp53	%read{100,100} %write{99,99}
+temp	float	$tmp54	%read{101,101} %write{100,100}
+const	float	$const19	6.2831855		%read{103,103} %write{2147483647,-1}
+temp	int	$tmp55	%read{105,105} %write{104,104}
+temp	float	$tmp56	%read{106,106} %write{105,105}
+temp	int	$tmp57	%read{108,108} %write{107,107}
+code Vector
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:56
+#                          point Vector = P,
+	assign		Vector P 	%filename{"C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl"} %line{56} %argrw{"wr"}
+code ___main___
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:60
+#   point p = Vector;
+	assign		p Vector 	%filename{"C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl"} %line{60} %argrw{"wr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:62
+#   if (use_mapping)
+	if		use_mapping 4 4 	%line{62} %argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:63
+#     p = transform(mapping, p);
+	transform	p mapping p 	%line{63} %argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:65
+#   Fac = wave(p * Scale, type, profile, Detail, Distortion, DetailScale);
+	mul		$tmp1 p Scale 	%line{65} %argrw{"wrr"}
+	functioncall	$const1 112 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:24
+#   float n = 0.0;
+	assign		___808_n $const2 	%line{24} %argrw{"wr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:26
+#   if (type == "bands") {
+	eq		$tmp2 type $const3 	%line{26} %argrw{"wrr"}
+	if		$tmp2 15 19 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:27
+#     n = (p[0] + p[1] + p[2]) * 10.0;
+	compref		$tmp3 $tmp1 $const4 	%line{27} %argrw{"wrr"}
+	compref		$tmp4 $tmp1 $const5 	%argrw{"wrr"}
+	add		$tmp5 $tmp3 $tmp4 	%argrw{"wrr"}
+	compref		$tmp6 $tmp1 $const6 	%argrw{"wrr"}
+	add		$tmp7 $tmp5 $tmp6 	%argrw{"wrr"}
+	mul		___808_n $tmp7 $const7 	%argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:29
+#   else if (type == "rings") {
+	eq		$tmp8 type $const8 	%line{29} %argrw{"wrr"}
+	if		$tmp8 19 19 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:30
+#     n = length(p) * 20.0;
+	length		$tmp9 $tmp1 	%line{30} %argrw{"wr"}
+	mul		___808_n $tmp9 $const9 	%argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:33
+#   if (distortion != 0.0) {
+	neq		$tmp10 Distortion $const2 	%line{33} %argrw{"wrr"}
+	if		$tmp10 97 97 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:34
+#     n = n + (distortion * (fractal_noise(p * dscale, detail) * 2.0 - 1.0));
+	mul		$tmp12 $tmp1 DetailScale 	%line{34} %argrw{"wrr"}
+	functioncall	$const10 93 	%argrw{"r"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:145
+#   float fscale = 1.0;
+	assign		___798_fscale $const11 	%filename{"C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h"} %line{145} %argrw{"wr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:146
+#   float amp = 1.0;
+	assign		___798_amp $const11 	%line{146} %argrw{"wr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:147
+#   float sum = 0.0;
+	assign		___798_sum $const2 	%line{147} %argrw{"wr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:148
+#   float octaves = clamp(details, 0.0, 16.0);
+	functioncall	$const13 29 	%line{148} %argrw{"r"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\stdosl.h:231
+#   return max(min(x, maxval), minval);
+	min		$tmp13 Detail $const12 	%filename{"C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\stdosl.h"} %line{231} %argrw{"wrr"}
+	max		___798_octaves $tmp13 $const2 	%argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:149
+#   int n = (int)octaves;
+	assign		___798_n ___798_octaves 	%filename{"C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h"} %line{149} %argrw{"wr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:150
+#   for (int i = 0; i <= n; i++) {
+	for		$tmp14 32 33 45 47 	%line{150} %argrw{"r"}
+	assign		___799_i $const4 	%argrw{"wr"}
+	le		$tmp14 ___799_i ___798_n 	%argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:151
+#     float t = safe_noise(fscale * p);
+	mul		$tmp15 ___798_fscale $tmp12 	%line{151} %argrw{"wrr"}
+	functioncall	$const14 41 	%argrw{"r"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:40
+#   float f = noise("noise", p);
+	noise		___782_f $const15 $tmp15 	%line{40} %argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:41
+#   if (isinf(f))
+	isinf		$tmp16 ___782_f 	%line{41} %argrw{"wr"}
+	if		$tmp16 40 40 	%argrw{"r"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:42
+#     return 0.5;
+	assign		___800_t $const16 	%line{42} %argrw{"wr"}
+	return
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:43
+#   return f;
+	assign		___800_t ___782_f 	%line{43} %argrw{"wr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:152
+#     sum += t * amp;
+	mul		$tmp17 ___800_t ___798_amp 	%line{152} %argrw{"wrr"}
+	add		___798_sum ___798_sum $tmp17 	%argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:153
+#     amp *= 0.5;
+	mul		___798_amp ___798_amp $const16 	%line{153} %argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:154
+#     fscale *= 2.0;
+	mul		___798_fscale ___798_fscale $const17 	%line{154} %argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:150
+#   for (int i = 0; i <= n; i++) {
+	assign		$tmp18 ___799_i 	%line{150} %argrw{"wr"}
+	add		___799_i ___799_i $const5 	%argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:156
+#   float rmd = octaves - floor(octaves);
+	floor		$tmp19 ___798_octaves 	%line{156} %argrw{"wr"}
+	sub		___798_rmd ___798_octaves $tmp19 	%argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:157
+#   if (rmd != 0.0) {
+	neq		$tmp20 ___798_rmd $const2 	%line{157} %argrw{"wrr"}
+	if		$tmp20 83 93 	%argrw{"r"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:158
+#     float t = safe_noise(fscale * p);
+	mul		$tmp21 ___798_fscale $tmp12 	%line{158} %argrw{"wrr"}
+	functioncall	$const14 59 	%argrw{"r"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:40
+#   float f = noise("noise", p);
+	noise		___782_f $const15 $tmp21 	%line{40} %argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:41
+#   if (isinf(f))
+	isinf		$tmp22 ___782_f 	%line{41} %argrw{"wr"}
+	if		$tmp22 58 58 	%argrw{"r"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:42
+#     return 0.5;
+	assign		___801_t $const16 	%line{42} %argrw{"wr"}
+	return
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:43
+#   return f;
+	assign		___801_t ___782_f 	%line{43} %argrw{"wr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:159
+#     float sum2 = sum + t * amp;
+	mul		$tmp23 ___801_t ___798_amp 	%line{159} %argrw{"wrr"}
+	add		___801_sum2 ___798_sum $tmp23 	%argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:160
+#     sum *= ((float)(1 << n) / (float)((1 << (n + 1)) - 1));
+	shl		$tmp24 $const5 ___798_n 	%line{160} %argrw{"wrr"}
+	assign		$tmp25 $tmp24 	%argrw{"wr"}
+	add		$tmp26 ___798_n $const5 	%argrw{"wrr"}
+	shl		$tmp27 $const5 $tmp26 	%argrw{"wrr"}
+	sub		$tmp28 $tmp27 $const5 	%argrw{"wrr"}
+	assign		$tmp29 $tmp28 	%argrw{"wr"}
+	div		$tmp30 $tmp25 $tmp29 	%argrw{"wrr"}
+	mul		___798_sum ___798_sum $tmp30 	%argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:161
+#     sum2 *= ((float)(1 << (n + 1)) / (float)((1 << (n + 2)) - 1));
+	add		$tmp31 ___798_n $const5 	%line{161} %argrw{"wrr"}
+	shl		$tmp32 $const5 $tmp31 	%argrw{"wrr"}
+	assign		$tmp33 $tmp32 	%argrw{"wr"}
+	add		$tmp34 ___798_n $const6 	%argrw{"wrr"}
+	shl		$tmp35 $const5 $tmp34 	%argrw{"wrr"}
+	sub		$tmp36 $tmp35 $const5 	%argrw{"wrr"}
+	assign		$tmp37 $tmp36 	%argrw{"wr"}
+	div		$tmp38 $tmp33 $tmp37 	%argrw{"wrr"}
+	mul		___801_sum2 ___801_sum2 $tmp38 	%argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:162
+#     return (1.0 - rmd) * sum + rmd * sum2;
+	sub		$tmp39 $const11 ___798_rmd 	%line{162} %argrw{"wrr"}
+	mul		$tmp40 $tmp39 ___798_sum 	%argrw{"wrr"}
+	mul		$tmp41 ___798_rmd ___801_sum2 	%argrw{"wrr"}
+	add		$tmp11 $tmp40 $tmp41 	%argrw{"wrr"}
+	return
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:165
+#     sum *= ((float)(1 << n) / (float)((1 << (n + 1)) - 1));
+	shl		$tmp42 $const5 ___798_n 	%line{165} %argrw{"wrr"}
+	assign		$tmp43 $tmp42 	%argrw{"wr"}
+	add		$tmp44 ___798_n $const5 	%argrw{"wrr"}
+	shl		$tmp45 $const5 $tmp44 	%argrw{"wrr"}
+	sub		$tmp46 $tmp45 $const5 	%argrw{"wrr"}
+	assign		$tmp47 $tmp46 	%argrw{"wr"}
+	div		$tmp48 $tmp43 $tmp47 	%argrw{"wrr"}
+	mul		___798_sum ___798_sum $tmp48 	%argrw{"wrr"}
+# C:\Users\TGubs\Code\Python\blenderpy\build\temp.win-amd64-3.7\Release\blender\intern\cycles\kernel\shaders\node_noise.h:166
+#     return sum;
+	assign		$tmp11 ___798_sum 	%line{166} %argrw{"wr"}
+	return
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:34
+#     n = n + (distortion * (fractal_noise(p * dscale, detail) * 2.0 - 1.0));
+	mul		$tmp49 $tmp11 $const17 	%filename{"C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl"} %line{34} %argrw{"wrr"}
+	sub		$tmp50 $tmp49 $const11 	%argrw{"wrr"}
+	mul		$tmp51 Distortion $tmp50 	%argrw{"wrr"}
+	add		___808_n ___808_n $tmp51 	%argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:37
+#   if (profile == "sine") {
+	eq		$tmp52 profile $const18 	%line{37} %argrw{"wrr"}
+	if		$tmp52 103 112 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:38
+#     return 0.5 + 0.5 * sin(n);
+	sin		$tmp53 ___808_n 	%line{38} %argrw{"wr"}
+	mul		$tmp54 $const16 $tmp53 	%argrw{"wrr"}
+	add		Fac $const16 $tmp54 	%argrw{"wrr"}
+	return
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:42
+#     n /= M_2PI;
+	div		___808_n ___808_n $const19 	%line{42} %argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:43
+#     n -= (int)n;
+	assign		$tmp55 ___808_n 	%line{43} %argrw{"wr"}
+	assign		$tmp56 $tmp55 	%argrw{"wr"}
+	sub		___808_n ___808_n $tmp56 	%argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:44
+#     return (n < 0.0) ? n + 1.0 : n;
+	lt		$tmp57 ___808_n $const2 	%line{44} %argrw{"wrr"}
+	if		$tmp57 110 111 	%argrw{"r"}
+	add		Fac ___808_n $const11 	%argrw{"wrr"}
+	assign		Fac ___808_n 	%argrw{"wr"}
+	return
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_wave_texture.osl:66
+#   Color = Fac;
+	assign		Color Fac 	%line{66} %argrw{"wr"}
+	end

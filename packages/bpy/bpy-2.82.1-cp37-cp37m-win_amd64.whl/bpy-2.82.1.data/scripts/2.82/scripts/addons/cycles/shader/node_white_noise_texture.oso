@@ -1,0 +1,58 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.9.9
+# options: -q -O2 -IC:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders -o C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/build/intern/cycles/kernel/shaders/node_white_noise_texture.oso
+shader node_white_noise_texture
+param	string	dimensions	"3D"		%read{0,11} %write{2147483647,-1}
+param	point	Vector	0 0 0		%read{5,13} %write{2147483647,-1}
+param	float	W	0		%read{2,13} %write{2147483647,-1}
+oparam	float	Value	0		%read{2147483647,-1} %write{2,13}
+const	string	$const1	"1D"		%read{0,0} %write{2147483647,-1}
+temp	int	$tmp1	%read{1,1} %write{0,0}
+const	string	$const2	"hash"		%read{2,13} %write{2147483647,-1}
+const	string	$const3	"2D"		%read{3,3} %write{2147483647,-1}
+temp	int	$tmp2	%read{4,4} %write{3,3}
+const	int	$const4	0		%read{5,5} %write{2147483647,-1}
+temp	float	$tmp3	%read{7,7} %write{5,5}
+const	int	$const5	1		%read{6,6} %write{2147483647,-1}
+temp	float	$tmp4	%read{7,7} %write{6,6}
+const	string	$const6	"3D"		%read{8,8} %write{2147483647,-1}
+temp	int	$tmp5	%read{9,9} %write{8,8}
+const	string	$const7	"4D"		%read{11,11} %write{2147483647,-1}
+temp	int	$tmp6	%read{12,12} %write{11,11}
+const	string	$const8	"%s"		%read{14,14} %write{2147483647,-1}
+const	string	$const9	"Unknown dimension!"		%read{14,14} %write{2147483647,-1}
+code ___main___
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_white_noise_texture.osl:24
+#   if (dimensions == "1D") {
+	eq		$tmp1 dimensions $const1 	%filename{"C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_white_noise_texture.osl"} %line{24} %argrw{"wrr"}
+	if		$tmp1 3 15 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_white_noise_texture.osl:25
+#     Value = noise("hash", W);
+	noise		Value $const2 W 	%line{25} %argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_white_noise_texture.osl:27
+#   else if (dimensions == "2D") {
+	eq		$tmp2 dimensions $const3 	%line{27} %argrw{"wrr"}
+	if		$tmp2 8 15 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_white_noise_texture.osl:28
+#     Value = noise("hash", Vector[0], Vector[1]);
+	compref		$tmp3 Vector $const4 	%line{28} %argrw{"wrr"}
+	compref		$tmp4 Vector $const5 	%argrw{"wrr"}
+	noise		Value $const2 $tmp3 $tmp4 	%argrw{"wrrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_white_noise_texture.osl:30
+#   else if (dimensions == "3D") {
+	eq		$tmp5 dimensions $const6 	%line{30} %argrw{"wrr"}
+	if		$tmp5 11 15 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_white_noise_texture.osl:31
+#     Value = noise("hash", Vector);
+	noise		Value $const2 Vector 	%line{31} %argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_white_noise_texture.osl:33
+#   else if (dimensions == "4D") {
+	eq		$tmp6 dimensions $const7 	%line{33} %argrw{"wrr"}
+	if		$tmp6 14 15 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_white_noise_texture.osl:34
+#     Value = noise("hash", Vector, W);
+	noise		Value $const2 Vector W 	%line{34} %argrw{"wrrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_white_noise_texture.osl:37
+#     warning("%s", "Unknown dimension!");
+	warning		$const8 $const9 	%line{37} %argrw{"rr"}
+	end

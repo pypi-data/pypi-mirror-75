@@ -1,0 +1,69 @@
+OpenShadingLanguage 1.00
+# Compiled by oslc 1.9.9
+# options: -q -O2 -IC:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders -o C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/build/intern/cycles/kernel/shaders/node_vertex_color.oso
+shader node_vertex_color
+param	string	bump_offset	"center"		%read{7,13} %write{2147483647,-1}
+param	string	layer_name	""		%read{0,0} %write{2147483647,-1} %derivs
+oparam	color	Color	0 0 0		%read{9,16} %write{5,16} %derivs
+oparam	float	Alpha	0		%read{11,18} %write{6,18} %derivs
+local	float[4]	vertex_color	%read{2,6} %write{0,0} %derivs
+temp	int	$tmp1	%read{1,1} %write{0,0}
+const	int	$const1	0		%read{2,2} %write{2147483647,-1}
+temp	float	$tmp2	%read{5,5} %write{2,2} %derivs
+const	int	$const2	1		%read{3,3} %write{2147483647,-1}
+temp	float	$tmp3	%read{5,5} %write{3,3} %derivs
+const	int	$const3	2		%read{4,4} %write{2147483647,-1}
+temp	float	$tmp4	%read{5,5} %write{4,4} %derivs
+const	int	$const4	3		%read{6,6} %write{2147483647,-1}
+const	string	$const5	"dx"		%read{7,7} %write{2147483647,-1}
+temp	int	$tmp5	%read{8,8} %write{7,7}
+temp	color	$tmp6	%read{10,10} %write{9,9} %derivs
+temp	float	$tmp7	%read{12,12} %write{11,11} %derivs
+const	string	$const6	"dy"		%read{13,13} %write{2147483647,-1}
+temp	int	$tmp8	%read{14,14} %write{13,13}
+temp	color	$tmp9	%read{16,16} %write{15,15} %derivs
+temp	float	$tmp10	%read{18,18} %write{17,17} %derivs
+const	string	$const7	"%s"		%read{19,19} %write{2147483647,-1}
+const	string	$const8	"Invalid attribute."		%read{19,19} %write{2147483647,-1}
+code ___main___
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_vertex_color.osl:25
+#   if (getattribute(layer_name, vertex_color)) {
+	getattribute	$tmp1 layer_name vertex_color 	%filename{"C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_vertex_color.osl"} %line{25} %argrw{"wrw"}
+	if		$tmp1 19 20 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_vertex_color.osl:26
+#     Color = color(vertex_color[0], vertex_color[1], vertex_color[2]);
+	aref		$tmp2 vertex_color $const1 	%line{26} %argrw{"wrr"}
+	aref		$tmp3 vertex_color $const2 	%argrw{"wrr"}
+	aref		$tmp4 vertex_color $const3 	%argrw{"wrr"}
+	color		Color $tmp2 $tmp3 $tmp4 	%argrw{"wrrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_vertex_color.osl:27
+#     Alpha = vertex_color[3];
+	aref		Alpha vertex_color $const4 	%line{27} %argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_vertex_color.osl:29
+#     if (bump_offset == "dx") {
+	eq		$tmp5 bump_offset $const5 	%line{29} %argrw{"wrr"}
+	if		$tmp5 13 19 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_vertex_color.osl:30
+#       Color += Dx(Color);
+	Dx		$tmp6 Color 	%line{30} %argrw{"wr"} %argderivs{1}
+	add		Color Color $tmp6 	%argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_vertex_color.osl:31
+#       Alpha += Dx(Alpha);
+	Dx		$tmp7 Alpha 	%line{31} %argrw{"wr"} %argderivs{1}
+	add		Alpha Alpha $tmp7 	%argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_vertex_color.osl:33
+#     else if (bump_offset == "dy") {
+	eq		$tmp8 bump_offset $const6 	%line{33} %argrw{"wrr"}
+	if		$tmp8 19 19 	%argrw{"r"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_vertex_color.osl:34
+#       Color += Dy(Color);
+	Dy		$tmp9 Color 	%line{34} %argrw{"wr"} %argderivs{1}
+	add		Color Color $tmp9 	%argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_vertex_color.osl:35
+#       Alpha += Dy(Alpha);
+	Dy		$tmp10 Alpha 	%line{35} %argrw{"wr"} %argderivs{1}
+	add		Alpha Alpha $tmp10 	%argrw{"wrr"}
+# C:/Users/TGubs/Code/Python/blenderpy/build/temp.win-amd64-3.7/Release/blender/intern/cycles/kernel/shaders/node_vertex_color.osl:39
+#     warning("%s", "Invalid attribute.");
+	warning		$const7 $const8 	%line{39} %argrw{"rr"}
+	end
