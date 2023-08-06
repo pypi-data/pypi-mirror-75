@@ -1,0 +1,108 @@
+Metadata-Version: 2.1
+Name: synacell
+Version: 0.0.7
+Summary: Synapses and cells
+Home-page: https://github.com/GinkoBalboa/synacell
+Author: Ginko Balboa
+Author-email: ginkobalboa3@gmail.com
+License: UNKNOWN
+Platform: Windows 10 x64
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: C++
+Classifier: Natural Language :: English
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: data
+Requires-Dist: pandas (>=1.0.0) ; extra == 'data'
+Requires-Dist: numpy (>=1.18.0) ; extra == 'data'
+Provides-Extra: plotting
+Requires-Dist: matplotlib (>=2.2.0) ; extra == 'plotting'
+Provides-Extra: spice
+Requires-Dist: ltspice (>=0.4.2) ; extra == 'spice'
+
+# SynaCell
+
+Synapses and cells.
+
+Spiking neural network (SNN) consisted of cells with processing algorithms, connected by synapses with realistic signal transmission properties. The engine that runs the SNN is written in plain C++ with interface in Python, for simplicity and platform mobility.
+
+## Tests
+
+We implemented test scripts as a module. You can run them by running the following commands from python console after installing the `synacell` library:
+
+```python
+import synacell.test as sctest
+sctest.run_all()
+```
+
+**Warning:** The script generates temporary files in the directory from where you run the python console.
+
+Tests that will run when running `sctest.run_all()` are the test functions from the modules:
+
+- `test_simple`
+- `test_plot`
+
+## Examples
+
+### example_spice
+
+Compare results with LTSpice output. The goal is to validate the solution of the differential equation describing the synapse or cell circuit. Submodules are:
+
+- `example_spice`
+- `example_part`
+
+#### SynaRPC
+
+Compare the difference between the spice model of the SynaRPC circuit and the synacell model. Run the example:
+
+```python
+import synacell.examples as scex
+scex.run_spice("SynaRPC")
+```
+
+Example produces files in the working directory (where you run python from).
+- SynaRPC.wav - WAV file for the synacell
+- SynaRPC.raw - Spice file that can be runned from python's LTSpice
+- SynaRPC.asc - Spice file that can be openned from LTSpice and examine or modify the circuit.
+- SynaRPC.pwl - Input file for the spice model, produced by synacell.
+
+### example_part
+
+Watch output from different parts.
+
+#### CellEMA
+
+Watch the cell output (vo) that performs Exponential Moving Average from its input (vi). Run the example:
+
+```python
+import synacell.examples as scex
+scex.run_part("CellEMA")
+```
+
+#### CellMultiData
+
+Loading of multiple files into single `CellMultiData` neuron and using the cell as validator and error computing cell:
+
+```python
+import synacell.examples as scex
+scex.run_part("CellMultiData")
+```
+
+## Requirements
+
+For now, we compiled the C++ software as a Windows shared library (.dll) for 64-bit architectures. We set the official PyPI package for:
+
+* Windows 64bit
+* Python 3.7+ 64bit
+
+If you plan to compile the c++ by yourself, check the file: [HOWTO.md](HOWTO.md)
+
+
