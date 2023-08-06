@@ -1,0 +1,12 @@
+README.md
+setup.py
+evaluations/__init__.py
+evaluations.egg-info/PKG-INFO
+evaluations.egg-info/SOURCES.txt
+evaluations.egg-info/dependency_links.txt
+evaluations.egg-info/top_level.txt
+evaluations/classification/__init__.py
+evaluations/classification/accuracy.py
+evaluations/classification/confusion_matrix.py
+evaluations/text_extraction/__init__.py
+evaluations/text_extraction/jaccard_word_level.py
