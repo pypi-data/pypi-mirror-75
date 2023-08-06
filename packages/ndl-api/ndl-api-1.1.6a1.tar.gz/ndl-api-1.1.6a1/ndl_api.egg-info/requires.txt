@@ -1,0 +1,4 @@
+grpcio>=1.22
+grpcio-tools>=1.22
+protobuf>=3.9.0
+opencv-python>=4.1.0.0
