@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+VERSION
+requirements.txt
+setup.cfg
+setup.py
+rhasspy_supervisor.egg-info/PKG-INFO
+rhasspy_supervisor.egg-info/SOURCES.txt
+rhasspy_supervisor.egg-info/dependency_links.txt
+rhasspy_supervisor.egg-info/requires.txt
+rhasspy_supervisor.egg-info/top_level.txt
+rhasspysupervisor/__init__.py
+rhasspysupervisor/__main__.py
+rhasspysupervisor/py.typed
