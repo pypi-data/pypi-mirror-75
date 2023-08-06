@@ -1,0 +1,5 @@
+blinker>=1.1
+protobuf>=3.9.1
+requests>=2.21.0
+retrying>=1.2.3
+stackify-api-python>=1.0.5
