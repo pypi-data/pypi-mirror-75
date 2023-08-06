@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+config.ini
+setup.py
+zmazino/__init__.py
+zmazino/config.py
+zmazino/logger.py
+zmazino/mysql.py
+zmazino/service.py
+zmazino.egg-info/PKG-INFO
+zmazino.egg-info/SOURCES.txt
+zmazino.egg-info/dependency_links.txt
+zmazino.egg-info/entry_points.txt
+zmazino.egg-info/top_level.txt
