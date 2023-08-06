@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: simplepso
+Version: 2.1.1
+Summary: Simple usage particle swarm optimization
+Home-page: https://github.com/LoLab-VU/simplePSO
+Author: James C. Pino
+Author-email: james.ch.pino@gmail.com
+License: UNKNOWN
+Keywords: optimization,systems biology
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: matplotlib (>=1.5.0)
+Requires-Dist: numpy (>=1.11.0)
+Requires-Dist: scipy (>=0.17.1)
+Requires-Dist: pysb (>=1.1.1)
+
+UNKNOWN
+
+
