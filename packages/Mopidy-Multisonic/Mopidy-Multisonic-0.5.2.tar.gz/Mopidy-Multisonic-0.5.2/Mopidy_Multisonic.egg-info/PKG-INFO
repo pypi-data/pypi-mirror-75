@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: Mopidy-Multisonic
+Version: 0.5.2
+Summary: A mopidy backend provider for multisonic services
+Home-page: https://sr.ht/~reedwade/mopidy-multisonic/
+Author: ReedWade
+Author-email: <reedwade@misterbanal.net>
+License: Apache License, Version 2.0
+Description: Mopidy Multisonic
+        =================
+        
+        Yes, another mopidy subsonic backend provider. This module allow
+        multiple subsonic server providers
+        
+        Installation
+        ------------
+        
+        Install by running:
+        
+        ::
+        
+           python3 -m pip install Mopidy-Multisonic
+        
+        Configuration
+        -------------
+        
+        Before starting Mopidy, you must add configuration for Mopidy-Multisonic
+        to your Mopidy configuration file:
+        
+        ::
+        
+           [multisonic]
+           providers =
+             PROVIDER_NAME: PROTOCOL://USERNAME:PASSWORD@TARGET?[option1=value1&option2=value2]
+             [ANOTHER]
+        
+        ::
+        
+           [multisonic]
+           providers =
+             banalisation: https://mr_banal:azerty@music.banalserver.com?max_bit_rate=320&format=mp3
+        
+        ::
+        
+           [multisonic]
+           providers =
+             banalisation: https://mr_banal:azerty@music.banalserver.com?max_bit_rate=320
+             decadence: http://h4ck3r:1213@toot.com
+        
+        Project resources
+        =================
+        
+        -  `Project hub <https://sr.ht/~reedwade/mopidy-multisonic/>`__
+        -  `Todo tracker <https://todo.sr.ht/~reedwade/Mopidy-Multisonic>`__
+        -  `Mailing list <https://sr.ht/~reedwade/mopidy-multisonic/lists>`__
+        -  `Changelog <https://hg.sr.ht/~reedwade/mopidy_multisonic/browse/default/CHANGELOG.md>`__
+        
+        Credits
+        =======
+        
+        -  Original author: `ReedWade <https://sr.ht/~reedwade>`__
+        -  Current maintainer: `ReedWade <https://sr.ht/~reedwade>`__
+        -  `Contributors <https://hg.sr.ht/~reedwade/mopidy_multisonic/contributors>`__
+        
+Platform: UNKNOWN
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Multimedia :: Sound/Audio :: Players
+Requires-Python: >=3.7
+Provides-Extra: lint
+Provides-Extra: release
+Provides-Extra: test
+Provides-Extra: dev
