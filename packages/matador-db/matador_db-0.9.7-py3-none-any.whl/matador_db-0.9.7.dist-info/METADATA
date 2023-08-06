@@ -1,0 +1,164 @@
+Metadata-Version: 2.1
+Name: matador-db
+Version: 0.9.7
+Summary: MATerial and Atomic Databases Of Refined structures.
+Home-page: https://github.com/ml-evs/matador
+Author: Matthew Evans
+Author-email: matador@ml-evs.science
+Maintainer: Matthew Evans
+Maintainer-email: matador@ml-evs.science
+License: MIT
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Requires-Dist: numpy (>=1.14)
+Requires-Dist: scipy (>=1.0)
+Requires-Dist: psutil (>=5.0)
+Requires-Dist: pyyaml (>=5.3)
+Requires-Dist: pymongo (>=3.7)
+Requires-Dist: numba (>=0.4)
+Requires-Dist: tqdm (>=4)
+Requires-Dist: matplotlib (>=3.0)
+Requires-Dist: periodictable (>=1.5)
+Requires-Dist: seekpath (>=1.8)
+Requires-Dist: spglib (>=1.9.0)
+Requires-Dist: python-ternary (>=1.0.6)
+Provides-Extra: all
+Requires-Dist: networkx (>=2.0) ; extra == 'all'
+Requires-Dist: pymatgen (>=2019.10.4) ; extra == 'all'
+Requires-Dist: ase (>=3.18) ; extra == 'all'
+Requires-Dist: ascii-graph (>=1.2) ; extra == 'all'
+Requires-Dist: ase ; extra == 'all'
+Requires-Dist: nglview ; extra == 'all'
+Requires-Dist: sphinx ; extra == 'all'
+Requires-Dist: sphinx-argparse ; extra == 'all'
+Requires-Dist: sphinx-rtd-theme ; extra == 'all'
+Requires-Dist: sphinxcontrib-napoleon ; extra == 'all'
+Requires-Dist: ipykernel ; extra == 'all'
+Requires-Dist: nbsphinx ; extra == 'all'
+Requires-Dist: pytest (~=3.10) ; extra == 'all'
+Requires-Dist: pytest-cov ; extra == 'all'
+Requires-Dist: coverage ; extra == 'all'
+Requires-Dist: codecov (>=2.0) ; extra == 'all'
+Requires-Dist: mongomock (>=3.16) ; extra == 'all'
+Requires-Dist: pre-commit ; extra == 'all'
+Requires-Dist: flake8 ; extra == 'all'
+Requires-Dist: black ; extra == 'all'
+Provides-Extra: crystal
+Requires-Dist: networkx (>=2.0) ; extra == 'crystal'
+Provides-Extra: dev
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: black ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-argparse ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+Requires-Dist: sphinxcontrib-napoleon ; extra == 'docs'
+Requires-Dist: ipykernel ; extra == 'docs'
+Requires-Dist: nbsphinx ; extra == 'docs'
+Provides-Extra: optional
+Requires-Dist: pymatgen (>=2019.10.4) ; extra == 'optional'
+Requires-Dist: ase (>=3.18) ; extra == 'optional'
+Requires-Dist: ascii-graph (>=1.2) ; extra == 'optional'
+Provides-Extra: test
+Requires-Dist: pytest (~=3.10) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: coverage ; extra == 'test'
+Requires-Dist: codecov (>=2.0) ; extra == 'test'
+Requires-Dist: mongomock (>=3.16) ; extra == 'test'
+Provides-Extra: viz
+Requires-Dist: ase ; extra == 'viz'
+Requires-Dist: nglview ; extra == 'viz'
+
+=======
+matador
+=======
+
+|PyPI Version| |Zenodo| |MIT License|
+|GH Actions| |Coverage Status| |Documentation Status|
+
+matador is an aggregator, manipulator and runner of first-principles calculations, written with a bent towards battery electrode materials.
+The source can be found on `GitHub <https://github.com/ml-evs/matador>`_ and online documentation is hosted at `ReadTheDocs <https://docs.matador.science>`_.
+
+Example Jupyter notebooks and tutorials can be found `online <https://docs.matador.science/en/latest/examples_index.html>`_ or in the ``examples/`` folder of the matador source code.
+
+Written & maintained by `Matthew Evans <https://ml-evs.science>`_ (2016-).
+
+
+.. image:: docs/src/img/lipzn.png
+   :name: LiPZn
+   :align: center
+
+Installation
+------------
+
+In the simplest case (e.g. you already have Python 3.6+ set up), ``pip install matador-db`` is sufficient to get up and running, preferably in a fresh virtual environment. More detailed instructions can be found in the `Installation instructions <https://docs.matador.science/en/latest/install.html>`_.
+
+Tests can be run on your local machine with ``python -m unittest discover -v -b`` or simply with ``py.test`` (required pytest to be installed); in order to test CASTEP-running functionality, the tests will look for an MPI-enabled executable named ``castep`` on your ``$PATH``.
+
+Upgrading to the latest version should be as simple as ``pip install -U matador-db``.
+
+Usage
+------
+
+``matador`` is primarily a Python *library* that can be used inside Python scripts/modules to create a custom workflow. There are, however, several command-line scripts bundled with ``matador`` itself. All of these scripts are listed under `CLI Usage <https://docs.matador.science/en/latest/cli.html>`_.
+
+For basic command-line usage, please explore the help system for command. Common workflows can be found inside ``examples/`` and in the `online docs <http://docs.matador.science/en/latest/examples_index.html>`_.
+
+Please consult the full `Python API documentation <http://docs.matador.science/en/latest/modules.html>`_ for programmatic usage.
+
+Core functionality
+-------------------
+
+The API has many features that can be explored in the examples and API documentation. As a summary, ``matador`` can be used for:
+
+- Scraping of CASTEP (and Quantum Espresso) input/output files into flexible Python dictionaries/models.
+- The creation and curation of MongoDB collections of geometry optimisation calculations, with a powerful querying CLI/API.
+- Customisable, publication-ready plots for all models, e.g. phase diagrams, PDF, PXRD, voltage profiles, electronic/vibrational bandstructures etc.
+- High-throughput geometry optimisations, electronic and vibrational properties using CASTEP (and Quantum Espresso) with ``run3``. Tested on several supercomputers. ``run3`` is designed primarily for simple workflows and offers little in the way of tools for creating complex workflows; if this is your use case, then check out some of the other codes listed below.
+- Creation of phase diagrams and electrochemical voltage profiles from the results of DFT calculations.
+
+This functionality is achieved by interfacing with much of the standard scientific Python stack (`NumPy <https://numpy.org>`_, `SciPy <https://scipy.org>`_, `matplotlib <https://matplotlib.org>`_), some more materials-specific packages (`spglib <https://github.com/atztogo/spglib/>`_, `SeeK-path <https://github.com/giovannipizzi/seekpath>`_, `periodictable <https://github.com/pkienzle/periodictable>`_) and other general packages (`pymongo <https://github.com/mongodb/mongo-python-driver>`_, `python-ternary <https://github.com/marcharper/python-ternary>`_, `numba <https://numba.org>`_).
+
+Similar packages
+----------------
+
+This package is by no means unique in its functionality or goals. Below is a list of similar packages and an overview of where they overlap with ``matador``:
+
+- `ASE <https://wiki.fysik.dtu.dk/ase/>`_: manipulation of structures, parsing and exporting files, running jobs and local databases with ``ase-db``. An interface is provided to ASE's ``Atoms`` object.
+- `pymatgen <https://pymatgen.org>`_: similar to ASE, with a focus on the VASP DFT code. An interface is provided to pymatgen's ``Structure`` object. Local databases can be constructed with the `pymatgen-db <https://github.com/materialsproject/pymatgen-db>`_ add-on and high-throughput workflows are achieved with `Fireworks <https://github.com/materialsproject/fireworks>`_.
+- `AiiDA <https://www.aiida.net>`_: high-throughput job running, provenance tracking and database storage for many simulation codes.
+- `sumo <https://github.com/SMTG-UCL/sumo>`_ publication quality plotting, primarily for VASP but also with support for other codes.
+
+If you think this list is outdated, incorrect or simply incomplete, then please raise an issue!
+
+Citing matador
+--------------
+
+If you use matador in your work, we kindly ask that you cite the source code archive on Zenodo:
+
+    Matthew Evans, ml-evs/matador (2020), Zenodo. http://doi.org/10.5281/zenodo.3908574
+
+
+.. |PyPI Version| image:: https://img.shields.io/pypi/v/matador-db?label=PyPI&logo=pypi
+.. |GH Actions| image:: https://img.shields.io/github/workflow/status/ml-evs/matador/Run%20tests/master?label=master&logo=github
+   :target: https://github.com/ml-evs/matador/actions?query=branch%3Amaster
+.. |MIT License| image:: https://img.shields.io/badge/license-MIT-blue.svg
+   :target: https://github.com/ml-evs/matador/blob/master/LICENSE
+.. |Coverage Status| image:: https://img.shields.io/codecov/c/gh/ml-evs/matador/master?logo=codecov
+  :target: https://codecov.io/gh/ml-evs/matador
+.. |Documentation Status| image:: https://readthedocs.org/projects/matador-db/badge/?version=stable
+   :target: https://matador-db.readthedocs.io/en/stable/?badge=stable
+.. |Zenodo| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3908573.svg
+   :target: https://doi.org/10.5281/zenodo.3908573
+
+
