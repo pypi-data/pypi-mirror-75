@@ -1,0 +1,13 @@
+Metadata-Version: 1.2
+Name: imit
+Version: 1.0.3
+Summary: 提供交互或命令行的形式规范地提交git commit
+Home-page: https://github.com/leytou
+Author: leytou
+Author-email: hi_litao@163.com
+License: MIT
+Description: 提供交互或命令行的形式规范地提交git commit
+Keywords: python commit git
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
