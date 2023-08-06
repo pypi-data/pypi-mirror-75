@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: simple-gui-prompts
+Version: 1.1.0
+Summary: Easily generate GUI prompts without the hassle of making a whole GUI
+Home-page: https://gitlab.com/0100001001000010/simple-gui-prompts
+Author: Bruce Blore
+Author-email: bruceblore@protonmail.com
+License: UNKNOWN
+Description: # simple-gui-prompt
+        
+        Easily generate GUI prompts without the hassle of making a whole GUI. Handy for scripts when all you really want is a text box or list or something.
+        
+        ## Setup
+        
+        ```
+        pip install simple-gui-prompts
+        ```
+        
+        ```
+        import prompts
+        ```
+        
+        ## Prompts supported
+        
+        `prompts.dialog(title, text, block=True)`: A simple popup box with a title and text that only has an OK button and returns None. If block=True (default), execution is blocked until the box is closed. If block=False, it returns immediately after creating the dialog
+        
+        `prompts.confirm(title, text, **kwargs)`: A popup which offers for the user to either confirm (returning True) or deny (returning False), with a closed window returning False. A yes= kwarg can be used to change the text on the confirm button (which defaults to 'OK'), and the no= kwarg can be used to change the text on the deny button (which defaults to 'Cancel'). Additionally, yesno=True can be used to replace the confirm and deny defaults with 'Yes' and 'No' respectively, in which case yes= and no= will be ignored if present.
+        
+        `prompts.text(title, text, **kwargs)`: A popup containing a text box, which returns a string representing the text that was put in, or None if the user cancelled. Allowed kwargs are:
+        
+        canCancel=True: Defines whether the user gets a cancel button. This button causes the function to return None regardless of what was entered.
+        
+        yes='OK': Text that appears on the OK button
+        
+        no='Cancel': Text that appears on the cancel button
+        
+        password=False: If True, hide the characters as they are entered.
+        
+        validate=None: Can be set to a callable which will be passed the user string as the first parameter, and should return True or Flase depending on whether the input is valid. If it is invalid, another identical prompt will be generated, and only the valid input will be returned. If None, the string will be returned unconditionally
+        
+        `prompts.choice(title, text, choices, **kwargs)`: A popup which displays multiple choices, permitting the user to choose one of the choices, and returning the string that was chosen. Allowed kwargs are canCancel and no, behaving identically to the equivalent kwargs on prompts.getText.
+        
+        `prompts.choiceMulti(title, text, choices, **kwargs)`: This is identical to prompts.choice, except the user can choose multiple items, and the return value is a list of objects that were chosen. Therefore, it also permits the yes kwarg
+        
+        ## Versioning
+        
+        We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
+        
+        ## License
+        
+        This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
