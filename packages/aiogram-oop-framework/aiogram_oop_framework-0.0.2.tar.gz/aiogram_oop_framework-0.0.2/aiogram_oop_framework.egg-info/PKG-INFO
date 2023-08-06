@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: aiogram-oop-framework
+Version: 0.0.2
+Summary: An extender for aiogram to make it more OOP
+Home-page: https://github.com/drforse/aiogram_oop_framework
+Author: drforse
+Author-email: george.lifeslice@gmail.com
+License: UNKNOWN
+Description: # aiogram_oop_framework
+        An extender for aiogram to make it more OOP
+        
+        docs: https://aiogram-oop-framework.readthedocs.io/en/latest
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
