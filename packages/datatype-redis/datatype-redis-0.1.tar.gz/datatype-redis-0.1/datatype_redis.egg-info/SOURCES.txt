@@ -1,0 +1,12 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+datatype_redis/__init__.py
+datatype_redis/client.py
+datatype_redis/redisclient.py
+datatype_redis.egg-info/PKG-INFO
+datatype_redis.egg-info/SOURCES.txt
+datatype_redis.egg-info/dependency_links.txt
+datatype_redis.egg-info/requires.txt
+datatype_redis.egg-info/top_level.txt
