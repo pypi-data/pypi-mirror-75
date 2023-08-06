@@ -1,0 +1,13 @@
+mypy_boto3_glacier/__init__.py,sha256=AfqZjnHHUTTgKPA9wVFzYcGGPMkOsp8Mh-JL16qlRAw,1925
+mypy_boto3_glacier/__main__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mypy_boto3_glacier/client.py,sha256=mgs94eMREM14gV21nIBR0rsO1RFUOvUZrkp8WVGl1F0,16065
+mypy_boto3_glacier/paginator.py,sha256=8tY_ZGcyst7tWiesQLSEN-bNfCa2XnfwqyvJyMkt0LI,3714
+mypy_boto3_glacier/py.typed,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+mypy_boto3_glacier/service_resource.py,sha256=cVaMzPRrkneLlsiiXCkWwa9YYF4EmwVtvx5evfi2grI,22954
+mypy_boto3_glacier/type_defs.py,sha256=T8Zz4h3-8RbAingfyM0Ew5SpWruyYsnzTNh7IfMHJp0,10957
+mypy_boto3_glacier/version.py,sha256=SYrashF087kcgMIBbeYFx6pDa-HIy_fpcQLSHzwPVxg,57
+mypy_boto3_glacier/waiter.py,sha256=RhE2ZQWRbrrknGGIgNkCu_Phs8OLrHl-4pykfhdprQ4,1778
+mypy_boto3_glacier-1.14.36.0.dist-info/METADATA,sha256=yxlndGjAPSm2fHqol0AZV6SZlJROw6g-SlGfF19JYcI,7282
+mypy_boto3_glacier-1.14.36.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+mypy_boto3_glacier-1.14.36.0.dist-info/top_level.txt,sha256=ZGur0HLSOBqzvgZh62hqlinQLzD4MPUIQBfjy9buFH4,19
+mypy_boto3_glacier-1.14.36.0.dist-info/RECORD,,
