@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: litepipeline-helper
+Version: 0.0.18
+Summary: LitePipeline helper: help user to develop LitePipeline's application
+Home-page: https://github.com/fiefdx/LitePipeline
+Author: fiefdx
+Author-email: fiefdx@163.com
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+
+# LitePipeline Helper
+
+A distributed pipeline system, based on Python3, tornado, venv-pack, pyinstaller.
+
+All code based on Python3, do not use Python2!
+
+It still under development, so, maybe have some bugs or not stable enough!
+
+See more details at https://github.com/fiefdx/LitePipeline
+
+# Install
+```bash
+# install from pip
+$ pip3 install -U litepipeline_helper
+# or install from source code
+$ cd ./litepipeline_helper
+$ python3 ./setup.py install
+```
+
+
