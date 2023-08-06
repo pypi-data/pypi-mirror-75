@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: uncertainty_metrics
+Version: 0.0.8
+Summary: Uncertainty Metrics
+Home-page: http://github.com/google/uncertainty_metrics
+Author: Uncertainty Metrics Users
+Author-email: jeremynixon@google.com
+License: Apache 2.0
+Description: UNKNOWN
+Keywords: probabilistic programming tensorflow machine learning
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Provides-Extra: numpy
+Provides-Extra: tensorflow
+Provides-Extra: tf-nightly
+Provides-Extra: tests
