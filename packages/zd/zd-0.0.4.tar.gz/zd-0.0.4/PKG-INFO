@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: zd
+Version: 0.0.4
+Summary: file like object for zstandard
+Home-page: https://gitee.com/znlp/zd
+Author: zuroc
+Author-email: zsp042@gmail.com
+License: UNKNOWN
+Description: # read
+        
+        ```
+        import zd
+        
+        with zd.open(
+          "./test.zd"
+        ) as f:
+          for i in f:
+            print(i)
+        ```
+        
+        # write
+        
+        ```
+        import zd
+        
+        
+        # argsument level is optional, default is 10
+        with zd.open( "./test.zd", "w", level=10) as f:
+          for i in range(10):
+            f.write(i)
+        ```
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
