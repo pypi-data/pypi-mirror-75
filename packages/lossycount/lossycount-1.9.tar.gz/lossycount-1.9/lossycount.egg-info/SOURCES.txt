@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.py
+lossycount.egg-info/PKG-INFO
+lossycount.egg-info/SOURCES.txt
+lossycount.egg-info/dependency_links.txt
+lossycount.egg-info/not-zip-safe
+lossycount.egg-info/top_level.txt
+src/lossycount.cc
+src/lossycount.h
+src/prng.cc
+src/prng.h
+src/qdigest.cc
+src/qdigest.h
+src/rand48.cc
+src/rand48.h
+src/wrap.cc
