@@ -1,0 +1,15 @@
+mcache/__init__.py,sha256=bXBaUIsdtmAztc079PgQuoI4YyN540BEJVdEi8W5Rd4,1032
+mcache/_filecache.py,sha256=q3fJtB4pKu2hCj9ubfmLx3IzAuL7jfVdn1p1WTZF2hM,1243
+mcache/_memcache.py,sha256=upHpq0zbkvwRs53z8thHIkFbdVs47Gv6DEc6b0A1IYo,1715
+mcache/cache.py,sha256=wIpk01rIKGSALLDED9Oxt8n6GL_g1nh4sN0FBxJrH_g,3065
+mcache/version.py,sha256=UhKkC-S29_YLCbP8HdrBnV24Pj6jNMp_zaY2IQ5kOXY,49
+tests/__init__.py,sha256=2clfWm2NDwpY5Tu3ElKwNRMzx4E7Duzq8A1LuOD9-8M,168
+tests/mcache_tests/__init__.py,sha256=J7K9G3hR8ko2t8WJDlhoKQX85edXPIS2s9_wOiwEKXY,187
+tests/mcache_tests/test_filecache.py,sha256=o67DpyJxh-IprXNZyYYaBWvA5Tvlm7evR5bjwQ8zH3Y,1587
+tests/mcache_tests/test_key.py,sha256=lbNTNc6AxC3up57iQJQMxT3dJVboMnkhSbmDro80Rbg,328
+tests/mcache_tests/test_memcache.py,sha256=pxShh2l-mV9EpvSi71QydGf7ui20iK-a-MKOA-ydr8A,1816
+mcache-1.0.0.dist-info/LICENSE,sha256=_cq_renYrC4JKuk7PKBGOp2tji5J51TCSP0NU6QTDDg,1062
+mcache-1.0.0.dist-info/METADATA,sha256=cZUho07-oMXHo0xvwRl-82lKZZ0hhM79l8CKmZE3PG4,2064
+mcache-1.0.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+mcache-1.0.0.dist-info/top_level.txt,sha256=T8AhvyIsQiK1ULmOxHLycCJRvaqtAOi1ZNXinkSpaB4,13
+mcache-1.0.0.dist-info/RECORD,,
