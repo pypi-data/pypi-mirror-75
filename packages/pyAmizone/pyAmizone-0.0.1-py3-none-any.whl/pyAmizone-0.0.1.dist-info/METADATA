@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: pyAmizone
+Version: 0.0.1
+Summary: Python Package for Amizone
+Home-page: https://github.com/siddharthapdutta/pyAmizone
+Author: Siddhartha Dutta
+Author-email: siddhartha.dutta1@student.amity.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: beautifulsoup4 (~=4.9.1)
+Requires-Dist: requests (~=2.24.0)
+
+# pyAmizone
+
+Version 0.0.1
+
