@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>
+	Tilty-Dashboard
+</h1>
+
+
+<div class="sc-gauge">
+  <div class="sc-background">
+    <div class="sc-percentage"></div>
+    <div class="sc-mask"></div>
+    <span class="sc-value">
+      <p class="log-gravity" id="log-gravity"></p>
+      <p class="log-temp" id="log-temp"></p>
+      <p class="log-color" id="log-color"></p>
+      <p class="log-timestamp" id="log-timestamp"></p>
+    </span>
+  </div>
+  <span class="sc-min">1</span>
+  <span class="sc-max">1.1</span>
+</div>
+
+{% endblock %}
