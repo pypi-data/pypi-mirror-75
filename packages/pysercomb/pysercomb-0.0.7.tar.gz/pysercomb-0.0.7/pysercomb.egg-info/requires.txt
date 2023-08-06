@@ -1,0 +1,16 @@
+pint
+uncertainties
+babel
+
+[rdf]
+rdflib>=5.0.0
+pyontutils
+
+[test]
+pytest
+rdflib>=5.0.0
+pyontutils
+protcur
+
+[units]
+protcur
