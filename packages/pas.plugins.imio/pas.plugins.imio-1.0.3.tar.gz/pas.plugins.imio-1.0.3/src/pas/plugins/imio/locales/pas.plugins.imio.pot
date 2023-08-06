@@ -1,0 +1,85 @@
+# --- PLEASE EDIT THE LINES BELOW CORRECTLY ---
+# SOME DESCRIPTIVE TITLE.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: 2019-11-18 10:06+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: en\n"
+"Language-Name: English\n"
+"Preferred-Encodings: utf-8 latin1\n"
+"Domain: pas.plugins.imio\n"
+
+#: ../configure.zcml:52
+msgid "Installs the pas.plugins.imio add-on."
+msgstr ""
+
+#: ../configure.zcml:41
+msgid "Installs the pas.plugins.imio base add-on."
+msgstr ""
+
+#: ../useridfactories.py:8
+msgid "Provider User ID for Authentic"
+msgstr ""
+
+#: ../configure.zcml:71
+msgid "Uninstalls the pas.plugins.imio add-on."
+msgstr ""
+
+#. Default: "Add identity"
+#: ../browser/authentic.pt:15
+msgid "add_identity_title"
+msgstr ""
+
+#. Default: "Added identity provided by ${provider}"
+#: ../browser/view.py:178
+msgid "added_identity"
+msgstr ""
+
+#. Default: "Enter full name, e.g. John Smith."
+#: ../user.py:26
+msgid "help_full_name_creation"
+msgstr ""
+
+#. Default: "E-mail"
+#: ../user.py:34
+msgid "label_email"
+msgstr ""
+
+#. Default: "Full Name"
+#: ../user.py:25
+msgid "label_full_name"
+msgstr ""
+
+#. Default: "Logged in with ${provider}"
+#: ../browser/view.py:192
+msgid "logged_in_with"
+msgstr ""
+
+#. Default: "Log in with <span>Wallonie Connect</span>"
+#: ../browser/authentic.pt:10
+msgid "login_title"
+msgstr ""
+
+#: ../configure.zcml:71
+msgid "pas.plugins.imio (uninstall)"
+msgstr ""
+
+#: ../configure.zcml:41
+msgid "pas.plugins.imio base"
+msgstr ""
+
+#: ../configure.zcml:62
+msgid "pas.plugins.imio plone4"
+msgstr ""
+
+#: ../configure.zcml:52
+msgid "pas.plugins.imio plone5"
+msgstr ""
