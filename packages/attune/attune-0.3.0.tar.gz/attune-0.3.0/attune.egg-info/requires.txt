@@ -1,0 +1,14 @@
+WrightTools>=3.2.5
+numpy
+scipy
+matplotlib
+tidy_headers
+
+[dev]
+black
+pre-commit
+
+[docs]
+sphinx-gallery>0.3.0
+sphinx
+sphinx-rtd-theme
