@@ -1,0 +1,1 @@
+A dict() like interface to your database.
