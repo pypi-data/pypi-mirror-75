@@ -1,0 +1,8 @@
+Metadata-Version: 2.1
+Name: stringanalysis
+Version: 0.4.0
+Provides-Extra: pytest
+Provides-Extra: mypy
+Provides-Extra: maturin
+Author: jboerner <jon.boerner@symmetrichs.com>
+Author-Email: jboerner <jon.boerner@symmetrichs.com>
