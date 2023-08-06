@@ -1,0 +1,199 @@
+Metadata-Version: 2.1
+Name: aws-cdk.aws-appsync
+Version: 1.56.0
+Summary: The CDK Construct Library for AWS::AppSync
+Home-page: https://github.com/aws/aws-cdk
+Author: Amazon Web Services
+License: Apache-2.0
+Project-URL: Source, https://github.com/aws/aws-cdk.git
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: JavaScript
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Typing :: Typed
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: jsii (<2.0.0,>=1.9.0)
+Requires-Dist: publication (>=0.0.3)
+Requires-Dist: aws-cdk.aws-cognito (==1.56.0)
+Requires-Dist: aws-cdk.aws-dynamodb (==1.56.0)
+Requires-Dist: aws-cdk.aws-iam (==1.56.0)
+Requires-Dist: aws-cdk.aws-lambda (==1.56.0)
+Requires-Dist: aws-cdk.aws-s3-assets (==1.56.0)
+Requires-Dist: aws-cdk.core (==1.56.0)
+Requires-Dist: constructs (<4.0.0,>=3.0.2)
+
+## AWS AppSync Construct Library
+
+<!--BEGIN STABILITY BANNER-->---
+
+
+![cfn-resources: Stable](https://img.shields.io/badge/cfn--resources-stable-success.svg?style=for-the-badge)
+
+> All classes with the `Cfn` prefix in this module ([CFN Resources](https://docs.aws.amazon.com/cdk/latest/guide/constructs.html#constructs_lib)) are always stable and safe to use.
+
+![cdk-constructs: Experimental](https://img.shields.io/badge/cdk--constructs-experimental-important.svg?style=for-the-badge)
+
+> The APIs of higher level constructs in this module are experimental and under active development. They are subject to non-backward compatible changes or removal in any future version. These are not subject to the [Semantic Versioning](https://semver.org/) model and breaking changes will be announced in the release notes. This means that while you may use them, you may need to update your source code when upgrading to a newer version of this package.
+
+---
+<!--END STABILITY BANNER-->
+
+The `@aws-cdk/aws-appsync` package contains constructs for building flexible
+APIs that use GraphQL.
+
+### Example
+
+Example of a GraphQL API with `AWS_IAM` authorization resolving into a DynamoDb
+backend data source.
+
+GraphQL schema file `schema.graphql`:
+
+```gql
+type demo {
+  id: String!
+  version: String!
+}
+type Query {
+  getDemos: [ test! ]
+}
+input DemoInput {
+  version: String!
+}
+type Mutation {
+  addDemo(input: DemoInput!): demo
+}
+```
+
+CDK stack file `app-stack.ts`:
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+import aws_cdk.aws_appsync as appsync
+import aws_cdk.aws_dynamodb as db
+
+api = appsync.GraphQLApi(stack, "Api",
+    name="demo",
+    schema_definition=appsync.SchemaDefinition.FILE,
+    schema_definition_file=join(__dirname, "schema.graphql"),
+    authorization_config=AuthorizationConfig(
+        default_authorization=AuthorizationMode(
+            authorization_type=appsync.AuthorizationType.IAM
+        )
+    )
+)
+
+demo_table = db.Table(stack, "DemoTable",
+    partition_key=Attribute(
+        name="id",
+        type=AttributeType.STRING
+    )
+)
+
+demo_dS = api.add_dynamo_db_data_source("demoDataSource", "Table for Demos\"", demo_table)
+
+# Resolver for the Query "getDemos" that scans the DyanmoDb table and returns the entire list.
+demo_dS.create_resolver(
+    type_name="Query",
+    field_name="getDemos",
+    request_mapping_template=MappingTemplate.dynamo_db_scan_table(),
+    response_mapping_template=MappingTemplate.dynamo_db_result_list()
+)
+
+# Resolver for the Mutation "addDemo" that puts the item into the DynamoDb table.
+demo_dS.create_resolver(
+    type_name="Mutation",
+    field_name="addDemo",
+    request_mapping_template=MappingTemplate.dynamo_db_put_item(PrimaryKey.partition("id").auto(), Values.projecting("demo")),
+    response_mapping_template=MappingTemplate.dynamo_db_result_item()
+)
+```
+
+## Permissions
+
+When using `AWS_IAM` as the authorization type for GraphQL API, an IAM Role
+with correct permissions must be used for access to API.
+
+When configuring permissions, you can specify specific resources to only be
+accessible by `IAM` authorization. For example, if you want to only allow mutability
+for `IAM` authorized access you would configure the following.
+
+In `schema.graphql`:
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+type Mutation {
+  updateExample(...): ...@aws_iam
+```
+
+In `IAM`:
+
+```json
+{
+   "Version": "2012-10-17",
+   "Statement": [
+      {
+         "Effect": "Allow",
+         "Action": [
+            "appsync:GraphQL"
+         ],
+         "Resource": [
+            "arn:aws:appsync:REGION:ACCOUNT_ID:apis/GRAPHQL_ID/types/Mutation/fields/updateExample"
+         ]
+      }
+   ]
+}
+```
+
+See [documentation](https://docs.aws.amazon.com/appsync/latest/devguide/security.html#aws-iam-authorization) for more details.
+
+To make this easier, CDK provides `grant` API.
+
+Use the `grant` function for more granular authorization.
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+role = iam.Role(stack, "Role",
+    assumed_by=iam.ServicePrincipal("lambda.amazonaws.com")
+)
+api = appsync.GraphQLApi(stack, "API",
+    definition=definition
+)
+
+api.grant(role, appsync.IamResource.custom("types/Mutation/fields/updateExample"), "appsync:GraphQL")
+```
+
+### IamResource
+
+In order to use the `grant` functions, you need to use the class `IamResource`.
+
+* `IamResource.custom(...arns)` permits custom ARNs and requires an argument.
+* `IamResouce.ofType(type, ...fields)` permits ARNs for types and their fields.
+* `IamResource.all()` permits ALL resources.
+
+### Generic Permissions
+
+Alternatively, you can use more generic `grant` functions to accomplish the same usage.
+
+These include:
+
+* grantMutation (use to grant access to Mutation fields)
+* grantQuery (use to grant access to Query fields)
+* grantSubscription (use to grant access to Subscription fields)
+
+```python
+# Example automatically generated without compilation. See https://github.com/aws/jsii/issues/826
+# For generic types
+api.grant_mutation(role, "updateExample")
+
+# For custom types and granular design
+api.grant(role, appsync.IamResource.of_type("Mutation", "updateExample"), "appsync:GraphQL")
+```
+
+
