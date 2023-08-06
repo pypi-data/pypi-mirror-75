@@ -1,0 +1,66 @@
+{# -*- coding: utf-8 -*-
+
+  This file is part of Invenio.
+  Copyright (C) 2016-2020 CERN.
+
+  Invenio is free software; you can redistribute it and/or modify it
+  under the terms of the MIT License; see LICENSE file for more details.
+#}
+{# TODO: Use url_for instead #}
+{%- set search = "/communities/" + comid.pid_value|string -%}
+{%- set members = "/communities/" + comid.pid_value|string +"/members" -%}
+{%- set settings = "/communities/" + comid.pid_value|string + "/settings" -%}
+{%- set curate = "/communities/" + comid.pid_value|string + "/curate" -%}
+
+{% block sidebar %}
+<div class="community-container">
+  <div class="ui container top-padding grid">
+    <div class="two wide column community-logo">
+      <i aria-hidden="true" class="users massive icon"></i>
+    </div>
+    <div class="six wide column">
+      <h1 class="ui header">{{ community.title }}</h1>
+      {% if community.website %}
+      <p></p><a href="{{community.website}}">{{ community.website }}</a></p>
+      {% endif %}
+      <p>{{ community.description | safe }}</p>
+      {% for domain in community.domains %}
+      <a href="/communities?domain={{ domain }}" class="links-underline">{{ domain }}</a>
+      {% endfor %}
+    </div>
+    <div class="column">
+      <div class="ui mini statistic">
+        <div class=" value">
+          5,550
+        </div>
+        <div class=" label">
+          Views
+        </div>
+      </div>
+    </div>
+    <div class="two wide column">
+      <div class="ui mini statistic">
+        <div class=" value">
+          4,200
+        </div>
+        <div class="label">
+          Downloads
+        </div>
+      </div>
+    </div>
+    <div class="three wide column">
+      <a href="/coming-soon" class="ui positive button">
+        <i class="plus icon"></i>
+        New upload</a>
+    </div>
+    <div class="ui container top secondary pointing menu">
+      <a class="item {{ 'active' if 'community_page' in request.endpoint else '' }}" href="{{ search }}">Search</a>
+      <a class="item {{ 'active' if 'curation' in request.endpoint else '' }}" href="{{ curate }}">Curate
+        ({{ pending_records }})</a>
+      <a class="item disabled" href="{{ members }}">Members</a>
+      <a class="item {{ 'active' if 'settings' in request.endpoint else '' }}" href="{{ settings }}">Settings</a>
+      <a class="item disabled" href="/coming-soon">Statistics</a>
+    </div>
+  </div>
+</div>
+{% endblock %}
