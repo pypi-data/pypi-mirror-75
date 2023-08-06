@@ -1,0 +1,1 @@
+Library to help python developers wtih sql server connections
