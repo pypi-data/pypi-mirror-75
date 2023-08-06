@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "cotoba-cli"
+version = "1.2.1"
+description = ""
+authors = []
+exclude = ["integration_tests", "run_integration_test.sh"]
+
+[tool.poetry.scripts]
+cotoba = "cotoba_cli.cli:main"
+
+[tool.poetry.dependencies]
+click = "^7.0"
+boto3 = "^1.9"
+python = "^3.6"
+pytz = "^2019"
+python-jose = "^3.0"
+requests = "^2.21"
+toml = "^0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.7"
+freezegun = "^0"
+pep8-naming = "^0"
+pytest = "^5.0"
+pytest-cov = "^2.6"
+pytest-mock = "^1.10"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
