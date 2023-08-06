@@ -1,0 +1,119 @@
+Metadata-Version: 2.1
+Name: qtmonitor
+Version: 0.1.0
+Summary: Simple tool for creating a Qt-Dialog with updating values
+Home-page: https://gitlab.com/ndeedy/qtmonitor
+Author: Dietmar Kreider
+Author-email: ndeedy@me.com
+License: MIT
+Project-URL: Homepage, https://gitlab.com/ndeedy/qtmonitor
+Project-URL: Repository, https://gitlab.com/ndeedy/qtmonitor
+Keywords: Qt,PySide2,Monitor,Debugging,Robotics
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: PySide2
+
+# qtmonitor
+
+Simple tool for creating a Qt-Dialog with updating values. 
+
+The idea behind the project was the necessity to monitor some real-time values 
+on a robotic-prototype. The package allows you to create a simple UI with 
+a lot of values, that are updating constantly at specified intervals, 
+without any knowledge of QT / PySide packages
+
+* [Repository](https://gitlab.com/ndeedy/qtmonitor)
+* [PyPI](https://pypi.org/project/qtmonitor)
+* [PyPI Test](https://test.pypi.org/project/qtmonitor)
+
+
+## Setup
+
+To install `qtmonitor` use pip or download it from PYPI.
+
+```bash
+pip install qtmonitor
+```
+
+
+## Example
+
+There is an example module, which demonstrates how to write your own monitor. 
+Feel free du dig down and explore the code. The file is found under 
+`you-python-packages-folder/qtmonitor/example.py`
+
+To run and see it in action feel free to run the following command:
+
+```bash
+python -m qtmonitor.example
+```
+
+
+## Usage
+
+First of all, you need to create some python methods, which would return 
+the value, you want to track. There is a simple random int generator method. 
+It will be used to demonstrate the usage, there is no practical usage for it.
+
+```python
+import random
+
+def random_int_value():
+    return random.randrange(0, 1000)
+```
+
+The easiest way to create you own monitor is to subclass the 
+``qtmonitor.Monitor`` class
+
+```python
+from qtmonitor import Monitor
+
+class MyMonitor(Monitor):
+    def __init__(self, parent=None):
+        super(MyMonitor, self).__init__(parent)
+```
+
+Now add at least one group to put your values in:
+
+```python
+from qtmonitor import Monitor
+
+class MyMonitor(Monitor):
+    def __init__(self, parent=None):
+        super(MyMonitor, self).__init__(parent)
+
+        grp = self.add_group('My group')
+
+```
+
+Add the values to the group and run the tool. 
+Feel free to use provided `run` method:
+
+```python
+import random
+from qtmonitor import Monitor
+
+
+def random_int_value():
+    return random.randrange(0, 1000)
+
+
+class MyMonitor(Monitor):
+    def __init__(self, parent=None):
+        super(MyMonitor, self).__init__(parent)
+
+        grp = self.add_group('My group')
+        grp.add_value('Value', random_int_value)
+        grp.add_value('Value 10ms', random_int_value, interval=10)
+
+if __name__ == '__main__':
+    from qtmonitor import run
+    run('My monitor', MyMonitor)
+```
+
