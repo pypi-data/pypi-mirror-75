@@ -1,0 +1,16 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+datauri/__init__.py
+datauri/exceptions.py
+python_datauri.egg-info/PKG-INFO
+python_datauri.egg-info/SOURCES.txt
+python_datauri.egg-info/dependency_links.txt
+python_datauri.egg-info/top_level.txt
+tests/__init__.py
+tests/test_file.txt
+tests/test_file_ebcdic.txt
+tests/test_long_file.txt
+tests/test_parsing.py
