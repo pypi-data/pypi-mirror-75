@@ -1,0 +1,12 @@
+
+[dev]
+flake8
+mypy
+pytest
+tox
+twine
+wheel
+
+[doc]
+sphinx
+sphinx-rtd-theme

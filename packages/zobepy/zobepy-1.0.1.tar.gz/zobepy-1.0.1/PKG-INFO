@@ -1,0 +1,90 @@
+Metadata-Version: 2.1
+Name: zobepy
+Version: 1.0.1
+Summary: zobepy: unsorted python library made by zobe
+Home-page: https://git.zobe.jp/zobe/zobepy
+Author: zobe
+Author-email: zobe-dev@zobe.jp
+License: MIT
+Description: 
+        zobepy
+        ======
+        
+        zobepy - zobe's unsorted library.
+        
+        This is an unsorted library made by zobe.
+        
+        
+        usage
+        =====
+        
+        
+        pip
+        ---
+        
+            pip install zobepy
+        
+        
+        import
+        ------
+        
+            import zobepy
+        
+        and use
+        
+            efb = zobepy.BinarySizeFormatter(3000)
+            print(bsf.get())
+        
+        
+        test
+        ====
+        
+        prerequisites
+        
+            pip install -e '.[dev]'
+        
+        unittest
+        
+            python -m unittest discover
+        
+        pytest
+        
+            pytest
+        
+        tox
+        
+            tox
+        
+        watch htmlcov/index.html for coverage after tox
+        
+        
+        build document
+        ==============
+        
+        prerequisites
+        
+            pip install -e '.[doc]'
+        
+        make
+        
+            cd docs
+            make html
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Environment :: No Input/Output (Daemon)
+Classifier: Environment :: Other Environment
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Unix
+Classifier: Topic :: Software Development
+Requires-Python: >= 3.6
+Provides-Extra: dev
+Provides-Extra: doc
