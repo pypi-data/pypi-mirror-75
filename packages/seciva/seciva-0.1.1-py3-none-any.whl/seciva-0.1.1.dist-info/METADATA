@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: seciva
+Version: 0.1.1
+Summary: Реализация многослойной нейронной сети на python
+Home-page: https://github.com/kovalevich/seciva
+Author: Евгений Ковалевич
+Author-email: evgen.kovalevich@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+
+# Seciva - реализация многослойной нейронной сети на Python
+## Установка
+Для работы с нейронной сетью скопируйте репозиторий на локальный компьютер и установите необходимые зависимости с помощью комманд:
+
+`git clone git@github.com:kovalevich/seciva.git`
+`pip install -r requirements.txt`
+
+## Как это работает
+Приведенный пример - создание простой нейросети с входным слоем (2 входа), выходным (1 выход) и промежуточным слоем (10 нейронов)
+
+```python
+from classes.seciva import Seciva
+
+if __name__ == '__main__':
+
+    # создаем экземпляр класс нейронной сети
+    # в качестве параметров передам список слоёв сети с количеством нейронов в каждом слое
+    s = Seciva([2, 10, 1])
+
+    # входные и выходные данные для обучения
+    in_ = [[0, 1], [0, 0], [0, 1], [1, 1]]
+    out_ = [[1], [0], [1], [1]]
+
+    # тренировка сети по тренировочным данным на 100000 итераций
+    s.train(input_data=in_, output_data=out_, iterations=100000)
+
+    # проверяем результаты тренировки
+    print(s.solution(in_))
+```
+
