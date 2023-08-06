@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.py
+picbed_video.egg-info/PKG-INFO
+picbed_video.egg-info/SOURCES.txt
+picbed_video.egg-info/dependency_links.txt
+picbed_video.egg-info/not-zip-safe
+picbed_video.egg-info/top_level.txt
+upvideo/__init__.py
+upvideo/templates/upvideo/index.html
+upvideo/templates/upvideo/nav.html
