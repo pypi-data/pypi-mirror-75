@@ -1,0 +1,15 @@
+click<8,>=7.0.0
+clint<1,>=0.5.1
+inflect<5,>=4.1.0
+requests[security]<3,>=2.14.2
+semver<3,>=2.10.1
+texttable>=1.6.2<2
+
+[test]
+codecov
+flake8
+pytest
+pytest-cov
+pytest-helpers-namespace
+pytest-mock
+pytest-faker
