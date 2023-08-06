@@ -1,0 +1,10 @@
+
+[data]
+pandas>=1.0.0
+numpy>=1.18.0
+
+[plotting]
+matplotlib>=2.2.0
+
+[spice]
+ltspice>=0.4.2
