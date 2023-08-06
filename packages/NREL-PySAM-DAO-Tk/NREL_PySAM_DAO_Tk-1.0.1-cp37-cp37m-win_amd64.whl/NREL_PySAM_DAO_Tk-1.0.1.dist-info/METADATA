@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: NREL-PySAM-DAO-Tk
+Version: 1.0.1
+Summary: National Renewable Energy Laboratory's System Advisor Model DAO-Tk Python Wrapper
+Home-page: https://github.com/NREL/lore/tree/develop/pysam
+Author: Matthew-Boyd
+Author-email: matthew.boyd@nrel.gov
+License: BSD 3-Clause
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: NREL-PySAM-DAO-Tk-stubs
+
+# Release Notes
+
+## Version 1.0.1, August 3, 2020 ~ SAM 2020.2.29 r2, SSC Version 240
+* Initial release + Linux support via manylinux1
+
+## Version 1.0.0, June 16, 2020 ~ SAM 2020.2.29 r2, SSC Version 240
+* Initial release
+
+
