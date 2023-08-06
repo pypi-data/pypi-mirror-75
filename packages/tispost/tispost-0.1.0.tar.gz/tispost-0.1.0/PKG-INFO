@@ -1,0 +1,104 @@
+Metadata-Version: 2.1
+Name: tispost
+Version: 0.1.0
+Summary: Lightweight library for using postgres as nosql database
+Home-page: https://github.com/aiselis/tispost
+Author: Alessio Pinna
+Author-email: alessio.pinna@aiselis.com
+Maintainer: Alessio Pinna <alessio.pinna@aiselis.com>
+License: Apache 2
+Project-URL: Bug Reports, https://github.com/aiselis/tispost/issues
+Project-URL: Source, https://github.com/aiselis/tispost
+Description: Tispost
+        =======
+        
+        [![Latest PyPI package version](https://badge.fury.io/py/tispost.svg)](https://pypi.org/project/tispost)
+        
+        Key Features
+        ------------
+        
+        - Supports asyncio.
+        
+        Getting started
+        ---------------
+        
+        `tispost` allows you to quickly use postgres as a nosql database.
+        
+        Example
+        ```python
+        # import
+        from tispost import Server, Collection, Session
+        
+        # create connection
+        server = Server(dbname=database, user=postgres, password=postgres, host=dlnxiot001)
+        
+        # connect
+        server.connect()
+        
+        # get session
+        session = await server.session()
+        
+        # create new collection
+        session.create("collection")
+        
+        # delete a collection
+        session.delete("collection")
+        
+        # get a collection
+        collection = session.collection("collection")
+        
+        # insert document into a collection:
+        collection.save({'item':'value'...})
+        
+        # get document from collection with id
+        collection.get(id="930f43ed-7bb5-46b9-a6d2-45c345ec959e")
+        
+        # query items
+        collection.query(filter={'key':'value'}, offset=0, limit=50)
+        ```
+        
+        Installation
+        ------------
+        It's very simple to install tispost:
+        ```sh
+        pip install tispost
+        ```
+        
+        Notes
+        -----
+        
+         - The db user must have the create/drop table permission
+        
+        
+        Requirements
+        ------------
+        
+        -   Python >= 3.6
+        -   [aiopg](https://pypi.python.org/pypi/aiopg)
+        
+        License
+        -------
+        
+        `tispost` is offered under the Apache 2 license.
+        
+        Source code
+        -----------
+        
+        The latest developer version is available in a GitHub repository:
+        <https://github.com/aiselis/tispost>
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Development Status :: 3 - Alpha
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Framework :: AsyncIO
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
