@@ -1,0 +1,7 @@
+requests~=2.23.0
+
+[test]
+coveralls~=2.0.0
+pytest-cov~=2.8.1
+pytest~=5.4.2
+responses~=0.10.14
