@@ -1,0 +1,16 @@
+bigbluepy/__init__.py,sha256=hy5OCg6qOJGHESZ5r-Uvounp8qmvNBVCU1V_XUUy9nc,25
+bigbluepy/main.py,sha256=3vFgIWqrhLVb6WSD6sjm0mv6mqql5iHECXmD7WQ0mCw,3208
+bigbluepy/requests.py,sha256=_h8dGFvQW6eL8bUTqeeeol0hy9WA7mX0qV57HR-jYPE,17438
+bigbluepy/response/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+bigbluepy/response/create_meeting.py,sha256=7dm83GLzx8qb-vqaU1EUiVqNTm0cFsWkBnAe0Mk6yeU,511
+bigbluepy/response/end_meeting.py,sha256=4Uy-WuC82tr13Hj1XBtZvDS0m05zkJ9atf3zVcSDlO4,129
+bigbluepy/response/is_meeting_running.py,sha256=peJ4XJF3iv9SMoyIOLdW9xzd7aMmoM7PM_IT7sGBbtM,182
+bigbluepy/response/join_meeting.py,sha256=Vll3ZdNTh9RcgWcLWPjdF12bMTCctrdjtEjuXzsHfoo,244
+bigbluepy/response/meeting_info.py,sha256=5-wCWriArNP0NtuHvKrbfQubUibZd7M81cVg2j3rgko,664
+bigbluepy/response/meetings.py,sha256=hVXQJ2VXMfqDNraIt089ZV13FxwqL9BFWMjwa7B_N9s,169
+examples/__init__.py,sha256=8NiNQkj-N_99C8bpDU5PXdr2O2mJL6mLoI0h7jaKpsQ,36
+examples/getMeetings.py,sha256=rWLfXG7lvMAlT7YqSqmbBiY8FyjQBins4lOISfe-oS8,140
+bigbluepy-0.1.8.dist-info/METADATA,sha256=AVmFXlHuT2o-aWZScwd4Fwb2JI8SDury5coVSL-iXK8,504
+bigbluepy-0.1.8.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+bigbluepy-0.1.8.dist-info/top_level.txt,sha256=689VAagsk6q-sbMqOjBhyTo20Y5Co0SHwLMH6eI7j1M,19
+bigbluepy-0.1.8.dist-info/RECORD,,
