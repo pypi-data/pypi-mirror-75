@@ -1,0 +1,8 @@
+neuromation
+yarl
+click
+toml
+pyyaml
+
+[:python_version < "3.7"]
+dataclasses>=0.5
