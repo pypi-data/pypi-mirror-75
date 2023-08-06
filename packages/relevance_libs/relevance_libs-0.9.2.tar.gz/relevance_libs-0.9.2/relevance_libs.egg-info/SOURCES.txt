@@ -1,0 +1,17 @@
+README.md
+setup.py
+relevance_libs/__init__.py
+relevance_libs/acl.py
+relevance_libs/schema.py
+relevance_libs.egg-info/PKG-INFO
+relevance_libs.egg-info/SOURCES.txt
+relevance_libs.egg-info/dependency_links.txt
+relevance_libs.egg-info/requires.txt
+relevance_libs.egg-info/top_level.txt
+relevance_libs/analytics/__init__.py
+relevance_libs/analytics/connector.py
+relevance_libs/server/__init__.py
+relevance_libs/server/middleware.py
+relevance_libs/user/__init__.py
+relevance_libs/user/connector.py
+relevance_libs/user/models.py
