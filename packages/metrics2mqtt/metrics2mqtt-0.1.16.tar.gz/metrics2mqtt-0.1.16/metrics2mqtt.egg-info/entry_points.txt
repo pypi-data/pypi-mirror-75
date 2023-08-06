@@ -1,0 +1,3 @@
+[console_scripts]
+metrics2mqtt = metrics2mqtt.base:main
+
