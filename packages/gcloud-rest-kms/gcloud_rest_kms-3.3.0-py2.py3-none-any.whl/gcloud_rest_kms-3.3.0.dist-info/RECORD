@@ -1,0 +1,12 @@
+gcloud_rest_kms-3.3.0-py3.8-nspkg.pth,sha256=yh_2vbQ3vJpMiFbvaFfXmGdXqzGytdeN5hxcSUNFt5g,1692
+gcloud/rest/kms/__init__.py,sha256=b9Youe2QsaKxXnC93L9ei7v5rwpi6fU5GIC1cb44uoU,632
+gcloud/rest/kms/kms.py,sha256=m3Flth_YL3kFEV3m8mCzvCde33o-8TYjmGRe_ow9xVY,3425
+gcloud/rest/kms/utils.py,sha256=VAAlDraf7J0znlLD9naQj1fzQ8QyNhDY2Gre4IOk_WI,1201
+tests/unit/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/unit/kms_test.py,sha256=jzgIjoXVvJO2_IYDM3EZhDBMJulfTHBcMY3fzlGebWk,416
+gcloud_rest_kms-3.3.0.dist-info/LICENSE,sha256=0fhMmYX7aigwm_CsPK_39Rx-lTav0fxSGneTPRlwju8,1068
+gcloud_rest_kms-3.3.0.dist-info/METADATA,sha256=H3ru5qL_mnRCq_HZbs2gqElZ-8IznoslGT8tF2U5LhY,3089
+gcloud_rest_kms-3.3.0.dist-info/WHEEL,sha256=kGT74LWyRUZrL4VgLh6_g12IeVl_9u9ZVhadrgXZUEY,110
+gcloud_rest_kms-3.3.0.dist-info/namespace_packages.txt,sha256=lvTjKP_ervwXKvwypRaaIo5JBgFsERlMNd73yVqrX10,19
+gcloud_rest_kms-3.3.0.dist-info/top_level.txt,sha256=sox9WnuebKsnnDxekC1Pd7Q7wUz_DL8DRjlHhthn-ik,13
+gcloud_rest_kms-3.3.0.dist-info/RECORD,,
