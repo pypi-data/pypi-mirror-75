@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: mnemoize
+Version: 0.1.1
+Summary: Use mnemonic code instead of bytes or passwords.
+License: Unlicense
+Author: Grigory Bakunov
+Author-email: thebobuk@ya.ru
+Requires-Python: >=3.8,<4.0
+Classifier: License :: Other/Proprietary License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
