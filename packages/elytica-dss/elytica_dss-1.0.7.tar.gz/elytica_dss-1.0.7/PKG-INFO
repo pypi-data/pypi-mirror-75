@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: elytica_dss
+Version: 1.0.7
+Summary: Package for elytica service we use to build decision support systems (DSSs).
+Home-page: https://github.com/baggins800/elytica-dss
+Author: Ruan Luies
+Author-email: ruan@elytica.com
+License: GPL
+Description: UNKNOWN
+Keywords: DSS,decision,support,system,mixed,integer,linear,programming
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
