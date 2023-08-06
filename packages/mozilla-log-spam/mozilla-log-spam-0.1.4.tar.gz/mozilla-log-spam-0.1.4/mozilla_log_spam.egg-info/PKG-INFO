@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: mozilla-log-spam
+Version: 0.1.4
+Summary: Mozilla test log spam classifier
+Home-page: https://github.com/EricRahm/log-spam-hell
+Author: Eric Rahm
+Author-email: erahm@mozilla.com
+License: MPL 2.0
+Download-URL: https://github.com/EricRahm/log-spam-hell/tarball/0.1.4
+Description: Tools for identifying the most verbose warnings emitted during testing.
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)

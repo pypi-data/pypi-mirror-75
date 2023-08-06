@@ -1,0 +1,17 @@
+README.md
+setup.py
+logspam/__init__.py
+logspam/bisect.py
+logspam/bugzilla.py
+logspam/cache.py
+logspam/cli.py
+logspam/cli_entry.py
+logspam/logs.py
+logspam/mach_interface.py
+logspam/report.py
+mozilla_log_spam.egg-info/PKG-INFO
+mozilla_log_spam.egg-info/SOURCES.txt
+mozilla_log_spam.egg-info/dependency_links.txt
+mozilla_log_spam.egg-info/entry_points.txt
+mozilla_log_spam.egg-info/requires.txt
+mozilla_log_spam.egg-info/top_level.txt
