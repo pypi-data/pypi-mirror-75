@@ -1,0 +1,88 @@
+Metadata-Version: 2.1
+Name: wagtail-color-panel
+Version: 1.1.0
+Summary: UNKNOWN
+Home-page: https://github.com/marteinn/wagtail-color-panel
+Author: Martin Sandström
+Author-email: martin@marteinn.se
+License: MIT
+Description: |Wagtail-Color-Panel| |PyPI version|
+        
+        Wagtail-Color-Panel
+        ===================
+        
+        Introduces panels for selecting colors in Wagtail.
+        
+        .. figure:: https://raw.githubusercontent.com/marteinn/wagtail-color-panel/develop/img/img-in-streamfield.png
+           :alt: Screen1
+        
+           Screen1
+        
+        Features
+        --------
+        
+        -  NativeColorPanel that can be used in your edit handler
+        -  NativeColorBlock for usage in a StreamField
+        -  Based on the native HTML5 color picker
+        -  A custom db field for improved validation
+        -  PolyfillColorPanel for cases that require IE11 support (built on
+           `Spectrum <https://github.com/bgrins/spectrum>`__)
+        
+        Example
+        -------
+        
+        .. code:: python
+        
+            from wagtail.core.models import Page
+        
+            from wagtail_color_panel.fields import ColorField
+            from wagtail_color_panel.edit_handlers import NativeColorPanel
+        
+        
+            class MyPage(Page):
+                color = ColorField()
+        
+                content_panels = Page.content_panels + [
+                    NativeColorPanel('color'),
+                ]
+        
+        Documentation
+        -------------
+        
+        -  `Getting started <./docs/1_getting_started.md>`__
+        -  `Adding panel to a Page <./docs/2_adding_to_a_page.md>`__
+        -  `Adding to a StreamField <./docs/3_adding_to_a_streamfield.md>`__
+        -  `Reference <./docs/4_reference.md>`__
+        
+        Contributing
+        ------------
+        
+        Want to contribute? Awesome. Just send a pull request.
+        
+        License
+        -------
+        
+        Wagtail-Color-Panel is released under the `MIT
+        License <http://www.opensource.org/licenses/MIT>`__.
+        
+        .. |Wagtail-Color-Panel| image:: https://github.com/marteinn/wagtail-color-panel/workflows/Wagtail-Color-Panel/badge.svg
+        .. |PyPI version| image:: https://badge.fury.io/py/wagtail-color-panel.svg
+           :target: https://badge.fury.io/py/wagtail-color-panel
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Wagtail
+Classifier: Framework :: Wagtail :: 2
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Utilities
+Requires-Python: >=3.6
+Provides-Extra: test
