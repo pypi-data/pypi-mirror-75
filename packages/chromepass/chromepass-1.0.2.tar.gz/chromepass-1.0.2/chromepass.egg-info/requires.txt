@@ -1,0 +1,5 @@
+secretstorage>=3.1.0
+pycryptodomex
+
+[:sys_platform == "win32"]
+win32crypt
