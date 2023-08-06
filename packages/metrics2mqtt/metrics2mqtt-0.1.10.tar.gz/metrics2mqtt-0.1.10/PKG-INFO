@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: metrics2mqtt
+Version: 0.1.10
+Summary: Publish hardware monitoring data from psutil to a MQTT broker.
+Home-page: https://github.com/jamiebegin/metrics2mqtt
+Author: Jamie Begin
+Author-email: jjbegin@gmail.com
+License: MIT
+Download-URL: https://github.com/jamiebegin/metrics2mqtt/archive/v0.1.10.tar.gz
+Description: UNKNOWN
+Keywords: mqtt,psutil,metrics
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Information Technology
+Classifier: Topic :: System :: Monitoring
+Classifier: Topic :: System :: Logging
+Classifier: Topic :: System :: Systems Administration
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
