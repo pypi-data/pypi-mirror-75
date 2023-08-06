@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: dohamaps
+Version: 1.1.1
+Summary: Generative adversarial urban growth prediction of Doha.
+Home-page: https://github.com/dohamaps/dohamaps
+Author: dohamaps
+Author-email: dohamaps20@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# dohamaps
+Multi-scale generative adversarial model using `tf.keras` to predict future urban growth from satellite map images.
+
+## Dependencies
+ * TensorFlow 2.2.0
+ * Pillow 7.2.0
+
+
+
