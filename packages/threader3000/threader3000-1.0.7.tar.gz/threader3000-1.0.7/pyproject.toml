@@ -1,0 +1,27 @@
+[tool.poetry]
+name = "threader3000"
+version = "1.0.7"
+description = "Threader3000 - Multi-threaded Port Scanner"
+license = "GNU GPLv3"
+authors = ["The Mayor"]
+readme = "README.md"
+homepage = "https://github.com/dievus/threader3000"
+keywords = ["port scanner, port, scanner"]
+
+[tool.poetry.scripts]
+threader3000 = 'threader3000:main'
+
+[tool.poetry.dependencies]
+python = "^3.5"
+
+[tool.poetry.dev-dependencies]
+
+[tool.poetry.urls]
+"Issues Tracker" = "https://github.com/dievus/threader3000/issues"
+"Website" = "https://www.cybersecpadawan.com"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+

@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: threader3000
+Version: 1.0.7
+Summary: Threader3000 - Multi-threaded Port Scanner
+Home-page: https://github.com/dievus/threader3000
+Keywords: port scanner, port, scanner
+Author: The Mayor
+Requires-Python: >=3.5,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Project-URL: Issues Tracker, https://github.com/dievus/threader3000/issues
+Project-URL: Website, https://www.cybersecpadawan.com
+Description-Content-Type: text/markdown
+
+<h5>Multi-threaded Python Port Scanner for use on Linux or Windows</h5>
+<br>
+-----------------------------------------------------------------------
+<br>
+Threader3000 is a script written in Python3 that allows multi-threaded 
+port scanning. The program is interactive and simply requires you to run 
+it to begin. Once started, you will be asked to input an IP address or a 
+FQDN as Threader3000 does resolve hostnames. A full port scan should take 
+three minutes or less depending on your internet connection.
+<br>
+Check me out on Twitter @joehelle, Twitch at https://twitch.tv/themayor11/, 
+on Github at https://github.com/dievus, or visit my cybersec Discord at 
+https://discord.gg/DW4Q4pp.
+
