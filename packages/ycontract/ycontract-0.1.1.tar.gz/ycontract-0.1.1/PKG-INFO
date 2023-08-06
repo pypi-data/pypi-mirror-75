@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: ycontract
+Version: 0.1.1
+Summary: Python library for contracts testing
+Home-page: https://gitlab.com/yassu/ycontract.py
+License: Apache-2.0
+Keywords: contracts,contract
+Author: yassu
+Author-email: yasu0320.dev@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries
+Project-URL: Repository, https://gitlab.com/yassu/ycontract.py
+Description-Content-Type: text/markdown
+
+ycontract
+================================================================================
+
