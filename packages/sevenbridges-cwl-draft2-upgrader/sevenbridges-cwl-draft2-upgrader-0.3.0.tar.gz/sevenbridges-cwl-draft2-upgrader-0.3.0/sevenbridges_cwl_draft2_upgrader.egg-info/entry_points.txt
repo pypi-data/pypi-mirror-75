@@ -1,0 +1,5 @@
+[console_scripts]
+sbg_cwl_decomposer = sbg_cwl_upgrader.decomposer.sbg_cwl_decomposer:main
+sbg_cwl_upgrader = sbg_cwl_upgrader.converter.sbg_draft2_to_cwl_1_0:main
+sbg_validate_js_cwl_v1 = sbg_cwl_upgrader.validator.sbg_validate_js_cwl_v1:main
+
