@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: igloo-python
+Version: 1.0.6
+Summary: Python client for igloo
+Home-page: https://github.com/IglooCloud/igloo_python
+Author: Igloo Team
+Author-email: hello@igloo.ooo
+License: MIT
+Keywords: iot,igloo
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development 
+Classifier: License :: OSI Approved :: MIT License  
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: requests
+Requires-Dist: asyncio
+Requires-Dist: pathlib
+Requires-Dist: websockets
+Requires-Dist: aiodataloader
+Requires-Dist: aiohttp
+
+UNKNOWN
+
+
