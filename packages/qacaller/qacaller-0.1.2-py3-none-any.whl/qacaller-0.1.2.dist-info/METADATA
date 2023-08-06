@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: qacaller
+Version: 0.1.2
+Summary: power by mlflow tracking
+Home-page: https://github.com/Faithforus/qacaller
+Author: faithforus
+Author-email: ljunf817@163.com
+License: MIT
+Keywords: python package log tracking
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: mlflow (==1.8.0)
+Requires-Dist: click (==7.1.2)
+
+params ,metrics, log
+
+
