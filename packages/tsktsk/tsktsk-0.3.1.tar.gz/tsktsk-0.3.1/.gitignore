@@ -1,0 +1,12 @@
+*.egg-info
+.coverage
+.eggs
+.env
+.hypothesis
+.pytype
+.token
+.tox
+__pycache__
+build
+dist
+tags*
