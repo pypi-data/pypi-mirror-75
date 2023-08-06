@@ -1,0 +1,11 @@
+MANIFEST.in
+README.md
+setup.py
+hive_networkx/__init__.py
+hive_networkx/hive_networkx.py
+hive_networkx.egg-info/Icon
+hive_networkx.egg-info/PKG-INFO
+hive_networkx.egg-info/SOURCES.txt
+hive_networkx.egg-info/dependency_links.txt
+hive_networkx.egg-info/requires.txt
+hive_networkx.egg-info/top_level.txt
