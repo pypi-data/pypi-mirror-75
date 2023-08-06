@@ -1,0 +1,47 @@
+{% load static %}
+<div class="kt-header__topbar-item kt-header__topbar-item--user">
+    <div class="kt-header__topbar-wrapper" data-toggle="dropdown" data-offset="10px,10px">
+        <img alt="Pic" src="{{ user_avatar }}"/>
+    </div>
+    <div class="dropdown-menu dropdown-menu-fit dropdown-menu-right dropdown-menu-anim dropdown-menu-md">
+        <div class="kt-user-card-v4 kt-user-card-v4--skin-light kt-notification-item-padding-x">
+            <div class="kt-user-card-v4__avatar">
+
+                <!--use "kt-rounded" class for rounded avatar style-->
+                <img class="kt-rounded-" alt="Pic" src="{{ user_avatar }}"/>
+
+                <!--use below badge element instead the user avatar to display username's first letter(remove kt-hidden class to display it) -->
+                <span class="kt-badge kt-badge--username kt-badge--unified-success kt-badge--lg kt-badge--rounded kt-badge--bold kt-hidden">S</span>
+            </div>
+            <div class="kt-user-card-v4__name">
+                {{ user_name }}
+                <small>{{ user_subtitle }}</small>
+            </div>
+            <div class="kt-user-card-v4__badge kt-hidden">
+                <span class="btn btn-label-primary btn-sm btn-bold btn-font-md">23 messages</span>
+            </div>
+        </div>
+        <ul class="kt-nav kt-margin-b-10">
+            {% for label, itens in user_menus %}
+                {% if itens.has_perm %}
+                    <li class="kt-nav__item">
+                        <a href="{{ itens.url }}" class="kt-nav__link">
+                            <span class="kt-nav__link-icon">
+                                <i class="{{ itens.icon }}"></i>
+                            </span>
+                            <span class="kt-nav__link-text">{{ label }}</span>
+                        </a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+            <li class="kt-nav__separator kt-nav__separator--fit"></li>
+            <li class="kt-nav__custom kt-space-between">
+                <a href="{{ signout_url }}"
+                   class="btn btn-label-brand btn-upper btn-sm btn-bold">
+                    <span class="kt-nav__link-icon"><i class="{{ menu.0 }}"></i></span>
+                    <i class="fas fa-sign-out-alt"></i> Sair
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
