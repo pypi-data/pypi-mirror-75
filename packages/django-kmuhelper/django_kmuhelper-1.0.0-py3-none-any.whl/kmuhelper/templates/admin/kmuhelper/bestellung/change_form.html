@@ -1,0 +1,19 @@
+{% extends 'admin/kmuhelper/change_form.html' %}
+
+{% block object-tools-items %}
+    {% if change %}
+        {% if original.woocommerceid %}
+            <li><a href="{% url 'kmuhelper:wc-update-order' object_id %}">Von WooCommerce importieren und ersetzen</a></li>
+        {% endif %}
+        <li><a href="{% url 'kmuhelper:bestellung-pdf-ansehen' object_id %}" target="_blank">Rechnung (digital)</a></li>
+        <li><a href="{% url 'kmuhelper:bestellung-pdf-ansehen' object_id %}?druck" target="_blank">Rechnung (druck)</a></li>
+        <li><a href="{% url 'kmuhelper:bestellung-pdf-ansehen' object_id %}?lieferschein" target="_blank">Lieferschein</a></li>
+        {% if original.versendet and original.rechnungsadresse_email and original.rechnung_gesendet %}
+            <li><a href="{% url 'kmuhelper:bestellung-pdf-an-kunden-senden' object_id %}">Rechnung an Kunden senden</a></li>
+        {% endif %}
+        {% if original.trackingnummer %}
+            <li><a target="_blank" href="{{ original.trackinglink }}">Tracking</a></li>
+        {% endif %}
+    {% endif %}
+    {{ block.super }}
+{% endblock %}

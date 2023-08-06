@@ -1,0 +1,20 @@
+{% extends "admin/base.html" %}
+
+{% load static %}
+
+{% block title %}{% block subtitle %}{% endblock %} | KMUHelper App{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name"><a target="_top" href="{% url 'kmuhelper:app-main' %}">KMUHelper App</a></h1>
+{% endblock %}
+
+{% block breadcrumbs %}{% endblock %}
+
+{% block userlinks %}{% endblock %}
+
+{% block extrastyle %}
+    {{ block.super }}
+    <link rel="stylesheet" type="text/css" href="{% static "admin/kmuhelper/css/style.css" %}">
+{% endblock %}
+
+{% block content %}{% endblock %}
