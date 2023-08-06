@@ -1,0 +1,15 @@
+ipywidgets
+matplotlib
+ipympl>=0.5.7
+
+[docs]
+sphinx>=1.5
+mock
+numpydoc
+recommonmark
+sphinx_rtd_theme
+nbsphinx<0.4.0,>=0.2.13
+jupyter_sphinx
+nbsphinx-link
+pytest_check_links
+pypandoc
