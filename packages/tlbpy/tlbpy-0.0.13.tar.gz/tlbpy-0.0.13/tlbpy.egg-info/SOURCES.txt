@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+tlbpy/__init__.py
+tlbpy/cnf_parser.py
+tlbpy/duration.py
+tlbpy/helloworld.py
+tlbpy/path.py
+tlbpy/talk.py
+tlbpy.egg-info/PKG-INFO
+tlbpy.egg-info/SOURCES.txt
+tlbpy.egg-info/dependency_links.txt
+tlbpy.egg-info/entry_points.txt
+tlbpy.egg-info/top_level.txt
