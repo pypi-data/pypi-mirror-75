@@ -1,0 +1,3 @@
+[console_scripts]
+esphomeflasher = esphomeflasher.__main__:main
+
