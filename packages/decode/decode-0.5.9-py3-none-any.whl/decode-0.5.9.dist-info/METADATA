@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: decode
+Version: 0.5.9
+Summary: DESHIMA code for data analysis
+Home-page: https://github.com/deshima-dev/decode/
+License: MIT
+Keywords: astronomy,submillimeter,spectroscopy,deshima,data-analysis
+Author: Akio Taniguchi
+Author-email: taniguchi@a.phys.nagoya-u.ac.jp
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: astropy (>=4.0,<5.0)
+Requires-Dist: matplotlib (>=3.2,<4.0)
+Requires-Dist: netcdf4 (>=1.5,<2.0)
+Requires-Dist: numpy (>=1.18,<2.0)
+Requires-Dist: pyyaml (>=5.3,<6.0)
+Requires-Dist: scikit-learn (>=0.22,<0.23)
+Requires-Dist: scipy (>=1.4,<2.0)
+Requires-Dist: tqdm (>=4.41,<5.0)
+Requires-Dist: xarray (>=0.15,<0.16)
+Project-URL: Documentation, https://deshima-dev.github.io/decode/
+Description-Content-Type: text/markdown
+
+# De:code
+
+[![PyPI](https://img.shields.io/pypi/v/decode.svg?label=PyPI&style=flat-square)](https://pypi.org/pypi/decode/)
+[![Python](https://img.shields.io/pypi/pyversions/decode.svg?label=Python&color=yellow&style=flat-square)](https://pypi.org/pypi/decode/)
+[![Test](https://img.shields.io/github/workflow/status/deshima-dev/decode/Test?logo=github&label=Test&style=flat-square)](https://github.com/deshima-dev/decode/actions)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg?label=License&style=flat-square)](LICENSE)
+[![DOI](https://img.shields.io/badge/DOI-10.5281/zenodo.3384216-blue?style=flat-square)](https://doi.org/10.5281/zenodo.3384216)
+
+:zap: DESHIMA code for data analysis
+
+## Requirements
+
+- **Python:** 3.6, 3.7, or 3.8 (tested by the author)
+- **Dependencies:** See [pyproject.toml](https://github.com/deshima-dev/decode/pyproject.toml)
+
+## Installation
+
+```shell
+$ pip install decode
+```
+
