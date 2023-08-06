@@ -1,0 +1,3 @@
+[console_scripts]
+strava-backup = stravabackup.__main__:main
+
