@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+pyproject.toml
+setup.cfg
+setup.py
+ele/__init__.py
+ele/element.py
+ele/exceptions.py
+ele.egg-info/PKG-INFO
+ele.egg-info/SOURCES.txt
+ele.egg-info/dependency_links.txt
+ele.egg-info/top_level.txt
+ele/lib/README.md
+ele/lib/elements.json
+ele/lib/refs.bib
