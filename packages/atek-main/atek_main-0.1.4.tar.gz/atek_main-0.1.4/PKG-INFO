@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: atek-main
+Version: 0.1.4
+Summary: Core tools for ATEK
+Author: JediHero
+Author-email: hansen.rusty@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: cytoolz (>=0.10.1,<0.11.0)
+Requires-Dist: mysql-connector-python (>=8.0.21,<9.0.0)
+Requires-Dist: pandas (>=1.0.5,<2.0.0)
+Requires-Dist: pymysql (>=0.10.0,<0.11.0)
+Requires-Dist: python-dotenv (>=0.14.0,<0.15.0)
+Requires-Dist: sshtunnel (>=0.1.5,<0.2.0)
+Requires-Dist: tabulate (>=0.8.7,<0.9.0)
