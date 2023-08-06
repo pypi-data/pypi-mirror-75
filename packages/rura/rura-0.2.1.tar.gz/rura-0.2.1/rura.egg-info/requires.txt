@@ -1,0 +1,17 @@
+mlflow
+numpy>=1.9.1
+scipy>=0.14
+six>=1.9.0
+pyyaml
+h5py
+python-dotenv
+
+[tests]
+pytest
+pytest-pep8
+pytest-xdist
+flaky
+pytest-cov
+pandas
+requests
+markdown
