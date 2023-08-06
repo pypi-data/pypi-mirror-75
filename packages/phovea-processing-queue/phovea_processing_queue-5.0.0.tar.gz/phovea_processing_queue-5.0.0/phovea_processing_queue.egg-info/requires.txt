@@ -1,0 +1,3 @@
+phovea_data_redis<7.0.0,>=6.0.0
+phovea_server<7.0.0,>=6.0.0
+celery[auth,msgpack,redis]==4.2.2
