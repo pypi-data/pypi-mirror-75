@@ -1,0 +1,4 @@
+flake8
+pytest
+pytest-cov
+setuptools>=47.3.1
