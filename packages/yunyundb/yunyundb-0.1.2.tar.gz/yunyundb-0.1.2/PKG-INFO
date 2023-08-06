@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: yunyundb
+Version: 0.1.2
+Summary: Yunyun is intended to be a simplified persistent data storage system.
+Home-page: https://github.com/naphthasl/yunyun
+Author: Naphtha Nepanthez
+Author-email: naphtha@lotte.link
+License: MIT
+Description: 
+        Yunyun is intended to be a simplified persistent data storage system similar
+        to Python's built in shelve, but with features such as transparent file locking
+        to allow for multi-threaded and multi-process access safely.
+        
+        GitHub & Further Information: https://github.com/naphthasl/yunyun
+        
+        License: MIT (see LICENSE for details)
+        
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
