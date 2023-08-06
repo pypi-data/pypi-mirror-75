@@ -1,0 +1,12 @@
+biopython
+click
+cython==0.29.13
+hgvs
+ncls
+numpy
+pandas
+pathos
+pyfaidx
+setuptools>=38.6.0
+tqdm
+vcfpy
