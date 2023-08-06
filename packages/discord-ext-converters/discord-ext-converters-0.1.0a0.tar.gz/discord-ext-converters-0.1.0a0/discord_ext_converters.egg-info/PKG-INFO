@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: discord-ext-converters
+Version: 0.1.0a0
+Summary: A collection of useful converters.
+Home-page: https://github.com/Ext-Creators/discord-ext-converters
+Author: Ext-Creators
+License: Apache Software License
+Description: discord-ext-converters
+        ======================
+        
+        |dependencies| |license|
+        
+        A collection of useful converters for discord.py.
+        
+        
+        Installation
+        ------------
+        
+        This extension is currently not in PyPI.
+        
+        .. code-block:: sh
+        
+            $ python3 -m pip install -U git+https://github.com/Ext-Creators/discord-ext-converters
+        
+        
+        Usage
+        -----
+        
+        .. code-block:: py
+        
+            from discord.ext import converters
+            # Adds support for all avaialble converters
+        
+        .. |dependencies| image:: https://img.shields.io/librariesio/github/Ext-Creators/discord-ext-converters.svg
+        .. |license| image:: https://img.shields.io/github/license/Ext-Creators/discord-ext-converters
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet
+Classifier: Topic :: Software Development
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Requires-Python: >=3.5.3
+Description-Content-Type: text/x-rst
