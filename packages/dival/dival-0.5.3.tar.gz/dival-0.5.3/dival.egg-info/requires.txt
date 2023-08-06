@@ -1,0 +1,14 @@
+numpy>=1.10
+pandas
+odl
+scikit-image
+scikit-learn
+hyperopt
+tqdm
+matplotlib
+h5py
+requests
+packaging
+
+[torch_learned_reconstructors]
+torch
