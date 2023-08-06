@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: ccf
+Version: 0.12.1
+Summary: Set of tools and utilities for the Confidential Consortium Framework (CCF)
+Home-page: https://github.com/microsoft/CCF/python/ccf
+Author: CCF Team
+License: Apache License 2.0
+Description: # CCF Python
+        
+        Suite of Python tools for the Confidential Consortium Framework (CCF).
+        
+        For more information, please find the the CCF documentation at https://microsoft.github.io/CCF.
+        
+        Package sources are available at https://github.com/microsoft/CCF/tree/master/python.
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
