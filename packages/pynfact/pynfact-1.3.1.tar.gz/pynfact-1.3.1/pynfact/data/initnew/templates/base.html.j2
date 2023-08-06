@@ -1,0 +1,95 @@
+{#- DO NOT CHANGE THIS FIRST LINES OF JINJA CODE! -#}
+{%- if blog.base_uri != '' %}{%- set base_uri = '/' + blog.base_uri + '/' -%}
+{%- else %}{%- set base_uri = '/' -%}
+{%- endif -%}
+<!DOCTYPE html>
+
+<html lang="{{ blog.lang }}">
+    <head>
+        <meta charset="{{ blog.encoding }}">
+        <meta name="description" content="{{ blog.author }}{% block metadescription %}{% endblock %}">
+        <meta name="keywords" content="blog, personal">
+        <meta name="author" content="{{ blog.author }}">
+        <meta name="generator" content="Py'nFact">
+        {%- block index %}{% endblock %}
+        <title>{% block title %}{% endblock %} &mdash; {{ blog.author }}</title>
+        <link rel="stylesheet" href="{{ base_uri }}static/css/reset.css" type=text/css>
+        <link rel="stylesheet" href="{{ base_uri }}static/css/reg_quotes.css" type=text/css>
+        <link rel="stylesheet" href="{{ base_uri }}static/css/reg_paragraphs.css" type=text/css>
+        <link rel="stylesheet" href="{{ base_uri }}static/css/pygments.css" type=text/css>
+        <link rel="stylesheet" href="{{ base_uri }}static/css/style_light.css" type=text/css title="Light theme">
+        <link rel="alternate stylesheet" href="{{ base_uri }}static/css/style_dark.css" type=text/css title="Dark theme">
+        {% if blog.feed_format == 'rss' -%}
+        <link rel="alternate"  href="{{ base_uri }}feed.xml" title="{% trans %}Recent posts{% endtrans %}" type="application/rss+xml">
+        {% elif blog.feed_format == 'atom' -%}
+        <link rel="alternate"  href="{{ base_uri }}feed.xml" title="{% trans %}Recent posts{% endtrans %}" type="application/atom+xml">
+        {% endif -%}
+        <link rel="shortcut icon" href="{{ base_uri }}media/favicon.ico" type="image/x-icon">
+    </head>
+
+    <body id="top" class="prettify">
+        <div id="container">
+            <!-- HEADER -->
+            <header>
+                <div class="main_title" role="banner">
+                    <a rel="author" href="{{ base_uri }}acerca-de-este-blog/"
+                       title="{{ blog.author }}">{{ blog.author }}</a>
+                </div>
+
+                <nav class="navigator" id="nav1"
+                     itemscope
+                     itemtype="http://schema.org/SiteNavigationElement">
+                    <ul>
+                        <li><a href="{{ base_uri }}"
+                               itemprop="name"
+                               title="{% trans %}Blog{% endtrans %}">{% trans %}Blog{% endtrans %}</a>
+                        <li><a href="{{ base_uri }}archive/"
+                               itemprop="name"
+                               title="{% trans %}Archive{% endtrans %}">{% trans %}Archive{% endtrans %}</a>
+                        <li><a href="{{ base_uri }}categories/"
+                               itemprop="name"
+                               title="{% trans %}Categories{% endtrans %}">{% trans %}Categories{% endtrans %}</a>
+                        <li><a href="{{ base_uri }}tags/"
+                               itemprop="name"
+                               title="{% trans %}Tags{% endtrans %}">{% trans %}Tags{% endtrans %}</a>
+                    {%- for page, uri in blog.page_links %}
+                        <li><a href="{{ uri }}/"
+                               title="{{ page }}">{{ page }}</a>
+                    {%- endfor %}
+                    {%- if blog.feed_format == 'rss' or blog.feed_format == 'atom' %}
+                        <li><a href="{{ base_uri }}feed.xml"
+                               itemprop="name"
+                               rel="alternate"
+                               title="{% trans %}Feed{% endtrans %}">{% trans %}Feed{% endtrans %}</a>
+                    {%- endif %}
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- CONTENT -->
+            <section class="body">
+                {% block body %}{% endblock %}
+            </section>
+
+            <!-- FOOTER -->
+            <hr>
+            <footer>
+                <aside>
+                <p>
+                    <a class="invisible"
+                       href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.es"
+                       title="CC BY-NC-SA 4.0"
+                       rel="license">{% trans %}Content licensed under{% endtrans %}
+                    Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0 Intl.</a>
+
+                <p> &copy;
+                    <a class="invisible"
+                       href="{{ base_uri }}acerca-de-este-blog/"
+                       title="{{ blog.author }}"
+                       rel="author">{{ blog.author }}</a>, 2012&ndash;2020
+                </aside>
+            </footer>
+        </div>
+    </body>
+
+{#- vim: set filetype=html fileencoding=utf-8 nowrap: -#}

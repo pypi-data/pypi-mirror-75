@@ -1,0 +1,22 @@
+{% extends "base.html.j2" %}
+{% block metadescription %} ({{ page.raw_title }}){% endblock %}
+{% block title %}{{ page.raw_title }}{% endblock %}
+
+{% block body %}
+
+<article class="page">
+    <header>
+        <h1 class="title">
+        {{- page.title -}}
+        {%- if page.private %} <span class="private">[PRIV]</span>{%- endif -%}
+        </h1>
+    </header>
+
+    <section class="page hyphenate prettify">
+        {{ page.content }}
+    </section>
+
+</article>
+
+{% endblock %}
+

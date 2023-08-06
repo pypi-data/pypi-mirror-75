@@ -1,0 +1,7 @@
+global-exclude *.py[cod] *.~ .*~
+include logo.png
+include LICENSE CHANGELOG.rst
+recursive-include pynfact/ *
+#recursive-include pynfact/initnew *
+#recursive-include pynfact/locale *
+
