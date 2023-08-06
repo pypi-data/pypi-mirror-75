@@ -1,0 +1,17 @@
+README.md
+setup.cfg
+setup.py
+scam.egg-info/PKG-INFO
+scam.egg-info/SOURCES.txt
+scam.egg-info/dependency_links.txt
+scam.egg-info/entry_points.txt
+scam.egg-info/requires.txt
+scam.egg-info/top_level.txt
+source/__init__.py
+source/source_analyzer.py
+source/backend/__init__.py
+source/backend/analyzer.py
+source/backend/file_to_fingerprint.py
+source/backend/fingerprint.py
+source/backend/interface.py
+source/backend/winnowing.py
