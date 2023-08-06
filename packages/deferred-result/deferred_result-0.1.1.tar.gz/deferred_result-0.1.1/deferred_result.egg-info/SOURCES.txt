@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+setup.py
+deferred_result/__init__.py
+deferred_result/deferred_result.py
+deferred_result/py.typed
+deferred_result.egg-info/PKG-INFO
+deferred_result.egg-info/SOURCES.txt
+deferred_result.egg-info/dependency_links.txt
+deferred_result.egg-info/top_level.txt
