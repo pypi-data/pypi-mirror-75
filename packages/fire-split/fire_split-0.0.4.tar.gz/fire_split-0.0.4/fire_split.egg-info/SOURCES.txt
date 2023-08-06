@@ -1,0 +1,17 @@
+CONTRIBUTING.md
+LICENSE
+MANIFEST.in
+README.md
+settings.ini
+setup.py
+fire_split/__init__.py
+fire_split/_nbdev.py
+fire_split/cli.py
+fire_split/core.py
+fire_split.egg-info/PKG-INFO
+fire_split.egg-info/SOURCES.txt
+fire_split.egg-info/dependency_links.txt
+fire_split.egg-info/entry_points.txt
+fire_split.egg-info/not-zip-safe
+fire_split.egg-info/requires.txt
+fire_split.egg-info/top_level.txt
