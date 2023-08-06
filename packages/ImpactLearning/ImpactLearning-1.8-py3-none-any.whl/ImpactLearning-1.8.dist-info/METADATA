@@ -1,0 +1,303 @@
+Metadata-Version: 2.1
+Name: ImpactLearning
+Version: 1.8
+Summary: UNKNOWN
+Home-page: https://github.com/Kowsher/Impact-Learning-
+Author: Kowsher Ahmed, Avishek Das
+Author-email: ahmedshuvo969@gmail.com, avishek.das.ayan@gmail.com
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: h5py (==2.10.0)
+Requires-Dist: tensorflow (==2.2.0)
+Requires-Dist: numpy (==1.18.5)
+
+# Impact Learning
+## Impact Learning is a new machine learning algoirthm.
+
+Impact learning is a supervised and competitive learning algorithm for inducing classification, linear or polynomial regression knowledge from examples. The primary principle of this method is to learn from a competition which is the impact of independent features; to be more specific it fits curve by the back forces or impacts of features from the intrinsic rate of natural increase (RNI); since every real dataset follows the aptitude of RNI. The input to Impact Learning is a training set of numerical data.
+To be more prominently, every feature of our life follows the trend of RNI, on the other hand, there are more back forces on which the feature need to be dependent. As a result, the target is impacted by other features of the back forces which can be named for a specific force as “Back Impact on Target (BIT)”. Since the target feature relies on BITs that is why every BIT also depends on the target feature. 
+Basically, the machine learning or statistical learning datasets derive from real sectors of target territories, consequently, they flow the trend of RNI. So it will be a procedure to generate the algorithm (Impact Learning)  from the flow of RNI. Furthermore, this method learns from the effect of BITs and in real life, every business sector has good competitors; the impact learning can be used in order to depict the competition among the competitors. In addition, the trained impact learning can be also used for checking multicollinearity or redundancy for feature selection. 
+
+-A framework of this algorithm is being developed. Very soon, it will be made open source, if you have captivating to use in your work just [email me](ga.kowsher@gamil.com)    
+
+
+
+## Installation:
+
+```
+pip install ImpactLearning
+```
+
+
+## Usage of Regressor:
+### 1. validation with test data
+```python
+from ImpactLearning import Regressor
+import numpy as np
+import pandas as pd
+dataTrain = pd.read_csv('brainhead_train.csv')
+dataTest = pd.read_csv('brainhead_test.csv')
+x_train = dataTrain.iloc[:, :-1].values
+y_train = dataTrain.iloc[:, 3].values
+x_test = dataTest.iloc[:, :-1].values
+y_test = dataTest.iloc[:, 3].values
+
+il = Regressor()
+il.fit(x_train,y_train, x_test, y_test, loss_function="MAE", optimizer = "GD",)
+il.train(epochs=2000, lr=0.5, progress_per=100)
+```
+Output:
+```
+Epoch: 100, train_loss: 741.998779, test_loss: 659.725098 
+Epoch: 200, train_loss: 67.431602, test_loss: 54.413006 
+---------------------------------------------------
+Epoch: 2000, train_loss: 66.067902, test_loss: 52.447800 
+Training Completed
+```
+#### 1.1 Get Scores
+```python
+il.get_scores()
+```
+Output
+```
+{'max_test_loss': 4119.4272,
+ 'max_train_loss': 4534.379,
+ 'min_test_loss': 50.623547,
+ 'min_train_loss': 66.0679}
+```
+### 2. without validation
+```python
+from ImpactLearning import Regressor
+import numpy as np
+import pandas as pd
+dataTrain = pd.read_csv('brainhead_train.csv')
+dataTest = pd.read_csv('brainhead_test.csv')
+x_train = dataTrain.iloc[:, :-1].values
+y_train = dataTrain.iloc[:, 3].values
+x_test = dataTest.iloc[:, :-1].values
+y_test = dataTest.iloc[:, 3].values
+
+il = Regressor()
+il.fit(x_train,y_train, loss_function="MAE", optimizer = "GD",)
+il.train(epochs=2000, lr=0.5, progress_per=100)
+```
+Output:
+```
+Epoch: 100, loss: 741.998779 
+Epoch: 200, loss: 67.431602 
+----------------------
+Epoch: 2000, loss: 66.067902 
+```
+#### 2.1 Get Scores
+```python
+il.get_scores()
+```
+Output
+```
+Loss: 66.067902
+```
+### 3. Prediction
+```python
+il.predict(x_test[:5])
+```
+Output
+```
+array([[1303.717 ],
+       [1108.7083],
+       [1177.2151],
+       [1048.9008],
+       [1297.9176]], dtype=float32)
+```
+### 4. Coefficients
+```python
+il.get_coefficients()
+```
+Output
+```
+{'Bias': array([-38.508266], dtype=float32),
+ 'Carrying Capacity': 1635.1,
+ 'RNI': array([-1.0669531], dtype=float32),
+ 'WeightX': array([[  -0.34179878],
+        [   0.5568241 ],
+        [-288.52682   ]], dtype=float32),
+ 'Weighty': array([796.0016], dtype=float32)}
+```
+### 5. Loss Values
+```python
+il.getLossValues()
+```
+Output
+```
+[4534.379,
+ 4418.933,
+ 4309.73,
+ 4206.1646,
+ 4107.7134,
+----------]
+```
+## Usage of Classifier:
+### 1. validation with test data
+```python
+from ImpactLearning import Classifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+iris=load_iris()
+X=iris.data
+y=iris.target
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
+
+il = Classifier()
+il.fit(x_train, y_train,x_test, y_test, CCapacity=1, num_classes=3, optimizer="GD", loss_function="CategoricalCrossentropy")
+il.train(epochs = 1000, lr=0.001, progress_per=100)
+```
+Output:
+```
+Epoch: 100, train_loss: 0.484322, test_loss: 0.479262, train_accuracy: 0.683333 test_accuracy: 0.666667
+Epoch: 200, train_loss: 0.376250, test_loss: 0.355702, train_accuracy: 0.775000 test_accuracy: 0.800000
+----------------------------------------------------
+Epoch: 1000, train_loss: 0.055509, test_loss: 0.148505, train_accuracy: 0.975000 test_accuracy: 0.966667
+Training Completed
+```
+#### 1.1 Get Scores
+```python
+il.get_scores()
+```
+Output
+```
+{'max_test_accuracy': 0.96666664,
+ 'max_test_loss': 2.5907264,
+ 'max_train_accuracy': 0.98333335,
+ 'max_train_loss': 2.04851,
+ 'min_test_accuracy': 0.16666667,
+ 'min_test_loss': 0.11300503,
+ 'min_train_accuracy': 0.34166667,
+ 'min_train_loss': 0.0509217}
+```
+### 2. without validation
+```python
+from ImpactLearning import Classifier
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split
+iris=load_iris()
+X=iris.data
+y=iris.target
+x_train, x_test, y_train, y_test = train_test_split(X, y, test_size=0.20)
+
+il = Classifier()
+il.fit(x_train, y_train,CCapacity=1, num_classes=3, optimizer="GD", loss_function="CategoricalCrossentropy")
+il.train(epochs = 1000, lr=0.001, progress_per=100)
+```
+Output:
+```
+Epoch: 100, loss: 0.456280, train_accuracy: 0.716667 
+Epoch: 200, loss: 0.356472, train_accuracy: 0.808333 
+-----------------------------------------
+Epoch: 1000, loss: 0.100295, train_accuracy: 0.966667 
+Training Completed
+```
+#### 2.1 Get Scores
+```python
+il.get_scores()
+```
+Output
+```
+Accuracy: 0.966667
+```
+### 3. Prediction
+```python
+il.predict(x_test[:10])
+```
+Output
+```
+array([1, 2, 0, 1, 2, 0, 2, 1, 0, 1])
+```
+### 4. Coefficients
+```python
+il.get_coefficients()
+```
+Output
+```
+{'Bias': array([ 0.00366024,  0.00528361, -0.00894384], dtype=float32),
+ 'Carrying Capacity': 1.1,
+ 'RNI': 1.0128337,
+ 'WeightX': array([[0.90882355, 0.91059417, 1.1805835 ],
+        [0.80056006, 0.9750843 , 1.2243568 ],
+        [1.2586796 , 1.0555391 , 0.68578094],
+        [1.1205307 , 1.1224369 , 0.7570329 ]], dtype=float32),
+ 'Weighty': 0.98588395}
+```
+### 5. Loss Values
+```python
+il.getLossValues()
+```
+Output
+```
+[1.0501021,
+ 1.0416512,
+----------
+ 0.08514832,
+ 0.082014434,
+ 0.07910187]
+```
+
+## Loss Functions
+```
+FOR Regressor
+      1.logcosh 
+    2.huber 
+    3.MSE 
+    4.MAE 
+    5.MAPE 
+    6.Poisson 
+    7.sqr_hinge
+
+FOR Classifier
+    1.BinaryCrossentropy
+    2.CategoricalCrossentropy
+    3.CosineSimilarity
+    4.Hinge
+    5.CategoricalHinge
+    6.Logosh
+    7.Poisson
+    8.SquaredHinge
+    9.KLD
+```
+## OPTIMIZERS with supported Arguments
+use the arguments in fit() method
+```
+Adadelta
+rho=0.95, epsilon=1e-07
+
+Adagrad
+initial_accumulator_value=0.1, epsilon=1e-07
+
+Adam
+beta_1=0.9, beta_2=0.999, epsilon=1e-07
+
+Adamax
+beta_1=0.9, beta_2=0.999, epsilon=1e-07
+
+Ftrl
+learning_rate_power=-0.5, initial_accumulator_value=0.1,
+    l1_regularization_strength=0.0, l2_regularization_strength=0.0,
+    l2_shrinkage_regularization_strength=0.0
+
+Nadam
+beta_1=0.9, beta_2=0.999, epsilon=1e-07
+
+RMSprop
+rho=0.9, momentum=0.0, epsilon=1e-07
+
+SGD
+momentum=0.0, nesterov=False, name='SGD'
+
+GD
+No Args
+```
+for more info about the arguments, visit https://www.tensorflow.orgapi_docs/python/tf/keras/optimizers
+
+
