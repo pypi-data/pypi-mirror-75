@@ -1,0 +1,3 @@
+[console_scripts]
+create_libs = tree_hugger.cli.create_libs:main
+
