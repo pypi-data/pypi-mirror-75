@@ -1,0 +1,4 @@
+pyrum<0.4.0,>=0.3.0
+pytest-trio==0.5.2
+trio==0.13.0
+tenacity==6.2.0

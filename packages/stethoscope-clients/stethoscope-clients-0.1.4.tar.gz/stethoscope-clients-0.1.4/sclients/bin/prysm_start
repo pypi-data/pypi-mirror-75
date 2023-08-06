@@ -1,0 +1,61 @@
+#!/bin/bash
+#
+# Startup script for the prysm client
+
+# TODO: use an image name that's passed in! To allow multiple prysm clients
+# Default values of arguments
+TCP=9000
+UDP=9001
+IP='127.0.0.1'
+PRIVATE_KEY='eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee'
+BEACON_STATE_PATH='tests/ssz/tests.ssz'
+
+# Parse arguments
+for arg in "$@"
+do
+    case $arg in
+      -t=*|--tcp=*)
+        TCP="${arg#*=}"
+        shift
+        ;;
+      -u|--udp=*)
+        UDP="${arg#*=}"
+        shift
+        ;;
+      -i|--ip=*)
+        IP="${arg#*=}"
+        shift
+        ;;
+      -p|--private-key=*)
+        PRIVATE_KEY="${arg#*=}"
+        shift
+        ;;
+      -b|--beacon-state-path=*)
+        BEACON_STATE_PATH="${arg#*=}"
+        shift
+        ;;
+    esac
+done
+
+docker pull lsankar/minimal-prysm-beacon-chain:latest
+docker create --name prysm -p $TCP:$TCP -p $UDP:$UDP lsankar/minimal-prysm-beacon-chain \
+  --interop-genesis-state /beacon_state.ssz \
+  --p2p-local-ip $IP \
+  --p2p-host-ip $IP \
+  --p2p-tcp-port $TCP \
+  --p2p-udp-port $UDP \
+  --force-clear-db \
+  --minimal-config \
+  --interop-eth1data-votes \
+  --p2p-priv-key /privkey.txt
+
+# Copy beacon state file into the container
+docker cp $BEACON_STATE_PATH prysm:/beacon_state.ssz
+
+# Copy private key into key file in container
+printf $PRIVATE_KEY > ./tmp.txt
+docker cp ./tmp.txt prysm:/privkey.txt
+rm ./tmp.txt
+
+# Start the container
+docker start prysm
