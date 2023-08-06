@@ -1,0 +1,146 @@
+syntax = "proto3";
+
+import "google/protobuf/empty.proto";
+
+import "common.proto";
+import "integration_source.proto";
+
+option java_package = "io.calixa.domain.id";
+option java_multiple_files = true;
+option optimize_for = SPEED;
+
+package calixa.domain.id;
+
+message InternalId {
+    calixa.domain.common.EntityType entity = 1;
+    string key = 2;
+    string value = 3;
+}
+
+message ExternalId {
+    calixa.domain.integration.IntegrationSource integration = 1;
+    string key = 2;
+    string value = 3;
+}
+
+message AutoMappedId {
+    AutoMappedFieldType type = 1;
+    string value = 2;
+}
+
+enum IdType {
+    ID_TYPE_UNSPECIFIED = 0;
+    INTERNAL = 1;
+    EXTERNAL = 2;
+    AUTO_MAP = 3;
+}
+
+enum AutoMappedFieldType {
+    AUTO_MAP_TYPE_UNSPECIFIED = 0;
+    EMAIL = 1;
+    DOMAIN = 2;
+}
+
+message IntegrationOriginatedId {
+    oneof id {
+        AutoMappedId auto_map_id = 1;
+        ExternalId external_id = 2;
+    }
+}
+
+message IdKey {
+    string organization_id = 1;
+    oneof id {
+        InternalId internal_id = 3;
+        ExternalId external_id = 4;
+        AutoMappedId auto_map_id = 5;
+    }
+}
+
+message IdMapping {
+    IdKey key = 1;
+    repeated InternalId internal_mappings = 2;
+    repeated ExternalId external_mappings = 3;
+    oneof id {
+        InternalId source_internal_id = 4;
+        ExternalId source_external_id = 5;
+    }
+    repeated AutoMappedId auto_mappings = 6;
+}
+
+message Mapper {
+    string rule_name = 1;
+    oneof mapping_id {
+        ExternalId external = 2;
+        AutoMappedId auto_mapped = 3;
+    }
+}
+
+enum MappingRuleType {
+    MAPPING_STATE_UNSPECIFIED = 0;
+    EVERYTHING = 1;
+    INTEGRATION_SOURCE = 2;
+    CALIXA_ENTITY = 3;
+}
+
+message MappingRule {
+    string rule_name = 1;
+    oneof type {
+        calixa.domain.integration.IntegrationSource source = 2;
+        calixa.domain.common.EntityType entity = 3;
+    }
+}
+
+message AutoMappedIdResponse {
+    bool enabled = 1;
+}
+
+message EntityAssociation {
+    string canonical_id = 1;
+    string external_id = 2;
+    calixa.domain.integration.IntegrationSource source = 3;
+    calixa.domain.common.EntityType type = 4;
+    Mapper mapper = 5;
+}
+
+message GetOrCreateIdRequest {
+    string organization_id = 1;
+    calixa.domain.common.EntityType entity = 2;
+    string key = 3;
+    oneof id {
+        ExternalId external_id = 4;
+        InternalId internal_id = 5;
+    }
+    repeated ExternalId external_mappings = 6;
+    repeated InternalId internal_mappings = 7;
+    repeated AutoMappedId auto_mappings = 8;
+}
+
+message AddMappingRequest {
+    string organization_id = 1;
+    ExternalId from = 2;
+    InternalId to = 3;
+}
+
+message AutoMappedIdRequest {
+    string organization_id = 1;
+    AutoMappedId auto_map_id = 2;
+    MappingRule mapping_rule = 3;
+}
+
+service IdMappingService {
+    rpc GetOrCreateCanonicalId (GetOrCreateIdRequest) returns (IdKey) {
+    }
+
+    rpc GetMapping (IdKey) returns (IdMapping) {
+    }
+
+    rpc AddMapping (AddMappingRequest) returns (google.protobuf.Empty) {
+    }
+
+    rpc DisableAutoMappedId (AutoMappedIdRequest) returns (google.protobuf.Empty) {
+    }
+
+    rpc IsAutoMappingEnabled (AutoMappedIdRequest) returns (AutoMappedIdResponse) {
+    }
+}
