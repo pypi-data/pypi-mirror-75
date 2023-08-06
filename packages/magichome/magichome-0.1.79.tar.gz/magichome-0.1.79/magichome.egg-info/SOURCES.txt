@@ -1,0 +1,16 @@
+setup.py
+magichome/__init__.py
+magichome/magichomeapi.py
+magichome.egg-info/PKG-INFO
+magichome.egg-info/SOURCES.txt
+magichome.egg-info/dependency_links.txt
+magichome.egg-info/requires.txt
+magichome.egg-info/top_level.txt
+magichome/devices/__init__.py
+magichome/devices/base.py
+magichome/devices/controller.py
+magichome/devices/factory.py
+magichome/devices/light.py
+magichome/devices/scene.py
+magichome/devices/socket.py
+magichome/devices/switch.py
