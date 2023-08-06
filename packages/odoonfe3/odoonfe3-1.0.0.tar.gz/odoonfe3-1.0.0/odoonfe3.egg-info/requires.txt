@@ -1,0 +1,10 @@
+urllib3
+Jinja2>=2.8
+pyOpenSSL<18,>=16.0.0
+signxml>=2.4.0
+lxml<5,>=3.5.0
+suds-jurko>=0.6
+suds-jurko-requests>=1.2
+reportlab
+pytz
+zeep

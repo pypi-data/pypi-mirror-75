@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: odoonfe3
+Version: 1.0.0
+Summary: PyTrustNFe é uma biblioteca para envio de NF-e
+Home-page: https://github.com/Mackilem/PyTrustNFe
+Author: Danimar Ribeiro
+Author-email: danimaribeiro@gmail.com
+License: LGPL-v2.1+
+Description: UNKNOWN
+Keywords: nfe,mdf-e
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Plugins
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v2 or later (LGPLv2+)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
