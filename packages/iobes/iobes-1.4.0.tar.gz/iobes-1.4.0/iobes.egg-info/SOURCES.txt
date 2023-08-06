@@ -1,0 +1,15 @@
+MANIFEST.in
+README.rst
+setup.py
+iobes/__init__.py
+iobes/convert.py
+iobes/parse.py
+iobes/transition.py
+iobes/utils.py
+iobes/write.py
+iobes.egg-info/PKG-INFO
+iobes.egg-info/SOURCES.txt
+iobes.egg-info/dependency_links.txt
+iobes.egg-info/entry_points.txt
+iobes.egg-info/requires.txt
+iobes.egg-info/top_level.txt
