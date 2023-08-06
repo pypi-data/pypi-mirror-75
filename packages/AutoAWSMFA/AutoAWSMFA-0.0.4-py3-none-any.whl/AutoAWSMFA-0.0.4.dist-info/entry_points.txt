@@ -1,0 +1,3 @@
+[console_scripts]
+autoawsmfa = auto_aws_mfa.__main__:main
+
