@@ -1,0 +1,3 @@
+[console_scripts]
+askanna = askanna_cli.tool:cli
+
