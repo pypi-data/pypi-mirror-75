@@ -1,0 +1,17 @@
+numpy
+scipy
+
+[CUDA]
+pycuda
+
+[OpenCL]
+pyopencl
+
+[full]
+docutils
+bumps
+matplotlib
+columnize
+
+[server]
+bumps
