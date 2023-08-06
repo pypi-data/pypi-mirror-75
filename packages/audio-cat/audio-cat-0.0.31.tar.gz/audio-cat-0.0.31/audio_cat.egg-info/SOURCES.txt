@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+audio_cat.egg-info/PKG-INFO
+audio_cat.egg-info/SOURCES.txt
+audio_cat.egg-info/dependency_links.txt
+audio_cat.egg-info/entry_points.txt
+audio_cat.egg-info/requires.txt
+audio_cat.egg-info/top_level.txt
+audiocat/__init__.py
+audiocat/command_line.py
+audiocat/convenience.py
+audiocat/predictor.py
+audiocat/utils.py
