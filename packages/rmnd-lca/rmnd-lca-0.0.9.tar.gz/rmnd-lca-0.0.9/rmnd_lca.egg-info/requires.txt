@@ -1,0 +1,8 @@
+numpy
+pytest-cov
+coveralls
+wurst>=0.2
+bw2io
+pandas
+bw2data
+xarray>0.15.0
