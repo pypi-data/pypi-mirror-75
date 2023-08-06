@@ -1,0 +1,116 @@
+Videomass Installation Instructions and buildings
+
+BASE DEPENDENCIES
+-----------------
+
+    Required:
+        - Python >=3.7
+        - wxPython4 (Phoenix)
+        - PyPubSub
+        - pip (On Windows and MacOS it is included with Python3.7)
+        - FFmpeg (with ffplay and ffprobe) >=4.1.4
+        - youtube_dl
+
+    Optionals:
+        - mpv (media player) for playing URLs
+        - atomicparsley (to embed thumbnail in audio file)
+
+Videomass can be run without installing by un-tarring the source package and
+executing the "launcher" script inside the directory.
+
+    python3 launcher
+
+Videomass can also be run from the Python3 console (interactive mode):
+
+    >>> from videomass3 import Videomass3
+    >>> Videomass3.main()
+
+#--------------------------------------------------------------------------#
+
+Installing with pip tool: (Linux, MacOs, FreeBSD, Windows, etc.)
+
+    $ python3 -m pip install --user videomass
+
+Upgrading with pip tool: (Linux, MacOs, FreeBSD, Windows, etc.)
+
+    $ python3 -m pip install --user -U videomass
+
+- To uninstall:
+
+    $ python3 -m pip uninstall videomass
+
+Please, Visit the Wiki page for more info:
+
+https://github.com/jeanslack/Videomass/wiki/Installing-from-PyPi-with-pip-command
+
+#--------------------------------------------------------------------------#
+
+Build as wheel: (Linux, MacOs, FreeBSD, Windows, etc.)
+
+    $ python3 setup.py sdist bdist_wheel
+
+#--------------------------------------------------------------------------#
+
+Make a Debian source package from upstream source code: 
+
+    NOTE: This will transform upstream source code into policy-compliant 
+          binary packages.
+
+Require: python3-setuptools, python3-all, debhelper, dh-python, devscripts
+    
+- clone videomass repo 
+    $ git clone https://github.com/jeanslack/Videomass
+    
+- or download a certain release (substitute v?.?.? with tag release)
+    $ git clone --depth 1 --branch v?.?.? https://github.com/jeanslack/Videomass
+
+- browse into Videomass root directory
+    $ cd Videomass/
+    
+- make a source distribution tarball
+    $ python3 setup.py sdist
+    
+- browse into dist directory
+    $ cd dist/
+
+- Use debmake command to create the debian packaging structure 
+    $ debmake -a videomass-?.?.?.tar.gz -b:python3
+    
+- browse into videomass directory
+    $ cd videomass-?.?.?/
+    
+- edit changelog file into debian directory and replace UNRELEASED row with 
+specified debian release e.g. unstable, bionic, focal, etc. then save it.
+
+- Finally make a debian source package    
+    $ debuild -S  (you could add the -sa option to digitally sign)
+
+Please, Visit the Videomass Wiki page for more info:
+
+https://github.com/jeanslack/Videomass/wiki/Package-for-Debian-and-derivatives
+
+#--------------------------------------------------------------------------#
+
+Build as executable (Linux, Windows, MacOs)
+
+require: pyinstaller
+
+Use the 'develop/tools/pyinstaller_setup.py' script like this
+
+    $ python3 develop/tools/pyinstaller_setup.py -h
+
+and choose the option you want .
+
+#--------------------------------------------------------------------------#
+
+Build as AppImage (only Linux) [DEPRECATED]
+
+NOTE: 
+
+require: pyinstaller
+
+    $ python3 -m pip install --user pyinstaller
+
+browse on Videomass source root directory and type:
+
+    $ python3 develop/tools/makeAppImage.py

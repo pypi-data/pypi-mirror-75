@@ -1,0 +1,31 @@
+videomass (3.0.2-1) UNRELEASED; urgency=medium
+
+  * New stable upstream release
+  * Fixed 'page not found' on menu > Help > Translation...
+  * Fixed problem with youtube-dl self-update when user click on 'Update youtube-dl'
+  * 'Check for new versions' has been moved from the help menu to the preferences menu.
+  
+ -- Gianluca Pernigotto <jeanlucperni@gmail.com>  Tue, 04 Aug 2020 18:10:00 +0200
+ 
+videomass (3.0.0-1) UNRELEASED; urgency=medium
+
+  * New stable upstream release
+  * Fixed "IndexError" when the file name has no format extension.
+  * Notify when the cached youtube-dl executable is no longer used to give priority to the one installed on the system.
+  * Fixed "NameError: name 'OS' is not defined"  on two_pass.py thread (on two pass conversions)
+
+ -- Gianluca Pernigotto <jeanlucperni@gmail.com>  Sun, 19 Jul 2020 11:00:00 +0200
+
+videomass (2.9.2-1) UNRELEASED; urgency=medium
+
+  * New upstream release
+  * Improved graphic layout on all dialog boxes
+  * Dependency redefinition: `python3-pypubsub` becomes `python3-pubsub` on control file.
+
+ -- Gianluca Pernigotto <jeanlucperni@gmail.com>  Fri, 17 Jul 2020 13:40:00 +0200
+
+videomass (2.9.1-1) UNRELEASED; urgency=low
+
+  * Initial debian packaging
+
+ -- Gianluca Pernigotto <jeanlucperni@gmail.com>  Wed, 15 Jul 2020 13:45:06 +0200
