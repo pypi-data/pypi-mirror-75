@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+python_vncorenlp/__init__.py
+python_vncorenlp/protocols.py
+python_vncorenlp/vncorenlp.py
+python_vncorenlp.egg-info/PKG-INFO
+python_vncorenlp.egg-info/SOURCES.txt
+python_vncorenlp.egg-info/dependency_links.txt
+python_vncorenlp.egg-info/requires.txt
+python_vncorenlp.egg-info/top_level.txt
+python_vncorenlp/data/vncorenlp.jar

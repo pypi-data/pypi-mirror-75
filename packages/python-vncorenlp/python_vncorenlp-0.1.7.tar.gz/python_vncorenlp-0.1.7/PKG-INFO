@@ -1,0 +1,67 @@
+Metadata-Version: 2.1
+Name: python_vncorenlp
+Version: 0.1.7
+Summary: python_vncorenlp
+Home-page: https://github.com/NgHoangDat/python_vncorenlp.git
+Author: nghoangdat
+Author-email: 18.hoang.dat.12@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/NgHoangDat/python_vncorenlp/archive/v0.1.7.tar.gz
+Description: # python-vncorenlp
+        
+        A Python wrapper for [VnCoreNLP](https://github.com/vncorenlp/VnCoreNLP) using Pyjnius
+        
+        ## Table Of Contents
+        
+          * [Prerequisites](#prerequisites)
+          * [Installation](#installation)
+          * [Example](#example)
+        
+        ## Prerequisites
+        
+        - Java 1.8+ ([JRE](http://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html))
+        
+        ## Installation
+        
+        You can install this package from PyPI using [pip](http://www.pip-installer.org):
+        
+        ```
+        $ pip install python-vncorenlp
+        ```
+        
+        ## Example
+        
+        ```python
+        #!/usr/bin/python
+        # -*- coding: utf-8 -*-
+        from python_vncorenlp import install, Pipeline
+        
+        install('-Xmx2g')
+        
+        
+        def main():
+            pipeline = Pipeline()
+            pipeline.load_model()
+            print(pipeline.annotate_doc('Tôi là chàng sinh viên Bách Khoa'))
+            print(pipeline.annotate_docs([
+                'Tôi là chàng sinh viên Bách Khoa',
+                'Tôi học Toán tin ứng dụng'
+            ]))
+        
+        
+        if __name__ == '__main__':
+            main()
+        
+        ```
+        
+        The parameter `-Xmx2g` means that the VM can allocate a maximum of 2 GB for the Heap Space. If you want to use all module, set heap space to `-Xmx4g`
+        
+        
+Keywords: python-vncorenlp vncorenlp nlp vietnamese-nlp parser word-segmentation tokenizer pos-tagger named-entity-recognition ner dependency-parser
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
