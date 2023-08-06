@@ -1,0 +1,3 @@
+[console_scripts]
+deepspectrum = deepspectrum.__main__:cli
+
