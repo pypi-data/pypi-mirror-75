@@ -1,0 +1,8 @@
+future
+numpy
+
+[dev]
+check-manifest
+
+[test]
+coverage
