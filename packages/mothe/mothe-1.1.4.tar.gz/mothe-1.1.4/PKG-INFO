@@ -1,0 +1,21 @@
+Metadata-Version: 1.1
+Name: mothe
+Version: 1.1.4
+Summary: mothe library facilitates detecting and tracking animals in heterogeneous ecological space by using a neural network to study collective behaviour.
+Home-page: https://github.com/tee-lab/mothe
+Author: Akanksha Rathore, Colin Torney, Vishwesha Guttal, Nitika Sharma, Ananth Sharma
+Author-email: rathore.aakanksha58@gmail.com, colin.torney@glasgow.ac.uk, guttal@iisc.ac.in, nitikasharma@g.ucla.edu, ananth.sharmacs@gmail.com
+License: MIT
+Download-URL: https://github.com/tee-lab/mothe/archive/2.0.4.tar.gz
+Description: UNKNOWN
+Keywords: object detection,object tracking,kalman filter,multiple object detection,dataset generation,computer vision,annotation,classification,CNN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
