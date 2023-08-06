@@ -1,0 +1,45 @@
+Metadata-Version: 2.1
+Name: CIDAN
+Version: 0.1.17
+Summary: CIDAN-Calcium Imaging Data ANalysis
+Home-page: UNKNOWN
+Author: Sam Schickler
+Author-email: sschickl@ucsd.edu
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: QtPy
+Requires-Dist: QDarkStyle
+Requires-Dist: pybind11
+Requires-Dist: pyqtgraph (==0.11.0rc0)
+Requires-Dist: Pyside2
+Requires-Dist: dask[complete]
+Requires-Dist: matplotlib
+Requires-Dist: scipy
+Requires-Dist: tiffile
+Requires-Dist: scikit-image
+Requires-Dist: hnswlib
+Requires-Dist: pillow
+Requires-Dist: tifffile
+Requires-Dist: zarr
+Requires-Dist: neurofinder
+Requires-Dist: sklearn
+Requires-Dist: pandas
+
+# CIDAN
+
+# Install Instructions
+1. Make sure you have anaconda installed.
+2. Run these commands:
+
+```
+conda create -n CIDAN python=3.7
+conda activate CIDAN
+pip install CIDAN
+python -m CIDAN
+```
+If you encounter an error in the installation of hnswlib, please install Microsoft C++ build tools: https://visualstudio.microsoft.com/visual-cpp-build-tools/ 
+
+If you encounter another issue in the installation or running of the package please post an issue to the github repo and we will get back to you.
+
+
