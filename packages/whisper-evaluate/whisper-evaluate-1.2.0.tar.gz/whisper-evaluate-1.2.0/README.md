@@ -1,0 +1,48 @@
+# whisper-evaluate
+
+Evaluate the effectiveness of the Whisper model.
+
+## Install
+从pypi安装:
+```shell script
+pip install whisper-evaluate
+```
+从本地安装:
+```shell script
+git clone https://git.xindong.com/fengyanglu/whisper-evaluate.git
+cd whisper-evaluate
+pip install dist/whisper_evaluate-1.2.0-py3-none-any.whl
+```
+
+## How to use
+参考[test.py](./test.py)
+```shell script
+from whisper_evaluate import Report
+import pprint
+
+if __name__ == '__main__':
+    # 设置参数: 任务名称
+    rep = Report("test")
+    # 生成评估报告
+    
+    result = rep.report("test_data/test-data-standard-latest.csv",
+                   "test_data/test-data-standard-latest-whisper1.1-res.txt",
+                   "test_data/test_antispam_0727.txt")
+    pprint.pprint(result)
+    # 保存统计备查数据 和 计算结果
+    rep.save()
+    
+
+
+    # 单独计算whisper结果
+    result = rep.whisper_report("test_data/test-data-standard-latest.csv",
+                   "test_data/test-data-standard-latest-whisper1.1-res.txt")
+    pprint.pprint(result)
+    
+    # 单独计算netease结果
+    result = rep.netease_report("test_data/test-data-standard-latest.csv",
+                   "test_data/test_antispam_0727.txt")
+    pprint.pprint(result)
+
+    
+```
