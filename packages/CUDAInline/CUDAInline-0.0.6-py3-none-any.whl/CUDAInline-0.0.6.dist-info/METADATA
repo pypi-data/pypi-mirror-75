@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: CUDAInline
+Version: 0.0.6
+Summary: A CUDA interface for Python
+Home-page: https://github.com/fynv/CUDAInline
+Author: Fei Yang
+Author-email: hyangfeih@gmail.com
+License: Anti 996
+Keywords: GPU CUDA Python NVRTC
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: cffi
+Requires-Dist: numpy
+
+CUDAInline
+================
+
+A CUDA interface for Python. A distillation of the engine part of ThrustRTC.
+The package provides a just-enough set of interfaces to make it possible to do more complicated stuff with CUDA in Python without the need of writting more C++ code.
+
+
+
+
