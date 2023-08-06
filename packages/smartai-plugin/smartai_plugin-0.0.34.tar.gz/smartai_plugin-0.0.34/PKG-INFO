@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: smartai_plugin
+Version: 0.0.34
+Summary: Time series analysis plugin
+Home-page: https://github.com/Azure/smartAI-plugin
+Author: Chunlei Wang
+Author-email: chuwan@microsoft.com
+License: MIT Licence
+Description: An plugin package for time series analysis, 3rd parties could implement their own train/inference.
+Keywords: pip,timeseries,plugin
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
