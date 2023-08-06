@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: twitchdetox
+Version: 0.0.2
+Summary: Automatic Twitch moderation tool to filter out toxicity and harassment.
+Home-page: https://github.com/Fittiboy/twitch-detox
+License: UNKNOWN
+Keywords: twitch, twitch.tv, chat bot, bot
+Author: Fitti
+Author-email: dev@fitti.io
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Topic :: Communications :: Chat :: Internet Relay Chat
+Requires-Dist: requests>=2.24.0
+Requires-Dist: irc>=18.0.0
+
+# twitch-detox
+Automatically detect and remove toxic messages from your Twitch chat
+
