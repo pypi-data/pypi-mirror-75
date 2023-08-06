@@ -1,0 +1,441 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Tutorial &mdash; igem-wikisync 0.0.5 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Usage Guide" href="../usage/index.html" />
+    <link rel="prev" title="Installation" href="../installation.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> igem-wikisync
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                0.0.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#a-basic-example">A Basic Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#collaborating-with-your-team-using-github">Collaborating with your Team using Github</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#continuous-deployment-with-travis">Continuous Deployment with Travis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#testing-before-deployment-with-github-pages">Testing before Deployment with Github Pages</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../usage/index.html">Usage Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">Reference for Developers</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../contributing.html">Contributing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../authors.html">Authors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">igem-wikisync</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Tutorial</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/tutorial/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="tutorial">
+<span id="id1"></span><h1><a class="toc-backref" href="#id2">Tutorial</a><a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="contents topic" id="table-of-contents">
+<p class="topic-title">Table of Contents</p>
+<ul class="simple">
+<li><p><a class="reference internal" href="#tutorial" id="id2">Tutorial</a></p>
+<ul>
+<li><p><a class="reference internal" href="#a-basic-example" id="id3">A Basic Example</a></p></li>
+<li><p><a class="reference internal" href="#collaborating-with-your-team-using-github" id="id4">Collaborating with your Team using Github</a></p></li>
+<li><p><a class="reference internal" href="#continuous-deployment-with-travis" id="id5">Continuous Deployment with Travis</a></p></li>
+<li><p><a class="reference internal" href="#testing-before-deployment-with-github-pages" id="id6">Testing before Deployment with Github Pages</a></p></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We’ll soon put up more detailed tutorials. For the time being, please go through the following and reach out for any queries at <a class="reference external" href="mailto:ballaneypranav&#37;&#52;&#48;gmail&#46;com">ballaneypranav<span>&#64;</span>gmail<span>&#46;</span>com</a>.</p>
+</div>
+<div class="section" id="a-basic-example">
+<h2><a class="toc-backref" href="#id3">A Basic Example</a><a class="headerlink" href="#a-basic-example" title="Permalink to this headline">¶</a></h2>
+<p>In this section, common use cases have been illustrated. If you need a more in-depth explanation, please head over to our <a class="reference internal" href="#tutorial"><span class="std std-ref">Tutorial</span></a> where we explain everything you need to know.</p>
+<p>If you’d like to test the functionality first, make a test folder with just a few files and try to upload that. The following example demonstrates that in more detail.</p>
+<p>#1 <strong>Start with the following directory structure:</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">wiki</span><span class="o">/</span>
+    <span class="n">src</span><span class="o">/</span>
+        <span class="n">WS</span><span class="o">-</span><span class="n">basic</span><span class="o">/</span>
+            <span class="n">index</span><span class="o">.</span><span class="n">html</span>              <span class="c1"># homepage</span>
+            <span class="n">css</span><span class="o">/</span>
+                <span class="n">style</span><span class="o">.</span><span class="n">css</span>           <span class="c1"># custom styles</span>
+                <span class="n">igem</span><span class="o">-</span><span class="n">reset</span><span class="o">.</span><span class="n">css</span>      <span class="c1"># Resets styles that iGEM injects</span>
+            <span class="n">js</span><span class="o">/</span>
+                <span class="n">main</span><span class="o">.</span><span class="n">js</span>             <span class="c1"># custom JS + iGEM reset</span>
+        <span class="n">assets</span><span class="o">/</span>                     <span class="c1"># everything else must be in the assets folder</span>
+            <span class="n">img</span><span class="o">/</span>
+                <span class="n">logo</span><span class="o">.</span><span class="n">jpg</span>
+                <span class="n">background</span><span class="o">.</span><span class="n">jpg</span>
+            <span class="n">Description</span><span class="o">/</span>
+                <span class="n">index</span><span class="o">.</span><span class="n">html</span>          <span class="c1"># Description page</span>
+    <span class="n">build</span><span class="o">/</span>
+        <span class="c1"># this will be filled by WikiSync</span>
+    <span class="n">wikisync</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>The source code is inside <code class="docutils literal notranslate"><span class="pre">wiki/src/WS-basic/</span></code> instead of just <code class="docutils literal notranslate"><span class="pre">wiki/src/</span></code> so that any existing content on your wiki is not affected.</p>
+<p>You can find a zipped version of this code <a class="reference external" href="https://downgit.github.io/#/home?url=https://github.com/igembitsgoa/igem-wikisync-resources/tree/master/basic-example">here</a>.</p>
+<p>#2 <strong>Let’s look at individual files now:</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">src/WS-basic/index.html</span></code>:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Testing iGEM WikiSync<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;css/igem-reset.css&quot;</span><span class="p">&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;css/style.css&quot;</span><span class="p">&gt;</span>
+</span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>iGEM Example Wiki<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="hll">        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span class="hll">        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;./Description/&quot;</span><span class="p">&gt;</span>Description<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span>    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+<span class="hll">        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./assets/img/logo.png&quot;</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;iGEM Logo&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">200</span> <span class="na">width</span><span class="o">=</span><span class="s">200</span><span class="p">&gt;</span>
+</span>        <span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Welcome to iGEM 2020!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is a sample page, designed for a demonstration for iGEM WikiSync.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;./js/main.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span><span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p><code class="docutils literal notranslate"><span class="pre">src/WS-basic/css/style.css</span></code>:</p>
+<div class="highlight-css notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">body</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#f7feff</span><span class="p">;</span>
+<span class="hll">    <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="sx">../assets/img/background.png</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p><code class="docutils literal notranslate"><span class="pre">wikisync.py</span></code> is the same as shown in the <a class="reference external" href="#wikisync-snippet">snippet above</a>.</p>
+<p>#3 <strong>Export your credentials and run</strong> <code class="docutils literal notranslate"><span class="pre">wikisync.py</span></code>:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python3</span> <span class="n">wikisync</span><span class="o">.</span><span class="n">py</span>
+</pre></div>
+</div>
+<p>This is described in the <a class="reference internal" href="../usage/index.html#usage-guide"><span class="std std-ref">Usage Guide</span></a> in more detail. You should now see the following output:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span> python3 wikisync.py
+<span class="go">Done! Successfully uploaded:</span>
+<span class="go">    2 assets</span>
+<span class="go">    2 HTML files</span>
+<span class="go">    2 stylesheets</span>
+<span class="go">    1 JS scripts</span>
+<span class="go">Please look at the log for more details.</span>
+</pre></div>
+</div>
+<p>#4 <strong>Let’s look at the files WikiSync has written in</strong> <code class="docutils literal notranslate"><span class="pre">build/</span></code> <strong>now:</strong></p>
+<p><code class="docutils literal notranslate"><span class="pre">build/WS-basic/index.html</span></code>:</p>
+<div class="highlight-html notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span> <span class="na">lang</span><span class="o">=</span><span class="s">&quot;en&quot;</span><span class="p">&gt;&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Testing iGEM WikiSync<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://2020.igem.org/Template:BITSPilani-Goa_India/Test/css/igem-resetCSS?action=raw&amp;amp;ctype=text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">/&gt;</span>
+</span><span class="hll">    <span class="p">&lt;</span><span class="nt">link</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://2020.igem.org/Template:BITSPilani-Goa_India/Test/css/styleCSS?action=raw&amp;amp;ctype=text/css&quot;</span> <span class="na">rel</span><span class="o">=</span><span class="s">&quot;stylesheet&quot;</span><span class="p">/&gt;</span>
+</span><span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>iGEM Example Wiki<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">ul</span><span class="p">&gt;</span>
+<span class="hll">        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;#&quot;</span><span class="p">&gt;</span>Home<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span><span class="hll">        <span class="p">&lt;</span><span class="nt">li</span><span class="p">&gt;&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;https://2020.igem.org/Team:BITSPilani-Goa_India/Test/Description&quot;</span><span class="p">&gt;</span>Description<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;&lt;/</span><span class="nt">li</span><span class="p">&gt;</span>
+</span>    <span class="p">&lt;/</span><span class="nt">ul</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;container&quot;</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+<span class="hll">        <span class="p">&lt;</span><span class="nt">img</span> <span class="na">alt</span><span class="o">=</span><span class="s">&quot;iGEM Logo&quot;</span> <span class="na">height</span><span class="o">=</span><span class="s">&quot;200&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://2020.igem.org/wiki/images/5/5a/T--BITSPilani-Goa_India--assets--img--logo.png&quot;</span> <span class="na">width</span><span class="o">=</span><span class="s">&quot;200&quot;</span><span class="p">/&gt;</span>
+</span>        <span class="p">&lt;</span><span class="nt">br</span><span class="p">/&gt;&lt;</span><span class="nt">br</span><span class="p">/&gt;</span>
+        <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Welcome to iGEM 2020!<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+        <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>This is a sample page, designed for a demonstration for iGEM WikiSync.<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+<span class="hll">    <span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://2020.igem.org/Template:BITSPilani-Goa_India/Test/js/mainJS?action=raw&amp;amp;ctype=text/javascript&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</span>
+
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</td></tr></table></div>
+<p><code class="docutils literal notranslate"><span class="pre">build/WS-basic/css/style.css</span></code>:</p>
+<div class="highlight-css notranslate"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nt">body</span> <span class="p">{</span>
+    <span class="k">background-color</span><span class="p">:</span> <span class="mh">#f7feff</span><span class="p">;</span>
+<span class="hll">    <span class="k">background-image</span><span class="p">:</span> <span class="nb">url</span><span class="p">(</span><span class="sx">https://2020.igem.org/wiki/images/d/dc/T--BITSPilani-Goa_India--assets--img--background.png</span><span class="p">);</span>
+</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>There are a few things to note here:</p>
+<ol class="arabic simple">
+<li><p>All the files have been uploaded and their URLs substituted in the code.</p></li>
+<li><p>The filenames have been changed according to iGEM specification.</p></li>
+<li><p>HTML files have been uploaded at <code class="docutils literal notranslate"><span class="pre">igem.org/Team:</span></code> but CSS and JS files have been uploaded at <code class="docutils literal notranslate"><span class="pre">igem.org/Template:</span></code>, and appended with the required URL parameters.</p></li>
+<li><p>A file called <code class="docutils literal notranslate"><span class="pre">upload_map.yml</span></code> should have appeared in your directory. Read more about it the section about <a class="reference internal" href="../usage/index.html#tracking-changes"><span class="std std-ref">Keeping Track of Changes</span></a>.</p></li>
+<li><p>A file called <code class="docutils literal notranslate"><span class="pre">wikisync.cookies</span></code> should have appeared in your directory. Read more about in the section about <a class="reference internal" href="../usage/index.html#cookies"><span class="std std-ref">Maintaining a Session</span></a> and make sure you add it to your <code class="docutils literal notranslate"><span class="pre">.gitignore</span></code>.</p></li>
+<li><p>A file called <code class="docutils literal notranslate"><span class="pre">wikisync.log</span></code> should have appeared in your directory. Read more about it in the section about <a class="reference internal" href="../usage/index.html#logging"><span class="std std-ref">Logging</span></a>.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We’re working on some more tutorials. They will be up soon.</p>
+</div>
+</div>
+<div class="section" id="collaborating-with-your-team-using-github">
+<h2><a class="toc-backref" href="#id4">Collaborating with your Team using Github</a><a class="headerlink" href="#collaborating-with-your-team-using-github" title="Permalink to this headline">¶</a></h2>
+<p>Git: <a class="reference external" href="https://www.youtube.com/watch?v=USjZcfj8yxE&amp;t=217s">https://www.youtube.com/watch?v=USjZcfj8yxE&amp;t=217s</a></p>
+<p>Github: <a class="reference external" href="https://www.youtube.com/watch?v=nhNq2kIvi9s">https://www.youtube.com/watch?v=nhNq2kIvi9s</a></p>
+</div>
+<div class="section" id="continuous-deployment-with-travis">
+<h2><a class="toc-backref" href="#id5">Continuous Deployment with Travis</a><a class="headerlink" href="#continuous-deployment-with-travis" title="Permalink to this headline">¶</a></h2>
+<p>Travis: <a class="reference external" href="https://www.youtube.com/watch?v=g0KsiCj3CgQ&amp;t=1s">https://www.youtube.com/watch?v=g0KsiCj3CgQ&amp;t=1s</a></p>
+<p>You’ll also need to add <code class="docutils literal notranslate"><span class="pre">GITHUB_USERNAME</span></code>, <code class="docutils literal notranslate"><span class="pre">IGEM_USERNAME</span></code> and <code class="docutils literal notranslate"><span class="pre">IGEM_PASSWORD</span></code> along with <code class="docutils literal notranslate"><span class="pre">GITHUB_TOKEN</span></code> as environment variables on Travis. We will have more details on the process up here soon.</p>
+<p>Please read the <a class="reference internal" href="../usage/index.html#continuous-integration"><span class="std std-ref">Continuous Integration</span></a> section in the <a class="reference internal" href="../usage/index.html#usage-guide"><span class="std std-ref">Usage Guide</span></a> for now. We will have this tutorial up soon.</p>
+</div>
+<div class="section" id="testing-before-deployment-with-github-pages">
+<h2><a class="toc-backref" href="#id6">Testing before Deployment with Github Pages</a><a class="headerlink" href="#testing-before-deployment-with-github-pages" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../usage/index.html" class="btn btn-neutral float-right" title="Usage Guide" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Pranav Ballaney
+      <span class="lastupdated">
+        Last updated on Aug 03, 2020.
+      </span>
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
