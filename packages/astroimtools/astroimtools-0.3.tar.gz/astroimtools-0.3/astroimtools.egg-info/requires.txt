@@ -1,0 +1,16 @@
+astropy>=3.2
+scipy
+
+[all]
+matplotlib
+photutils
+
+[docs]
+sphinx-astropy
+ipython
+nbsphinx
+matplotlib
+photutils
+
+[test]
+pytest-astropy
