@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: venpo
+Version: 0.1.0
+Summary: 
+Author: Marc Ford
+Author-email: mrfxyz567@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: beautifulsoup4 (>=4.9.1,<5.0.0)
+Requires-Dist: lxml (>=4.5.2,<5.0.0)
+Requires-Dist: python-dateutil (>=2.8.1,<3.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
