@@ -1,0 +1,17 @@
+torchscan/__init__.py,sha256=TqqO72bbpvEopwHpmaMD3--us4Npro5Pf9g-NLJ07Ng,164
+torchscan/crawler.py,sha256=v9MbDot4i311e8StA8gDuQxcHyEeue73Rgro7GDHdMk,8640
+torchscan/utils.py,sha256=M5_UbsdNdIb5AlGWq7hpu8LCZQIhRF5Arrkan17Kio0,6662
+torchscan/version.py,sha256=ls1camlIoMxEZz9gSkZ1OJo-MXqHWwKPtdPbZJmwp7E,22
+torchscan/modules/__init__.py,sha256=ajsU2d8-jgPnNMWkwultTZzLjJ80xnlPNYd6JnGbymA,133
+torchscan/modules/flops.py,sha256=W9zv2PYQR2s4omhcbkg-airy3Zrol8tbu_m1-rnoNkQ,8529
+torchscan/modules/macs.py,sha256=DbBWha0whYQu9rDUkN9Ssx_69y9hzfCnUayeQI-WPQA,6239
+torchscan/modules/memory.py,sha256=Ers_1b-Ojk_MK0XSe7uLXe6Ea5xJg4-vAbZAfGhAr6w,6939
+torchscan/modules/receptive.py,sha256=9EappLDy76TwJlSGzK1Eu-pi5NjPAj1OXZwr7pjWV60,2020
+torchscan/process/__init__.py,sha256=BKMgviSd4JPqFYhM_1QpyV6dDjqVdpOgNt9Fzy7b3lE,34
+torchscan/process/memory.py,sha256=Z0KQHpb-Tbq7JIYZBdNxwKnyQRXI4BMQNlX5oBWyoiM,913
+torchscan-0.1.1.dist-info/LICENSE,sha256=Mhb3Awe0CDg1XuVZphz59gePAtd0bz-Pq-KMc754FcA,1070
+torchscan-0.1.1.dist-info/METADATA,sha256=pGE0A4MKxLMOdyzLa_gy9aBwyD0YkljgPSCPD94oIrw,11799
+torchscan-0.1.1.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+torchscan-0.1.1.dist-info/top_level.txt,sha256=d1VN73b6-MS7peL_96mumim8TajqHBjJsiZ9bZHWavc,10
+torchscan-0.1.1.dist-info/zip-safe,sha256=AbpHGcgLb-kRsJGnwFEktk7uzpZOCcBY74-YBdrKVGs,1
+torchscan-0.1.1.dist-info/RECORD,,
