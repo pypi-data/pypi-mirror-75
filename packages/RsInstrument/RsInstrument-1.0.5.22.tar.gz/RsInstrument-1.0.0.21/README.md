@@ -1,0 +1,29 @@
+RsInstrument is a Python module that provides convenient way of communicating with R&S instruments over VISA
+It uses PyVisa to build instrument model layer that provides all the required tasks you might need when remote-controlling your instrument:
+
+- Initializing a new session with setting all the required VISA and instrument registers depending on the session type
+- Identification of the instrument, supported models, evaluation of the instrument options
+- Special actions, e.g. Self-test, reset
+- Typical text communication - Write / Query / Query<type>
+- OPC-synchronised actions - Write / Query with OPC. The synchronization mechanism can be: Status byte polling / *OPC? query, Service Request
+- Asynchronous events-driven OPC-synchronised actions. After the instrument has finished the operation, a registered event handler is invoked
+- Binary data transfer - Write / Query bin data
+- Transfer of files between PC and Instrument, the size is unlimited
+- Binary or ASCII arrays transfers - adaptable querying of float / double / integer arrays
+	The response is processed correctly regardless whether it arrives as binary data or ASCII data
+- Instrument status checking (SYSTem:ERRor?) after each command. This can be switched OFF if desired
+- Optional feature of sending (*OPC?) after each Write command
+- Multi-thread locking of the session, also available throughout multiple RsInstrument instances
+- Sharing of the already openeed session with another RsInstrument instance, so the physical VISA session is still only one
+- Logging of the communication
+- Generating events if:
+	- instrument reports an error
+	- Operation Register event has occured
+	- Questionable Register event has occured
+	- big transferred data (write or read) are split into segments. This allows for showing the transfer progress,
+		or in case of read operation processing partial data without having to wait for the complete response.
+
+Version history:
+
+Version 1.0.0.21
+- First released version
