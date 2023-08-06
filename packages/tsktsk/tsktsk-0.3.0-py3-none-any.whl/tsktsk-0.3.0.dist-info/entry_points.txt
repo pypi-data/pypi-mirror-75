@@ -1,0 +1,4 @@
+[console_scripts]
+tsktsk = tsktsk.__main__:cli
+tsktsk-bot = tsktsk.__main__:bot
+
