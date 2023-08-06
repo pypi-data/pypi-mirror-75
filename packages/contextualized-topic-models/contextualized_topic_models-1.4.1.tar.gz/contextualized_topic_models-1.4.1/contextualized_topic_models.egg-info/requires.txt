@@ -1,0 +1,8 @@
+wheel==0.33.6
+torch
+numpy
+torchvision
+gensim
+sentence-transformers
+pytest==4.6.5
+pytest-runner==5.1
