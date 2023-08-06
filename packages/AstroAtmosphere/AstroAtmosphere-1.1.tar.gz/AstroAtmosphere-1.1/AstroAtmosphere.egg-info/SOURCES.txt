@@ -1,0 +1,15 @@
+LICENSE.txt
+README.md
+setup.cfg
+setup.py
+AstroAtmosphere/__init__.py
+AstroAtmosphere/ciddorModel.py
+AstroAtmosphere/dispersionModels.py
+AstroAtmosphere/examples.py
+AstroAtmosphere/refractionModels.py
+AstroAtmosphere/refractivityModels.py
+AstroAtmosphere.egg-info/PKG-INFO
+AstroAtmosphere.egg-info/SOURCES.txt
+AstroAtmosphere.egg-info/dependency_links.txt
+AstroAtmosphere.egg-info/requires.txt
+AstroAtmosphere.egg-info/top_level.txt
