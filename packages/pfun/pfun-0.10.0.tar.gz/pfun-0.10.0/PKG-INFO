@@ -1,0 +1,56 @@
+Metadata-Version: 2.1
+Name: pfun
+Version: 0.10.0
+Summary: 
+Author: Sune Debel
+Author-email: sad@archii.ai
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Provides-Extra: http
+Provides-Extra: sql
+Requires-Dist: aiohttp[speedups] (>=3.6.2,<4.0.0); extra == "http"
+Requires-Dist: asyncpg (>=0.20.1,<0.21.0); extra == "sql"
+Requires-Dist: dill (>=0.3.2,<0.4.0)
+Requires-Dist: typing-extensions (>=3.7,<4.0)
+Description-Content-Type: text/markdown
+
+## <img src="https://raw.githubusercontent.com/suned/pfun/master/logo/pfun_logo.svg?sanitize=true" style=" width:50px ; height:50px "/> <br> <p align="center">Functional, composable, asynchronous, type-safe Python.</p>
+
+- [Documentation](https://pfun.readthedocs.io/en/latest/)
+- [Known issues](https://github.com/suned/pfun/issues?q=is%3Aopen+is%3Aissue+label%3Abug)
+
+## Install
+
+```console
+$ pip install pfun
+```
+
+Or with optional dependencies:
+```console
+$ pip install pfun[http,sql]
+```
+
+## Resources
+
+### Articles
+- [Purely Functional Python With Static Types](https://dev.to/suned/purely-functional-python-with-static-types-41mf)
+- [Be More Lazy, Become More Productive](https://dev.to/suned/be-more-lazy-become-more-productive-2cnb)
+- [Completely Type-Safe Error Handling in Python](https://dev.to/suned/completely-type-safe-error-handling-in-python-3apg)
+
+### Examples
+- [Todo Backend](https://github.com/suned/pfun-todo-backend/)
+## Support
+
+On [ko-fi](https://ko-fi.com/python_pfun)
+
+## Development
+
+Requires [poetry](https://poetry.eustace.io/)
+
+- Install dependencies with `poetry install`
+- Build documentation with `poetry run mkdocs serve`
+- Run tests with `poetry run tox`
+- Lint with `poetry run pre-commit --all`
+
