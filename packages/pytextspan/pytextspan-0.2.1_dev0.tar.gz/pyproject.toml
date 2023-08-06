@@ -1,0 +1,23 @@
+[build-system]
+requires = [ "poetry>=1.0",]
+build-backend = "poetry.masonry.api"
+
+[tool.poetry]
+name = "textspan"
+version = "0.2.1-dev0"
+description = ""
+authors = [ "Yohei Tamura <tamuhey@gmail.com>",]
+license = "MIT"
+
+[tool.versionup]
+tag = true
+commit = true
+files = [ "src/lib.rs", "Cargo.toml",]
+tag_prefix = "python/"
+
+[tool.poetry.dependencies]
+python = ">=3.6"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0.1"
+hypothesis = "^5.23.11"
