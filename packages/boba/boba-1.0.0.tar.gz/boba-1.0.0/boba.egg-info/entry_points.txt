@@ -1,0 +1,3 @@
+[console_scripts]
+boba = boba.cli:main
+
