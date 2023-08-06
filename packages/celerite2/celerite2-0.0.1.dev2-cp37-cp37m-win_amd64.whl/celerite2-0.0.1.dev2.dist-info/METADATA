@@ -1,0 +1,66 @@
+Metadata-Version: 2.1
+Name: celerite2
+Version: 0.0.1.dev2
+Summary: Fast and scalable Gaussian Processes in 1D
+Home-page: https://celerite2.readthedocs.io
+Author: Daniel Foreman-Mackey
+Author-email: foreman.mackey@gmail.com
+Maintainer: Daniel Foreman-Mackey
+Maintainer-email: foreman.mackey@gmail.com
+License: MIT
+Requires-Dist: numpy (>=1.13.0)
+Requires-Dist: pybind11 (>=2.4)
+Requires-Dist: setuptools (>=40.6.0)
+Requires-Dist: setuptools-scm
+Requires-Dist: wheel
+Provides-Extra: dev
+Requires-Dist: wheel ; extra == 'dev'
+Requires-Dist: coverage[toml] ; extra == 'dev'
+Requires-Dist: pytest (==6.0.0rc1) ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: scipy ; extra == 'dev'
+Requires-Dist: celerite (>=0.3.1) ; extra == 'dev'
+Requires-Dist: pep517 ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: pre-commit ; extra == 'dev'
+Requires-Dist: nbstripout ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-material ; extra == 'docs'
+Requires-Dist: sphinx-copybutton ; extra == 'docs'
+Requires-Dist: rtds-action ; extra == 'docs'
+Requires-Dist: nbsphinx ; extra == 'docs'
+Provides-Extra: jax
+Requires-Dist: jax ; extra == 'jax'
+Requires-Dist: jaxlib ; extra == 'jax'
+Provides-Extra: release
+Requires-Dist: pep517 ; extra == 'release'
+Requires-Dist: twine ; extra == 'release'
+Provides-Extra: style
+Requires-Dist: isort ; extra == 'style'
+Requires-Dist: black ; extra == 'style'
+Requires-Dist: black-nbconvert ; extra == 'style'
+Provides-Extra: test
+Requires-Dist: wheel ; extra == 'test'
+Requires-Dist: coverage[toml] ; extra == 'test'
+Requires-Dist: pytest (==6.0.0rc1) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: scipy ; extra == 'test'
+Requires-Dist: celerite (>=0.3.1) ; extra == 'test'
+Provides-Extra: theano
+Requires-Dist: theano ; extra == 'theano'
+Provides-Extra: torch
+Requires-Dist: torch ; extra == 'torch'
+Provides-Extra: tutorials
+Requires-Dist: jupytext ; extra == 'tutorials'
+Requires-Dist: jupyter ; extra == 'tutorials'
+Requires-Dist: nbconvert ; extra == 'tutorials'
+Requires-Dist: matplotlib ; extra == 'tutorials'
+Requires-Dist: jax ; extra == 'tutorials'
+Requires-Dist: jaxlib ; extra == 'tutorials'
+Requires-Dist: scipy ; extra == 'tutorials'
+
+# celerite2
+
+
