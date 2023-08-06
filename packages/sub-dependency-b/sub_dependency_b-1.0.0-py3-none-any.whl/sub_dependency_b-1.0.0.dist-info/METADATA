@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: sub-dependency-b
+Version: 1.0.0
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: sub-dependency-d (>=1.0.0)
+
+UNKNOWN
+
+
