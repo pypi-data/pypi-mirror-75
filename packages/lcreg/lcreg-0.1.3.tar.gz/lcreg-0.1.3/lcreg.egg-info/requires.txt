@@ -1,0 +1,5 @@
+numpy>=1.16
+scipy>=1.2
+bcolz>=1.2
+psutil>=5.6
+py-cpuinfo>=7.0
