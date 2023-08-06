@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: codetopackage
+Version: 1.0.3
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Justin Pierel
+Author-email: justin.pierel@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: sphinx-rtd-theme
+Requires-Dist: pprint
+Requires-Dist: sympy
+Requires-Dist: scipy
+Requires-Dist: cffi
+Requires-Dist: astropy
+Requires-Dist: pytest-astropy
+
+UNKNOWN
+
+
