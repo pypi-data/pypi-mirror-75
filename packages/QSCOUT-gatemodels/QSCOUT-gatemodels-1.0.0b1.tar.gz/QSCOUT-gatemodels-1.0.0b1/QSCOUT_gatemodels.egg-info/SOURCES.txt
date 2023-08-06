@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.cfg
+setup.py
+./qscout/__init__.py
+./qscout/v1/__init__.py
+./qscout/v1/native_gates.py
+./qscout/v1/std/__init__.py
+QSCOUT_gatemodels.egg-info/PKG-INFO
+QSCOUT_gatemodels.egg-info/SOURCES.txt
+QSCOUT_gatemodels.egg-info/dependency_links.txt
+QSCOUT_gatemodels.egg-info/requires.txt
+QSCOUT_gatemodels.egg-info/top_level.txt
