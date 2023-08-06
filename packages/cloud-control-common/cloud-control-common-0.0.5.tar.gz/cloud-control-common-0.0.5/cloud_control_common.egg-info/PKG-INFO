@@ -1,0 +1,24 @@
+Metadata-Version: 1.2
+Name: cloud-control-common
+Version: 0.0.5
+Summary: A Python client for the NTT CloudControl API
+Home-page: UNKNOWN
+Author: Trevor Flanagan
+Author-email: trevor.flanagan@cis.ntt.com
+License: UNKNOWN
+Description: ## Overview
+        This is a simple python library for interacting with Cloud Control API (version 2.13).
+        
+        ## Prerequisites
+        - ```install python 3.5.4``` and make sure to install pip
+        
+        ## Using the cloud_control_client.py script
+        This is the main access point for the API. It exposes functions for validating credentials, listing servers, datacenters and geos.
+        
+        ## Running Tests
+        ```pytest``` command wil run the tests
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
