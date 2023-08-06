@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: eventor-py
+Version: 0.0.1
+Summary: Eventorpy is a python library that makes it easier to use eventors apis.
+Home-page: https://github.com/WIGRU/eventorpy
+Author: William Grunder
+Author-email: william.grunder@gmail.com
+License: MIT
+Description: # EventorPy
+        
+        Eventorpy is a python library that makes it easier to use eventors api's.
+        
+        ## Installation
+        
+        Use the package manager [pip](https://pip.pypa.io/en/stable/) to install.
+        
+        ```bash
+        pip install eventorpy
+        ```
+        
+        ## Usage
+        
+        ```python
+        import eventorpy
+        
+        ```
+        
+        ## License
+        
+        [MIT](https://choosealicense.com/licenses/mit/)
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
