@@ -1,0 +1,1082 @@
+import os.path
+import re
+import shutil
+import itertools
+import collections
+
+import xlrd
+from pyxform.xls2xform import xls2xform_convert
+
+from qtools3 import constants
+from qtools3.errors import XlsformError
+
+
+class Xlsform:
+    """Check files and generate resulting path information
+
+    Stores path information of input files and determines what intermediate
+    and final paths for output should be. Performs checks that if failed, halt
+    processing and raise an exception. Checks for conflicts with pre-existing
+    files.
+    """
+    def __init__(self, path, outpath=None, suffix=None, pma=True):
+        self.path = path
+        self.base_dir, self.short_file = os.path.split(self.path)
+        self.short_name, self.ext = os.path.splitext(self.short_file)
+        if outpath is None:
+            self.outpath = self.get_outpath(path, suffix)
+        else:
+            self.outpath = outpath
+        self.media_dir = self.get_media_dir(self.outpath)
+
+        wb = self.get_workbook()
+
+        # Survey
+        self.save_instance = self.filter_column(wb, constants.SURVEY,
+                                                constants.SAVE_INSTANCE)
+        self.save_form = self.filter_column(wb, constants.SURVEY,
+                                            constants.SAVE_FORM)
+        self.delete_form = self.filter_column(wb, constants.SURVEY,
+                                              constants.DELETE_FORM)
+        self.linking_consistency(self.path, self.save_instance, self.save_form)
+        self.survey_blanks = self.undefined_cols(wb, constants.SURVEY)
+        self.unused_lists = self.find_unused_lists(wb)
+
+        # Choices
+        self.choices_blanks = self.undefined_cols(wb, constants.CHOICES)
+        self.choices_multiple = self.find_multiple_lists(wb, constants.CHOICES)
+        self.name_dups = self.find_name_dups(wb, constants.CHOICES)
+        self.choices_ascii = self.find_non_ascii(wb, constants.CHOICES)
+
+        # External choices
+        self.external_choices_consistency(self.path, wb)
+        self.external_blanks = self.undefined_cols(wb,
+                constants.EXTERNAL_CHOICES)
+        self.external_multiple = self.find_multiple_lists(wb,
+                constants.EXTERNAL_CHOICES)
+        self.external_dups = self.find_name_dups(wb,
+                constants.EXTERNAL_CHOICES)
+        self.external_ascii = self.find_non_ascii(wb,
+                constants.EXTERNAL_CHOICES)
+
+        # Settings
+        self.settings = self.get_settings(wb)
+        self.form_id = self.get_form_id(pma)
+        self.form_title = self.get_form_title(pma)
+        self.xml_root = self.get_xml_root(pma)
+        self.settings_blanks = self.undefined_cols(wb, constants.SETTINGS)
+
+        # Language
+        self.language_consistency = self.check_languages(wb)
+        self.missing_translations = self.find_missing_translations(wb,
+                self.language_consistency)
+        self.regex_tranlsations = self.find_by_regex_translations(wb,
+                self.language_consistency)
+
+    def get_workbook(self):
+        # IO Error if not existing
+        # Perhaps catch xlrd.XLRDError and throw XlsformError?
+        wb = xlrd.open_workbook(self.path)
+        return wb
+
+    def xlsform_convert(self, validate=True):
+        msg = xls2xform_convert(self.path, self.outpath, validate=validate, pretty_print = False )
+        self.assert_itemsets_moved()
+        return msg
+
+    def assert_itemsets_moved(self):
+        base_dir = os.path.split(self.outpath)[0]
+        itemsets = os.path.join(base_dir, constants.ITEMSETS)
+        if os.path.exists(itemsets):
+            if not os.path.exists(self.media_dir):
+                os.mkdir(self.media_dir)
+            new_itemsets = os.path.join(self.media_dir, constants.ITEMSETS)
+            shutil.move(itemsets, new_itemsets)
+
+    def cleanup(self):
+        if os.path.exists(self.outpath):
+            os.remove(self.outpath)
+        if os.path.exists(self.media_dir):
+            shutil.rmtree(self.media_dir)
+
+    @staticmethod
+    def filter_column(wb, sheet, header):
+        found = []
+        try:
+            survey = wb.sheet_by_name(sheet)
+            full_column = Xlsform.get_column(survey, header)
+            found = [_f for _f in full_column if _f]
+        except (xlrd.XLRDError, IndexError, ValueError):
+            # No survey found, nothing in survey, header not found
+            pass
+        return found
+
+    @staticmethod
+    def get_column(sheet, header):
+        headers = sheet.row_values(0)
+        col = headers.index(header)
+        col_values = sheet.col_values(col)
+        return [str(val) for val in col_values]
+
+    @staticmethod
+    def find_multiple_lists(wb, sheetname):
+        """Find list_names that are defined in multiple places
+
+        Args:
+            wb: An `xlrd` Book instance
+            sheetname (str): The name of the sheet to search for
+
+        Returns:
+            A list of tuples (row number, list name). If it is in this result
+            then the list name is defined more than once. The start
+            rows of the subsequent duplicate list_names are included.
+        """
+        dups = []
+        try:
+            choices = wb.sheet_by_name(sheetname)
+            lists = Xlsform.get_column(choices, constants.LIST_NAME)
+            current_list = None
+            found = set()
+
+            for i, item in enumerate(lists):
+                if i == 0:
+                    continue
+                if item != '':
+                    if current_list is None:
+                        found.add(item)
+                        current_list = item
+                    elif item != current_list and item not in found:
+                        found.add(item)
+                        current_list = item
+                    elif item != current_list and item in found:
+                        dups.append((i, item))
+                        current_list = item
+        except xlrd.XLRDError:
+            # sheet not found
+            pass
+        except ValueError:
+            # list_name not found in choices
+            pass
+        return dups
+
+    @staticmethod
+    def find_name_dups(wb, sheetname):
+        """Get a list of duplicate names from within common choice lists
+
+        Returns empty if either "list_name" or "name" is missing.
+
+        Args:
+            wb: An `xlrd` Book instance
+            sheetname (str): The name of the sheet to search for
+
+        Return:
+            A list of tuples (row, list name, name) for each duplicate name
+            found (not the first).
+        """
+        dups = []
+        try:
+            choices = wb.sheet_by_name(sheetname)
+            lists = Xlsform.get_column(choices, constants.LIST_NAME)
+            names = Xlsform.get_column(choices, constants.NAME)
+            d = {}
+            for i, tup in enumerate(zip(lists, names)):
+                if i == 0:
+                    continue
+                l, n = tup
+                if l and l in d:
+                    if n in d[l]:
+                        dups.append((i, l, n))
+                    else:
+                        d[l].add(n)
+                else:
+                    d[l] = {n}
+        except xlrd.XLRDError:
+            # sheet not found
+            pass
+        except ValueError:
+            # list_name, name not found
+            pass
+        return dups
+
+    @staticmethod
+    def find_unused_lists(wb):
+        """Get the names of unused lists
+
+        Args:
+            wb: An `xlrd` Book instance
+
+        Return:
+            A dictionary with keys 'choices' and 'external_choices' and
+            values as the (str) list names that are unused. Keys exist only
+            if missing list names are found.
+        """
+        d = {}
+        choice_lists = set()
+        try:
+            choices = wb.sheet_by_name(constants.CHOICES)
+            lists = Xlsform.get_column(choices, constants.LIST_NAME)[1:]
+            choice_lists = set([_f for _f in lists if _f])
+        except (xlrd.XLRDError, ValueError, IndexError):
+            # sheet not found, list_name not found, not more than first row
+            pass
+
+        external_lists = set()
+        try:
+            external = wb.sheet_by_name(constants.EXTERNAL_CHOICES)
+            lists = Xlsform.get_column(external, constants.LIST_NAME)[1:]
+            external_lists = set([_f for _f in lists if _f])
+        except (xlrd.XLRDError, ValueError, IndexError):
+            # sheet not found, list_name not found, not more than first row
+            pass
+
+        try:
+            survey = wb.sheet_by_name(constants.SURVEY)
+            types = Xlsform.get_column(survey, constants.TYPE)
+            for i, item in enumerate(types):
+                so = 'select_one '
+                sm = 'select_multiple '
+                from_choices = item.startswith(so) or item.startswith(sm)
+                soe = 'select_one_external '
+                sme = 'select_multiple_external '
+                from_external = item.startswith(soe) or item.startswith(sme)
+                if from_choices:
+                    list_name = item.split(None, 1)[1]
+                    choice_lists.discard(list_name)
+                elif from_external:
+                    list_name = item.split(None, 1)[1]
+                    external_lists.discard(list_name)
+        except (xlrd.XLRDError, ValueError):
+            # sheet not found, type not found
+            pass
+
+        if choice_lists:
+            d['choices'] = choice_lists
+        if external_lists:
+            d['external_choices'] = external_lists
+        return d
+
+    @staticmethod
+    def find_non_ascii(wb, sheetname):
+        """Get ODK choice names with improper names
+
+        Args:
+            wb: An `xlrd` Book instance
+            sheetname (str): The name of the sheet to search
+
+        Return:
+            A list of tuples. The first value of the tuple is the row name. The
+            second value is the ODK choice name found.
+        """
+        NUMBER = r'-?\d+(\.\d+)?'
+        TAG_START_CHAR = r'[a-zA-Z_]'
+        TAG_CHAR = r'[a-zA-Z_0-9\-]'
+        NAME_REGEX = '^({})|({}{}*)$'.format(NUMBER, TAG_START_CHAR, TAG_CHAR)
+
+        nonascii = []
+        try:
+            choices = wb.sheet_by_name(sheetname)
+            names = Xlsform.get_column(choices, constants.NAME)
+            for i, name in enumerate(names):
+                if i == 0 or str(name).strip() == '':
+                    continue
+                found = re.match(NAME_REGEX, str(name).strip())
+                if not found:
+                    nonascii.append((i, name))
+        except (xlrd.XLRDError, ValueError):
+            pass # Found nothing
+        return nonascii
+
+    @staticmethod
+    def check_languages(wb):
+        """Check for language consistency throughout the questionnaire
+
+        Args:
+            wb: An `xlrd` Book instance
+
+        Return:
+            A dictionary with three keys for 'survey', 'choices', and
+            'external_choices'. Their values are dictionaries, possibly empty.
+            These have keys in the bare 'label', 'hint', etc... and values as
+            the sets of languages they are translated into. Example for a
+            simple ODK questionnaire:
+
+            {
+                u'survey': {u'label':{None}},
+                u'choices': {},
+                u'external_choices': {}
+            }
+
+        """
+        SURVEY_TRANSLATIONS = (
+            'label',
+            'hint',
+            'constraint_message',
+            'required_message',
+            'audio',
+            'video',
+            'image'
+        )
+
+        CHOICES_TRANSLATIONS = (
+            'label',
+            'audio',
+            'video',
+            'image'
+        )
+
+        def get_language(s):
+            """Return the language assigned to a column
+
+            Args:
+                s: (str) The header under inspection from the header row
+
+            Return:
+                Returns whatever comes after '::' if it exists or None if
+                '::' is not found.
+            """
+            this_language = None
+            if '::' in s:
+                this_language = s.split('::', 1)[1]
+            return this_language
+
+        def build_sheet_dict(sheet, src_cols):
+            """Get a dictionary of translated items and their languages.
+
+            Args:
+                sheet (xlrd.Sheet): The sheet to inspect
+                src_cols (seq): A sequence of columns that are translated
+
+            Returns:
+                A dictionary with keys from src_cols and values as sets with
+                the languages that are found with those source columns.
+            """
+            d = {}
+            headers = sheet.row_values(0)
+            for h in headers:
+                if not isinstance(h, str):
+                    continue
+                for t in src_cols:
+                    if h == t:
+                        this_language = None
+                    elif h.startswith(t):
+                        this_language = get_language(h)
+                        if this_language is None:
+                            continue
+                    else:
+                        continue
+                    if t in d:
+                        d[t].add(this_language)
+                    else:
+                        d[t] = {this_language}
+                    break
+            return d
+
+        d_survey = {}
+        try:
+            survey = wb.sheet_by_name(constants.SURVEY)
+            d_survey = build_sheet_dict(survey, SURVEY_TRANSLATIONS)
+        except (xlrd.XLRDError):
+            # sheet not found
+            pass
+
+        d_choices = {}
+        try:
+            choices = wb.sheet_by_name(constants.CHOICES)
+            d_choices = build_sheet_dict(choices, CHOICES_TRANSLATIONS)
+        except (xlrd.XLRDError):
+            # sheet not found
+            pass
+
+        d_external = {}
+        try:
+            external = wb.sheet_by_name(constants.EXTERNAL_CHOICES)
+            d_external = build_sheet_dict(external, CHOICES_TRANSLATIONS)
+        except (xlrd.XLRDError):
+            # sheet not found
+            pass
+
+        big_d = {
+            constants.SURVEY: d_survey,
+            constants.CHOICES: d_choices,
+            constants.EXTERNAL_CHOICES: d_external
+        }
+        return big_d
+
+    @staticmethod
+    def translation_pairs(ws, lang_dict):
+        """Iterate over pairs of translations.
+
+        Args:
+            ws: An `xlrd` Sheet instance
+            lang_dict: A language dictionary, built up by this instance
+
+        Yields:
+            A tuple for each translation pair: (eng_row, eng_col, eng_value,
+            other_row, other_col, other_value).
+        """
+        column_pairs = []
+        for k in lang_dict:
+            langs = set(lang_dict[k])  # Work with a copy of the set
+            if len(langs) > 1:
+                if None in langs:
+                    default = k
+                    langs.remove(None)
+                elif 'English' in langs:
+                    default = '{}::English'.format(k)
+                    langs.remove('English')
+                else:
+                    first = min(langs)
+                    default = '{}::{}'.format(k, first)
+                    langs.remove(first)
+                other_langs = sorted(list(langs))
+                others = ['{}::{}'.format(k, l) for l in other_langs]
+                for other in others:
+                    column_pairs.append((default, other))
+        headers = ws.row_values(0)
+        pair_inds = [
+            (headers.index(a), headers.index(b)) for (a, b) in column_pairs
+        ]
+        for i in range(ws.nrows):
+            if i == 0:
+                continue
+            this_row = ws.row_values(i)
+            for a, b in pair_inds:
+                a_val = this_row[a]
+                b_val = this_row[b]
+                yield (i, a, a_val, i, b, b_val)
+
+    @staticmethod
+    def find_missing_translations(wb, lang_dict=None):
+        """Find missing translations in the workbook.
+
+        Args:
+            wb: An `xlrd` Book instance
+            lang_dict: The language dictionary for this workbook
+
+        Returns:
+            A list of tuples of all missing or extraneous translations.
+        """
+        if not lang_dict:
+            lang_dict = Xlsform.check_languages(wb)
+        d_survey = lang_dict[constants.SURVEY]
+        d_choices = lang_dict[constants.CHOICES]
+        d_external = lang_dict[constants.EXTERNAL_CHOICES]
+
+        def missing_by_sheet(d, wb, sheetname):
+            missing = []
+            sheet = wb.sheet_by_name(sheetname)
+            for pair in Xlsform.translation_pairs(sheet, d):
+                a_val = pair[2]
+                b_val = pair[5]
+                if a_val and not b_val:
+                    missing.append((sheetname, pair[3], pair[4], True))
+                elif not a_val and b_val:
+                    missing.append((sheetname, pair[3], pair[4], False))
+            return missing
+
+        missing = []
+        if d_survey:
+            l = missing_by_sheet(d_survey, wb, constants.SURVEY)
+            missing.extend(l)
+        if d_choices:
+            l = missing_by_sheet(d_choices, wb, constants.CHOICES)
+            missing.extend(l)
+        if d_external:
+            l = missing_by_sheet(d_external, wb, constants.EXTERNAL_CHOICES)
+            missing.extend(l)
+        return missing
+
+    @staticmethod
+    def find_by_regex_translations(wb, lang_dict=None):
+        """Find missing items by regex in translations in the workbook.
+
+        Args:
+            wb: An `xlrd` Book instance
+            lang_dict: The language dictionary for this workbook
+
+        Returns:
+            A list of tuples of all mis-matching items identified by regex.
+        """
+
+        regex_list = [
+            r'\$\{(.*?)\}',
+            r'\d+'
+        ]
+        regex_prog = [re.compile(pattern) for pattern in regex_list]
+        regex_desc = [
+            "'${...}'",
+            "'[0-9]+'"
+        ]
+
+        if not lang_dict:
+            lang_dict = Xlsform.check_languages(wb)
+        d_survey = lang_dict[constants.SURVEY]
+        d_choices = lang_dict[constants.CHOICES]
+        d_external = lang_dict[constants.EXTERNAL_CHOICES]
+
+        def missing_by_sheet(d, wb, sheetname):
+            missing = []
+            sheet = wb.sheet_by_name(sheetname)
+            for pair in Xlsform.translation_pairs(sheet, d):
+                fails = []
+                a_val = pair[2]
+                b_val = pair[5]
+                if not isinstance(a_val, str):
+                    a_val = str(a_val)
+                if not isinstance(b_val, str):
+                    b_val = str(b_val)
+                for regex, prog in zip(regex_desc, regex_prog):
+                    a_found = sorted(prog.findall(a_val))
+                    b_found = sorted(prog.findall(b_val))
+                    if a_found != b_found:
+                        fails.append(regex)
+                if fails:
+                    record = sheetname, pair[3], pair[4], tuple(fails)
+                    missing.append(record)
+            return missing
+
+        missing = []
+        if d_survey:
+            l = missing_by_sheet(d_survey, wb, constants.SURVEY)
+            missing.extend(l)
+        if d_choices:
+            l = missing_by_sheet(d_choices, wb, constants.CHOICES)
+            missing.extend(l)
+        if d_external:
+            l = missing_by_sheet(d_external, wb, constants.EXTERNAL_CHOICES)
+            missing.extend(l)
+        return missing
+
+    @staticmethod
+    def undefined_cols(wb, sheetname):
+        """Return a list of columns that have values without a heading
+
+        Args:
+            wb: An `xlrd` Book instance
+            sheetname (str): The name of the sheet to search for
+
+        Returns:
+            A sorted list of (int) columns that have values without headers
+        """
+        try:
+            survey = wb.sheet_by_name(sheetname)
+            headers = survey.row_values(0)
+            blank = [i for i, val in enumerate(headers) if val == '']
+            headless = []
+            for col in blank:
+                full_column = survey.col_values(col)
+                found = [_f for _f in full_column if _f]
+                if found:
+                    headless.append(col)
+            return headless
+        except (xlrd.XLRDError, IndexError):
+            # No sheet found, nothing in sheet
+            return []
+
+    @staticmethod
+    def find_external_type(wb):
+        found = False
+        type_column = Xlsform.filter_column(wb, constants.SURVEY,
+                                            constants.TYPE)
+        for this_type in type_column:
+            first_word = this_type.split(' ', 1)[0]
+            if first_word in constants.EXTERNAL_TYPES:
+                found = True
+                break
+        return found
+
+    @staticmethod
+    def find_external_choices(wb):
+        return constants.EXTERNAL_CHOICES in wb.sheet_names()
+
+    @staticmethod
+    def get_settings(wb):
+        values = {}
+        try:
+            settings = wb.sheet_by_name(constants.SETTINGS)
+            for k, v in zip(settings.row(0), settings.row(1)):
+                if k.value != '' and v.value != '':
+                    values[k.value] = v.value
+        except xlrd.XLRDError:
+            # No settings found
+            pass
+        except IndexError:
+            # Blank settings found
+            pass
+        return values
+
+    def get_form_id(self, pma):
+        form_id = self.settings.get(constants.FORM_ID, '')
+        if pma:
+            if form_id == '':
+                self.no_form_id(self.short_file)
+            expected_id = self.construct_pma_id(self.short_name)
+            if expected_id == '':
+                self.filename_error(self.short_file)
+            elif expected_id != form_id:
+                self.bad_filename_and_id(self.short_file, form_id)
+        if form_id == '':
+            form_id = self.short_name
+        return form_id
+
+    def get_form_title(self, pma):
+        form_title = self.settings.get(constants.FORM_TITLE, '')
+        if pma:
+            if form_title == '':
+                self.no_form_title(self.short_file)
+            expected_title = self.construct_pma_title(self.short_name)
+            if expected_title == '':
+                self.filename_error(self.short_file)
+            elif expected_title != form_title:
+                self.bad_filename_and_title(self.short_file, form_title)
+        if form_title == '':
+            form_title = self.form_id
+        return form_title
+
+    def get_xml_root(self, pma):
+        xml_root = self.settings.get(constants.SETTINGS_NAME, '')
+        if pma:
+            if xml_root == '':
+                expected_xml_root = self.determine_xml_root(self.short_name)
+                self.no_xml_root(self.short_file, expected_xml_root)
+        return xml_root
+
+    @staticmethod
+    def get_outpath(path, suffix):
+        short_name, ext = os.path.splitext(path)
+        if suffix:
+            short_name += suffix
+        short_name += constants.XML_EXT
+        return short_name
+
+    @staticmethod
+    def get_media_dir(xmlpath):
+        base_dir, short_file = os.path.split(xmlpath)
+        short_name = os.path.splitext(short_file)[0]
+        media_dir = short_name + constants.MEDIA_DIR_EXT
+        full_media_dir = os.path.join(base_dir, media_dir)
+        return full_media_dir
+
+    @staticmethod
+    def get_identifiers(filename):
+        """Get questionnaire type, country, round, and version from filename
+
+        Note: this function is dependent on the regex.
+        """
+        qtype, country, round, version = '', '', '', ''
+        found = re.match(constants.odk_file_re, filename)
+        if found:
+            re_groups = found.groups()
+            qtype = re_groups[1]
+            name_split = filename.split('-')
+            country_round, version = name_split[0], name_split[-2]
+            country, round = country_round[:2], country_round[3:]
+        return qtype, country, round, version
+
+    def get_country_round(self):
+        out = self.get_identifiers(self.short_name)
+        country = out[1]
+        round = out[2]
+        country_round = 'r'.join([country, round])
+        return country_round
+
+
+    @staticmethod
+    def determine_xml_root(filename):
+        """Get XML root from filename without extension
+
+        Note: this function is dependent on the regex.
+        """
+        xml_root = ''
+        qtype = Xlsform.get_identifiers(filename)[0]
+        if qtype:
+            xml_root = str(constants.xml_codes[constants.q_codes[qtype]])
+        return xml_root
+
+    @staticmethod
+    def construct_pma_id(filename):
+        """Build form_id from filename without extension
+
+        Note: this function is dependent on the regex.
+        """
+        form_id = ''
+        qtype, country, round, version = Xlsform.get_identifiers(filename)
+        if qtype and country and round and version:
+            id_qtype = constants.q_codes[qtype]
+            # implicit conversion to unicode
+            form_id = id_qtype + '-' + country.lower() + 'r' + round + '-' + \
+                      version
+        return form_id
+
+    @staticmethod
+    def construct_pma_title(filename):
+        """Build form_title from filename without extension
+
+        Note: this function is dependent on the regex.
+        """
+        form_title = ''
+        found = re.match(constants.odk_file_re, filename)
+        if found:
+            i = filename.rfind('-')
+            form_title = filename[:i]
+        return form_title
+
+    @staticmethod
+    def filename_error(filename):
+        msg = ('"%s" does not match approved PMA naming scheme '
+               '(approved %s):\n%s')
+        msg %= (filename, constants.approval_date, constants.odk_file_model)
+        raise XlsformError(msg)
+
+    @staticmethod
+    def no_form_id(filename):
+        msg = '"%s" does not have a form_id defined in the settings tab.'
+        msg %= filename
+        raise XlsformError(msg)
+
+    @staticmethod
+    def no_form_title(filename):
+        msg = '"%s" does not have a form_title defined in the settings tab.'
+        msg %= filename
+        raise XlsformError(msg)
+
+    @staticmethod
+    def bad_filename_and_id(filename, form_id):
+        msg = '"%s" has non-matching form_id "%s".'
+        msg %= (filename, form_id)
+        raise XlsformError(msg)
+
+    @staticmethod
+    def bad_filename_and_title(filename, form_title):
+        msg = '"%s" has non-matching form_title "%s".'
+        msg %= (filename, form_title)
+        raise XlsformError(msg)
+
+    @staticmethod
+    def no_xml_root(filename, expected_xml_root):
+        msg = ('"%s" does not have a "name" defined in the settings tab. '
+               'Should be defined as "%s".')
+        if expected_xml_root:
+            msg %= filename, expected_xml_root
+        else:
+            all_xml_roots = list(constants.xml_codes.values())
+            add_on = 'one of %s' % ', '.join(all_xml_roots)
+            msg %= filename, add_on
+        raise XlsformError(msg)
+
+    @staticmethod
+    def external_choices_consistency(filename, wb):
+        has_external_type = Xlsform.find_external_type(wb)
+        has_external_choices_sheet = Xlsform.find_external_choices(wb)
+        inconsistent = has_external_type ^ has_external_choices_sheet
+        if inconsistent:
+            if has_external_type:
+                m = ('"{}" has survey question of type "*_external" but no '
+                     '"external_choices" sheet')
+            else:
+                m = ('"{}" has "external_choices" sheet but no survey '
+                     'question of type "*_external"')
+            raise XlsformError(m.format(filename))
+
+    @staticmethod
+    def linking_consistency(filename, save_instance, save_form):
+        # Test if columns have a value (first value is column header)
+        has_save_instance = len(save_instance) > 1
+        has_save_form = len(save_form) > 1
+        inconsistent = has_save_instance ^ has_save_form
+        if inconsistent:
+            if has_save_instance:
+                m = '"{}" defines {save_instance} value but no {save_form} value'
+            else:
+                m = '"{}" defines {save_form} value but no {save_instance} value'
+            raise XlsformError(m.format(filename, save_instance=constants.SAVE_INSTANCE, save_form=constants.SAVE_FORM))
+
+    def version_consistency(self):
+        version_re = r'[Vv](\d+)'
+        prog = re.compile(version_re)
+        short_outfile = os.path.split(self.outpath)[1]
+        short_outname = os.path.splitext(short_outfile)[0]
+        to_check = itertools.chain([
+            short_outname,
+            self.short_name,
+            self.form_id,
+            self.form_title,
+        ],  self.save_form[1:])
+        version = set()
+        for word in to_check:
+            found = prog.search(word)
+            version.add('none' if not found else found.group(1))
+        if len(version) > 1:
+            m = ('"{}" has inconsistent version numbers among XLSForm '
+                 'filename, XML filename, form_id, form_title, entries in '
+                 '{}. Versions found: {}.')
+            m = m.format(self.path, constants.SAVE_FORM, ', '.join(version))
+            raise XlsformError(m)
+
+    def extra_undefined_column(self):
+        """Return warnings about undefined (headerless) columns
+
+        Generates a list of warnings to be displayed to the user.
+
+        Creates warnings for survey, choices, external_choices, and settings.
+
+        Return:
+            A list of string, or empty if nothing to report
+        """
+        def format_message(cols, sheet):
+            excel = [self.number_to_excel_column(c) for c in cols]
+            joined = ', '.join(excel)
+            msg = 'Columns with data but without a header in "{}": {}'
+            msg = msg.format(sheet, joined)
+            return msg
+
+        m = []
+        if self.survey_blanks:
+            m.append(format_message(self.survey_blanks, constants.SURVEY))
+        if self.choices_blanks:
+            m.append(format_message(self.choices_blanks, constants.CHOICES))
+        if self.external_blanks:
+            m.append(format_message(self.external_blanks,
+                     constants.EXTERNAL_CHOICES))
+        if self.settings_blanks:
+            m.append(format_message(self.settings_blanks, constants.SETTINGS))
+        return m
+
+    def extra_undefined_ref(self):
+        """Return warnings about referencing an ODK variable before defining
+
+        Generates a list of warnings to be displayed to the user.
+
+        Return:
+            A list of string, or empty if nothing to report
+        """
+        # TODO fix this STUB!
+        return []
+
+    def extra_multiple_choicelist(self):
+        """Return warnings about choice lists defined in multiple spots
+
+        Generates a list of warnings to be displayed to the user.
+
+        Return:
+            A list of string, or empty if nothing to report
+        """
+        def format_message(dups, sheet):
+            at = ('{}@{}'.format(name, row + 1) for (row, name) in dups)
+            joined = ', '.join(at)
+            msg = 'Choice lists defined more than once in "{}": {}'
+            msg = msg.format(sheet, joined)
+            return msg
+
+        m = []
+        if self.choices_multiple:
+            m.append(format_message(self.choices_multiple, constants.CHOICES))
+        if self.external_multiple:
+            m.append(format_message(self.external_multiple,
+                constants.EXTERNAL_CHOICES))
+        return m
+
+    def extra_unused_choicelist(self):
+        """Return warnings about unused choice lists
+
+        Generates a list of warnings to be displayed to the user.
+
+        Return:
+            A list of string, or empty if nothing to report
+        """
+        m = []
+        for k in self.unused_lists:
+            lists = self.unused_lists[k]
+            joined = ', '.join(lists)
+            msg = 'Unused choice lists in "{}": {}'.format(k, joined)
+            m.append(msg)
+        return m
+
+    def extra_same_choices(self):
+        """Warn about choices with the same name in the same choice list
+
+        Generates a list of warnings to be displayed to the user.
+
+        Return:
+            A list of string, or empty if nothing to report
+        """
+        def format_message(dups, sheet):
+            d = {}
+            for _, listname, name in dups:
+                if listname in d:
+                    d[listname].add(name)
+                else:
+                    d[listname] = {name}
+            keys = sorted(d.keys())
+            per_list = []
+            for k in keys:
+                joined = ', '.join(str(s) for s in d[k])
+                m = '{} -> ({})'.format(k, joined)
+                per_list.append(m)
+            joined = ', '.join(per_list)
+            msg = 'Choice lists with duplicate option names in {}: {}'
+            msg = msg.format(sheet, joined)
+            return msg
+
+        m = []
+        if self.name_dups:
+            m.append(format_message(self.name_dups, constants.CHOICES))
+        if self.external_dups:
+            m.append(format_message(self.external_dups,
+                constants.EXTERNAL_CHOICES))
+        return m
+
+    def extra_missing_translation(self):
+        """Warn about missing or extraneous translations
+
+        Generates a list of warnings to be displayed to the user.
+
+        Return:
+            A list of string, or empty if nothing to report
+        """
+        def format_cell(seq):
+            d = {}
+            for sheet, r, c, _ in seq:
+                if sheet in d:
+                    excel_col = Xlsform.number_to_excel_column(c)
+                    excel = '{}{}'.format(excel_col, r+1)
+                    d[sheet].add(excel)
+                else:
+                    excel_col = Xlsform.number_to_excel_column(c)
+                    excel = '{}{}'.format(excel_col, r+1)
+                    d[sheet] = {excel}
+            per_sheet = []
+            for k in d:
+                v = sorted(list(d[k]))
+                joined = ', '.join(v)
+                msg = '{} -> ({})'.format(k, joined)
+                per_sheet.append(msg)
+            return per_sheet
+
+        m = []
+        missing = (i for i in self.missing_translations if i[3])
+        missing_formatted = format_cell(missing)
+        if missing_formatted:
+            joined = ', '.join(missing_formatted)
+            msg = 'Missing translations detected: {}'.format(joined)
+            m.append(msg)
+        extraneous = (i for i in self.missing_translations if not i[3])
+        extraneous_formatted = format_cell(extraneous)
+        if extraneous_formatted:
+            joined = ', '.join(extraneous_formatted)
+            msg = 'Extraneous translations detected: {}'.format(joined)
+            m.append(msg)
+        return m
+
+    def extra_regex_translation(self):
+        """Warn about mismatching regex finds in translations.
+
+        Generates a list of warnings to be displayed to the user.
+
+        Return:
+            A list of string, or empty if nothing to report
+        """
+        m = []
+        by_sheet = collections.defaultdict(list)
+        for item in self.regex_tranlsations:
+            excel_col = Xlsform.number_to_excel_column(item[2])
+            excel = '{}{}'.format(excel_col, item[1] + 1)
+            joined = ' '.join(item[3])
+            message = '{} {}'.format(excel, joined)
+            by_sheet[item[0]].append(message)
+        all_sheets = []
+        for sheet in by_sheet:
+            joined = ', '.join(by_sheet[sheet])
+            msg = '{} -> ({})'.format(sheet, joined)
+            all_sheets.append(msg)
+        if all_sheets:
+            all_sheets_message = ', '.join(all_sheets)
+            msg = 'Translation regex mismatch: {}'.format(all_sheets_message)
+            m.append(msg)
+        return m
+
+    def extra_language_conflict(self):
+        """Warn about inconsistent languages (including default language)
+
+        Generates a list of warnings to be displayed to the user.
+
+        There are two parts. First, there are checks that the languages for
+        each survey element are consistent, e.g. that "label" has all the
+        same languages as "hint". If the first passes, then the second check
+        is that the default language matches one of the languages used.
+
+        Return:
+            A list of string, or empty if nothing to report
+        """
+        m = []
+        found = set()
+        previous = None
+        mismatch = None
+        for sheet in self.language_consistency:
+            d_sheet = self.language_consistency[sheet]
+            for elem in d_sheet:
+                langs = d_sheet[elem]
+                if not found:
+                    found = langs
+                elif found != langs:
+                    found |= langs
+                    if not mismatch:
+                        mismatch = (previous, elem)
+                previous = elem
+        if mismatch:
+            joined = ', '.join(sorted([str(i) for i in found]))
+            msg = ('Languages not consistent. Triggered by "{}" and "{}". '
+                   'All languages found: {}')
+            msg = msg.format(mismatch[0], mismatch[1], joined)
+            m.append(msg)
+        default = self.settings.get('default_language', None)
+        if default and default not in found:
+            msg = 'Default language "{}" not used'.format(default)
+            m.append(msg)
+        return m
+
+    def extra_nonascii(self):
+        """List choice names that have non-ascii characters
+
+        Return:
+            A list of tuples of (int, value), the row number and the value
+            found in the row.
+        """
+        m = []
+        msg = 'In "{}" tab, found malformed "names": {}'
+        if self.choices_ascii:
+            all_choices = ('"{}"@{}'.format(i[1], i[0] + 1) for i in
+                    self.choices_ascii)
+            joined = ', '.join(all_choices)
+            m.append(msg.format(constants.CHOICES, joined))
+        if self.external_ascii:
+            all_external = ('"{}"@{}'.format(i[1], i[0] + 1) for i in
+                    self.external_ascii)
+            joined = ', '.join(all_external)
+            m.append(msg.format(constants.EXTERNAL_CHOICES, joined))
+        return m
+
+    @staticmethod
+    def number_to_excel_column(col):
+        """Convert a zero-indexed column number to Excel column name
+
+        Args:
+            col (int): The column number, e.g. from a Worksheet. Should be
+                zero-indexed
+
+        Returns:
+            str: The Excel column name
+
+        Raises:
+            ValueError: If col > 26*26 or col < 0
+        """
+        letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        if len(letters) * len(letters) < col or col < 0:
+            raise ValueError(col)
+        d, m = divmod(col, len(letters))
+        primary_letter = letters[m]
+        if d > 0:
+            return letters[d - 1] + primary_letter
+        else:
+            return primary_letter
+
