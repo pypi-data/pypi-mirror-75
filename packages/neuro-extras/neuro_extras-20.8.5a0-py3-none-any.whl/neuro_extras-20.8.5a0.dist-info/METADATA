@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: neuro-extras
+Version: 20.8.5a0
+Summary: UNKNOWN
+Home-page: https://github.com/neuromation/neuro-extras
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6.0
+Requires-Dist: neuromation
+Requires-Dist: yarl
+Requires-Dist: click
+Requires-Dist: toml
+Requires-Dist: pyyaml
+Requires-Dist: dataclasses (>=0.5) ; python_version < "3.7"
+
+UNKNOWN
+
+
