@@ -1,0 +1,13 @@
+casfs==0.1.1
+fs
+fs-gcsfs
+mlflow==1.10.0
+numpy>=1.18.0
+sqlalchemy
+tqdm>=4.42.1
+
+[tf]
+tensorflow
+
+[tf-gpu]
+tensorflow-gpu
