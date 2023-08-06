@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: mglg
+Version: 0.2.15
+Summary: UNKNOWN
+Home-page: https://github.com/aforren1/mglg
+Author: Alex Forrence
+Author-email: alex.forrence@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.17.0)
+Requires-Dist: moderngl (==5.6.1)
+Requires-Dist: pyglm (>=1.99.3)
+Requires-Dist: glfw (>=1.12.0)
+Requires-Dist: imgui (>=1.2.0)
+Requires-Dist: stbpy (==0.0.3)
+Provides-Extra: freetype
+Requires-Dist: freetype-py ; extra == 'freetype'
+
+Built-for-purpose, minimal 2D graphics library.
+
+Working on documentation, but the file [examples/jamboree.py](https://github.com/aforren1/mglg/blob/master/examples/jamboree.py) is pretty comprehensive.
+
+To pre-create the glyphs and atlas, there's a command line tool, e.g.:
+
+```bash
+python -m mglg.util.prebake_font examples\UbuntuMono-B.ttf fonts\
+```
+
+Which saves a pickled file (in this case, `fonts\UbuntuMono-B.pklfont`) that includes the atlas, glyphs, and other info to avoid touching the font file. Add `--view` to see the atlas.
+
+`freetype-py` is required to generate pickled fonts or do on-the-fly font loading, and can be installed either via `pip install freetype-py` or `pip install mglg[freetype]`.
+
+
