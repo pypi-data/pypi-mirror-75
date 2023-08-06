@@ -1,0 +1,304 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>flask_fontawesome &#8212; flask-fontawesome 0.1.5 documentation</title>
+    <link rel="stylesheet" href="../_static/flask.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <script>DOCUMENTATION_OPTIONS.URL_ROOT = '../';</script>
+   
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Python Module Index"
+             >modules</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">flask-fontawesome 0.1.5 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Module code</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <h1>Source code for flask_fontawesome</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">flask_fontawesome</span>
+<span class="sd">-----------------</span>
+
+<span class="sd">This moudle provides helpers to quickly add FontAwesome resources to your Flask app.</span>
+
+<span class="sd">:license: MIT / Apache 2.0 (seen LICENSE-MIT and LICENSE-APACHE for details)</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="kn">from</span> <span class="nn">flask</span> <span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">Blueprint</span><span class="p">,</span> <span class="n">url_for</span><span class="p">,</span> <span class="n">Markup</span><span class="p">,</span> <span class="n">current_app</span>
+
+<span class="n">FONTAWESOME_VERSION</span> <span class="o">=</span> <span class="s1">&#39;5.14.0&#39;</span>
+<span class="n">__version__</span> <span class="o">=</span> <span class="s1">&#39;0.1.5&#39;</span>
+
+
+<div class="viewcode-block" id="fontawesome_html"><a class="viewcode-back" href="../index.html#flask_fontawesome.fontawesome_html">[docs]</a><span class="k">def</span> <span class="nf">fontawesome_html</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns :class:`~flask.Markup` of all the requested FontAwesome resources. This can be embedded</span>
+<span class="sd">    in your Jinja templates to add FontAwesome to your site.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_SERVE_LOCAL&#39;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">current_app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s1">&#39;fontawesome&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_static</span><span class="o">.</span><span class="n">resources_html</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">current_app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s1">&#39;fontawesome&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_use_fa</span><span class="o">.</span><span class="n">resources_html</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="fontawesome_js"><a class="viewcode-back" href="../index.html#flask_fontawesome.fontawesome_js">[docs]</a><span class="k">def</span> <span class="nf">fontawesome_js</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns :class:`~flask.Markup` of the JS FontAwesome resources.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_SERVE_LOCAL&#39;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">current_app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s1">&#39;fontawesome&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_static</span><span class="o">.</span><span class="n">js_html</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">current_app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s1">&#39;fontawesome&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_use_fa</span><span class="o">.</span><span class="n">js_html</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="fontawesome_css"><a class="viewcode-back" href="../index.html#flask_fontawesome.fontawesome_css">[docs]</a><span class="k">def</span> <span class="nf">fontawesome_css</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Returns :class`~flask.Markup` of the CSS FontAwesome resources.</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="k">if</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_SERVE_LOCAL&#39;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">current_app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s1">&#39;fontawesome&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_static</span><span class="o">.</span><span class="n">css_html</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">current_app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s1">&#39;fontawesome&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">_use_fa</span><span class="o">.</span><span class="n">css_html</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="Cdn"><a class="viewcode-back" href="../api/flask_fontawesome.html#flask_fontawesome.Cdn">[docs]</a><span class="k">class</span> <span class="nc">Cdn</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+<div class="viewcode-block" id="Cdn.resources_html"><a class="viewcode-back" href="../api/flask_fontawesome.html#flask_fontawesome.Cdn.resources_html">[docs]</a>    <span class="k">def</span> <span class="nf">resources_html</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">css_html</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">js_html</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Cdn.css_html"><a class="viewcode-back" href="../api/flask_fontawesome.html#flask_fontawesome.Cdn.css_html">[docs]</a>    <span class="k">def</span> <span class="nf">css_html</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="Cdn.js_html"><a class="viewcode-back" href="../api/flask_fontawesome.html#flask_fontawesome.Cdn.js_html">[docs]</a>    <span class="k">def</span> <span class="nf">js_html</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">_check_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">typ</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_TYPE&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">typ</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;webfont/css&#39;</span><span class="p">,</span> <span class="s1">&#39;svg/js&#39;</span><span class="p">]:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Illegal parameter for FONTAWESOME_TYPE: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">typ</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="StaticCdn"><a class="viewcode-back" href="../api/flask_fontawesome.html#flask_fontawesome.StaticCdn">[docs]</a><span class="k">class</span> <span class="nc">StaticCdn</span><span class="p">(</span><span class="n">Cdn</span><span class="p">):</span>
+
+<div class="viewcode-block" id="StaticCdn.css_html"><a class="viewcode-back" href="../api/flask_fontawesome.html#flask_fontawesome.StaticCdn.css_html">[docs]</a>    <span class="k">def</span> <span class="nf">css_html</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_TYPE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;webfont/css&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__gen_html</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__css</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Markup</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="StaticCdn.js_html"><a class="viewcode-back" href="../api/flask_fontawesome.html#flask_fontawesome.StaticCdn.js_html">[docs]</a>    <span class="k">def</span> <span class="nf">js_html</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_TYPE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;svg/js&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__gen_html</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__js</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Markup</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">__gen_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+        <span class="n">use_min</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_USE_MINIFIED&#39;</span><span class="p">]</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">styles</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_STYLES&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;all&#39;</span> <span class="ow">in</span> <span class="n">styles</span><span class="p">:</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">use_min</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="s1">&#39;fontawesome&#39;</span><span class="p">,</span> <span class="n">use_min</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">style</span> <span class="ow">in</span> <span class="n">styles</span><span class="p">:</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">style</span><span class="p">,</span> <span class="n">use_min</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_INCLUDE_V4_SHIMS&#39;</span><span class="p">]:</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="s1">&#39;v4-shims&#39;</span><span class="p">,</span> <span class="n">use_min</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">Markup</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">html</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__url</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">resource</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="n">resource</span><span class="p">}</span>
+        <span class="k">if</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_QUERYSTRING_REVVING&#39;</span><span class="p">]:</span>
+            <span class="n">params</span><span class="p">[</span><span class="s1">&#39;version&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">FONTAWESOME_VERSION</span>
+        <span class="k">return</span> <span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;fontawesome.static&#39;</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">__css</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">use_min</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">min_str</span> <span class="o">=</span> <span class="s1">&#39;.min&#39;</span> <span class="k">if</span> <span class="n">use_min</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">resource</span> <span class="o">=</span> <span class="s1">&#39;css/</span><span class="si">{}{}</span><span class="s1">.css&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">style</span><span class="p">,</span> <span class="n">min_str</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;link href=&quot;</span><span class="si">{}</span><span class="s1">&quot; rel=&quot;stylesheet&quot;&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__url</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__js</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">use_min</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">min_str</span> <span class="o">=</span> <span class="s1">&#39;.min&#39;</span> <span class="k">if</span> <span class="n">use_min</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+        <span class="n">resource</span> <span class="o">=</span> <span class="s1">&#39;js/</span><span class="si">{}{}</span><span class="s1">.js&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">style</span><span class="p">,</span> <span class="n">min_str</span><span class="p">)</span>
+        <span class="k">return</span> <span class="s1">&#39;&lt;script defer src=&quot;</span><span class="si">{}</span><span class="s1">&quot; rel=&quot;stylesheet&quot;&gt;&lt;/script&gt;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__url</span><span class="p">(</span><span class="n">resource</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="UseFontAwesomeComCdn"><a class="viewcode-back" href="../api/flask_fontawesome.html#flask_fontawesome.UseFontAwesomeComCdn">[docs]</a><span class="k">class</span> <span class="nc">UseFontAwesomeComCdn</span><span class="p">(</span><span class="n">Cdn</span><span class="p">):</span>
+
+    <span class="n">__URL_BASE</span> <span class="o">=</span> <span class="s1">&#39;https://use.fontawesome.com/releases/v</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">FONTAWESOME_VERSION</span><span class="p">)</span>
+
+    <span class="n">__INTEGRITY_MAP</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;webfont/css&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;all&#39;</span><span class="p">:</span> <span class="s1">&#39;sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;brands&#39;</span><span class="p">:</span> <span class="s1">&#39;sha384-MiOGyNsVTeSVUjE9q/52dpdZjrr7yQAjVRUs23Bir5NhrTq0YA0rny4u/qe4dxNj&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;fontawesome&#39;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s1">&#39;sha384-PRy/NDAXVTUcXlWA3voA+JO/UMtzWgsYuwMxjuu6DfFPgzJpciUiPwgsvp48fl3p&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;regular&#39;</span><span class="p">:</span> <span class="s1">&#39;sha384-e46AbGhCSICtPh8xpc35ZioOrHg2PGsH1Bpy/vyr9AhEMVhttzxc+2GSMSP+Y60P&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;solid&#39;</span><span class="p">:</span> <span class="s1">&#39;sha384-TN9eFVoW87zV3Q7PfVXNZFuCwsmMwkuOTOUsyESfMS9uwDTf7yrxXH78rsXT3xf0&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;v4-shims&#39;</span><span class="p">:</span> <span class="s1">&#39;sha384-9aKO2QU3KETrRCCXFbhLK16iRd15nC+OYEmpVb54jY8/CEXz/GVRsnM73wcbYw+m&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="s1">&#39;svg/js&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;all&#39;</span><span class="p">:</span> <span class="s1">&#39;sha384-3Nqiqht3ZZEO8FKj7GR1upiI385J92VwWNLj+FqHxtLYxd9l+WYpeqSOrLh0T12c&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;brands&#39;</span><span class="p">:</span> <span class="s1">&#39;sha384-V7gsTxvUZaeC6NAsCa24o3WvPOXwSsUM8/SBgy+fxlzWL3xEGXHsAv2E3UO5zKcZ&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;fontawesome&#39;</span><span class="p">:</span> <span class="p">(</span>
+                <span class="s1">&#39;sha384-DNo9bmYZCHLtp0n0l0XA2UsoRHX1nx38aRP+p9yoP5A8kVTfeWG3aySMOq5FD/v3&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;regular&#39;</span><span class="p">:</span> <span class="s1">&#39;sha384-zHXcIX0meH+eFgqCa9QdLtYfc+0p7KcF4fVB+gMVFjV6rzYv+LxSIuF5i2eGVDlt&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;solid&#39;</span><span class="p">:</span> <span class="s1">&#39;sha384-4RG3cEPIlCBy6VNzxM9ZoEwZW+65ed5JDOfaJAnQqwV6ha/jZDJTXjFmvjFM4bk4&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;v4-shims&#39;</span><span class="p">:</span> <span class="s1">&#39;sha384-g+ezV6Pq6549QkJkkz2wmW/wpazNaliTdSg/HX4bKsQ7S8cfyMOiyAfzfWPtlVR9&#39;</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">}</span>
+
+<div class="viewcode-block" id="UseFontAwesomeComCdn.css_html"><a class="viewcode-back" href="../api/flask_fontawesome.html#flask_fontawesome.UseFontAwesomeComCdn.css_html">[docs]</a>    <span class="k">def</span> <span class="nf">css_html</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_TYPE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;webfont/css&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__gen_html</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__css</span><span class="p">,</span> <span class="s1">&#39;webfont/css&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Markup</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="UseFontAwesomeComCdn.js_html"><a class="viewcode-back" href="../api/flask_fontawesome.html#flask_fontawesome.UseFontAwesomeComCdn.js_html">[docs]</a>    <span class="k">def</span> <span class="nf">js_html</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_check_type</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_TYPE&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;svg/js&#39;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">__gen_html</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__js</span><span class="p">,</span> <span class="s1">&#39;svg/js&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Markup</span><span class="p">()</span></div>
+
+    <span class="k">def</span> <span class="nf">__gen_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">,</span> <span class="n">typ</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Markup</span><span class="p">:</span>
+        <span class="n">typ</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">__INTEGRITY_MAP</span><span class="p">[</span><span class="n">typ</span><span class="p">]</span>
+        <span class="n">html</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="n">styles</span> <span class="o">=</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_STYLES&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;all&#39;</span> <span class="ow">in</span> <span class="n">styles</span><span class="p">:</span>
+            <span class="n">integrity</span> <span class="o">=</span> <span class="n">typ</span><span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">]</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">integrity</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="s1">&#39;fontawesome&#39;</span><span class="p">,</span> <span class="n">typ</span><span class="p">[</span><span class="s1">&#39;fontawesome&#39;</span><span class="p">]))</span>
+            <span class="k">for</span> <span class="n">style</span> <span class="ow">in</span> <span class="n">styles</span><span class="p">:</span>
+                <span class="n">integrity</span> <span class="o">=</span> <span class="n">typ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">style</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">integrity</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Unknown style: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">style</span><span class="p">))</span>
+                <span class="n">html</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="n">style</span><span class="p">,</span> <span class="n">integrity</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">current_app</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;FONTAWESOME_INCLUDE_V4_SHIMS&#39;</span><span class="p">]:</span>
+            <span class="n">integrity</span> <span class="o">=</span> <span class="n">typ</span><span class="p">[</span><span class="s1">&#39;v4-shims&#39;</span><span class="p">]</span>
+            <span class="n">html</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">(</span><span class="s1">&#39;v4-shims&#39;</span><span class="p">,</span> <span class="n">integrity</span><span class="p">))</span>
+
+        <span class="k">return</span> <span class="n">Markup</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">html</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__css</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">integrity</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/css/</span><span class="si">{}</span><span class="s1">.css&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__URL_BASE</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;&lt;link rel=&quot;stylesheet&quot; href=&quot;</span><span class="si">{}</span><span class="s1">&quot; integrity=&quot;</span><span class="si">{}</span><span class="s1">&quot; crossorigin=&quot;anonymous&quot;&gt;&#39;</span>
+                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">integrity</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">__js</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">style</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">integrity</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/js/</span><span class="si">{}</span><span class="s1">.js&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__URL_BASE</span><span class="p">,</span> <span class="n">style</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span><span class="s1">&#39;&lt;script defer src=&quot;</span><span class="si">{}</span><span class="s1">&quot; integrity=&quot;</span><span class="si">{}</span><span class="s1">&quot; crossorigin=&quot;anonymous&quot;&gt;&lt;/script&gt;&#39;</span>
+                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">integrity</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="FontAwesome"><a class="viewcode-back" href="../index.html#flask_fontawesome.FontAwesome">[docs]</a><span class="k">class</span> <span class="nc">FontAwesome</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">:</span> <span class="n">Flask</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">app</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">init_app</span><span class="p">(</span><span class="n">app</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_static</span> <span class="o">=</span> <span class="n">StaticCdn</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_use_fa</span> <span class="o">=</span> <span class="n">UseFontAwesomeComCdn</span><span class="p">()</span>
+
+<div class="viewcode-block" id="FontAwesome.init_app"><a class="viewcode-back" href="../index.html#flask_fontawesome.FontAwesome.init_app">[docs]</a>    <span class="k">def</span> <span class="nf">init_app</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">app</span><span class="p">:</span> <span class="n">Flask</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">app</span><span class="p">,</span> <span class="s1">&#39;extensions&#39;</span><span class="p">):</span>
+            <span class="n">app</span><span class="o">.</span><span class="n">extensions</span> <span class="o">=</span> <span class="p">{}</span>
+
+        <span class="n">app</span><span class="o">.</span><span class="n">extensions</span><span class="p">[</span><span class="s1">&#39;fontawesome&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span>
+
+        <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;FONTAWESOME_INCLUDE_V4_SHIMS&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;FONTAWESOME_QUERYSTRING_REVVING&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;FONTAWESOME_SERVE_LOCAL&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;FONTAWESOME_STYLES&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;solid&#39;</span><span class="p">])</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;FONTAWESOME_TYPE&#39;</span><span class="p">,</span> <span class="s1">&#39;webfont/css&#39;</span><span class="p">)</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;FONTAWESOME_USE_MINIFIED&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">blueprint</span> <span class="o">=</span> <span class="n">Blueprint</span><span class="p">(</span>
+            <span class="s1">&#39;fontawesome&#39;</span><span class="p">,</span>
+            <span class="vm">__name__</span><span class="p">,</span>
+            <span class="n">static_folder</span><span class="o">=</span><span class="s1">&#39;static&#39;</span><span class="p">,</span>
+            <span class="n">static_url_path</span><span class="o">=</span><span class="n">app</span><span class="o">.</span><span class="n">static_url_path</span> <span class="o">+</span> <span class="s1">&#39;/fontawesome&#39;</span><span class="p">)</span>
+
+        <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s1">&#39;fontawesome_html&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fontawesome_html</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s1">&#39;fontawesome_css&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fontawesome_css</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">jinja_env</span><span class="o">.</span><span class="n">globals</span><span class="p">[</span><span class="s1">&#39;fontawesome_js&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fontawesome_js</span>
+        <span class="n">app</span><span class="o">.</span><span class="n">register_blueprint</span><span class="p">(</span><span class="n">blueprint</span><span class="p">)</span></div></div>
+</pre></div>
+
+          </div>
+        </div>
+      </div>
+  <span id="sidebar-top"></span>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  
+    
+  
+<h3>Navigation</h3>
+<ul>
+  <li><a href="../index.html">Overview</a>
+    <ul>
+      <li><a href="index.html">Module code</a>
+        
+          
+          </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+  
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2018, heartsucker.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 2.3.1.
+    </div>
+  <script type="text/javascript" src="../_static/version_warning_offset.js"></script>
+
+  </body>
+</html>
