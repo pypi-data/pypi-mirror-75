@@ -1,0 +1,61 @@
+Metadata-Version: 2.1
+Name: backlogprocessing
+Version: 0.0.27
+Summary: processing working time on backlog.
+Home-page: https://github.com/tys-hiroshi/backlogprocessing
+Author: tys-hiroshi
+Author-email: tashiro.hiroshi@toyoko-sys.co.jp
+License: MIT
+Keywords: backlog pybacklog processing
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
+Requires-Dist: certifi (==2018.10.15)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: idna (==2.7)
+Requires-Dist: jmespath (==0.9.3)
+Requires-Dist: pybacklog (==0.1.7)
+Requires-Dist: pytz (==2018.7)
+Requires-Dist: ruamel.appconfig (==0.5.4)
+Requires-Dist: ruamel.std.argparse (==0.8.1)
+Requires-Dist: urllib3 (==1.24.2)
+Requires-Dist: zope.interface (==4.6.0)
+Requires-Dist: PyYAML (==5.1.2)
+
+# Summary
+
+processing working time on backlog.
+
+Reference
+
+https://developer.nulab.com/ja/docs/backlog/
+
+## Requirements
+
+- Python 3.7+
+- pybacklog
+- pip install python-dateutil
+
+## Install package
+
+https://pypi.org/project/backlogprocessing/
+
+```
+pip install backlogprocessing
+```
+
+## Usage
+
+```
+from backlogprocessingmodule import *
+
+backlogapiprocessing.run(ConfigFilePath, LoggingConfigFilePath)
+```
+
+
+## For Develoiper
+
+When you need to upload this package, see package_release.md
+
+
