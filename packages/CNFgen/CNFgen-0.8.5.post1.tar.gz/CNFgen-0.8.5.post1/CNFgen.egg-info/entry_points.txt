@@ -1,0 +1,4 @@
+[console_scripts]
+cnfgen = cnfgen.main:main
+cnfshuffle = cnfgen.cnfshuffle:main
+
