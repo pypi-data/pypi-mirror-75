@@ -1,0 +1,14 @@
+README.md
+setup.py
+AutoAWSMFA.egg-info/PKG-INFO
+AutoAWSMFA.egg-info/SOURCES.txt
+AutoAWSMFA.egg-info/dependency_links.txt
+AutoAWSMFA.egg-info/entry_points.txt
+AutoAWSMFA.egg-info/not-zip-safe
+AutoAWSMFA.egg-info/requires.txt
+AutoAWSMFA.egg-info/top_level.txt
+auto_aws_mfa/__init__.py
+auto_aws_mfa/__main__.py
+auto_aws_mfa/mfa.py
+auto_aws_mfa/session.py
+auto_aws_mfa/util.py
