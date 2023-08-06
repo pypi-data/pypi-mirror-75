@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/cdk-elasticache-monitor/__init__.py
+src/cdk-elasticache-monitor/py.typed
+src/cdk-elasticache-monitor/_jsii/__init__.py
+src/cdk-elasticache-monitor/_jsii/cdk-elasticache-monitor@0.0.3.jsii.tgz
+src/cdk_elasticache_monitor.egg-info/PKG-INFO
+src/cdk_elasticache_monitor.egg-info/SOURCES.txt
+src/cdk_elasticache_monitor.egg-info/dependency_links.txt
+src/cdk_elasticache_monitor.egg-info/requires.txt
+src/cdk_elasticache_monitor.egg-info/top_level.txt
