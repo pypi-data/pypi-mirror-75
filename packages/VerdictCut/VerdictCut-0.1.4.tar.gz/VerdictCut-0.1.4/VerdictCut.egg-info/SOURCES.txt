@@ -1,0 +1,16 @@
+README.md
+setup.py
+VerdictCut/__init__.py
+VerdictCut/find_fact.py
+VerdictCut/find_justice.py
+VerdictCut/find_laws.py
+VerdictCut/find_maintext.py
+VerdictCut/find_roles.py
+VerdictCut.egg-info/PKG-INFO
+VerdictCut.egg-info/SOURCES.txt
+VerdictCut.egg-info/dependency_links.txt
+VerdictCut.egg-info/top_level.txt
+VerdictCut/tool/__init__.py
+VerdictCut/tool/find_name_law.py
+VerdictCut/tool/get_units_list.py
+VerdictCut/tool/normalize_position.py
