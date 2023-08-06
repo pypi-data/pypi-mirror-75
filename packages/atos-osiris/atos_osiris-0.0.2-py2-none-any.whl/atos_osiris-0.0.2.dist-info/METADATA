@@ -1,0 +1,90 @@
+Metadata-Version: 2.1
+Name: atos-osiris
+Version: 0.0.2
+Summary: Perform generic actions on specific systems
+Home-page: https://git.atosone.com/osiris/osiris/
+Author: # Credits
+
+Bull S. A. S.
+
+## Development Lead
+
+ * Pierre FUMERY (Atos) <pierre.fumery@atos.net>
+ * Yves VINTER (Atos) <yves.vinter@atos.net>
+ * Francois WAESELYNCK (Atos) <francois.waeselynck@atos.net>
+ * Elisabet BIALUNGANA LOUREIRO (Atos) <elisabet.bialunganaloureiro@atos.net>
+ * Nabil MAMORI (Atos) <nabil.mamori@atos.net>
+ * Grégory NATTER (Atos) <gregory.natter@atos.net>
+
+## Contributors
+
+None yet.
+
+## Thanks to
+
+ * Jérémie Lallemand
+
+License: Other/Proprietary License
+Description: All the documentation is available on the official [Osiris Wiki](https://git.atosone.com/osiris/osiris/-/wikis/home).
+        
+        # Changelog
+        
+        All notable changes to this project will be documented in this file.
+        
+        The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+        and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+        
+        
+        ## [Unreleased]
+        
+        ## [0.0.2] - 2020-08-05
+        
+        ### Added
+         * Python projet skeleton (setuptools, Makefile, bumpversion)
+         * CLI with Argparse
+         * Automatic creation of folders in user homedir
+         * osiris system set
+         * osiris system get
+         * osiris system add
+         * osiris system remove
+         * osiris system list
+         * osiris object introspect
+         * osiris system introspect
+         * Verbose option
+        
+        ### Changed
+         * Systems data moved in user homedir
+         * Flake8 compliance (with CI check)
+        
+        ### Removed
+        Nothing
+        
+        ## [0.0.1] - 2020-07-20
+        
+        ### Added
+         * Skeleton (nothing operationnal)
+        
+        ### Changed
+        Nothing
+        
+        ### Removed
+        Nothing
+        
+Keywords: osiris,backup,restore,openstack
+Platform: any
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Environment :: Console
+Classifier: Framework :: Flake8
+Classifier: Framework :: Pytest
+Classifier: Framework :: Setuptools Plugin
+Classifier: Framework :: tox
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: Other/Proprietary License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: System
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
