@@ -1,0 +1,15 @@
+README.md
+setup.py
+evalme/__init__.py
+evalme/classification.py
+evalme/eval_item.py
+evalme/utils.py
+evalme/image/__init__.py
+evalme/image/object_detection.py
+evalme/text/__init__.py
+evalme/text/text.py
+label_studio_evalme.egg-info/PKG-INFO
+label_studio_evalme.egg-info/SOURCES.txt
+label_studio_evalme.egg-info/dependency_links.txt
+label_studio_evalme.egg-info/requires.txt
+label_studio_evalme.egg-info/top_level.txt
