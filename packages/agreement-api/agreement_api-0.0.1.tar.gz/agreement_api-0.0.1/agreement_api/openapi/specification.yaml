@@ -1,0 +1,227 @@
+openapi: 3.0.1
+info:
+  title: client_agreement
+  description: description
+  termsOfService: terms
+  contact:
+    name: abdullah
+    url: http://client_agreement/hochguertel.work
+    email: adf@dome.com
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/MIT
+  version: 1.0.0
+
+servers:
+  - url: /api
+paths:
+  /agreement:
+    get:
+      tags:
+        - Agreement
+      summary: Read the list of agreements
+      description: Read the list of agreements
+      #      x-swagger-router-controller: agreement_api.controllers.agreement # not currently support in oas3 I think.
+      operationId: agreement_api.controllers.agreement_controller.read_agreements
+      responses:
+        200:
+          description: Successful read agreement list operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Agreement'
+    post:
+      tags:
+        - Agreement
+      summary: Add an agreement
+      description: Creats a new agreement with accpeted status = false.
+      operationId: agreement_api.controllers.agreement_controller.add_agreement
+      requestBody:
+        description: Agreement object that needs to be added
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                user_id:
+                  type: integer
+                agreement_status:
+                  type: boolean
+              required:
+                - user_id
+                - agreement_status
+      responses:
+        405:
+          description: Invalid input
+        500:
+          description: Something went wrong on server side
+  /agreement/{agreement_id}:
+    get:
+      tags:
+        - Agreement
+      summary: Get specific agreement
+      description: Get specific agreement
+      operationId: agreement_api.controllers.agreement_controller.get_agreement
+      parameters:
+        - name: agreement_id
+          schema:
+            type: integer
+          in: path
+          example: 1
+          required: true
+          description: The id of agreement that needs to be fetched.
+      responses:
+        "200":
+          description: Successfull fetch operation.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Agreement"
+        "400":
+          description: Invalid agreement id
+  /agreement/accept/{uuid}:
+    post:
+      tags:
+        - Agreement
+      summary: Mark an existing agreement as accepted
+      description: Mark an existing agreement as accepted
+      operationId: agreement_api.controllers.agreement_controller.accept_agreement
+      parameters:
+        - name: uuid
+          in: path
+          schema:
+            type: string
+          required: true
+          example: 82367b40-5aa8-476b-b4fd-616f5cac7f16
+      responses:
+        400:
+          description: Invalid ID supplied
+        404:
+          description: Agreement not found
+        405:
+          description: Validation exception
+
+  /agreement/create_new:
+    post:
+      tags:
+        - Agreement
+      summary: Creats a user and agreement object againts email
+      operationId: agreement_api.controllers.agreement_controller.create_new
+      description: A user is created against the provided email if not already exists. An agreement object is create againt the user and returns an cryptic url to accept this agreement.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+              properties:
+                email:
+                  type: string
+                  description: Users email to againts which agreement object will be created
+      responses:
+        "200":
+          description: Successfull operation.
+          content:
+            application/json:
+              schema:
+                properties:
+                  email:
+                    type: string
+                    description: user email
+                    example: "abdullahabid@gmail.com"
+                  agreement_link:
+                    type: string
+                    example: /<base-api-path>/agreement/accept/<uuid>
+                    description: by visiting this link the respective agreement will be marked as "accepted".
+
+
+  /user:
+    get:
+      tags:
+        - User
+      summary: Get all users
+      description: Get all users
+      operationId: agreement_api.controllers.user_controller.get_users_list
+      responses:
+        "200":
+          description: Successful fetch operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  properties:
+                    id:
+                      type: integer
+                    email:
+                      type: string
+                    agreement:
+                      $ref: "#/components/schemas/Agreement"
+    post:
+      tags:
+        - User
+      description: Add user
+      summary: Add user
+      operationId: agreement_api.controllers.user_controller.add_user
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User'
+        required: true
+      responses:
+        200:
+          description: successful add operation
+          content:
+            aplication/json:
+              schema:
+                $ref: '#/components/schemas/User'
+  /user/{email}:
+    get:
+      tags:
+        - User
+      summary: Get a specific user against provided email.
+      description: Get a specific user against provided email.
+      operationId: agreement_api.controllers.user_controller.get_user
+      parameters:
+        - name: email
+          in: path
+          schema:
+            type: string
+          required: true
+          description: User's email.
+          example: abdullah@example.com
+      responses:
+        "200":
+          description: Successfull fetch operation.
+
+
+components:
+  schemas:
+    Agreement:
+      type: object
+      properties:
+        id:
+          type: integer
+        user_id:
+          type: integer
+        agreement_status:
+          type: boolean
+        agreed_on:
+          type: integer
+      required:
+        - user_id
+        - agreement_status
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        email:
+          type: string
+      required:
+        - email

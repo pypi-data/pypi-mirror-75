@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: agreement-api
+Version: 0.0.1
+Summary: Provides an Api powered by flask and connexion.
+Home-page: https://github.com/Abdullahabid3691/user_agreement_flask_api
+Author: Abdullah Abid
+Author-email: abdullahabid3691@gmail.com
+License: UNKNOWN
+Description: Provides an Api powered by flask and connexion.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
