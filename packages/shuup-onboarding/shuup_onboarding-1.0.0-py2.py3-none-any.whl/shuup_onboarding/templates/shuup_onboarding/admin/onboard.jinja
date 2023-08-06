@@ -1,0 +1,32 @@
+{% from "shuup_onboarding/admin/macros.jinja" import render_step_js, render_step with context %}
+
+{% if request.is_ajax() %}
+    {{ render_step(onboard_step) }}
+{% else %}
+    {% extends "shuup/admin/base.jinja" %}
+
+    {% block title -%}{% trans %}Onboarding{% endtrans %}{%- endblock %}
+    {% block body_class %}onboarding{% endblock %}
+    {% block top %}{% endblock %}
+    {% block support_content %}{% endblock %}
+
+    {% block content_wrap %}
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <img class="d-block mx-auto mb-4" src="{{ static('shuup_admin/img/logo_icon.svg') }}" alt="" width="72" height="72">
+                </div>
+            </div>
+            <div id="step-container">
+                {{ render_step(onboard_step) }}
+            </div>
+        </div>
+    {% endblock %}
+{% endif %}
+
+{% block extra_js %}
+    {{ render_step_js() }}
+    {% if onboard_step.js_template_name %}
+        {% include onboard_step.js_template_name with context %}
+    {% endif %}
+{% endblock %}

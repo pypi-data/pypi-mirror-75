@@ -1,0 +1,77 @@
+{% macro render_step(step) %}
+    <div class="row">
+        <div class="col-12">
+            <h2 class="text-center">{{ step.title }}</h2>
+            {% if step.description %}
+                <p class="lead text-center">{{ step.description }}</p>
+            {% endif %}
+        </div>
+
+        <div class="col-12">
+            <form method="post" id="onboarding-form">
+                {% csrf_token %}
+                <div class="step-content">
+                    {% set step_context = step.get_render_context() %}
+                    {% include step.template_name with context %}
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        {% if onboarding.get_previous_step() %}
+                        <button class="btn btn-default btn-lg" type="button" id="btn-previous-step">
+                            {{ _("Previous") }}
+                        </button>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-6 text-right">
+                        {% if step.can_skip() %}
+                            <button class="btn btn-default btn-lg" type="button" id="btn-skip-step">
+                                {{ _("Skip") }}
+                            </button>
+                        {% endif %}
+                        <button class="btn btn-primary btn-lg" type="submit" id="btn-submit-step">
+                            {% if onboarding.get_next_step() %}
+                            {{ _("Next") }} <i class="fa fa-chevron-right"></i>
+                            {% else %}
+                                <i class="fa fa-check"></i> {{ _("Finish") }}
+                            {% endif %}
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endmacro %}
+
+{% macro render_step_js() %}
+    <script>
+        function submitField(fieldName, value) {
+            var form = document.createElement('form');
+            form.method = 'post';
+
+            var customField = document.createElement('input');
+            customField.name = fieldName;
+            customField.type = 'hidden';
+            customField.value = value;
+
+            var csrfInput = document.createElement('input');
+            csrfInput.name = 'csrfmiddlewaretoken';
+            csrfInput.type = 'hidden';
+            csrfInput.value = '{{ csrf_token }}';
+
+            form.appendChild(customField);
+            form.appendChild(csrfInput);
+
+            document.body.appendChild(form);
+            form.submit();
+        }
+
+        $("#btn-previous-step").click(function () {
+            submitField('previous', true);
+        });
+
+        $("#btn-skip-step").click(function () {
+            submitField('skip', true);
+        });
+    </script>
+{% endmacro %}
