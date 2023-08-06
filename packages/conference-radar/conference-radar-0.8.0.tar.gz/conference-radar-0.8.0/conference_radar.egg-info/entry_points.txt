@@ -1,0 +1,3 @@
+[console_scripts]
+conrad = conrad.__main__:main
+
