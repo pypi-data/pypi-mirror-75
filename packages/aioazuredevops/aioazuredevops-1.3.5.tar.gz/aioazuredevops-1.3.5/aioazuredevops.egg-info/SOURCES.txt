@@ -1,0 +1,14 @@
+README.md
+setup.cfg
+setup.py
+aioazuredevops/__init__.py
+aioazuredevops/builds.py
+aioazuredevops/cli.py
+aioazuredevops/client.py
+aioazuredevops/core.py
+aioazuredevops.egg-info/PKG-INFO
+aioazuredevops.egg-info/SOURCES.txt
+aioazuredevops.egg-info/dependency_links.txt
+aioazuredevops.egg-info/entry_points.txt
+aioazuredevops.egg-info/requires.txt
+aioazuredevops.egg-info/top_level.txt
