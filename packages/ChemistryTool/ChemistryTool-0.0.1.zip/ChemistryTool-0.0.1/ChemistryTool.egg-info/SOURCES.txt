@@ -1,0 +1,15 @@
+setup.py
+ChemistryTool.egg-info/PKG-INFO
+ChemistryTool.egg-info/SOURCES.txt
+ChemistryTool.egg-info/dependency_links.txt
+ChemistryTool.egg-info/top_level.txt
+chemistrytool/Concentration.py
+chemistrytool/Element.py
+chemistrytool/GasLaws.py
+chemistrytool/IUPAC.py
+chemistrytool/__init__.py
+chemistrytool/util/Character.py
+chemistrytool/util/Constants.py
+chemistrytool/util/JSONTool.py
+chemistrytool/util/Parser.py
+chemistrytool/util/__init__.py
