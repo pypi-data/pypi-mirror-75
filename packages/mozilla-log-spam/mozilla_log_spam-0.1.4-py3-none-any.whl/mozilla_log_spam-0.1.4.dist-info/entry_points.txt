@@ -1,0 +1,3 @@
+[console_scripts]
+log_spam = logspam.cli_entry:main
+
