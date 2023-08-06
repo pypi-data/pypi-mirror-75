@@ -1,0 +1,10 @@
+pytest>=5.0.0
+pytest-base-url
+pytest-html>=1.14.0
+pytest-variables>=1.5.0
+selenium>=3.0.0
+requests
+tenacity<7,>=6
+
+[appium]
+appium-python-client>=0.44
