@@ -1,0 +1,13 @@
+ply>=3.4
+networkx>=2
+decorator
+gast~=0.3.3
+six
+numpy
+beniget~=0.2.1
+
+[doc]
+numpy
+nbsphinx
+scipy
+guzzle_sphinx_theme
