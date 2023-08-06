@@ -1,0 +1,12 @@
+Metadata-Version: 2.1
+Name: ffsync
+Version: 0.0.8
+Summary: Sync two videos.
+Home-page: https://github.com/bchaselab/ffsync
+License: UNKNOWN
+Author: fcatus
+Author-email: f.catus@pm.me
+Requires-Python: >=3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Requires-Dist: pandas
