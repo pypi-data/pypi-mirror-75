@@ -1,0 +1,3 @@
+[console_scripts]
+ap_games = ap_games.cli:main
+
