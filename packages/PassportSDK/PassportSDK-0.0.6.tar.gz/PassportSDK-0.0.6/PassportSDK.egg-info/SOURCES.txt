@@ -1,0 +1,11 @@
+README.md
+setup.py
+PassportSDK.egg-info/PKG-INFO
+PassportSDK.egg-info/SOURCES.txt
+PassportSDK.egg-info/dependency_links.txt
+PassportSDK.egg-info/not-zip-safe
+PassportSDK.egg-info/top_level.txt
+passportsdk/__init__.py
+passportsdk/client.py
+passportsdk/common.py
+passportsdk/traits.py
