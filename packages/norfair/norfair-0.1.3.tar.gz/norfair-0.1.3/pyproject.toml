@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "norfair"
+version = "0.1.3"
+description = "Simple object tracker"
+license = "BSD-3-Clause"
+authors = ["joaqo <joaquin.alori@gmail.com>"]
+repository = "https://github.com/tryolabs/norfair"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+opencv-python = "^4.2.0"
+filterpy = "^1.4.5"
+rich = "^5.0.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
