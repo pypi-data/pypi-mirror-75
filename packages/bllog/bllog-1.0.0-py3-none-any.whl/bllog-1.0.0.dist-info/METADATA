@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: bllog
+Version: 1.0.0
+Summary: Simple and easy-to-use logger
+Home-page: https://github.com/barrow099/bllog
+Author: Barrow099 (Mate Magyar)
+Author-email: mate@barrow099.hu
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
+Requires-Dist: colorama
+Requires-Dist: termcolor
+
+# BLLog - A simple and easy-to-use logger
+
+The goal of the project was to create a very simple and easy to use logger
+that can log both to console and to a file. It has a one-liner initialization but
+also can be configured in various ways if you need to. Console color support is available
+on Windows and Linux using `termcolor` and `colorama` but can be disabled. 
+
+Feel free to make an issue or pull request on GitHub or even make a fork to add
+more functionality.
+
