@@ -1,0 +1,31 @@
+# Relocate
+**Do you want to organise your files?** <br>
+Then **_Relocate_** is here to help you. It will organise your files as per your requirement.  <br><br>
+Install the module from your command prompt.<br>
+`pip3 install relocate`  <br>
+To import the RELOCATE package, run the following. <br>
+`import relocate`  <br><br>
+Now you can group your files, based on the following options.
+### relocate.relocateNow()
+It will organise your files in separate folders, according to month of last modification and then according to extension.  <br>
+### relocate.byMonthCreated()
+It will organise your files in separate folders, according to month of creation.  <br>
+### relocate.byYearCreated()
+It will organise your files in separate folders, according to year of creation.  <br>
+### relocate.byMonthModified()
+It will organise your files in separate folders, according to month of last modification.  <br>
+### relocate.byYearModified()
+It will organise your files in separate folders, according to year of last modification.  <br>
+### relocate.byMonthLastAccessed()
+It will organise your files in separate folders, according to month of last access.  <br>
+### relocate.byYearLastAccessed()
+It will organise your files in separate folders, according to year of last access.  <br>
+### relocate.byExtension()
+It will organise your files in separate folders, according to file extension.  <br>
+### relocate.bySize()
+It will organise your files in separate folders, according to file size.  <br>
+### relocate.byFirstChar()
+It will organise your files in separate folders, according to first character of file name.  <br><br>
+
+Navigate to the RELOCATED folder  and you will get your files in an organised manner.  <br><br>
+For any queries, contact me on LinkedIn [https://www.linkedin.com/in/sandip-palit/]
