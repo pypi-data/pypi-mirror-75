@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: xinet
+Version: 0.0.6
+Summary: Use Python to create and explor world.
+Home-page: https://github.com/xinetzone/xinet
+Author: Xinwei Liu
+Author-email: 735613050@qq.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Operating System :: Microsoft :: Windows :: Windows 10
+Classifier: Operating System :: Microsoft :: Windows :: Windows 7
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# xinet
+
+Discover and create anything interesting!
+
+## PyPI
+
+Provide PyPI support.
+
+```sh
+pip install xinet
+```
+
+
