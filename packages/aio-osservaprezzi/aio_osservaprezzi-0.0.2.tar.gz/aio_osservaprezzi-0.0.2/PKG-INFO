@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: aio_osservaprezzi
+Version: 0.0.2
+Summary: Add a short description here!
+Home-page: https://pyscaffold.org/
+Author: Eliseo Martelli
+Author-email: me@eliseomartelli.it
+License: mit
+Description: =================
+        aio_osservaprezzi
+        =================
+        
+        
+        Consume the REST API of http://osservaprezzi.mise.gov.it/
+        
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Provides-Extra: testing
