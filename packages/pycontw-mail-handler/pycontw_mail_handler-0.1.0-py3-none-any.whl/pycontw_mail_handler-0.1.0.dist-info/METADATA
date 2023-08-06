@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: pycontw-mail-handler
+Version: 0.1.0
+Summary: Mail toolkit for PyCon Taiwan
+License: MIT
+Author: Lee-W
+Author-email: weilee.rx@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: jinja2 (>=2.11.2,<3.0.0)
