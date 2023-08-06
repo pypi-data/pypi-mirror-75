@@ -1,0 +1,6 @@
+include LICENSE
+include README.md
+include CHANGELOG.md
+recursive-include django_mail_template/migrations *
+recursive-include django_mail_template/locale *
+recursive-include ../docs/build/html *
