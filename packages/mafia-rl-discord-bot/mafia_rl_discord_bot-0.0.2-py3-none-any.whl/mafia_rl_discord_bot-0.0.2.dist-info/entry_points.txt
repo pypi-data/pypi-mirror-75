@@ -1,0 +1,3 @@
+[console_scripts]
+mafia_rl_discord_bot = mafia_rl_discord_bot.discord_bot:run_bot
+
