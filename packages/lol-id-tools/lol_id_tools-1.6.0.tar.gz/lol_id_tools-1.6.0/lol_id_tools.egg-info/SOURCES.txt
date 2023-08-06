@@ -1,0 +1,15 @@
+README.md
+setup.py
+lol_id_tools/__init__.py
+lol_id_tools/data_parser.py
+lol_id_tools/local_data_parser.py
+lol_id_tools/logger.py
+lol_id_tools/lol_id_tools.py
+lol_id_tools/lol_object_data.py
+lol_id_tools.egg-info/PKG-INFO
+lol_id_tools.egg-info/SOURCES.txt
+lol_id_tools.egg-info/dependency_links.txt
+lol_id_tools.egg-info/requires.txt
+lol_id_tools.egg-info/top_level.txt
+lol_id_tools/local_data/locales.json
+lol_id_tools/local_data/nicknames.json
