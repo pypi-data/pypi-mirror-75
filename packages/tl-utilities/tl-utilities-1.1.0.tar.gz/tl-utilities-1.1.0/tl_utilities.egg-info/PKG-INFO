@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: tl-utilities
+Version: 1.1.0
+Summary: Utility classes/methods used in VRM cloudless system
+Home-page: https://github.com/thanhledev/utilities
+Author: Thanh Le
+Author-email: thanhledev@gmail.com
+License: MIT
+Description: 
+        ## Virtual Resource Management in Cloudless System
+        
+        - singleton.py: provides Singleton metaclass that is used in various systems.
+        - tinydb_wrapper.py: provides TinyDbWrapper class that is used to interact with tinydb, and encapsulates useful methods to store/retrieve/remove hosts as well as necessary daemon information of each hosts.
+        - helper.py: provides useful helper methods (e.g., convert yaml to json, extract docker configuration from yaml)
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown
