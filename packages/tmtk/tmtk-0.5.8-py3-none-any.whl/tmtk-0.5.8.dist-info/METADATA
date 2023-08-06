@@ -1,0 +1,136 @@
+Metadata-Version: 2.1
+Name: tmtk
+Version: 0.5.8
+Summary: A toolkit for ETL curation for the tranSMART data warehouse.
+Home-page: https://www.github.com/thehyve/tmtk/
+Author: Jochem Bijlard
+Author-email: j.bijlard@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/thehyve/tmtk/tarball/0.5.8/
+Keywords: transmart,etl,arborist,concept tree
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pandas (<0.26.0,>=0.22.0)
+Requires-Dist: ipython (>=7.9.0)
+Requires-Dist: jupyter (<1.1.0,>=1.0.0)
+Requires-Dist: jupyter-client (>=5.3.4)
+Requires-Dist: jupyter-core (<4.7.0,>=4.6.1)
+Requires-Dist: jupyter-console (>=5.2.0)
+Requires-Dist: notebook (<6.1.0,>=5.7.8)
+Requires-Dist: requests (<2.23.0,>=2.22.0)
+Requires-Dist: tqdm (>=4.40.0)
+Requires-Dist: xlrd (>=1.2.0)
+Requires-Dist: click (>=7.0)
+Requires-Dist: arrow (>=0.15.4)
+
+====
+tmtk
+====
+
+Master:
+
+.. image:: https://travis-ci.org/thehyve/tmtk.svg?branch=master
+    :target: https://travis-ci.org/thehyve/tmtk
+
+.. image:: https://codecov.io/gh/thehyve/tmtk/branch/master/graph/badge.svg
+    :target: https://codecov.io/gh/thehyve/tmtk
+
+.. image:: https://readthedocs.org/projects/tmtk/badge/?version=latest
+    :target: http://tmtk.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+Develop:
+
+.. image:: https://travis-ci.org/thehyve/tmtk.svg?branch=develop
+    :target: https://travis-ci.org/thehyve/tmtk
+
+.. image:: https://codecov.io/gh/thehyve/tmtk/branch/develop/graph/badge.svg
+    :target: https://codecov.io/gh/thehyve/tmtk
+
+
+Anaconda Cloud latest package:
+
+.. image:: https://anaconda.org/conda-forge/tmtk/badges/version.svg
+    :target: https://anaconda.org/conda-forge/tmtk
+
+
+A toolkit for ETL curation for the tranSMART data warehouse. The
+TranSMART curation toolkit (``tmtk``) can be used to edit and validate
+studies prior to loading them with `transmart-batch`_.
+
+For general documentation visit `readthedocs`_.
+
+Installation
+------------
+
+Installing via Anaconda Cloud or Pip package managers
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Anaconda:
+
+.. code:: sh
+
+    conda install -c conda-forge tmtk
+
+Pip:
+
+.. code:: sh
+
+    pip install tmtk
+
+Installing manually
+^^^^^^^^^^^^^^^^^^^
+
+Initialize a virtualenv
+~~~~~~~~~~~~~~~~~~~~~~~
+
+.. code:: bash
+
+    python3 -m venv env
+    source env/bin/activate
+
+
+Installation from source
+~~~~~~~~~~~~~~~~~~~~~~~~
+
+To install *tmtk* and all dependencies into your Python environment,
+and enable the Arborist Jupyter notebook extension, run:
+
+.. code:: sh
+
+    pip install -r requirements.txt
+    python setup.py install
+
+or if you want to run the tool from code in development mode:
+
+.. code:: sh
+
+    pip install -r requirements.txt
+    python setup.py develop
+    jupyter-nbextension install --py tmtk.arborist
+    jupyter-serverextension enable tmtk.arborist
+
+
+Requirements
+^^^^^^^^^^^^
+
+The dependencies are in ``requirements.txt``,
+optional dependencies are in ``requirements-dev.txt``.
+
+
+Licence
+-------
+
+LGPL-3.0
+
+.. _transmart-batch: https://github.com/thehyve/transmart-batch/
+.. _virtualenvwrapper: https://virtualenvwrapper.readthedocs.io
+.. _readthedocs: https://tmtk.readthedocs.io/en/latest/
+.. _examples: examples
+
+
