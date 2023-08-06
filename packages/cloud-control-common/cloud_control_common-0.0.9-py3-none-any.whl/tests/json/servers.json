@@ -1,0 +1,91 @@
+{
+  "server": [
+    {
+      "name": "trevorServer",
+      "cluster": {
+        "id": "DEV_GEO1_1_CORK-01",
+        "name": "Cluster 1"
+      },
+      "cpu": {
+        "count": 2,
+        "speed": "STANDARD",
+        "coresPerSocket": 1
+      },
+      "memoryGb": 4,
+      "scsiController": [
+        {
+          "disk": [
+            {
+              "state": "NORMAL",
+              "id": "c7430d63-40de-4d29-9123-2baef30bfeb1",
+              "sizeGb": 10,
+              "speed": "STANDARD",
+              "scsiId": 0
+            }
+          ],
+          "state": "NORMAL",
+          "id": "9bd17b5f-3ad1-4e3b-b68b-f6c86eb3ad5b",
+          "adapterType": "LSI_LOGIC_PARALLEL",
+          "key": 1000,
+          "busNumber": 0
+        }
+      ],
+      "sataController": [
+      ],
+      "ideController": [
+      ],
+      "floppy": [
+      ],
+      "networkInfo": {
+        "primaryNic": {
+          "id": "058eb285-cf83-4492-b7b8-a7c0493b7843",
+          "privateIpv4": "10.0.0.6",
+          "ipv6": "2607:f480:9901:1802:33bc:15fa:6cd4:b07e",
+          "vlanId": "6ec7460b-23dc-47c1-b9de-b365270920a9",
+          "vlanName": "trevorVlan",
+          "networkAdapter": "VMXNET3",
+          "connected": true,
+          "macAddress": "00:50:56:a5:ea:0d",
+          "key": 4000,
+          "state": "NORMAL"
+        },
+        "networkDomainId": "5e5b29ef-860c-42d5-8631-eb2f2049a01d"
+      },
+      "source": {
+        "type": "IMAGE_ID",
+        "value": "022c569a-9332-4b2f-a7ee-def80bbbce8a"
+      },
+      "createTime": "2019-10-21T08:48:37.000Z",
+      "deployed": true,
+      "started": false,
+      "state": "NORMAL",
+      "guest": {
+        "operatingSystem": {
+          "id": "UBUNTU1464",
+          "displayName": "UBUNTU14/64",
+          "family": "UNIX",
+          "osUnitsGroupId": "CANONICAL"
+        },
+        "vmTools": {
+          "type": "VMWARE_TOOLS",
+          "versionStatus": "NEED_UPGRADE",
+          "runningStatus": "NOT_RUNNING",
+          "apiVersion": 10279
+        },
+        "osCustomization": true
+      },
+      "virtualHardware": {
+        "version": "vmx-13",
+        "upToDate": true
+      },
+      "tag": [
+      ],
+      "id": "0898cc1f-4385-4790-8a9b-1825fe9a571d",
+      "datacenterId": "DEV_GEO1_1_CORK"
+    }
+  ],
+  "pageNumber": 1,
+  "pageCount": 1,
+  "totalCount": 2,
+  "pageSize": 1
+}
