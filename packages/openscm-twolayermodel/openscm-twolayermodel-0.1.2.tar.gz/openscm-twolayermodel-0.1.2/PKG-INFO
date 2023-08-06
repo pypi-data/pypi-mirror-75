@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: openscm-twolayermodel
+Version: 0.1.2
+Summary: Implementations of the two layer radiative forcing driven models by `Held et al. <https://journals.ametsoc.org/doi/full/10.1175/2009JCLI3466.1>`_ and `Geoffroy et al. <https://journals.ametsoc.org/doi/pdf/10.1175/JCLI-D-12-00195.1>`_
+Home-page: https://github.com/openscm/openscm-twolayermodel
+Author: Chris Smith, Zeb Nicholls
+Author-email: c.j.smith1@leeds.ac.uk, zebedee.nicholls@climate-energy-college.org
+License: 3-Clause BSD License
+Description: Openscm Two Layer Model
+        =======================
+        
+        .. sec-begin-index
+        
+        OpenSCM two layer model contains implementations of the two layer radiative forcing driven models by `Held et al. <https://journals.ametsoc.org/doi/full/10.1175/2009JCLI3466.1>`_ and `Geoffroy et al. <https://journals.ametsoc.org/doi/pdf/10.1175/JCLI-D-12-00195.1>`_
+        [TODO, find reference which has the state-dependent feedback factor.]
+        
+        .. sec-end-index
+        
+        License
+        -------
+        
+        .. sec-begin-license
+        
+        OpenSCM two layer model is free software under a BSD 3-Clause License, see
+        `LICENSE <https://github.com/openscm/openscm-twolayermodel/blob/master/LICENSE>`_.
+        
+        .. sec-end-license
+Keywords: openscm-twolayermodel,openscm,python,repo,simple,climate,model
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/x-rst
+Provides-Extra: deploy
+Provides-Extra: dev
+Provides-Extra: docs
+Provides-Extra: notebooks
+Provides-Extra: tests
