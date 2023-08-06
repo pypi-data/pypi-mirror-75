@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: pyTextMiner
+Version: 1.1.116b9
+Summary: A text mining tool for Korean and English
+Home-page: https://github.com/MinSong2/pyTextMiner
+Author: Min Song
+Author-email: min.song@yonsei.ac.kr
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: cython
+Requires-Dist: seqeval
+Requires-Dist: kobert-transformers
+Requires-Dist: transformers (==2.9.1)
+Requires-Dist: sklearn-crfsuite
+Requires-Dist: pytorch-pretrained-bert
+Requires-Dist: gensim (==3.8.1)
+Requires-Dist: konlpy (==0.5.1)
+Requires-Dist: krwordrank (==1.0.2)
+Requires-Dist: kss (==1.3.1)
+Requires-Dist: lxml (==4.5.0)
+Requires-Dist: matplotlib (==3.2.1)
+Requires-Dist: mecab-python3
+Requires-Dist: networkx (==2.2)
+Requires-Dist: nltk (==3.4.5)
+Requires-Dist: node2vec
+Requires-Dist: bs4
+Requires-Dist: numpy (==1.16.6)
+Requires-Dist: pycrfsuite-spacing (==1.0.2)
+Requires-Dist: scikit-learn (==0.22.2.post1)
+Requires-Dist: scipy (==1.4.1)
+Requires-Dist: seaborn (==0.10.1)
+Requires-Dist: selenium (==3.141.0)
+Requires-Dist: soynlp (==0.0.493)
+Requires-Dist: soylemma (==0.2.0)
+Requires-Dist: tensorflow (==1.14.0)
+Requires-Dist: torch
+Requires-Dist: tomotopy (==0.8.0)
+Requires-Dist: chatspace (==1.0.1)
+Requires-Dist: pyLDAvis (==2.1.2)
+Requires-Dist: wordcloud (==1.6.0)
+
+Welcome to the package of pyTextMiner. The current version of pyTextMiner is 1.1.116.
+For those who are interested in contributing to the development of pyTextMiner, please contact at min.song.njit@gmail.com.
+
+pyTextMiner was originally designed with the architecture of pipeline.
+Each of text representation and processing task is treated as a pipe. Thus, a pipeline consists of a set of text representation/preprocessing tasks
+
+The current version of pyTextMiner supports Korean and English text.
+
+
