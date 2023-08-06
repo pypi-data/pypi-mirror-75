@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: naive-stopwords
+Version: 0.0.1
+Summary: Stopwords for Chinese.
+Home-page: https://github.com/naivenlp/naive-stopwords
+Author: ZhouYang Luo
+Author-email: zhouyang.luo@gmail.com
+License: Apache Software License
+Description: # naive-stopwords
+        Stop words for Chinese.
+        
+        
+        ## Installation
+        
+        ```bash
+        pip install -U naive-stopwords
+        ```
+        
+        ## Usage
+        
+        ```python
+        from naive_stopwords import Stopwords
+        
+        sw = Stopwords()
+        
+        print(sw.size())
+        print(sw.contains('hello'))
+        
+        sw.add('的')
+        print(sw.size())
+        print(sw.contains('的'))
+        
+        sw.remove('的')
+        print(sw.size())
+        print(sw.contains('的'))
+        
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Description-Content-Type: text/markdown
