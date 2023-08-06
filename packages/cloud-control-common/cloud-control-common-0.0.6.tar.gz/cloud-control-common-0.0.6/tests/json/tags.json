@@ -1,0 +1,72 @@
+{
+  "tag": [
+    {
+      "assetType": "SERVER",
+      "tagKeyName": "MartinTag",
+      "valueRequired": true,
+      "datacenterId": "DEV_GEO1_1_CORK",
+      "assetId": "1d7a6fa6-e9bc-4265-b761-c861f84f2eaa",
+      "assetName": "martin_demo",
+      "value": "demoValue",
+      "displayOnReport": false,
+      "tagKeyId": "bac6bd12-58c0-4fe1-89e8-b687cdfdd683"
+    },
+    {
+      "assetType": "NETWORK_DOMAIN",
+      "tagKeyName": "JimTag",
+      "valueRequired": false,
+      "datacenterId": "DEV_GEO1_1_CORK",
+      "assetId": "326f4e65-7455-4d1f-ba0e-287b747acd29",
+      "assetName": "dermot_networkDomain",
+      "value": "some_value",
+      "displayOnReport": false,
+      "tagKeyId": "f6a84e73-2ae4-4879-a641-3a3609effd42"
+    },
+    {
+      "assetType": "SERVER",
+      "tagKeyName": "JimTag",
+      "valueRequired": false,
+      "datacenterId": "DEV_GEO1_1_CORK",
+      "assetId": "5c1bcc11-b1d2-487e-a57e-9e9bc5983b59",
+      "assetName": "martin_test",
+      "displayOnReport": false,
+      "tagKeyId": "f6a84e73-2ae4-4879-a641-3a3609effd42"
+    },
+    {
+      "assetType": "SERVER",
+      "tagKeyName": "MartinTag",
+      "valueRequired": true,
+      "datacenterId": "DEV_GEO1_1_CORK",
+      "assetId": "5c1bcc11-b1d2-487e-a57e-9e9bc5983b59",
+      "assetName": "martin_test",
+      "value": "sd",
+      "displayOnReport": false,
+      "tagKeyId": "bac6bd12-58c0-4fe1-89e8-b687cdfdd683"
+    },
+    {
+      "assetType": "SERVER",
+      "tagKeyName": "JimTag",
+      "valueRequired": false,
+      "datacenterId": "DEV_GEO1_1_CORK",
+      "assetId": "c4e50a14-247f-4a9a-8f21-a05ed99b11d2",
+      "assetName": "JimsPreviewServer",
+      "displayOnReport": false,
+      "tagKeyId": "f6a84e73-2ae4-4879-a641-3a3609effd42"
+    },
+    {
+      "assetType": "SERVER",
+      "tagKeyName": "JohnTag",
+      "valueRequired": false,
+      "datacenterId": "DEV_GEO1_1_CORK",
+      "assetId": "f08ced05-7cb1-40db-947d-2e3b1d5abde4",
+      "assetName": "ChristopherPike",
+      "value": "testValue",
+      "displayOnReport": false,
+      "tagKeyId": "53f4df2b-fa0a-4dda-9142-7834185fbe0d"
+    }
+  ],
+  "pageSize": 1000,
+  "totalCount": 6,
+  "pageNumber": 1,
+  "pageCount": 6
+}

@@ -1,0 +1,204 @@
+[
+  {
+    "customerImage": [
+      {
+        "state": "NORMAL",
+        "guest": {
+          "operatingSystem": {
+            "id": "UBUNTU1464",
+            "displayName": "UBUNTU14/64",
+            "family": "UNIX",
+            "osUnitsGroupId": "CANONICAL"
+          },
+          "vmTools": {
+            "type": "VMWARE_TOOLS",
+            "versionStatus": "NEED_UPGRADE",
+            "runningStatus": "NOT_RUNNING",
+            "apiVersion": 10279
+          },
+          "osCustomization": true
+        },
+        "virtualHardware": {
+          "version": "vmx-13",
+          "upToDate": true
+        },
+        "source": {
+          "artifact": [
+            {
+              "type": "SERVER_ID",
+              "value": "f08ced05-7cb1-40db-947d-2e3b1d5abde4"
+            }
+          ],
+          "type": "CLONE"
+        },
+        "tag": [],
+        "name": "dermot test image",
+        "description": "",
+        "cluster": {
+          "id": "DEV_GEO1_1_CORK-01",
+          "name": "Cluster 1"
+        },
+        "cpu": {
+          "count": 2,
+          "speed": "STANDARD",
+          "coresPerSocket": 1
+        },
+        "memoryGb": 4,
+        "advancedVirtualizationSetting": [
+          {
+            "name": "nestedHardwareVirtualization",
+            "value": "true"
+          },
+          {
+            "name": "cpuLatencySensitivity",
+            "value": "NORMAL"
+          },
+          {
+            "name": "numaAutosize",
+            "value": "true"
+          },
+          {
+            "name": "enableHostInfoToVmTools",
+            "value": "true"
+          }
+        ],
+        "scsiController": [
+          {
+            "disk": [
+              {
+                "id": "bc19ab3b-09ca-492e-a7e8-f815244876fb",
+                "sizeGb": 10,
+                "speed": "STANDARD",
+                "scsiId": 0
+              }
+            ],
+            "id": "657c70d6-db28-4626-98c5-f7d641fc7d1e",
+            "adapterType": "LSI_LOGIC_PARALLEL",
+            "key": 1000,
+            "busNumber": 0
+          }
+        ],
+        "softwareLabel": [],
+        "createTime": "2019-12-03T16:19:22.000Z",
+        "id": "563eb7d7-3230-4921-89df-0463e5851198",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      },
+      {
+        "state": "NORMAL",
+        "guest": {
+          "operatingSystem": {
+            "id": "REDHAT664",
+            "displayName": "REDHAT6/64",
+            "family": "UNIX",
+            "osUnitsGroupId": "REDHAT"
+          },
+          "vmTools": {
+            "type": "VMWARE_TOOLS",
+            "versionStatus": "NEED_UPGRADE",
+            "runningStatus": "NOT_RUNNING",
+            "apiVersion": 10279
+          },
+          "osCustomization": true
+        },
+        "virtualHardware": {
+          "version": "vmx-13",
+          "upToDate": true
+        },
+        "source": {
+          "artifact": [
+            {
+              "type": "SERVER_ID",
+              "value": "a7afd33c-4b96-4aca-ab20-5ee80663a87f"
+            }
+          ],
+          "type": "CLONE"
+        },
+        "tag": [],
+        "name": "JimsNewerClone",
+        "description": "",
+        "cluster": {
+          "id": "DEV_GEO1_1_CORK-01",
+          "name": "Cluster 1"
+        },
+        "cpu": {
+          "count": 2,
+          "speed": "HIGHPERFORMANCE",
+          "coresPerSocket": 1
+        },
+        "memoryGb": 2,
+        "advancedVirtualizationSetting": [
+          {
+            "name": "nestedHardwareVirtualization",
+            "value": "true"
+          },
+          {
+            "name": "cpuLatencySensitivity",
+            "value": "NORMAL"
+          },
+          {
+            "name": "numaAutosize",
+            "value": "true"
+          },
+          {
+            "name": "enableHostInfoToVmTools",
+            "value": "true"
+          }
+        ],
+        "scsiController": [
+          {
+            "disk": [
+              {
+                "id": "6eef2a09-8295-4d4e-ba71-71ef31a4fcf2",
+                "sizeGb": 10,
+                "speed": "STANDARD",
+                "scsiId": 0
+              }
+            ],
+            "id": "a7a6a399-c3ec-4167-a82c-1e9653b7a40e",
+            "adapterType": "LSI_LOGIC_PARALLEL",
+            "key": 1000,
+            "busNumber": 0
+          }
+        ],
+        "ideController": [
+          {
+            "id": "708f6ca6-4e76-40a3-9e0f-e4479a366950",
+            "adapterType": "IDE",
+            "key": 200,
+            "channel": 0
+          },
+          {
+            "deviceOrDisk": [
+              {
+                "device": {
+                  "id": "af80404a-7d77-4258-8ef9-d82e9cd46399",
+                  "type": "CDROM",
+                  "slot": 0
+                }
+              }
+            ],
+            "id": "28e5ecb0-07f4-4560-9a30-484fc99ebe54",
+            "adapterType": "IDE",
+            "key": 201,
+            "channel": 1
+          }
+        ],
+        "floppy": [
+          {
+            "id": "1a9f5bdf-787c-4d7a-bd49-2b8ddc196912",
+            "driveNumber": 0,
+            "key": 8000
+          }
+        ],
+        "softwareLabel": [],
+        "createTime": "2019-12-06T16:35:14.000Z",
+        "id": "10ac7aa6-e2a7-4e3c-ba0f-66ac8b1a372a",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      }
+    ],
+    "pageNumber": 1,
+    "pageCount": 2,
+    "totalCount": 2,
+    "pageSize": 250
+  }
+]
