@@ -1,0 +1,5311 @@
+Metadata-Version: 2.1
+Name: see19
+Version: 0.4b0
+Summary: An interface for visualizing and analysing the see19 dataset
+Home-page: https://github.com/ryanskene/see19
+Author: Ryan Skene
+Author-email: rjskene83@gmail.com
+License: UNKNOWN
+Description: # see19 Guide
+        
+        **A dataset and interface for visualizing and analyzing the epidemiology of Coronavirus Disease 2019 aka COVID19 aka C19**
+        
+        Current with version 0.4.0
+        
+        # Analysis
+        
+        Please read my various deep dives with `see19` exploring different aspects of COVID19.
+        
+        [How Effective Is Social Distancing?](https://ryanskene.github.io/see19/analysis/How%20Effective%20Is%20Social%20Distancing%3F.html)
+        
+        [What Factors Are Correlated With COVID19 Fatality Rates?](https://ryanskene.github.io/see19/analysis/What%20Factors%20Are%20Correlated%20With%20COVID19%20Fatality%20Rates%3F.html)
+        
+        [The COVID Dragons](https://ryanskene.github.io/see19/analysis/The%20COVID%20Dragons.html)
+        
+        # Contents
+        
+        1. [Purpose](#section1)
+        2. [Getting Started](#section2)
+        3. [the Data](#section3)  
+            3.1 [Data Sources](#section3.1)  
+            3.2 [Dataset Characteristics](#section3.2)  
+            3.3 [The Testset](#section3.3)  
+            3.4 [Disclaimer](#section3.4)
+        4. [the CaseStudy Interface](#section4)    
+            4.1 [Basics](#section4.1)  
+            4.2 [Filtering](#section4.2)  
+            4.3 [Smoothing](#section4.3)  
+            4.4 [Available Factors](#section4.4)  
+            4.5 [Additional Flags](#section4.5)    
+            4.6 [RayStudy v BaseStudy](#section4.6)    
+            4.7 [Chart Objects](#section4.7)
+        5. [compchart - Visualizing Regional Impacts](#section5)    
+            5.1 [Daily Fatalities Comparison - Italy](#section5.1)  
+            5.2 [Daily Fatalities Comparison - 10 Most Impacted Regions](#section5.2)  
+            5.3 [Varying the Categories](#section5.3)  
+        6. [compchart4D - Visualizing Factors in 4D](#section6)    
+            6.1 [From 3D to 4D](#section6.1)  
+            6.2 [More on the X-Axis](#section6.2)  
+            6.3 [How Far Can We Take It?](#section6.3)
+        7. [heatmap - Visualizing with Color Maps](#section7)    
+            7.1 [Count Category v Single Factor](#section7.1)  
+            7.2 [Count Category v Multiple Factors](#section7.2)  
+        8. [barcharts - Comparing Regional Factors](#section8)
+        9. [ScatterFlow for Large Sets](#section9)    
+            9.1 [substrinscat - for Strindex Sub-Categories](#section9.1)  
+            9.2 [scatterflow](#section9.2)  
+        
+        <h1><a id='section1'>1. Purpose</a></h1>
+        
+        **See19** is the single most comprehensive international COVID-19 dataset available.
+        
+        Ease-of-use is paramount, thus, all data from all sources have been compiled into a single structure, readily consumed and manipulated in the ubiquitous `csv` format.
+        
+        Along with the root data, a module is included with analysis and visualizations tools.
+        
+        <h1><a id='section2'>2. Getting Started</a></h1>
+        
+        **See19** is a dataset ***and*** a python package.
+        
+        The dataset can be accessed directly **[here]('https://github.com/ryanskene/see19/tree/master/dataset')**. Files are timestamped with creation date.
+        
+        The package can be installed via pip.
+        
+        `pip install see19`
+        
+        <h1><a id='section3'> 3. the Data</a></h1>
+        
+        3.1 [Data Sources](#section3.1)  
+        3.2 [Dataset Characteristics](#section3.2)  
+        3.3 [The Testset](#section3.3)  
+        3.4 [Disclaimer](#section3.4)
+        
+        The See19 dataset aggregates global data on COVID19 in various regions, as available data allows, and marries that data with available datasets on exogenous regional factors that might impact the epidemiology of the virus.
+        
+        The dataset is compiled using `Selenium`, `Django`, `SQLite`, and `Pandas`.
+        
+        
+        #### COVID19 Data Characteristics:
+        * Cumulative Cases for each region on each date
+        * Cumulative Fatalities for each region on each date
+        * State / Provincial-level data available for:
+            * Australia
+            * Brazil
+            * Canada
+            * China
+            * Italy
+            * United States
+        * Country-level available for all other regions
+        
+        **Factor Data Characteristics** available for most regions:
+        * Longitude / Latitude
+            * I just wrote a script that searched the region name on [this website]('https://www.openstreetmap.org/') and pulled the coordinates from the resulting url
+        * Population
+        * Population demographic segmentation
+        * Land Density
+        * City Density (typically the density of the largest city in the region)
+        * Climate Characteristics including:
+            * Average daily temperature
+            * Average daily dewpoint temperate
+            * Average daily relative humidity (derived from temperature and dewpoint temperature)
+            * Total daily UV-B Radiation
+        * Air quality measures      
+        * Historical Health Outcomes
+        * Travel Popularity
+        * Social Distancing Implementation
+            
+        Updated each morning.
+        
+        <h2><a id='section3.1'>3.1 Data Sources</a></h2>
+        
+        #### COVID Case, Fatality, and Testing Data:
+        * `cases` and `deaths` and `tests`
+            * [Brazil Regional Data compiled via the great from Wesley Cota and team.](https://github.com/wcota/covid19br)
+             * *Note*: Brazil data was previously available directly from the federal government, however, the fulsome CSV was removed from the site and a new source was required.
+            * [Italy Regional Data from the government github repo](https://github.com/pcm-dpc/COVID-19/blob/master/dati-regioni/dpc-covid19-ita-regioni-20200224.csv)
+                * *Note:* Italian testing has two categories that complicate the data somewhat
+                    * `tamponi` refers to swabs. Swabs have been recorded since very early on. There are generally multiple swabs per individual whereas most test counts are one test per individual.
+                    * `casi_testati` refers to the more standard one test per person. This metric was not reliably tract before mid-April
+                    * for metrics prior to mid-April, `see19` adjusts the `tamponi` counts by finding the average `tamponi` per `case_testati` across the all data then dividing the tampons by the average to estimate casi_testati
+        
+        * `cases` and `deaths`
+            * [US Regional Data from the COVID Tracking Project](https://covidtracking.com)
+            * [Other Regions from Johns Hopkins via humdata.org](https://data.humdata.org/dataset/novel-coronavirus-2019-ncov-cases)
+        
+        * `tests`
+            * [Country Level from myriad sources via humdata.org](https://data.humdata.org/dataset/total-covid-19-tests-performed-by-country)
+            * [Australia](https://services1.arcgis.com/vHnIGBHHqDR6y0CR/arcgis/rest/services/COVID19_Time_Series/FeatureServer/0/query?where=1%3D1&outFields=*&outSR=4326&f=json)
+            * [Canada](https://www.canada.ca/en/public-health/services/diseases/2019-novel-coronavirus-infection.html)
+            * [United States](https://covidtracking.com/)
+        
+        Other Data:
+        * Longitude & Latitude
+            * I just wrote a script that searched each region name on this [site]('https://www.openstreetmap.org/')
+            * Any errors were fixed manually
+        * [Population, Demographics, and Density from SEDAC](https://sedac.ciesin.columbia.edu/data/set/gpw-v4-admin-unit-center-points-population-estimates-rev11)
+            * Matched to regional case data by name, often manually
+        * [Climate Data from European Centre for Medium-Range Weather Forecasts](https://cds.climate.copernicus.eu/cdsapp#!/dataset/reanalysis-era5-single-levels?tab=overview)
+            * Climate data pulled from nearest matching longitude & latitude coordinate in the dataset
+        * [Air Quality Data from the World Air Quality Project](https://aqicn.org/data-platform/covid19/verify/1c09b43b-09f2-4244-a86f-24647e1fa3d9)
+            * Air quality data recorded at city-level, with limited number of cities available
+            * City data is aggregated to the regional or country-level
+            * So, where a region has mutiple cities reporting AQ data, the region value is aggregate of the cities
+            * Where a region has only a single city, that city represents the whole region
+            * Where a region has no cities, NADA
+        * Social Distancing Stringency Index and Policy Indicators via [Oxford Covid Government Response Tracker](https://github.com/OxCGRT/covid-policy-tracker)
+        * [Google Mobility Data](https://www.google.com/covid19/mobility/)
+        * [Apple Mobility Index](https://www.apple.com/covid19/mobility)
+        * GDP Per Capita via the [OECD](https://stats.oecd.org/Index.aspx?DataSetCode=REGION_ECONOM) and [WorldBank](https://data.worldbank.org/indicator/NY.GDP.MKTP.PP.CD?most_recent_year_desc=false)
+            * utilizing real 2016 Purchasing Power Parity figures indexed to 2015 US dollars
+        * Causes of Death
+            * A fairly messy hodgepodge of data for [global](https://ourworldindata.org/causes-of-death), [US](https://wonder.cdc.gov/controller/datarequest/D76;jsessionid=7D21B11E6FF1F1059C184EE313E58875), and [Italy](http://dati.istat.it/Index.aspx?QueryId=26435&lang=en#)
+        * Travel Popularity
+            * An even messier hodgepodge of data pulled from the World Tourism Organization via [indexmundi](https://www.indexmundi.com/facts/indicators/ST.INT.ARVL/rankings)
+            * State/Provincial data were derived from the country-level and other various sources in an ad-hoc fashion
+            * Good travel data is surprisingly difficult to come by. There are a number of services that offer data on flight statistics, however, it is prohibitively expensive
+        
+        <h2><a id='section3.2'>3.2 Dataset Characteristics</a></h2>
+        
+        With `see19` installed, we can download the dataset via `get_baseframe`
+        
+        
+        ```python
+        import numpy as np
+        import pandas as pd
+        ```
+        
+        
+        ```python
+        # from see19 import get_baseframe
+        from casestudy.see19.see19 import get_baseframe
+        bf = get_baseframe()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Find latest dataset...', layout=Layout(flex='2'), max=3.0…
+        
+        
+        The dataset is arranged such that each row is a unique entry for each `region_id` on each `date`
+        
+        All other columns are the value of that particular factor in that particular region on that particular date
+        
+        
+        ```python
+        bf.head(3)
+        ```
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>genito</th>
+              <th>childbirth</th>
+              <th>perinatal</th>
+              <th>congenital</th>
+              <th>other</th>
+              <th>external</th>
+              <th>visitors</th>
+              <th>travel_year</th>
+              <th>gdp</th>
+              <th>gdp_year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>0</th>
+              <td>282</td>
+              <td>110</td>
+              <td>ABR</td>
+              <td>Abruzzo</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-01-01</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>...</td>
+              <td>442.0</td>
+              <td>1.0</td>
+              <td>16.0</td>
+              <td>19.0</td>
+              <td>384.0</td>
+              <td>2059</td>
+              <td>181458.0</td>
+              <td>2017.0</td>
+              <td>4.560860e+10</td>
+              <td>2016.0</td>
+            </tr>
+            <tr>
+              <th>1</th>
+              <td>282</td>
+              <td>110</td>
+              <td>ABR</td>
+              <td>Abruzzo</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-01-02</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>...</td>
+              <td>442.0</td>
+              <td>1.0</td>
+              <td>16.0</td>
+              <td>19.0</td>
+              <td>384.0</td>
+              <td>2059</td>
+              <td>181458.0</td>
+              <td>2017.0</td>
+              <td>4.560860e+10</td>
+              <td>2016.0</td>
+            </tr>
+            <tr>
+              <th>2</th>
+              <td>282</td>
+              <td>110</td>
+              <td>ABR</td>
+              <td>Abruzzo</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-01-03</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>...</td>
+              <td>442.0</td>
+              <td>1.0</td>
+              <td>16.0</td>
+              <td>19.0</td>
+              <td>384.0</td>
+              <td>2059</td>
+              <td>181458.0</td>
+              <td>2017.0</td>
+              <td>4.560860e+10</td>
+              <td>2016.0</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>3 rows × 132 columns</p>
+        </div>
+        
+        
+        
+        _This could perhaps be more appropriately structured as a multi-index frame, however, I find such indexes cumbersome to work with._
+        
+        
+        ```python
+        'There are {} unique regions in the dataset'.format(bf.region_id.unique().size)
+        ```
+        
+        
+        
+        
+            'There are 325 unique regions in the dataset'
+        
+        
+        
+        **Australia, Brazil, Canada, China, Italy, and the US** have state/provincial level data.
+        
+        For example, regions within Italy and Brazil are as follows:
+        
+        
+        ```python
+        bf[bf.country.isin(['Italy', 'Brazil'])].region_name.unique()
+        ```
+        
+        
+        
+        
+            array(['Abruzzo', 'Acre', 'Alagoas', 'Amapa', 'Amazonas', 'Bahia',
+                   'Basilicata', 'Calabria', 'Campania', 'Ceara', 'Distrito Federal',
+                   'Emilia-Romagna', 'Espirito Santo', 'Friuli Venezia Giulia',
+                   'Goias', 'Lazio', 'Liguria', 'Lombardia', 'Maranhao', 'Marche',
+                   'Mato Grosso', 'Mato Grosso Do Sul', 'Minas Gerais', 'Molise',
+                   'P.A. Bolzano', 'P.A. Trento', 'Para', 'Paraiba', 'Parana',
+                   'Pernambuco', 'Piaui', 'Piemonte', 'Puglia', 'Rio De Janeiro',
+                   'Rio Grande Do Norte', 'Rio Grande Do Sul', 'Rondonia', 'Roraima',
+                   'Santa Catarina', 'Sao Paulo', 'Sardegna', 'Sergipe', 'Sicilia',
+                   'Tocantins', 'Toscana', 'Umbria', "Valle d'Aosta", 'Veneto'],
+                  dtype=object)
+        
+        
+        
+        
+        ```python
+        'Each region has {} dates in the dataset'.format(bf.date.unique().size)
+        ```
+        
+        
+        
+        
+            'Each region has 202 dates in the dataset'
+        
+        
+        
+        
+        ```python
+        """Thus, there are {:,.0f} rows in the dataset, with one row for each unique `region_id`-`date` combination""" \
+        .format(bf.date.shape[0])
+        ```
+        
+        
+        
+        
+            'Thus, there are 65,650 rows in the dataset, with one row for each unique `region_id`-`date` combination'
+        
+        
+        
+        
+        ```python
+        """There are currently {} columns in the dataset, most of which are observable factors""".format(bf.columns.size)
+        ```
+        
+        
+        
+        
+            'There are currently 132 columns in the dataset, most of which are observable factors'
+        
+        
+        
+        The factors can be seen as split between two types:
+        * **Time-static** factors, i.e. do not change by the date. 
+            * population, density, population demographic ranges, cause of death outcomes, travel popularity
+            
+        * **Time-dynamic** factors, i.e. change with each date. 
+            * fatalities, climate, pollution, mobility, and the Oxford stringency index
+        
+        They can be found as follows:
+        
+        
+        ```python
+        ny = bf[bf.region_name == 'New York']
+        
+        static = []
+        dynamic = []
+        for col in ny.columns:
+            if ny[col].unique().size > 1:
+                dynamic.append(col)
+            else:
+                static.append(col)
+        
+        bold = '\033[1m'
+        end = '\033[0m'
+        print ('{}***STATIC***{}\n'.format(bold, end), static)
+        print ('\n')
+        print ('{}***DYNAMIC***{}\n'.format(bold, end), dynamic)
+        ```
+        
+            [1m***STATIC***[0m
+             ['region_id', 'country_id', 'region_code', 'region_name', 'country_code', 'country', 'population', 'land_KM2', 'land_dens', 'city_KM2', 'city_dens', 'A00_04B', 'A05_09B', 'A10_14B', 'A15_19B', 'A20_24B', 'A25_29B', 'A30_34B', 'A35_39B', 'A40_44B', 'A45_49B', 'A50_54B', 'A55_59B', 'A60_64B', 'A65_69B', 'A70_74B', 'A75_79B', 'A80_84B', 'A09UNDERB', 'A14UNDERB', 'A19UNDERB', 'A24UNDERB', 'A29UNDERB', 'A34UNDERB', 'A65PLUSB', 'A70PLUSB', 'A75PLUSB', 'A80PLUSB', 'A85PLUSB', 'A05_19B', 'A05_24B', 'A05_29B', 'A05_34B', 'A15_24B', 'A15_29B', 'A15_34B', 'A20_29B', 'A20_34B', 'A35_54B', 'A40_54B', 'A45_54B', 'A35_64B', 'A40_64B', 'A45_64B', 'pm10', 'precipitation', 'wd', 'uvi', 'aqi', 'pol', 'mepaqi', 'pm1', 'e3', 'e4', 'h4', 'h5', 'transit_apple', 'walking_apple', 'year', 'neoplasms', 'blood', 'endo', 'mental', 'nervous', 'circul', 'infectious', 'respir', 'digest', 'skin', 'musculo', 'genito', 'childbirth', 'perinatal', 'congenital', 'other', 'external', 'visitors', 'travel_year', 'gdp', 'gdp_year']
+            
+            
+            [1m***DYNAMIC***[0m
+             ['date', 'cases', 'deaths', 'tests', 'co', 'dew', 'humidity', 'no2', 'o3', 'pm25', 'pressure', 'so2', 'temperature', 'wind gust', 'wind speed', 'wind-gust', 'wind-speed', 'temp', 'dewpoint', 'uvb', 'rhum', 'c1', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'e1', 'e2', 'h1', 'h2', 'h3', 'strindex', 'retail_n_rec', 'groc_n_pharm', 'parks', 'transit', 'workplaces', 'residential', 'driving_apple']
+        
+        
+        
+        ```python
+        'The entire set has {:,.0f} different data points'.format(bf.size)
+        ```
+        
+        
+        
+        
+            'The entire set has 8,665,800 different data points'
+        
+        
+        
+        <h2><a id='section3.3'>3.3 The Testset</a></h2>
+        
+        A separate dataset, referred to as the `testset`, is housed in the `see19` repo in the `testset` folder.
+        The `testset` will include new data (either additional factors or new regions) that has not yet been incorporated in the `see19` interface. The goal is to integrate the new data into the interface over time. The `testset` will be update concurrently with the main dataset on an adhoc basis.
+        
+        The existing `see19` package is ***NOT*** be compatiable with the `testset`, **HOWEVER** you can download the `testset` via `get_baseframe` by setting `test=True`.
+        
+        See the `readme` for additional data currently available in the `testset`.
+        
+        
+        ```python
+        bf_test = get_baseframe(test=True)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Find latest testset...', layout=Layout(flex='2'), max=3.0…
+        
+        
+        <h2><a id='section3.4'>3.4 Disclaimer</a></h2>
+        
+        I have said before and it bears repeating: **This is an imperfect dataset.** Specific problems are highlighted here.
+        
+        **GENERAL ISSUES**
+        * Not all factors have available measurements for each region or each date.
+            * These are typically expressed as `NaN`
+        
+        * Some factors are available at regional levels while others are not
+            * Measurements for a region are often compared to other measurements at the country level. This isn't necessarily problematic ... for large geographic and populous countries like the US, it is likely better that state-level data is used to compare to other smaller countries.
+            * State-level measurements are often estimate by mixing separate data sources. For instance, Visitor data for the provinces of Brazil was estimated by taking the country-level data from the World Tourism Organization and weighting it by the province's proportionate share in visitor travel from separate data from the Brazilian government.
+        * Some data is outdated.
+            * GDP data lags signficantly particularly for large groups of countries, so 2016 figures have been used, presuming that the relative mix among countries has remained constant
+            
+        **DENSITY**
+        
+        Population density is oft-cited as a potential explanatory factor in COVID19 infection rates. And I couldn't agree more that it is important to consider. However, the study of density suffers from many issues.
+        
+        
+        * Denisty is highly variable within regions. And case and fatality rates have been highly variable within regions and across densities. In New York City, for example, some of the least dense regions have had the highest infection rates.
+        
+        * With only regional data available, to be rigourous the safest option is to simple choose the density of the region. However, this is often a poor reflection of reality. New York State actually has signficant land mass despite most of its population residing on a tiny island on the southeastern edge.
+        
+        * To account for this, See19 includes a factor `city_dens`. `city_dens` is the density of the largest city in the region, so :
+            * for New York State, `city_dens` is the density of New York City,
+            * for Taiwan, `city_dens` is the density of Taipei, 
+            * for Japan, `city_dens` is the density of Tokyo, and so on.
+        
+            This approach results in its own issues. For instance, at present, for all of Russia, `city_dens` reflects the density of Moscow.
+        
+        Other geographic measurements, such as `temperature` and `uvb radiation` suffer from similar issues.
+        
+        
+        The only true way to address these shortcomings is for ***daily*** case and fatality statistics to be released at the county-level (or equivalent) in every country around the globe.
+        
+        **CASE DATA**
+        
+        Aside from just the difficulties of aggregating data, there are well-documented issues with the underlying case and fatality counts as well.
+        
+        
+        * Confirmed cases are likely well below actual cases given up to 50% of all COVID19 cases may be asymptomatic and limited testing in the early stages led to many symptomatic cases going unreported.
+        
+        
+        * The rapid improvement in testing likely exaggerated the growth of infections over time
+        
+        
+        * Fatalities were unreported at peak periods due to lack of health care capacity
+        
+        
+        * Fatalities have been retroactively added to data, without adjusting back to the days the fatalities actually occured, so for regions like Hubei and New York state, there are massive spikes in fatalities that don't reflect the actual experience.
+        
+        
+        * China has been heavily criticized for under-reporting, late-reporting, and recently added ~20% increase in cumulative fatalities on a random day in March. For these reasons, throughout this tutorial, you will see that China is often excluded from the dataset.
+        
+        
+        **TESTING**
+        
+        Testing statistics are still a bit of a mess internationally. For instance, many European countries only report cumulative test counts on a weekly basis and many have only begun reporting in the vary recent past. Different methods of interpolation are available in the `CaseStudy` interface.
+        
+        * ***Brazil*** is not currently included in `tests` data. Brazil test counts are only currently available on the country level whereas case and fatality data is available on a regional level. Methods are being considered to allocate aggregate tests among the regions (perhaps simply as percentage of population or cases counts).
+        
+        
+        
+        <h1><a id='section4'>4. the Casestudy Interface</a></h1>
+        
+        4.1 [Basics](#section4.1)  
+        4.2 [Filtering](#section4.2)  
+        4.3 [Smoothing](#section4.3)  
+        4.4 [Available Factors](#section4.4)  
+        4.5 [Additional Flags](#section4.5)    
+        4.6 [RayStudy v BaseStudy](#section4.6)    
+        4.7 [Chart Objects](#section4.7)
+        
+        See19 Visualization and Data analysis is completed via the `CaseStudy` class. `CaseStudy` provides attributes and methods for filtering, manipulating, appending, and visualizing data in the baseframe.
+        
+        `CaseStudy` can be accessed directly from the `see19` module. To initialize, simply pass the baseframe.
+        
+        
+        ```python
+        # from see19 import CaseStudy
+        from casestudy.see19.see19 import CaseStudy
+        casestudy = CaseStudy(bf)
+        ```
+        
+        <h2><a id='section4.1'>4.1 Basics</a></h2>
+        
+        The original baseframe can be accessed via the `baseframe` attribute
+        
+        
+        ```python
+        casestudy.baseframe.head(2)
+        ```
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>genito</th>
+              <th>childbirth</th>
+              <th>perinatal</th>
+              <th>congenital</th>
+              <th>other</th>
+              <th>external</th>
+              <th>visitors</th>
+              <th>travel_year</th>
+              <th>gdp</th>
+              <th>gdp_year</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>0</th>
+              <td>282</td>
+              <td>110</td>
+              <td>ABR</td>
+              <td>Abruzzo</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-01-01</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>...</td>
+              <td>442.0</td>
+              <td>1.0</td>
+              <td>16.0</td>
+              <td>19.0</td>
+              <td>384.0</td>
+              <td>2059</td>
+              <td>181458.0</td>
+              <td>2017.0</td>
+              <td>4.560860e+10</td>
+              <td>2016.0</td>
+            </tr>
+            <tr>
+              <th>1</th>
+              <td>282</td>
+              <td>110</td>
+              <td>ABR</td>
+              <td>Abruzzo</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-01-02</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>...</td>
+              <td>442.0</td>
+              <td>1.0</td>
+              <td>16.0</td>
+              <td>19.0</td>
+              <td>384.0</td>
+              <td>2059</td>
+              <td>181458.0</td>
+              <td>2017.0</td>
+              <td>4.560860e+10</td>
+              <td>2016.0</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>2 rows × 132 columns</p>
+        </div>
+        
+        
+        
+        `CaseStudy` automatically computes different adjustments including:
+        
+        1. Daily new cases, fatalities, and tests (called `count_types`)
+        2. Daily Moving Average (DMA) for new and cumulative count_types
+        3. Population and density adjustments for new and cumulative count_types
+        4. Daily growth or change in 1. thru 3. above
+        
+        These adjustments are referred to as `count_categories`. Additional adjustments are available via kwargs to be discussed below.
+        
+        Ajustments are added to the dataset by calling the `make` method. The amended dataset is the accessible via the `df` attribute.
+        
+        
+        ```python
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=502.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=285.0), HTML(value='')))
+        
+        
+        The amended dataframe can be accessed via the `df` attribute:
+        
+        
+        ```python
+        casestudy.df.head(2)
+        ```
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>growth_cases_per_person_per_city_KM2</th>
+              <th>growth_deaths_per_1K</th>
+              <th>growth_deaths_per_1M</th>
+              <th>growth_deaths_per_person_per_land_KM2</th>
+              <th>growth_deaths_per_person_per_city_KM2</th>
+              <th>growth_tests_per_1K</th>
+              <th>growth_tests_per_1M</th>
+              <th>growth_tests_per_person_per_land_KM2</th>
+              <th>growth_tests_per_person_per_city_KM2</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>43906</th>
+              <td>32</td>
+              <td>110</td>
+              <td>TRE</td>
+              <td>P.A. Trento</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-03-13</td>
+              <td>216.699585</td>
+              <td>1.87999</td>
+              <td>803.712436</td>
+              <td>...</td>
+              <td>1.523364</td>
+              <td>2.0</td>
+              <td>2.0</td>
+              <td>2.0</td>
+              <td>2.0</td>
+              <td>1.426644</td>
+              <td>1.426644</td>
+              <td>1.426644</td>
+              <td>1.426644</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>43907</th>
+              <td>32</td>
+              <td>110</td>
+              <td>TRE</td>
+              <td>P.A. Trento</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-03-14</td>
+              <td>273.865733</td>
+              <td>1.87999</td>
+              <td>955.714788</td>
+              <td>...</td>
+              <td>1.263804</td>
+              <td>1.0</td>
+              <td>1.0</td>
+              <td>1.0</td>
+              <td>1.0</td>
+              <td>1.189125</td>
+              <td>1.189125</td>
+              <td>1.189125</td>
+              <td>1.189125</td>
+              <td>1 days</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>2 rows × 140 columns</p>
+        </div>
+        
+        
+        
+        *NOTE: [Ray](https://docs.ray.io/en/master/) and [Numba](https://numba.pydata.org/) are utilized to significantly improve the speed of `make`. Ray is not compatible with Windows. `CaseStudy` will attempt to detect incompatibility and revert to a single-process method where applicable.*
+        
+        *More in [Section 4.5](#section4.5)*
+        
+        For ease of selection, `CaseStudy` has a number of class attributes with different groupings of count categories: `BASECOUNT_CATS`, `PER_CATS`, `LOGNAT_CATS`, `LOG_CATS`, `ALL_CATS`, `DMA_COUNT_CATS`, `PER_COUNT_CATS`.
+        
+        `DMA_COUNT_CATS` is shown as an example:
+        
+        
+        ```python
+        CaseStudy.DMA_COUNT_CATS[:10]
+        ```
+        
+        
+        
+        
+            ['cases_dma',
+             'cases_new_dma',
+             'deaths_dma',
+             'deaths_new_dma',
+             'tests_dma',
+             'tests_new_dma',
+             'cases_dma_per_1K',
+             'cases_dma_per_1M',
+             'cases_dma_per_person_per_land_KM2',
+             'cases_dma_per_person_per_city_KM2']
+        
+        
+        
+        Both the log10 and natural of each of 1. thru 3. above are available for presentation purposes. Simply provide `log=True` and/or `lognat=True` and/or .
+        
+        
+        ```python
+        casestudy.log = True
+        casestudy.lognat = True
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=502.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=285.0), HTML(value='')))
+        
+        
+        
+        ```python
+        casestudy.df[['region_name', 'date'] + [col for col in casestudy.df if 'log' in col]].head(2)
+        ```
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_name</th>
+              <th>date</th>
+              <th>cases_dma_log</th>
+              <th>cases_new_log</th>
+              <th>cases_new_dma_log</th>
+              <th>deaths_dma_log</th>
+              <th>deaths_new_log</th>
+              <th>deaths_new_dma_log</th>
+              <th>tests_dma_log</th>
+              <th>tests_new_log</th>
+              <th>...</th>
+              <th>growth_cases_per_person_per_land_KM2_lognat</th>
+              <th>growth_cases_per_person_per_city_KM2_lognat</th>
+              <th>growth_deaths_per_1K_lognat</th>
+              <th>growth_deaths_per_1M_lognat</th>
+              <th>growth_deaths_per_person_per_land_KM2_lognat</th>
+              <th>growth_deaths_per_person_per_city_KM2_lognat</th>
+              <th>growth_tests_per_1K_lognat</th>
+              <th>growth_tests_per_1M_lognat</th>
+              <th>growth_tests_per_person_per_land_KM2_lognat</th>
+              <th>growth_tests_per_person_per_city_KM2_lognat</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>43906</th>
+              <td>P.A. Trento</td>
+              <td>2020-03-13</td>
+              <td>2.186879</td>
+              <td>1.871859</td>
+              <td>1.691872</td>
+              <td>-0.026874</td>
+              <td>-0.026874</td>
+              <td>-0.202966</td>
+              <td>2.794193</td>
+              <td>2.380851</td>
+              <td>...</td>
+              <td>-1.014299</td>
+              <td>-1.014299</td>
+              <td>0.890089</td>
+              <td>2.152714</td>
+              <td>0.867427</td>
+              <td>0.867427</td>
+              <td>4.976355</td>
+              <td>1.050782</td>
+              <td>1.304384</td>
+              <td>1.304384</td>
+            </tr>
+            <tr>
+              <th>43907</th>
+              <td>P.A. Trento</td>
+              <td>2020-03-14</td>
+              <td>2.324156</td>
+              <td>1.757139</td>
+              <td>1.757139</td>
+              <td>0.194974</td>
+              <td>NaN</td>
+              <td>-0.202966</td>
+              <td>2.888888</td>
+              <td>2.181850</td>
+              <td>...</td>
+              <td>2.104604</td>
+              <td>2.104604</td>
+              <td>1.000000</td>
+              <td>1.000000</td>
+              <td>1.000000</td>
+              <td>1.000000</td>
+              <td>1.389530</td>
+              <td>1.023559</td>
+              <td>1.113758</td>
+              <td>1.113758</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>2 rows × 242 columns</p>
+        </div>
+        
+        
+        
+        
+        ```python
+        'In total, there are {} different `count_categories` to choose from.'.format(len(CaseStudy.ALL_COUNT_CATS))
+        ```
+        
+        
+        
+        
+            'In total, there are 180 different `count_categories` to choose from.'
+        
+        
+        
+        <h2><a id='section4.2'>4.2 Filtering</a></h2>
+        
+        Thankfully, `casestudy.df` can be limited to specific count categories via the `count_categories` attribute:
+        
+        
+        ```python
+        casestudy.count_categories = ['tests_new_dma_per_person_per_land_KM2']
+        casestudy.make()
+        casestudy.df.head(2)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=502.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=285.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>population</th>
+              <th>land_KM2</th>
+              <th>land_dens</th>
+              <th>city_KM2</th>
+              <th>city_dens</th>
+              <th>tests_new_dma_per_person_per_land_KM2</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>43906</th>
+              <td>32</td>
+              <td>110</td>
+              <td>TRE</td>
+              <td>P.A. Trento</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-03-13</td>
+              <td>216.699585</td>
+              <td>1.87999</td>
+              <td>803.712436</td>
+              <td>515201.0</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>0.807438</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>43907</th>
+              <td>32</td>
+              <td>110</td>
+              <td>TRE</td>
+              <td>P.A. Trento</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-03-14</td>
+              <td>273.865733</td>
+              <td>1.87999</td>
+              <td>955.714788</td>
+              <td>515201.0</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>0.865241</td>
+              <td>1 days</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        *When passing kwargs to CaseStudy at initialization, most kwargs will accept either a string for a single category or a list (or other iterable) for multiple. When assigning to an instance attribute, an interable must be passed*
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, count_categories='tests_new_dma_per_person_per_land_KM2')
+        casestudy.make()
+        casestudy.df[['region_name', 'date', 'tests_new_dma_per_person_per_land_KM2']].head(2)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=502.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=285.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_name</th>
+              <th>date</th>
+              <th>tests_new_dma_per_person_per_land_KM2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>43906</th>
+              <td>P.A. Trento</td>
+              <td>2020-03-13</td>
+              <td>0.807438</td>
+            </tr>
+            <tr>
+              <th>43907</th>
+              <td>P.A. Trento</td>
+              <td>2020-03-14</td>
+              <td>0.865241</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        
+        ```python
+        casestudy.count_categories = ['deaths_new_dma_per_person_per_land_KM2', 'growth_cases_new_per_1M']
+        casestudy.make()
+        casestudy.df.head(2)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=502.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=285.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>population</th>
+              <th>land_KM2</th>
+              <th>land_dens</th>
+              <th>city_KM2</th>
+              <th>city_dens</th>
+              <th>deaths_new_dma_per_person_per_land_KM2</th>
+              <th>growth_cases_new_per_1M</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>43906</th>
+              <td>32</td>
+              <td>110</td>
+              <td>TRE</td>
+              <td>P.A. Trento</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-03-13</td>
+              <td>216.699585</td>
+              <td>1.87999</td>
+              <td>803.712436</td>
+              <td>515201.0</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>0.003575</td>
+              <td>1.866667</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>43907</th>
+              <td>32</td>
+              <td>110</td>
+              <td>TRE</td>
+              <td>P.A. Trento</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-03-14</td>
+              <td>273.865733</td>
+              <td>1.87999</td>
+              <td>955.714788</td>
+              <td>515201.0</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>0.003575</td>
+              <td>0.767857</td>
+              <td>1 days</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        `CaseStudy` can further filter `baseframe` as follows:
+            
+        * `regions` to limit the frame to certain regions
+        * `countries` to limit the frame to certain countries
+        * `exclude_regions` to exclude certain regions
+        * `exclude_countries` to exclude certain countries
+        
+        Specific regions can be included or excluded by providing the `region_name`, `region_code`, or `region_id`.
+        Specific countries can be included or excluded by providing the `country`, `country_code`, or `country_id`.
+        
+        Each of the four parameters can accept a single region as a `str` object or multiple regions via several common iterables.
+        
+        Below we select three regions:
+        
+        
+        ```python
+        regions = ['New York', 'FL', 35]
+        casestudy = CaseStudy(
+            bf, regions=regions, count_categories=CaseStudy.BASECOUNT_CATS, 
+        )
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=5.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=3.0), HTML(value='')))
+        
+        
+        We can see that all three regions are indeed in the object by grouping:
+        
+        
+        ```python
+        pd.concat([df_group.iloc[:1] for region_id, df_group in casestudy.df.groupby('region_id')]).head(3)
+        ```
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>cases_dma</th>
+              <th>cases_new</th>
+              <th>cases_new_dma</th>
+              <th>deaths_dma</th>
+              <th>deaths_new</th>
+              <th>deaths_new_dma</th>
+              <th>tests_dma</th>
+              <th>tests_new</th>
+              <th>tests_new_dma</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>53399</th>
+              <td>35</td>
+              <td>110</td>
+              <td>SIC</td>
+              <td>Sicilia</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-03-12</td>
+              <td>102.712067</td>
+              <td>2.000000</td>
+              <td>973.321711</td>
+              <td>...</td>
+              <td>77.406196</td>
+              <td>28.580749</td>
+              <td>15.778955</td>
+              <td>0.666667</td>
+              <td>2.000000</td>
+              <td>0.666667</td>
+              <td>796.493912</td>
+              <td>186.492921</td>
+              <td>140.803254</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>17846</th>
+              <td>64</td>
+              <td>236</td>
+              <td>FL</td>
+              <td>Florida</td>
+              <td>USA</td>
+              <td>United States of America (the)</td>
+              <td>2020-03-11</td>
+              <td>28.000000</td>
+              <td>2.526828</td>
+              <td>329.000000</td>
+              <td>...</td>
+              <td>21.666667</td>
+              <td>9.000000</td>
+              <td>3.666667</td>
+              <td>0.842276</td>
+              <td>2.526828</td>
+              <td>0.842276</td>
+              <td>242.666667</td>
+              <td>88.000000</td>
+              <td>64.666667</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>40070</th>
+              <td>75</td>
+              <td>236</td>
+              <td>NY</td>
+              <td>New York</td>
+              <td>USA</td>
+              <td>United States of America (the)</td>
+              <td>2020-03-15</td>
+              <td>729.000000</td>
+              <td>3.143533</td>
+              <td>6916.080830</td>
+              <td>...</td>
+              <td>558.000000</td>
+              <td>205.000000</td>
+              <td>171.000000</td>
+              <td>1.047844</td>
+              <td>3.143533</td>
+              <td>1.047844</td>
+              <td>5149.016931</td>
+              <td>2583.035500</td>
+              <td>2170.676861</td>
+              <td>0 days</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>3 rows × 25 columns</p>
+        </div>
+        
+        
+        
+        The region and country filters are important mechanisms for isolating data.
+        
+        Here, we focus on US regions only, but exclude some of the most impacted ones:
+        
+        
+        ```python
+        casestudy.countries = ['USA']
+        casestudy.excluded_regions = ['NY', 'NJ']
+        casestudy.regions = None
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=120.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=48.0), HTML(value='')))
+        
+        
+        *Because certain regions were assigned in the previous CaseStudy instantiation, we must set `regions=None` above in order to ask ALL the regions of the baseframe.*
+        
+        And below we can see that we have various US states in the dataset and that New York or New Jersey are *not* included.
+        
+        
+        ```python
+        casestudy.df.region_name.unique()
+        ```
+        
+        
+        
+        
+            array(['Alabama', 'Wyoming', 'Alaska', 'Arkansas', 'Delaware', 'Idaho',
+                   'Maine', 'Mississippi', 'Montana', 'New Mexico', 'North Dakota',
+                   'South Dakota', 'West Virginia', 'Michigan', 'Vermont', 'Georgia',
+                   'Colorado', 'Florida', 'Oregon', 'Texas', 'Illinois',
+                   'Pennsylvania', 'Iowa', 'Maryland', 'North Carolina', 'Washington',
+                   'California', 'Massachusetts', 'Oklahoma', 'Arizona',
+                   'Connecticut', 'Minnesota', 'Virginia', 'New Hampshire', 'Hawaii',
+                   'Nevada', 'Indiana', 'Kentucky', 'District of Columbia',
+                   'Missouri', 'Louisiana', 'Ohio', 'Wisconsin', 'Kansas', 'Utah',
+                   'Tennessee', 'South Carolina', 'Nebraska'], dtype=object)
+        
+        
+        
+        
+        ```python
+        pd.concat([df_group.iloc[:1] for region_id, df_group in casestudy.df.groupby('region_id')]).head(3)
+        ```
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>cases_dma</th>
+              <th>cases_new</th>
+              <th>cases_new_dma</th>
+              <th>deaths_dma</th>
+              <th>deaths_new</th>
+              <th>deaths_new_dma</th>
+              <th>tests_dma</th>
+              <th>tests_new</th>
+              <th>tests_new_dma</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>691</th>
+              <td>44</td>
+              <td>236</td>
+              <td>AL</td>
+              <td>Alabama</td>
+              <td>USA</td>
+              <td>United States of America (the)</td>
+              <td>2020-03-26</td>
+              <td>558.514091</td>
+              <td>1.26695</td>
+              <td>10468.861581</td>
+              <td>...</td>
+              <td>369.399307</td>
+              <td>246.143562</td>
+              <td>124.727455</td>
+              <td>0.422317</td>
+              <td>1.26695</td>
+              <td>0.422317</td>
+              <td>7859.521030</td>
+              <td>3287.002892</td>
+              <td>1929.975539</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>64339</th>
+              <td>48</td>
+              <td>236</td>
+              <td>WY</td>
+              <td>Wyoming</td>
+              <td>USA</td>
+              <td>United States of America (the)</td>
+              <td>2020-04-13</td>
+              <td>316.114653</td>
+              <td>1.00000</td>
+              <td>9715.352851</td>
+              <td>...</td>
+              <td>305.385913</td>
+              <td>16.093110</td>
+              <td>8.429724</td>
+              <td>0.333333</td>
+              <td>1.00000</td>
+              <td>0.333333</td>
+              <td>9166.923029</td>
+              <td>822.644733</td>
+              <td>529.424828</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>1094</th>
+              <td>49</td>
+              <td>236</td>
+              <td>AK</td>
+              <td>Alaska</td>
+              <td>USA</td>
+              <td>United States of America (the)</td>
+              <td>2020-03-25</td>
+              <td>53.977249</td>
+              <td>1.00000</td>
+              <td>3783.772189</td>
+              <td>...</td>
+              <td>42.839087</td>
+              <td>7.711036</td>
+              <td>8.567817</td>
+              <td>0.333333</td>
+              <td>1.00000</td>
+              <td>0.333333</td>
+              <td>2745.528371</td>
+              <td>1496.950677</td>
+              <td>539.260259</td>
+              <td>0 days</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>3 rows × 25 columns</p>
+        </div>
+        
+        
+        
+        
+        ```python
+        casestudy.df[casestudy.df.region_name.isin(['NY', 'NJ'])]
+        ```
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>cases_dma</th>
+              <th>cases_new</th>
+              <th>cases_new_dma</th>
+              <th>deaths_dma</th>
+              <th>deaths_new</th>
+              <th>deaths_new_dma</th>
+              <th>tests_dma</th>
+              <th>tests_new</th>
+              <th>tests_new_dma</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+          </tbody>
+        </table>
+        <p>0 rows × 25 columns</p>
+        </div>
+        
+        
+        
+        ### Limiting data via different start and tail hurdles
+        
+        Parameters exist that allow you to filter the dataset such that regions and days appear only if they meet certain criteria.
+        
+        `start_factor` and `start_hurdle` provide the ability to effectively *crop* the beginning of region's period of data.
+        
+        `tail_factor` and `tail_hurdle` do the same for the end of a region's period.
+        
+        `start_factor` and `tail_factor` accept any *dynamic* factor in the dataset (including `date`).
+        
+        The `hurdle` is the level of the specified factor the region must reach to be included. For instance, if `start_factor=cases_new_per_1M` and `start_hurdle=100`, each region's first row in `casestudy.df` will be the day that the region met or exceeded **100 new cases per 1 million people**.
+        
+        These options are a convenient way to compare regions that have been impacted to a similar extent or, perhaps, to fairly compare regions that were impacted at different times.
+        
+        The default parameters for `start_factor` and `start_hurdle` limit the data to regions with at least one cumulative fatality.
+        
+        **NOTE**: a `days` column is added to `casestudy.df`. This is a count of the number of days from the current date back to the first date in the casestudy.  When a `start_factor` is provided, this is the first date that the `start_hurdle` is met. When `start_factor` is not provided, this is the first date in the dataset.
+        
+        Examples are show below.
+        
+        
+        ```python
+        casestudy = CaseStudy(
+            bf, regions='Spain', count_categories=CaseStudy.BASECOUNT_CATS, 
+            start_factor='cases', start_hurdle=1000
+        )
+        casestudy.make()
+        casestudy.df.head(2)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=2.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=1.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>cases_dma</th>
+              <th>cases_new</th>
+              <th>cases_new_dma</th>
+              <th>deaths_dma</th>
+              <th>deaths_new</th>
+              <th>deaths_new_dma</th>
+              <th>tests_dma</th>
+              <th>tests_new</th>
+              <th>tests_new_dma</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>55820</th>
+              <td>491</td>
+              <td>209</td>
+              <td>ESP</td>
+              <td>Spain</td>
+              <td>ESP</td>
+              <td>Spain</td>
+              <td>2020-03-09</td>
+              <td>1057.840245</td>
+              <td>27.344784</td>
+              <td>NaN</td>
+              <td>...</td>
+              <td>738.089217</td>
+              <td>394.348647</td>
+              <td>221.163866</td>
+              <td>17.904323</td>
+              <td>10.742594</td>
+              <td>7.487262</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>55821</th>
+              <td>491</td>
+              <td>209</td>
+              <td>ESP</td>
+              <td>Spain</td>
+              <td>ESP</td>
+              <td>Spain</td>
+              <td>2020-03-10</td>
+              <td>1671.052390</td>
+              <td>34.180981</td>
+              <td>NaN</td>
+              <td>...</td>
+              <td>1130.794744</td>
+              <td>613.212146</td>
+              <td>392.705527</td>
+              <td>26.042652</td>
+              <td>6.836196</td>
+              <td>8.138329</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>1 days</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>2 rows × 25 columns</p>
+        </div>
+        
+        
+        
+        
+        ```python
+        casestudy = CaseStudy(
+            bf, countries='Sweden', 
+            count_categories='deaths_new', start_factor='deaths_new', start_hurdle=100
+        )
+        casestudy.make()
+        casestudy.df.head(2)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=2.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=1.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>population</th>
+              <th>land_KM2</th>
+              <th>land_dens</th>
+              <th>city_KM2</th>
+              <th>city_dens</th>
+              <th>deaths_new</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>56656</th>
+              <td>495</td>
+              <td>214</td>
+              <td>SWE</td>
+              <td>Sweden</td>
+              <td>SWE</td>
+              <td>Sweden</td>
+              <td>2020-04-06</td>
+              <td>7438.936775</td>
+              <td>675.770207</td>
+              <td>NaN</td>
+              <td>9415570.0</td>
+              <td>415314.854224</td>
+              <td>22.67092</td>
+              <td>2150.411192</td>
+              <td>4378.497486</td>
+              <td>107.669886</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>56657</th>
+              <td>495</td>
+              <td>214</td>
+              <td>SWE</td>
+              <td>Sweden</td>
+              <td>SWE</td>
+              <td>Sweden</td>
+              <td>2020-04-07</td>
+              <td>7941.679240</td>
+              <td>837.275037</td>
+              <td>NaN</td>
+              <td>9415570.0</td>
+              <td>415314.854224</td>
+              <td>22.67092</td>
+              <td>2150.411192</td>
+              <td>4378.497486</td>
+              <td>161.504829</td>
+              <td>1 days</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        To see the earliest dates in the dataframe, prior to any deaths being recorded, set `start_factor` to `''`.
+        
+        
+        ```python
+        casestudy.countries = None
+        casestudy.regions = ['RJ']
+        casestudy.count_categories = ['tests_new_dma']
+        casestudy.factors = ['temp', 'strindex']
+        casestudy.start_factor = ''
+        casestudy.make()
+        casestudy.df.head(2)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=3.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=1.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>population</th>
+              <th>land_KM2</th>
+              <th>land_dens</th>
+              <th>city_KM2</th>
+              <th>city_dens</th>
+              <th>tests_new_dma</th>
+              <th>temp</th>
+              <th>strindex</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>48480</th>
+              <td>557</td>
+              <td>31</td>
+              <td>RJ</td>
+              <td>Rio De Janeiro</td>
+              <td>BRA</td>
+              <td>Brazil</td>
+              <td>2020-01-01</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>15962668.0</td>
+              <td>42269.311478</td>
+              <td>377.642016</td>
+              <td>2203.766328</td>
+              <td>7243.357792</td>
+              <td>NaN</td>
+              <td>294.134674</td>
+              <td>0.0</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>48481</th>
+              <td>557</td>
+              <td>31</td>
+              <td>RJ</td>
+              <td>Rio De Janeiro</td>
+              <td>BRA</td>
+              <td>Brazil</td>
+              <td>2020-01-02</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>NaN</td>
+              <td>15962668.0</td>
+              <td>42269.311478</td>
+              <td>377.642016</td>
+              <td>2203.766328</td>
+              <td>7243.357792</td>
+              <td>NaN</td>
+              <td>294.375153</td>
+              <td>0.0</td>
+              <td>1 days</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        <h2><a id='section4.3'>4.3 Smoothing</a></h2>
+        
+        Smoothing is applied two ways within the `make` method.
+        
+        The first addresses NaN values within the `count_type` time-series. Sometimes there are artifacts and one-offs within the set. Other times, as with `test` counts in many regions, the count is only update periodically and NaNs fill the gaps.
+        
+        In these instances, `make` interpolates between the real values to fill in the gaps. The default method is linear interpolation, but this can be overriden by providing `interpolation_method` (see Pandas docs for options).
+        
+        For instance, below we see that **Spain** testing data as follows:
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, regions='Spain')
+        casestudy.make()
+        casestudy.df.tests.tail(20)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=3.0, st…
+        
+        
+            2020-08-02 06:17:58,268	INFO resource_spec.py:212 -- Starting Ray with 12.84 GiB memory available for workers and up to 6.44 GiB for objects. You can adjust these settings with ray.init(memory=<bytes>, object_store_memory=<bytes>).
+            2020-08-02 06:17:58,495	WARNING services.py:923 -- Redis failed to start, retrying now.
+            2020-08-02 06:17:58,792	INFO services.py:1165 -- View the Ray dashboard at [1m[32mlocalhost:8265[39m[22m
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=2.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=1.0), HTML(value='')))
+        
+        
+        
+        
+        
+            55934    3.619554e+06
+            55935    3.644458e+06
+            55936    3.673778e+06
+            55937    3.703099e+06
+            55938    3.732419e+06
+            55939    3.761740e+06
+            55940    3.791060e+06
+            55941    3.820381e+06
+            55942    3.849701e+06
+            55943    3.881696e+06
+            55944    3.913690e+06
+            55945    3.945685e+06
+            55946    3.977680e+06
+            55947    4.009675e+06
+            55948    4.041669e+06
+            55949    4.073664e+06
+            55950    4.073664e+06
+            55951    4.073664e+06
+            55952    4.073664e+06
+            55953    4.073664e+06
+            Name: tests, dtype: float64
+        
+        
+        
+        But when we set `interpolate=Flase`, we can see that in fact Spain updates its testing only weekly.
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, regions='Spain', interpolate=False)
+        casestudy.make()
+        casestudy.df.tests.tail(20)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=2.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=1.0), HTML(value='')))
+        
+        
+        
+        
+        
+            55934          NaN
+            55935    3644458.0
+            55936          NaN
+            55937          NaN
+            55938          NaN
+            55939          NaN
+            55940          NaN
+            55941          NaN
+            55942    3849701.0
+            55943          NaN
+            55944          NaN
+            55945          NaN
+            55946          NaN
+            55947          NaN
+            55948          NaN
+            55949    4073664.0
+            55950          NaN
+            55951          NaN
+            55952          NaN
+            55953          NaN
+            Name: tests, dtype: float64
+        
+        
+        
+        The second approach is new in 0.3.6. CaseStudy *automatically applies smoothing* to <ins>negative values</ins> and <ins>large outliers</ins> in the main `count_categories` (cases, deaths, and tests). 
+        
+        Many regions have chosen to "adjust" or "catch up" their case or fatality counts, not be adjusting the actual dates that the outcome occured, but instead on a seemingly random reporting date. This creates strange artifacts in the time series.
+        
+        For example, Spain has dip in daily case counts to the negative in late April 2020:
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, regions='Spain', smooth=False)
+        casestudy.make()
+        casestudy.compchart.make(x_category='date', y_category='deaths_new', figsize=(8,4))
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=1.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=1.0), HTML(value='')))
+        
+        
+            
+            Daily Deaths
+        
+        
+        
+        ![png](output_71_3.png)
+        
+        
+        With `smooth=True` (the default setting), this deep negative value is redistributed through prior dates according to the distribution of counts up to the date with the negative value.
+        
+        This is a somewhat nieve approach but has the benefit of maintaining a consistent shape to the time-series.
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, regions='Spain', smooth=True)
+        casestudy.make()
+        casestudy.compchart.make(x_category='date', y_category='deaths_new', figsize=(8,4))
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=2.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=1.0), HTML(value='')))
+        
+        
+            Daily Deaths
+        
+        
+        
+        ![png](output_73_4.png)
+        
+        
+        The same adjustment is made for VERY large increases in counts relative to the cumulative total and to the daily rate. For example, see New York below:
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, regions='NY', smooth=False)
+        casestudy.make()
+        casestudy.compchart.make(x_category='date', y_category='deaths_new', figsize=(8,4))
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=1.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=1.0), HTML(value='')))
+        
+        
+            Daily Deaths
+        
+        
+        
+        ![png](output_75_3.png)
+        
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, regions='NY', smooth=True)
+        casestudy.make()
+        casestudy.compchart.make(x_category='date', y_category='deaths_new', figsize=(8,4))
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=2.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=1.0), HTML(value='')))
+        
+        
+            Daily Deaths
+        
+        
+        
+        ![png](output_76_4.png)
+        
+        
+        <h2><a id='section4.4'>4.4 Available Factors</a></h2>
+        
+        The remaining columns in the `baseframe` can be included in a `CaseStudy` instance on an ***opt-in*** basis via the `factors` attribute:
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, count_categories='cases_new_per_person_per_land_KM2', factors=['no2', 'strindex'])
+        casestudy.make()
+        casestudy.df.head(2)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=659.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=285.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>population</th>
+              <th>land_KM2</th>
+              <th>land_dens</th>
+              <th>city_KM2</th>
+              <th>city_dens</th>
+              <th>cases_new_per_person_per_land_KM2</th>
+              <th>no2</th>
+              <th>strindex</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>43905</th>
+              <td>32</td>
+              <td>110</td>
+              <td>TRE</td>
+              <td>P.A. Trento</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-03-12</td>
+              <td>131.523112</td>
+              <td>1.096661</td>
+              <td>652.429603</td>
+              <td>515201.0</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>0.210345</td>
+              <td>NaN</td>
+              <td>85.19</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>43906</th>
+              <td>32</td>
+              <td>110</td>
+              <td>TRE</td>
+              <td>P.A. Trento</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-03-13</td>
+              <td>200.357639</td>
+              <td>2.193322</td>
+              <td>930.784897</td>
+              <td>515201.0</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>2938.79544</td>
+              <td>175.310262</td>
+              <td>0.392644</td>
+              <td>NaN</td>
+              <td>85.19</td>
+              <td>1 days</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        For convenience, a number of factor groupings can be accessed via `CaseStudy` attributes:
+        
+        * `GMOBIS`, `AMOBIS`, `CAUSES`, `MAJOR_CAUSES`, `POLLUTS`, `TEMP_MSMTS`, `MSMTS`
+            * various groupings for factor data
+            * `GMOBIS` refer to Google Mobility data.
+            * `AMOBIS` refer to Apple Mobility data.
+        * `STRINDEX_CATS`, `CONTAIN_CATS`, `ECON_CATS`, `HEALTH_CATS`
+            * groupings for the Oxford Stringency Index
+        
+        
+        ```python
+        print (CaseStudy.MSMTS)
+        print (CaseStudy.MAJOR_CAUSES)
+        ```
+        
+            ['uvb', 'rhum', 'temp', 'dewpoint']
+            ['circul', 'infectious', 'respir', 'endo']
+        
+        
+        Different demographic population age groupings can be accessed as well:
+        * `ALL_RANGES` - all the possible demographic age ranges
+        * `RANGES` - a dictionary of various groupings of age ranges
+        
+        
+        ```python
+        from see19 import RANGES
+        RANGES.keys()
+        ```
+        
+        
+        
+        
+            dict_keys(['UNDERS', 'OVERS', 'SCHOOL_GOERS', 'Y_MILLS', 'MILLS', 'MID', 'MID_PLUS'])
+        
+        
+        
+        
+        ```python
+        overs = RANGES['OVERS']['ranges']
+        casestudy = CaseStudy(bf, regions='Lombardia', count_categories='deaths_new_per_person_per_land_KM2', factors=overs)
+        casestudy.make()
+        casestudy.df.head(2)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=2.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=1.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>A70PLUSB</th>
+              <th>A75PLUSB</th>
+              <th>A80PLUSB</th>
+              <th>A85PLUSB</th>
+              <th>A65PLUSB_%</th>
+              <th>A70PLUSB_%</th>
+              <th>A75PLUSB_%</th>
+              <th>A80PLUSB_%</th>
+              <th>A85PLUSB_%</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>31566</th>
+              <td>36</td>
+              <td>110</td>
+              <td>LOM</td>
+              <td>Lombardia</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-02-24</td>
+              <td>216.225177</td>
+              <td>6.0</td>
+              <td>943.732875</td>
+              <td>...</td>
+              <td>1490749.0</td>
+              <td>963768.0</td>
+              <td>0.0</td>
+              <td>0.0</td>
+              <td>0.208224</td>
+              <td>0.154784</td>
+              <td>0.100068</td>
+              <td>0.0</td>
+              <td>0.0</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>31567</th>
+              <td>36</td>
+              <td>110</td>
+              <td>LOM</td>
+              <td>Lombardia</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-02-25</td>
+              <td>301.709549</td>
+              <td>9.0</td>
+              <td>2386.747531</td>
+              <td>...</td>
+              <td>1490749.0</td>
+              <td>963768.0</td>
+              <td>0.0</td>
+              <td>0.0</td>
+              <td>0.208224</td>
+              <td>0.154784</td>
+              <td>0.100068</td>
+              <td>0.0</td>
+              <td>0.0</td>
+              <td>1 days</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>2 rows × 27 columns</p>
+        </div>
+        
+        
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, regions='LOM', count_categories='deaths_new_per_person_per_land_KM2', factors=CaseStudy.MAJOR_CAUSES)
+        casestudy.make()
+        casestudy.df.head(2)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=2.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=1.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>deaths_new_per_person_per_land_KM2</th>
+              <th>circul</th>
+              <th>infectious</th>
+              <th>respir</th>
+              <th>endo</th>
+              <th>circul_%</th>
+              <th>infectious_%</th>
+              <th>respir_%</th>
+              <th>endo_%</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>31566</th>
+              <td>36</td>
+              <td>110</td>
+              <td>LOM</td>
+              <td>Lombardia</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-02-24</td>
+              <td>216.225177</td>
+              <td>6.0</td>
+              <td>943.732875</td>
+              <td>...</td>
+              <td>NaN</td>
+              <td>74695</td>
+              <td>4630</td>
+              <td>20185</td>
+              <td>6566.0</td>
+              <td>0.007756</td>
+              <td>0.000481</td>
+              <td>0.002096</td>
+              <td>0.000682</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>31567</th>
+              <td>36</td>
+              <td>110</td>
+              <td>LOM</td>
+              <td>Lombardia</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-02-25</td>
+              <td>301.709549</td>
+              <td>9.0</td>
+              <td>2386.747531</td>
+              <td>...</td>
+              <td>0.00507</td>
+              <td>74695</td>
+              <td>4630</td>
+              <td>20185</td>
+              <td>6566.0</td>
+              <td>0.007756</td>
+              <td>0.000481</td>
+              <td>0.002096</td>
+              <td>0.000682</td>
+              <td>1 days</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>2 rows × 25 columns</p>
+        </div>
+        
+        
+        
+        Some factors are only available at a country level.
+        
+        By setting `country_level=True`, `casestudy` will aggregate most data among the subregions up to the country level to allow for proper comparison across the broad range of countries.
+        
+        The **Oxford Stringency Index** and its derivatives is one such data group only available at the country level.
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, 
+            count_categories='deaths_new_per_person_per_land_KM2', 
+            factors='strindex',
+            country_level=True,
+        )
+        casestudy.make()
+        casestudy.df.tail(2)
+        ```
+        
+            /Users/spindicate/Documents/programming/zooscraper/casestudy/see19/see19/study/ray.py:16: UserWarning: smoothing is unavailable when country_level=True
+              super().__init__(*args, **kwargs)
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+            
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=155.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>population</th>
+              <th>land_KM2</th>
+              <th>land_dens</th>
+              <th>city_KM2</th>
+              <th>city_dens</th>
+              <th>deaths_new_per_person_per_land_KM2</th>
+              <th>strindex</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>36560</th>
+              <td>id_for_USA</td>
+              <td>236</td>
+              <td>USA</td>
+              <td>name_for_USA</td>
+              <td>USA</td>
+              <td>United States of America (the)</td>
+              <td>2020-07-19</td>
+              <td>3725463.0</td>
+              <td>131737.0</td>
+              <td>45313502.0</td>
+              <td>307692971.0</td>
+              <td>9.087502e+06</td>
+              <td>33.858916</td>
+              <td>710152.024025</td>
+              <td>433.277609</td>
+              <td>15.446448</td>
+              <td>68.98</td>
+              <td>144 days</td>
+            </tr>
+            <tr>
+              <th>36561</th>
+              <td>id_for_USA</td>
+              <td>236</td>
+              <td>USA</td>
+              <td>name_for_USA</td>
+              <td>USA</td>
+              <td>United States of America (the)</td>
+              <td>2020-07-20</td>
+              <td>3782891.0</td>
+              <td>132095.0</td>
+              <td>46043131.0</td>
+              <td>307692971.0</td>
+              <td>9.087502e+06</td>
+              <td>33.858916</td>
+              <td>710152.024025</td>
+              <td>433.277609</td>
+              <td>10.573286</td>
+              <td>68.98</td>
+              <td>145 days</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        Above you can see that all US states have been aggregated into a single region with an region_id 
+        
+        With respect to the `STRINDEX_CATS` subgroups, if all the required categories are provided, `CaseStudy` will sum the individual category values. 
+        
+        For example, if `CONTAIN_CATS` are provided, the aggregate of the eight categories will be included in the `c_sum` column.
+        
+        Note if all five `h` indicators are provided, `CaseStudy` will also tabulate a `key3_sum`, which aggregates the scores on the `h1`, `h2`, and `h3` indicators.
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, 
+            count_categories='deaths_new_per_person_per_land_KM2', 
+            factors=CaseStudy.CONTAIN_CATS,
+            country_level=True,
+        )
+        casestudy.make()
+        casestudy.df.tail(2)
+        ```
+        
+            /Users/spindicate/Documents/programming/zooscraper/casestudy/see19/see19/study/ray.py:16: UserWarning: smoothing is unavailable when country_level=True
+              super().__init__(*args, **kwargs)
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=155.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>c1</th>
+              <th>c2</th>
+              <th>c3</th>
+              <th>c4</th>
+              <th>c5</th>
+              <th>c6</th>
+              <th>c7</th>
+              <th>c8</th>
+              <th>c_sum</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>36560</th>
+              <td>id_for_USA</td>
+              <td>236</td>
+              <td>USA</td>
+              <td>name_for_USA</td>
+              <td>USA</td>
+              <td>United States of America (the)</td>
+              <td>2020-07-19</td>
+              <td>3725463.0</td>
+              <td>131737.0</td>
+              <td>45313502.0</td>
+              <td>...</td>
+              <td>3.0</td>
+              <td>2.0</td>
+              <td>2.0</td>
+              <td>4.0</td>
+              <td>1.0</td>
+              <td>2.0</td>
+              <td>2.0</td>
+              <td>3.0</td>
+              <td>19.0</td>
+              <td>144 days</td>
+            </tr>
+            <tr>
+              <th>36561</th>
+              <td>id_for_USA</td>
+              <td>236</td>
+              <td>USA</td>
+              <td>name_for_USA</td>
+              <td>USA</td>
+              <td>United States of America (the)</td>
+              <td>2020-07-20</td>
+              <td>3782891.0</td>
+              <td>132095.0</td>
+              <td>46043131.0</td>
+              <td>...</td>
+              <td>3.0</td>
+              <td>2.0</td>
+              <td>2.0</td>
+              <td>4.0</td>
+              <td>1.0</td>
+              <td>2.0</td>
+              <td>2.0</td>
+              <td>3.0</td>
+              <td>19.0</td>
+              <td>145 days</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>2 rows × 26 columns</p>
+        </div>
+        
+        
+        
+        Additional computations can be added for each factor via the `factor_dmas` attribute. 
+        
+        The attribute is a dictionary of the form `str(factor_name): int(dma)`. 
+        
+        When provided, `CaseStudy` will automatically add `_dma`, `_growth`, and `_growth_dma` computations
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, count_categories='deaths_new_dma_per_1M', 
+            factors=['temp', 'c1', 'strindex'], 
+            factor_dmas={'temp': 7, 'c1': 14},
+            country_level=True,
+        )
+        casestudy.make()
+        casestudy.df.head(2)
+        ```
+        
+            /Users/spindicate/Documents/programming/zooscraper/casestudy/see19/see19/study/ray.py:16: UserWarning: smoothing is unavailable when country_level=True
+              super().__init__(*args, **kwargs)
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=155.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>temp</th>
+              <th>c1</th>
+              <th>strindex</th>
+              <th>temp_dma</th>
+              <th>temp_growth</th>
+              <th>temp_growth_dma</th>
+              <th>c1_dma</th>
+              <th>c1_growth</th>
+              <th>c1_growth_dma</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>81</th>
+              <td>293</td>
+              <td>1</td>
+              <td>AFG</td>
+              <td>Afghanistan</td>
+              <td>AFG</td>
+              <td>Afghanistan</td>
+              <td>2020-03-22</td>
+              <td>40.0</td>
+              <td>1.0</td>
+              <td>NaN</td>
+              <td>...</td>
+              <td>10.778741</td>
+              <td>3.0</td>
+              <td>41.67</td>
+              <td>7.908977</td>
+              <td>1.067747</td>
+              <td>1.384819</td>
+              <td>1.928571</td>
+              <td>1.0</td>
+              <td>NaN</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>82</th>
+              <td>293</td>
+              <td>1</td>
+              <td>AFG</td>
+              <td>Afghanistan</td>
+              <td>AFG</td>
+              <td>Afghanistan</td>
+              <td>2020-03-23</td>
+              <td>40.0</td>
+              <td>1.0</td>
+              <td>NaN</td>
+              <td>...</td>
+              <td>8.560785</td>
+              <td>3.0</td>
+              <td>41.67</td>
+              <td>8.784692</td>
+              <td>0.794229</td>
+              <td>1.150845</td>
+              <td>2.142857</td>
+              <td>1.0</td>
+              <td>NaN</td>
+              <td>1 days</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>2 rows × 26 columns</p>
+        </div>
+        
+        
+        
+        ***NOTE: When `country_level=True`, `smooth` is currently <ins>NOT</ins> available as per warning and Ray multi-processing is also <ins>NOT</ins> available.***
+        
+        To provide a single dma for all the factors submitted, build the dictionary ahead of time:
+        
+        
+        ```python
+        factor_dmas = {msmt: 14 for msmt in CaseStudy.MSMTS}
+        casestudy = CaseStudy(
+            bf, count_categories='tests_new_per_1M', 
+            factors=CaseStudy.MSMTS, factor_dmas=factor_dmas
+        )
+        casestudy.make()
+        casestudy.df.head(2)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=659.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=285.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>country_id</th>
+              <th>region_code</th>
+              <th>region_name</th>
+              <th>country_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>cases</th>
+              <th>deaths</th>
+              <th>tests</th>
+              <th>...</th>
+              <th>rhum_dma</th>
+              <th>rhum_growth</th>
+              <th>rhum_growth_dma</th>
+              <th>temp_dma</th>
+              <th>temp_growth</th>
+              <th>temp_growth_dma</th>
+              <th>dewpoint_dma</th>
+              <th>dewpoint_growth</th>
+              <th>dewpoint_growth_dma</th>
+              <th>days</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>43905</th>
+              <td>32</td>
+              <td>110</td>
+              <td>TRE</td>
+              <td>P.A. Trento</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-03-12</td>
+              <td>131.523112</td>
+              <td>1.096661</td>
+              <td>652.429603</td>
+              <td>...</td>
+              <td>90.025840</td>
+              <td>1.050915</td>
+              <td>0.996733</td>
+              <td>3.513738</td>
+              <td>0.959184</td>
+              <td>1.105750</td>
+              <td>-3.142554</td>
+              <td>1.896068</td>
+              <td>-0.635699</td>
+              <td>0 days</td>
+            </tr>
+            <tr>
+              <th>43906</th>
+              <td>32</td>
+              <td>110</td>
+              <td>TRE</td>
+              <td>P.A. Trento</td>
+              <td>ITA</td>
+              <td>Italy</td>
+              <td>2020-03-13</td>
+              <td>200.357639</td>
+              <td>2.193322</td>
+              <td>930.784897</td>
+              <td>...</td>
+              <td>89.967379</td>
+              <td>0.995192</td>
+              <td>1.001809</td>
+              <td>3.242550</td>
+              <td>1.053689</td>
+              <td>1.114479</td>
+              <td>-3.447804</td>
+              <td>1.026207</td>
+              <td>-0.735813</td>
+              <td>1 days</td>
+            </tr>
+          </tbody>
+        </table>
+        <p>2 rows × 33 columns</p>
+        </div>
+        
+        
+        
+        Other factors are adjusted to population. These factors are appended with `_%` and can be seen via the `pop_cats` attribute.
+        
+        These are typically time-static factors.
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, count_categories='deaths_new_dma_per_1M', factors=['visitors', 'gdp', 'A65PLUSB' ])
+        print (casestudy.pop_cats)
+        casestudy.make()
+        casestudy.df[['region_name', 'date', 'visitors_%', 'gdp_%', 'A65PLUSB_%']].head(2)
+        ```
+        
+            ['A65PLUSB', 'visitors', 'gdp']
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=659.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=285.0), HTML(value='')))
+        
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_name</th>
+              <th>date</th>
+              <th>visitors_%</th>
+              <th>gdp_%</th>
+              <th>A65PLUSB_%</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>43905</th>
+              <td>P.A. Trento</td>
+              <td>2020-03-12</td>
+              <td>19.864474</td>
+              <td>54504.746691</td>
+              <td>0.203018</td>
+            </tr>
+            <tr>
+              <th>43906</th>
+              <td>P.A. Trento</td>
+              <td>2020-03-13</td>
+              <td>19.864474</td>
+              <td>54504.746691</td>
+              <td>0.203018</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        <h3><a id='section4.5'>4.5 Additional Flags</a></h3>
+        
+        There are several additional flags and methods that will be touched on briefly, however, you are encouraged to read the analysis pages to see them in action.
+        
+        * `world_averages`: when set to `True`, averages each date in the dataset across all the regions, to provide a ***per_region*** statistic for each factor
+        
+        * `favor_earlier`: when set to `True`, scales any selected rows such that values earlier in the dataset receive more weight than later ones. A new column is added with the `_earlier` suffix. This is helpful when attempting to study the impacts of early moves to, say, social distance. Factors are selected by passing a list to the `factors_to_favor_earlier` parameter.
+        
+        <h3><a id='section4.6'>4.6 RayStudy v BaseStudy</a></h3>
+        
+        The default implementation of `make` utilizes both [Ray](https://docs.ray.io/en/master/) and [Numba](https://numba.pydata.org/) to significantly improve the performance. 
+        
+        Ray is a 3rd party multi-processing package. For see19 purposes, Ray's key feature is the ability to share (albeit read-only) large objects among different live processes. Python's standard multi-processing module does not allow for simple access to the baseframe and, therefore, did not provide any performance benefits. 
+        
+        Numba provides just-in-time compiling of certain numpy implementations. The custom Numba function typically provides 10x speed improvement versus the same built-in Pandas method.
+        
+        Ray is not compatible with Windows. `CaseStudy` will attempt to detect incompatibility and revert to a single-process method where necessary.*
+        
+        To support this, a root `BaseStudy` implementation provides single process functionality and a `RayStudy` child that implements Ray functionality. `CaseStudy` inherits from either class automatically based on operating system.
+        
+        You can see which class is inherited as per below (this is on a Macbook)
+        
+        
+        ```python
+        CaseStudy.__bases__
+        ```
+        
+        
+        
+        
+            (casestudy.see19.see19.study.ray.RayStudy,)
+        
+        
+        
+        To use the non-Ray implementation, you can either import `BaseStudy` directly or set `use_ray=False` on `CaseStudy`.
+        
+        We can see both approaches provide similar results below.
+        
+        
+        ```python
+        # from see19.study.base import BaseStudy
+        from casestudy.see19.see19.study.base import BaseStudy
+        from datetime import datetime as dt
+        ```
+        
+        
+        ```python
+        def clockwrap(func):
+            def wrapper(*args, **kwargs):
+                start = dt.now()
+                func()
+                end = dt.now()
+                
+                return end - start
+        
+            return wrapper()
+        ```
+        
+        
+        ```python
+        casestudy = BaseStudy(bf)
+        dur1 = clockwrap(casestudy.make)
+        print (dur1)
+        ```
+        
+            /Users/spindicate/Documents/programming/envs/zooenv/lib/python3.7/site-packages/ipykernel_launcher.py:1: UserWarning: It looks like you called BaseStudy directly. This is not recommended. Ray provides significant performance improvements and certain BaseStudy methods are not optimized.
+              """Entry point for launching an IPython kernel.
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=537.0), HTML(value='')))
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=298.0), HTML(value='')))
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=285.0), HTML(value='')))
+        
+        
+            0:00:28.674439
+        
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, use_ray=False)
+        dur2 = clockwrap(casestudy.make)
+        print (dur2)
+        ```
+        
+            /Users/spindicate/Documents/programming/envs/zooenv/lib/python3.7/site-packages/ipykernel_launcher.py:1: UserWarning: use_ray set to False. This is not recommended. Ray provides significant performance improvements and certain BaseStudy methods are not optimized.
+              """Entry point for launching an IPython kernel.
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=537.0), HTML(value='')))
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=298.0), HTML(value='')))
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=285.0), HTML(value='')))
+        
+        
+            0:00:27.573194
+        
+        
+        Now we'll compare that with the default Ray implemenation on an 8-core MacBook Pro.
+        
+        
+        ```python
+        casestudy = CaseStudy(bf)
+        dur3 = clockwrap(casestudy.make)
+        print (dur3)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=659.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=285.0), HTML(value='')))
+        
+        
+            0:00:06.225569
+        
+        
+        
+        ```python
+        diff = 1 - dur3 / (np.mean([dur1, dur2]))
+        print ('You can see that the Ray implementation is \033[4m\033[1m{:.2%}\033[0m faster.'.format(diff))
+        ```
+        
+            You can see that the Ray implementation is [4m[1m77.86%[0m faster.
+        
+        
+        *Note: Both Numba and Ray perform caching on the first call of a function. Thus, on the first session call to make() method, there will be additional delay (due to many functions being cached). All subsequent calls will experience the significant performance improvements.*
+        
+        <h3><a id='section4.7'>4.7 Chart Objects</a></h3>
+        
+        Each casestudy object currently contains 6 different chart objects, that provide visual tools for analysising, assessing and comparing COVID-19s impact on different regions and factors. Each chart is created via matplotlib. Details of each chart object are provided in future sections.
+        
+        The chart classes can be found in the `chart` module, along with the `BaseChart` root which provides common functionality.
+        
+            compchart from CompChart2D
+            compchart4d from CompChart4D
+            heatmap from HeatMap
+            barcharts from BarCharts
+            scatterflow from ScatterFlow
+            substrinscat from SubStrindexScatter
+            
+        Each chart has been designed to align closely with the `CaseStudy` functionality and with the underlying functionality of matplotlib.
+        
+        For instance, each chart is called via the `make` method.
+        
+        
+        ```python
+        casestudy.regions = ['NY', 'NJ']
+        casestudy.make()
+        leg = {'fontsize': 12, 'handlelength': 1}
+        casestudy.compchart.make(x_category='days', y_category='cases', figsize=(8,4), legend_params=leg)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=5.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=2.0), HTML(value='')))
+        
+        
+            Cumulative Cases
+        
+        
+        
+        ![png](output_110_4.png)
+        
+        
+        Each chart object is automatically updated on each `make` call, so any changes to the `casestudy` object, will also be reflected in the charts.
+        
+        
+        ```python
+        casestudy.regions = ['AB', 'ON']
+        casestudy.make()
+        casestudy.compchart.make(x_category='days', y_category='cases', figsize=(8,4), legend_params=leg)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=4.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=2.0), HTML(value='')))
+        
+        
+            Cumulative Cases
+        
+        
+        
+        ![png](output_112_4.png)
+        
+        
+        *Note a prior version of see19 implemented compchart using Bokeh. This chart is deprecated and replaced with a matplotlib version but is still avialable under CompChart2DBokeh.*
+        
+        <h1><a id='section5'>5. compchart - Visualizing Regional Impacts</a></h1>
+        
+        5.1 [Daily Fatalities Comparison - Italy](#section5.1)  
+        5.2 [Daily Fatalities Comparison - 5 Most Impacted Regions](#section5.2)  
+        5.3 [Varying the Categories](#section5.3)  
+        
+        `compchart` attribute is an instance of the `CompChart2D` class and provides standard line graphs comparing regions on different categories provided to `x_category` & `y_category`. Time-series is supported when `x_category='date'`.
+        
+        Charts are available in **multi-line** format with optional overlay of a second factor on a separate y-axis.
+        
+        <h2><a id='section5.1'>5.1 Daily Fatalities Comparison - Italy</a></h2>
+        
+        We will illustrate with an example, focusing on only the three most impacted regions in Italy.
+        
+        
+        ```python
+        itaregs = bf[bf['country'] == 'Italy'] \
+            .sort_values(by='deaths', ascending=False).region_name.unique().tolist()[:3]
+        
+        casestudy = CaseStudy(bf, regions=itaregs, start_hurdle=3, start_factor='deaths', smooth=False)
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=1.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=3.0), HTML(value='')))
+        
+        
+        When `CaseStudy` is instantiated, `compchart` is also instantiated with its own attributes.
+        
+        
+        ```python
+        print (casestudy.compchart)
+        ```
+        
+            <casestudy.see19.see19.charts.CompChart2D object at 0x32dee3950>
+        
+        
+        In particular, all the various available categories are automatically provided labels via the `label` attribute. A few are shown below for illustration purposes.
+        
+        
+        ```python
+        for k,v in casestudy.compchart.labels.items():
+            print ('{}: {}'.format(k, v))
+            if k == 'temp':
+                break
+        ```
+        
+            cases_dma: Cumulative Cases (3DMA)
+            cases_new: Daily Cases
+            cases_new_dma: Daily Cases (3DMA)
+            deaths_dma: Cumulative Deaths (3DMA)
+            deaths_new: Daily Deaths
+            deaths_new_dma: Daily Deaths (3DMA)
+            tests_dma: Cumulative Tests (3DMA)
+            tests_new: Daily Tests
+            tests_new_dma: Daily Tests (3DMA)
+            cases: Cumulative Cases
+            deaths: Cumulative Deaths
+            tests: Cumulative Tests
+            cases_dma_per_1K: Cumulative Cases per 1K (3DMA)
+            cases_dma_per_1M: Cumulative Cases per 1M (3DMA)
+            cases_dma_per_person_per_land_KM2: Cumulative Cases / Person / Land KM² (3DMA)
+            cases_dma_per_person_per_city_KM2: Cumulative Cases / Person / City KM² (3DMA)
+            cases_new_per_1K: Daily Cases per 1K
+            cases_new_per_1M: Daily Cases per 1M
+            cases_new_per_person_per_land_KM2: Daily Cases / Person / Land KM²
+            cases_new_per_person_per_city_KM2: Daily Cases / Person / City KM²
+            cases_new_dma_per_1K: Daily Cases per 1K (3DMA)
+            cases_new_dma_per_1M: Daily Cases per 1M (3DMA)
+            cases_new_dma_per_person_per_land_KM2: Daily Cases / Person / Land KM² (3DMA)
+            cases_new_dma_per_person_per_city_KM2: Daily Cases / Person / City KM² (3DMA)
+            deaths_dma_per_1K: Cumulative Deaths per 1K (3DMA)
+            deaths_dma_per_1M: Cumulative Deaths per 1M (3DMA)
+            deaths_dma_per_person_per_land_KM2: Cumulative Deaths / Person / Land KM² (3DMA)
+            deaths_dma_per_person_per_city_KM2: Cumulative Deaths / Person / City KM² (3DMA)
+            deaths_new_per_1K: Daily Deaths per 1K
+            deaths_new_per_1M: Daily Deaths per 1M
+            deaths_new_per_person_per_land_KM2: Daily Deaths / Person / Land KM²
+            deaths_new_per_person_per_city_KM2: Daily Deaths / Person / City KM²
+            deaths_new_dma_per_1K: Daily Deaths per 1K (3DMA)
+            deaths_new_dma_per_1M: Daily Deaths per 1M (3DMA)
+            deaths_new_dma_per_person_per_land_KM2: Daily Deaths / Person / Land KM² (3DMA)
+            deaths_new_dma_per_person_per_city_KM2: Daily Deaths / Person / City KM² (3DMA)
+            tests_dma_per_1K: Cumulative Tests per 1K (3DMA)
+            tests_dma_per_1M: Cumulative Tests per 1M (3DMA)
+            tests_dma_per_person_per_land_KM2: Cumulative Tests / Person / Land KM² (3DMA)
+            tests_dma_per_person_per_city_KM2: Cumulative Tests / Person / City KM² (3DMA)
+            tests_new_per_1K: Daily Tests per 1K
+            tests_new_per_1M: Daily Tests per 1M
+            tests_new_per_person_per_land_KM2: Daily Tests / Person / Land KM²
+            tests_new_per_person_per_city_KM2: Daily Tests / Person / City KM²
+            tests_new_dma_per_1K: Daily Tests per 1K (3DMA)
+            tests_new_dma_per_1M: Daily Tests per 1M (3DMA)
+            tests_new_dma_per_person_per_land_KM2: Daily Tests / Person / Land KM² (3DMA)
+            tests_new_dma_per_person_per_city_KM2: Daily Tests / Person / City KM² (3DMA)
+            cases_per_1K: Cumulative Cases per 1K
+            cases_per_1M: Cumulative Cases per 1M
+            cases_per_person_per_land_KM2: Cumulative Cases / Person / Land KM²
+            cases_per_person_per_city_KM2: Cumulative Cases / Person / City KM²
+            deaths_per_1K: Cumulative Deaths per 1K
+            deaths_per_1M: Cumulative Deaths per 1M
+            deaths_per_person_per_land_KM2: Cumulative Deaths / Person / Land KM²
+            deaths_per_person_per_city_KM2: Cumulative Deaths / Person / City KM²
+            tests_per_1K: Cumulative Tests per 1K
+            tests_per_1M: Cumulative Tests per 1M
+            tests_per_person_per_land_KM2: Cumulative Tests / Person / Land KM²
+            tests_per_person_per_city_KM2: Cumulative Tests / Person / City KM²
+            cases_dma_lognat: Cumulative Cases (3DMA)
+            (Natural Log)
+            cases_new_lognat: Daily Cases
+            (Natural Log)
+            cases_new_dma_lognat: Daily Cases (3DMA)
+            (Natural Log)
+            deaths_dma_lognat: Cumulative Deaths (3DMA)
+            (Natural Log)
+            deaths_new_lognat: Daily Deaths
+            (Natural Log)
+            deaths_new_dma_lognat: Daily Deaths (3DMA)
+            (Natural Log)
+            tests_dma_lognat: Cumulative Tests (3DMA)
+            (Natural Log)
+            tests_new_lognat: Daily Tests
+            (Natural Log)
+            tests_new_dma_lognat: Daily Tests (3DMA)
+            (Natural Log)
+            cases_lognat: Cumulative Cases
+            (Natural Log)
+            deaths_lognat: Cumulative Deaths
+            (Natural Log)
+            tests_lognat: Cumulative Tests
+            (Natural Log)
+            cases_dma_per_1K_lognat: Cumulative Cases per 1K (3DMA)
+            (Natural Log)
+            cases_dma_per_1M_lognat: Cumulative Cases per 1M (3DMA)
+            (Natural Log)
+            cases_dma_per_person_per_land_KM2_lognat: Cumulative Cases / Person / Land KM² (3DMA)
+            (Natural Log)
+            cases_dma_per_person_per_city_KM2_lognat: Cumulative Cases / Person / City KM² (3DMA)
+            (Natural Log)
+            cases_new_per_1K_lognat: Daily Cases per 1K
+            (Natural Log)
+            cases_new_per_1M_lognat: Daily Cases per 1M
+            (Natural Log)
+            cases_new_per_person_per_land_KM2_lognat: Daily Cases / Person / Land KM²
+            (Natural Log)
+            cases_new_per_person_per_city_KM2_lognat: Daily Cases / Person / City KM²
+            (Natural Log)
+            cases_new_dma_per_1K_lognat: Daily Cases per 1K (3DMA)
+            (Natural Log)
+            cases_new_dma_per_1M_lognat: Daily Cases per 1M (3DMA)
+            (Natural Log)
+            cases_new_dma_per_person_per_land_KM2_lognat: Daily Cases / Person / Land KM² (3DMA)
+            (Natural Log)
+            cases_new_dma_per_person_per_city_KM2_lognat: Daily Cases / Person / City KM² (3DMA)
+            (Natural Log)
+            deaths_dma_per_1K_lognat: Cumulative Deaths per 1K (3DMA)
+            (Natural Log)
+            deaths_dma_per_1M_lognat: Cumulative Deaths per 1M (3DMA)
+            (Natural Log)
+            deaths_dma_per_person_per_land_KM2_lognat: Cumulative Deaths / Person / Land KM² (3DMA)
+            (Natural Log)
+            deaths_dma_per_person_per_city_KM2_lognat: Cumulative Deaths / Person / City KM² (3DMA)
+            (Natural Log)
+            deaths_new_per_1K_lognat: Daily Deaths per 1K
+            (Natural Log)
+            deaths_new_per_1M_lognat: Daily Deaths per 1M
+            (Natural Log)
+            deaths_new_per_person_per_land_KM2_lognat: Daily Deaths / Person / Land KM²
+            (Natural Log)
+            deaths_new_per_person_per_city_KM2_lognat: Daily Deaths / Person / City KM²
+            (Natural Log)
+            deaths_new_dma_per_1K_lognat: Daily Deaths per 1K (3DMA)
+            (Natural Log)
+            deaths_new_dma_per_1M_lognat: Daily Deaths per 1M (3DMA)
+            (Natural Log)
+            deaths_new_dma_per_person_per_land_KM2_lognat: Daily Deaths / Person / Land KM² (3DMA)
+            (Natural Log)
+            deaths_new_dma_per_person_per_city_KM2_lognat: Daily Deaths / Person / City KM² (3DMA)
+            (Natural Log)
+            tests_dma_per_1K_lognat: Cumulative Tests per 1K (3DMA)
+            (Natural Log)
+            tests_dma_per_1M_lognat: Cumulative Tests per 1M (3DMA)
+            (Natural Log)
+            tests_dma_per_person_per_land_KM2_lognat: Cumulative Tests / Person / Land KM² (3DMA)
+            (Natural Log)
+            tests_dma_per_person_per_city_KM2_lognat: Cumulative Tests / Person / City KM² (3DMA)
+            (Natural Log)
+            tests_new_per_1K_lognat: Daily Tests per 1K
+            (Natural Log)
+            tests_new_per_1M_lognat: Daily Tests per 1M
+            (Natural Log)
+            tests_new_per_person_per_land_KM2_lognat: Daily Tests / Person / Land KM²
+            (Natural Log)
+            tests_new_per_person_per_city_KM2_lognat: Daily Tests / Person / City KM²
+            (Natural Log)
+            tests_new_dma_per_1K_lognat: Daily Tests per 1K (3DMA)
+            (Natural Log)
+            tests_new_dma_per_1M_lognat: Daily Tests per 1M (3DMA)
+            (Natural Log)
+            tests_new_dma_per_person_per_land_KM2_lognat: Daily Tests / Person / Land KM² (3DMA)
+            (Natural Log)
+            tests_new_dma_per_person_per_city_KM2_lognat: Daily Tests / Person / City KM² (3DMA)
+            (Natural Log)
+            cases_per_1K_lognat: Cumulative Cases per 1K
+            (Natural Log)
+            cases_per_1M_lognat: Cumulative Cases per 1M
+            (Natural Log)
+            cases_per_person_per_land_KM2_lognat: Cumulative Cases / Person / Land KM²
+            (Natural Log)
+            cases_per_person_per_city_KM2_lognat: Cumulative Cases / Person / City KM²
+            (Natural Log)
+            deaths_per_1K_lognat: Cumulative Deaths per 1K
+            (Natural Log)
+            deaths_per_1M_lognat: Cumulative Deaths per 1M
+            (Natural Log)
+            deaths_per_person_per_land_KM2_lognat: Cumulative Deaths / Person / Land KM²
+            (Natural Log)
+            deaths_per_person_per_city_KM2_lognat: Cumulative Deaths / Person / City KM²
+            (Natural Log)
+            tests_per_1K_lognat: Cumulative Tests per 1K
+            (Natural Log)
+            tests_per_1M_lognat: Cumulative Tests per 1M
+            (Natural Log)
+            tests_per_person_per_land_KM2_lognat: Cumulative Tests / Person / Land KM²
+            (Natural Log)
+            tests_per_person_per_city_KM2_lognat: Cumulative Tests / Person / City KM²
+            (Natural Log)
+            cases_dma_log: Cumulative Cases (3DMA)
+            (Log Base 10)
+            cases_new_log: Daily Cases
+            (Log Base 10)
+            cases_new_dma_log: Daily Cases (3DMA)
+            (Log Base 10)
+            deaths_dma_log: Cumulative Deaths (3DMA)
+            (Log Base 10)
+            deaths_new_log: Daily Deaths
+            (Log Base 10)
+            deaths_new_dma_log: Daily Deaths (3DMA)
+            (Log Base 10)
+            tests_dma_log: Cumulative Tests (3DMA)
+            (Log Base 10)
+            tests_new_log: Daily Tests
+            (Log Base 10)
+            tests_new_dma_log: Daily Tests (3DMA)
+            (Log Base 10)
+            cases_log: Cumulative Cases
+            (Log Base 10)
+            deaths_log: Cumulative Deaths
+            (Log Base 10)
+            tests_log: Cumulative Tests
+            (Log Base 10)
+            cases_dma_per_1K_log: Cumulative Cases per 1K (3DMA)
+            (Log Base 10)
+            cases_dma_per_1M_log: Cumulative Cases per 1M (3DMA)
+            (Log Base 10)
+            cases_dma_per_person_per_land_KM2_log: Cumulative Cases / Person / Land KM² (3DMA)
+            (Log Base 10)
+            cases_dma_per_person_per_city_KM2_log: Cumulative Cases / Person / City KM² (3DMA)
+            (Log Base 10)
+            cases_new_per_1K_log: Daily Cases per 1K
+            (Log Base 10)
+            cases_new_per_1M_log: Daily Cases per 1M
+            (Log Base 10)
+            cases_new_per_person_per_land_KM2_log: Daily Cases / Person / Land KM²
+            (Log Base 10)
+            cases_new_per_person_per_city_KM2_log: Daily Cases / Person / City KM²
+            (Log Base 10)
+            cases_new_dma_per_1K_log: Daily Cases per 1K (3DMA)
+            (Log Base 10)
+            cases_new_dma_per_1M_log: Daily Cases per 1M (3DMA)
+            (Log Base 10)
+            cases_new_dma_per_person_per_land_KM2_log: Daily Cases / Person / Land KM² (3DMA)
+            (Log Base 10)
+            cases_new_dma_per_person_per_city_KM2_log: Daily Cases / Person / City KM² (3DMA)
+            (Log Base 10)
+            deaths_dma_per_1K_log: Cumulative Deaths per 1K (3DMA)
+            (Log Base 10)
+            deaths_dma_per_1M_log: Cumulative Deaths per 1M (3DMA)
+            (Log Base 10)
+            deaths_dma_per_person_per_land_KM2_log: Cumulative Deaths / Person / Land KM² (3DMA)
+            (Log Base 10)
+            deaths_dma_per_person_per_city_KM2_log: Cumulative Deaths / Person / City KM² (3DMA)
+            (Log Base 10)
+            deaths_new_per_1K_log: Daily Deaths per 1K
+            (Log Base 10)
+            deaths_new_per_1M_log: Daily Deaths per 1M
+            (Log Base 10)
+            deaths_new_per_person_per_land_KM2_log: Daily Deaths / Person / Land KM²
+            (Log Base 10)
+            deaths_new_per_person_per_city_KM2_log: Daily Deaths / Person / City KM²
+            (Log Base 10)
+            deaths_new_dma_per_1K_log: Daily Deaths per 1K (3DMA)
+            (Log Base 10)
+            deaths_new_dma_per_1M_log: Daily Deaths per 1M (3DMA)
+            (Log Base 10)
+            deaths_new_dma_per_person_per_land_KM2_log: Daily Deaths / Person / Land KM² (3DMA)
+            (Log Base 10)
+            deaths_new_dma_per_person_per_city_KM2_log: Daily Deaths / Person / City KM² (3DMA)
+            (Log Base 10)
+            tests_dma_per_1K_log: Cumulative Tests per 1K (3DMA)
+            (Log Base 10)
+            tests_dma_per_1M_log: Cumulative Tests per 1M (3DMA)
+            (Log Base 10)
+            tests_dma_per_person_per_land_KM2_log: Cumulative Tests / Person / Land KM² (3DMA)
+            (Log Base 10)
+            tests_dma_per_person_per_city_KM2_log: Cumulative Tests / Person / City KM² (3DMA)
+            (Log Base 10)
+            tests_new_per_1K_log: Daily Tests per 1K
+            (Log Base 10)
+            tests_new_per_1M_log: Daily Tests per 1M
+            (Log Base 10)
+            tests_new_per_person_per_land_KM2_log: Daily Tests / Person / Land KM²
+            (Log Base 10)
+            tests_new_per_person_per_city_KM2_log: Daily Tests / Person / City KM²
+            (Log Base 10)
+            tests_new_dma_per_1K_log: Daily Tests per 1K (3DMA)
+            (Log Base 10)
+            tests_new_dma_per_1M_log: Daily Tests per 1M (3DMA)
+            (Log Base 10)
+            tests_new_dma_per_person_per_land_KM2_log: Daily Tests / Person / Land KM² (3DMA)
+            (Log Base 10)
+            tests_new_dma_per_person_per_city_KM2_log: Daily Tests / Person / City KM² (3DMA)
+            (Log Base 10)
+            cases_per_1K_log: Cumulative Cases per 1K
+            (Log Base 10)
+            cases_per_1M_log: Cumulative Cases per 1M
+            (Log Base 10)
+            cases_per_person_per_land_KM2_log: Cumulative Cases / Person / Land KM²
+            (Log Base 10)
+            cases_per_person_per_city_KM2_log: Cumulative Cases / Person / City KM²
+            (Log Base 10)
+            deaths_per_1K_log: Cumulative Deaths per 1K
+            (Log Base 10)
+            deaths_per_1M_log: Cumulative Deaths per 1M
+            (Log Base 10)
+            deaths_per_person_per_land_KM2_log: Cumulative Deaths / Person / Land KM²
+            (Log Base 10)
+            deaths_per_person_per_city_KM2_log: Cumulative Deaths / Person / City KM²
+            (Log Base 10)
+            tests_per_1K_log: Cumulative Tests per 1K
+            (Log Base 10)
+            tests_per_1M_log: Cumulative Tests per 1M
+            (Log Base 10)
+            tests_per_person_per_land_KM2_log: Cumulative Tests / Person / Land KM²
+            (Log Base 10)
+            tests_per_person_per_city_KM2_log: Cumulative Tests / Person / City KM²
+            (Log Base 10)
+            : January 2020
+            population: Population
+            land_dens: Density of Land Area
+            city_dens: Population Density of Largest City
+            uvb: UV-B Radiation in J / M²
+            rhum: Relative Humidity
+            strindex: Oxford Stringency Index
+            visitors: Annual Visitors
+            visitors_%: Annual Visitors as % of Population
+            gdp: Gross Domestic Product
+            gdp_%: Gross Domestic Product per Capita
+            retail_n_rec: Change in Retail n Recreation Mobility
+            transit: Change in Transit Mobility
+            workplaces: Change in WorkPlace Mobility
+            residential: Change in Residential Mobility
+            parks: Change in Parks Mobility
+            groc_n_pharm: Change in Grocery & Pharmacy Mobility
+            transit_apple: Change in Transit Mobility - Apple
+            driving_apple: Change in Driving Mobility - Apple
+            walking_apple: Change in Walking Mobility - Apple
+            c1: School Closing
+            c2: Workplace Closing
+            c3: Cancel Public Events
+            c4: Restrictions on Gatherings
+            c5: Close Public Transport
+            c6: Stay-at-Home Requirements
+            c7: Restrictions on Internal Movement
+            c8: International Travel Controls
+            e1: Income Support
+            e2: Debt / Contract Relief
+            e3: Fiscal Measures
+            e4: International Support
+            h1: Public Information Campaigns
+            h2: Testing Policy
+            h3: Contact Tracing
+            h4: Emergency Investment in Health Care
+            h5: Investment in Vaccines
+            key3_sum: Sum of Key 3 Categories
+            key3_sum_earlier: Sum of Key 3 Oxford Stingency Factor Weighted to Earlier Dates
+            make_sum: Custom Stringency Aggregate
+            neoplasms: NeoPlasms Fatalities
+            blood: Blood-based Fatalities
+            endo: Endocrine Fatalities
+            mental: Mental Fatalities
+            nervous: Nervous System Fatalities
+            circul: Circulatory Fatalities
+            infectious: Infectious Fatalities
+            respir: Respiratory Fatalities
+            digest: Digestive Fatalities
+            skin: Skin-related Fatalities
+            musculo: Musculo-skeletal Fatalities
+            genito: Genitourinary Fatalities
+            childbirth: Maternal and Childbirth Fatalities
+            perinatal: Perinatal Fatalities
+            congenital: Congenital Fatalities
+            other: Other Fatalities
+            external: External Fatalities
+            date: Date
+            temp: Temperature (°C)
+        
+        
+        ### make()
+        
+        Similar to the main casestudy object, charts are rendered with the `make` method.
+        
+        `x_category` and `y_category` accept any column header in `casestudy.df`.
+        
+        `make` accepts many optional kwargs. Every effort is made to align these options with matplotlib standards. Appropriate options can be found via the matplotlib api. For example: 
+        * `title`:          https://matplotlib.org/api/_as_gen/matplotlib.pyplot.suptitle.html (except for CompCharts4D)
+        * `line_params`: https://matplotlib.org/3.1.1/api/_as_gen/matplotlib.pyplot.plot.html
+        * `legend_params`:    https://matplotlib.org/api/_as_gen/matplotlib.pyplot.legend.html
+        * `xlabel_params`: https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.set_xlabel.html
+        * `xtick_params`:  https://matplotlib.org/api/_as_gen/matplotlib.axes.Axes.tick_params.html
+        * `palette_base`:  https://matplotlib.org/1.2.1/examples/pylab_examples/show_colormaps.html   
+        
+        All of the above kwargs and many others are share amongst ALL the different see19 Chart Classes.
+        
+        
+        ```python
+        kwargs = {
+            'x_category': 'days',
+            'y_category': 'cases_new',
+            'width': 12,
+            'height': 8,
+            'title': {'t': 'Most Impacted Regions in Italy', 'fontsize': 24, 'weight': 'demi'},
+            'line_params': {'lw': 4},
+            'legend_params': {'fontsize': 14, 'handlelength': 1},
+            'xlabel_params': {'fontsize': 18, 'labelpad': 10},
+            'ylabel_params': {'fontsize': 18, 'labelpad': 10},
+            'xtick_params': {'labelsize': 14},
+            'ytick_params': {'labelsize': 14},
+            'colors': ['red', 'green', 'blue']
+        }
+        
+        casestudy.compchart.make(**kwargs)
+        ```
+        
+            Daily Cases
+        
+        
+        
+        ![png](output_124_1.png)
+        
+        
+        An optional `regions` parameter exists that allows you to further reduce the number of regions presented in the chart. `regions` accepts a list of `region_id`, `region_code`, or `region_name` in any combination.
+        
+        Below, we also show that a matplotlib colormap can be provided via `palette_base` and that the x-axis label can be removed by setting `xlabel=False` 
+        
+        
+        ```python
+        kwargs = {
+            'regions': ['LOM', 'EMI'],
+            'x_category': 'date',
+            'y_category': 'deaths_new',
+            'width': 12,
+            'height': 8,
+            'title': {'t': 'Lombardia v Emilia-Romagna', 'fontsize': 24, 'weight': 'demi'},
+            'line_params': {'lw': 6},
+            'legend_params': {'fontsize': 14, 'handlelength': 1},
+            'xlabel': False,
+            'ylabel_params': {'fontsize': 18, 'labelpad': 10},
+            'xtick_params': {'labelsize': 14},
+            'ytick_params': {'labelsize': 14},
+            'palette_base': 'Accent',
+        }
+        
+        casestudy.compchart.make(**kwargs)
+        ```
+        
+            Daily Deaths
+        
+        
+        
+        ![png](output_126_1.png)
+        
+        
+        <h2><a id='section5.2'>5.2 Daily Fatalities Comparison - 5 Most Impacted Regions</a></h2>
+        
+        Now we'll look at new cases in the 5 most impacted regions globally in terms of total fatalities.
+        
+        
+        ```python
+        regions = list(bf.sort_values(by='deaths', ascending=False).region_name.unique())[:5]
+        ```
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, regions=regions, start_hurdle=3, start_factor='deaths', count_dma=21, log=True)
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=12.0, style=ProgressStyle(description_width…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=5.0), HTML(value='')))
+        
+        
+        
+        ```python
+        title='5 Most Impacted Regions'
+        
+        kwargs = {
+            'x_category': 'days',
+            'y_category': 'deaths_new',
+            'width': 12,
+            'height': 8,
+            'title': {'t': title, 'fontsize': 24, 'weight': 'demi'},
+            'line_params': {'lw': 3},
+            'legend_params': {'fontsize': 14},
+            'xlabel_params': {'fontsize': 18, 'labelpad': 10},
+            'ylabel_params': {'fontsize': 18, 'labelpad': 10},
+            'xtick_params': {'labelsize': 14},
+            'ytick_params': {'labelsize': 14},
+            'palette_base': 'Accent',
+        }
+        p = casestudy.compchart.make(**kwargs)
+        ```
+        
+            Daily Deaths
+        
+        
+        
+        ![png](output_131_1.png)
+        
+        
+        There are major outliers, certainly in the early days that make the graph difficult to read. The `lognat` adjusted category comes in handy here.
+        
+        Below we also demonstrate that the `regions` parameter can be provided to each `make` to further reduce the regions covered in the chart (for convenience)
+        
+        
+        ```python
+        kwargs['y_category']= 'deaths_new_dma_per_1M_log'
+        kwargs['ylabel_params']= {'fontsize': 18, 'labelpad': 10}
+        kwargs['regions'] = ['France', 'India', 'United Kingdom']
+        
+        p = casestudy.compchart.make(**kwargs)
+        ```
+        
+            Daily Deaths per 1M (21DMA)
+            (Log Base 10)
+        
+        
+        
+        ![png](output_133_1.png)
+        
+        
+        <h2><a id='section5.3'>5.3 Varying the Categories</a></h2>
+        
+        **Oxford Stringency Index**
+        
+        `compchart` can be used to compare any `category` or `factor` in `casestudy.df` with `days` or `date` on the x-axis.
+        
+        The below chart compares the Oxford Stringency Index for each selected region
+        
+        
+        ```python
+        regions = ['Germany', 'Spain', 'Taiwan']
+        
+        casestudy = CaseStudy(
+            bf, count_categories='cases_new_per_1M', regions=regions, 
+            start_factor='', factors=['strindex']
+        )
+        casestudy.make()
+        kwargs = {
+            'x_category': 'date',
+            'y_category': 'strindex',
+            'width': 12,
+            'height': 8,
+            'line_params': {'lw': 3},
+            'legend_params': {'fontsize': 14},
+            'xlabel_params': {'fontsize': 18, 'labelpad': 10},
+            'ylabel_params': {'fontsize': 18, 'labelpad': 10},
+            'xtick_params': {'labelsize': 14},
+            'ytick_params': {'labelsize': 14},
+            'palette_base': 'Accent',
+        }
+        p = casestudy.compchart.make(**kwargs)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=6.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=3.0), HTML(value='')))
+        
+        
+            Oxford Stringency Index
+        
+        
+        
+        ![png](output_136_4.png)
+        
+        
+        These graphs work best as time-series but the `x_category` can also be any other category in `casestudy.df`. Below we can see that in New York, positive cases have steadily declined even as testing has increased. Texas and Arizona have not had the same success.
+        
+        
+        ```python
+        regions = ['New York', 'Texas', 'Arizona']
+        
+        casestudy = CaseStudy(bf, regions=regions, count_dma=21)
+        casestudy.make()
+        kwargs = {
+            'x_category': 'tests_new_dma_per_1M',
+            'y_category': 'cases_new_dma_per_1M',
+            'width': 12,
+            'height': 8,
+            'line_params': {'lw': 3},
+            'legend_params': {'fontsize': 14},
+            'xlabel_params': {'fontsize': 18, 'labelpad': 10},
+            'ylabel_params': {'fontsize': 18, 'labelpad': 10},
+            'xtick_params': {'labelsize': 14},
+            'ytick_params': {'labelsize': 14},
+            'palette_base': 'Accent',
+        }
+        p = casestudy.compchart.make(**kwargs)
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=8.0, style=ProgressStyle(description_width=…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=3.0), HTML(value='')))
+        
+        
+            Daily Cases per 1M (21DMA)
+        
+        
+        
+        ![png](output_138_4.png)
+        
+        
+        ### Saving Files
+        
+        All chart instances in `see19` have a `save_file` option. Simply set that option to `True` and provide a `filename` and the file will be saved to yor location of choice.
+        
+        <h1><a id='section6'>6. compchart4D - Visualizing Factors in 4D</a></h1>
+        
+        6.1 [From 3D to 4D](#section6.1)  
+        6.2 [More on the X-Axis](#section6.2)  
+        6.3 [How Far Can We Take It?](#section6.3)
+        
+        3D charts with color-mapping can be used to explore the impact of various factors in different regions at different times.
+        
+        Such '4D' maps are often criticized for lack of readability, but they have been a valuable tool for recognizing  patterns.
+        
+        These charts are available in `CaseStudy` via the `compchart4d` attribute, which is an instance of the `CompChart4D` class. The 3D representation shows the `count_category` for each region on z-axis with each day from the `start_hurdle` on the y-axis and the individual regions separated on the x-axis.
+        
+        The 3D chart is a cute trick, but the real power is derived from the `color_factor`. This maps the color of each 3D bar to the factor one wants to investigate.
+        
+        `CompChart4D` object utilizes `matplotlib` for chart creation.
+        
+        <h1><a id='section6.1'>6.1  From 3D to 4D</a></h1>
+        
+        ### Most Impacted Regions - Brazil
+        
+        First, we get region names from the baseframe, sorting as required.
+        
+        Then we create the `casestudy` instance, including several factors that we'll cover in our analysis.
+        
+        
+        ```python
+        from casestudy.see19.see19 import CaseStudy
+        ```
+        
+        
+        ```python
+        regions = bf[bf['country'] == 'Brazil'] \
+            .sort_values(by='population', ascending=False) \
+            .region_name.unique().tolist()[:20]
+        
+        factor_dmas={'temp': 3}
+        
+        casestudy = CaseStudy(
+            bf, count_dma=5, 
+            factors=['temp', 'c1', 'A65PLUSB', 'A75PLUSB'], factor_dmas=factor_dmas,
+            regions=regions, start_hurdle=10, start_factor='cases', lognat=True,
+        )
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=59.0, style=ProgressStyle(description_width…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=20.0), HTML(value='')))
+        
+        
+        4D charts are customizable in precisely the same way as `CompChart2D`, sharing many of the same keywords. `compchart4D` utilizes a couple of its own unique keywords as per below:
+        * `z_category` is utilized to determine the z-axis (vertical). x- and y-axis are automatically set to regions and days.
+        * `comp_size` will further trim the number of regions by ranking them on the `comp_category`. 
+        * a separate `rank_category` can be provided for this process if preferred
+        
+        
+        ```python
+        kwargs = {
+            'title': {'s': 'Most Impacted Regions in Brazil', 'x': .47, 'y': .74, 'fontsize': 24, 'rotation': -9, 'weight': 'demi'},
+            'ylabel_params': {'fontsize': 18, 'labelpad': 12},
+            'zlabel_params': {'fontsize': 18, 'labelpad': 10},
+            'xtick_params': {'labelsize': 18},
+            'ytick_params': {'labelsize': 12},
+            'tight': True, 'comp_size': 10,
+        }
+        p = casestudy.compchart4d.make(z_category='deaths_new_dma_per_1M', **kwargs)
+        ```
+        
+        
+        ![png](output_148_0.png)
+        
+        
+        ***`df_chart`***: for most charts, the casestudy dataframe is morphed for presentation purposes. This morphed data is avaliable via the df_chart attribute.
+        
+        
+        ```python
+        casestudy.compchart4d.df_chart.head()
+        ```
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>region_name</th>
+              <th>region_code</th>
+              <th>country</th>
+              <th>date</th>
+              <th>days</th>
+              <th>deaths_new_dma_per_1M</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>10585</th>
+              <td>566</td>
+              <td>Ceara</td>
+              <td>CE</td>
+              <td>Brazil</td>
+              <td>2020-03-22</td>
+              <td>6 days</td>
+              <td>0.000000</td>
+            </tr>
+            <tr>
+              <th>10586</th>
+              <td>566</td>
+              <td>Ceara</td>
+              <td>CE</td>
+              <td>Brazil</td>
+              <td>2020-03-23</td>
+              <td>7 days</td>
+              <td>0.000000</td>
+            </tr>
+            <tr>
+              <th>10587</th>
+              <td>566</td>
+              <td>Ceara</td>
+              <td>CE</td>
+              <td>Brazil</td>
+              <td>2020-03-24</td>
+              <td>8 days</td>
+              <td>0.000000</td>
+            </tr>
+            <tr>
+              <th>10588</th>
+              <td>566</td>
+              <td>Ceara</td>
+              <td>CE</td>
+              <td>Brazil</td>
+              <td>2020-03-25</td>
+              <td>9 days</td>
+              <td>0.000000</td>
+            </tr>
+            <tr>
+              <th>10589</th>
+              <td>566</td>
+              <td>Ceara</td>
+              <td>CE</td>
+              <td>Brazil</td>
+              <td>2020-03-26</td>
+              <td>10 days</td>
+              <td>0.169566</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        ### Adding a Color Factor
+        
+        By adding the `color_factor` attribute, we can see the impact, if any, of an exogenous factor on the `comp_category` over time.
+        
+        We will start with `A65PLUSB_%`. As this a time-static factor, the color for each region will be the same regardless of the day.
+        
+        You must provide additional options to position the color bar.
+        
+        
+        ```python
+        kwargs = {
+            **kwargs,
+            'color_category': 'A65PLUSB_%', 
+            'xy_cbar': (0.09, .225), 'wh_cbar': (.015, 14),
+            'cblabel_params': {'labelpad': -55},
+        }
+        p = casestudy.compchart4d.make(z_category='deaths_new_dma_per_1M', **kwargs)
+        ```
+        
+        
+        ![png](output_152_0.png)
+        
+        
+        Now we'll use `temp`, which is a time-dynamic factor and will provide a different color for each region on each day.
+        
+        
+        ```python
+        kwargs = {**kwargs, 
+            'color_category': 'temp',
+        }
+        ```
+        
+        
+        ```python
+        p = casestudy.compchart4d.make(z_category='deaths_new_dma_per_1M', **kwargs)
+        ```
+        
+        
+        ![png](output_155_0.png)
+        
+        
+        ### Fixing the Color Range
+        
+        ***NOTE:*** The range of colors is automatically set by `make`. This can be somewhat misleading when:
+        1. comparing multiple charts 
+        2. when a single chart has temperatures in a narrow range. In the above example, for instance, temperatures range only between 18C - 28C and, yet, the color map runs almost the entire red-blue spectrum.
+        
+        Thus, there is a `color_interval` option that allows you to fix the color interval. `color_interval` expects a tuple, where the first item is the low-end of the range and the second item is the high-end.
+        
+        Fixing the color interval provides a very different picture of Brazil's impacted regions.
+        
+        
+        ```python
+        kwargs = {**kwargs, 'color_interval': (20,30)}
+        p = casestudy.compchart4d.make(z_category='deaths_new_dma_per_1M', **kwargs)
+        ```
+        
+        
+        ![png](output_157_0.png)
+        
+        
+        <h1><a id='section6.2'>6.2 More on the X-Axis</a></h1>
+        
+        
+        ### Top 30 US States
+        
+        Now we investigate the Top 30 most impacted US states.
+        
+        
+        ```python
+        regions = bf[bf['country_code'] == 'USA'] \
+            .sort_values('cases', ascending='False') \
+            .region_name.unique().tolist()[:50]
+        countries = 'USA'
+        ```
+        
+        
+        ```python
+        casestudy = CaseStudy(
+            bf, regions=regions, countries=countries, count_dma=14,
+            factors=['temp', 'uvb', 'rhum', 'A65PLUSB', 'A75PLUSB', 'A05_24B'], factor_dmas={'temp': 14, 'uvb': 14},
+            start_hurdle=10, start_factor='cases', 
+        )
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=139.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=50.0), HTML(value='')))
+        
+        
+        Here 4 charts are prepared in quick succession.
+        
+        Additional options are shown for editing the background grey and removing gridlines.
+        
+        **NOTE:** `CompChart4D` automatically sorts the regions on the x-axis such that the regions with the greatest z-axis values are furthest away. This improves readability.
+        
+        
+        ```python
+        kwargs = {
+            'regions': '',
+            'ylabel_params': {'fontsize': 18, 'labelpad': 12},
+            'zlabel_params': {'fontsize': 18, 'labelpad': 10},
+            'xtick_params': {'labelsize': 12},
+            'ytick_params': {'labelsize': 12},
+            'ztick_params': {'labelsize': 12},
+            'title': {'x': 0.58, 'y': 0.825,'s': 'Daily Deaths in Select US States', 'fontsize': 22, 'rotation': -10.7},
+            'xy_cbar': (0.09, .225), 'wh_cbar': (.01, 20),
+            'title': {'s': 'Most Impacted States in US', 'x': .47, 'y': .74, 'fontsize': 24, 'rotation': -9, 'weight': 'demi'},
+            'cblabel_params': {'labelpad': -55},
+            'color_category': 'temp_dma', 'color_interval': (20,30),
+            'tight': True,
+            'comp_size': 30,
+            'rank_category': 'deaths_new_dma_per_1M',    
+        }
+        
+        p = casestudy.compchart4d.make(z_category='deaths_new_dma_per_1M', **kwargs)
+        p = casestudy.compchart4d.make(z_category='deaths_new_dma_per_person_per_city_KM2', **kwargs)
+        
+        kwargs['color_category'] = 'uvb_dma'
+        kwargs['color_interval'] = ()
+        kwargs['gridlines'] = False
+        
+        p = casestudy.compchart4d.make(z_category='deaths_new_dma_per_1M', **kwargs)
+        p = casestudy.compchart4d.make(z_category='deaths_new_dma_per_person_per_city_KM2', **kwargs)
+        ```
+        
+        
+        ![png](output_163_0.png)
+        
+        
+        
+        ![png](output_163_1.png)
+        
+        
+        
+        ![png](output_163_2.png)
+        
+        
+        
+        ![png](output_163_3.png)
+        
+        
+        <h1><a id='section6.3'>6.3 How Far Can We Take It?</a></h1>
+        
+        ### 101 Most Impacted Regions Globally
+        
+        I acknowledge that using the chart in this way stretches its value, however, it is has been a great way for me to consider trends globally. Try not to look at each individual region ... look at it more like a scatter plot and see what patterns you can identify, if any.
+        
+        **NOTE:** If the number of regions exceeds **100**, the region labels are removed automatically.
+        
+        First, we sort the regions in the `baseframe` to find the 101 most populous.
+        
+        Then, those regions are ranked on the `comp_category`.
+        
+        
+        ```python
+        compsize = 102
+        regions = bf[~(bf['country'] == 'China')].sort_values(by='population', ascending=False).region_name.unique().tolist()[:compsize]
+        
+        factors = ['temp']
+        factor_dmas = {'temp': 7}
+        
+        casestudy = CaseStudy(
+            bf, regions=regions, factors=factors, factor_dmas=factor_dmas,
+            start_hurdle=10, start_factor='cases', count_dma=3, lognat=True
+        )
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=226.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=103.0), HTML(value='')))
+        
+        
+        
+        ```python
+        kwargs = {
+            'ylabel_params': {'fontsize': 18, 'labelpad': 12},
+            'zlabel_params': {'fontsize': 18, 'labelpad': 10},
+            'xtick_params': {'labelsize': 12},
+            'ytick_params': {'labelsize': 12},
+            'ztick_params': {'labelsize': 12},
+            'title': {'x': 0.58, 'y': 0.825,'s': 'Daily Deaths Globally', 'fontsize': 22, 'rotation': -10.7},
+            'xy_cbar': (0.09, .225), 'wh_cbar': (.01, 20),
+            'title': {'s': 'Most Impacted Regions Totally', 'x': .47, 'y': .74, 'fontsize': 24, 'rotation': -9, 'weight': 'demi'},
+            'cblabel_params': {'labelpad': -55},
+            'color_category': 'temp_dma', 'color_interval': (20,30),
+            'tight': True,
+            'comp_size': 102,
+            'rank_category': 'deaths_new_dma_per_1M', 
+        }
+        
+        p = casestudy.compchart4d.make(z_category='deaths_new_dma_per_1M', **kwargs)
+        ```
+        
+        
+        ![png](output_166_0.png)
+        
+        
+        Now, ***if*** temperature *for some reason* did impact the fatality rate associated with COVID19, what we would expect to see is regions at the far end of the x-axis would tend toward the **blue** end of the color spectrum and regions at the near end of the x-axis would tend towards **red**.
+        
+        We would also expect to see regions with higher peaks to have more **blue** bars on the near-end of the y-axis, or at times earlier in the outbreak.
+        
+        <h1><a id='section7'>7. heatmap - Visualizing with Color Maps</a></h1>
+        
+        7.1 [Count Category v Single Factor](#section7.1)  
+        7.2 [Count Category v Multiple Factors](#section7.2)  
+        
+        ### Hexbins? ###
+        See19 utilizes the `hexbin` module of `matplotlib` to generate ***HeatMap***-style charts to investigate the impact of different factors on COVID19 virulence.
+        
+        This is a bit of a repurpose or basterdization from `hexbin`'s intended usage. `hexbin` is more commonly used as a 2D histogram for very large datasets, counting the appearance of datapoints within a range of certain `(x,y)` coordinates (called `bins`) and then mapping a color scheme to the range of counts.
+        
+        For our purposes, use of `hexbin` is a stylistic choice, with the patterns developed more interesting and a bit more revealing than a scatter plot. The intention is for each `bin` to contain only one datapoint and the color is mapped to either the x-axis values or a 3rd dimension of values. 
+        
+        ### Structure ###
+        
+        As with previous charts, heatmaps are available in `CaseStudy` via the `heatmap` attribute, which is in turn an instance of the `HeatMap` class.
+        
+        Charts are generated via the `make` method, which further morphs `casestudy.df` to arrange data for visualization.
+        
+        ### Average over Time v Daily Points ###
+        
+        All of the analysis to this point has considered each daily datapoint for each region separately. `heatmap` is different. `heatmap` takes (at this point) a simple mean of the `x_category` and `y_category` in question. This is a sufficient method to explore potential relationships, but true time series analysis must also be considered to project COVID19 virulence forward.
+        
+        While the average is used, the timing of such average can still have an impact on the relevance of the analysis. At this stage, `heatmap` is capable of utilizing the *daily moving average* from the date of the peak of the `x_category` or from the date the region clears the `start_hurdle`.
+        
+        This option is denoted as the `x_start` and `color_start` parameters in the `make` method.
+        
+        For this analysis, we need a large dataset, so will start with the top **250** regions in terms of population and we will add many different factors.
+        
+        
+        ```python
+        excluded_countries = ['China']
+        excluded_regions = []
+        
+        frame_filter = (~bf['country'].isin(excluded_countries)) & (~bf['region_name'].isin(excluded_regions))
+        regions = bf[frame_filter] \
+            .sort_values('population', ascending=False) \
+            .region_name.unique().tolist()[:250]
+        
+        factors_with_dmas = CaseStudy.MSMTS + ['strindex']
+        factor_dmas = {factor: 28 for factor in factors_with_dmas}
+        factor_dmas['strindex'] = 14
+        factors = factors_with_dmas + CaseStudy.MAJOR_CAUSES + ['visitors', 'A75PLUSB', 'A65PLUSB', 'gdp']
+        
+        casestudy = CaseStudy(
+            bf, regions=regions, count_dma=14, factors=factors, 
+            factor_dmas=factor_dmas, start_hurdle=1, start_factor='deaths', log=True, lognat=True,
+        )
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=548.0, style=ProgressStyle(description_widt…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=230.0), HTML(value='')))
+        
+        
+        <h2><a id='section7.1'>7.1 Count Category v Single Factor</a></h2>
+        `heatmap` takes a similar set of options as `comp_chart` and `comp_chart4d`. The biggest difference in approach relates to text annotations:
+        
+        * In `comp_chart` and `comp_chart4d`, specific variables for `title`, `subtitle`, etc. generate text boxes for specific purposes.
+        * In `heatmap` this is replaced in favor of a more flexible approach of ad-hoc text annotations via the `annotations` parameter.
+        * `heatmap` has tended to require more lengthy notations / explanations and so this approach seemed more appropriate.
+        
+        In addition to the standard `comp_category`, the x-axis of `heatmap` is now provided by the `comp_factor` parameter.
+        
+        The below chart is completed on a linear scale of daily fatalities. It hints at a potential relationship between fatalities and temperature for the most impacted regions, however, the scaling is negatively impacted by a handful of outliers.
+        
+        **NOTE:** `color_factor` is ***not*** provided, therefore, the color map is a function of the `comp_factor` values (on the x-axis).
+        
+        **Max Fatalities v Temperature**
+        
+        
+        ```python
+        title = 'Max Daily Fatalities v Temperature by Region'
+        subtitle = '*Average temperature for two weeks prior to day of 3rd fatality'
+        note = '**{} Regions considered excluding mainland China'.format(casestudy.df.region_id.unique().shape[0])
+        kwargs = {
+            'x_category': 'deaths_new_dma_per_1M',
+            'y_category': 'temp_dma',
+            'annotations': [
+                [0, 1.09, title, {'color': 'black', 'fontsize': 16, 'ha': 'left', 'va': 'center',}],
+                [0, 1.05, subtitle, {'color': 'black', 'fontsize': 12, 'ha': 'left', 'va': 'center', 'style': 'italic'}],
+                [0, 1.01, note, {'color': 'black', 'fontsize': 12, 'ha': 'left', 'va': 'center', 'style': 'italic'}],
+            ],
+            'xtick_params': {'size': 12},
+            'ytick_params': {'size': 12},
+            'xlabel_params': {'size': 12},
+            'ylabel_params': {'size': 16},
+            'width': 12, 'height': 8,
+        }
+        plt = casestudy.heatmap.make(**kwargs)
+        ```
+        
+        
+        ![png](output_176_0.png)
+        
+        
+        The root data for the chart is available via `df_chart` attribute.
+        
+        
+        ```python
+        casestudy.heatmap.df_chart.head()
+        ```
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>region_name</th>
+              <th>temp_dma</th>
+              <th>deaths_new_dma_per_1M</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>9</th>
+              <td>52</td>
+              <td>Idaho</td>
+              <td>20.192015</td>
+              <td>0.428860</td>
+            </tr>
+            <tr>
+              <th>69</th>
+              <td>312</td>
+              <td>Bahrain</td>
+              <td>33.111273</td>
+              <td>0.274820</td>
+            </tr>
+            <tr>
+              <th>48</th>
+              <td>98</td>
+              <td>Nebraska</td>
+              <td>26.321220</td>
+              <td>0.240344</td>
+            </tr>
+            <tr>
+              <th>214</th>
+              <td>563</td>
+              <td>Mato Grosso Do Sul</td>
+              <td>23.137148</td>
+              <td>0.224056</td>
+            </tr>
+            <tr>
+              <th>219</th>
+              <td>568</td>
+              <td>Sergipe</td>
+              <td>26.239815</td>
+              <td>0.215220</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        **Natural Log of Max Fatalities v Temperature**
+        
+        By taking the natural log of the fatality rate, we can scale the figure to reveal a more *(potentially)* clear relationship.
+        
+        Viewers often struggle to understand the scaling of a natural log, so an `hlines` option has been provided that will create horizontal lines at the y-values input. `hlines` requires a `list` of `y-values`. 
+        
+        Text annotations are then included to inform of the unscaled `comp_category` value at each `hline`.
+        
+        We also provide `comp_factor_start:` as `max`, which puts to use the 28DMA on the day of **peak fatalitiy rate** for each region.
+        
+        
+        ```python
+        title = 'Max Daily Fatalities v Temperature by Region'
+        kwargs = {
+            'x_category': 'deaths_new_dma_per_1M_log',
+            'y_category': 'temp_dma',
+            'x_start': 'start_hurdle',
+            'annotations': [
+                [0, 1.09, title, {'color': 'black', 'fontsize': 16, 'ha': 'left', 'va': 'center',}],
+                [0, 1.05, subtitle, {'color': 'black', 'fontsize': 12, 'ha': 'left', 'va': 'center', 'style': 'italic'}],
+                [0, 1.01, note, {'color': 'black', 'fontsize': 12, 'ha': 'left', 'va': 'center', 'style': 'italic'}],
+            ],
+            'xtick_params': {'size': 12},
+            'ytick_params': {'size': 12},
+            'xlabel_params': {'size': 12, 'labelpad': 10},
+            'ylabel_params': {'size': 16},
+            'width': 12, 'height': 8,
+        }
+        plt = casestudy.heatmap.make(**kwargs)
+        ```
+        
+        
+        ![png](output_180_0.png)
+        
+        
+        As with the other chart instances, a chart-specific dataframe can be access for `heatmap` via the `df_hm` attribute.
+        
+        
+        ```python
+        casestudy.heatmap.df_chart.head(4)
+        ```
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th></th>
+              <th>region_id</th>
+              <th>region_name</th>
+              <th>temp_dma</th>
+              <th>deaths_new_dma_per_1M_log</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>9</th>
+              <td>52</td>
+              <td>Idaho</td>
+              <td>20.192015</td>
+              <td>-0.367684</td>
+            </tr>
+            <tr>
+              <th>69</th>
+              <td>312</td>
+              <td>Bahrain</td>
+              <td>33.111273</td>
+              <td>-0.560952</td>
+            </tr>
+            <tr>
+              <th>48</th>
+              <td>98</td>
+              <td>Nebraska</td>
+              <td>26.321220</td>
+              <td>-0.619168</td>
+            </tr>
+            <tr>
+              <th>214</th>
+              <td>563</td>
+              <td>Mato Grosso Do Sul</td>
+              <td>23.137148</td>
+              <td>-0.649644</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        **Lognat of Max Daily New Fatalities and UVB Radition**
+        
+        
+        ```python
+        title = 'Max Daily Fatalities v UVB Radiation by Region'
+        subtitle = '*Color-mapped by average daily uvb radiation for two weeks prior to the day of max fatalities'
+        kwargs = {
+            'x_category': 'cases_new_dma_per_person_per_city_KM2_log',
+            'y_category': 'uvb_dma',
+            'x_start': 'max',
+            'annotations': [
+                [0, 1.09,  title, {'color': 'black', 'fontsize': 16, 'ha': 'left', 'va': 'center',}],
+                [0, 1.05, subtitle, {'color': 'black', 'fontsize': 12, 'ha': 'left', 'va': 'center', 'style': 'italic'}],
+            ],
+            'xtick_params': {'size': 12},
+            'ytick_params': {'size': 12},
+            'xlabel_params': {'size': 12, 'labelpad': 10},
+            'ylabel_params': {'size': 16},
+            'width': 12, 'height': 8,
+        }
+        plt = casestudy.heatmap.make(**kwargs)
+        ```
+        
+        
+        ![png](output_184_0.png)
+        
+        
+        <h2><a id='section7.2'>7.2 Count Category v Multiple Factors (w one factor color-mapped)</a></h2>
+        
+        The `heatmap` is made all the more powerful when a second factor is used to map the color space of the chart.
+        
+        This is done via the `color_factor` parameter, which can be adapted via the `color_factor_start` parameter to take place on the day the `start_hurdle` is cleared or the day of max count category.
+        
+        
+        ```python
+        title = 'Max Daily Fatalities v UVB Radiation v Oxford Stringency Index'
+        subtitle = '*Average UVB radiation and Oxford Stringency Index for two weeks prior to day of 1st fatality'
+        kwargs = {
+            'x_category': 'cases_new_dma_per_1M_lognat',
+            'color_category': 'strindex_dma',
+            'color_start': 'start_hurdle',
+            'y_category': 'uvb_dma',
+            'annotations': [
+                [0, 1.09, title, {'color': 'black', 'fontsize': 16, 'ha': 'left', 'va': 'center',}],
+                [0, 1.05, subtitle, {'color': 'black', 'fontsize': 12, 'ha': 'left', 'va': 'center', 'style': 'italic'}],
+            ],
+            'xtick_params': {'size': 12},
+            'ytick_params': {'size': 12},
+            'xlabel_params': {'size': 12, 'labelpad': 10},
+            'ylabel_params': {'size': 16},
+            'width': 12, 'height': 8,
+        }
+        plt = casestudy.heatmap.make(**kwargs)
+        ```
+        
+        
+        ![png](output_187_0.png)
+        
+        
+        The `heatmap` approach is even better suited to time-static variables like demographic age ranges, given they are not susceptible to issues around averages over time.
+        
+        Below we compare `A75PLUBB_%` against the average `strindex` for the 14 days prior to the max fatalitiy rate.
+        
+        We can see that social distancing stringency was quite common across the spectrum and that population age was a much more important variable impacting fatalities.
+        
+        
+        ```python
+        title = 'Max Daily Fatalities v UVB Radiation v Oxford Stringency Index'
+        subtitle = '*Average UVB radiation and Oxford Stringency Index for two weeks prior to day of 1st fatality'
+        note = '**Excludes mainland China'
+        
+        kwargs = {
+            'x_category': 'deaths_new_dma_per_person_per_city_KM2_lognat',
+            'y_category': 'A75PLUSB_%',
+            'color_category': 'strindex_dma',
+            'color_start': 'max',
+            'annotations': [
+                [0, 1.095, title, {'color': 'black', 'fontsize': 16, 'ha': 'left', 'va': 'center',}],
+                [0, 1.055, subtitle, {'color': 'black', 'fontsize': 12, 'ha': 'left', 'va': 'center', 'style': 'italic'}],
+                [0, 1.015, note, {'color': 'black', 'fontsize': 12, 'ha': 'left', 'va': 'center', 'style': 'italic'}],
+            ],
+            'xtick_params': {'size': 12},
+            'ytick_params': {'size': 12},
+            'xlabel_params': {'size': 12, 'labelpad': 10},
+            'ylabel_params': {'size': 16},
+            'width': 12, 'height': 8,
+        }
+        plt = casestudy.heatmap.make(**kwargs)
+        ```
+        
+        
+        ![png](output_189_0.png)
+        
+        
+        <h1><a id='section8'>8. barcharts - Comparing Regional Factors</a></h1>
+        
+        A `barcharts` attribute is available (via `BarCharts` class) as another handy feature for comparing the impact in different regions across different categories.
+        
+        The object plots a single category on a single plot comparing multiple regions. You can provide multiple categories and multiple subplots will be returned!
+        
+        `barcharts` object utilizes `matplotlib`.
+        
+        First instantiate the casestudy. We will consider a couple of the more successful Asian regions.
+        
+        
+        ```python
+        dragons = ['Hong Kong', 'Taiwan', 'Korea, South', 'Japan']
+        notables = [ 'Texas', 'New York', 'Lombardia', 'Sao Paulo']
+        regions = notables + dragons
+        
+        factors_with_dmas = ['uvb', 'temp'] + CaseStudy.STRINDEX_CATS
+        factor_dmas = {factor: 28 for factor in factors_with_dmas}
+        mobi_dmas = {'transit': 28, 'retail_n_rec': 28, 'parks': 28, 'workplaces': 28}
+        factors = factors_with_dmas + CaseStudy.GMOBIS + ['A15_34B', 'A65PLUSB'] \
+            + ['visitors', 'gdp'] + CaseStudy.MAJOR_CAUSES
+        
+        casestudy = CaseStudy(
+            bf, regions=regions, count_dma=21, factors=factors, factor_dmas=factor_dmas, 
+            mobi_dmas=mobi_dmas, start_hurdle=1, start_factor='deaths',
+            favor_earlier=True, factors_to_favor_earlier='key3_sum',
+        )
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=20.0, style=ProgressStyle(description_width…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=8.0), HTML(value='')))
+        
+        
+        `Barcharts` accepts any category in the see19 dataset `bar_colors` provides different coloring of groups in the chart. You can further indicate some feature regions. Below we see a start difference among the regions selected.
+        
+        
+        ```python
+        factors1 = ['cases_per_1M', 'deaths_per_1M']
+        kwargs = {'categories': factors1, 'height': 5, 'bar_colors': ['#3D7068', '#D4AFB9', '#529FD7']}
+        kwargs['feature_regions'] = ['HKG', 'TWN', 'KOR']
+        plt = casestudy.barcharts.make(**kwargs)
+        ```
+        
+        
+        ![png](output_195_0.png)
+        
+        
+        Once again, the chart data is available via `df_chart`:
+        
+        
+        ```python
+        casestudy.barcharts.df_chart
+        ```
+        
+        
+        
+        
+        <div>
+        <style scoped>
+            .dataframe tbody tr th:only-of-type {
+                vertical-align: middle;
+            }
+        
+            .dataframe tbody tr th {
+                vertical-align: top;
+            }
+        
+            .dataframe thead th {
+                text-align: right;
+            }
+        </style>
+        <table border="1" class="dataframe">
+          <thead>
+            <tr style="text-align: right;">
+              <th>region_code</th>
+              <th>NY</th>
+              <th>SP</th>
+              <th>LOM</th>
+              <th>TX</th>
+              <th>JPN</th>
+              <th>KOR</th>
+              <th>HKG</th>
+              <th>TWN</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th>region_id</th>
+              <td>75</td>
+              <td>556</td>
+              <td>36</td>
+              <td>67</td>
+              <td>429</td>
+              <td>433</td>
+              <td>353</td>
+              <td>497</td>
+            </tr>
+            <tr>
+              <th>region_code</th>
+              <td>NY</td>
+              <td>SP</td>
+              <td>LOM</td>
+              <td>TX</td>
+              <td>JPN</td>
+              <td>KOR</td>
+              <td>HKG</td>
+              <td>TWN</td>
+            </tr>
+            <tr>
+              <th>cases</th>
+              <td>407326</td>
+              <td>416434</td>
+              <td>95548</td>
+              <td>332434</td>
+              <td>25706</td>
+              <td>13816</td>
+              <td>1655</td>
+              <td>451</td>
+            </tr>
+            <tr>
+              <th>deaths</th>
+              <td>25056</td>
+              <td>19788</td>
+              <td>16796</td>
+              <td>4020</td>
+              <td>988</td>
+              <td>296</td>
+              <td>10</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <th>tests</th>
+              <td>5.16481e+06</td>
+              <td>1.15885e+06</td>
+              <td>724365</td>
+              <td>2.98455e+06</td>
+              <td>639821</td>
+              <td>1.44335e+06</td>
+              <td>442256</td>
+              <td>79506</td>
+            </tr>
+            <tr>
+              <th>population</th>
+              <td>1.93781e+07</td>
+              <td>4.1142e+07</td>
+              <td>9.63118e+06</td>
+              <td>2.51456e+07</td>
+              <td>1.28057e+08</td>
+              <td>4.79908e+07</td>
+              <td>7.02728e+06</td>
+              <td>2.25314e+07</td>
+            </tr>
+            <tr>
+              <th>city_dens</th>
+              <td>13978.1</td>
+              <td>8184.1</td>
+              <td>2316.88</td>
+              <td>924.007</td>
+              <td>8440.43</td>
+              <td>5032.81</td>
+              <td>9261.85</td>
+              <td>7919.49</td>
+            </tr>
+            <tr>
+              <th>cases_per_1M</th>
+              <td>21019.9</td>
+              <td>10121.9</td>
+              <td>9920.7</td>
+              <td>13220.4</td>
+              <td>200.738</td>
+              <td>287.889</td>
+              <td>235.511</td>
+              <td>20.0165</td>
+            </tr>
+            <tr>
+              <th>deaths_per_1M</th>
+              <td>1293.01</td>
+              <td>480.969</td>
+              <td>1743.92</td>
+              <td>159.869</td>
+              <td>7.71529</td>
+              <td>6.16785</td>
+              <td>1.42303</td>
+              <td>0.310678</td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+        
+        
+        
+        `barcharts` can compare daily case and fatality rates. When a daily figure is selected, `barcharts` will find the maximum value in the time-series.
+        
+        
+        ```python
+        factors2 = ['deaths_new_dma_per_1M', 'deaths_new_dma_per_person_per_city_KM2']
+        kwargs = {'categories': factors2, 'height': 5, 'bar_colors': ['#3D7068', '#D4AFB9', '#529FD7']}
+        kwargs['feature_regions'] = ['HKG', 'TWN', 'KOR']
+        plt = casestudy.barcharts.make(**kwargs)
+        ```
+        
+        
+        ![png](output_199_0.png)
+        
+        
+        As a matter of convenience, `barcharts` will automatically structure a subplot grid for any number of categories greater than 2.
+        
+        
+        ```python
+        factors = [
+            'strindex_dma', 'tests_new_dma_per_1M', 
+            'population', 'city_dens', 
+            'A15_34B_%', 'A65PLUSB_%', 
+            'temp_dma', 'uvb_dma',
+            'circul_%', 'endo_%',
+            'visitors_%'
+        ]
+        factors = factors1 + factors2 + factors
+        kwargs = {'categories': factors, 'height': 50, 'bar_colors': ['#3D7068', '#D4AFB9', '#529FD7']}
+        kwargs['title'] = {'t': 'COVID Dragons v Other Regions', 'y': .895, 'fontsize': 20, 'fontweight': 'demi'}
+        kwargs['feature_regions'] = ['HKG', 'TWN', 'KOR']
+        plt = casestudy.barcharts.make(**kwargs)
+        ```
+        
+        
+        ![png](output_201_0.png)
+        
+        
+        <h1><a id='section9'>9. Scatterflow for Large Sets</a></h1>
+        
+        9.1 [SubStrindexScatter](#section9.1)  
+        9.2 [ScatterFlow](#section9.2)  
+        
+        The plots investigated above have limitations when investigating a large set of subjects. Multi-line plots tend to become unreadable when using more than, say, 5 lines, and bar charts have dimensionality limitations, etc.
+        
+        The `scatterflow` and `substrinscat` charts were created to improve visualization in this case.
+        
+        <h2><a id='section9.1'>9.1 substrinscat - for Strindex Sub-Categories</a></h2>
+        
+        We will start with `substrinscat`, which is a more specific case of a `scatterflow` that focuses on the Oxford Stringency Index (you can think of it as being short for "Sub-Strindex Category Scatterflow").
+        
+        We can generate a single `substrinscat` for one region that shows each `stringency` indicator. The value of the indicator is denoted by the color at each point. 
+        
+        The `strindex` and its subcategories are tracked at the `country-level`, so we will instantiate a `casestudy` setting the `country_level` flag to `true`. This aggregates all the `see19` data up from the province/state level to the country level (where province/state data exists). As previously noted, `smoothing` is not available when `country_level=True`.
+        
+        **NOTE** we will also instantiate with `start_factor: ''`. This creates a dataset beginning on 2020-01-01.
+        
+        
+        ```python
+        factors = CaseStudy.STRINDEX_CATS
+        factor_dmas = {factor: 28 for factor in factors}
+        
+        countries = ['United States of America (the)', 'Canada', 'Mexico', 'Brazil', 'Australia', 'Russia',
+         'Italy', 'Germany', 'Spain', 'Singapore', 'Japan', 'Hong Kong', 'TWN', 'KOR', 'Malaysia'
+        ]
+        custom_sum = ['h1', 'h2', 'h3', 'c1', 'c8']
+        casestudy = CaseStudy(
+            bf, countries=countries, count_dma=21, factors=factors, factor_dmas=factor_dmas, 
+            start_hurdle=1, start_factor='', lognat=True, country_level=True, custom_sum=custom_sum,
+        )
+        casestudy.make()
+        ```
+        
+            /Users/spindicate/Documents/programming/zooscraper/casestudy/see19/see19/study/ray.py:16: UserWarning: smoothing is unavailable when country_level=True
+              super().__init__(*args, **kwargs)
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=14.0), HTML(value='')))
+        
+        
+        First, we'll demonstrate a single region, using Japan.
+        
+        
+        ```python
+        kwargs = {
+            'regions': 'Japan', 'width': 6, 'height': 4.5, 
+            'title': {'t': 'Japan Stringency Categories', 'x': .57, 'y': 1.07, 'fontsize': 20},
+            'xlabel_params': {'fontsize': 18, 'labelpad': 12},
+            'cblabel_params': {'fontsize': 14, 'labelpad': 6},
+            'palette_base': 'RdPu',
+            'xy_cbar': (1.05, .15), 'wh_cbar': (.35, .5),
+        }
+        plt = casestudy.substrinscat.make(**kwargs)
+        ```
+        
+        
+        ![png](output_208_0.png)
+        
+        
+        The single plot above expands to multi-plot simply by adding more regions.
+        
+        
+        ```python
+        kwargs = {
+            'regions': ['name_for_USA', 'Hong Kong', 'Taiwan', 'Korea, South', 'Malaysia'], 
+            'width': 14, 'height': 8,
+            'palette_base': 'RdPu',
+            'xy_cbar': (1.05, .3), 'wh_cbar': (.35, .5),
+            'xy_legend': (-.04, .49),
+            'legend': {'title': {'fontsize': 12}, 'text': {'fontsize': 12}},
+        }
+        plt = casestudy.substrinscat.make(**kwargs)
+        ```
+        
+        
+        ![png](output_210_0.png)
+        
+        
+        And the plot automatically rescales based on the number of regions considered:
+        
+        
+        ```python
+        kwargs = {
+            'width': 20, 'height': 18, 
+            'palette_base': 'RdPu',
+            'xy_cbar': (1.05, .3), 'wh_cbar': (.35, .5),
+            'xy_legend': (-.04, .51),
+            'legend': {'title': {'fontsize': 12}, 'text': {'fontsize': 12}},
+        }
+        plt = casestudy.substrinscat.make(**kwargs)
+        ```
+        
+        
+        ![png](output_212_0.png)
+        
+        
+        <h2><a id='section9.2'>9.2 scatterflow</a></h2>
+        
+        `ScatterFlow`, available as the `scatterflow` attribute, is a generalization of the `SubStrinScatter` chart. It is best suited for comparing many regions along a single dimension. For example, we can compare countries on the core Oxford Stringency Index:
+        
+        
+        ```python
+        kwargs = {
+            'y_category': 'strindex',
+            'title': {'t': 'Oxford Stringency Index Over Time', 'y': 0.94, 'fontsize': 16},
+            'width': 8, 'height': 6,
+            'xy_cbar': (.7, .24), 'wh_cbar': (.35, 1),
+            'palette_base': 'Blues',
+            'xlabel_params': {'fontsize': 15, 'labelpad': 12},
+        }
+        
+        plt = casestudy.scatterflow.make(**kwargs)
+        ```
+        
+        
+        ![png](output_215_0.png)
+        
+        
+        We can very clearly above the trends in stringency in the different regions above and isolate quickly the outliers.
+        
+        `Scatterflow` accepts any category in the see19 database.
+        
+        Here we show the sum of the Key3 strindex subcategories. 
+        
+        
+        ```python
+        kwargs = {
+            'y_category': 'key3_sum',
+            'title': {
+                't': 'The Key 3: Information, Contact Tracing, and Testing Over Time',
+                'fontsize': 16,
+                'y': 0.94
+            },
+            'xlabel_params': {'fontsize': 14},
+            'width': 8, 'height': 6,
+            'xy_cbar': (.7, .24), 'wh_cbar': (.35, 1),
+            'palette_base': 'Blues'
+        }
+        plt = casestudy.scatterflow.make(**kwargs)
+        ```
+        
+        
+        ![png](output_217_0.png)
+        
+        
+        And below we compare US states on new fatalities. 
+        
+        First, we will select the 25 most impacted States in terms of total fatalities. Then, we instantiate a new CaseStudy to do so.
+        
+        
+        ```python
+        region_ids = bf[bf.country_code == 'USA'].groupby('region_id').deaths.max().sort_values(ascending=False).index.values[:25]
+        ```
+        
+        
+        ```python
+        casestudy = CaseStudy(bf, regions=region_ids, count_dma=3,
+            start_factor='date', start_hurdle=dt(2020, 3, 1)
+        )
+        casestudy.make()
+        ```
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='Creating CaseStudy', layout=Layout(flex='2'), max=2.0, st…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, description='changes', max=66.0, style=ProgressStyle(description_width…
+        
+        
+        
+            HBox(children=(FloatProgress(value=0.0, max=25.0), HTML(value='')))
+        
+        
+        
+        ```python
+        kwargs = {
+            'y_category': 'deaths_new_dma_per_1M',
+            'title': {
+                't': 'Daily Fatalities in US States',
+                'fontsize': 16,
+                'y': 0.94
+            },
+            'marker': 's',
+            'ms': 225,
+            'width': 5, 
+            'height': 4,
+            'xlabel_params': {'fontsize': 14},
+            'width': 8, 'height': 6,
+            'xy_cbar': (.7, .24), 'wh_cbar': (.35, 1),
+            'palette_base': 'RdYlGn_r'
+        }
+        casestudy.scatterflow.make(**kwargs)
+        ```
+        
+        
+        ![png](output_221_0.png)
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
