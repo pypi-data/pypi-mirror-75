@@ -1,0 +1,3 @@
+[console_scripts]
+yaqd-gdrive=yaqd_gdrive._gdrive:GDrive.main
+
