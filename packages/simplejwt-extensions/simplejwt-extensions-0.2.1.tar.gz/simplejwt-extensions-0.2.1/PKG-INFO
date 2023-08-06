@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: simplejwt-extensions
+Version: 0.2.1
+Summary: 
+Home-page: https://github.com/MetLifeLegalPlans/simplejwt-extensions
+Author: Bequest, Inc.
+Author-email: oss@willing.com
+Requires-Python: >=3.6,<3.9
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: djangorestframework-simplejwt (>=4.4.0,<5.0.0)
+Project-URL: Repository, https://github.com/MetLifeLegalPlans/simplejwt-extensions
+Description-Content-Type: text/x-rst
+
+Simple JWT Extensions
+=====================
+
+Extensions for the `djangorestframework-simplejwt
+<https://github.com/SimpleJWT/django-rest-framework-simplejwt/>`__ library.
+
+Settings
+--------
+
+All pre-existing settings for djangorestframework-simplejwt are unchanged. The
+following settings are added and can be set in your ``settings.py`` file:
+
+.. code-block:: python
+
+  # Django project settings.py
+
+  ...
+
+  SIMPLE_JWT = {
+      ...
+      'NEW_USER_CALLBACK': None,
+  }
+
+-------------------------------------------------------------------------------
+
+NEW_USER_CALLBACK
+  A dot path to a callable that is used if the identifier from the token does
+  not match a user in the database. Receives the request and the identifier as
+  arguments. Should return None to fail authentication or a User object to
+  succeed. Will only be used by the JWTAuthentication backend.
+
+Backends
+--------
+
+JWTTokenAuthentication
+  Use this instead of the ``djangorestframework-simplejwt``
+  ``JWTTokenAuthentication`` backend to take advantage of features added by
+  this package.
+
