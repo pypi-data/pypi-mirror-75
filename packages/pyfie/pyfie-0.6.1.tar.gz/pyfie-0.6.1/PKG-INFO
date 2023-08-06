@@ -1,0 +1,46 @@
+Metadata-Version: 1.1
+Name: pyfie
+Version: 0.6.1
+Summary: pyfie is a simple Python script, that you can use to encrypt and decrypt files.
+Home-page: https://github.com/Kafajku/pyfie
+Author: Kazafka
+Author-email: caffiqu@gmail.com
+License: MIT
+Download-URL: https://github.com/Kafajku/PyFiE/archive/v_0.6.1.tar.gz
+Description: Thank you for choosing pyfie!
+        
+        ------------------------------------------
+        
+        Here are the (shared) methods you can use:
+        
+        **compose(path: str, value, password = None)**
+        
+        `compose()` is a function used to create files with an encrypted value. Sets the password for this (hopefully) unique path as given.
+        
+        **parse(path: str, password = None)**
+        
+        `parse()` is a function used to get decrypted value of a file, but first, given password must match with the set one.
+        
+        ------------------------------------------------------------------------------------------------------------------------------------------
+        
+        In update *this* I have completely rewrote the way, that pyfie encrypts and decrypts files. That's why the structure of functions changed.
+        
+        Now, it uses pickle module and classes, with a simple idea of passwords. 
+        
+        -------------
+        
+        Last changes:
+        
+        * 0.4.8 - made the `password` argument default (as *None*)
+        * 0.5.1 - now pyfie is even more secure
+        * 0.5.2 - sorted things into specific files
+        * 0.5.6 - new files tree
+        
+Keywords: PyFiE,Python,File,Encrypter,Encryption,pyfie,python,file,encrypter,encryption
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
