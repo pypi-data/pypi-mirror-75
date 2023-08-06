@@ -1,0 +1,11 @@
+include LICENSE
+include README.md
+
+recursive-include KuLGaP *
+recursive-include data *
+global-include *.py
+
+exclude .gitignore
+recursive-exclude dist *
+recursive-exclude __pycache__ *
+exclude test.py
