@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: PyPAKParser
+Version: 1.0.1
+Summary: Unreal Engine PAK Parser written in Python 3 originally for the game Astroneer
+Home-page: https://github.com/AstroTechies/PyPAKParser
+Author: Ricky Davis
+Author-email: ricky.c.davis.9@gmail.com
+License: UNKNOWN
+Description: # PAK Parser
+        
+        Unreal Engine PAK Parser written in Python 3 originally for the game Astroneer
+        
+        Ability to list out files inside a PAK and get their contents.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
