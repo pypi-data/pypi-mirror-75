@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: eapt
+Version: 0.1
+Summary: Enhanced Advanced Packaging Tools
+Home-page: https://github.com/eAPT2020/eAPT
+Author: Taegeun Moon
+Author-email: xorms987@gmail.com
+License: UNKNOWN
+Download-URL: https://github.com/eAPT2020/eAPT
+Keywords: apt
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.7
+Requires-Dist: pygeoip (>=0.*)
+Requires-Dist: geoip2 (>=3.0.0)
+Requires-Dist: pycurl (>=7.*.*.*)
+Requires-Dist: haversine (>=2.*.*)
+
+UNKNOWN
+
+
