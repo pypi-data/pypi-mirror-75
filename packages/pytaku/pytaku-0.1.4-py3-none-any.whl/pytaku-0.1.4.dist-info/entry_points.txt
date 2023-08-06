@@ -1,0 +1,4 @@
+[console_scripts]
+pytaku-generate-config=pytaku:generate_config
+pytaku-migrate=pytaku:migrate
+
