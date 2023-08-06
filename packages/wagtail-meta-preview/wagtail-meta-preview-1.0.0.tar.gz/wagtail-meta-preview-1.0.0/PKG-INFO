@@ -1,0 +1,42 @@
+Metadata-Version: 2.1
+Name: wagtail-meta-preview
+Version: 1.0.0
+Summary: Add preview panels for meta data to wagtail
+Home-page: UNKNOWN
+Author: Andreas Bernacca
+Author-email: ante.bernacca@gmail.com
+License: MIT License
+Description: ![wagtail-meta-preview](https://github.com/rinti/wagtail-meta-preview/workflows/wagtail-meta-preview/badge.svg)
+        
+        # wagtial meta preview
+        
+        ## Documentation
+        
+        - [Getting started](./docs/1-getting-started.md)
+        - [Setting up panels](./docs/2-setting-up-panels.md)
+        - [Settings](./docs/3-settings.md)
+        
+        ## Development
+        
+        ### Dev server
+        
+        The easiest way is to clone this repo, cd into it and just `docker-compose up`, this should
+        start a server on http://localhost:8080/admin/ with a couple of page types to test with.
+        
+        ### Running tests
+        
+        `docker-compose exec web python runtests.py`
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Framework :: Django
+Classifier: License :: OSI Approved :: MIT License
+Provides-Extra: testing
