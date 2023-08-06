@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: genomesearch
+Version: 0.0.7.dev0
+Summary: A command line tool to quickly search for closely related microbial genomes using a marker-gene based approach.
+Home-page: https://github.com/bhattlab/GenomeSearch
+Author: Matt Durrant
+Author-email: mdurrant@stanford.edu
+License: MIT
+Platform: UNKNOWN
+Requires-Dist: wget (==3.2)
+Requires-Dist: click (==7.0)
+Requires-Dist: biopython (==1.76)
+
+UNKNOWN
+
+
