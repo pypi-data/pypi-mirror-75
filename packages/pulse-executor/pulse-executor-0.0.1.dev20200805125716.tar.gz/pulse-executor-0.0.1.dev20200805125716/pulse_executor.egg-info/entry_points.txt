@@ -1,0 +1,7 @@
+[console_scripts]
+pulse-executor-read-error = pulse_executor.cli:read_error
+pulse-executor-run = pulse_executor.cli:main
+pulse-executor-smart-stop = pulse_executor.cli:smart_stop
+pulse-executor-status = pulse_executor.cli:status
+pulse-executor-stop = pulse_executor.cli:stop
+
