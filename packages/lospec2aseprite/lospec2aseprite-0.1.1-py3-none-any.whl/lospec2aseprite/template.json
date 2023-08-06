@@ -1,0 +1,18 @@
+{
+  "description": "Palettes found on Lospec",
+  "displayName": "Lospec Palettes",
+  "name": "lospec-palettes",
+  "publisher": "lospec",
+  "version": "1.0",
+  "author": {
+    "name": "Lospec",
+    "url": "https://lospec.com/"
+  },
+  "categories": [
+    "Palettes"
+  ],
+  "contributes": {
+    "palettes": [
+    ]
+  }
+}
