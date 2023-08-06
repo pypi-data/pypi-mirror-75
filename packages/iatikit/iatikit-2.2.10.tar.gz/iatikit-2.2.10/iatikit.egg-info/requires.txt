@@ -1,0 +1,13 @@
+configparser
+lxml<4.4.0
+requests
+unicodecsv
+future
+
+[test]
+mock
+pytest
+pytest-cov
+coveralls
+freezegun
+pylint<2.0.0
