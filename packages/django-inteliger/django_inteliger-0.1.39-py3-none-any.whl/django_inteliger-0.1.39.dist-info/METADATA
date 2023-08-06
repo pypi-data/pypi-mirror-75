@@ -1,0 +1,63 @@
+Metadata-Version: 2.1
+Name: django-inteliger
+Version: 0.1.39
+Summary: Aplicativos base para seu projeto django!
+Home-page: https://www.inteliger.com.br/
+Author: Inteliger
+Author-email: contato@inteliger.com.br
+License: BSD-3-Clause
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Requires-Dist: django (==2.1.7)
+Requires-Dist: requests
+Requires-Dist: django-user-agents
+Requires-Dist: django-composite-foreignkey
+
+=================
+Django Inteliger
+=================
+
+Django Inteliger e um pacote da Inteliger para todo mundo
+aprender como fazer uma boa estruturacao de codigo.
+
+
+Como usar
+-----------
+
+1. Adicione os aplicativos do pacote no seu INSTALED_APPS.
+
+    INSTALLED_APPS = [
+        ...
+        'core',
+        'log',
+        'usr',
+        'filial'
+
+    ]
+
+2. Adicione o middleware de log no MIDDLEWARE, antes de todos os outros.
+
+    MIDDLEWARE = [
+        'log.middleware.LogMiddleware',
+        ...
+
+    ]
+
+3. Adicione as urls no urlpatterns.
+
+    urlpatterns = [
+        ...
+        re_path(r'^core/', include('core.urls')),
+
+    ]
+
+
+4. Aproveite
+
