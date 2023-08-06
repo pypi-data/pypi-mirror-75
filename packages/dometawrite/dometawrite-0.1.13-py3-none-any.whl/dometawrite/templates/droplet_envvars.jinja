@@ -1,0 +1,7 @@
+{% set endpoint_requirements = ['metadata'] %}
+# export bash variables names with current droplet data
+# Author: Arturo 'Buanzo' Busleiman
+export DROPLET_NAME="{{ metadata.hostname }}"
+export DROPLET_REGION="{{ metadata.region }}"
+export DROPLET_TAGS="{% for tag in metadata.tags %}{{ tag }}{{ "," if not loop.last }}"{% endfor %}
+
