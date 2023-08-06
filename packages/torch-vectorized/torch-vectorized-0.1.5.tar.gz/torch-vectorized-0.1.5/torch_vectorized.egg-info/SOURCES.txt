@@ -1,0 +1,13 @@
+README.md
+setup.py
+tests/nn/__init__.py
+tests/nn/test_spd_veig.py
+torch_vectorized.egg-info/PKG-INFO
+torch_vectorized.egg-info/SOURCES.txt
+torch_vectorized.egg-info/dependency_links.txt
+torch_vectorized.egg-info/requires.txt
+torch_vectorized.egg-info/top_level.txt
+torchvectorized/__init__.py
+torchvectorized/vlinalg.py
+torchvectorized/nn/__init__.py
+torchvectorized/nn/spd_veig.py
