@@ -1,0 +1,78 @@
+Metadata-Version: 2.1
+Name: vlibras-deeplearning
+Version: 1.0.9
+Summary: VLibras (LAViD-UFPB) neural translation module for translating brazilian portuguese to LIBRAS.
+Home-page: http://www.vlibras.gov.br/
+Author: LAViD-UFPB
+Author-email: vlibras@lavid.ufpb.br
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Topic :: Text Processing :: Linguistic
+Classifier: Natural Language :: Portuguese (Brazilian)
+Description-Content-Type: text/markdown
+Requires-Dist: fairseq
+Requires-Dist: subword-nmt
+Requires-Dist: torch
+
+<div align="center">
+  <a href="https://www.vlibras.gov.br/">
+    <img
+      alt="VLibras"
+      src="https://vlibras.gov.br/assets/imgs/IcaroGrande.png"
+    />
+  </a>
+</div>
+
+# VLibras Translate (Deep Learning Module)
+
+Neural translation module for VLibras Translate.
+
+![Version](https://img.shields.io/badge/version-v1.0.9-blue.svg)
+![License](https://img.shields.io/badge/license-LGPLv3-blue.svg)
+![VLibras](https://img.shields.io/badge/vlibras%20suite-2020-green.svg?logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA4AAAAUCAYAAAC9BQwsAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAA3XAAAN1wFCKJt4AAAAB3RJTUUH4wIHCiw3NwjjIgAAAQ9JREFUOMuNkjErhWEYhq/nOBmkDNLJaFGyyyYsZzIZKJwfcH6AhcFqtCvFDzD5CQaTFINSlJJBZHI6J5flU5/P937fube357m63+d+nqBEagNYA9pAExgABxHxktU3882hjqtd9d7/+lCPsvpDZNA+MAXsABNU6xHYQ912ON2qC2qQ/X+J4XQXEVe/jwawCzwNAZp/NCLiDVgHejXgKIkVdGpm/FKXU/BJDfytbpWBLfWzAjxVx1Kuxwno5k84Jex0IpyzdN46qfYSjq18bzMHzQHXudifgQtgBuhHxGvKbaPg0Klaan7GdqE2W39LOq8OCo6X6kgdeJ4IZKUKWq1Y+GHVjF3gveTIe8BiCvwBEZmRAXuH6mYAAAAASUVORK5CYII=)
+
+## Table of Contents
+
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installing](#installing)
+- [Contributors](#contributors)
+- [License](#license)
+
+
+## Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+### Prerequisites
+
+- [Python >=3.5](https://www.python.org/)
+- [pip > 19.0.0](https://pypi.org/project/pip/)
+- [git LFS](https://git-lfs.github.com/)
+
+### Installing
+
+After all the prerequisites are satisfied, install as normal through `pip`. For example, to install an editable version of the package for development:
+```bash
+pip install -e .
+```
+
+After the initial installation (and after each update), it is usually a good idea to request a translation through the `vlibras-translate` module. This will trigger the model download process, which can take a bit of time depending on your internet connection.
+
+## Contributors
+
+* Samuel Moura - <samuel.moura@lavid.ufpb.br> / <samueldemouramoreira@gmail.com>
+* Caio Moraes - <caiomoraes.cesar@gmail.com>
+
+## License
+
+This project is licensed under the LGPLv3 License - see the [LICENSE](LICENSE) file for details.
+
+

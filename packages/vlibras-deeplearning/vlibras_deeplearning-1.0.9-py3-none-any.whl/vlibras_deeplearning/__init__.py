@@ -1,0 +1,1 @@
+from vlibras_deeplearning import deep_translation
