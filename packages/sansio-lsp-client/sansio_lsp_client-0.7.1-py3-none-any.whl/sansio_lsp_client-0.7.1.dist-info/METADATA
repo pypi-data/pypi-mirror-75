@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: sansio-lsp-client
+Version: 0.7.1
+Summary: An implementation of the client side of the LSP protocol, useful for mbedding easily in your editor.
+Home-page: https://github.com/PurpleMyst/sansio-lsp-client
+License: MIT
+Keywords: sansio,languageserver
+Author: Purple Myst
+Author-email: PurpleMyst@users.noreply.github.com
+Requires-Python: >=3.6
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: attrs (>=18.1,<19.0)
+Requires-Dist: cattrs (>=0.9.0,<0.10.0)
+Project-URL: Repository, https://github.com/PurpleMyst/sansio-lsp-client
+Description-Content-Type: text/markdown
+
+# sansio-lsp-client
+
+An implementation of the client side of the LSP protocol, useful for embedding
+easily in your editor.
+
