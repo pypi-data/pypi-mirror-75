@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+.eggs
+*.egg-info/
+
+# Unit test / coverage reports
+.coverage*
+.pytest_cache/
+.tox
+tests-coverage
+tests-report.html
+
+# mypy
+.mypy_cache/
+
+# IDE files
+.idea/
+
+# Virtual environments
+.venv/
+
+# Project specific generated files
+tests/util/.requests_cache.jsonl
+nasty/version.py
+
+# Config file with secrets
+config.sh
