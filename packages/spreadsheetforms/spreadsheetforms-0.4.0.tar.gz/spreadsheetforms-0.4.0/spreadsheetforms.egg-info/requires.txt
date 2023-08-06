@@ -1,0 +1,8 @@
+openpyxl>=3.0
+jsonpointer
+
+[dev]
+pytest
+flake8
+isort
+black
