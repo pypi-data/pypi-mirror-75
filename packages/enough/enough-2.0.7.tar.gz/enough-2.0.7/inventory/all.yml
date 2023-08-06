@@ -1,0 +1,18 @@
+---
+all-hosts:
+  hosts:
+    api-host:
+    bind-host:
+    chat-host:
+    cloud-host:
+    forum-host:
+    gitlab-host:
+    icinga-host:
+    packages-host:
+    postfix-host:
+    runner-host:
+    wazuh-host:
+    weblate-host:
+    website-host:
+    copy-from-host:
+    copy-to-host:

@@ -1,0 +1,159 @@
+---
+- delegate_to: icinga-host
+  block:
+  - name: apt-get install nmap
+    apt:
+      name: nmap
+      state: present
+  
+  - name: Icinga install command-check_udp_port.conf
+    copy:
+      src: command-check_udp_port.conf
+      dest: /etc/icinga2/conf.d/command-check_udp_port.conf
+      mode: 0444
+  
+  - name: Icinga install check_udp_port
+    copy:
+      src: check_udp_port
+      dest: /usr/lib/nagios/plugins/check_udp_port
+      mode: 0555
+  
+  - name: /etc/sudoers.d/icinga
+    copy:
+      content: |
+        nagios ALL=NOPASSWD: /usr/lib/nagios/plugins/check_udp_port
+      dest: /etc/sudoers.d/icinga2_check_udp_port
+      mode: 0440
+      owner: root
+  
+  - name: Icinga for OpenVPN
+    copy:
+      content: |
+        apply Service "Check OpenVPN" {
+              import host.vars.service_template
+  
+              check_command = "udp_port"
+              vars.udp_port_port = "1194"
+              vars.udp_port_service = "openvpn"
+              command_endpoint = NodeName
+  
+              assign where host.vars.vpn == true
+        }
+      dest: /etc/icinga2/zones.d/global-templates/openvpn.conf
+  
+  - name: Add OpenVPN check
+    blockinfile:
+      block: |
+          vars.vpn = true
+      path: /etc/icinga2/zones.d/master/{{ inventory_hostname }}/host.conf
+      insertbefore: "END OF FILE"
+      marker: "/* {mark} OpenVPN */"
+  
+  - name: reload icinga2
+    systemd:
+      name: icinga2
+      state: reloaded
+      enabled: True
+    changed_when: False
+
+- name: install /etc/network/interfaces.d/interface-eth1.cfg
+  template:
+    src: interface-eth1.cfg.j2
+    dest: /etc/network/interfaces.d/interface-eth1.cfg
+  register: interface
+
+- name: ensure eth1 is not managed by /etc/network/interfaces
+  shell: |
+    set -ex
+    if grep -q eth1 /etc/network/interfaces ; then
+      sed -i -e '/eth1/d' /etc/network/interfaces
+      echo Changed
+    else
+      echo Ok
+    fi
+  register: result
+  changed_when: '"Changed" in result.stdout'
+
+- name: bring eth1 up
+  shell: |
+    set -ex
+    ifdown eth1
+    ifup eth1
+  when: interface is changed
+
+- name: apt-get install openvpn nftables
+  apt:
+    name: [openvpn, nftables]
+    state: present
+
+- name: net.ipv4.ip_forward=1
+  shell: |
+    set -ex
+    sed -i -e '/net.ipv4.ip_forward/s/.*/net.ipv4.ip_forward=1/' /etc/sysctl.conf
+    sysctl -p
+
+- name: nftables
+  template:
+    src: nftables.conf.j2
+    dest: /etc/nftables.conf
+    force: "{{ openvpn_overwrite_nftables_conf }}"
+
+- name: systemctl enable nftables
+  systemd:
+    name: nftables
+    enabled: yes
+
+- name: nft -f /etc/nftables.conf
+  shell:
+    nft -f /etc/nftables.conf
+  changed_when: False
+
+- name: cp -r /usr/share/easy-rsa /etc/openvpn/
+  shell:
+    cp -r /usr/share/easy-rsa /etc/openvpn
+  args:
+    creates: /etc/openvpn/easy-rsa
+
+- name: /etc/openvpn/easy-rsa/vars
+  template:
+    src: vars.j2
+    dest: /etc/openvpn/easy-rsa/vars
+
+- name: ./easyrsa init-pki
+  shell: |
+    set -ex
+    ./easyrsa init-pki
+    yes | ./easyrsa build-ca nopass
+    echo server | ./easyrsa gen-req server nopass
+    echo yes | ./easyrsa sign-req server server
+    ./easyrsa gen-dh
+    openvpn --genkey --secret ta.key
+    ./easyrsa gen-crl
+    cp pki/crl.pem ta.key pki/ca.crt pki/private/server.key pki/issued/server.crt pki/dh.pem /etc/openvpn
+  args:
+    creates: /etc/openvpn/server.key
+    chdir: /etc/openvpn/easy-rsa
+
+- name: /etc/openvpn/easy-rsa/create-client.sh
+  template:
+    src: create-client.sh.j2
+    dest: /etc/openvpn/easy-rsa/create-client.sh
+    mode: 0755
+
+- name: mkdir -p /etc/openvpn/ccd
+  file:
+    state: directory
+    path: /etc/openvpn/ccd
+
+- name: /etc/openvpn/server.conf
+  template:
+    src: server.conf.j2
+    dest: /etc/openvpn/server.conf
+  register: server
+
+- name: systemctl enable openvpn@server ; systemctl start openvpn@server
+  systemd:
+    name: openvpn@server
+    state: restarted
+    enabled: yes
+  when: server is changed

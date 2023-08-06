@@ -1,0 +1,6 @@
+allow-hotplug eth1
+iface eth1 inet static
+  address {{ openstack_internal_network_prefix }}.1
+  netmask 255.255.255.0
+  broadcast {{ openstack_internal_network_prefix }}.255
+  network {{ openstack_internal_network_prefix }}.0

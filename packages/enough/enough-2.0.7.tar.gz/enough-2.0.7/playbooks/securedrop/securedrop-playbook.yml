@@ -1,0 +1,17 @@
+---
+- name: prepare SecureDrop environment
+  hosts: securedrop-service-group
+  become: true
+
+  roles:
+    - role: ansible-role-docker
+    - role: docker
+
+    - role: securedrop
+
+    - role: monitor_tor_http_vhost
+      vars:
+        tor_hostname_file: /var/lib/tor/services/source/hostname
+        tor_http_vhost_name: "{{ inventory_hostname }}"
+        tor_http_vhost_uri: "/"
+        tor_http_vhost_string: "SecureDrop"

@@ -1,0 +1,37 @@
+# Configuration file for /sbin/dhclient.
+#
+# This is a configuration file for dhclient. See dhclient.conf's
+#	man page for more information about the syntax of this file
+#	and a more comprehensive list of the parameters understood by
+#	dhclient.
+#
+# Normally, if the DHCP server provides reasonable information and does
+#	not leave anything out (like the domain name, for example), then
+#	few changes must be made to this file, if any.
+#
+
+option rfc3442-classless-static-routes code 121 = array of unsigned integer 8;
+
+send host-name = gethostname();
+request subnet-mask, broadcast-address, time-offset,
+	domain-name, domain-name-servers, domain-search, host-name,
+	dhcp6.name-servers, dhcp6.domain-search, dhcp6.fqdn, dhcp6.sntp-servers,
+	netbios-name-servers, netbios-scope, interface-mtu,
+	ntp-servers;
+
+supersede domain-name "{{ dns_domain }}";
+supersede domain-search "{{ dns_domain }}";
+supersede domain-name-servers {{ bind_server_ip_for_clients }};
+
+#
+# This causes *all* dhcp clients to DHCPDISCOVER on eth0, even when
+# the dhclient is explicitly requested to only focus on a given device.
+# This is not the intention here but that's what happens. The intention
+# is to add the "routers" options only when eth0 is sent DHCPDISCOVER.
+# The consequence is that the eth1 lease will also have an entry for
+# eth0 and that two dhcpclient are effectively running on eth0.
+#
+interface "eth0" { also request routers; }
+interface "ens3" { also request routers; }
+
+timeout 300;
