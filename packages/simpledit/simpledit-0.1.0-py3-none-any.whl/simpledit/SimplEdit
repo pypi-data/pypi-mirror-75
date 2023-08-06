@@ -1,0 +1,4 @@
+#!/usr/bin/env python3
+
+from simpledit import main
+main.RunApp()
