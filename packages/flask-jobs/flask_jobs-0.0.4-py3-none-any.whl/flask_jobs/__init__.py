@@ -1,0 +1,105 @@
+'''
+All datetimes are in UTC
+'''
+import datetime
+import pickle
+from dictabase import RegisterDBURI as dictabase_RegisterDBURI
+from dictabase import (
+    New, FindAll, FindOne,
+
+)
+from .jobs import Job
+from .worker import Worker
+
+
+def RegisterDBURI(uri=None):
+    dictabase_RegisterDBURI(uri)
+
+
+RegisterDBURI()
+
+_worker = Worker()
+
+
+def AddJob(func, args=(), kwargs={}, name=None):
+    '''
+    Schedule a job to be run ASAP
+    :param func: callable
+    :param args: tuple
+    :param kwargs: dict
+    :return:
+    '''
+    newJob = New(
+        Job,
+        dt=datetime.datetime.utcnow(),
+        func=pickle.dumps(func),
+        args=pickle.dumps(args),
+        kwargs=pickle.dumps(kwargs),
+        kind='asap',
+        name=name,
+    )
+    _worker.Refresh()
+    return newJob
+
+
+def ScheduleJob(dt, func, args=(), kwargs={}, name=None):
+    '''
+    Schedule a job to be run once at a future time
+    :param dt: datetime
+    :param func: callable
+    :param args: tuple
+    :param kwargs: dict
+    :return:
+    '''
+    newJob = New(
+        Job,
+        dt=dt,
+        func=pickle.dumps(func),
+        args=pickle.dumps(args),
+        kwargs=pickle.dumps(kwargs),
+        kind='schedule',
+        name=name,
+    )
+    # print('newJob=', newJob)
+    _worker.Refresh()
+    return newJob
+
+
+def RepeatJob(startDT=None, func=None, args=(), kwargs={}, name=None, **k):
+    '''
+    :param func: callable
+    :param args: tuple
+    :param kwargs: dict
+    :param k: weeks, days, hours, minutes, seconds (anything supported by datetime.timedelta.__init__
+    :return:
+    '''
+    if len(k) == 0:
+        raise KeyError('You must pass one of the following kwargs (weeks, days, hours, minutes, seconds)')
+    startDT = startDT or datetime.datetime.utcnow()
+
+    newJob = New(
+        Job,
+        startDT=startDT,
+        dt=startDT,
+        func=pickle.dumps(func),
+        args=pickle.dumps(args),
+        kwargs=pickle.dumps(kwargs),
+        kind='repeat',
+        deltaKwargs=k,
+        name=name,
+    )
+    # print('newJob=', newJob)
+    _worker.Refresh()
+    return newJob
+
+
+def GetJobs():
+    for job in FindAll(Job, status='pending'):
+        yield job
+
+
+def GetJob(jobID):
+    return FindOne(Job, id=jobID)
+
+
+_worker.Refresh()
