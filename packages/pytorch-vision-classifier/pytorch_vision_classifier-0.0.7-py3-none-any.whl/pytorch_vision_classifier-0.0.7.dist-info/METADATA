@@ -1,0 +1,71 @@
+Metadata-Version: 2.1
+Name: pytorch-vision-classifier
+Version: 0.0.7
+Summary: This library is to help you train and evaluate PyTorch classification model easily and quickly
+Home-page: https://github.com/Samer92/pytorch_vision_classifier
+Author: sammer sallam
+Author-email: samersallam92@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: backcall (==0.2.0)
+Requires-Dist: classification-analysis (==0.0.2)
+Requires-Dist: colorama (==0.4.3)
+Requires-Dist: cycler (==0.10.0)
+Requires-Dist: decorator (==4.4.2)
+Requires-Dist: imbalanced-learn (==0.7.0)
+Requires-Dist: imblearn (==0.0)
+Requires-Dist: ipython (==7.16.1)
+Requires-Dist: ipython-genutils (==0.2.0)
+Requires-Dist: jedi (==0.17.1)
+Requires-Dist: joblib (==0.15.1)
+Requires-Dist: kiwisolver (==1.2.0)
+Requires-Dist: matplotlib (==3.2.2)
+Requires-Dist: numpy (==1.19.0)
+Requires-Dist: opencv-python (==4.2.0.34)
+Requires-Dist: pandas (==1.0.5)
+Requires-Dist: parso (==0.7.0)
+Requires-Dist: pickleshare (==0.7.5)
+Requires-Dist: Pillow (==7.1.2)
+Requires-Dist: prompt-toolkit (==3.0.5)
+Requires-Dist: Pygments (==2.6.1)
+Requires-Dist: pyparsing (==2.4.7)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: pytz (==2020.1)
+Requires-Dist: scikit-learn (==0.23.1)
+Requires-Dist: scipy (==1.5.0)
+Requires-Dist: seaborn (==0.10.1)
+Requires-Dist: six (==1.15.0)
+Requires-Dist: threadpoolctl (==2.1.0)
+Requires-Dist: tqdm (==4.46.1)
+Requires-Dist: traitlets (==4.3.3)
+Requires-Dist: wcwidth (==0.2.5)
+Requires-Dist: mlflow (==1.10.0)
+
+
+
+# pytorch-vision-classifier	
+
+The main target of this template is to help during building your classification model where:
+
+1. It helps load the dataset whether the dataset in one directory or multiple directories
+2. It shows the dataset details once the dataset directory has been specified
+3. It helps know the available GPU devices and pick one to use easily
+4. It helps get a pre-trained model for you with the last layer updated with or without a dropout layer and initialized by an algorithm you choose from the most common initialization algorithms
+5. It helps know the GPU memory usage of your model
+6. It helps understand the timing of different steps during model training
+7. It helps find the best learning rate using the algorithm published by Leslie N. Smith in the paper Cyclical Learning Rates for Training Neural Networks. [The original code](https://github.com/davidtvs/pytorch-lr-finder)
+8. It provides a dashboard to monitor your model during the training process
+9. It helps track the metric that you choose to find the best model for your problem
+10. It provides a compressed version of your model to be used for deployment purpose
+
+In order to install, you need to download [pytorch](https://pytorch.org/get-started/locally/).
+then open the command prompt and type:
+```
+pip install pytorch_vision_classifier
+```
+
