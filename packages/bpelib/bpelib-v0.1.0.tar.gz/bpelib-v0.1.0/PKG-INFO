@@ -1,0 +1,13 @@
+Metadata-Version: 1.1
+Name: bpelib
+Version: v0.1.0
+Summary: Byte Pair Encoding for Natural Language Processing.
+Home-page: https://gitlab.com/Skyzip/bpelib
+Author: skyzip
+Author-email: skyzip96@gmail.com
+License: MIT
+Description: # The bpelib project
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
