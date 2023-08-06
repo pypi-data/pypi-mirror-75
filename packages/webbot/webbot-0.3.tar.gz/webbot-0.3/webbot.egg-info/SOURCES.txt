@@ -1,0 +1,12 @@
+README.rst
+setup.py
+webbot/__init__.py
+webbot/webbot.py
+webbot.egg-info/PKG-INFO
+webbot.egg-info/SOURCES.txt
+webbot.egg-info/dependency_links.txt
+webbot.egg-info/requires.txt
+webbot.egg-info/top_level.txt
+webbot/drivers/chrome_linux
+webbot/drivers/chrome_mac
+webbot/drivers/chrome_windows.exe
