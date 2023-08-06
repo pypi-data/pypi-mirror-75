@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: remclient
+Version: 1.0.8
+Summary: client library for REM server
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: POSIX :: BSD
+Classifier: Operating System :: POSIX :: Linux
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: System :: Systems Administration
+Classifier: Topic :: Software Development
+Description-Content-Type: text/markdown
+Requires-Dist: six
+
+### remclient
+client library for REM server; for more information see [github page](https://github.com/heni/rem)
+
+
