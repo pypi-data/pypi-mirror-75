@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: sntd
+Version: 2.3.2
+Summary: UNKNOWN
+Home-page: UNKNOWN
+Author: Justin Pierel
+Author-email: jr23@email.sc.edu
+License: BSD
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: cython
+Requires-Dist: sncosmo
+Requires-Dist: astropy
+Requires-Dist: matplotlib
+Requires-Dist: nestle
+Requires-Dist: pyParz
+Requires-Dist: sklearn
+Requires-Dist: iminuit
+Requires-Dist: corner
+Requires-Dist: pytest-astropy
+
+UNKNOWN
+
+
