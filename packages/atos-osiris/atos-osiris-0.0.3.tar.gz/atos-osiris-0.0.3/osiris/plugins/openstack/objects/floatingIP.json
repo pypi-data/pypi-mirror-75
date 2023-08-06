@@ -1,0 +1,64 @@
+{
+	"name": "floatingIP",
+	"attributes": [
+		{
+			"name": "ID",
+			"type": "litteral"
+		},
+		{
+			"name": "Floating IP Address",
+			"type": "litteral"
+		},
+		{
+			"name": "Fixed IP Address",
+			"type": "litteral"
+		},
+		{
+			"name": "Port",
+			"type": "reference",
+			"target": "port"
+		},
+		{
+			"name": "Floating Network",
+			"type": "reference",
+			"target": "network"
+		},
+		{
+			"name": "Project",
+			"type": "reference",
+			"target": "project"
+		},
+		{
+			"name": "Router",
+			"type": "litteral"
+		},
+		{
+			"name": "Status",
+			"type": "litteral"
+		},
+		{
+			"name": "Description",
+			"type": "litteral"
+		},
+		{
+			"name": "Tags",
+			"type": "litteral"
+		},
+		{
+			"name": "DNS Name",
+			"type": "litteral"
+		},
+		{
+			"name": "DNS Domain",
+			"type": "litteral"
+		}
+	],
+	"id":[
+		"id"
+	],
+	"actions": {
+		"introspect": ["openstack", "floating", "ip", "list", "--long", "-f json"],
+		"create": [""],
+		"delete": [""]
+	}
+}

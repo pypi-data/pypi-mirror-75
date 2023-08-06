@@ -1,0 +1,46 @@
+{
+	"name": "port",
+	"attributes": [
+		{
+			"name": "ID",
+			"type": "litteral"
+		},
+		{
+			"name": "Name",
+			"type": "litteral"
+		},
+		{
+			"name": "MAC Address",
+			"type": "litteral"
+		},
+		{
+			"name": "Fixed IP Addresses",
+			"type": "litteral"
+		},
+		{
+			"name": "Status",
+			"type": "litteral"
+		},
+		{
+			"name": "Security Groups",
+			"type": "reference",
+			"target": "Security Group"
+		},
+		{
+			"name": "Device Owner",
+			"type": "litteral"
+		},
+		{
+			"name": "Tags",
+			"type": "litteral"
+		}
+	],
+	"id":[
+		"id"
+	],
+	"actions": {
+		"introspect": ["openstack", "port", "list", "--long", "-f json"],
+		"create": [""],
+		"delete": [""]
+	}
+}

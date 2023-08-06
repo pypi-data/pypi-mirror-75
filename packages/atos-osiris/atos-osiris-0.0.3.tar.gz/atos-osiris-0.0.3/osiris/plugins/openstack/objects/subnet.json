@@ -1,0 +1,68 @@
+{
+	"name": "subnet",
+	"attributes": [ 
+		{
+			"name": "ID",
+			"type": "litteral"
+		},
+		{
+			"name": "Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Network",
+			"type":	"reference",
+			"target": "network"
+		},
+		{
+			"name": "Subnet",
+			"type":	"reference",
+			"target": "subnet"
+		},
+		{
+			"name": "Project",
+			"type":	"reference",
+			"target": "projet"
+		},
+		{
+			"name": "DHCP",
+			"type": "litteral"
+		},
+		{
+			"name": "Name Servers",
+			"type": "litteral"
+		},
+		{
+			"name": "Allocation Pools",
+			"type": "litteral"
+		},
+		{
+			"name": "Host Routes",
+			"type": "litteral"
+		},
+		{
+			"name": "IP Version",
+			"type": "litteral"
+		},
+		{
+			"name": "Gateway",
+			"type": "litteral"
+		},
+		{
+			"name": "Service Types",
+			"type": "litteral"
+		},
+		{
+			"name": "Tags",
+			"type": "litteral"
+		}
+	],
+	"id":[
+		"id"
+	],
+	"actions": {
+			"introspect": ["openstack", "subnet", "list", "--quiet", "--long", "-f json"],
+			"create": [""],
+			"delete": [""]
+	}
+}

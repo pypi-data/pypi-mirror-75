@@ -1,0 +1,22 @@
+{
+	"name": "keypair",
+	"attributes": [
+		{
+			"name": "Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Fingerprint",
+			"type": "litteral"
+		}
+	],
+	"id":[
+		"name",
+		"fingerprint"
+	],
+	"actions": {
+		"introspect": ["openstack", "keypair", "list", "-f json"],
+		"create": [""],
+		"delete": [""]
+	}
+}	

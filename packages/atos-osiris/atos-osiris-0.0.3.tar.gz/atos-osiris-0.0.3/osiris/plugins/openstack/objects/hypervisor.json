@@ -1,0 +1,50 @@
+{	
+	"name": "hypervisor", 
+	"attributes": [
+		{
+			"name": "ID",
+			"type": "litteral"
+		},
+		{
+			"name": "Hypervisor Hostname",
+			"type": "reference",
+			"target": "host"
+		},
+		{
+			"name": "Hypervisor Type",
+			"type":  "litteral"
+		},
+		{
+			"name": "Host IP",
+			"type": "litteral"
+		},
+		{
+			"name": "State", 
+			"type": "litteral"
+		},
+		{
+			"name": "vCPUs Used",
+			"type": "litteral"
+		},
+		{
+			"name": "vCPUs",
+			"type": "litteral"
+		},
+		{
+			"name": "Memory MB Used",
+			"type": "litteral"
+		},
+		{
+			"name": "Memory MB",
+			"type": "litteral"
+		}
+	],
+	"id":[
+		"id"
+	],
+	"actions": {
+		"introspect": ["openstack", "hypervisor", "list", "--quiet", "--long", "-f json"],
+		"create": [""],
+		"delete": [""]
+	}
+}

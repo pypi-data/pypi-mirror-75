@@ -1,0 +1,60 @@
+{	
+	"name": "image",
+	"attributes": [
+		{
+			"name": "ID",
+			"type": "litteral"
+		},
+		{
+			"name": "Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Disk Format",
+			"type": "litteral"
+		},
+		{
+			"name": "Container Format",
+			"type": "litteral"
+		},
+		{
+			"name": "Size",
+			"type": "litteral"
+		},
+		{
+			"name": "Checksum",
+			"type": "litteral"
+		},
+		{
+			"name": "Status",
+			"type": "litteral"
+		},
+		{
+			"name": "Visibility",
+			"type":  "litteral"
+		},
+		{
+		
+			"name": "Protected",
+			"type": "litteral"
+		},
+		{
+		
+			"name": "Project",
+			"type": "reference",
+			"target": "project"
+		},
+		{
+			"name": "Tags",
+			"type": "litteral"
+		}
+	],
+	"id":[
+		"id"
+	],
+	"actions": {
+		"introspect": ["openstack", "image", "list", "--quiet", "--long", "-f json"],
+		"create": [""],
+		"delete": [""]
+	}
+}

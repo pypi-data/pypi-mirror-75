@@ -1,0 +1,35 @@
+{
+	"name": "project", 
+	"attributes": [
+		{
+			"name": "ID",
+			"type":"litteral"
+		},
+		{
+			"name": "Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Domain ID",
+			"type": "reference",
+			"target": "domain"
+		},
+		{
+			"name": "Description",
+			"type": "litteral"
+		},
+		{
+			"name": "Enabled",
+			"type": "litteral"
+		}
+	],
+	"id":[
+		"id"
+	],
+	"actions": {
+			"introspect": ["openstack", "project", "list", "--long", "-f json"],
+			"create": [""],
+			"delete": [""]
+		}
+
+}

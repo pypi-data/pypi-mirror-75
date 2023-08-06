@@ -1,0 +1,1 @@
+All the documentation is available on the official [Osiris Wiki](https://git.atosone.com/osiris/osiris/-/wikis/home).

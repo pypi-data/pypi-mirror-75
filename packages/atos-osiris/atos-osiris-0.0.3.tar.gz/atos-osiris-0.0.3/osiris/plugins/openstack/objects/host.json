@@ -1,0 +1,28 @@
+{
+	"name":"host",
+	"attributes": [
+		{
+			"name": "Host Name",
+			"type": "litteral"
+		},
+		{	
+			"name": "Service",
+			"type": "litteral"
+		},
+		{
+			"name": "Zone",
+			"type": "reference",
+			"target": "availabilityZone"
+		}
+	],
+	"id": [
+		"hostname",
+		"service"
+	],
+	"actions": {
+		"introspect": ["openstack", "host", "list", "--quiet", "-f json"],
+		"create": [""],
+		"delete": [""]
+	}
+	
+}

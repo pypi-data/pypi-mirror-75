@@ -1,0 +1,28 @@
+{
+	"name": "catalog",
+	"attributes": [
+		{
+			"name": "Name",
+			"type": "litteral"
+		},
+		{
+			"name": "Type",
+			"type": "litteral"
+		},
+		{
+			"name": "Endpoints",
+			"type": "litteral"
+		}
+	],
+	"id": [
+		"name",
+		"type",
+		"endpoints"
+	],
+	"actions": {
+		"introspect": ["openstack", "catalog", "list", "-f json"],
+		"create": [""],
+		"delete": [""]
+	}	
+}	
+	
