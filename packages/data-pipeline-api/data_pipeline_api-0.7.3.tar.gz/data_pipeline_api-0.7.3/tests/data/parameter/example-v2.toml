@@ -1,0 +1,13 @@
+[example-estimate]
+type = "point-estimate"
+value = 1.0
+
+[example-distribution]
+type = "distribution"
+distribution = "gamma"
+k = 1
+theta = 2
+
+[example-samples]
+type = "samples"
+samples = [ 1, 2, 3,]
