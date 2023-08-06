@@ -1,0 +1,34 @@
+protocol = "seabreeze"
+doc = "Sensor daemon for Ocean Optics SeaBreeze spectrometers."
+traits = ["has-measure-trigger", "is-sensor", "is-daemon"]
+
+[links]
+source = "https://gitlab.com/yaq/yaqd-seabreeze"
+bugtracker = "https://gitlab.com/yaq/yaqd-seabreeze/-/issues"
+manufacturer = "https://www.oceaninsight.com/products/spectrometers/"
+
+[installation]
+PyPI = "https://pypi.org/project/yaqd-seabreeze"
+
+[config]
+correct_dark_counts.type = "boolean"
+correct_dark_counts.default = false
+correct_nonlinearity.type = "boolean"
+correct_nonlinearity.default = false
+
+[state]
+integration_time_micros.type = "int"
+integration_time_micros.default = 3000
+integration_time_micros.doc = "Integration time for collecting pixels"
+
+[messages]  # optional
+
+[messages.set_integration_time_micros]
+request = [{"name"="set_integration_time_micros", "type"="int"}]
+doc = "Set the integration time in microseconds." 
+
+[messages.get_integration_time_micros]
+response = "int"
+doc = "Get the integration time in microseconds."
+
+
