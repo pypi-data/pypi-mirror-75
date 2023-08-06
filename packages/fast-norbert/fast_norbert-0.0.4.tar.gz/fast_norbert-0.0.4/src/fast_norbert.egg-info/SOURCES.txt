@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+src/fast_norbert/__init__.py
+src/fast_norbert/contrib.py
+src/fast_norbert/norbert.py
+src/fast_norbert.egg-info/PKG-INFO
+src/fast_norbert.egg-info/SOURCES.txt
+src/fast_norbert.egg-info/dependency_links.txt
+src/fast_norbert.egg-info/not-zip-safe
+src/fast_norbert.egg-info/requires.txt
+src/fast_norbert.egg-info/top_level.txt
+src/fast_norbert_cpp/norbert.cxx
