@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+happybuf/__init__.py
+happybuf.egg-info/PKG-INFO
+happybuf.egg-info/SOURCES.txt
+happybuf.egg-info/dependency_links.txt
+happybuf.egg-info/requires.txt
+happybuf.egg-info/top_level.txt
+happybuf/capnproto/__init__.py
+happybuf/flatbuffers/__init__.py
+happybuf/protobuf/__init__.py
