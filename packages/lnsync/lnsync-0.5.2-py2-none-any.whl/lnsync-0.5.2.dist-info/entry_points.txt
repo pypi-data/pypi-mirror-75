@@ -1,0 +1,3 @@
+[console_scripts]
+lnsync = lnsync_pkg.lnsync:main
+
