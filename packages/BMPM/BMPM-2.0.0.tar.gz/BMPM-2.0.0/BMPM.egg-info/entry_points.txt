@@ -1,0 +1,3 @@
+[console_scripts]
+bmpm = bmpm.__main__:main
+
