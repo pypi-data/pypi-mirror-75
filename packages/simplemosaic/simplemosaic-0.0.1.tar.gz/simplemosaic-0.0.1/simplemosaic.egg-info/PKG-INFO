@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: simplemosaic
+Version: 0.0.1
+Summary: A small example package
+Home-page: https://github.com/szjakub/simplemosaic
+Author: Jakub Szkodny
+Author-email: jakubszkodny@gmail.com
+License: UNKNOWN
+Description: # simplemosaic
+        
+        
+        ## Getting Started
+        
+        
+        
+        
+        ### Installing
+        
+        
+        
+        ```bash
+        pass
+        ```
+        
+        ### Usage
+        
+        
+        
+        ```python
+        from ... import Converter, Mosaic, load_images
+        import cv2 as cv
+        image = Converter.load('default.jpeg')
+        images = load_images('pics')
+        mosaic = Mosaic(image, images, (70, 70), ratio=3000).create()
+        cv.imwrite("mosaic.jpg", mosaic)
+        ```
+        
+        
+        
+        
+        
+        ## Authors
+        
+        * **Jakub Szkodny** - [szjakub](https://github.com/szjakub)
+        
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown

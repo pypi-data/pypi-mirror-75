@@ -1,0 +1,14 @@
+README.md
+setup.py
+simplemosaic/__init__.py
+simplemosaic/__main__.py
+simplemosaic/app.py
+simplemosaic.egg-info/PKG-INFO
+simplemosaic.egg-info/SOURCES.txt
+simplemosaic.egg-info/dependency_links.txt
+simplemosaic.egg-info/requires.txt
+simplemosaic.egg-info/top_level.txt
+simplemosaic/algorithms/__init__.py
+simplemosaic/algorithms/gray_mosaic.py
+simplemosaic/converters/__init__.py
+simplemosaic/preprocessing/__init__.py
