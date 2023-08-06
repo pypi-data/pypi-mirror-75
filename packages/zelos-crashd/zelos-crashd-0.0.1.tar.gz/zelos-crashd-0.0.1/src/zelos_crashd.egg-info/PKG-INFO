@@ -1,0 +1,94 @@
+Metadata-Version: 2.1
+Name: zelos-crashd
+Version: 0.0.1
+Summary: A zelos plugin for crash analysis.
+Home-page: https://github.com/zeropointdynamics/zelos-crashd
+Author: Zeropoint Dynamics
+Author-email: zelos@zeropointdynamics.com
+Maintainer: Zeropoint Dynamics
+Maintainer-email: zelos@zeropointdynamics.com
+License: AGPLv3
+Project-URL: Bug Tracker, https://github.com/zeropointdynamics/zelos-crashd/issues
+Project-URL: Source Code, https://github.com/zeropointdynamics/zelos-crashd
+Description: # Zelos CrasHD Plugin
+        
+        A plugin for [Zelos](https://github.com/zeropointdynamics/zelos) to enhance crash triaging by performing dataflow & root cause analysis.
+        
+        ## Prerequisites
+        
+        This plugin depends on [Graphviz](https://graphviz.org/) to render control flow graphs. Instructions for installing Graphviz locally can be found [here](https://graphviz.org/download/). 
+        
+        ## Installation
+        
+        Install from pypi
+        ```console
+        $ pip install zelos-crashd
+        ```
+        
+        Or install directly from the repo
+        ```console
+        $ git clone https://github.com/zeropointdynamics/zelos-crashd.git
+        $ cd zelos-crashd
+        $ pip install .
+        ```
+        
+        Alternatively, install an _editable_ version for development
+        ```console
+        $ git clone https://github.com/zeropointdynamics/zelos-crashd.git
+        $ cd zelos-crashd
+        $ pip install -e '.[dev]'
+        ```
+        
+        ## Related Resources
+        
+        [CrasHD Visualizer](https://github.com/zeropointdynamics/vscode-crashd) is a VS Code extension for visualizing the results & output of this plugin that features:
+        - Contextual source code highlighting
+        - Interactive graph of data flow
+        - Additional context & runtime information
+        
+        
+        
+        # Changelog
+        
+        All notable changes to this project will be documented in this file.
+        
+        The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
+        and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+        
+        ## [Version 0.0.1] - 2020-08-05
+        
+        Initial public release.
+        
+        ### Added
+        
+        - Initial open source commit.
+        
+        ### Changed
+        
+        - N/A
+        
+        ### Removed
+        
+        - N/A
+        
+        [0.0.1]: https://github.com/zeropointdynamics/zelos-crashd/releases/tag/v0.0.1
+        
+        # Authors
+        
+        * [Ryan Court](//www.linkedin.com/in/rccourt)
+        * [Kevin Z. Snow](//www.linkedin.com/in/kevinsnow/)
+        * [Kevin Valakuzhy](//www.linkedin.com/in/kevin-valakuzhy-319a5447/)
+        * Suyup Kim
+Keywords: emulation,dynamic analysis,binary analysis,zelos,crash,vulnerability assessment
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6.0
+Description-Content-Type: text/markdown

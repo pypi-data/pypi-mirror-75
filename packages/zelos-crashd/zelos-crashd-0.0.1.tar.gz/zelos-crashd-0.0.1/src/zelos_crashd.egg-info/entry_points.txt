@@ -1,0 +1,5 @@
+[zelos.plugins]
+asan = crashd.asan
+dataflow = crashd.taint
+ida = crashd.static_analysis
+
