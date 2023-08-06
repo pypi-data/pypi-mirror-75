@@ -1,0 +1,3 @@
+[console_scripts]
+AttachmentsExtractor = AttachmentsExtractor.__main__:main
+

@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: AttachmentsExtractor
+Version: 1.0.2
+Summary: Extracts Embeded documents From Open XML documents. Such as excels, documents, presentations etc. .
+Home-page: https://github.com/surajForDD/AttachmentsExtractor
+Author: Suraj Kumar
+Author-email: surajkm09@gmail.com
+License: MIT
+Description: The Objects Embeded in files with extensions .xlsx, .ppt,.doc etc can be extracted using this library. 
+        
+        
+        list of file extensions supported 
+        1. .xlsx
+        2. .xlsm
+        3. .xltx
+        4. .xltm
+        5. .docx
+        6. .dotx
+        7. .docm
+        8. .dotm
+        9. .pptx
+        10. .pptm
+        11. .potx
+        12. .potm
+        
+        
+        
+        Sample code to extract embeded files. 
+        
+        
+        
+        from AttachmentsExtractor import extractor
+        
+        
+        abs_path_to_file='Please provide absolute path here '
+        path_to_destination_directory = 'Please provide path of the directory where the extracted attachments should be stored' 
+        
+        
+        extractor.extract(abs_path_to_file,path_to_destination_directory) # returns true if one or more attachments  are found else returns false.
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
