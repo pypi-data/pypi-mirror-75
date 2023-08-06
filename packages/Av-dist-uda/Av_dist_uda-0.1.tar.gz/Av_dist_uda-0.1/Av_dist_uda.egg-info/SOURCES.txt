@@ -1,0 +1,12 @@
+README.md
+setup.cfg
+setup.py
+Av_dist_uda.egg-info/PKG-INFO
+Av_dist_uda.egg-info/SOURCES.txt
+Av_dist_uda.egg-info/dependency_links.txt
+Av_dist_uda.egg-info/not-zip-safe
+Av_dist_uda.egg-info/top_level.txt
+distributions_av_dist/Binomialdistribution.py
+distributions_av_dist/Gaussiandistribution.py
+distributions_av_dist/Generaldistribution.py
+distributions_av_dist/__init__.py
