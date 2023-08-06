@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: nse50bse30
+Version: 0.0.3
+Summary: Python Package to scrap NSE 50 and BSE 30 tickers
+Home-page: https://github.com/Git4Manohar/NSE50BSE30
+Author: Radha Manohar Jonnalagadda
+Author-email: email4manohar@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: Unix
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Utilities
+Description-Content-Type: text/markdown
+Requires-Dist: requests (>2.20.1)
+Provides-Extra: dev
+Requires-Dist: pytest (>=3.7) ; extra == 'dev'
+
+# Nifty50BSE30
+This Python package helps developers scrap NSE 50 and BSE 30 tickers
+
+## Quick Start
+Use the following command for installation
+<br />Python2:
+```
+pip install nse50bse30
+```
+Python3:
+```
+pip3 install nse50bse30
+```
+
+## Usage
+```
+import nse50bse30
+nse50 = nse50bse30.getNSE50()
+bse30 = nse50bse30.getBSE30()
+```
+
+<br />Have much more planned in future
+
