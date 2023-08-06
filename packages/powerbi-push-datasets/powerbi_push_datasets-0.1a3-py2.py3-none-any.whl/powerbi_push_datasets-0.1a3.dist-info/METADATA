@@ -1,0 +1,41 @@
+Metadata-Version: 2.1
+Name: powerbi-push-datasets
+Version: 0.1a3
+Summary: Power BI Push Datasets Mgmt
+Home-page: https://github.com/DataBooster/PyWebApi
+Author: Abel Cheng
+Author-email: abelcys@gmail.com
+License: MIT
+Keywords: PowerBI,Push,Datasets,REST,API,Tabular,Model,ResultSets,StoredProcedure,TabularEditor,metadata,schema,table,workspace,pump,xcopy
+Platform: any
+Requires-Python: >=3.6
+Requires-Dist: simple-rest-call
+
+
+powerbi_push_datasets - Power BI Push Datasets Mgmt
+
+----
+
+The main class **PushDatasetsMgmt** encapsulates the Power BI REST operations on `Push Datasets <https://docs.microsoft.com/en-us/rest/api/power-bi/pushdatasets>`_
+(which allows programmatic access for pushing data into PowerBI) into a few simple methods:
+
+-   ``deploy_dataset`` : Create a pushable dataset (or update the metadata and schema for existing tables) in Power BI Service by a `Tabular Model <https://github.com/otykier/TabularEditor/wiki/Power-BI-Desktop-Integration>`__ (.bim file);
+-   ``push_tables`` : Push all `ResultSets of a Stored Procedure <https://github.com/DataBooster/DbWebApi/wiki#http-response>`__ - data for multiple tables into a Power BI Push Dataset;
+-   ``truncate_tables`` : Removes all rows from specified (or all) tables in a Power BI Push Dataset;
+
+This module also provides two conversion tools for development-time:
+
+-   ``convert_bim_to_push_dataset`` : Convert a `Tabular Model <https://github.com/otykier/TabularEditor/wiki/Power-BI-Desktop-Integration>`__ (.bim file) into a Push Dataset Model supported by Power BI Service;
+-   ``derive_bim_from_resultsets`` : Generate a `Tabular Model <https://github.com/otykier/TabularEditor/wiki/Power-BI-Desktop-Integration>`__ (.bim file) based on `ResultSets of a Stored Procedure (ResultSets) <https://github.com/DataBooster/DbWebApi/wiki#http-response>`__ - data for multiple tables;
+
+For detailed usage, see the practice sample code: https://github.com/DataBooster/PyWebApi/blob/master/Sample/UserApps/PowerBIPusher/db_to_pbi.py
+
+and its product documentation: https://github.com/DataBooster/PyWebApi#powerbi-data-pusher
+
+----
+
+| Homepage and documentation: https://github.com/DataBooster/PyWebApi
+| Copyright (c) 2020 Abel Cheng
+| License: MIT
+
+
