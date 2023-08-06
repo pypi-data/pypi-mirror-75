@@ -1,0 +1,3 @@
+[console_scripts]
+safedata_validate = safedata_validator:_safedata_validator_cli
+

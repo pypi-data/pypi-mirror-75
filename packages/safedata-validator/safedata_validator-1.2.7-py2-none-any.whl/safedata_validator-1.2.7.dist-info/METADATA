@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: safedata-validator
+Version: 1.2.7
+Summary: Validator for data files in the SAFE data submission format.
+Home-page: https://github.com/imperial_college_london/safedata_validator
+Author: David Orme
+Author-email: d.orme@imperial.ac.uk
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 2
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+# The safedata_validator package
+
+This package provides methods to validate XLSX files containing SAFE data formatted data and metada.
+
+See the main documentation:
+  [https://safedata_validator.readthedocs.io](https://safedata_validator.readthedocs.io)
+
+
