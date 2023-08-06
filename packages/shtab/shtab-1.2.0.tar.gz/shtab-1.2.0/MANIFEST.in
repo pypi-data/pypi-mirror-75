@@ -1,0 +1,10 @@
+# Misc
+include LICENCE
+
+# Test suite
+recursive-include tests *.py
+include requirements-dev.txt
+
+# Examples/Documentation
+recursive-include examples *.py
+include README.rst
