@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: m3u8down
+Version: 0.5.3
+Summary: Download a m3u8 video.
+Home-page: https://leecq.coding.net/public/python/m3u8Down/git/files
+Author: Lee CQ
+Author-email: lee-cq@qq.com
+License: Apache License 2.0
+Keywords: m3u8,download,video
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Software Development
+Requires-Dist: m3u8 (>=0.7.0)
+Requires-Dist: requests (>=2.22.0)
+Requires-Dist: urllib3 (>=1.25.8)
+Requires-Dist: pycryptodome (>=3.9.6)
+Requires-Dist: sqllib (>=0.2.5)
+Requires-Dist: setuptools (~=49.2.0)
+
+UNKNOWN
+
+
