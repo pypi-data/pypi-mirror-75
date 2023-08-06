@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<registry>
+
+    <records prefix="plone.bundles/ftw-sliderblock-resources"
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+        <value key="resources" purge="True"></value>
+        <value key="enabled">True</value>
+        <value key="depends">plone-legacy</value>
+        <value key="compile">False</value>
+        <value key="jscompilation">++resource++ftw.sliderblock/sliderblock-compiled.js</value>
+        <value key="merge_with">default</value>
+        <value key="last_compilation">2019-12-17 15:25:00</value>
+    </records>
+
+    <records prefix="plone.resources/ftw-sliderblock-js"
+             interface='Products.CMFPlone.interfaces.IResourceRegistry'
+             remove="True" />
+</registry>

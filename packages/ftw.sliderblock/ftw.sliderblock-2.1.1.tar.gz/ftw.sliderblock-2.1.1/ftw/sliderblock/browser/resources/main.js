@@ -1,0 +1,1 @@
+require(['sliderblock'], function(sliderblock){});

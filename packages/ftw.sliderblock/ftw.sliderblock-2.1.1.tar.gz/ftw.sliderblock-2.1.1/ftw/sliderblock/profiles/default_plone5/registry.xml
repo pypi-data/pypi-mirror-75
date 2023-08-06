@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<registry>
+
+    <record name="ftw.sliderblock.default_slick_config">
+        <field type="plone.registry.field.Text">
+            <title>Default Slick Config</title>
+        </field>
+        <value>{"autoplay": true, "autoplaySpeed": 2000}</value>
+    </record>
+
+    <record interface="ftw.simplelayout.interfaces.ISimplelayoutDefaultSettings" field="image_cropping_aspect_ratios">
+        <value purge="False">
+            <element key="ftw.slider.Pane">
+                <element>16:9 => 1.777777778</element>
+            </element>
+        </value>
+    </record>
+
+    <record
+        name="plone.types_not_searched"
+        interface="Products.CMFPlone.interfaces.controlpanel.ISearchSchema"
+        field="types_not_searched">
+        <value>
+            <element>ftw.sliderblock.SliderBlock</element>
+        </value>
+    </record>
+
+    <records prefix="plone.bundles/ftw-sliderblock-resources"
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+        <value key="enabled">True</value>
+        <value key="depends">plone-legacy</value>
+        <value key="compile">False</value>
+        <value key="jscompilation">++resource++ftw.sliderblock/sliderblock-compiled.js</value>
+        <value key="merge_with">default</value>
+        <value key="last_compilation">2019-12-12 15:25:00</value>
+    </records>
+
+</registry>
