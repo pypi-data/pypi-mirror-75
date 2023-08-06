@@ -1,0 +1,3 @@
+[console_scripts]
+aos-provisioning = aos_provisioning.main:main
+
