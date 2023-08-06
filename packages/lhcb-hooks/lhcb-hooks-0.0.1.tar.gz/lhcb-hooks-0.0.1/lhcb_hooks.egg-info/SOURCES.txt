@@ -1,0 +1,17 @@
+README.rst
+setup.py
+lhcb_hooks.egg-info/PKG-INFO
+lhcb_hooks.egg-info/SOURCES.txt
+lhcb_hooks.egg-info/dependency_links.txt
+lhcb_hooks.egg-info/entry_points.txt
+lhcb_hooks.egg-info/not-zip-safe
+lhcb_hooks.egg-info/requires.txt
+lhcb_hooks.egg-info/top_level.txt
+lhcb_pre_commit_hooks/__init__.py
+lhcb_pre_commit_hooks/constants/__init__.py
+lhcb_pre_commit_hooks/constants/license_constants.py
+lhcb_pre_commit_hooks/hooks/__init__.py
+lhcb_pre_commit_hooks/hooks/check_for_license_file.py
+lhcb_pre_commit_hooks/utils/__init__.py
+lhcb_pre_commit_hooks/utils/file_utils.py
+lhcb_pre_commit_hooks/utils/string_utils.py
