@@ -1,0 +1,5 @@
+[console_scripts]
+run_sql = sql_runner.run_sql:main
+runner = sql_runner.runner:main
+sqlrunner = sql_runner.runner:main
+
