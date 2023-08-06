@@ -1,0 +1,25 @@
+[build-system]
+requires = [ "poetry>=1.0.0",]
+build-backend = "poetry.masonry.api"
+
+[tool.versionup]
+tag = true
+commit = true
+files = [ "src/lib.rs", "Cargo.toml",]
+tag_prefix = "python/"
+
+[tool.poetry]
+name = "pytokenizations"
+version = "0.6.0"
+description = ""
+authors = [ "Yohei Tamura <tamuhey@gmail.com>",]
+[[tool.poetry.packages]]
+include = "tokenizations"
+
+[tool.poetry.dependencies]
+python = ">=3.5"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.0.1"
+hypothesis = "^5.3.1"
+twine = "^1.15.0"
