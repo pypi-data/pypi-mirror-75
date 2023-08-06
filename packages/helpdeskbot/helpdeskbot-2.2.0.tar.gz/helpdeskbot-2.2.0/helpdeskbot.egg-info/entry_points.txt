@@ -1,0 +1,3 @@
+[console_scripts]
+helpdeskbot = helpdeskbot.__main__:main
+
