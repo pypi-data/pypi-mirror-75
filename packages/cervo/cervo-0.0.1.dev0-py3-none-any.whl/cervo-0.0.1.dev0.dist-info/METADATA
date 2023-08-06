@@ -1,0 +1,9 @@
+Metadata-Version: 2.1
+Name: cervo
+Version: 0.0.1.dev0
+Summary: Serving machine learning pipelines as APIs
+Author: KelvinSP
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
