@@ -1,0 +1,250 @@
+CHANGES
+=======
+
+1.8.1
+-----
+
+* Fixes a bug in which a sprint query might not complete when sprints returned by the current board were returned by earlier rows
+
+1.8.0
+-----
+
+* [#6] Adding an example to documentation showing you how to filter to entries changed in particular ways during a particular sprint
+* [#4] Fixing tests covering get\_sprint\_by\_id
+* [#4] Adding function allowing you to get a sprint by its name
+* [#8] Updating docs to make it clear that it's possible to see schema for boards and sprints, too
+* [#8] Emit an error when using unsupported query expressions with board/sprint queries
+* [#8] Updating docs to mention support for searching sprints
+* [#8] Adding support for querying sprints; adding 'where' support for boards/sprints
+* [#8] Use sources as data source for 'schema' command
+* [#8] Updating docs to mention that searching boards is possible
+* [#8] Adding support for querying boards
+* [#8] Adding support for pluggable sources
+* [#6] Adding documentation covering new functions; change behavior of 'parse\_datetime' to always assume a timezone
+* Fixing 'functions' command behavior when functions have no docstring
+* [#6] Adding functions allowing you to filter arrays using a simple django-inspired syntax (via QueryableList)
+* [#6] Adding function allowing you to easily flatten your changelog entries for easier searching
+* Fixing a bug in which cache values did not distinguish between multiple instances
+* Make it possible to use quoted field names even when describing a regular non-human field name
+* Fixing another documentation problem
+* Adding a test; fixing a doc
+* Require pytz, too
+* [#4] Adding 'get\_sprint' function.  Modifying 'sprint\_details' function to not fetch from Jira and instead use returned text data directly
+* Fixing a bug in which minutes in an estimate field were not calculating the proper fractional number of days
+* Bumping documentation version
+* Minor documentation bug
+* Allow use of debugpy debugger using --enable-debugger with pytest
+* [#7] Adding flatten\_list function
+* Documentation typo
+* [#7] Adding support for automatic extraction of nested values within grouped rows
+* Bumping documentation version
+
+1.7.0
+-----
+
+* Adding support for running arbitrary scripts receiving access to your configured jira instance
+* [#5] Minor documentation fix
+* [#5] Fixing tests relating to that key-to-id change
+* [#5] Improve compatibility with earlier jira versions
+* Pretty-print the exception if we get one
+* [#5] Adding troubleshooting entry for curly braces
+* [#5] Show user a field name error when human-readable fieldname not found
+* Include 'expand' options in cache key
+* [#5] Instead of interpolating to the field value, just interpolate-in the field name and allow the expression evaluator to take care of fetching the value
+* [#5] More-robust handling of interpolated field values.  Adding 'troubleshooting' item
+* [#5] Updating docs; automatically quote returned strings
+* [#5] Adding query support for string interpolation handling
+* [#5] Allow passed-in interpolations
+
+1.6.0
+-----
+
+* [#2] Fixing a bug in 'verify' configuration handling
+* [#2] Improving docs slightly
+* [#2] Allow specifying certificate verification settings
+* Allow certain kinds of exceptions to be re-raised
+* Fixing some tests
+* When we can't parse a line of a query; tell them which line?
+* Allow preserved data to include callables
+* Do not use returned Issue objects directly
+* Fixing a couple minor documentation bugs
+* Improving documentation for 'cache' slightly
+* Minor documentation formatting bug
+* Updating release version to 1.5.1
+
+1.5.1
+-----
+
+* Handle exceptions occurring in 'extract' a little more gracefully
+
+1.5.0
+-----
+
+* Minor documentation bug around what the cache value looks like
+* Making cache handling a little more flexible
+* Fixing a minor documentation bug
+* Updating tests; adding a test covering 'filter'
+* Adding new 'filter' query step allowing you to filter rows locally after caching and before grouping
+* Much saner way of handling iterator and counter chaining.  Show count of records for each phase
+* Hide 'jira' progressbar if loading from cache
+* Make sure that every constraint is grouped
+* Adding access to 'type' command
+* Minor typo in documentation
+
+1.4.0
+-----
+
+* Adding support for caching query results for a period of time
+* Nevermind; let's just set this directly... :shrug:
+* Try to convince rtd into installing the package so it can collect its version
+* Updating documentation slightly
+* Adding a troubleshooting section
+* Improving documentation slightly
+* Fixing a couple documentation bugs
+* Minor documentation linking fix
+* Fixing a couple examples
+
+1.3.0
+-----
+
+* Updating autodocumentation
+* Adding extract function; adding examples document
+* Adding 'extract', 'map', and 'filter' functions
+* Adding support for list comprehensions in expressions
+
+1.2.2
+-----
+
+* Adding support for misc random functions
+* Adding tests covering query behavior while progressbar enabled
+* Much saner progressbar handling
+* Linking to python's docs in a couple more locations
+* Fixing some documentation bugs
+* Adding 'cap' command to shell completions
+* Adding new cap section allowing you to limit post-grouping count of rows
+* Updating demo images
+* Remove constant values, though, from normalized results
+* Removing obsolete tests
+* Normalize values so we can not print jira resource repr values all over the place
+* Add the 'key' and 'id' fields to the '\*' field results
+* Adding support for 'select \*'
+* Moving sort\_by parsing into query parser
+* Refactoring structure of Query class into two separate Query and Executor classes
+* Renaming query runner class to allow me to move query definitions into a class
+* Updating command-line documentation
+* Adding new 'table' formatter
+* Slight prompt improvements
+* Adding documentation covering creating your own plugins
+* Renaming 'appendix' section as 'refernce'
+* Improving documentation
+* Updating gitignore
+
+1.2.1
+-----
+
+* Making exception handling slightly saner for 'jira-select shell'
+* Slightly improved prompt
+* Readme text updates
+* Show version directly via \_\_version\_\_
+* Better error handling in shell repl loop
+* Minor formatting change
+* Improving instructions in configuration steps
+* Fixing a few documentation errors
+* Adding a function that will convert date strings like '1d 2h 3m' into an integer number of days
+* Removing an obvious thing
+* Minor documentation update
+
+1.2.0
+-----
+
+* Bumping version
+
+1.0.0
+-----
+
+* Minor tagline change
+* Break up documentation for various commands into two different categories
+* Add package installation to the quickstart
+* Adding badges and installation instructions to readme.md
+* Updating demo gif images; use 'id' for field names instead of 'key'
+* Add support for connecting to multiple instances
+* Better section titles
+* Adding docs requirements file
+* Updating description for field\_by\_name
+* Adding much-better docs
+* Switch to vi bindings by default. Display configuration path in --help
+* Fixing a bug in how 'having' counts are piped through
+* Re-labeling the 'query' progressbar 'jira'
+* Updating readme
+* Adding documentation covering the new 'shell' subcommand
+* Adding new 'shell' subcommand allowing you to interactively run/view query results
+* Updating title of 'functions.rst' to make it clearer what functions we're talking about
+* Linking to the dateutil docs for parse\_datetime
+* Adding 'parse\_datetime' function to default functions
+* Adding new 'sprint\_details' function; fixed a bug around how null values were handled in a search query
+* Fixing more bugs in group\_by; I think things are pretty sane now.  Adding separate progressbar for 'select'
+* Fixing bugs in sorting via sort\_by
+* Limit JQL max results to the specified query limit
+* Surface jql ordering in 'order\_by'; move existing python sorting to 'sort\_by'
+* Refactoring handling of group by; improving progressbar handling
+* Adding debugger support
+* Install visidata by default to ensure that the 'vd' command is available
+* Adding documentation
+* Fixing a test
+* Adding some more tests
+* Updating readme slightly
+* Adding JSON load/dump functions to default-available functions
+* Adding raw field data to search results in schema to allow for complex filtering by users
+* Adding 'search-terms' functionality in addition to the existing 'having' checks
+* Nevermind; supporting 3.6 would be more effort than I'm willing to spend today
+* Try running tests for 3.6, too
+* Better compatibility with Python 3.7
+* Import literal from typing\_extensions instead of typing
+* Updating test runner script
+* Updating gitignore
+* Adding tests
+* Removing an unused import
+* Adding support for github acitons
+* Use getpass for 'store-password' instead of the interactive dialog
+* Adding a command that will display information about available functions
+* Updating store-password to use prompt-toolkit
+* Removing one-offed functions that can be handled with standard python syntax
+* Adding 'field\_by\_name' function allowing you to not memorize Jira field ids
+* Allow grouping on expressions, too
+* Break progressbar out into multiple phases; add support for ordering
+* Add lots of functions to the default set
+* Adding documentation covering grouping/aggregation
+* Moving progressbar logic into the query class itself; it's really the only place we actually know how about all of the issues because we might not emit records if those records are grouped or filtered via having
+* Adding support for 'group\_by' statements & (theoretically) aggregation functions
+* Bumping version number
+* Adding a comment to explain why there's a progressbar wrapping nothing
+* Show a progressbar when counting rows, too
+* Adding note to readme about the future w/r/t aggregation functions
+* Updating help text slightly
+* Changing name of 'find-field' to 'schema' and adding support for arbitrary 'having' expressions
+* Adding support for limits; adding documentation covering limit and expand
+* Return all fields from original search query using "\*all" "field" expansion; the jira-python docs suggest that this is the default, but the default is in fact "\*navigable"
+* Adding more commentary to the readme
+
+1.0.0b1
+-------
+
+* Adding 'coalesce' function.  Updating readme
+* Adding support for 'having' clause
+* Adding support for functions
+* Adding a command that makes it easier to find fields and see their types
+* Swapping pyinquirer for prompt-toolkit in 'configuration' command
+* Adding interactive mode
+* Adding pre-commit support
+* Use simpleeval for parsing select definitions
+* Better help text; allow formatters to define their file extension
+* Adding support for pluggable formatters; show progressbar while running query
+* Removing version constant because I can't figure out how to keep that in sync with pbr
+* Use pbr for versioning
+* Manage version number with bumpversion
+* Switching to pbr for setup configuration
+* Adding bumpversion configuration
+* Renaming project from jira-csv to jira-select
+* Titling each of the new feature ideas
+* Adding a 'Future Goals' section to the readme
+* And so it begins..
