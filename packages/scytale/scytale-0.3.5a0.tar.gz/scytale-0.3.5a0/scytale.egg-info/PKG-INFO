@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: scytale
+Version: 0.3.5a0
+Summary: Algorithms in Crytography and Number Theory
+Home-page: https://github.com/MarcoYLyu/cryptogo
+Author: Yi Lyu
+Author-email: marcolyu@g.ucla.edu
+License: Apache License 2.0
+Download-URL: https://github.com/MarcoYLyu/scytale/releases/tag/v0.3.5-alpha
+Description: # Cryptography Library
+        
+        This repository contains a library of common cryptography functions, including but not limited to elliptic curves and factoring. See below for more instruction on how to use the library itself.
+        
+        ## Installation
+        
+        Use `pip3` to install the package
+        
+        ``>>> pip3 install scytale``
+        
+        ## Acknowledge
+        
+        Every algorithm in this project comes from MATH 116 at UCLA.
+        
+Keywords: cryptography,math116
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Description-Content-Type: text/markdown
