@@ -1,0 +1,610 @@
+Metadata-Version: 2.1
+Name: hehey-htemplate
+Version: 1.0.1
+Summary: hehey-htemplate 是一个python 轻量的模板引擎,其主要特点有:易学,示例全,功能全面,html友好标签,编译速度快,易扩展与其他模板引擎对比,其简单易学,速度快(大概1000次编译,800 多毫秒),随时随地编写自己的标签库.
+Home-page: https://gitee.com/chinahehe/hehey-htemplate
+Author: 13564768842
+Author-email: chinabluexfw@163.com
+License: UNKNOWN
+Description: # hehey-htemplate 组件
+        
+        ## 介绍
+        - hehey-htemplate 是一个python 轻量的模板引擎,其主要特点有:易学,示例全,功能全面,html友好标签,编译速度快,易扩展
+        与其他模板引擎对比,其简单易学,速度快(大概1000次编译,800 多毫秒),随时随地编写自己的标签库.
+        
+        ## 功能列表
+          - 支持{},以及<> 标签混合使用
+          - 支持layout(模板继承) 标签
+          - 支持block 模块
+          - 支持include 标签
+          - 支持if 标签
+          - 支持for dict,list 标签
+          - 支持注释
+          - 支持python 代码标签
+          - 支持调用方法
+          - 支持加载静态文件
+          - 定义变量
+          - 支持不解析标签
+          - html 标签
+          - 自定义过滤器
+          - 优化方法的调用方式,支持| 方法,支持定义参数
+          - 支持标签,empty  
+          - 支持导入自定义过滤器
+          - 支持导入自定义标签
+          - 支持模板文件缓存代码至内存
+          - 支持代码缓存过期时间
+          - 支持模板后缀自定义
+          - js,css,img 标签
+          - 提供小物件(widget)
+        
+        ## 依赖以及版本要求
+        - python >= 3.5
+        
+        
+        ## 安装
+        - 直接下载:
+        ```
+        
+        ```
+        - 命令安装：
+        ```
+        pip install hehey-htemplate
+        ```
+        ## 基础文件以目录
+        
+        
+        ## 组件配置
+        ```python
+        conf = {
+                # 模板文件扩展名
+                "suffix":'html',
+                # 模板文件根路径
+                "tplPath":'',
+                # 是否开启模板缓存,开启后,会自动缓存代码,加快模板解析的速度
+                "onCache": True,
+                # 模板缓存文件目录,模板编译的python代码缓存在文件中,缓存文件存储此目录中
+                "cachePath":'',
+                # 资源地址,比如js,css,img,默认提供static(静态资源路径),res(外部资源,比如上传的文件) 字典key
+                "urls" : {},
+                # 模板缓存有效期,单位秒,0 表示无有效期
+                "timeout" : 3,
+                # 表达式起始符
+                "expStart" : '{{',
+                # 表达式结束符
+                "expEnd":'}}',
+                # 结束表达式的结束符比如/ 则完整表达式为{/for} 或end,{endfor}
+                "expEndSign" : '/',
+                # 是否启用标签规则,开启后,匹配表达式 <import name="eduhome.name.yong" />
+                "onTag" : True,
+                # 标签起始符
+                "tagStart" : '<',
+                # 标签结束符
+                "tagEnd" : '>',
+                # 结束标签结束符号
+                "tagEndSign" :'/',
+                # 系统标签,默认自动加载sys 表达式,默认标签,书写时无需写入前缀,比如<css href="xxx" />
+                "sysTags" : ['sys'],
+                # 自定义标签,书写时必须写入前缀,比如 标签名称html,则css 标签的书写规则为: <html:css href="xxx" />
+                "customTags" : ['html'],
+        };
+        
+        
+        ```
+        ## 基本示例
+        ### 快速使用
+        
+        - index.html 模板文件
+        ```html
+        <body>
+        
+            {if condition="age == 1"}
+                <h1>{$age}</h1>
+            {elif condition="age == 2"}
+                <h1>hello world</h1>
+            {else}
+                <h1>hehe 小酌一杯</h1>
+            {/if}
+        
+        </body>
+        
+        ```
+        - index.py 文件
+        ```python
+        from htemplate.view import View
+        # 模板配置,请参考<<参数配置>>
+        conf = {};
+        view = View(conf);
+        
+        # 模板数据
+        data = {
+            "age": 3,
+        }
+        
+        # 注入模板变量
+        view.assign('title',"从您的世界路过?")
+        
+        # index 为模板名称
+        html = view.fetch('index',data)
+        
+        
+        ```
+        
+        ## 自定义过滤器
+        
+        ```python
+        # 自定义过滤器
+        from htemplate.view import reg_temp_filter
+        
+        @reg_temp_filter('css')
+        def css_filter(self,cssUrl):
+        
+            return  '{0}{1}'.format(self.template.urls['static'],cssUrl)
+        
+        # 过滤所有有风险的字符
+        @reg_temp_filter()
+        def safe(self,value):
+        
+            value = self.xss(value)
+        
+            return value
+        
+        
+        ```
+        
+        ## 自定义上下文
+        
+        ```python
+        # 自定义上下文
+        from htemplate.view import reg_temp_context
+        
+        @reg_temp_context()
+        def django():
+        
+            return {"reqeust":{"mok":88}}
+        
+        
+        ```
+        
+        
+        ## 标签库
+        
+        自定义标签库html
+        
+        ```python
+        
+        from htemplate.tag.Tag import Tag
+        
+        from htemplate.nodes.BaseNode import BaseNode
+        
+        class HtmlTag(Tag):
+        
+            def __init__(self,template):
+                super().__init__(template)
+                self.tags = [
+                    {'name': "css", 'close': False, 'onTag': True},
+                    {'name': "js", 'close': False, 'onTag': True},
+                    {'name': "img", 'close': False, 'onTag': True},
+                    {'name': "select", 'close': False,'onTag':True},
+                ]
+        
+        
+            # 模板继承
+            def _select(self,node_attrs,mainNode:BaseNode):
+                #print(node_attrs)
+        
+                #attrs = self.parseAttr(node_attrs)
+                pass
+        
+            def _css(self,node_attrs, mainNode:BaseNode):
+                attrs = self.parseAttr(node_attrs)
+                href = attrs['href'];
+                cssFunc = 'self.call("css","{0}")'.format(href)
+                attrs['href'] = '%s';
+                attrsHtml = self.buildHtmlAttrs(attrs);
+                codeHtml = "'<link {0} />' % ({1})".format(attrsHtml, cssFunc)
+        
+                mainNode.writeRawCode(codeHtml, True, True)
+        
+            def _js(self,node_attrs, mainNode:BaseNode):
+                attrs = self.parseAttr(node_attrs)
+                src = attrs['src'];
+                jsFunc = 'self.call("js","{0}")'.format(src)
+                attrs['src'] = '%s';
+                attrsHtml = self.buildHtmlAttrs(attrs);
+                codeHtml = "'<script {0} ></script>' % ({1})".format(attrsHtml, jsFunc)
+        
+                mainNode.writeRawCode(codeHtml, True, True)
+        
+            def _img(self,node_attrs, mainNode:BaseNode):
+                attrs = self.parseAttr(node_attrs)
+                src = attrs['src'];
+                jsFunc = 'self.call("img","{0}")'.format(src)
+                attrs['src'] = '%s';
+                attrsHtml = self.buildHtmlAttrs(attrs);
+                codeHtml = "'<img {0} >' % ({1})".format(attrsHtml, jsFunc)
+        
+                mainNode.writeRawCode(codeHtml, True, True)
+        
+        
+        ```
+        
+        index.html 模板文件
+        
+        ```html
+        <body>
+        <html:css href="css/core.min.css" rel="stylesheet" />
+            {{if condition="age == 1"}}
+                <h1>{$age}</h1>
+            {{elif condition="age == 2"}}
+                <h1>hello world</h1>
+            {{else}
+                <h1>hehe 小酌一杯</h1>
+            {{/if}}
+        
+        </body>
+        
+        ```
+        
+        ## 标签示例
+        
+        ### layout 布局标签
+        
+         - main.html 布局模板文件
+        
+        ```html
+        <!DOCTYPE html>
+        <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+            <title>{title}</title>
+            <html:css href="css/core.min.css" rel="stylesheet" />
+            <html:js src= "js/dist/core.min.js?v=2.1.4"  />
+        </head>
+        <body>
+        __BODY__
+        
+        
+        __FOOTER__
+        
+        </body>
+        </html>
+        
+        ```
+        
+         - index.html 模板文件
+        
+        ```html
+        {{layout file="main.html"}}
+        <body>
+        {{if condition="age == 1"}}
+            <h1>{$age}</h1>
+        {{elif condition="age == 2"}}
+            <h1>hello world</h1>
+        {{else}
+            <h1>hehe 小酌一杯</h1>
+        {{/if}}
+        
+        </body>
+        
+        ```
+        
+        ### 加载静态文件
+        
+        ```html
+        {{layout file="main.html"}}
+        <body>
+        
+        <!-- 以下的标签,需配合过滤器使用,比如css,js,res,img 等等过滤器,需了解过滤器,请查看fileters/common 文件,大量过滤器存放在此文件中 -->
+        
+        <!-- 加载站点样式 -->
+        <css href="css/core.min.css" rel="stylesheet" />
+        <html:css href="css/core.min.css" rel="stylesheet" />
+        
+        <!-- 加载站点js -->
+        <js src= "js/dist/core.min.js?v=2.1.4"  />
+        <html:js src= "js/dist/core.min.js?v=2.1.4"  />
+        
+        <!-- 加载站点图片 -->
+        <html:img src="images/bg_jins.png" alt="" />
+        
+        <!-- 加载站点外部图片,一般为上传图片 -->
+        <img src="{{:res('upload/2018/10/25/xxxx.jpg')}}" alt="" />
+        
+        </body>
+        
+        ```
+        
+        
+        ### if 标签
+        
+        ```html
+        <!-- 基础标签示例 -->
+        {{layout file="main.html"}}
+        <body>
+        
+        <!-- 通用if-->
+        {{if condition="age == 1"}}
+            <h1>{$age}</h1>
+        {{elif condition="age == 2"}}
+            <h1>hello world</h1>
+        {{else}}
+            <h1>hehe 小酌一杯</h1>
+        {{/if}}
+        
+        <!-- 非属性if,原始python 格式 -->
+        {{if age == 1}}
+            <h1>{$age}</h1>
+        {{elif age == 2}}
+            <h1>hello world</h1>
+        {{else}}
+            <h1>hehe 小酌一杯</h1>
+        {{/if}}
+        
+        
+        </body>
+        
+        ```
+        ### for 标签
+        for.html 模板文件
+        
+        ```html
+        <!-- 遍历标签,for,list,dict示例 -->
+        {{layout file="base.html"}}
+        <body>
+        <!-- 通用遍历,兼容list,dict -->
+        {{for name="users" index="index" value="user"}}
+            <div>{{user['userid']}}</div>
+            <div>{{user['realName']}}</div>
+            <div>{{:user['realName']|safe}}</div>
+        {{/for}
+        
+        
+        <!-- 非属性遍历,原始python 格式 -->
+        {{for user in users}}
+            <div>{{user['userid']}}</div>
+            <div>{{user['realName']}}</div>
+            <div>{{:user['realName']|safe}}</div>
+        {{/for}}
+        
+        
+        <!-- 遍历list -->
+        {{list name="users" index="index" key="key" value="user"}}
+            <div>自定义序号(默认为0):{{index}}</div>
+            <div>list本身的序号:{{key}}</div>
+            <div>{{user['userid']}}</div>
+            <div>{{user['realName']}}</div>
+            <div>{{:user['realName']|safe}}</div>
+        {{/list}}
+        
+        <!-- 遍历dict -->
+        {{dict name="stuNames" key="key" value="name"}}
+            <div>键:{{key}}</div>
+            <div>值:{{name}}</div>
+            <div>安全过滤:{{:name|safe}}</div>
+        {{/dict}}
+        
+        
+        <!-- 标签格式 -->
+        
+        <!-- 通用遍历,兼容list,dict -->
+        <for name="users" index="index" value="user">
+            <div>{{user['userid']}}</div>
+            <div>{{user['realName']}}</div>
+            <div>{{:user['realName']|safe}}</div>
+        </for>
+        
+        <!-- 遍历list -->
+        <list name="users"  value="user">
+            <div>{{user['userid']}}</div>
+            <div>{{user['realName']}}</div>
+            <div>{{:user['realName']|safe}}</div>
+        </list>
+        
+        <!-- 遍历dict -->
+        <dict name="stuNames" key="key" value="name">
+            <div>键:{{key}}</div>
+            <div>值:{{name}}</div>
+            <div>安全过滤:{{:name|safe}}</div>
+        </dict>
+        
+        </body>
+        
+        ```
+        
+        
+        ### 包含标签(include,import,taglib)
+        
+        ```html
+        <!-- 基础标签示例 -->
+        <!-- 导入标签库,建议放在文件的首行 -->
+        {{taglib name="html"}}
+        
+        <!-- 导入python 模块类 -->
+        {{import name="hehe.core.base.BaseController:BaseController"}}
+        
+        <!-- 导入python 模块类，并设置别名 -->
+        {{import name="hehe.core.base.BaseController:BaseController" as="webController"}}
+        
+        <!-- 导入python 模块函数 -->
+        {{import name="hehe.core.base.BaseController:index"}}
+        
+        <body>
+        
+        {{for name="users" index="index" value="user"}}
+            <div>{{user['userid']}}</div>
+            <div>{{user['realName']}}</div>
+            <div>{{:user['realName']|safe}}</div>
+        {{/for}}
+        
+        <!-- 导入尾部模板 -->
+        {{include file="footer.html"}}
+        
+        </body>
+        
+        ```
+        
+        ### block块标签
+        
+        ```html
+        {{layout file="main" block="body:__BODY__,footer:__FOOTER__"}}
+        
+        {{block name="body"}}
+        
+            {{for name="users" index="index" value="user"}}
+                <div>{{user['userid']}}</div>
+                <div>{{user['realName']}}</div>
+                <div>{{:user['realName']|safe}}</div>
+            {{/for}
+        
+        {{/block}}
+        
+        {{block name="footer"}}
+        
+            {{for name="users" index="index" value="user"}}
+                <div>{{user['userid']}}</div>
+                <div>{{user['realName']}}</div>
+                <div>{{:user['realName']|safe}}</div>
+            {{/for}
+        
+        {{/block}}
+        
+        <!-- 直接调用footer block -->
+        {{call name="footer"}}
+        
+        
+        ```
+        
+        
+        ### 条件标签
+        
+        ```html
+        {{layout file="main.html"}}
+        <body>
+        {{empty name="users"}}
+            users 变量为空
+        {{else}}
+            {{for name="users" index="index" value="user"}}
+                <div>{{user['userid']}}</div>
+                <div>{{user['realName']}}</div>
+                <div>{{:user['realName']|safe}}</div>
+            {{/for}
+        
+        {{/empty}}
+        
+        {{notempty name="users"}}
+            {{for name="users" index="index" value="user"}}
+                <div>{{user['userid']}}</div>
+                <div>{{user['realName']}}</div>
+                <div>{{:user['realName']|safe}}</div>
+            {{/for}}
+        {{else}}
+            users 变量为空
+        {{/notempty}}
+        
+        </body>
+        
+        
+        ```
+        
+        
+        ### python 标签
+        
+        ```html
+        <!-- python 示例 -->
+        {{layout file="base.html"}}
+        <body>
+        
+        {{for name="users" index="index" value="user"}}
+            <!-- 定义python 变量,name,char -->
+            {{set name = "'mnnmd'" char="1"}}
+            <div>{{user['userid']}}</div>
+            <div>{{user['realName']}}</div>
+            <div>{{:user['realName']|safe}}</div>
+            <div>{{name}}</div>
+        
+            {{if condition="index == 1"}}
+                <!-- 书写原始python  -->
+                {{raw break}}
+            {{/if}}
+        {/for}}
+        
+        <!--python 原始代码块 -->
+        {{python}}
+        age = 22;
+        if age > 35:
+            print("dddd")
+        {{/python}}
+        
+        
+        <!-- comment python 注释标签 -->
+        {{comment}}
+         什么垃圾代码,连注释都没有,没办法接手,准备跑路
+        {{/comment}}
+        
+        <!-- pass 不解析模块,由此标签包含的内容,都不解析标签等内容,原样输出 -->
+        {{pass}}
+         想写什么都可以,反正都不会报错,{nmm},""kksdf<imm>dfdfd</imm>
+        <for name="sdfdfd">
+           sdf;omuynsdfb{$name
+        </for>
+        {{/pass}}
+        
+        
+        </body>
+        
+        ```
+        
+        
+        ### 安全过滤
+        
+        ```html
+        {{layout file="main.html"}}
+        <body>
+        <!-- $ 代码调用safe 安全方法,比如
+        {{$user['userid']}},相当于{{:user['userid']|safe}}
+        -->
+        {{for name="users" index="index" value="user"}}
+            <div>{{$user['userid']}}</div>
+            <div>{{user['realName']}}</div>
+        {{/for}}
+        
+        </body>
+        
+        
+        ```
+        
+        
+        ### 过滤器
+        
+        ```html
+        {{layout file="main.html"}}
+        <body>
+        
+        <!-- 调用过滤器 -->
+        {{for name="users" value="user"}}
+            <title>{user['userid']}}</title>
+            <title>{:user['realName']|len}}</title>
+        {{/for}
+        
+        <!-- 调用带参数过滤器,### 表示当前要过滤的目标值,如参数列表中无###.则默认目标值则放在第一个参数位置 -->
+        {{for name="users" value="user"}}
+            <title>{{user['userid']}}</title>
+            <title>{{:user['ctime']|date='%Y-%m-%d'}}</title>
+            <title>{{:user['ctime']|date=###,'%Y-%m-%d'}}</title>
+        {{/for}｝
+        
+        
+        <!-- 调用其他非过滤器的方法(strlen 为自定义方法)-->
+        {{for name="users" value="user"}}
+            <title>{{user['userid']}}</title>
+            <title>{{:user['ctime']|date='%Y-%m-%d'}}</title>
+            <title>{{:user['ctime']|strlen}}</title>
+        {{/for}}
+        
+        
+        </body>
+        
+        ```
+        
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
