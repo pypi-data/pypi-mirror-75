@@ -1,0 +1,10 @@
+anndata
+scanpy
+adjustText
+tensorflow==1.15.2
+numpy
+scipy
+pandas
+keras==2.2.4
+matplotlib
+seaborn
