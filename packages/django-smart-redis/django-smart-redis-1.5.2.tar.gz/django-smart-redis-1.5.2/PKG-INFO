@@ -1,0 +1,55 @@
+Metadata-Version: 1.1
+Name: django-smart-redis
+Version: 1.5.2
+Summary: A library for easy use redis.
+Home-page: https://github.com/MrEarnestWhim/smart-redis
+Author: Mr Earnest Whim
+Author-email: 5494567@gmail.com
+License: MIT License (MIT)
+Description: ============
+        SMART REDIS
+        ============
+        
+        it is SMAAAART!!
+        
+        Quick start
+        -----------
+        0. Install packages::
+        
+            pip install django-smart-redis
+        
+        1. Add "django_smart_redis" to your INSTALLED_APPS setting like this::
+        
+            INSTALLED_APPS = [
+                ...
+                'django_smart_redis',
+                ...
+            ]
+        
+        2. Settings::
+        
+            SMART_REDIS_HOST='127.0.0.1'
+            SMART_REDIS_PORT=6379
+            SMART_REDIS_DB=0
+            SMART_REDIS_PASSWORD="pswd"
+            SMART_REDIS_NAMESPACE="cache"
+        
+        2. Example code:
+        
+        Coming soon...
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Classifier: Framework :: Django :: 3.1
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
