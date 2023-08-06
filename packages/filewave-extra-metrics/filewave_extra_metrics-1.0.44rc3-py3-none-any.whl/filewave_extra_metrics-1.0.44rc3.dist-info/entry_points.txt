@@ -1,0 +1,5 @@
+[console_scripts]
+extra-metrics-config = extra_metrics.scripts:install_into_environment
+extra-metrics-run = extra_metrics.main:serve_and_process
+extra-metrics-test = extra_metrics.main:run_tests
+
