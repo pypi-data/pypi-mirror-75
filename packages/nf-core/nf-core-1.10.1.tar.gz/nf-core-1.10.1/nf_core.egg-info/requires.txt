@@ -1,0 +1,11 @@
+cookiecutter
+click
+GitPython
+jinja2
+jsonschema
+PyInquirer==1.0.2
+pyyaml
+requests
+requests_cache
+rich>=4.2.1
+tabulate
