@@ -1,0 +1,4 @@
+include README.md
+include LICENSE.txt
+recursive-include pymarktex/ *.mustache
+recursive-include pymarktex/ *.png
