@@ -1,0 +1,5 @@
+pytest~=3.10
+pytest-cov
+coverage
+codecov>=2.0
+mongomock>=3.16

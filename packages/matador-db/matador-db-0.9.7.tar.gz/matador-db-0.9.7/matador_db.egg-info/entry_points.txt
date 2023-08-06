@@ -1,0 +1,5 @@
+[console_scripts]
+dispersion = matador.cli.dispersion:main
+matador = matador.cli.cli:main
+run3 = matador.cli.run3:main
+
