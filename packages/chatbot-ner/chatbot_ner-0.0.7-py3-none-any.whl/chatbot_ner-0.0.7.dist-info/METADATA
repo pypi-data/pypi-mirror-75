@@ -1,0 +1,42 @@
+Metadata-Version: 2.0
+Name: chatbot-ner
+Version: 0.0.7
+Summary: date and time entity extractor
+Home-page: https://github.com/hellohaptik/chatbot_ner
+Author: gnani
+Author-email: suman@gnani.ai
+License: GNU
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Requires-Dist: cython
+Requires-Dist: phonenumberslite (==8.10.18)
+Requires-Dist: six (==1.11.0)
+Requires-Dist: pytz (==2014.2)
+Requires-Dist: nltk (==3.4.5)
+Requires-Dist: numpy (==1.16)
+Requires-Dist: elasticsearch (==5.5.0)
+Requires-Dist: requests (==2.20.0)
+Requires-Dist: requests-aws4auth (==0.9)
+Requires-Dist: Django (==1.11.29)
+Requires-Dist: django-dotenv (==1.4.2)
+Requires-Dist: weighted-levenshtein (==0.1)
+Requires-Dist: regex (==2018.7.11)
+Requires-Dist: ipython
+Requires-Dist: word2number (==1.1)
+Requires-Dist: python-crfsuite (==0.9.6)
+Requires-Dist: boto (==2.49.0)
+Requires-Dist: boto3 (==1.8.4)
+Requires-Dist: python-dateutil (==2.7.3)
+Requires-Dist: pandas (==1.0.3)
+Requires-Dist: mock (==2.0.0)
+Requires-Dist: django-nose (==1.4.5)
+Requires-Dist: typing (==3.6.2)
+Requires-Dist: flake8 (==3.4.1)
+Requires-Dist: pyaml (==19.4.1)
+Requires-Dist: coverage (==4.5.3)
+Requires-Dist: nose-exclude (==0.5.0)
+
+UNKNOWN
+
+
