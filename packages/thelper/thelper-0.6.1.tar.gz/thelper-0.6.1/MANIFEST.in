@@ -1,0 +1,33 @@
+graft docs
+graft thelper
+graft ci
+graft tests
+graft configs
+graft scripts
+
+include .bumpversion.cfg
+include .coveragerc
+include .dockerignore
+include .editorconfig
+include readthedocs.yml
+
+include AUTHORS.rst
+include CHANGELOG.rst
+include CONTRIBUTING.rst
+include INSTALL.rst
+include README.rst
+
+include LICENSE
+include Makefile
+include Dockerfile
+include Dockerfile-geo
+include requirements.txt
+include requirements-dev.txt
+include requirements-extra.txt
+
+include conda-env.yml
+include conda-env-geo.yml
+include .travis.yml
+include appveyor.yml
+
+global-exclude *.py[cod] __pycache__ *.so *.dylib *.bak

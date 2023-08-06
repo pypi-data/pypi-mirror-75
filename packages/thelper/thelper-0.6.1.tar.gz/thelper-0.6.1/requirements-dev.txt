@@ -1,0 +1,14 @@
+bumpversion
+docutils
+check-manifest
+flake8
+readme-renderer
+pygments
+isort>=4.3.5,<5
+mock
+pyopenssl
+pytest
+pytest-cov
+pytest-mock
+pytest-travis-fold
+twine
