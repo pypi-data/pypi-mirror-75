@@ -1,0 +1,8 @@
+sh>=1.12.13
+pick>=0.6.4
+clint>=0.5.1
+PyYAML>=5.1.2
+
+[:platform_system == "Windows"]
+windows-curses>=2.0
+pbs==0.110
