@@ -1,0 +1,15 @@
+Metadata-Version: 1.1
+Name: aos-provisioning
+Version: 0.8.0
+Summary: Aos provisioning tool
+Home-page: UNKNOWN
+Author: EPAM Systems
+Author-email: support@aoscloud.io
+License: Apache License 2.0
+Description:  Unit provisioning tool
+        --------------------------
+        The tool that helps to provision units to the Aos cloud
+        
+Platform: any
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
