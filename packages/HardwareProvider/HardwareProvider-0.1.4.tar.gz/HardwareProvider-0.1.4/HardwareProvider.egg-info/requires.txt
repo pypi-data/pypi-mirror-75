@@ -1,0 +1,7 @@
+psutil
+py-cpuinfo
+speedtest-cli
+
+[:platform_system == "Windows"]
+wmi
+pywin32
