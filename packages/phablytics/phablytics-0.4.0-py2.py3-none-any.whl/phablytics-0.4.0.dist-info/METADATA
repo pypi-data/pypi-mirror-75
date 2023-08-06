@@ -1,0 +1,25 @@
+Metadata-Version: 2.0
+Name: phablytics
+Version: 0.4.0
+Summary: Analytics, metrics, and reports for Phabricator (https://phacility.com/phabricator/).
+Home-page: https://github.com/hacktoolkit/phablytics
+Author: Hacktoolkit
+Author-email: hello@hacktoolkit.com
+License: MIT
+Keywords: phabricator slack slack-bot git source-control code-reviews
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing :: General
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Provides-Extra: dev
+Provides-Extra: test
+Requires-Dist: htk (>=1.0.4)
+Requires-Dist: phabricator (>=0.7.0)
+Provides-Extra: dev
+Provides-Extra: test
+
+Analytics, metrics, and reports for Phabricator (https://phacility.com/phabricator/).
+
+

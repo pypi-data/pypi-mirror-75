@@ -1,0 +1,3 @@
+[console_scripts]
+phablytics = phablytics.cli:main
+
