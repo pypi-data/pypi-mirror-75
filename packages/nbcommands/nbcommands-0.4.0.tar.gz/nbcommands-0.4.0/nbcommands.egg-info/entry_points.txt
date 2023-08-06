@@ -1,0 +1,9 @@
+[console_scripts]
+nbblack = nbcommands._black:_black
+nbcat = nbcommands._cat:cat
+nbgrep = nbcommands._grep:grep
+nbhead = nbcommands._head:head
+nbless = nbcommands._less:less
+nbtail = nbcommands._tail:tail
+nbtouch = nbcommands._touch:touch
+

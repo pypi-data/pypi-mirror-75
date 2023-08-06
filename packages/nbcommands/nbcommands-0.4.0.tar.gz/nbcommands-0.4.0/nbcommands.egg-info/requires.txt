@@ -1,0 +1,13 @@
+black>=19.10b0
+Click>=7.0
+colorama>=0.4.1
+nbformat>=4.4.0
+Pygments>=2.4.2
+
+[dev]
+Sphinx>=2.2.1
+black>=19.10b0
+Click>=7.0
+colorama>=0.4.1
+nbformat>=4.4.0
+Pygments>=2.4.2
