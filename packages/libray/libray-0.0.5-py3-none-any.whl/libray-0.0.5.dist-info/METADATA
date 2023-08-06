@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: libray
+Version: 0.0.5
+Summary: A Libre (FLOSS) Python application for unencrypting, extracting, repackaging, and encrypting PS3 ISOs
+Home-page: https://notabug.org/necklace/libray
+Author: Nichlas Severinsen
+Author-email: ns@nsz.no
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: tqdm (==4.32.2)
+Requires-Dist: pycryptodome (==3.9.8)
+Requires-Dist: requests (==2.22.0)
+Requires-Dist: beautifulsoup4 (==4.7.1)
+
+UNKNOWN
+
+
