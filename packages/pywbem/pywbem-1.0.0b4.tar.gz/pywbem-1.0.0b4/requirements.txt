@@ -1,0 +1,31 @@
+# Pip requirements file for pywbem install.#
+#
+# The order of packages is significant, because pip processes them in the order
+# of appearance.
+
+# Make sure that the minimum versions required in this file are also the
+# versions defined in minimum-constraints.txt.
+
+
+# Direct dependencies (except pip, setuptools, wheel):
+
+mock>=2.0.0,<4.0.0; python_version < '3.6'
+mock>=2.0.0; python_version >= '3.6'
+ply>=3.10
+# PyYAML 5.3 has removed support for Python 3.4; fixes narrow build error
+PyYAML>=5.3; python_version == '2.7'
+PyYAML>=5.1,<5.3; python_version == '3.4'
+PyYAML>=5.1; python_version > '3.4'
+# virtualenv 20.0.0 (required on py3.8+) requires six>=0.12.0
+# tox 3.17 (used in dev-requirements.txt) requires six>=1.14.0
+six>=1.14.0
+requests>=2.20.0
+# Pinned because this is the current version and the developer
+# is planing to remove python 2.7 support in next version.
+custom-inherit==2.2.2
+yamlloader>=0.5.5
+nocaselist>=1.0.0
+nocasedict>=0.5.0
+
+# Indirect dependencies are no longer specified here, but for testing with a
+# minimum version, they are listed in the minimum-constraints.txt file.
