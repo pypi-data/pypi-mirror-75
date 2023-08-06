@@ -1,0 +1,7 @@
+.coverage
+.eggs
+.tox
+__pycache__
+coverage.xml
+smalld.egg-info
+tags
