@@ -1,0 +1,3 @@
+An extension for Wagtail allowing content to be transferred between multiple instances of a Wagtail project
+
+
