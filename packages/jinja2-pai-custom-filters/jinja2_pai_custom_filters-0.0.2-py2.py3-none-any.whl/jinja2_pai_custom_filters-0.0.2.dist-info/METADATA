@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: jinja2-pai-custom-filters
+Version: 0.0.2
+Summary: Jinja2 pai custom filters
+Home-page: https://bitbucket.org/pai/jinja2-pai-custom-filters
+Author: pai
+Author-email: paiuolo@gmail.com
+License: mit
+Platform: any
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Description-Content-Type: text/markdown
+Provides-Extra: testing
+Requires-Dist: pytest ; extra == 'testing'
+Requires-Dist: pytest-cov ; extra == 'testing'
+
+UNKNOWN
+
+
