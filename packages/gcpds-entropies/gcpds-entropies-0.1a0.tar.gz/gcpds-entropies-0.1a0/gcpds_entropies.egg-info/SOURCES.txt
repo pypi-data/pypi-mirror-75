@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+gcpds/entropies/__init__.py
+gcpds/entropies/main.py
+gcpds/entropies/shannon.py
+gcpds/entropies/vq.py
+gcpds_entropies.egg-info/PKG-INFO
+gcpds_entropies.egg-info/SOURCES.txt
+gcpds_entropies.egg-info/dependency_links.txt
+gcpds_entropies.egg-info/not-zip-safe
+gcpds_entropies.egg-info/requires.txt
+gcpds_entropies.egg-info/top_level.txt
