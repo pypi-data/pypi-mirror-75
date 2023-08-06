@@ -1,0 +1,6 @@
+streamlink==0.14.2
+bypy>=1.6.4
+psutil>=5.5.0
+pystt==0.2.2
+websocket-client>=0.54.0
+PyExecJS>=1.5.1
