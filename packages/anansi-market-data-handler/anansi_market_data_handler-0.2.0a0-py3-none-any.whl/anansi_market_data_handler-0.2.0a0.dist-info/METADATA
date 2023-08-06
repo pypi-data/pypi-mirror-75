@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: anansi-market-data-handler
+Version: 0.2.0a0
+Summary: An API to obtain and manipulate market data, which aims to be independent from both market and  broker.
+Home-page: https://github.com/marcusmello/tradingbots
+License: GPL-3.0-or-later
+Keywords: candlesticks,cryptocurrency,stock market
+Author: Marcus Vintem
+Author-email: marcus@vintem.tech
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pandas (>=1.0.5,<2.0.0)
+Requires-Dist: pendulum (>=2.1.0,<3.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Requires-Dist: requests_mock (>=1.8.0,<2.0.0)
+Project-URL: Repository, https://gitlab.com/theanansibot/market-data-handler.git
+Description-Content-Type: text/markdown
+
+# Anansi Market Data Handler
+
+Pacote python cujo objetivo é servir como abstração para aquisição,
+armazenamento, leitura e apresentação de dados de mercado, procurando
+ser agnóstico quanto à fonte dados[^1].
+
+A ***API*** deste pacote fornece uma interface para os objetos de dados
+cujos *métodos* procuram refletir a necessidade de quem lida,
+usualmente, com dados deste tipo - os **traders** - abstraindo, por
+exemplo, a complexidade matemática da implementação dos indicadores de
+mercado, como médias móveis, bandas de bollinger e afins sobre um
+conjunto de *candlesticks*, por exemplo.
+
+[^1]: Corretoras, *exchanges*, *brokers* são nomenclaturas comuns para
+essas fontes.
+
