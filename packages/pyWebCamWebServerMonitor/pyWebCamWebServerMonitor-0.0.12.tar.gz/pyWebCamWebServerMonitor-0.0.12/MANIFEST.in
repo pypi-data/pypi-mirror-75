@@ -1,0 +1,3 @@
+graft pyWebCamWebServerMonitor/web
+graft pyWebCamWebServerMonitor/res
+include requirements.txt
