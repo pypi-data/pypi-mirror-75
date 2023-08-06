@@ -1,0 +1,4 @@
+[console_scripts]
+detox=twitchdetox.bot:main
+detox-settings=twitchdetox.settings:main
+
