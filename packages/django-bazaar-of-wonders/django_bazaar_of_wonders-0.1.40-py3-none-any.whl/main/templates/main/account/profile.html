@@ -1,0 +1,61 @@
+
+{% extends 'main/base.html' %}
+
+{% block content %}
+<div class= "container white  black-text" style="background-color: rgba(64, 126, 155, 0.9); padding: 10px; border-radius: 5px; text-align: center; font-family: Trebuchet MS;">
+    <div class="row">
+        <ul class="tabs" style="text-align: center; display: flex;">
+            <li class="tab col s4"><a href="{% url 'main:profile' %}" style="color: black; background: orange;">Profile</a></li>
+            <li class="tab col s4"><a href="{% url 'main:preferences' %}" style="color: black; ">Preferences</a></li>
+        </ul>
+    </div>      
+    
+    <div class="row container">
+        <table>
+            <tr>
+                <td style="border: none;"><b>Username</b></td>
+                <td>{{user.auth_user_id.username}}</td>
+            </tr>
+            <tr>
+                    <td style="border: none;"><b>Password</b></td>
+                    <td>*********</td>
+                </tr>
+            <tr>
+                <td style="border: none;"><b>Email address</b></td>
+                <td>{{user.auth_user_id.email}}</td>
+            </tr>
+            <tr>
+                <td style="border: none;"><b>First name</b></td>
+                <td>{{user.auth_user_id.first_name|title}}</td>
+            </tr>
+            <tr>
+                <td style="border: none;"><b>Last name</b></td>
+                <td>{{user.auth_user_id.last_name|title}}</td>
+            </tr>
+            <tr>
+                <td style="border: none;"><b>Location</b></td>
+                {% if user.location %}
+                <td>{{user.location|title}}</td>
+                {% else %}
+                <td>Unknown</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <td style="border: none;"><b>Completed sales</b></td>
+                {% ifequal user.completed_sales None %}
+                <td>0</td>
+                {% else %}
+                <td>{{user.completed_sales}}</td>
+                {% endifequal %}
+            </tr>
+            <tr>
+                <td style="border: none;"><b>Member since</b></td>
+                <td>{{user.auth_user_id.date_joined.date}}</td>
+            </tr>
+        </table>
+        <br>
+        <a href="{% url 'main:edit' %}" style="text-align: center; color: black; font-size: 18px; border: 1px solid gray; border-radius: 5px; padding: 5px; background: orange;">Edit</a>
+    </div>
+
+</div>        
+{% endblock %}
