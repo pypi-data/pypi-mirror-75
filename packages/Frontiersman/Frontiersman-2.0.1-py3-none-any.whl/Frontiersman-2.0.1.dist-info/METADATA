@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: Frontiersman
+Version: 2.0.1
+Summary: Network Multiplayer Board Game
+Home-page: https://gitlab.com/csi4930-frontiersman/csi4930-frontiersman
+Author: Brian Snow
+Author-email: snowb@ufl.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Requires-Dist: pygame (>=2.0.0.dev10)
+Requires-Dist: pygame-gui
+Requires-Dist: aiohttp
+Requires-Dist: asyncio
+Requires-Dist: requests
+
+# CSI4930 Frontiersman
+
+## README Requirements for class
+
+Description of Project: 
+
+A clone of Settlers of CATAN (base game, 1-4 players local multiplayer)
+The game rules are included in the Help Doc.pdf
+
+Package Name on PyPI: Frontiersman
+
+Executable Line to Run Server: FMServer
+
+Executable Line to Run Clients: FMClient
+
+Gitlab Link: [https://gitlab.com/csi4930-frontiersman/csi4930-frontiersman](https://gitlab.com/csi4930-frontiersman/csi4930-frontiersman)
+
+## Notes
+FMServer must be running in order to player. Multiple clients should connect. The server can also host multiple games using different invite codes.
+
