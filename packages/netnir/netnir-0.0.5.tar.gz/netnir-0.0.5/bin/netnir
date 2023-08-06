@@ -1,0 +1,11 @@
+#!/usr/bin/env python3
+
+from netnir.cli import Cli
+
+
+try:
+    cli = Cli()
+    cli.setup()
+    cli.dispatch()
+except KeyboardInterrupt:
+    pass
