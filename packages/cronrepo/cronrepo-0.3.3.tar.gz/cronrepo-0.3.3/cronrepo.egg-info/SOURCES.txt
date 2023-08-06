@@ -1,0 +1,12 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+cronrepo/__init__.py
+cronrepo/__main__.py
+cronrepo.egg-info/PKG-INFO
+cronrepo.egg-info/SOURCES.txt
+cronrepo.egg-info/dependency_links.txt
+cronrepo.egg-info/entry_points.txt
+cronrepo.egg-info/requires.txt
+cronrepo.egg-info/top_level.txt
