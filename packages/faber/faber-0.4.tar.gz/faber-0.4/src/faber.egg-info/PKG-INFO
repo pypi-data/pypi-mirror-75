@@ -1,0 +1,21 @@
+Metadata-Version: 1.2
+Name: faber
+Version: 0.4
+Summary: Faber is a construction tool.
+Home-page: https://stefanseefeld.github.io/faber
+Author: Stefan Seefeld
+Author-email: stefan@seefeld.name
+Maintainer: Stefan Seefeld
+Maintainer-email: stefan@seefeld.name
+License: BSL
+Download-URL: https://github.com/stefanseefeld/faber/releases
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Boost Software License 1.0 (BSL-1.0)
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: Topic :: Software Development :: Testing
+Classifier: Programming Language :: Python
+Requires-Python: >=3.6

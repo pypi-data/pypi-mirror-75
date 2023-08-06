@@ -1,0 +1,42 @@
+#
+# Copyright (c) 2017 Stefan Seefeld
+# All rights reserved.
+#
+# This file is part of Faber. It is made available under the
+# Boost Software License, Version 1.0.
+# (Consult LICENSE or http://www.boost.org/LICENSE_1_0.txt)
+
+from faber import cli
+from test.common import tempdir, argv
+import pytest
+try:
+    from unittest.mock import patch
+except ImportError:
+    from mock import patch
+
+
+@pytest.mark.usefixtures('module')
+def test_compound():
+    """Compound a command and a Python function into a single action."""
+
+    class I(action):
+
+        invalid = action('xxxecho "hello"')
+
+        @staticmethod
+        def command(targets, sources):
+            with capture_output() as (out, err):
+                I.invalid(targets, sources)
+            output = out.getvalue().strip()
+            f = targets[0]._filename
+            with open(f, 'w') as out:
+                out.write(output)
+                out.write(', world')
+
+    b = rule(I(), 'b')
+    b.update()
+    #assert not b.update()
+    #assert b.status is False
+    #assert not exists(b._filename)
+    with open(b._filename, 'r') as f:
+        assert f.readlines() == ['hello, world']

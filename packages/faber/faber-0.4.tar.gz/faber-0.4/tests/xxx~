@@ -1,0 +1,8 @@
+progress -- <has_numpy has_numpy> launched
+bind -- 139780833233440 has_numpy: has_numpy binding.UNBOUND
+progress -- <has_numpy has_numpy> bound
+fate -- has_numpy: fate.STABLE
+progress -- <has_numpy has_numpy> done
+progress -- <source test.opaque.py> launched
+something went wrong binding <source test.opaque.py>
+Error: cannot access unfinished artefact "build-fo/src/libboost_python36.a"

@@ -1,0 +1,176 @@
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Command-line interface - Faber 1.0 documentation</title>
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/style.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+          URL_ROOT:    './',
+          VERSION:     '1.0',
+          COLLAPSE_MODINDEX: false,
+          FILE_SUFFIX: '.html'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="top" title="Faber 1.0 documentation" href="index.html" />
+    <link rel="up" title="Appendix" href="appendix.html" />
+    <link rel="next" title="Builtin features" href="reference/features.html" />
+    <link rel="prev" title="Glossary" href="glossary.html" /> 
+  </head>
+  <body>
+    <div class="header">
+    <table border="0" cellpadding="7" cellspacing="0" width="100%" summary=
+    "header">
+      <tr>
+        <td valign="top" width="300">
+          <h3><a href="index.html"><img 
+          alt="C++ Boost" src="_static/logo.png" border="0"></a></h3>
+        </td>
+	<td>
+      <div id="searchbox" style="display: none">
+        <form class="search" action="search.html" method="get">
+          <input type="text" name="q" size="18" />
+          <input type="submit" value="Search" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+      </div>
+      <script type="text/javascript">$('#searchbox').show(0);</script>
+	</td>
+      </tr>
+    </table>
+    </div>
+    <hr/>
+    <div class="content">
+    <div class="navbar" style="text-align:right;">
+      
+      
+      <a class="prev" title="Glossary" href="glossary.html"><img src="_static/prev.png" alt="prev"/></a>
+      <a class="up" title="Appendix" href="appendix.html"><img src="_static/up.png" alt="up"/></a>
+      <a class="next" title="Builtin features" href="reference/features.html"><img src="_static/next.png" alt="next"/></a>
+      
+    </div>
+      
+  <div class="section" id="command-line-interface">
+<h1>Command-line interface</h1>
+<p>Faber is a construction tool.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="n">usage</span><span class="p">:</span> <span class="n">faber</span> <span class="p">[</span><span class="o">-</span><span class="n">h</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">srcdir</span> <span class="n">SRCDIR</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">builddir</span> <span class="n">BUILDDIR</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">rc</span> <span class="n">RC</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">log</span> <span class="p">{</span><span class="n">summary</span><span class="p">,</span><span class="n">actions</span><span class="p">,</span><span class="n">commands</span><span class="p">,</span><span class="n">process</span><span class="p">,</span><span class="n">scheduler</span><span class="p">,</span><span class="n">tools</span><span class="p">,</span><span class="n">features</span><span class="p">,</span><span class="n">rules</span><span class="p">,</span><span class="n">config</span><span class="p">,</span><span class="n">test</span><span class="p">}</span> <span class="o">|</span> <span class="o">-</span><span class="n">l</span> <span class="n">LOGLEVEL</span> <span class="o">|</span> <span class="o">-</span><span class="n">s</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">-</span><span class="n">j</span> <span class="n">PARALLEL</span><span class="p">]</span> <span class="p">[</span><span class="o">--</span><span class="n">debug</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">f</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">n</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">i</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">c</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">t</span> <span class="n">TIMEOUT</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">p</span><span class="p">]</span>
+             <span class="p">[</span><span class="o">--</span><span class="n">info</span> <span class="p">[</span><span class="n">WHAT</span><span class="p">]]</span> <span class="p">[</span><span class="o">--</span><span class="n">shell</span><span class="p">]</span> <span class="p">[</span><span class="o">-</span><span class="n">v</span><span class="p">]</span>
+             <span class="p">[</span><span class="n">GOAL</span> <span class="p">[</span><span class="n">GOAL</span> <span class="o">...</span><span class="p">]]</span> <span class="p">[</span><span class="n">PARAMETER</span><span class="o">=</span><span class="n">VALUE</span> <span class="p">[</span><span class="n">PARAMETER</span><span class="o">=</span><span class="n">VALUE</span> <span class="o">...</span><span class="p">]]</span>
+</pre></div>
+</div>
+<dl class="docutils">
+<dt>Positional arguments:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd>goals</kbd></td>
+<td>a goal to update</td></tr>
+<tr><td class="option-group">
+<kbd>parameters</kbd></td>
+<td>a parameter value</td></tr>
+</tbody>
+</table>
+</dd>
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">--srcdir=.</span></kbd></td>
+<td>the location of the source directory</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--builddir=.</span></kbd></td>
+<td>the location of the build directory</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--rc</span></kbd></td>
+<td>the location of the rc file</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--log</span></kbd></td>
+<td><p class="first">add log topic</p>
+<p class="last">Possible choices: summary, actions, commands, process, scheduler, tools, features, rules, config, test</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-l</span></kbd></td>
+<td>set log level (summary=1, actions=2, commands=4)</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-s=False</span>, <span class="option">--silent=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>suppress all output</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-j=1</span>, <span class="option">--parallel=1</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>set concurrency level</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--debug=False</span></kbd></td>
+<td>do not suppress traceback on error</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-f=False</span>, <span class="option">--force=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>update goals even if they are current</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-n=False</span>, <span class="option">--noexec=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>do not actually execute actions</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-i=False</span>, <span class="option">--intermediates=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>do not remove intermediate files after build</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-c</span>, <span class="option">--clean</span></kbd></td>
+<td>cleanup</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-t=0</span>, <span class="option">--timeout=0</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>set timeout for individual actions</td></tr>
+<tr><td class="option-group" colspan="2">
+<kbd><span class="option">-p=False</span>, <span class="option">--profile=False</span></kbd></td>
+</tr>
+<tr><td>&#160;</td><td>log timing info with command</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--info</span></kbd></td>
+<td><p class="first">print information about the build logic</p>
+<p class="last">Possible choices: goals, tools</p>
+</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--shell=False</span></kbd></td>
+<td>run interactive shell</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-v</span>, <span class="option">--version</span></kbd></td>
+<td>show program's version number and exit</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</div>
+
+
+    <div class="navbar" style="text-align:right;">
+      
+      
+      <a class="prev" title="Glossary" href="glossary.html"><img src="_static/prev.png" alt="prev"/></a>
+      <a class="up" title="Appendix" href="appendix.html"><img src="_static/up.png" alt="up"/></a>
+      <a class="next" title="Builtin features" href="reference/features.html"><img src="_static/next.png" alt="next"/></a>
+      
+    </div>
+    </div>
+    <div class="footer">
+      <p>last updated Jul 14, 2020</p>
+    </div>
+  </body>
+</html>
