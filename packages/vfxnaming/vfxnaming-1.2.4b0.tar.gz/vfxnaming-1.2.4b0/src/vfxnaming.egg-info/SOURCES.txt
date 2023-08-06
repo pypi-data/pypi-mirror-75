@@ -1,0 +1,16 @@
+README.md
+setup.cfg
+setup.py
+src/vfxnaming/__init__.py
+src/vfxnaming/error.py
+src/vfxnaming/logger.py
+src/vfxnaming/naming.py
+src/vfxnaming/rules.py
+src/vfxnaming/serialize.py
+src/vfxnaming/tokens.py
+src/vfxnaming.egg-info/PKG-INFO
+src/vfxnaming.egg-info/SOURCES.txt
+src/vfxnaming.egg-info/dependency_links.txt
+src/vfxnaming.egg-info/requires.txt
+src/vfxnaming.egg-info/top_level.txt
+src/vfxnaming/cfg/config.json
