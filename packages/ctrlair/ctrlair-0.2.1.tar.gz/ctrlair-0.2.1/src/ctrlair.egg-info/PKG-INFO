@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: ctrlair
+Version: 0.2.1
+Summary: A toolbox for Altair.
+Home-page: https://github.com/joaopalmeiro/ctrlair
+Author: João Palmeiro
+Author-email: jm.palmeiro@campus.fct.unl.pt
+License: MIT
+Project-URL: Bug Reports, https://github.com/joaopalmeiro/ctrlair/issues
+Project-URL: Source, https://github.com/joaopalmeiro/ctrlair
+Description: # Ctrlair
+        
+        [![PyPI - Version](https://img.shields.io/pypi/v/ctrlair)](https://pypi.org/project/ctrlair/)
+        ![Lint](https://github.com/joaopalmeiro/ctrlair/workflows/Lint/badge.svg?branch=master)
+        ![Publish to PyPI](https://github.com/joaopalmeiro/ctrlair/workflows/Publish%20to%20PyPI/badge.svg?branch=master)
+        
+        A toolbox for Altair.
+        
+Keywords: altair,data,visualization
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Utilities
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
