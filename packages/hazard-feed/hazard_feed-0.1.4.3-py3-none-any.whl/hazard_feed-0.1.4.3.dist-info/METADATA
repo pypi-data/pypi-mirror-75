@@ -1,0 +1,85 @@
+Metadata-Version: 2.1
+Name: hazard-feed
+Version: 0.1.4.3
+Summary: pogoda.by storm warning rss parser
+Home-page: https://github.com/hitnik/hazard_feed
+Author: Aleksandr Nikitin
+Author-email: hitnik@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: aiosmtplib (==1.1.2)
+Requires-Dist: asgiref (==3.2.3)
+Requires-Dist: beautifulsoup4 (==4.8.2)
+Requires-Dist: Click (==7.0)
+Requires-Dist: croniter (==0.3.31)
+Requires-Dist: Django
+Requires-Dist: django-rq
+Requires-Dist: django-tinymce (==2.8.0)
+Requires-Dist: feedparser (==5.2.1)
+Requires-Dist: psycopg2
+Requires-Dist: pycparser (==2.19)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: pytz (==2019.3)
+Requires-Dist: redis
+Requires-Dist: rq
+Requires-Dist: rq-scheduler
+Requires-Dist: six (==1.14.0)
+Requires-Dist: soupsieve (==1.9.5)
+Requires-Dist: sqlparse (==0.3.0)
+Requires-Dist: whitenoise
+Requires-Dist: djangorestframework
+Requires-Dist: django-cors-headers
+Requires-Dist: drf-yasg
+Requires-Dist: PyJWT
+Requires-Dist: gunicorn
+
+=====
+Hazard_feed
+=====
+
+Hazard_feed is a Django app to get storm warnings from http://www.pogoda.by conduct Web-based polls and send notifications 
+by email to subscribed recipents.
+
+
+
+Quick start
+-----------
+
+1. Add "hazard_feed", "corsheaders' and others to your INSTALLED_APPS setting like this::
+
+    INSTALLED_APPS = [
+        ...
+        'corsheaders',
+        'django_rq',
+        'tinymce',
+        'rest_framework',
+        'drf_yasg',
+        'hazard_feed',
+    ]
+
+2. Define next email settings in settings.py or your environment viriables:
+	        WEATHER_EMAIL_SMTP_HOST
+			WEATHER_EMAIL_SMTP_PORT
+            WEATHER_USE_TSL
+            WEATHER_EMAIL_HOST_USER 
+			WEATHER_EMAIL_HOST_PASSWORD
+
+3. Define in settings.py
+			WEATHER_EMAIL_FROM
+
+4. Add "corsheaders' settings to your settings.py 
+
+     CORS_ORIGIN_ALLOW_ALL = True
+
+
+5. Define django_rq settings
+
+6. Start rqworker and rqscheduler			
+
+7. Run `python manage.py migrate` to create the azard_feed models.
+
