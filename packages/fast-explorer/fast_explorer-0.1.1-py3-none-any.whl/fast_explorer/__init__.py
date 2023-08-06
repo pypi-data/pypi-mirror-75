@@ -1,0 +1,1 @@
+from .fast_explorer import pandas_explorer
