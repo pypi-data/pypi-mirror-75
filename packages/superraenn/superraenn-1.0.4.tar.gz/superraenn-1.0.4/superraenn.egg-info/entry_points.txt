@@ -1,0 +1,6 @@
+[console_scripts]
+superraenn-classify = superraenn.classify:main
+superraenn-extract = superraenn.feature_extraction:main
+superraenn-prep = superraenn.preprocess:main
+superraenn-raenn = superraenn.raenn:main
+
