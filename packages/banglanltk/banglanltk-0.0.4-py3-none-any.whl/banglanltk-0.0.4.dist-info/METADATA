@@ -1,0 +1,136 @@
+Metadata-Version: 2.1
+Name: banglanltk
+Version: 0.0.4
+Summary: Bangla Natural Language Processing Toolkit
+Home-page: UNKNOWN
+Author: Piyal Roy
+Author-email: piyalroy00@gmail.com
+License: UNKNOWN
+Keywords: NLP,bangla,tagging,tokenizing,stemming,cleaning,synonym,natural language processing
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
+
+Bangla NLTK
+===================
+
+
+banglanltk is a python package for Bengali Natural Language Processing Toolkit. It includes modules for Cleaning Text, Word Tokenization, Sentence Tokenization, Stemming, Synonym and Parts of speech tagging.
+----------
+
+
+## Installation
+
+```bash
+pip install banglanltk
+```
+
+## Usage
+
+### Cleaning Text
+```python
+import banglanltk as bn
+s = 'আজ আকাশ পরিষ্কার!!! মনে হয় আজ আর বৃষ্টি হবে না .........!'
+
+print(bn.clean_text(s))
+```
+
+### Word Tokenization
+```python
+import banglanltk as bn
+
+s = 'প্রাচীন কালে মানুষ একসময় সংখ্যা বুঝানোর জন্য ঝিনুক, নুড়ি, দড়ির গিট ইত্যাদি ব্যবহার করত।'
+print(bn.word_tokenize(s))
+```
+
+### Sentence Tokenization
+```python
+import banglanltk as bn
+
+s = ''' কম্পিউটার শব্দটি গ্রিক "কম্পিউট" শব্দ থেকে এসেছে। Compute শব্দের অর্থ গণনা করা। আর কম্পিউটার শব্দের অর্থ গণনাকারী যন্ত্র। '''
+print(bn.sent_tokenize(s))
+```
+
+### Stemming
+```python
+import banglanltk as bn
+
+# For single word
+print(bn.stemmer('শান্তিনিকেতনে'))
+
+# For multiple words
+text = 'আজ বৃষ্টি হবে।'
+words = bn.word_tokenize(text)
+for w in words:
+    print(bn.stemmer(w))
+```
+
+### Synonym
+```python
+import banglanltk as bn
+
+print(bn.synonym('হাত'))
+```
+
+### POS Tagging
+```python
+import banglanltk as bn
+
+# For single word
+print(bn.pos_tag('কম্পিউটার'))
+
+# For multiple words
+text = 'আজ বৃষ্টি হবে।'
+words = bn.word_tokenize(text)
+for w in words:
+    print(bn.pos_tag(w))
+```
+
+### List of POS tags
+|	POS    	|	Meaning                      			|
+|-----------|-------------------------------------------|
+|	`CC`	|	Conjunction								|
+|	`CD`	|	Cardinal number							|
+|	`DM`	|	Demonstrative							|
+|	`DT`	|	Determiner								|
+|	`EX`	|	Existential there						|
+|	`FW`	|	Foreign word							|
+|	`IN`	|	Preposition								|
+|	`JJ`	|	Adjective								|
+|	`JJR`	|	Adjective, comparative					|
+|	`JJS`	|	Adjective, superlative					|
+|	`MD`	|	Modal									|
+|	`NN`	|	Noun, singular or mass					|
+|	`NNP`	|	Proper noun, singular					|
+|	`NNS`	|	Noun, plural							|
+|	`NNV`	|	Verbal Noun								|
+|	`PR`	|	Pronoun									|
+|	`PRP`	|	Personal pronoun						|
+|	`PRP$`	|	Possessive pronoun						|
+|	`PSP`	|	Postposition							|
+|	`RB`	|	Adverb									|
+|	`RBR`	|	Adverb, comparative						|
+|	`RP`	|	Particles								|
+|	`SYM`	|	Symbol									|
+|	`TO`	|	to										|
+|	`UH`	|	Interjection							|
+|	`UNK`	|	Unknown tag								|
+|	`VB`	|	Verb, base form							|
+|	`VBD`	|	Verb, past tense						|
+|	`VBG`	|	Verb, present participle				|
+|	`VBN`	|	Verb, past participle					|
+|	`VBP`	|	Verb, non-3rd person singular present	|
+|	`WDT`	|	Wh-determiner							|
+|	`WH`	|	Wh words								|
+|	`WP`	|	Wh-pronoun								|
+|	`WRB`	|	Wh-adverb								|
+
+
+
+
