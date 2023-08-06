@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        doctr-versions-menu=doctr_versions_menu.cli:main
+    
