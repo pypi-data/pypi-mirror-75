@@ -1,0 +1,7 @@
+redis>=3
+bcrypt
+
+[dev]
+check-manifest
+
+[test]
