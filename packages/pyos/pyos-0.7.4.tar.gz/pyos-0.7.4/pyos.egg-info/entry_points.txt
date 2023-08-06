@@ -1,0 +1,6 @@
+[console_scripts]
+pyos = pyos.cli:pyos
+
+[mincepy.plugins.types]
+pyos_types = pyos.provides:get_types
+
