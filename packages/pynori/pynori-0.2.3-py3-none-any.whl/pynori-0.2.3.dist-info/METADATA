@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: pynori
+Version: 0.2.3
+Summary: Lucene Nori, Korean Mopological Analyzer, in Python
+Home-page: https://github.com/gritmind/python-nori
+Author: Yeongsu Kim
+Author-email: gritmind@gmail.com
+License: Apache 2.0
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.5
+Classifier: License :: OSI Approved :: Apache Software License
+Description-Content-Type: text/markdown
+Requires-Dist: cython
+
+
+* Nori in Apache Lucene is a korean morpological analyzer based on Mecab.
+* Pynori is a python-version of nori (Apache Lucene is written in Java).
+* The analysis results are the same (All test cases are passed). 
+* Pynori maybe a little slower than nori because of python script language and less optimized data structures.
+* Pynori includes mecab-ko-dic-2.1.1-20180720 for system dictionary.
+* Pynori is compatible with Python 3.7 and is distributed under the Apache License 2.0.
+* it will probably work in various python versions.
+* See, the left Homepage link, to see how to use this project.
+* See, the original nori at: https://github.com/apache/lucene-solr/tree/master/lucene/analysis/nori
+* See, mecab-ko-dic at: https://bitbucket.org/eunjeon/mecab-ko-dic
+
+
