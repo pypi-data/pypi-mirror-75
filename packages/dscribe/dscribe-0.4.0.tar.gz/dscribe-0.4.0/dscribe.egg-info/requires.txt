@@ -1,0 +1,6 @@
+pybind11>=2.4
+numpy
+scipy
+ase>=3.19.0
+scikit-learn
+joblib
