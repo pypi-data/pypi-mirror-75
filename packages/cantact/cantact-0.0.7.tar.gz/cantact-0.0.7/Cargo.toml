@@ -1,0 +1,28 @@
+[package]
+name = "cantact-driver"
+version = "0.0.7"
+authors = ["Eric Evenchick <eric@evenchick.com>"]
+license = "MIT"
+keywords = ["can", "usb", "driver"]
+categories = ["command-line-utilities", "hardware-support"]
+repository = "https://github.com/linklayer/cantact"
+homepage = "http://cantact.io/"
+readme = "../README.md"
+description = "and CLI for CANtact Controller Area Network tools."
+
+edition = "2018"
+build = "build.rs"
+
+[lib]
+name = "cantact"
+crate-type = ["cdylib", "rlib"]
+
+[features]
+python = ["pyo3"]
+
+[dependencies]
+libusb1-sys = {version = "0.3" }
+libc = "0.2.71"
+crossbeam-channel = "0.4"
+serde = { version = "1.0", features = ["derive"]}
+pyo3 = { version = "0.10.1", features = ["extension-module"], optional = true}
