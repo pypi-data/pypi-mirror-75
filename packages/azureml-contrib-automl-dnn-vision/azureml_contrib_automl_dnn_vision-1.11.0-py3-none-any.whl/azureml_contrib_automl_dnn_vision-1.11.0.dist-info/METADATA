@@ -1,0 +1,32 @@
+Metadata-Version: 2.0
+Name: azureml-contrib-automl-dnn-vision
+Version: 1.11.0
+Summary: AutoML DNN Vision Models
+Home-page: https://docs.microsoft.com/en-us/azure/machine-learning/service/
+Author: Microsoft Corp
+License: Proprietary https://aka.ms/azureml-preview-sdk-license 
+Platform: UNKNOWN
+Requires-Python: >=3.6,<3.8
+Description-Content-Type: text/x-rst
+Requires-Dist: azure-cli-core (==2.0.74)
+Requires-Dist: azure-mgmt-applicationinsights (==0.1.1)
+Requires-Dist: azureml-automl-core (~=1.11.0)
+Requires-Dist: azureml-contrib-dataset (~=1.11.0)
+Requires-Dist: azureml-sdk (~=1.11.0)
+Requires-Dist: azureml-train-automl (~=1.11.0)
+Requires-Dist: azureml-train-automl-client (~=1.11.0)
+Requires-Dist: numpy (<1.17.0,>=1.16.0)
+Requires-Dist: pillow (==7.2.0)
+Requires-Dist: pretrainedmodels (==0.7.4)
+Requires-Dist: psutil (==5.7.0)
+Requires-Dist: pynvml (==8.0.3)
+Requires-Dist: pytorch-ignite (==0.3.0)
+Requires-Dist: scikit-learn (<=0.20.3,>=0.19.0)
+Requires-Dist: scikit-multilearn (==0.2.0)
+Requires-Dist: torch (==1.5.1)
+Requires-Dist: torchvision (==0.6.1)
+
+AutoML DNN Vision Package. This package is only meant to be used by AutoML system-generated scripts. To install in Windows, the "torch" and "torchvision" packages must be installed separately before this package. Please see https://pytorch.org/ for instructions.
+
+
+
