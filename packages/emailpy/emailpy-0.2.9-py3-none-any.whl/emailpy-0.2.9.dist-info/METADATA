@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: emailpy
+Version: 0.2.9
+Summary: A Python interface to interact with emails. 
+Home-page: https://pypi.org/project/emailpy
+Author: Sandra Mattar
+Author-email: sandrawmattar1@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Communications :: Email
+Description-Content-Type: text/markdown
+Requires-Dist: ospy
+
+<a href="https://api.onedrive.com/v1.0/shares/u!aHR0cHM6Ly8xZHJ2Lm1zL3UvcyFBbzNpSVRXZV9FWmdqSVVSWmJQdXpIRkliY2xCV3c_ZT1JNXNSamI/root/content" download>Download emailpy Docs</a>
+
+
