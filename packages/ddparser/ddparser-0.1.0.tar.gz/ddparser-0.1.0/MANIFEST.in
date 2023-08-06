@@ -1,0 +1,2 @@
+recursive-include ddparser struct.png
+recursive-exclude ddparser __pycache__
