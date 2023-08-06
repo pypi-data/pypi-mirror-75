@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: coinstacparsers
+Version: 0.0.2
+Summary: fsl and vbm parsers
+Home-page: UNKNOWN
+Author: Fatemeh
+Author-email: 
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Description-Content-Type: text/markdown
+Requires-Dist: pandas (>=0.20.3)
+Requires-Dist: nibabel (>=3.1.1)
+Requires-Dist: numpy (>=1.16.5)
+
+# coinstacparsers 0.0.2
+
+This package includes fsl_parser and vbm_parser. fsl_parser parses the freesurfer files (specified in inputspec.json) as dependencies and returns 
+the covariates (X) and dependent (y) matrices as dataframes. The format of inputspec.json should be as shown in the example inputspec.json here.
+Similarly vbm_parser parses NIfTI images as dependencies and returns the covariates (X) and dependent (y) matrices as dataframes. 
+# How to install
+pip install coinstacparsers
+# How to run
+for fsl parser: \
+ &nbsp;&nbsp;&nbsp;&nbsp; import coinstacparsers \
+ &nbsp;&nbsp;&nbsp;&nbsp; from coinstacparsers import parsers \
+ &nbsp;&nbsp;&nbsp;&nbsp; args = json.loads(sys.stdin.read()) \
+ &nbsp;&nbsp;&nbsp;&nbsp; (X, y) = parsers.fsl_parser(args) \
+for vbm parser: \
+ &nbsp;&nbsp;&nbsp;&nbsp; import coinstacparsers \
+ &nbsp;&nbsp;&nbsp;&nbsp; from coinstacparsers import parsers \
+ &nbsp;&nbsp;&nbsp;&nbsp; args = json.loads(sys.stdin.read()) \
+ &nbsp;&nbsp;&nbsp;&nbsp; mask = os.path.join('/computation', mask_directory, mask_file_name) \
+ &nbsp;&nbsp;&nbsp;&nbsp; (X, y) = parsers.vbm_parser(args, mask)
+
