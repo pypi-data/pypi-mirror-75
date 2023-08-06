@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: synphot
+Version: 1.0.1
+Summary: Synthetic photometry
+Home-page: https://www.github.com/spacetelescope/synphot_refactor
+Author: STScI
+Author-email: help@stsci.edu
+License: BSD
+Description: This is a package for doing synthetic photometry that relies on Astropy
+Keywords: astronomy,astrophysics,synthetic,photometry
+Platform: UNKNOWN
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Description-Content-Type: text/plain
+Provides-Extra: all
+Provides-Extra: test
+Provides-Extra: docs

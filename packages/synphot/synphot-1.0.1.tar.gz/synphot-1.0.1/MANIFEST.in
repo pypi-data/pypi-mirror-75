@@ -1,0 +1,18 @@
+include README.rst
+include CHANGES.rst
+include LICENSE.rst
+include CITATION.md
+
+include setup.cfg
+include pyproject.toml
+include synphot/include/.gitignore
+
+recursive-include synphot *.c
+recursive-include docs *
+recursive-include licenses *
+
+prune build
+prune docs/_build
+prune docs/api
+
+global-exclude *.pyc *.o
