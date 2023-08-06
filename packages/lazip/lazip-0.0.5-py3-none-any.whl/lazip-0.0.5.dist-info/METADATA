@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: lazip
+Version: 0.0.5
+Summary: Lazy ZIP over HTTP
+Home-page: https://git.disroot.org/McSinyx/lazip
+License: LGPLv3+
+Keywords: zip,http,range,lazy
+Author: Nguyễn Gia Phong
+Author-email: mcsinyx@disroot.org
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 or later (LGPLv3+)
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Typing :: Typed
+Requires-Dist: requests
+
+# lazip
+Lazy ZIP over HTTP
+
