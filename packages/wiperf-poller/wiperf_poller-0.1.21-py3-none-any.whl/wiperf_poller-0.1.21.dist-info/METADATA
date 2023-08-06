@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: wiperf-poller
+Version: 0.1.21
+Summary: Poller for the wiperf utlity
+Home-page: https://github.com/wifinigel/wiperf_poller
+Author: Nigel Bowden
+Author-email: wifinigel@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: Free for non-commercial use
+Classifier: Operating System :: POSIX :: Linux
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: speedtest-cli
+Requires-Dist: influxdb
+Requires-Dist: influxdb-client
+
+# wiperf_poller
+
+This is the core python module for the wiperf utility. Please see the main wiperf repo for usage details: https://github.com/wifinigel/wiperf
+
+# Developer
+
+Nigel Bowden (WifiNigel): https://twitter.com/wifinigel
+
+
