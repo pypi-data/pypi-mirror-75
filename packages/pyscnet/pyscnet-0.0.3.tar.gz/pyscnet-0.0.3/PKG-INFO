@@ -1,0 +1,14 @@
+Metadata-Version: 1.1
+Name: pyscnet
+Version: 0.0.3
+Summary: A tool for reconstructing and analyzing gene regulatory network from single-cell RNA-Seq data
+Home-page: https://github.com/MingBit/PySCNet
+Author: Ming Wu
+Author-email: ming.wu@tum.de
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
