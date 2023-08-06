@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+dhooks_lite/__init__.py
+dhooks_lite/client.py
+dhooks_lite/embed.py
+dhooks_lite/serializers.py
+dhooks_lite.egg-info/PKG-INFO
+dhooks_lite.egg-info/SOURCES.txt
+dhooks_lite.egg-info/dependency_links.txt
+dhooks_lite.egg-info/requires.txt
+dhooks_lite.egg-info/top_level.txt
+tests/__init__.py
+tests/test_client.py
+tests/test_embed.py
+tests/test_serializers.py
