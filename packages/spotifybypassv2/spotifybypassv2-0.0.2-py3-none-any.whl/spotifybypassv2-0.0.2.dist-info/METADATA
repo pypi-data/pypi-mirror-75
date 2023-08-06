@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: spotifybypassv2
+Version: 0.0.2
+Summary: Bypasses spotify ads by closing and opening spotify
+Home-page: https://github.com/Rajathbharadwaj/SpotifyAdBypass
+Author: Rajath Bharadwaj
+Author-email: rajathrajath940@gmail.com
+License: GNU GPL v3
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+
+# SpotifyAdBypass
+
+<li>How to use SpotifyAdBypass</li><br>
+
+    $ pip install spotifyadbypass
+
+ # if git clone, use 
+    $ pip install win32gui
+# Usage<br>
+
+<h5>Make sure to keep Spotify closed as the program will auto open Spotify application.</h5>
+
+Note : 
+Use the Spotify  .exe installer do not use the Spotify's microsoft application
+
+    from spotifyadbypass import SpotifyBypass
+
+    def printSong(artistTitle):
+        print(artistTitle["artist"].encode('utf-8'), '-', artistTitle["title"].encode('utf-8'), )
+
+    #instantiate with a printSong callback
+    byPass = SpotifyBypass(printSong)
+
+
