@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: cupy
+Version: 8.0.0b5
+Summary: CuPy: NumPy-like API accelerated with CUDA
+Home-page: https://cupy.dev/
+Author: Seiya Tokui
+Author-email: tokui@preferred.jp
+License: MIT License
+Project-URL: Bug Tracker, https://github.com/cupy/cupy/issues
+Project-URL: Documentation, https://docs.cupy.dev/
+Project-URL: Source Code, https://github.com/cupy/cupy
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Cython
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: MacOS
+Requires-Python: >=3.5.0
+Provides-Extra: setup
+Provides-Extra: stylecheck
+Provides-Extra: test
+Provides-Extra: doctest
+Provides-Extra: docs
+Provides-Extra: travis
+Provides-Extra: appveyor
+Provides-Extra: jenkins
