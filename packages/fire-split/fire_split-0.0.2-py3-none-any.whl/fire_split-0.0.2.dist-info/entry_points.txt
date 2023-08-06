@@ -1,0 +1,3 @@
+[console_scripts]
+fire_split_run = fire_split.cli:fire_split_run
+
