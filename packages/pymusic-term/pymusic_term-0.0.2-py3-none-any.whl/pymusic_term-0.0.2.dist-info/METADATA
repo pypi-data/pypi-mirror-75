@@ -1,0 +1,70 @@
+Metadata-Version: 2.1
+Name: pymusic-term
+Version: 0.0.2
+Summary: A music player and spotify client for a terminal
+Home-page: https://github.com/EGAMAGZ/pymusicterm
+Author: Gamaliel Garcia
+Author-email: 
+License: MIT
+Keywords: git cli cui curses command-line
+Platform: UNKNOWN
+Classifier: Intended Audience :: Information Technology
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Environment :: Console :: Curses
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Multimedia :: Sound/Audio :: Players
+Classifier: Topic :: Multimedia :: Sound/Audio :: Players :: MP3
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: py-cui (==0.1.1)
+Requires-Dist: pygame (==1.9.6)
+Requires-Dist: pytaglib (==1.4.6)
+Requires-Dist: windows-curses (==2.1.0)
+
+# pymusicterm
+[![PyPI version](https://badge.fury.io/py/pymusic-term.svg)](https://badge.fury.io/py/pymusic-term)
+A music player for the terminal written in Python
+
+# Installation
+
+To install `pymusicterm`, it is recommended to use pip:
+```
+pip install pymusic-term
+```
+
+You can install it from source. Clone this repository and use `pip` to install:
+```
+git clone https://github.com/EGAMAGZ/pymusicterm.git
+cd pymusicterm
+pip install .
+```
+
+If `pymusicterm` is already installed and you would like to update it, use:
+```
+pip install --upgrade pymusic-term
+```
+
+If updating local version, use:
+```
+cd pymusicterm
+git pull
+pip install --updgrade .
+```
+
+> Note that you may require root acces for installing with `pip` depending on your system's python configuration
+
+<!-- # Demo -->
+
+# Usage
+Once `pymusicterm` is intsalled. In a command line client type:
+```
+pymusicterm
+```
+
+In the status bar at the bottom of the window, you will find listed descriptions of how to use the keyboard shortcut to navigate the interface and the menus.
+
+> Windows Terminal is not yet supported
+
+

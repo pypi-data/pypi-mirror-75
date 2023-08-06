@@ -1,0 +1,3 @@
+import pymusicterm
+
+pymusicterm.main()
