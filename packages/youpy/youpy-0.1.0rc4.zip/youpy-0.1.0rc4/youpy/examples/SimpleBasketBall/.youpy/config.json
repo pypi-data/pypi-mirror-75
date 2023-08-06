@@ -1,0 +1,16 @@
+{
+  "sprites": {
+    "BasketBall": {
+      "position": [ 0, 0],
+      "visible": false
+    },
+    "Hand": {
+      "position": [0, -160],
+      "ratio": 50,
+      "visible": false
+    }
+  },
+  "scene": {
+    "initial_backdrop": "Welcome"
+  }
+}
