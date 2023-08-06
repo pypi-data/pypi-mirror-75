@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: fathon
+Version: 1.0
+Summary: A pyhton package for detrended fluctuation analysis (DFA) and related algorithms.
+Home-page: https://github.com/stfbnc/fathon.git
+Author: Stefano Bianchi
+Author-email: fathon.package@gmail.com
+License: GPLv3.0
+Project-URL: Documentation, https://fathon.readthedocs.io/
+Project-URL: Bug Reports, https://github.com/stfbnc/fathon/issues
+Project-URL: Source, https://github.com/stfbnc/fathon/
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Cython
+Classifier: Programming Language :: C
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: numpy (>=1.15)
+Requires-Dist: Cython
+
+fathon (v1.0)
+***************
+
+Current version is available for Linux (64 bit) and macOS only.
+
+Python package for detrended fluctuation analysis (DFA) and related algorithms.
+`fathon` provides four main algorithms, namely
+
+- `DFA` (Detrended Fluctuation Analysis)
+- `MFDFA` (Multifractal Detrended Fluctuation Analysis)
+- `DCCA` (Detrended Cross-Correlation Analysis)
+- `HT` (Time-dependent Hurst exponent)
+
+`MFDFA` also provides methods for the mass exponent τ and the multifractal spectrum f(α).
+
+`DCCA` has methods for computing the cross-correlation coefficient ρ_DCCA and the corresponding confidence intervals.
+
+Requirements
+============
+
+- Python 3.5+
+- numpy (>=1.15)
+- Cython
+
+Installation
+============
+
+`pip install fathon`
+
+
+
