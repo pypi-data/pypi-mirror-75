@@ -1,0 +1,3 @@
+[console_scripts]
+togglcmder = togglcmder.__main__:main
+
