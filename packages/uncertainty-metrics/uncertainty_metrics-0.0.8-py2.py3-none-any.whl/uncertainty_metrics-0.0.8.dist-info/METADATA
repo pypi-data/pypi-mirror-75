@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: uncertainty-metrics
+Version: 0.0.8
+Summary: Uncertainty Metrics
+Home-page: http://github.com/google/uncertainty_metrics
+Author: Uncertainty Metrics Users
+Author-email: jeremynixon@google.com
+License: Apache 2.0
+Keywords: probabilistic programming tensorflow machine learning
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Dist: numpy (>=1.7)
+Provides-Extra: numpy
+Requires-Dist: matplotlib (>=2.0.0) ; extra == 'numpy'
+Requires-Dist: scipy (>=1.0.0) ; extra == 'numpy'
+Requires-Dist: scikit-learn (>=0.20.0) ; extra == 'numpy'
+Provides-Extra: tensorflow
+Requires-Dist: tensorflow (>=2.0.0) ; extra == 'tensorflow'
+Requires-Dist: tensorflow-probability (>=0.9) ; extra == 'tensorflow'
+Provides-Extra: tests
+Requires-Dist: absl-py (>=0.5.0) ; extra == 'tests'
+Requires-Dist: pylint (>=1.9.0) ; extra == 'tests'
+Provides-Extra: tf-nightly
+Requires-Dist: tf-nightly ; extra == 'tf-nightly'
+Requires-Dist: matplotlib (>=2.0.0) ; extra == 'tf-nightly'
+Requires-Dist: scipy (>=1.0.0) ; extra == 'tf-nightly'
+Requires-Dist: scikit-learn (>=0.20.0tensorflow>=2.0.0) ; extra == 'tf-nightly'
+Requires-Dist: tensorflow-probability (>=0.9) ; extra == 'tf-nightly'
+
+UNKNOWN
+
+
