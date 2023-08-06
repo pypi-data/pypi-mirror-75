@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: pyCOMPASS
+Version: 0.7
+Summary: A Python interface to COMPASS, the gene expression compendia GraphQL endpoint
+Home-page: UNKNOWN
+Author: Marco Moretto
+Author-email: marco.moretto@fmach.it
+License: UNKNOWN
+Description: # pyCOMPASS>_
+        pyCOMPASS is a Python interface to COMPASS, the gene expression compendia GraphQL endpoint
+        
+        
+        
+        ## Documentation
+        
+        The full documentation is hosted on [ReadTheDocs](https://pycompass.readthedocs.io)
+        
+        
+        ## License
+        
+        This project is licensed under the GPLv3 License - see the [LICENSE](LICENSE) file for details
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
