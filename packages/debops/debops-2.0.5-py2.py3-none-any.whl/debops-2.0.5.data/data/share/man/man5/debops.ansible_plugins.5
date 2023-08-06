@@ -1,0 +1,138 @@
+.\" Man page generated from reStructuredText.
+.
+.TH "DEBOPS.ANSIBLE_PLUGINS" "5" "Aug 03, 2020" "v2.0.5" "DebOps"
+.SH NAME
+debops.ansible_plugins \- Custom Ansible plugins used by DebOps
+.
+.nr rst2man-indent-level 0
+.
+.de1 rstReportMargin
+\\$1 \\n[an-margin]
+level \\n[rst2man-indent-level]
+level margin: \\n[rst2man-indent\\n[rst2man-indent-level]]
+-
+\\n[rst2man-indent0]
+\\n[rst2man-indent1]
+\\n[rst2man-indent2]
+..
+.de1 INDENT
+.\" .rstReportMargin pre:
+. RS \\$1
+. nr rst2man-indent\\n[rst2man-indent-level] \\n[an-margin]
+. nr rst2man-indent-level +1
+.\" .rstReportMargin post:
+..
+.de UNINDENT
+. RE
+.\" indent \\n[an-margin]
+.\" old: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.nr rst2man-indent-level -1
+.\" new: \\n[rst2man-indent\\n[rst2man-indent-level]]
+.in \\n[rst2man-indent\\n[rst2man-indent-level]]u
+..
+.sp
+Ansible can be extended in various ways by the use of \fI\%custom plugins\fP <\fBhttps://docs.ansible.com/ansible/latest/dev_guide/developing_plugins.html\fP>\&.
+This role contains a set of custom Ansible plugins used by various DebOps
+roles. The plugins are enabled by including this role as a dependency of
+another role.
+.SH GETTING STARTED
+.SS Usage as a role dependency
+.sp
+To use the custom Ansible plugins from this role in your own Ansible roles, you
+should include the \fBansible_plugins\fP role as a dependency, in
+\fBmeta/main.yml\fP file of a given role:
+.INDENT 0.0
+.INDENT 3.5
+.sp
+.nf
+.ft C
+\-\-\-
+dependencies:
+  \- role: ansible_plugins
+.ft P
+.fi
+.UNINDENT
+.UNINDENT
+.sp
+This will make the \fBansible_plugins\fP role a hard dependency of a given role,
+which should ensure that the \fBansible_plugins\fP role is always included, and
+doesn\(aqt need to be included in all playbooks that use a given role.
+.SS Custom Ansible filter plugins
+.sp
+The role contains a set of custom Ansible filter plugins which can be used in
+Jinja templates:
+.INDENT 0.0
+.TP
+.B \fBglobmatch\fP
+This filter plugin can be used to filter strings or lists that match shell
+glob patterns.
+.TP
+.B \fBparse_kv_config\fP
+Parse a YAML list of dictionaries and output a sorted and expanded list of
+YAML dictionaries that contain a common set of dictionary keys. The filter
+supports dynamic order of the entries using weight model, and can be used to
+generate a configuration file which uses a key/value syntax with unique keys.
+.TP
+.B \fBparse_kv_items\fP
+This is a wrapper for the \fBparse_kv_config\fP filter which can be used in the
+looped Ansible tasks to manage multiple files with key/value syntax, or
+generate a configuration file with multiple key/value configuration
+structures.
+.TP
+.B \fBsplit\fP
+This filter plugin can be used to split strings, similarly to the
+\fB\&.split()\fP function in Python.
+.UNINDENT
+.SS Custom Ansible lookup plugins
+.sp
+The role contains a set of custom Ansible lookup plugins which can be used in
+Ansible roles:
+.INDENT 0.0
+.TP
+.B \fBfile_src\fP
+This lookup plugin allows "sideloading" files to copy into roles without the
+need to modify the roles themselves. It requires the \fBdebops\fP Python module
+to be installed and uses configuration in \fB\&.debops.cfg\fP to get a list
+of directories that are bases to look for custom files.
+.sp
+If a file in specified subdirectory is found in one of the base directories,
+its path will be returned to Ansible to use as a file source. If no custom
+files are found, the lookup plugin returns the original path which
+corresponds to the file included in the role itself.
+.TP
+.B \fBlists\fP
+This lookup plugin implements the \fBwith_lists\fP lookup. Similar to
+\fBwith_flattened\fP lookup, the difference is the lists are not flattened all
+the way into a single list, therefore you can perform a "list of lists"
+tasks.
+.TP
+.B \fBtask_src\fP
+This lookup plugin allows injection of custom Ansible tasks into roles without
+the need to modify the roles themselves. It requires the \fBdebops\fP Python
+module to be installed and uses configuration in \fB\&.debops.cfg\fP to get
+a list of directories that are bases to look for a list of Ansible tasks.
+.sp
+If a file with list of tasks is found, they will be added to the Ansible
+playbook execution, usually as "pre" or "post" tasks at the beginning or end
+of a role. If no tasks are found, the plugin returns the path to
+a predefined, usually empty file with no tasks, that gets included by
+Ansible, avoiding the issue of missing task list. The roles that use this
+plugin need to be prepared for this usage beforehand.
+.TP
+.B \fBtemplate_src\fP
+This lookup plugin allows "sideloading" Jinja templates into roles without
+the need to modify the roles themselves. It requires the \fBdebops\fP Python
+module to be installed and uses configuration in \fB\&.debops.cfg\fP to get
+a list of directories that are bases to look for templates.
+.sp
+If a template file in specified subdirectory is found in one of the base
+directories, its path will be returned to Ansible to use as a template. If no
+custom templates are found, the lookup plugin returns the original path which
+corresponds to the template included in the role itself.
+.UNINDENT
+.SH AUTHOR
+Maciej Delmanowski
+.SH COPYRIGHT
+2014-2020, Maciej Delmanowski, Nick Janetakis, Robin Schneider and others
+.\" Generated by docutils manpage writer.
+.
