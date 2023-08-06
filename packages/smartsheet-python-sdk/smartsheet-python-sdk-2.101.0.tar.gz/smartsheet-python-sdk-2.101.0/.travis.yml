@@ -1,0 +1,46 @@
+dist: trusty
+
+language: python
+
+cache:
+  directories:
+    - $HOME/.cache/pip
+
+git:
+  depth: false
+
+jobs:
+  include:
+    - stage: test
+      python: "2.7"
+      script: sh test.sh
+      if: env(deploy) IS NOT present
+    - # stage name not required
+      python: "3.4"
+      script: sh test.sh
+      if: env(deploy) IS NOT present
+    - # stage name not required
+      python: "3.5"
+      script: sh test.sh
+      if: env(deploy) IS NOT present
+    - # stage name not required
+      python: "3.6"
+      script: sh test.sh
+    - # stage name not required
+      python: "pypy"
+      script: sh test.sh
+      if: env(deploy) IS NOT present
+    - # stage name not required
+      python: "pypy3"
+      script: sh test.sh
+      if: env(deploy) IS NOT present
+    - stage: deploy
+      python: "3.6"
+      script: skip
+      if: env(deploy) IS present
+      deploy:
+        - provider: script
+          script: sh deploy.sh
+        - provider: releases
+          api_key: $GH_ACCESS_TOKEN
+          tag_name: $deploy
