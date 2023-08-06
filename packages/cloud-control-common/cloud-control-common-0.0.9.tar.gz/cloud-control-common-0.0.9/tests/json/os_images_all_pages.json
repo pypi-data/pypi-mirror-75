@@ -1,0 +1,218 @@
+[
+  {
+    "osImage": [
+      {
+        "sortOrder": 0,
+        "guest": {
+          "operatingSystem": {
+            "id": "REDHAT664",
+            "displayName": "REDHAT6/64",
+            "family": "UNIX",
+            "osUnitsGroupId": "REDHAT"
+          },
+          "osCustomization": true
+        },
+        "name": "roCentosGocCust2",
+        "description": "demonstration OS image for guest os customization version 2",
+        "cluster": {
+          "id": "DEV_GEO1_1_CORK-01",
+          "name": "Cluster 1"
+        },
+        "cpu": {
+          "count": 1,
+          "speed": "STANDARD",
+          "coresPerSocket": 1
+        },
+        "memoryGb": 4,
+        "advancedVirtualizationSetting": [
+          {
+            "name": "nestedHardwareVirtualization",
+            "value": "false"
+          }
+        ],
+        "scsiController": [
+          {
+            "disk": [
+              {
+                "id": "13408150-06c5-4b9b-aa06-92270895fc73",
+                "sizeGb": 10,
+                "speed": "STANDARD",
+                "scsiId": 0
+              }
+            ],
+            "id": "c6c79318-7174-45e4-93e6-7b8390d7e3f8",
+            "adapterType": "LSI_LOGIC_PARALLEL",
+            "key": 1000,
+            "busNumber": 0
+          }
+        ],
+        "softwareLabel": [],
+        "createTime": "2019-12-16T19:14:22.000Z",
+        "id": "7f9d1a76-7cdd-48c7-9e0d-f4c8261e446e",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      },
+      {
+        "sortOrder": 0,
+        "guest": {
+          "operatingSystem": {
+            "id": "REDHAT664",
+            "displayName": "REDHAT6/64",
+            "family": "UNIX",
+            "osUnitsGroupId": "REDHAT"
+          },
+          "osCustomization": true
+        },
+        "name": "roPhotonSmallGocWithCust2",
+        "description": "demonstration OS image for guest os customization version 2",
+        "cluster": {
+          "id": "DEV_GEO1_1_CORK-01",
+          "name": "Cluster 1"
+        },
+        "cpu": {
+          "count": 1,
+          "speed": "STANDARD",
+          "coresPerSocket": 1
+        },
+        "memoryGb": 2,
+        "advancedVirtualizationSetting": [
+          {
+            "name": "nestedHardwareVirtualization",
+            "value": "false"
+          }
+        ],
+        "scsiController": [
+          {
+            "disk": [
+              {
+                "id": "8ddf142b-64d4-42f8-bf3c-f8be5eabbcd6",
+                "sizeGb": 2,
+                "speed": "STANDARD",
+                "scsiId": 0
+              }
+            ],
+            "id": "dc58139b-f9e6-49bc-87cb-36da3d575a7a",
+            "adapterType": "VMWARE_PARAVIRTUAL",
+            "key": 1000,
+            "busNumber": 0
+          }
+        ],
+        "softwareLabel": [],
+        "createTime": "2019-12-13T18:01:11.000Z",
+        "id": "efe8b2d7-0849-45fd-a005-5f8955564f8d",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      }
+    ],
+    "pageNumber": 1,
+    "pageCount": 2,
+    "totalCount": 2,
+    "pageSize": 250
+  },
+  {
+    "osImage": [
+      {
+        "sortOrder": 0,
+        "guest": {
+          "operatingSystem": {
+            "id": "REDHAT664",
+            "displayName": "REDHAT6/64",
+            "family": "UNIX",
+            "osUnitsGroupId": "REDHAT"
+          },
+          "osCustomization": true
+        },
+        "name": "roCentosGocCust2",
+        "description": "demonstration OS image for guest os customization version 2",
+        "cluster": {
+          "id": "DEV_GEO1_1_CORK-01",
+          "name": "Cluster 1"
+        },
+        "cpu": {
+          "count": 1,
+          "speed": "STANDARD",
+          "coresPerSocket": 1
+        },
+        "memoryGb": 4,
+        "advancedVirtualizationSetting": [
+          {
+            "name": "nestedHardwareVirtualization",
+            "value": "false"
+          }
+        ],
+        "scsiController": [
+          {
+            "disk": [
+              {
+                "id": "13408150-06c5-4b9b-aa06-92270895fc73",
+                "sizeGb": 10,
+                "speed": "STANDARD",
+                "scsiId": 0
+              }
+            ],
+            "id": "c6c79318-7174-45e4-93e6-7b8390d7e3f8",
+            "adapterType": "LSI_LOGIC_PARALLEL",
+            "key": 1000,
+            "busNumber": 0
+          }
+        ],
+        "softwareLabel": [],
+        "createTime": "2019-12-16T19:14:22.000Z",
+        "id": "7f9d1a76-7cdd-48c7-9e0d-f4c8261e446e",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      },
+      {
+        "sortOrder": 0,
+        "guest": {
+          "operatingSystem": {
+            "id": "REDHAT664",
+            "displayName": "REDHAT6/64",
+            "family": "UNIX",
+            "osUnitsGroupId": "REDHAT"
+          },
+          "osCustomization": true
+        },
+        "name": "roPhotonSmallGocWithCust2",
+        "description": "demonstration OS image for guest os customization version 2",
+        "cluster": {
+          "id": "DEV_GEO1_1_CORK-01",
+          "name": "Cluster 1"
+        },
+        "cpu": {
+          "count": 1,
+          "speed": "STANDARD",
+          "coresPerSocket": 1
+        },
+        "memoryGb": 2,
+        "advancedVirtualizationSetting": [
+          {
+            "name": "nestedHardwareVirtualization",
+            "value": "false"
+          }
+        ],
+        "scsiController": [
+          {
+            "disk": [
+              {
+                "id": "8ddf142b-64d4-42f8-bf3c-f8be5eabbcd6",
+                "sizeGb": 2,
+                "speed": "STANDARD",
+                "scsiId": 0
+              }
+            ],
+            "id": "dc58139b-f9e6-49bc-87cb-36da3d575a7a",
+            "adapterType": "VMWARE_PARAVIRTUAL",
+            "key": 1000,
+            "busNumber": 0
+          }
+        ],
+        "softwareLabel": [],
+        "createTime": "2019-12-13T18:01:11.000Z",
+        "id": "efe8b2d7-0849-45fd-a005-5f8955564f8d",
+        "datacenterId": "DEV_GEO1_1_CORK"
+      }
+    ],
+    "pageNumber": 1,
+    "pageCount": 2,
+    "totalCount": 2,
+    "pageSize": 250
+  }
+]
