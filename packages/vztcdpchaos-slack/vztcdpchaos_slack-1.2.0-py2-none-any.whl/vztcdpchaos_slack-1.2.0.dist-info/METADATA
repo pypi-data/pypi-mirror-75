@@ -1,0 +1,27 @@
+Metadata-Version: 2.1
+Name: vztcdpchaos-slack
+Version: 1.2.0
+Summary: Slack extension for cdp chaos exps
+Home-page: UNKNOWN
+Author: vzt-cdp
+License: Apache License Version 2.0
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: License :: Freely Distributable
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.5.*
+Requires-Dist: slackclient (>=2.2.0)
+Requires-Dist: chaostoolkit-lib (>=1.7.0)
+Requires-Dist: logzero
+Requires-Dist: cdpchaostoolkit
+
+UNKNOWN
+
+
