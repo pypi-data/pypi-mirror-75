@@ -1,0 +1,23 @@
+cached_property
+celery[redis,sqlalchemy]>=4.4.5
+coloredlogs
+cryptography
+maestrowf==1.1.7dev0
+numpy
+parse
+psutil>=5.1.0
+pyyaml>=5.1.2
+tabulate
+
+[:python_version < "3.7"]
+importlib_resources
+
+[dev]
+black
+dep-license
+flake8
+isort
+pytest
+twine
+sphinx>=2.0.0
+alabaster
