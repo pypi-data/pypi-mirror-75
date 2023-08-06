@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: django-regions
+Version: 0.0.1
+Summary: 中国省市区数据模型.
+Home-page: https://github.com/ChanMo/django-regions.git
+Author: ChanMo
+Author-email: chan.mo@outlook.com
+License: MIT License
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 3.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Description-Content-Type: text/markdown
+
+# Django Regions
+
+基于`django`的中国省市区数据模块
+
+数据由高德地图接口获取
+
+## Quick Start
+
+### Install
+
+```
+$ pip install django-regions
+```
+
+### Update `settings.py`
+
+```
+INSTALLED_APPS = [
+    ...,
+    'regions',
+]
+
+...
+AMAP_KEY = ''
+```
+
+### Migrations
+
+```
+$ python manage.py makemigrations regions
+$ python manage.py migrate
+```
+
+### Sync Data
+
+```
+$ python manage.py sync_regions
+```
+
+
