@@ -1,0 +1,2 @@
+include *.txt *.cpp
+global-include *.cpp *.h *.hxx
