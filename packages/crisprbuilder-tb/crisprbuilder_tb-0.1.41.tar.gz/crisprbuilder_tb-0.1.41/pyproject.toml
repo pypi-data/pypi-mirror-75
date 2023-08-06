@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "crisprbuilder_tb"
+version = "0.1.41"
+description = "Collect and annotate Mycobacterium tuberculosis WGS data for CRISPR investigations."
+authors = ["stephane-robin <robin.stephane@outlook.com>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/stephane-robin/crisprbuilder_tb.git"
+repository = "https://github.com/stephane-robin/crisprbuilder_tb.git"
+keywords = ["tuberculosis", "CRISPR"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+xlrd = "^1.2.0"
+xmltodict = "^0.12.0"
+biopython = "^1.77"
+parallel-fastq-dump = "^0.6.5"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
