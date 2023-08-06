@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: hello-smr39-rasa
+Version: 0.1.6
+Summary: 
+Author: Your Name
+Author-email: you@example.com
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: flask (>=1.1.2,<2.0.0)
+Requires-Dist: gunicorn (>=20.0.4,<21.0.0)
+Requires-Dist: redis (>=3.5.3,<4.0.0)
