@@ -1,0 +1,52 @@
+Metadata-Version: 2.1
+Name: venpo
+Version: 0.2.3
+Summary: Extract Venmo transactions from a profile with one command
+Home-page: https://github.com/mfdeux/venpo
+License: MIT
+Author: Marc Ford
+Author-email: mrfxyz567@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: beautifulsoup4 (>=4.9.1,<5.0.0)
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: lxml (>=4.5.2,<5.0.0)
+Requires-Dist: python-dateutil (>=2.8.1,<3.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Project-URL: Repository, https://github.com/mfdeux/venpo
+Description-Content-Type: text/markdown
+
+# venpo
+
+Extract Venmo transactions from a profile with one command
+
+## Demo
+
+Make demo here
+
+## About
+
+A simple command line tool to extract public Venmo transactions from a specified user profile.
+
+venpo will access a Venmo user's profile page, extract the transactions, and save to a JSON file.
+
+## Use Cases
+
+1. Save a history of your own or a friend's Venmo transactions
+2. Transaction monitoring for OSINT (open source intelligence) purposes
+3. Collecting data to train your own ML model
+
+
+## Installation
+
+```shell script
+$ pip install venpo --upgrade
+```
+
+## Usage
+
+```shell script
+$ venpo $username
+```
