@@ -1,0 +1,14 @@
+cellmlmanip>=0.2.0
+Jinja2>=2.11
+
+[docs]
+sphinx>=3.0
+sphinx-automodapi>=0.12
+
+[test]
+pytest-cov>=2.10
+pytest>=4.6
+flake8>=3
+isort
+mock>=3.0.5
+codecov>=2.1.3
