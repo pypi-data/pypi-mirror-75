@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: phylofisher
+Version: 0.1.20
+Summary: PhyloFisher is a software package for the creation, analysis, and visualization of phylogenomic datasets that consist of protein sequences from eukaryotic organisms.
+Home-page: https://github.com/TheBrownLab/PhyloFisher
+Author: David Zihala
+Author-email: zihaladavid@gmail.com
+License: MIT
+Platform: UNKNOWN
+Requires-Python: >=3.7
+Requires-Dist: biopython (==1.76)
+Requires-Dist: pyqt5 (>=5)
+Requires-Dist: ete3 (==3.1.1)
+Requires-Dist: pandas (==1.0.3)
+Requires-Dist: matplotlib (==3.1.3)
+Requires-Dist: scipy (==1.4.1)
+Requires-Dist: numpy (==1.18.1)
+
+UNKNOWN
+
+
