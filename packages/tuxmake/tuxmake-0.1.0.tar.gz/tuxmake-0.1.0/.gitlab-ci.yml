@@ -1,0 +1,163 @@
+image:
+  name: tuxmake/ci-python3.7
+
+.tuxmake:
+  except:
+    - schedules
+
+stages:
+  - test
+  - build
+  - testbuild
+  - publish
+
+.unit-tests:
+  extends: .tuxmake
+  stage: test
+  script:
+    - make unit-tests
+
+unit-tests-python3.8:
+  extends: .unit-tests
+  image: tuxmake/ci-python3.8
+
+unit-tests-python3.7:
+  extends: .unit-tests
+  image: tuxmake/ci-python3.7
+
+unit-tests-python3.6:
+  extends: .unit-tests
+  image: tuxmake/ci-python3.6
+
+unit-tests-python3.8-arm64:
+  extends: .unit-tests
+  tags:
+    - arm64
+  image: tuxmake/ci-python3.8
+
+unit-tests-python3.7-arm64:
+  extends: .unit-tests
+  tags:
+    - arm64
+  image: tuxmake/ci-python3.7
+
+unit-tests-python3.6-arm64:
+  extends: .unit-tests
+  tags:
+    - arm64
+  image: tuxmake/ci-python3.6
+
+style:
+  extends: .tuxmake
+  stage: test
+  script:
+    - make style
+
+typecheck:
+  extends: .tuxmake
+  stage: test
+  script:
+    - make typecheck
+
+codespell:
+  extends: .tuxmake
+  stage: test
+  script:
+    - make codespell
+
+docker-build-tests:
+  extends: .tuxmake
+  stage: test
+  script:
+    - make docker-build-tests
+
+build:
+  extends: .tuxmake
+  stage: build
+  script:
+    - git status
+    - rm -rf dist/
+    - flit --debug build
+  artifacts:
+    paths:
+      - dist/
+
+.integration:
+  extends: .tuxmake
+  stage: testbuild
+  dependencies:
+    - build
+  script:
+    - python3 -m pip install dist/*.whl
+    - make integration-tests TMV=1
+
+integration-python3.8:
+  extends: .integration
+  image: tuxmake/ci-python3.8
+
+integration-python3.7:
+  extends: .integration
+  image: tuxmake/ci-python3.7
+
+integration-python3.6:
+  extends: .integration
+  image: tuxmake/ci-python3.7
+
+integration-python3.8-arm64:
+  extends: .integration
+  tags:
+    - arm64
+  image: tuxmake/ci-python3.8
+
+integration-python3.7-arm64:
+  extends: .integration
+  tags:
+    - arm64
+  image: tuxmake/ci-python3.7
+
+integration-python3.6-arm64:
+  extends: .integration
+  tags:
+    - arm64
+  image: tuxmake/ci-python3.6
+
+.docker:
+  image: docker:19.03.11-dind
+  services:
+    - name: docker:19.03.11-dind
+  only:
+    - schedules
+  variables:
+    DOCKER_DRIVER: overlay2
+  before_script:
+    - apk add make python3
+    - cd support/docker/
+    - ./configure
+    - 'docker login --username="${DOCKER_USERNAME}" --password-stdin < "${DOCKER_PASSWORD_FILE}"'
+
+docker-images-amd64:
+  stage: build
+  extends: .docker
+  variables:
+    TAG: "-amd64"
+  script:
+    - make publish-${DOCKER_IMAGES}
+
+docker-images-arm64:
+  stage: build
+  extends: .docker
+  tags:
+     - arm64-dind
+  variables:
+    TAG: "-arm64"
+  script:
+    - make publish-${DOCKER_IMAGES}
+
+docker-images-multiarch:
+  stage: publish
+  extends: .docker
+  variables:
+    DOCKER_CLI_EXPERIMENTAL: "enabled"
+    ARCH_TAGS: "-amd64 -arm64"
+  script:
+    - make publish-multiarch-${DOCKER_IMAGES}
