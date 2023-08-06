@@ -1,0 +1,6 @@
+,kind,id,etag,email,name,directMembersCount,description,adminCreated,nonEditableAliases
+0,admin#directory#group,00pkwqa11rz4e64,"""rCoeEHfNfr0PqHEE23qVc6etzCyIhUZAm9L6tqw8pDc/RjJ8IF6VHvjhF8YzMH9SylpAODg""",curatorgroups@plex8.stream,curatorgroups,1,Groups of curator groups including those with SAs,False,['curatorgroups@plex8.stream.test-google-a.com']
+1,admin#directory#group,03bj1y381zdj400,"""rCoeEHfNfr0PqHEE23qVc6etzCyIhUZAm9L6tqw8pDc/9PJqlCysZaMJhUxYCWGk8jMKwZQ""",lexx2@plex8.stream,lexx2,1,,False,['lexx2@plex8.stream.test-google-a.com']
+2,admin#directory#group,040ew0vw1bsu0g7,"""rCoeEHfNfr0PqHEE23qVc6etzCyIhUZAm9L6tqw8pDc/BNrlGKJCSkvBJcLuXI7W8LAoxeg""",lexx@plex8.stream,lexx,496,,True,['lexx@plex8.stream.test-google-a.com']
+3,admin#directory#group,02bn6wsx3t3hd0d,"""rCoeEHfNfr0PqHEE23qVc6etzCyIhUZAm9L6tqw8pDc/1ybDvRzwLMyc7bdeX8UQrYn7Yoo""",p8sa@plex8.stream,p8sa,8023,,False,['p8sa@plex8.stream.test-google-a.com']
+4,admin#directory#group,01yyy98l2mxcb4y,"""rCoeEHfNfr0PqHEE23qVc6etzCyIhUZAm9L6tqw8pDc/R_qxS-7P1ZdfBq3CKXyrIeZzjw8""",tdmsa@plex8.stream,Service Account Group,0,Created by TeamDriveManager,True,['tdmsa@plex8.stream.test-google-a.com']
