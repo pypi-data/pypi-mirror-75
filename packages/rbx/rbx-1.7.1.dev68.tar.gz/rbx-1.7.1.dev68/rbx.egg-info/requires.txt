@@ -1,0 +1,17 @@
+arrow>=0.15
+Click<8
+colorama
+google-cloud-firestore~=1.8
+google-cloud-pubsub~=1.7
+PyYAML>=5.1.2
+
+[geo]
+googlemaps~=4.2
+
+[storage]
+google-cloud-storage~=1.30
+
+[tests]
+Flask==1.1.1
+googlemaps~=4.2
+google-cloud-storage~=1.30
