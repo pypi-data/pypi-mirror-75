@@ -1,0 +1,3 @@
+[console_scripts]
+netsim-wrapper = netsim_wrapper.netsim2:run
+
