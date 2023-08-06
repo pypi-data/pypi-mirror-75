@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.py
+lyrics_extractor/__init__.py
+lyrics_extractor/lyrics.py
+lyrics_extractor/settings.py
+lyrics_extractor.egg-info/PKG-INFO
+lyrics_extractor.egg-info/SOURCES.txt
+lyrics_extractor.egg-info/dependency_links.txt
+lyrics_extractor.egg-info/entry_points.txt
+lyrics_extractor.egg-info/requires.txt
+lyrics_extractor.egg-info/top_level.txt
