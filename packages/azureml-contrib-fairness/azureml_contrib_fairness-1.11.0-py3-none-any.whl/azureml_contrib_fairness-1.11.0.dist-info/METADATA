@@ -1,0 +1,20 @@
+Metadata-Version: 2.0
+Name: azureml-contrib-fairness
+Version: 1.11.0
+Summary: UNKNOWN
+Home-page: https://docs.microsoft.com/en-us/azure/machine-learning/service/
+Author: Microsoft Corp
+License: Proprietary https://aka.ms/azureml-preview-sdk-license 
+Platform: UNKNOWN
+Requires-Python: >=3.5,<4
+Description-Content-Type: text/x-rst
+Requires-Dist: azureml-core (~=1.11.0)
+
+The azureml-contrib-fairness package contains functionality for the
+measuring and mitigating unfairness in machine learning models
+with the help of the Fairlearn package.
+
+This package is in preview state.
+
+
+
