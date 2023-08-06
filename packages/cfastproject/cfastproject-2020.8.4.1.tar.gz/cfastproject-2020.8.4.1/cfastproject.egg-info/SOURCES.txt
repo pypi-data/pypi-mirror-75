@@ -1,0 +1,11 @@
+README.md
+setup.py
+cfastproject.egg-info/PKG-INFO
+cfastproject.egg-info/SOURCES.txt
+cfastproject.egg-info/dependency_links.txt
+cfastproject.egg-info/entry_points.txt
+cfastproject.egg-info/top_level.txt
+fastproject/__init__.py
+fastproject/main.py
+fastproject/project_template/__init__.py
+fastproject/project_template/tests/__init__.py
