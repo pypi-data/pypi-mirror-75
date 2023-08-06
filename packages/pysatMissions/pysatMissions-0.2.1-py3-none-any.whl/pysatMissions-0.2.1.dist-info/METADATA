@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: pysatMissions
+Version: 0.2.1
+Summary: Mission Planning toolkit for pysat
+Home-page: https://github.com/pysat/pysatMissions
+Author: Russell Stoneback, Jeff Klenzing
+Author-email: rstoneba@utdallas.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: MacOS :: MacOS X
+Description-Content-Type: text/markdown
+Requires-Dist: pysat
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: sgp4
+Requires-Dist: pyEphem
+Requires-Dist: matplotlib
+Requires-Dist: apexpy
+Requires-Dist: aacgmv2
+Requires-Dist: pysatMagVect
+
+pysatMissions allows users to run build simulated satellites for TLE info and add empirical data. It includes the pysat_sgp4 instrument module which can be imported into pysat.
+
+Main Features
+-------------
+- Simulate satellite orbits from TLEs and add data from empirical models
+- Import ionosphere and thermosphere values through pyglow
+- Import coordinates through apexpy
+
+Documentation
+---------------------
+`Full Documentation for main package <http://pysat.readthedocs.io/en/latest/>`_
+
+
