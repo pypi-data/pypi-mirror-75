@@ -1,0 +1,197 @@
+Metadata-Version: 2.1
+Name: rfq
+Version: 0.1.1
+Summary: Simple language-agnostic message queues: tools, conventions, examples
+License: MIT
+Author: Robofarm
+Author-email: hello@robofarm.io
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: hiredis (>=1.0.1,<2.0.0)
+Requires-Dist: redis (>=3.5.3,<4.0.0)
+Description-Content-Type: text/markdown
+
+<h1 align='center'>rfq</h1>
+
+<p align=center>
+  Simple language-agnostic message queues: tools, conventions, examples
+  <img src="assets/rfq.png" />
+</p>
+
+## Table of Contents
+
+1. [Overview](#overview)
+2. [Usage](#usage)
+    - [list-topics](#list-topics)
+    - [list-queue](#list-queue)
+    - [purge-queue](#purge-queue)
+    - [publish](#publish)
+    - [consume](#consume)
+    - [harvest](#harvest)
+3. [Design](#design)
+4. [Protocol](#protocol)
+5. [License](#license)
+
+
+## Overview
+
+We are using redis as a message queue to communicate between services, backends, workers.
+Implementing a reliable message queue with redis is possible but has to follow certain [best practices](https://redis.io/commands/rpoplpush#pattern-reliable-queue).
+
+The goal of this project is to provide a simple reliable message queue on top of redis while following best practices and capturing conventions as code.
+See [rfq.js](https://github.com/robofarmio/rfq.js) for a simple Javascript/Typescript integration.
+
+
+## Usage
+
+The following shows library functionality in terms of their thin command line wrappers.
+
+The command line tool and library can be configured by setting the environment variables
+
+    export RFQ_REDIS_HOST=localhost
+    export RFQ_REDIS_PORT=6397
+
+for the default redis host and port when not providing a custom redis instance.
+
+For development
+
+    make
+
+    make run
+    $ rfq --help
+
+    $ exit
+    make down
+
+Run the commands directly from the docker container with
+
+    docker run -e RFQ_REDIS_HOST=MyRedisHost robofarm/rfq --help
+
+
+### list-topics
+
+List all active topics
+
+    rfq list-topics
+    ndvi
+
+
+### list-queue
+
+List messages in the backlog (work not yet started)
+
+    rfq list-queue --topic 'ndvi'
+    eeba0c1642ab11eaa480a4c3f0958f5d
+    ede1296442ab11eabdb9a4c3f0958f5d
+
+List messages in the nextlog (work started but not yet committed)
+
+    rfq list-queue--topic 'ndvi' --queue nextlog
+    eeba0c1642ab11eaa480a4c3f0958f5d
+
+
+### purge-queue
+
+Deletes messages in a queue
+
+    rfq purge-queue --topic 'ndvi'
+    1
+
+
+### publish
+
+Publish messages to a topic
+
+    rfq publish --topic 'ndvi' --message '{ "tile": "T32UNE" }'
+    eeba0c1642ab11eaa480a4c3f0958f5d
+    rfq publish --topic 'ndvi' --message '{ "tile": "T33UVU" }'
+    ede1296442ab11eabdb9a4c3f0958f5d
+
+Note: messages and are a flat map of key-value pairs, see [issue/1](https://github.com/robofarmio/rfq/issues/1)
+
+
+### consume
+
+Consume a message, working on it (dummy sleep), then commit the message when done
+
+    rfq consume --topic 'ndvi'
+    { "tile": "T32UNE" }
+
+
+### harvest
+
+Harvest messages from the nextlog back into the backlog
+
+    rfq harvest --topic 'ndvi'
+    eeba0c1642ab11eaa480a4c3f0958f5d
+
+
+## Design
+
+We provide a reliable FIFO-queue on top of redis' datastructures.
+
+- **Namespace**: by default redis provides a global namespace.
+  To distinguish rfq specific keys we prefix them with `rfq:`
+
+- **Topics**: to group messages we provide the concept of topics.
+  We encode a topic `mytopic` as key prefix `rfq:mytopic:`
+
+- **Messages**: the content of a message is stored as a hash map
+  at `rfq:mytopic:message:uuid` using a uuid
+
+- **Backlog**: the backlog is a list at `rfq:mytopic:backlog`
+  onto which producers append message identifiers to
+
+- **Nextlog**: when consumers pop a message from the backlog, they
+  append it to the next list at `rfq:mytopic:nextlog`. Only
+  after successfully completing a message, the worker
+  commits the message by removing it from the next queue
+
+- **Harvester**: in case of crashing workers, the harvester
+  checks the next list and puts messages back into the backlog
+
+**Notes**:
+- Use [uuid version 1](https://tools.ietf.org/html/rfc4122.html) as message identifiers; they are approximately globally sortable by their timestamp bits
+- Use alphanumerical topics in `[a-z0-9]+` for simplicity and portability
+
+
+## Protocol
+
+The following describes the low level protocol and conventions used in terms of redis commands.
+
+Producer 1
+
+    hmset rfq:mytopic:message:fe84ff90428611eabb02a4c3f0958f5d v 1 op tile
+    lpush rfq:mytopic:backlog fe84ff90428611eabb02a4c3f0958f5d
+
+Producer 2
+
+    hmset rfq:mytopic:message:d97acb20428711eabb02a4c3f0958f5d v 1 op ndvi
+    lpush rfq:mytopic:backlog d97acb20428711eabb02a4c3f0958f5d
+
+Consumer 1
+
+    rpoplpush rfq:mytopic:backlog rfq:mytopic:nextlog
+    lrem rfq:mytopic:nextlog 0 fe84ff90428611eabb02a4c3f0958f5d
+    del rfq:mytopic:message:d97acb20428711eabb02a4c3f0958f5d
+
+Consumer 2
+
+    rpoplpush rfq:mytopic:backlog rfq:mytopic:nextlog
+    # crashes, never commits d97acb20428711eabb02a4c3f0958f5d
+
+Harvester
+
+    lrange rfq:mytopic:nextlog 0 -1
+    lpush rfq:mytopic:backlog d97acb20428711eabb02a4c3f0958f5d
+    lrem rfq:mytopic:nextlog 0 d97acb20428711eabb02a4c3f0958f5d
+
+
+## License
+
+Copyright © 2020 robofarm
+
+Distributed under the MIT License (MIT).
+
