@@ -1,0 +1,3 @@
+[console_scripts]
+sectile = sectile.command_line:main
+
