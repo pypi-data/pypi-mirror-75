@@ -1,0 +1,3 @@
+[console_scripts]
+pyhpserver = doreah.pyhp2:run_testserver
+
