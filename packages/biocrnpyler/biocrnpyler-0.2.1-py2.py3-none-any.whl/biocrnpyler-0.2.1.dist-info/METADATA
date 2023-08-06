@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: biocrnpyler
+Version: 0.2.1
+Summary: A chemical reaction network compiler for generating large biological circuit models
+Home-page: https://github.com/BuildACell/biocrnplyler/
+Author: BuildACell
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: OS Independent
+Requires-Dist: python-libsbml
+Requires-Dist: numpy
+Requires-Dist: matplotlib (<=3.2.2)
+Requires-Dist: networkx
+Requires-Dist: bokeh (==1.4.0)
+Requires-Dist: fa2
+
+# BioCRNPyler -- Biomolecular Chemical Reaction Network Compiler
+## Python toolbox to create CRN models in SBML for biomolecular mechanisms 
+
+[![Build Status](https://travis-ci.com/BuildACell/BioCRNPyler.svg?branch=master)](https://travis-ci.com/BuildACell/BioCRNPyler)
+[![codecov](https://codecov.io/gh/BuildACell/BioCRNPyler/branch/master/graph/badge.svg)](https://codecov.io/gh/BuildACell/BioCRNPyler)
+
+
