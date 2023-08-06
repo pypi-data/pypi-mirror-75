@@ -1,0 +1,35 @@
+#################################################################
+# bcl2fastq
+#
+# :Parameters:
+#
+#   intensities are expected to be found in input_directory/Data/Intensities
+#   Base call data are to be found in input_directory/Data/Intensities/BaseCalls
+#
+#   if merge_all_lanes is set to True, merged all lanes. This must be used with
+#   NextSeq sequencers for instance.
+#
+
+input_directory: /home/cokelaer/Work/github/sequana_demultiplex/singularity/bcl2
+
+###################################################################################
+#
+#
+#
+# --ignore_missing_bcls: interpret missing *.bcl files as no call (N)
+# --write-fastq-reverse-complement:  generate FASTQs containing reverse complements of actual data
+# --no-bgzf-compression: turn off BGZF compression for FASTQ files
+# --barcode-mismatches:  number of allowed mismatches per index
+# merge_all_lanes: if false, use the --no-lane-splitting option
+bcl2fastq:
+    threads: 4
+    barcode_mismatch: 0
+    samplesheet_file: /home/cokelaer/Work/github/sequana_demultiplex/singularity/SampleSheet.csv
+    output_directory: .
+    ignore_missing_bcls: true
+    no_bgzf_compression: true
+    options: ''
+    merge_all_lanes: true
+    write_fastq_reverse_complement: false
+
+
