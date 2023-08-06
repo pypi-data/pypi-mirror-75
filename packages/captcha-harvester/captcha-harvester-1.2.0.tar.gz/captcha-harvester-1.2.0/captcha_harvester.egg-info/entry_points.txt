@@ -1,0 +1,3 @@
+[console_scripts]
+harvester = harvester.entry_point:entry_point
+
