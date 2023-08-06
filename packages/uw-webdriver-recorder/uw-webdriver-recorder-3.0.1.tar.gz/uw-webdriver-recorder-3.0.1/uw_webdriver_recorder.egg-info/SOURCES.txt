@@ -1,0 +1,14 @@
+MANIFEST.in
+README.md
+setup.py
+uw_webdriver_recorder.egg-info/PKG-INFO
+uw_webdriver_recorder.egg-info/SOURCES.txt
+uw_webdriver_recorder.egg-info/dependency_links.txt
+uw_webdriver_recorder.egg-info/entry_points.txt
+uw_webdriver_recorder.egg-info/requires.txt
+uw_webdriver_recorder.egg-info/top_level.txt
+webdriver_recorder/VERSION
+webdriver_recorder/__init__.py
+webdriver_recorder/browser.py
+webdriver_recorder/plugin.py
+webdriver_recorder/report.template.html
