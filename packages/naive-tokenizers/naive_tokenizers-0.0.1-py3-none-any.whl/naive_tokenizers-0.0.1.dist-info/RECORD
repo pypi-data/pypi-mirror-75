@@ -1,0 +1,14 @@
+naive_tokenizers/__init__.py,sha256=LN15tafoB0P2NJNftmlRV8TpBVVyp3gxzSZ83Yfli9k,336
+naive_tokenizers/abstract_tokenizer.py,sha256=Rse3FZFL3tpfV5_DxXktyWhbldGIAv2ImCbEPqEuQEE,7001
+naive_tokenizers/bert_tokenizer.py,sha256=jOvIWEPPbCURWpo2FTmnH22rXZdympTgLT7URQ5B7iI,319
+naive_tokenizers/bert_tokenizer_test.py,sha256=1FkmQkAMwzRxfS_V4Qo8omdU_EfjPB3A8PBRZhB9qAQ,1646
+naive_tokenizers/jieba_tokenizer.py,sha256=-GBFaBXttpd8h67oK9rVkGGLHz9BHVwiJvSv34Rncpk,1552
+naive_tokenizers/jieba_tokenizer_test.py,sha256=1kNkECLI_7VWE1Ie8LtDh3FNLezSWTi5Ypoj5BkB-5M,3272
+naive_tokenizers/tokenizer.py,sha256=rZ7cfdiEidhBmfPCQxJpdNYYbdHtFX3u6QwhiTWLMkU,10173
+naive_tokenizers/transformer_tokenizer.py,sha256=7YI1j3YUK3B6i7xu3KjGylC4VOthw40b589gDAGhFtk,2034
+naive_tokenizers/transformers_tokenizer_test.py,sha256=TWjey-fv4Th4jfrzvWtcu1_dOQHSJU7nGqeFyPHkAxM,879
+naive_tokenizers-0.0.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+naive_tokenizers-0.0.1.dist-info/METADATA,sha256=8Q4Lj1qDFbu0-FMr65-IQi2UjpFphsj17fsoDBCUNJU,798
+naive_tokenizers-0.0.1.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+naive_tokenizers-0.0.1.dist-info/top_level.txt,sha256=2jSTEfwOGAEnDiDtj39j2IXw5VcpZEMoIAArY9-YGy4,17
+naive_tokenizers-0.0.1.dist-info/RECORD,,
