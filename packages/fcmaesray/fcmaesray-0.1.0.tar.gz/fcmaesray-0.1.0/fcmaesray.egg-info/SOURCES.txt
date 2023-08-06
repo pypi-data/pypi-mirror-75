@@ -1,0 +1,10 @@
+MANIFEST.in
+README.md
+setup.py
+fcmaesray/__init__.py
+fcmaesray/rayretry.py
+fcmaesray.egg-info/PKG-INFO
+fcmaesray.egg-info/SOURCES.txt
+fcmaesray.egg-info/dependency_links.txt
+fcmaesray.egg-info/requires.txt
+fcmaesray.egg-info/top_level.txt
