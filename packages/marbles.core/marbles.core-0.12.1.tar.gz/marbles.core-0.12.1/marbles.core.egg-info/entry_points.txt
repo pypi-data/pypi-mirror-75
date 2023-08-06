@@ -1,0 +1,3 @@
+[distutils.commands]
+marbles = marbles.setuptools:MarblesTestCommand
+
