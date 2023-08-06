@@ -1,0 +1,202 @@
+# Koia
+
+## Installation
+Via github
+```
+git clone https://github.com/Kel0/koia.git
+pip install invoke
+inv install
+```   
+Via pip
+```
+pip install koia
+```
+## Code example
+
+### Get data
+```
+from typing import Dict
+
+from koia.connector import Database
+from koia.FetchBuilder import FetchBuilder
+
+database: Database = Database(config={
+    "host": "host",
+    "user": "root",
+    "password": "1234",
+    "database": "base"
+}, autocommit=False)
+fetch_builder: FetchBuilder = FetchBuilder(database=database)
+
+data: list = (
+    fetch_builder.table("myTable")
+    .where("column", "=", value)
+    .orWhere("column", "LIKE", f"%{value}%")
+    .whereNotNull("column")
+    .whereIn("column", [value1, value2])
+    .orderBy("column", "DESC")
+    .take(2)
+    .get()
+)
+```
+Some details
+```
+(
+    fetch_builder.table("myTable")
+    .where("column", "=", value)
+    .orWhere("column", "LIKE", f"%{value}%")
+    .whereNotNull("column")
+    .whereIn("column", [value1, value2])
+    .orderBy("column", "DESC")
+    .take(2)
+    .get()
+) -> SELECT * FROM myTable 
+        WHERE `column` = value 
+        OR `column` LIKE '%value%'
+        AND `column` IS NOT NULL 
+        AND `column` IN (value1, value2)
+        ORDER BY `column` DESC
+        LIMIT 2
+```
+
+### Inner join
+```
+from typing import Dict
+
+from koia.connector import Database
+from koia.FetchBuilder import FetchBuilder
+
+database: Database = Database(config={
+    "host": "host",
+    "user": "root",
+    "password": "1234",
+    "database": "base"
+}, autocommit=False)
+fetch_builder: FetchBuilder = FetchBuilder(database=database)
+
+data: list = (
+    fetch_builder.table("myTable")
+    .innerJoin(table="myTable2", specification={
+        "myTable.id": "myTable2.id", "myTable.col": "myTable2.col"
+    })
+    .innerJoin(table="myTable3", specification={
+        "myTable.id": "myTable3.id", "myTable.col": "myTable3.col"
+    })
+    .whereNotNull("column")
+    .get()
+)
+```
+Some details
+```
+data = (
+    fetch_builder.table("myTable")
+    .innerJoin(table="myTable2", specification={
+        "myTable2.id": "myTable.id", "myTable2.col": "myTable.col"
+    })
+    .innerJoin(table="myTable3", specification={
+        "myTable3.id": "myTable.id", "myTable3.col": "myTable.col"
+    })
+    .whereNotNull("column")
+    .get()
+) -> SELECT * FROM myTable 
+        INNER JOIN myTable2 ON (myTable2.id = myTable.id) and (myTable2.col = myTable.col)
+        INNER JOIN myTable2 ON (myTable3.id = myTable.id) and (myTable3.col = myTable.col)
+        WHERE `column` IS NOT NULL
+```
+
+### Insert data
+```
+from typing import Dict
+
+from koia.connector import Database
+from koia.FetchBuilder import FetchBuilder
+
+database: Database = Database(config={
+    "host": "host",
+    "user": "root",
+    "password": "1234",
+    "database": "base"
+}, autocommit=False)
+fetch_builder: FetchBuilder = FetchBuilder(database=database)
+(
+    fetch_builder.table("myTable")
+    .insert({
+        "column": "value"
+    })
+)
+```
+Some details
+```
+(
+    fetch_builder.table("myTable")
+    .insert({
+        "column": "value"
+    })
+) -> INSERT INTO myTable
+        (`column`) VALUES (value)
+```
+
+### Update data
+```
+from typing import Dict
+
+from koia.connector import Database
+from koia.FetchBuilder import FetchBuilder
+
+database: Database = Database(config={
+    "host": "host",
+    "user": "root",
+    "password": "1234",
+    "database": "base"
+}, autocommit=False)
+fetch_builder: FetchBuilder = FetchBuilder(database=database)
+(
+    fetch_builder.table("myTable")
+    .update({
+        "column": "value"
+    })
+    .where("column", "LIKE", "%{value}%")
+)
+```
+Some details
+```
+(
+    fetch_builder.table("myTable")
+    .update({
+        "column": "value"
+    })
+    .where("column", "LIKE", "%{value}%")
+) -> UPDATE myTable SET `column` = value
+        WHERE `column` LIKE '%value%'
+```
+## Models
+```
+from dataclasses import dataclass
+
+from koia.database.connector import Database
+from koia.models.model import BaseModel
+from koia.types.model_types import String, Integer, Float, Text, Column
+
+
+@dataclass
+class CurrentDatabase:
+    database: Database = Database(
+        config={
+            "host": "host",
+            "user": "root",
+            "password": "1234",
+            "database": "base"
+        },
+        autocommit=False
+    )
+    
+    
+class City_code(BaseModel):
+    __tablename__ = "city_codes"
+    database: Database = CurrentDatabase.database
+    id = Column(Integer, pk=True, autoincrement=True)
+    city_code = Column(String(max_length=225))
+    
+    
+a = City_code().get(filter=["column = value"], orderBy={"col": "DESC"})
+```
