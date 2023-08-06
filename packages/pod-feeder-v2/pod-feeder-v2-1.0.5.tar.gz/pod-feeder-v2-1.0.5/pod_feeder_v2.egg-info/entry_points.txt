@@ -1,0 +1,4 @@
+[console_scripts]
+pf-clean-db = pod_feeder_v2.clean_db:main
+pod-feeder = pod_feeder_v2.pod_feeder:main
+
