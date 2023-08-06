@@ -1,0 +1,293 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Line Tutorial &#8212; AstroCabTools 0.9.3 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="All_tools Tutorial" href="all_tools_tutorial.html" />
+    <link rel="prev" title="Mrs_det_plot tutorial" href="mrs_det_plot_tutorial.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="all_tools_tutorial.html" title="All_tools Tutorial"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="mrs_det_plot_tutorial.html" title="Mrs_det_plot tutorial"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AstroCabTools 0.9.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Fit Line Tutorial</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="fit-line-tutorial">
+<span id="id1"></span><h1>Fit Line Tutorial<a class="headerlink" href="#fit-line-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Fit_Line allows to make multiple gaussian fitted models based on the spectrum loaded and represented. Once a model has been created, the parameters associated with the fitting model for each one can be seen and saved on a text file separately.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<ol class="arabic simple">
+<li><p>Only one spectrum can be loaded at the same time, this spectrum needs to accomplish the next structure to be able to be loaded:</p></li>
+<li><p>The spectrum file extension must be a text file or a fits file.</p></li>
+<li><p>The encoding of the file must be UTF-8.</p></li>
+<li><p>The wavelength and flux values must appear each one on two columns.</p></li>
+</ol>
+</div>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>To execute and use the too, the next libraries need to be installed:</p>
+<ul class="simple">
+<li><p>Python (tested for 3.8.0)</p></li>
+<li><p>Matplotlib (tested for 3.1.2)</p></li>
+<li><p>Numpy (tested for 1.81.1)</p></li>
+<li><p>PyQt5 (tested for 5.14.0)</p></li>
+<li><p>Seaborn (tested for 0.9.0)</p></li>
+<li><p>Lmfit (tested for 1.0.0)</p></li>
+<li><p>PyPubSub (tested for 4.0.3)</p></li>
+</ul>
+</div>
+<div class="section" id="initial-display">
+<h2>Initial display<a class="headerlink" href="#initial-display" title="Permalink to this headline">¶</a></h2>
+<p>After the tool is loaded, a window with multiple buttons on the top and on the bottom of it, that will be explained later, will appear. Those buttons interact with the spectrum that will appear on the canvas.</p>
+</div>
+<div class="section" id="data-insertion">
+<h2>Data insertion<a class="headerlink" href="#data-insertion" title="Permalink to this headline">¶</a></h2>
+<p>To be able to interact with the spectrum and to create gaussian fitted models, the button on the top left of the window need to be pressed, showing a new window which will allow to select the spectrum to be loaded and it’s associated parameters that can be modified (see <a class="reference internal" href="mrs_chan_tutorial.html#figure1"><span class="std std-numref">Fig. 1</span></a>).</p>
+<div class="figure align-default" id="figure1">
+<img alt="_images/proj4-in1.png" src="_images/proj4-in1.png" />
+</div>
+<p>Once a file has been selected, several parameters can be modified (see <a class="reference internal" href="mrs_chan_tutorial.html#figure2"><span class="std std-numref">Fig. 2</span></a>):</p>
+<ul class="simple">
+<li><p>The redshift that is going to be applied to both values after they have been transformed, if necessary</p></li>
+<li><p>The columns where the values are. By default, the wavelength and flux column are located in column 0 and column 1 respectively.</p></li>
+<li><p>The units both columns are in order to transform into ‘erg/cm2/s/um’ and ‘uj’.</p></li>
+</ul>
+<div class="figure align-default" id="figure2">
+<img alt="_images/proj4-in2.png" src="_images/proj4-in2.png" />
+</div>
+</div>
+<div class="section" id="spectrum-interaction">
+<h2>Spectrum interaction<a class="headerlink" href="#spectrum-interaction" title="Permalink to this headline">¶</a></h2>
+<p>Once the spectrum is seleced in the previous window and it’s parameters applied, this willl be represented on the main window with all the buttons avaliable.</p>
+<div class="figure align-default" id="figure3">
+<img alt="_images/proj4-re1.png" src="_images/proj4-re1.png" />
+</div>
+<p>To interact with the spectrum in order to investigate in what are the gaussian or gaussians fitted models will be applied, several options are avaliable.</p>
+<ul class="simple">
+<li><p>Pressing the “click” button, will deactivate all possibility to zoom or pan the spectrum representation.</p></li>
+<li><p>Pressing the “zoom” button allow to “zoom in” and “zoom out” the representation, selecting the rectangle area that is going to be “zoomed” or “zoomed out”, pressing the left or right button, respectively.</p></li>
+<li><p>Pressing the “pan” button allows to move, pressing the left button, the spectrum to the desired area.</p></li>
+<li><p>Pressing the “zoom fit” button will centre the visualization to the initial bounds values of the spectrum.</p></li>
+<li><p>Pressing the “undo zoom” button will undo the previous zoom actuon made, with the possibility to undo all zoom actions recursively. The pan actions are not taken in count in this undo option.</p></li>
+</ul>
+</div>
+<div class="section" id="gauss-fitted-model-creation">
+<h2>Gauss fitted model creation<a class="headerlink" href="#gauss-fitted-model-creation" title="Permalink to this headline">¶</a></h2>
+<p>The main feature is the possibility to create multiple gauss fitted models along the spectrum visualization.</p>
+<p>First of all the model that is going to be used to make the fitted models need to be selected from the list that is in the middle of the button area (see <a class="reference internal" href="mrs_spec_chan_tutorial.html#figure5"><span class="std std-numref">Fig. 10</span></a>).</p>
+<div class="figure align-default" id="figure5">
+<img alt="_images/proj4-re2.png" src="_images/proj4-re2.png" />
+</div>
+<p>Once the model has been selected, to create each gauss fitted model, the “mark points” button need to be pressed, after that, different parameters,up to eight, need to be obtained, to get the fitted model, these parameters will be updated after double clicking on a selected point for each one.</p>
+<p>To know which parameter is going to get it’s values, a label above the canvas will appear indicating it, as shown in <a class="reference internal" href="mrs_spec_chan_tutorial.html#figure6"><span class="std std-numref">Fig. 11</span></a>.</p>
+<div class="figure align-default" id="figure6">
+<img alt="_images/proj4-re3.png" src="_images/proj4-re3.png" />
+</div>
+<p>If the model that is being made is not the right one, or if a new model wants to be created, the same button that creates it, can be clicked to perform these actions.</p>
+</div>
+<div class="section" id="gauss-fitted-model-results">
+<h2>Gauss fitted model results<a class="headerlink" href="#gauss-fitted-model-results" title="Permalink to this headline">¶</a></h2>
+<p>After all five or egith points have been selected, different figures will appear on the canvas:</p>
+<ul class="simple">
+<li><p>Initial fit figure(s): Models where for each X value, the Y values are the result of applying the initial parameters values to it on each gaussian model.</p></li>
+<li><p>Best fit figure: The resulting gaussian fitted model from the function specified.</p></li>
+<li><p>Gausss fited model figure(s): Representation of the gaussian fitted models for each gaussian assigned.</p></li>
+<li><p>Line fitted model figure: Representation of the line fitted model.</p></li>
+</ul>
+<div class="figure align-default" id="figure7">
+<img alt="_images/proj4-re4.png" src="_images/proj4-re4.png" />
+</div>
+</div>
+<div class="section" id="erase-options">
+<h2>Erase options<a class="headerlink" href="#erase-options" title="Permalink to this headline">¶</a></h2>
+<p>At the bottom of the main window, several buttons allow to perform different erase options (see <a class="reference internal" href="mrs_spec_chan_tutorial.html#figure8"><span class="std std-numref">Fig. 13</span></a>):</p>
+<ul class="simple">
+<li><p>Pressing the “Clear all” will delete all the models and spectrum figure, which disable all the buttons except for the one that load the spectrum.</p></li>
+<li><p>Pressing the “Clear fitted models” will delete only the modelas and all it’s data.</p></li>
+<li><p>Pressing the “Clear last model” will delete only the last model and it’s figures that have been made</p></li>
+</ul>
+<div class="figure align-default" id="figure8">
+<img alt="_images/proj4-re5.png" src="_images/proj4-re5.png" />
+</div>
+</div>
+<div class="section" id="gauss-fitted-model-data">
+<h2>Gauss fitted model data<a class="headerlink" href="#gauss-fitted-model-data" title="Permalink to this headline">¶</a></h2>
+<p>After the spectrum figure has been drawn on the canvas, the “Data” button at the top right of the main window will be avaliable, however once clicked, it will show an empty list, with a button at the bottom of the new window. Once at least one fitted model has been made, several parameters will appear in the list, as it can be see in <a class="reference internal" href="mrs_spec_chan_tutorial.html#figure9"><span class="std std-numref">Fig. 14</span></a>:ç</p>
+<ul class="simple">
+<li><p>The gaussian and line fitted function with it’s selected parámeters.</p></li>
+<li><p>The flux density value in (PONER DATO) for each gaussian fitted model.</p></li>
+<li><p>Each parameter selected that have been used to created the fitted model.</p></li>
+<li><p>THe chi-squared value.</p></li>
+</ul>
+<div class="figure align-default" id="figure9">
+<img alt="_images/proj4-re6.png" src="_images/proj4-re6.png" />
+</div>
+<p>For each model that hass been created, it’s parameters and fitted functions will appear on the new window.</p>
+<p>Additionally, all the data can be saved on a txt with a capture of the current state of the spectrum representation as well as the residual comparsion representation of each model clicking the “Save data” button at the bottom of it.</p>
+</div>
+<div class="section" id="show-residuals">
+<h2>Show residuals<a class="headerlink" href="#show-residuals" title="Permalink to this headline">¶</a></h2>
+<p>For each fitted model, the residuals can be seen after double clicking in the model from the data list, which will made to appear a new window with two plots. Both plots will be represented along the X axis range of values selected in the model. THe first plot will show the spectrum along with the fitted model, and the second will show the residuales derivate from the spectrum and the fitted model values (see <a class="reference internal" href="mrs_spec_chan_tutorial.html#figure10"><span class="std std-numref">Fig. 15</span></a>).</p>
+<div class="figure align-default" id="figure10">
+<img alt="_images/proj4-re7.png" src="_images/proj4-re7.png" />
+</div>
+<p>Both plots allow to zoom and pan with the mouse wheel and the left click as well as to be saved as a “png” file with the button located below them.</p>
+</div>
+<div class="section" id="save-figure-image">
+<h2>Save figure image<a class="headerlink" href="#save-figure-image" title="Permalink to this headline">¶</a></h2>
+<p>It’s also possible to save only the current state of the canvas as a “png” clicking the “Save as png” button at the main window (see <a class="reference internal" href="#figure11"><span class="std std-numref">Fig. 40</span></a>).</p>
+<div class="figure align-default" id="figure11">
+<img alt="_images/proj4-re8.png" src="_images/proj4-re8.png" />
+</div>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="example-1">
+<h3>Example 1<a class="headerlink" href="#example-1" title="Permalink to this headline">¶</a></h3>
+<p>This example shows the data obtained after creating two models, for that, a figure of the spectrum has been loaded into the canvas from the filed added in the templates folder called “cumulo.txt”, and after following the steps to create two models (see <a class="reference internal" href="mrs_chan_tutorial.html#example1"><span class="std std-numref">Fig. 4</span></a>), the “See data” button has been clicked, whcih shows all parameres and fitted functions related to both models (see <a class="reference internal" href="mrs_chan_tutorial.html#example2"><span class="std std-numref">Fig. 5</span></a>).</p>
+<div class="figure align-default" id="example1">
+<img alt="_images/proj4-re9.png" src="_images/proj4-re9.png" />
+</div>
+<div class="figure align-default" id="example2">
+<img alt="_images/proj4-re10.png" src="_images/proj4-re10.png" />
+</div>
+</div>
+<div class="section" id="example-2">
+<h3>Example 2<a class="headerlink" href="#example-2" title="Permalink to this headline">¶</a></h3>
+<p>In this example, a double gaussian model has been selected to created the fitted one as it can be seen in <a class="reference internal" href="mrs_det_plot_tutorial.html#example3"><span class="std std-numref">Fig. 29</span></a>.</p>
+<div class="figure align-default" id="example3">
+<img alt="_images/proj4-re11.png" src="_images/proj4-re11.png" />
+</div>
+<p>After the fitted models has been created, the data and the residuals can be seen (see <a class="reference internal" href="#example5"><span class="std std-numref">Fig. 45</span></a>) by double clicking on the data from the data list window in <a class="reference internal" href="mrs_det_plot_tutorial.html#example4"><span class="std std-numref">Fig. 30</span></a>.</p>
+<div class="figure align-default" id="example4">
+<img alt="_images/proj4-re12.png" src="_images/proj4-re12.png" />
+</div>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="figure align-default" id="example5">
+<img alt="_images/proj4-re13.png" src="_images/proj4-re13.png" />
+</div>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Fit Line Tutorial</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#initial-display">Initial display</a></li>
+<li><a class="reference internal" href="#data-insertion">Data insertion</a></li>
+<li><a class="reference internal" href="#spectrum-interaction">Spectrum interaction</a></li>
+<li><a class="reference internal" href="#gauss-fitted-model-creation">Gauss fitted model creation</a></li>
+<li><a class="reference internal" href="#gauss-fitted-model-results">Gauss fitted model results</a></li>
+<li><a class="reference internal" href="#erase-options">Erase options</a></li>
+<li><a class="reference internal" href="#gauss-fitted-model-data">Gauss fitted model data</a></li>
+<li><a class="reference internal" href="#show-residuals">Show residuals</a></li>
+<li><a class="reference internal" href="#save-figure-image">Save figure image</a></li>
+<li><a class="reference internal" href="#examples">Examples</a><ul>
+<li><a class="reference internal" href="#example-1">Example 1</a></li>
+<li><a class="reference internal" href="#example-2">Example 2</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="mrs_det_plot_tutorial.html"
+                        title="previous chapter">Mrs_det_plot tutorial</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="all_tools_tutorial.html"
+                        title="next chapter">All_tools Tutorial</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/fit_line_tutorial.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="all_tools_tutorial.html" title="All_tools Tutorial"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="mrs_det_plot_tutorial.html" title="Mrs_det_plot tutorial"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AstroCabTools 0.9.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Fit Line Tutorial</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Alejandro Gorgues.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
+    </div>
+  </body>
+</html>

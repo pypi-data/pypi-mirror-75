@@ -1,0 +1,179 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mrs_chan tutorial &#8212; AstroCabTools 0.9.3 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mrs_spec_chan tutorial" href="mrs_spec_chan_tutorial.html" />
+    <link rel="prev" title="Welcome to AstroCabTools" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mrs_spec_chan_tutorial.html" title="Mrs_spec_chan tutorial"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to AstroCabTools"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AstroCabTools 0.9.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Mrs_chan tutorial</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="mrs-chan-tutorial">
+<span id="id1"></span><h1>Mrs_chan tutorial<a class="headerlink" href="#mrs-chan-tutorial" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Mrs_chan transforms and represents a user given emitted wavelength (<span class="math notranslate nohighlight">\(\mu m\)</span>) and redshift into an observed wavelength and the MRS sub-band where it will fall (using the ranges for sub-bands given in <a class="footnote-reference brackets" href="#id3" id="id2">1</a>). The emitted wavelength is shifted into an observed wavelength using the standard Doppler effect transformation</p>
+<div class="math notranslate nohighlight">
+\[\lambda_{obs} = \lambda_{emit}x(1 + z)\]</div>
+<dl class="footnote brackets">
+<dt class="label" id="id3"><span class="brackets"><a class="fn-backref" href="#id2">1</a></span></dt>
+<dd><p><a class="reference external" href="https://iopscience.iop.org/article/10.1086/682281/pdf">The Mid-Infrared Instrument for the JamesWebbSpaceTelescope, VI:The Medium Resolution Spectrometer</a></p>
+</dd>
+</dl>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>To execute and use the tool, the next libraries need to be installed:</p>
+<ul class="simple">
+<li><p>Python (tested for 3.8)</p></li>
+<li><p>Matplotlib (tested for 3.1.2)</p></li>
+<li><p>Numpy (tested 1.8.1.1)</p></li>
+<li><p>PyQt5 (tested for 5.14.0)</p></li>
+<li><p>Seaborn (tested for 0.9.0)</p></li>
+</ul>
+</div>
+<div class="section" id="data-insertion">
+<h2>Data insertion<a class="headerlink" href="#data-insertion" title="Permalink to this headline">¶</a></h2>
+<p>To obtain the desired results, the values of the emitted wavelength and the redshift need to be know and inserted accordingly to the labels near the first two text boxes on top of the interface.</p>
+<div class="figure align-default" id="figure1">
+<img alt="_images/proj1-in1.PNG" src="_images/proj1-in1.PNG" />
+</div>
+<p>Once both values have been written, the “Calculate” button must be pushed in order to start the operations that will show where the observed wavelength is located.</p>
+<div class="figure align-default" id="figure2">
+<img alt="_images/proj1-in2.PNG" src="_images/proj1-in2.PNG" />
+</div>
+</div>
+<div class="section" id="results">
+<h2>Results<a class="headerlink" href="#results" title="Permalink to this headline">¶</a></h2>
+<p>The results are shown in two different componentes:</p>
+<ol class="arabic simple">
+<li><p>Two text boxes that will print the list of sub band(s) where the observed wavelength itself as show in <a class="reference internal" href="#figure3"><span class="std std-numref">Fig. 3</span></a>.</p></li>
+</ol>
+<div class="figure align-default" id="figure3">
+<img alt="_images/proj1-re1.PNG" src="_images/proj1-re1.PNG" />
+</div>
+<ol class="arabic simple">
+<li><p>A canvas where it will draw where the wavelength or wavelengths is located within the MRS sub bands. Based on the value specificacion for each channel from MRS, the wavelength will only be located on one or two sub bands.</p></li>
+</ol>
+</div>
+<div class="section" id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>On the first example, if an emitted wavelength and redshift values of 6.0 and 2.0 are inserted respectively, the observed wavelength which value is 18 will be situated in two subbdans (3C and 4A). THe output consists of two plots, each one associated with each sub band, which is shown in <a class="reference internal" href="#example1"><span class="std std-numref">Fig. 4</span></a>.</p>
+<div class="figure align-default" id="example1">
+<img alt="_images/proj1-re2.PNG" src="_images/proj1-re2.PNG" />
+</div>
+<p>On the second example, if the redshift value change from the first example from 2.0 to 1.0, the output consists of only one graph, according with the quantity of sub bands that the wavelength is in, which is 3A, shown in <a class="reference internal" href="#example2"><span class="std std-numref">Fig. 5</span></a>.</p>
+<div class="figure align-default" id="example2">
+<img alt="_images/proj1-re3.PNG" src="_images/proj1-re3.PNG" />
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Mrs_chan tutorial</a><ul>
+<li><a class="reference internal" href="#overview">Overview</a></li>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#data-insertion">Data insertion</a></li>
+<li><a class="reference internal" href="#results">Results</a></li>
+<li><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to AstroCabTools</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mrs_spec_chan_tutorial.html"
+                        title="next chapter">Mrs_spec_chan tutorial</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/mrs_chan_tutorial.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mrs_spec_chan_tutorial.html" title="Mrs_spec_chan tutorial"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to AstroCabTools"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">AstroCabTools 0.9.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Mrs_chan tutorial</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Alejandro Gorgues.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,245 @@
+
+
+<!doctype html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to AstroCabTools &#8212; AstroCabTools 0.9.3 documentation</title>
+    <link rel="stylesheet" href="_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script src="_static/bizstyle.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mrs_chan tutorial" href="mrs_chan_tutorial.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head><body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="mrs_chan_tutorial.html" title="Mrs_chan tutorial"
+             accesskey="N">next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">AstroCabTools 0.9.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to AstroCabTools</a></li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="welcome-to-astrocabtools">
+<h1>Welcome to AstroCabTools<a class="headerlink" href="#welcome-to-astrocabtools" title="Permalink to this headline">¶</a></h1>
+<p>Set of tools that analize data from JWST in Python</p>
+<p>Current version is 0.9.3</p>
+<div class="section" id="acknowledgment">
+<h2>Acknowledgment<a class="headerlink" href="#acknowledgment" title="Permalink to this headline">¶</a></h2>
+<p>This work has been partially funded by the Ministerio de Ciencia e Innovación through its program “promoción de empleo joven e implantación de la Garantía Juvenil en I+D+i 2018, PEJ2018-002877-A”, the Comunidad de Madrid through the Atracción de Talento grant 2017-T1/TIC-5213, and he Spanish State Research Agency (AEI) Project MDM-2017-0737 Unidad de Excelencia “María de Maeztu”- Centro de Astrobiología (CSIC-INTA).</p>
+<img alt="_images/LogoFinal.png" src="_images/LogoFinal.png" />
+</div>
+<div class="section" id="key-features">
+<h2>Key Features<a class="headerlink" href="#key-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Integrate processing tools, algorithms, visualizationd and data analyisis of images and 3D infrarred spectroscopy for the James Webb Espacial Telescope (JWST).</p></li>
+<li><p>Integration of JWST calibrated data and advance products into astronomic data bases and astrophisics specialized packages.</p></li>
+<li><p>Developing of procedures to the JWST data combination and the joint analyisis of large volumes of data.</p></li>
+<li><p>Simulation and study of observations made from the MIRI tool of the JWST with the MIRISim simulator.</p></li>
+</ul>
+</div>
+<div class="section" id="libraries-used">
+<h2>Libraries Used<a class="headerlink" href="#libraries-used" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p><a class="reference external" href="https://wiki.python.org/moin/PyQt">PyQt</a> - Binding of C++ GUI library.</p></li>
+<li><p><a class="reference external" href="https://numpy.org/">Numpy</a> - Library that allow large data manipulation in python.</p></li>
+<li><p><a class="reference external" href="https://matplotlib.org/">Matplotlib</a> - Grpah visualization library.</p></li>
+<li><p><a class="reference external" href="https://www.astropy.org/">Astropy</a> - Collection of software packages used for astronomy.</p></li>
+<li><p><a class="reference external" href="https://seaborn.pydata.org/">Seaborn</a> - Statistical data visualization.</p></li>
+<li><p><a class="reference external" href="https://lmfit.github.io//lmfit-py/">Lmfit</a> - Non-Linear Least-Squares Minimization and Curve-Fitting for python.</p></li>
+<li><p><a class="reference external" href="https://github.com/schollii/pypubsub/">PyPubSub</a> - Package that provides a publish-subscrive API.</p></li>
+</ul>
+</div>
+<div class="section" id="tools-installation">
+<h2>Tools Installation<a class="headerlink" href="#tools-installation" title="Permalink to this headline">¶</a></h2>
+<p>Because the tools are not loaded into pip,
+they need to be downloaded or cloned with the next command:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ clone url
+</pre></div>
+</div>
+<p>After the package has been downloaded, it need to be installed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python install
+</pre></div>
+</div>
+</div>
+<div class="section" id="tools-execution">
+<h2>Tools execution<a class="headerlink" href="#tools-execution" title="Permalink to this headline">¶</a></h2>
+<p>all_tools execution:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ allTools
+</pre></div>
+</div>
+<p>mrs_chan execution:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ bandChan
+</pre></div>
+</div>
+<p>mrs_spec_chan execution:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ specChan
+</pre></div>
+</div>
+<p>mrs_det_plot execution:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ detPlot
+</pre></div>
+</div>
+<p>fit_line execution:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ fitLine
+</pre></div>
+</div>
+</div>
+<div class="section" id="tutorials">
+<h2>Tutorials<a class="headerlink" href="#tutorials" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p><a class="reference internal" href="mrs_chan_tutorial.html#mrs-chan-tutorial"><span class="std std-ref">Mrs_chan tutorial</span></a></p></li>
+<li><p><a class="reference internal" href="mrs_spec_chan_tutorial.html#mrs-spec-chan-tutorial"><span class="std std-ref">Mrs_spec_chan tutorial</span></a></p></li>
+<li><p><a class="reference internal" href="mrs_det_plot_tutorial.html#mrs-det-plot-tutorial"><span class="std std-ref">Mrs_det_plot tutorial</span></a></p></li>
+<li><p><a class="reference internal" href="fit_line_tutorial.html#fit-line-tutorial"><span class="std std-ref">Fit Line Tutorial</span></a></p></li>
+<li><p><a class="reference internal" href="all_tools_tutorial.html#all-tools-tutorial"><span class="std std-ref">All_tools Tutorial</span></a></p></li>
+</ol>
+</div>
+<div class="section" id="authors-and-license">
+<h2>Authors and License<a class="headerlink" href="#authors-and-license" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">AstroCabTools</span></code> package is written mostly by Alejandro Gorgues and Alvaro Labiano.</p>
+<p>It has a custom license.</p>
+</div>
+<div class="section" id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound" id="mastertoc">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="mrs_chan_tutorial.html">Mrs_chan tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mrs_chan_tutorial.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_chan_tutorial.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_chan_tutorial.html#data-insertion">Data insertion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_chan_tutorial.html#results">Results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_chan_tutorial.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mrs_spec_chan_tutorial.html">Mrs_spec_chan tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mrs_spec_chan_tutorial.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_spec_chan_tutorial.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_spec_chan_tutorial.html#data-insertion">Data insertion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_spec_chan_tutorial.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mrs_det_plot_tutorial.html">Mrs_det_plot tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="mrs_det_plot_tutorial.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_det_plot_tutorial.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_det_plot_tutorial.html#initial-display">Initial display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_det_plot_tutorial.html#data-insertion">Data insertion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_det_plot_tutorial.html#image-manipulation">Image manipulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mrs_det_plot_tutorial.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fit_line_tutorial.html">Fit Line Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#initial-display">Initial display</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#data-insertion">Data insertion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#spectrum-interaction">Spectrum interaction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#gauss-fitted-model-creation">Gauss fitted model creation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#gauss-fitted-model-results">Gauss fitted model results</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#erase-options">Erase options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#gauss-fitted-model-data">Gauss fitted model data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#show-residuals">Show residuals</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#save-figure-image">Save figure image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fit_line_tutorial.html#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="all_tools_tutorial.html">All_tools Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="all_tools_tutorial.html#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="all_tools_tutorial.html#requirements">Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="all_tools_tutorial.html#main-window-display">Main window display</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="#">Table of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Welcome to AstroCabTools</a><ul>
+<li><a class="reference internal" href="#acknowledgment">Acknowledgment</a></li>
+<li><a class="reference internal" href="#key-features">Key Features</a></li>
+<li><a class="reference internal" href="#libraries-used">Libraries Used</a></li>
+<li><a class="reference internal" href="#tools-installation">Tools Installation</a></li>
+<li><a class="reference internal" href="#tools-execution">Tools execution</a></li>
+<li><a class="reference internal" href="#tutorials">Tutorials</a></li>
+<li><a class="reference internal" href="#authors-and-license">Authors and License</a></li>
+<li><a class="reference internal" href="#table-of-contents">Table of Contents</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Next topic</h4>
+  <p class="topless"><a href="mrs_chan_tutorial.html"
+                        title="next chapter">Mrs_chan tutorial</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/index.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="mrs_chan_tutorial.html" title="Mrs_chan tutorial"
+             >next</a> |</li>
+        <li class="nav-item nav-item-0"><a href="#">AstroCabTools 0.9.3 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Welcome to AstroCabTools</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2020, Alejandro Gorgues.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 3.1.1.
+    </div>
+  </body>
+</html>
