@@ -1,0 +1,13 @@
+lightgbm<3,>=2
+numpy<2,>=1
+optuna<3,>=2
+numba<1
+
+[dev]
+mypy
+pyflakes
+black
+pylint
+wheel
+twine
+pytype
