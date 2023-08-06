@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: brainframe-cli
+Version: 0.1.3
+Summary: Makes installing and managing a BrainFrame server easy
+Home-page: https://github.com/aotuai/brainframe_cli
+License: BSD-3-Clause
+Author: Aotu
+Author-email: info@aotu.ai
+Requires-Python: >=3.6
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: distro (>=1.5,<2.0)
+Requires-Dist: packaging (>=20.4,<21.0)
+Requires-Dist: python-i18n (>=0.3,<0.4)
+Requires-Dist: pyyaml (>=5.3,<6.0)
+Project-URL: Repository, https://github.com/aotuai/brainframe_cli
+Description-Content-Type: text/x-rst
+
+

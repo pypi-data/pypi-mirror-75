@@ -1,0 +1,3 @@
+[console_scripts]
+brainframe=brainframe.cli.main:main
+
