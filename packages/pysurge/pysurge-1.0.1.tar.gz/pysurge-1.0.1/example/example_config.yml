@@ -1,0 +1,10 @@
+tests:
+- test_class: example_test.ExampleTest
+  kwargs:
+    url: http://localhost:80
+    path: badpath  # this test will repeatedly send a request to a bad url
+  rate: 0.2  # number of tests fired per second ... 0.2 = 1 test every 5 sec
+- test_class: example_test.ExampleTest
+  kwargs:
+    url: http://localhost:80
+  rate: 0.2

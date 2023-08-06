@@ -1,0 +1,19 @@
+language: python
+dist: xenial
+sudo: required
+python:
+- '3.6'
+cache: pip
+install:
+- pip install -r requirements.txt
+script:
+- pre-commit run --all
+deploy:
+  provider: pypi
+  user: __token__
+  distributions: sdist bdist_wheel
+  skip_existing: true
+  on:
+    tags: true
+  password:
+    secure: yOdgSwxV9rLoJoqKCPgiVTSybkG0XaU7G6QwH7gYabKSzLy9zLNMHRsUDh53IIekGzMTc8ivFeA3sJriZg3zFpVtijZIZ6k4pG5WogVCEYEkaWJrvF41QwtRuH13M/u/zVMZp+fEh+1QZt+d2e6Za0etqFm4fpx5f2ea7dHE8/RvLBpNQYTNFqNIugPbnDMU2uR9+pHlFAXC6thkJ88fAvsiMsUqzeqYeSf5D1lCirrcOT8CZQFP9iBsX9qUVSOk4Y/2D/QFI/Jv03jtRg5L2eTzbLW3b2c9JAfpEQcpE9DodagMA+gvF3U0oVqvI0Vw4+mav5hCX9mgTSx6NJz9EaR5Nev96Yu1hbCHF4JdTSmtfNROeLDqrrZakub+KZRKCJiB1ynRHKFlLMHg6xPp5RJ0mwWMWY6z1F4Ibe+FP+HJaV/YAIw4T9zPU6dqLjvMbQ+DtL8+GM1cbix8lEdoOKuWOr88eiYL8aBI0Yz6Kug22ZbBioJC9+j2j3wP49U01uDGXntWgK14IlEkL/ftH2cUpFe4TZpGfK+TE6VnY/49GOmBJa1RZ9za5kj1oDcRUVhTi11992JBqA8RW3fgscbdfjG0kXlDjj4WVavdCnFH0OH9hqWmD7hOw8DUGNpKqWOhGkReWi8Tmsqx5aHxiTaJDjrkYIHQpTVo63cLgx0=
