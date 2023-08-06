@@ -1,0 +1,5 @@
+pbr!=2.1.0,>=2.0.0
+oslo.config>=6.11.0
+oslo.log>=3.44.1
+python-bugzilla>=2.2.0
+py-trello>=0.15.0
