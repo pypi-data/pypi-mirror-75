@@ -1,0 +1,10 @@
+MANIFEST.in
+Readme.rst
+setup.py
+src/SeleniumStats/__init__.py
+src/SeleniumStats/__main__.py
+src/robotframework_browser_migration.egg-info/PKG-INFO
+src/robotframework_browser_migration.egg-info/SOURCES.txt
+src/robotframework_browser_migration.egg-info/dependency_links.txt
+src/robotframework_browser_migration.egg-info/requires.txt
+src/robotframework_browser_migration.egg-info/top_level.txt
