@@ -1,0 +1,4 @@
+[console_scripts]
+satyrn = satyrnUI.__main__:run
+satyrnCLI = satyrnCLI.__main__:start
+
