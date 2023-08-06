@@ -1,0 +1,18 @@
+include README.md
+include CHANGES.rst
+include LICENSE
+include requirements.txt
+include Makefile
+include make.bat
+
+# Documentation
+graft artwork
+graft docs
+prune docs/_build
+
+# Tests
+graft tests
+
+# Patterns to exclude from any directory
+global-exclude *.pyc
+global-exclude *.pyo
