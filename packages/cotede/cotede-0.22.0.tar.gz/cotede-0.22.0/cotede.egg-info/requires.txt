@@ -1,0 +1,15 @@
+numpy>=1.11.1
+scipy>=0.18.0
+oceansdb>=0.8.11
+
+[GSW]
+gsw>=3.0.6
+
+[OceansDB]
+oceansdb>=0.8.6
+
+[manualqc]
+matplotlib
+
+[regional]
+Shapely>=1.6.4
