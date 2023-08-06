@@ -1,0 +1,17 @@
+include setup.py
+include README
+include *.rst
+include *.md
+recursive-include nazca *.py
+recursive-include nazca/data *.txt
+include tox.ini
+recursive-include examples *.csv
+recursive-include doc *.svg
+recursive-include test *.py
+recursive-include test/data *
+recursive-include examples *
+exclude .gitlab-ci.yml
+exclude pyproject.toml
+exclude *.spec
+prune debian
+prune notebooks
