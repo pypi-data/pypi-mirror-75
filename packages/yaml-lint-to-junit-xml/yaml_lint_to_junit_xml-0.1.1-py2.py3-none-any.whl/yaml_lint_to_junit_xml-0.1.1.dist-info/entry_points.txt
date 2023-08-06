@@ -1,0 +1,3 @@
+[console_scripts]
+yaml-lint-to-junit-xml = yamllinttojunitxml.yamllinttojunitxml:main
+
