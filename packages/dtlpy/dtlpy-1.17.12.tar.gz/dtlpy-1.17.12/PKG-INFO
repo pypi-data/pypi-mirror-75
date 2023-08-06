@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: dtlpy
+Version: 1.17.12
+Summary: SDK and CLI for Dataloop platform
+Home-page: https://github.com/dataloop-ai/dtlpy
+Author: Or Shabtay
+Author-email: or@dataloop.ai
+License: Apache License 2.0
+Description: ![logo](https://mk0dataloop4fni44fjg.kinstacdn.com/wp-content/uploads/2020/03/logo.svg)
+        
+        This is the SDK and CLI open source repository for [Dataloop.ai](https://dataloop.ai/) platform
+        
+        For full platform documentation click [here](https://docs.dataloop.ai/docs)
+        
+        For full SDK documentation click [here](https://console.dataloop.ai/sdk-docs/latest)
+        
+Platform: UNKNOWN
+Requires-Python: >=3.5.4
+Description-Content-Type: text/markdown
