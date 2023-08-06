@@ -1,0 +1,33 @@
+Metadata-Version: 2.1
+Name: pytest-assert-utils
+Version: 0.2.0
+Summary: Useful assertion utilities for use with pytest
+Home-page: https://github.com/usePF/pytest-assert-utils
+License: MIT
+Keywords: pytest
+Author: Zach "theY4Kman" Kanzler
+Author-email: they4kman@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Framework :: Pytest
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Testing
+Project-URL: Repository, https://github.com/usePF/pytest-assert-utils
+Description-Content-Type: text/markdown
+
+# pytest-assert-utils
+
+Handy assertion utilities for use with pytest
+
+
+# Installation
+
+```bash
+pip install pytest-assert-utils
+```
+
