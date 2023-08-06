@@ -1,0 +1,3 @@
+[console_scripts]
+lrjson = lrjson.__main__:main
+
