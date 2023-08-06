@@ -1,0 +1,97 @@
+# IDEAL_NPU [![Version][version-badge]][version-link] ![MIT License][license-badge]
+
+## A Python module for machine learning
+
+### install
+```
+$ pip install IDEAL_NPU
+```
+
+## PCN: A Portable clustering algorithm based on Compact Neighbors
+A Python implementation of "A Portable Clustering Algorithm Based on Compact Neighbors
+for Face Tagging".
+### usage
+
+```
+import numpy as np
+from sklearn.metrics.pairwise import euclidean_distances as EuDist2
+from sklearn.metrics.cluster import fowlkes_mallows_score as fmi_f
+
+from IDEAL_NPU import Funs
+from IDEAL_NPU.cluster import PCN
+
+# Data preparation
+X, y_true, N, dim, c_true = Funs.load_Agg()
+D_full = EuDist2(X, X, squared=True)
+NN_full = np.argsort(D_full, axis=1)
+knn = 33
+NN = NN_full[:, 1:(knn+1)]
+NND = Funs.matrix_index_take(D_full, NN)
+for i in range(N):
+    tmp_ind = np.lexsort((NN[i, :], NND[i, :]))
+    NN[i, :] = NN[i, tmp_ind]
+
+# Clustering
+PCN_obj = PCN(NN, NND)
+y_pred = PCN_obj.cluster()
+
+# Metrics
+pre = Funs.precision(y_true=y_true, y_pred=y_pred)
+rec = Funs.recall(y_true=y_true, y_pred=y_pred)
+f1 = 2 * pre * rec / (pre + rec)
+fmi = fmi_f(y_true, y_pred)
+
+print("{}".format(pre))
+print("{}".format(f1))
+print("{}".format(fmi))
+```
+
+## EDG: An Efficient Density-based clustering incorporated with Graph partitioning
+A Python implementation of "An Efficient Density-based Clustering Algorithm for Face Identification".
+### usage
+
+```
+import numpy as np
+from sklearn.metrics.pairwise import euclidean_distances as EuDist2
+from sklearn.metrics.cluster import fowlkes_mallows_score as fmi_f
+
+from IDEAL_NPU import Funs
+from IDEAL_NPU.cluster import EDG
+
+# Data preparation
+X, y_true, N, dim, c_true = Funs.load_Agg()
+D_full = EuDist2(X, X, squared=True)
+NN_full = np.argsort(D_full, axis=1)
+
+# Clustering
+knn_list = [5, 6, 7, 8, 9, 10]
+Y = np.zeros((len(knn_list), N))
+for i, knn in enumerate(knn_list):
+    NN = NN_full[:, 1:(knn+1)]
+    NND = Funs.matrix_index_take(D_full, NN)
+
+    EDG_obj = EDG(NN, NND)
+    y = EDG_obj.cluster()
+    Y[i, :] = y
+
+# Metrics
+pre = np.array([Funs.precision(y_true=y_true, y_pred=y_pred) for y_pred in Y])
+rec = np.array([Funs.recall(y_true=y_true, y_pred=y_pred) for y_pred in Y])
+f1 = 2 * pre * rec / (pre + rec)
+ind = np.argmax(f1)
+fmi = fmi_f(y_true, Y[ind, :])
+
+print("{}".format(pre[ind]))
+print("{}".format(f1[ind]))
+print("{}".format(fmi))
+```
+
+### Contact
+If you have any inquiries, please email me directly (shenfeipei@gmail.com).
+
+### License
+[MIT](https://github.com/ShenfeiPei/IDEAL/blob/master/LICENSE)
+
+
+[version-badge]: https://img.shields.io/badge/version-0.1-brightgreen.svg
+[license-badge]: https://img.shields.io/github/license/pythonml/douyin_image.svg
