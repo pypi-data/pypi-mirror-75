@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        cdxjGenerator = cdxjGenerator.__main__:main
+    
