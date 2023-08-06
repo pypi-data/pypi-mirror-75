@@ -1,0 +1,16 @@
+dotty-dict==1.2.1
+google-api-core==1.16.0
+google-api-python-client==1.7.8
+google-auth-httplib2==0.0.3
+google-cloud-storage==1.30.0
+httplib2==0.12.0
+pandas-gbq==0.9.0
+psycopg2==2.7.7
+slackclient==2.5.0
+Werkzeug==0.16.0
+
+[composer]
+apache-airflow==1.10.6-composer
+
+[default]
+apache-airflow==1.10.6
