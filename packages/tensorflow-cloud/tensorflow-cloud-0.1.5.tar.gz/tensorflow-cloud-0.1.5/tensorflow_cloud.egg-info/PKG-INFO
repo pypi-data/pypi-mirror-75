@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: tensorflow-cloud
+Version: 0.1.5
+Summary: The TensorFlow Cloud repository provides APIs that will allow to easily go from debugging and training your Keras and TensorFlow code in a local environment to distributed training in the cloud.
+Home-page: https://github.com/tensorflow/cloud
+Author: The tensorflow cloud authors
+Author-email: tensorflow-cloud@google.com
+License: Apache License 2.0
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Software Development
+Provides-Extra: tests

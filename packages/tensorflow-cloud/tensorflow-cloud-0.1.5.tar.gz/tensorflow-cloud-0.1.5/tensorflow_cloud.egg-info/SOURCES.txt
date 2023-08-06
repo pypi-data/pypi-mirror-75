@@ -1,0 +1,16 @@
+setup.cfg
+setup.py
+tensorflow_cloud/__init__.py
+tensorflow_cloud.egg-info/PKG-INFO
+tensorflow_cloud.egg-info/SOURCES.txt
+tensorflow_cloud.egg-info/dependency_links.txt
+tensorflow_cloud.egg-info/requires.txt
+tensorflow_cloud.egg-info/top_level.txt
+tensorflow_cloud/core/__init__.py
+tensorflow_cloud/core/containerize.py
+tensorflow_cloud/core/deploy.py
+tensorflow_cloud/core/gcp.py
+tensorflow_cloud/core/machine_config.py
+tensorflow_cloud/core/preprocess.py
+tensorflow_cloud/core/run.py
+tensorflow_cloud/core/validate.py
