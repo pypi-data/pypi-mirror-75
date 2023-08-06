@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: ndl-api
+Version: 1.1.6a1
+Summary: Neurodata Lab API tools
+Home-page: UNKNOWN
+Author: Neurodata Lab
+Author-email: admin@neurodatalab.dev
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Dist: grpcio (>=1.22)
+Requires-Dist: grpcio-tools (>=1.22)
+Requires-Dist: protobuf (>=3.9.0)
+Requires-Dist: opencv-python (>=4.1.0.0)
+
+## Neurodata Lab API tools
+
+See documentation on [api.neurodatalab.dev](https://api.neurodatalab.dev)
+
