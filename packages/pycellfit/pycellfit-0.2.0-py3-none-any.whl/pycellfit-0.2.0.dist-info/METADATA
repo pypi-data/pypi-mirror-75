@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: pycellfit
+Version: 0.2.0
+Summary: Python implementation of the CellFIT method of inferring cellular forces
+Home-page: https://github.com/NilaiVemula/PyCellFIT
+Author: Nilai Vemula
+Author-email: nilai.r.vemula@vanderbilt.edu
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.8
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: Natural Language :: English
+Requires-Dist: cycler (==0.10.0)
+Requires-Dist: kiwisolver (==1.2.0)
+Requires-Dist: matplotlib (==3.3.0)
+Requires-Dist: numpy (==1.19.1)
+Requires-Dist: Pillow (==7.1.2)
+Requires-Dist: pip (==20.2)
+Requires-Dist: pyparsing (==2.4.7)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: pytz (==2020.1)
+Requires-Dist: scipy (==1.5.2)
+Requires-Dist: setuptools (==49.2.1)
+Requires-Dist: six (==1.15.0)
+Requires-Dist: wheel (==0.34.2)
+
+UNKNOWN
+
+
