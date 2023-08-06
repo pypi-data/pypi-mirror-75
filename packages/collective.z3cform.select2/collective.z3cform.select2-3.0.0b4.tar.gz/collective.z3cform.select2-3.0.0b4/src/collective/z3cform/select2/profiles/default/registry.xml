@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<registry>
+  <!-- resources definition -->
+  <records prefix="plone.resources/collective-z3cform-select2-widget"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+     <value key="css">
+        <element>++resource++select2-widget/select2-widget.css</element>
+     </value>
+     <value key="js">++resource++select2-widget/select2-widget.js</value>
+  </records>
+
+  <records prefix="plone.resources/collective-z3cform-select2-faceted"
+           interface='Products.CMFPlone.interfaces.IResourceRegistry'>
+     <value key="css"></value>
+     <value key="js">++resource++faceted.select2.view.js</value>
+  </records>
+
+  <!-- bundle definition -->
+  <records prefix="plone.bundles/collective-z3cform-select2"
+           interface='Products.CMFPlone.interfaces.IBundleRegistry'>
+    <value key="resources">
+      <element>select2</element>
+      <element>collective-z3cform-select2-widget</element>
+      <element>collective-z3cform-select2-faceted</element>
+    </value>
+    <value key="depends">faceted-view</value>
+    <value key="enabled">True</value>
+    <value key="compile">False</value>
+    <value key="jscompilation">++plone++static/collective-z3cform-select2-min-compiled.js</value>
+    <value key="csscompilation">++plone++static/collective-z3cform-select2-compiled.css</value>
+    <value key="last_compilation">2020-07-24 16:30:00</value>
+  </records>
+</registry>
