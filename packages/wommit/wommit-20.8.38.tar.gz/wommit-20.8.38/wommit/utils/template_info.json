@@ -1,0 +1,61 @@
+{
+    "types": [
+        {
+            "value": "fix",
+            "name": "fix: A bug fix. Correlates with PATCH in SemVer"
+        },
+        {
+            "value": "feat",
+            "name": "feat: A new feature. Correlates with MINOR in SemVer"
+        },
+        {
+            "value": "docs",
+            "name": "docs: Documentation only changes"
+        },
+        {
+            "value": "style",
+            "name": "style: Changes that do not affect the meaning of the code (white-space, formatting,missing semi-colons, etc)"
+        },
+        {
+            "value": "refactor",
+            "name": "refactor: A code change that neither fixes a bug nor adds a feature"
+        },
+        {
+            "value": "perf",
+            "name": "perf: A code change that improves performance"
+        },
+        {
+            "value": "test",
+            "name": "test: Adding missing or correcting existing tests"
+        },
+        {
+            "value": "build",
+            "name": "build: Changes that affect the build system or external dependencies (example scopes: pip, docker, npm)"
+        },
+        {
+            "value": "ci",
+            "name": "ci: Changes to our CI configuration files and scripts (example scopes: GitLabCI)"
+        }
+    ],
+    "scopes": [
+        "db",
+        "users",
+        "lang"
+    ],
+    "info": "The commit contains the following structural elements, to communicate\nintent to the consumers of your library:\n\nfix: a commit of the type fix patches a bug in your codebase\n(this correlates with PATCH in semantic versioning).\n\nfeat: a commit of the type feat introduces a new feature to the codebase\n(this correlates with MINOR in semantic versioning).\n\nBREAKING CHANGE: a commit that has the text BREAKING CHANGE: at the beginning of\nits optional body or footer section introduces a breaking API change\n(correlating with MAJOR in semantic versioning).\nA BREAKING CHANGE can be part of commits of any type.\n\nOthers: commit types other than fix: and feat: are allowed,\nlike chore:, docs:, style:, refactor:, perf:, test:, and others.\n\nWe also recommend improvement for commits that improve a current\nimplementation without adding a new feature or fixing a bug.\n\nNotice these types are not mandated by the conventional commits specification,\nand have no implicit effect in semantic versioning (unless they include a BREAKING CHANGE).\n\nA scope may be provided to a commit\u00e2\u20ac\u2122s type, to provide additional contextual\ninformation and is contained within parenthesis, e.g., feat(parser): add ability to parse arrays.\n\n<type>[optional scope]: <description>\n\n[optional body]\n\n[optional footer]",
+    "emoji_map": {
+        "fix": ":wrench:",
+        "feat": ":sparkles:",
+        "BREAKING CHANGE": ":collision:",
+        "docs": ":pencil:",
+        "style": ":lipstick:",
+        "refactor": ":recycle:",
+        "perf": ":zap:",
+        "test": ":white_check_mark:",
+        "build": ":building_construction:"
+    },
+    "settings": {
+        "method": "autocomplete"
+    },
+    "use_global": false
+}
