@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+dlna/__init__.py
+dlna/client.py
+dlna/util.py
+dlna.egg-info/PKG-INFO
+dlna.egg-info/SOURCES.txt
+dlna.egg-info/dependency_links.txt
+dlna.egg-info/entry_points.txt
+dlna.egg-info/requires.txt
+dlna.egg-info/top_level.txt
