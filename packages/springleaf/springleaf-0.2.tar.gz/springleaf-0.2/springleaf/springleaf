@@ -1,0 +1,30 @@
+#! /usr/bin/env python
+
+
+"""SpringLeaf - SpringBoot CLI
+
+Usage:
+  springleaf init
+  springleaf new <name>
+  springleaf (-h | --help)
+
+Options:
+  -h --help     Show this screen.
+
+"""
+
+
+from docopt import docopt
+
+from springleaf.cli import CLI
+
+"""
+Author: Omar Iriskic
+@contact:
+    https://omaririskic.com/
+    https://github.com/OMKE
+"""
+
+if __name__ == "__main__":
+    args = docopt(__doc__)
+    CLI(args)
