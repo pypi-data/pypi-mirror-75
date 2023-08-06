@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: easyhash
+Version: 1.2
+Summary: Simplified interface for hashing streams
+Home-page: https://github.com/mcilrain/easyhash
+Author: Noah McIlraith
+Author-email: noah.mcilraith@gmail.com
+License: MIT
+Download-URL: https://github.com/mcilrain/easyhash/archive/v1.2.tar.gz
+Description: UNKNOWN
+Keywords: hashing
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
