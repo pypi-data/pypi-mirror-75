@@ -1,0 +1,23 @@
+box_kernel
+===========
+
+``box_kernel`` is a simple of a Jupyter kernel for the Box Language. This repository
+complements the documentation on wrapper kernels here:
+
+http://jupyter-client.readthedocs.io/en/latest/wrapperkernels.html
+
+Installation
+------------
+Ensure you have the Box Language Runtime installed: 
+
+```sh
+npm install @stauffenbits/box
+```
+
+Then add node_modules/@stauffenbits/box/bin/box to your path, if node doesn't do that for you. 
+
+To install the ``box_kernel`` from PyPI::
+
+    pip3 install box-kernel-stauffenbits
+    python3 -m box-kernel-stauffenbits.install
+
