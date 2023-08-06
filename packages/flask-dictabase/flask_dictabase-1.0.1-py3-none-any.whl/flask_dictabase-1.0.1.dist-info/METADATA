@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: flask-dictabase
+Version: 1.0.1
+Summary: A dict() like interface to your database.
+Home-page: https://github.com/GrantGMiller/flask_dictabase
+Author: Grant miller
+Author-email: grant@grant-miller.com
+License: PSF
+Project-URL: Source Code, https://github.com/GrantGMiller/flask_dictabase
+Keywords: grant miller flask database
+Platform: UNKNOWN
+Requires-Dist: flask
+Requires-Dist: dataset
+
+A dict() like interface to your database.
+
+
