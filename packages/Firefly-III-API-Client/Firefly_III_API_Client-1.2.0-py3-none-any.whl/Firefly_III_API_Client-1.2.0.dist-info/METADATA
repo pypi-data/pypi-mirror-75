@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: Firefly-III-API-Client
+Version: 1.2.0
+Summary: Firefly III API Client
+Home-page: https://github.com/ms32035/firefly-iii-client
+Author: UNKNOWN
+Author-email: james@firefly-iii.org
+License: UNKNOWN
+Keywords: OpenAPI,OpenAPI-Generator,Firefly III API Client
+Platform: UNKNOWN
+Requires-Dist: urllib3 (>=1.15)
+Requires-Dist: six (>=1.10)
+Requires-Dist: certifi
+Requires-Dist: python-dateutil
+
+This is the Python client for Firefly III API
+
+
