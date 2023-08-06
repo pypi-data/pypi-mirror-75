@@ -1,0 +1,17 @@
+CHANGES
+LICENSE
+MANIFEST.in
+Pipfile
+Pipfile.lock
+README.rst
+setup.cfg
+setup.py
+tox.ini
+src/unicef_djangolib/__init__.py
+src/unicef_djangolib/fields.py
+src/unicef_djangolib/forms.py
+src/unicef_djangolib.egg-info/PKG-INFO
+src/unicef_djangolib.egg-info/SOURCES.txt
+src/unicef_djangolib.egg-info/dependency_links.txt
+src/unicef_djangolib.egg-info/requires.txt
+src/unicef_djangolib.egg-info/top_level.txt
