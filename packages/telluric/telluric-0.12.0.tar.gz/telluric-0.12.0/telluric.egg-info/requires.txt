@@ -1,0 +1,31 @@
+affine
+dsnparse
+fiona<2.*,>=1.8.4
+folium>=0.6.0
+ipyleaflet!=0.8.2
+shapely<2.*,>=1.6.3
+rasterio<2.*,>=1.0.21
+pillow
+mercantile>=0.10.0
+matplotlib
+boltons
+imageio
+lxml
+
+[:python_version <= "3.4"]
+pyproj<2
+
+[:python_version >= "3.5"]
+pyproj
+
+[dev]
+coverage
+mypy
+packaging
+pycodestyle
+pytest>=4
+pytest-cov<=2.8.1
+sphinx
+ipython
+nbsphinx
+sphinx_rtd_theme
