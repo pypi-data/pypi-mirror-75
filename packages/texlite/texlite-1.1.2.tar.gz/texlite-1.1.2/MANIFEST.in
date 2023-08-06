@@ -1,0 +1,7 @@
+include README.md
+include LICENSE
+include tox.ini
+
+graft config
+graft docs
+graft tests
