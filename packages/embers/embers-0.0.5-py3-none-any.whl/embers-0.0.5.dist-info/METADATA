@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: embers
+Version: 0.0.5
+Summary: Experimental Measurement of BEam Response with Satellites
+Home-page: https://github.com/amanchokshi/EMBERS
+Author: Aman Chokshi
+Author-email: achokshi@student.unimelb.edu.au
+License: MIT
+Keywords: embers radio astronomy satellites beam measurement
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Operating System :: MacOS
+Classifier: Operating System :: Unix
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Scientific/Engineering :: Astronomy
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6, <4
+Description-Content-Type: text/markdown
+Requires-Dist: astropy (==4.0.1.post1)
+Requires-Dist: certifi (==2020.4.5.2)
+Requires-Dist: chardet (==3.0.4)
+Requires-Dist: cycler (==0.10.0)
+Requires-Dist: healpy (==1.13.0)
+Requires-Dist: idna (==2.9)
+Requires-Dist: jplephem (==2.14)
+Requires-Dist: kiwisolver (==1.2.0)
+Requires-Dist: Logbook (==1.5.3)
+Requires-Dist: matplotlib (==3.2.1)
+Requires-Dist: mwa-pb (==1.1)
+Requires-Dist: numpy (==1.18.5)
+Requires-Dist: pandas (==1.0.4)
+Requires-Dist: pyparsing (==2.4.7)
+Requires-Dist: python-dateutil (==2.8.1)
+Requires-Dist: pytz (==2020.1)
+Requires-Dist: ratelimiter (==1.2.0.post0)
+Requires-Dist: Represent (==1.6.0)
+Requires-Dist: requests (==2.23.0)
+Requires-Dist: scipy (==1.4.1)
+Requires-Dist: seaborn (==0.10.1)
+Requires-Dist: sgp4 (==2.12)
+Requires-Dist: six (==1.15.0)
+Requires-Dist: skyfield (==1.22)
+Requires-Dist: spacetrack (==0.13.6)
+Requires-Dist: wget (==3.2)
+
+.. figure:: https://github.com/amanchokshi/EMBERS/blob/master/docs/_static/imgs/embers.gif
+:width: 100%
+:align: center
+:alt: EMBERS logo
+
+
