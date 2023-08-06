@@ -1,0 +1,3 @@
+[console_scripts]
+pysparkrpc=pysparkrpc.server.cli:main
+
