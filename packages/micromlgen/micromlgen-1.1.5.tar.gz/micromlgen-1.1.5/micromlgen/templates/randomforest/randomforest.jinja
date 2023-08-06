@@ -1,0 +1,30 @@
+#pragma once
+
+namespace Eloquent {
+    namespace ML {
+        namespace Port {
+
+            class {{ classname }} {
+                public:
+
+                    /**
+                     * Predict class for features vector
+                     */
+                    int predict(float *x) {
+                        uint8_t votes[{{ n_classes }}] = { 0 };
+
+                        {% for k, tree in f.enumerate(trees) %}
+                            {% with i = 0 %}
+                                // tree #{{ k }}
+                                {% include 'randomforest/tree.jinja' %}
+                            {% endwith %}
+                        {% endfor %}
+
+                        {% include 'vote.jinja' %}
+                    }
+
+                    {% include 'classmap.jinja' %}
+            };
+        }
+    }
+}

@@ -1,0 +1,26 @@
+#pragma once
+
+namespace Eloquent {
+    namespace ML {
+        namespace Port {
+            class {{ classname }} {
+                public:
+                    /**
+                     * Predict class for features vector
+                     */
+                    int predict(float *x) {
+                        return dot(x, {% for i, wi in f.enumerate(weights) %} {% if i > 0 %},{% endif %} {{ f.round(wi) }} {% endfor %}) <= {{ bias }} ? 0 : 1;
+                    }
+
+                    {% include 'classmap.jinja' %}
+
+                protected:
+
+                    {% with expr = 'x[i] * wi' %}
+                        {% include 'dot.jinja' %}
+                    {% endwith %}
+
+            };
+        }
+    }
+}
