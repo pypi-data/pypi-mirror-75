@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: tokko-mysql-replication
+Version: 0.0.1
+Summary: Pure Python Implementation of MySQL replication protocol build on top of PyMYSQL.
+Home-page: https://github.com/noplay/python-mysql-replication
+Author: Jose Salgado
+Author-email: jsalgado@navent.com
+License: Apache 2
+Platform: UNKNOWN
+Requires-Dist: pymysql
+Provides-Extra: test
+
+UNKNOWN
+
+
