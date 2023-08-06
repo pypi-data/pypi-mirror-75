@@ -1,0 +1,10 @@
+aio-pika~=6.6
+protobuf~=3.12.0
+yarl
+setuptools
+
+[examples]
+aiomonitor
+click
+click-log
+click-completion
