@@ -1,0 +1,48 @@
+namespace Dim;
+
+table UByteArray {
+	data: [ubyte];
+}
+
+table Float32bArray {
+	data: [float];
+}
+
+table UInt32bArray {
+	data: [uint];
+}
+
+table LabeledIndexSet {
+	name: string;
+	indices: UInt32bArray;
+}
+
+table LabeledIndexSuperSet {
+	name: string;
+	sets: [LabeledIndexSet];
+}
+
+table Coordinates2D {
+	x: Float32bArray;
+	y: Float32bArray;
+}
+
+table RGBTripleArray {
+	r: UByteArray;
+	g: UByteArray;
+	b: UByteArray;
+}
+
+table ColorArray1D {
+	color: UByteArray;
+}
+
+table Dim {
+    ubyte_array: UByteArray;
+    float32b_array: Float32bArray;
+    coordinates_2d: Coordinates2D;
+	color_array_1d: ColorArray1D;
+	rgb_triple_array: RGBTripleArray;
+}
+
+root_type Dim;
