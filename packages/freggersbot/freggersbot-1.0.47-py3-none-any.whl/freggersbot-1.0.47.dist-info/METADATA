@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: freggersbot
+Version: 1.0.47
+Summary: A bot for freggers(.de / .com)
+Home-page: https://github.com/Jan000/Python-Freggers-Bot
+Author: Jan K
+Author-email: contact@jandev.net
+License: MIT
+Keywords: freggers bot
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: requests
+Requires-Dist: py3amf
+
+UNKNOWN
+
+
