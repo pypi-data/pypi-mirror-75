@@ -1,0 +1,13 @@
+global-exclude *.py[cod]
+
+include CHANGELOG.rst
+include CONTRIBUTING.rst
+include LICENSE
+include README.rst
+include VERSION
+include parse_data.sh
+
+recursive-include test *.py
+
+recursive-exclude * __pycache__
+recursive-exclude * *.DS_Store
