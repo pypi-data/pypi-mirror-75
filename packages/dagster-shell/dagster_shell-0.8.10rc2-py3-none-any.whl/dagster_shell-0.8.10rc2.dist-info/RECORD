@@ -1,0 +1,17 @@
+dagster_shell/__init__.py,sha256=OtkmceNOTkae7U9CepNbvJotR1bXq5bLf0oXX8aPDMM,329
+dagster_shell/solids.py,sha256=TsAkZCOObRCeDc9Mj8ZcOHKT_9QDPpBPjMw2XlQhWNg,7450
+dagster_shell/utils.py,sha256=TMlX2100tpb69PQlKrBc8TTm3M6rptXP1zQj6pK_T6E,6050
+dagster_shell/version.py,sha256=n-RDdd5K5BLFsKJnbjUqPQuqug98KHyYvZQWNGp0IgU,28
+dagster_shell_tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+dagster_shell_tests/conftest.py,sha256=aDOrbC8tiAcnvXfh9H3xocermPg-CHkkZLXcgqeo6jU,404
+dagster_shell_tests/example_shell_command_solid.py,sha256=q2M2i6NgzpwNKHOoIxDhaYa6J4VxhuV0Jb-rNUDi-5c,184
+dagster_shell_tests/example_shell_script_solid.py,sha256=iL6xI_bYXIMvkDo59wGMX-tU7Peb3FWdnQuyKgMOLq8,226
+dagster_shell_tests/test_examples.py,sha256=vX2LC7BsmaBsOswGPbZgNJit1aGD4vKCBkskVka9MbU,479
+dagster_shell_tests/test_solids.py,sha256=MenzeNu9HrlVXd0cM1GM1TOOdEe1evU46qq87apQ50A,3350
+dagster_shell_tests/test_utils.py,sha256=ErSYjaHLh8_C3oynTAwHX1VyaLi_ajFn9bN6vkqeMCs,2769
+dagster_shell_tests/test_version.py,sha256=bWSx9VkoJ2HwyoNW_Lbp8MecWtX469shkP64J0JLQdA,91
+dagster_shell-0.8.10rc2.dist-info/LICENSE,sha256=tAkwu8-AdEyGxGoSvJ2gVmQdcicWw3j1ZZueVV74M-E,11357
+dagster_shell-0.8.10rc2.dist-info/METADATA,sha256=uYnquNqDEnogkRErHBrUXTeWXyka9DGEFtaCBa6KItQ,586
+dagster_shell-0.8.10rc2.dist-info/WHEEL,sha256=p46_5Uhzqz6AzeSosiOnxK-zmFja1i22CrQCjmYe8ec,92
+dagster_shell-0.8.10rc2.dist-info/top_level.txt,sha256=gV8ZxXed3NE0z0Zl4JfUhgqDFAG1YEEX-YcGjwlgp38,34
+dagster_shell-0.8.10rc2.dist-info/RECORD,,
