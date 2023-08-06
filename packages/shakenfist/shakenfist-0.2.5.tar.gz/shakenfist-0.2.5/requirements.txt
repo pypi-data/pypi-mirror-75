@@ -1,0 +1,21 @@
+pycdlib             # lgpl
+randmac             # mit
+oslo.concurrency    # apache2
+jinja2              # bsd
+setproctitle        # bsd
+click>=7.1.1        # bsd
+prettytable         # bsd
+tox                 # mit
+flake8              # mit
+testtools           # mit
+flask               # bsd
+flask_restful       # bsd
+psutil              # bsd
+prometheus_client   # apache2
+etcd3               # apache2
+flask-jwt-extended  # mit
+bcrypt              # apache2
+
+# Is difficult to get install working, use system packages instead. On Ubuntu
+# those are: libvirt-daemon-system libvirt-dev python3-libvirt
+#libvirt-python      # lgpl

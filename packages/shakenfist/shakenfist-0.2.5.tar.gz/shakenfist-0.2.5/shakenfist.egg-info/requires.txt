@@ -1,0 +1,17 @@
+pycdlib
+randmac
+oslo.concurrency
+jinja2
+setproctitle
+click>=7.1.1
+prettytable
+tox
+flake8
+testtools
+flask
+flask_restful
+psutil
+prometheus_client
+etcd3
+flask-jwt-extended
+bcrypt
