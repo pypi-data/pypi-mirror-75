@@ -1,0 +1,30 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup"
+  i18n_domain="rer.cookieconsent">
+
+
+  <genericsetup:upgradeSteps
+    source="1000"
+    destination="2000"
+    profile="rer.cookieconsent:default">
+
+    <genericsetup:upgradeStep
+      title="Import plone registry"
+      description=""
+      handler=".upgrades.to_2000"
+    />
+  </genericsetup:upgradeSteps>
+  <genericsetup:upgradeSteps
+    source="2000"
+    destination="2001"
+    profile="rer.cookieconsent:default">
+
+    <genericsetup:upgradeStep
+      title="Fix bundle registration"
+      description=""
+      handler=".upgrades.to_2001"
+    />
+  </genericsetup:upgradeSteps>
+
+</configure>
