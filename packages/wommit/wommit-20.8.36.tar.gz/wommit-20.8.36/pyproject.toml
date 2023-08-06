@@ -1,0 +1,38 @@
+[tool.poetry]
+name = "wommit"
+version = "20.08.0036"
+description = "A tool for intuitively writing git commits that adhere to the Conventional Commits standards."
+authors = ["Zylvian <jovlisen@gmail.com>"]
+readme = 'README.md'
+license = 'MIT'
+repository = "https://github.com/bkkp/wommit"
+homepage = "https://github.com/bkkp/wommit"
+keywords = ['wommit','git','emoji','github','commit']
+
+[tool.poetry.dependencies]
+python = "^3.8"
+click = "^7.1.2"
+questionary = "^1.5.2"
+keyring = "^21.2.1"
+requests = "^2.24.0"
+webtest = "^2.0.35"
+falcon = "^2.0.0"
+gitpython = "^3.1.3"
+prompt_toolkit = "^3.0.5"
+emojis = "^0.5.1"
+pycalver = "^202007.36"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.poetry.scripts]
+shapeit = "wommit.cli:cli"
+wmt = "wommit.cli:c"
+commit ="wommit.cli:c"
+wommit = "wommit.cli:cli"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
+
