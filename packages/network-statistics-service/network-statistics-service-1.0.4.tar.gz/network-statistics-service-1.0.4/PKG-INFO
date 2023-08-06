@@ -1,0 +1,159 @@
+Metadata-Version: 2.1
+Name: network-statistics-service
+Version: 1.0.4
+Summary: Package for generating network statistics such as latency and download speed.
+Home-page: https://gitlab.com/stefan.georgescu/network-statistics-service
+Author: Stefan Georgescu
+Author-email: contact@stefangeorgescu.com
+License: MIT
+Description: 
+        # Network Statistics Service
+        This repository contains a small python package which generates network statistics. It has built-in functionality to upload those statistics to a DynamoDB table but also provides an interface which can be implemented to publish this statistics to a service of your choice.
+        
+        # Installation
+        
+        This package can be installed with `pip install network-statistics-service`.
+        
+        # Implementation Details
+        
+        The package uses a command line executor to run the `ping` command for latency statistics and the `speedtest` comand (included in the package) for speed statistics.
+        
+        # Usage
+        
+        The following is a basic example in which network statistics are returned as a dictionary.
+        
+            from NetworkStatisticsService.statistics_service import StatisticsService
+            
+            if  __name__ == "__main__":
+        	    statistics_service = StatisticsService()
+        	    stats = statistics_service.generate_statistics()
+        
+        The `stats` variable will store a dictionary similar to the following: `{'Loss': 0.0, 'Min': 24.244, 'Avg': 24.679, 'Max': 25.293, 'Stddev': 0.455, 'Download': 184.79, 'Upload': 280.34, 'Timestamp': 1591373792}`. The keys are of `string` type and the values are of `float` type.
+        
+        In case of an error, the returned dictionary will contain a timestamp and a string with the error message.
+        
+        ### Disabling certain statistics
+        
+        If your application does not need either the latency or the speed statistics, they can be individually disabled using the following properties on the `StatisticsService` object. 
+        * `speed_statistics_enabled` - defaults to `True`;
+        * `latency_statistics_enabled` - defaults to `True`.
+        
+        In the following example, the speed statistics are disabled.
+        
+            from NetworkStatisticsService.statistics_service import StatisticsService
+                
+            if  __name__ == "__main__":
+        	    statistics_service = StatisticsService()
+        	    statistics_service.speed_statistics_enabled = False
+        	    stats = statistics_service.generate_statistics()
+        	
+        In this case, the `stats` dictionary will look like this: `{'Loss': 0.0, 'Min': 20.366, 'Avg': 24.064, 'Max': 26.564, 'Stddev': 2.925, 'Timestamp': 1591374439}`.
+        
+        
+        ### Configuring the ping count
+        
+        By default, the service runs the `ping` command with a count of 20. This default value can be provided to the constructor: `statistics_service = StatisticsService(default_ping_count=10)`
+        
+        In this case, all subsequent calls to the `generate_statistics` method will use a ping count of 10.
+        
+        Another way of changing the ping count is on each call to `generate_statistics`: `stats = statistics_service.generate_statistics(override_ping_count=5)`. This value overrides the value provided in the constructor.
+        
+        ## Uploading the Network Statistics
+        
+        The `StatisticsService`  also provides means to upload the statistics dictionary and error logs. It comes with built-in functionality to upload to DynamoDB. 
+        
+        ## Configuring the StatisticsService for DynamoDB Upload
+        You can opt to upload either the statistics or the error logs, or both. This behaviour is controlled by the following properties of the `StatisticsService` object:
+        * `stats_upload_enabled` - defaults to `False`;
+        * `logs_upload_enabled` - defaults to `False`.
+        
+        #### Setting your AWS Credentials
+        Credentials have to be provided via named profiles in credential files. Please check [this documentation](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html) for information on how to achieve that.
+        
+        #### DynamoDB Table Requirements
+        In order for the service to function, your DynamoDB table configuration must be able to support the generated data. Your DynamoDB table should have one configured property as hash key called `Timestamp`. If you use Terraform for provisioning infrastructure, you can use [this file](https://github.com/stefangeorgescu970/aws-infrastructure/blob/master/modules/home_watcher/main.tf) as an example.
+        
+        #### Providing DynamoDB Information to the Statistics Service
+        The configuration is passed to the `StatisticsService` object via the `DynamoDBConfig` object. It provides the following properties:
+        * `aws_profile` - the AWS profile (from the credential files) to use. Defaults to `default`;
+        *  `aws_region` - the AWS region in which your DynamoDB tables reside. Mandatory field.
+        * `stats_table` - the name of the DynamoDB table where statistics should be uploaded. Required only if `stats_upload_enabled` is set to `True`.
+        * `logs_table` - the name of the DynamoDB table where error logs should be uploaded. Required only if `logs_upload_enabled` is set to `True`.
+        
+        The following example shows how to use the DynamoDB upload functionality.
+        
+            from NetworkStatisticsService.statistics_service import StatisticsService
+            from NetworkStatisticsService.dynamo_db_config import DynamoDBConfig
+            
+            if  __name__ == "__main__":
+        	    statistics_service = StatisticsService()
+        	    dynamo_config = DynamoDBConfig(aws_region="eu-central-1", 
+        									   stats_table="stats-table",
+        									   logs_table="logs-table")
+        	    statistics_service.stats_upload_enabled = True
+        	    statistics_service.logs_upload_enabled = True
+        	    statistics_service.dynamo_db_config = dynamo_config
+        	    statistics_service.generate_statistics()
+        
+        In case the DynamoDB configuration is not valid, the `generate_statistics` method will raise an exception of type `DynamoDbException`.
+        
+        #### Providing TimeToLive Configuration
+        The configuration is passed to the `DynamoDBConfig` object via the `TtlConfig` object. It provides the following properties:
+        * `time_in_months` - the time in months the object should reside in the DynamoDB Table. Month is considered a 31 day period.
+        * `attribute_name` - the attribute name is the name of the attribute configured in DynamoDB as the TTL attribute.
+        
+        The `time_in_months` should be a positive number, and the `attribute_name` should be a non-empty string. Providing values that do not match this
+        criteria will result in the constructor raising a `ValueException`.
+        
+        The following example shows how to use the DynamoDB upload functionality with TTL Config.
+        
+            from NetworkStatisticsService.statistics_service import StatisticsService
+            from NetworkStatisticsService.dynamo_db_config import DynamoDBConfig
+            from NetworkStatisticsService.ttl_config import TtlConfig
+            
+            if  __name__ == "__main__":
+        	    statistics_service = StatisticsService()
+        	    dynamo_config = DynamoDBConfig(aws_region="eu-central-1", 
+        									   stats_table="stats-table",
+        									   logs_table="logs-table")
+                ttl_config = TtlConfig(1, "TimeToLive")
+        	    dynamo_config.ttl_config = ttl_config
+        	    statistics_service.stats_upload_enabled = True
+        	    statistics_service.logs_upload_enabled = True
+        	    statistics_service.dynamo_db_config = dynamo_config
+        	    statistics_service.generate_statistics()
+        
+        
+        ## Implementing your own Statistics Uploader
+        
+        The service provides the possibility of implementing a custom class which can be provided to the `StatisticsService` object to be used in place of the built-in DynamoDB uploader.
+        
+        Your class must implement the `InformalStatisticUploaderInterface` provided in the package. The object can be passed to the `StatisticsService` via the constructor. The following example demonstrates implementing a custom class for upload.
+        
+            from NetworkStatisticsService.statistics_service import StatisticsService
+            from NetworkStatisticsService.informal_statistics_uploader import InformalStatisticUploaderInterface
+            
+            class CustomStatisticsUploader(InformalStatisticUploaderInterface):
+        	    def upload_statistics(self, stats_dict: dict):
+        		    print(stats_dict)
+        		    
+        		def upload_logs(self, logs_dict: dict):
+        			pass
+        	
+        	
+        	if  __name__ == "__main__":
+        		custom_stats_uploader = CustomStatisticsUploader()
+        		statistics_service = StatisticsService(stats_uploader=custom_stats_uploader)
+        		statistics_service.stats_upload_enabled = True
+        		statistics_service.generate_statistics()
+        
+        If your custom class does not implement the interface, the `StatisticsService` constructor will raise an exception of type `ValueError`.
+        
+        # Comments
+        If you have any questions regarding this Python package, do not hesitate to [contact me](mailto:contact@stefangeorgescu.com).
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
