@@ -1,0 +1,13 @@
+include *.ipynb
+include *.py
+recursive-include datasets *.csv
+recursive-include docs *.html
+recursive-include zb *.DS_Store
+recursive-include zb *.identity
+recursive-include zb *.priv
+recursive-include zb *.pub
+recursive-include zbpy *.1
+recursive-include zbpy *.DS_Store
+recursive-include zbpy *.proto
+recursive-include zbpy *.py
+recursive-include zbpy *.sh

@@ -1,0 +1,1532 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>zbpy package &mdash; zbpy  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="zbpy" href="modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> zbpy
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">zbpy</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">zbpy package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.auth">zbpy.auth module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.basicqueries">zbpy.basicqueries module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.cleanqueries">zbpy.cleanqueries module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.client">zbpy.client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.cryptography">zbpy.cryptography module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.datasci">zbpy.datasci module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.indexedfieldentity">zbpy.indexedfieldentity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.pagination">zbpy.pagination module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.permissionentity">zbpy.permissionentity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.util">zbpy.util module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.zbcert">zbpy.zbcert module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.zbprotocol_pb2">zbpy.zbprotocol_pb2 module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.zbprotocol_pb2_grpc">zbpy.zbprotocol_pb2_grpc module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">zbpy</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="modules.html">zbpy</a> &raquo;</li>
+        
+      <li>zbpy package</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/zbpy.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="zbpy-package">
+<h1>zbpy package<a class="headerlink" href="#zbpy-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-zbpy.auth">
+<span id="zbpy-auth-module"></span><h2>zbpy.auth module<a class="headerlink" href="#module-zbpy.auth" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="zbpy.auth.make_credential_ecdsa">
+<code class="descclassname">zbpy.auth.</code><code class="descname">make_credential_ecdsa</code><span class="sig-paren">(</span><em>nonce</em>, <em>uid</em>, <em>rel_bytes</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.auth.make_credential_ecdsa" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a ProofOfCredential object.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>uid: string 
+rel_bytes: list of bytes 
+pk: ecdsa.PrivateKey</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.auth.make_credential_jwt">
+<code class="descclassname">zbpy.auth.</code><code class="descname">make_credential_jwt</code><span class="sig-paren">(</span><em>jwt_token</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.auth.make_credential_jwt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a ProofOfCredential object with an empty Ecdsa signature, credType set to JWT_TOKEN, and the zetabase user’s
+jwt token.</p>
+<dl class="docutils">
+<dt>Parameters: </dt>
+<dd>jwt_token: string</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-zbpy.basicqueries">
+<span id="zbpy-basicqueries-module"></span><h2>zbpy.basicqueries module<a class="headerlink" href="#module-zbpy.basicqueries" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="zbpy.basicqueries.QueryAnd">
+<em class="property">class </em><code class="descclassname">zbpy.basicqueries.</code><code class="descname">QueryAnd</code><span class="sig-paren">(</span><em>left</em>, <em>right</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryAnd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.basicqueries.QueryAnd.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryAnd.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns TableSubQuery object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.basicqueries.QueryEquals">
+<em class="property">class </em><code class="descclassname">zbpy.basicqueries.</code><code class="descname">QueryEquals</code><span class="sig-paren">(</span><em>field</em>, <em>comp_value</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryEquals" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.basicqueries.QueryEquals.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryEquals.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns TableSubQuery object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.basicqueries.QueryGreaterThan">
+<em class="property">class </em><code class="descclassname">zbpy.basicqueries.</code><code class="descname">QueryGreaterThan</code><span class="sig-paren">(</span><em>field</em>, <em>comp_value</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryGreaterThan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.basicqueries.QueryGreaterThan.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryGreaterThan.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return TableSubQuery object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.basicqueries.QueryGreaterThanEqual">
+<em class="property">class </em><code class="descclassname">zbpy.basicqueries.</code><code class="descname">QueryGreaterThanEqual</code><span class="sig-paren">(</span><em>field</em>, <em>comp_value</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryGreaterThanEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.basicqueries.QueryGreaterThanEqual.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryGreaterThanEqual.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a TableSubQuery object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.basicqueries.QueryLessThan">
+<em class="property">class </em><code class="descclassname">zbpy.basicqueries.</code><code class="descname">QueryLessThan</code><span class="sig-paren">(</span><em>field</em>, <em>comp_value</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryLessThan" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.basicqueries.QueryLessThan.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryLessThan.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a TableSubQuery object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.basicqueries.QueryLessThanEqual">
+<em class="property">class </em><code class="descclassname">zbpy.basicqueries.</code><code class="descname">QueryLessThanEqual</code><span class="sig-paren">(</span><em>field</em>, <em>comp_value</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryLessThanEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.basicqueries.QueryLessThanEqual.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryLessThanEqual.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns TableSubQuery object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.basicqueries.QueryNotEqual">
+<em class="property">class </em><code class="descclassname">zbpy.basicqueries.</code><code class="descname">QueryNotEqual</code><span class="sig-paren">(</span><em>field</em>, <em>comp_value</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryNotEqual" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.basicqueries.QueryNotEqual.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryNotEqual.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns TableSubQuery object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.basicqueries.QueryOr">
+<em class="property">class </em><code class="descclassname">zbpy.basicqueries.</code><code class="descname">QueryOr</code><span class="sig-paren">(</span><em>left</em>, <em>right</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryOr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.basicqueries.QueryOr.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryOr.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns TableSubQuery object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.basicqueries.QueryTextSearch">
+<em class="property">class </em><code class="descclassname">zbpy.basicqueries.</code><code class="descname">QueryTextSearch</code><span class="sig-paren">(</span><em>field</em>, <em>comp_value</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryTextSearch" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.basicqueries.QueryTextSearch.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.QueryTextSearch.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns TableSubQuery object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.basicqueries.query_object_typify">
+<code class="descclassname">zbpy.basicqueries.</code><code class="descname">query_object_typify</code><span class="sig-paren">(</span><em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.basicqueries.query_object_typify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns string, QueryOrdering.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>value: any</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-zbpy.cleanqueries">
+<span id="zbpy-cleanqueries-module"></span><h2>zbpy.cleanqueries module<a class="headerlink" href="#module-zbpy.cleanqueries" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="zbpy.cleanqueries.AndExpression">
+<em class="property">class </em><code class="descclassname">zbpy.cleanqueries.</code><code class="descname">AndExpression</code><span class="sig-paren">(</span><em>expression1</em>, <em>expression2</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cleanqueries.AndExpression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.cleanqueries.AndExpression.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cleanqueries.AndExpression.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return TableSubQuery object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.cleanqueries.Expression">
+<em class="property">class </em><code class="descclassname">zbpy.cleanqueries.</code><code class="descname">Expression</code><span class="sig-paren">(</span><em>expression</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cleanqueries.Expression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.cleanqueries.Expression.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cleanqueries.Expression.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return TableSubQuery object.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.cleanqueries.Field">
+<em class="property">class </em><code class="descclassname">zbpy.cleanqueries.</code><code class="descname">Field</code><span class="sig-paren">(</span><em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cleanqueries.Field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An instance of this class allows you to query your Zetabase table by field.</p>
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.cleanqueries.OrExpression">
+<em class="property">class </em><code class="descclassname">zbpy.cleanqueries.</code><code class="descname">OrExpression</code><span class="sig-paren">(</span><em>expression1</em>, <em>expression2</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cleanqueries.OrExpression" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.cleanqueries.OrExpression.to_sub_query">
+<code class="descname">to_sub_query</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cleanqueries.OrExpression.to_sub_query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return TableSubQuery object.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_owner_id: string 
+table_id: string</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-zbpy.client">
+<span id="zbpy-client-module"></span><h2>zbpy.client module<a class="headerlink" href="#module-zbpy.client" title="Permalink to this headline">¶</a></h2>
+<p>A Python SDK for interacting with Zetabase.</p>
+<dl class="class">
+<dt id="zbpy.client.NewAccount">
+<em class="property">class </em><code class="descclassname">zbpy.client.</code><code class="descname">NewAccount</code><span class="sig-paren">(</span><em>shell=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.NewAccount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IPython.core.magic.Magics</span></code></p>
+<dl class="method">
+<dt id="zbpy.client.NewAccount.createaccount">
+<code class="descname">createaccount</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.NewAccount.createaccount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="zbpy.client.NewAccount.magics">
+<code class="descname">magics</code><em class="property"> = {'cell': {}, 'line': {'createaccount': 'createaccount'}}</em><a class="headerlink" href="#zbpy.client.NewAccount.magics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="zbpy.client.NewAccount.registered">
+<code class="descname">registered</code><em class="property"> = True</em><a class="headerlink" href="#zbpy.client.NewAccount.registered" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.client.ZetabaseClient">
+<em class="property">class </em><code class="descclassname">zbpy.client.</code><code class="descname">ZetabaseClient</code><span class="sig-paren">(</span><em>uid</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An instance of a Zetabase client.</p>
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.add_permission">
+<code class="descname">add_permission</code><span class="sig-paren">(</span><em>table_id</em>, <em>perm</em>, <em>table_owner_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.add_permission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new permission to an existing table.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string 
+perm: PermEntry
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.auth_login_jwt">
+<code class="descname">auth_login_jwt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.auth_login_jwt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses jwt to login.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.check_ready">
+<code class="descname">check_ready</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.check_ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks to see if the ZetabaseClient is ready to make a request.</p>
+<dl class="docutils">
+<dt>Returns: </dt>
+<dd>boolean</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.check_version">
+<code class="descname">check_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.check_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks to see if Client version is compatible.</p>
+<dl class="docutils">
+<dt>Returns: </dt>
+<dd>boolean, zbpprotocol_pb2.VersionDetails</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.confirm_new_sub_user">
+<code class="descname">confirm_new_sub_user</code><span class="sig-paren">(</span><em>subuser_id</em>, <em>verification_code</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.confirm_new_sub_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirms the creation of a new subuser using the subuser’s verification code (sent to phone).</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>subuser_id: string 
+verification_code: string</dd>
+<dt>Returns: </dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.confirm_user_identity">
+<code class="descname">confirm_user_identity</code><span class="sig-paren">(</span><em>uid</em>, <em>parent_id</em>, <em>verify_str</em>, <em>stub</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.confirm_user_identity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Raises error if there is an issue.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>uid (user_id): string
+parent_id: string
+verify_str: string
+stub: ZetabaseProviderStub</dd>
+<dt>Returns: </dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.connect">
+<code class="descname">connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Establishes a connection between the Zetabase client to the server.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.create_table">
+<code class="descname">create_table</code><span class="sig-paren">(</span><em>table_id</em>, <em>data_type</em>, <em>indexed_fields=[]</em>, <em>perms=[]</em>, <em>allow_jwt=False</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.create_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a table with given attributes.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string
+data_type: TableDataFormat object
+indexed_fields: list of IndexedField (default=[]) 
+perms: list of PermEntrys (default=[])
+allow_jwt: boolean (default=False)</dd>
+<dt>Returns: </dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.delete_key">
+<code class="descname">delete_key</code><span class="sig-paren">(</span><em>table_id</em>, <em>key</em>, <em>table_owner_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.delete_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the specified key.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string
+key: string
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns: </dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.delete_table">
+<code class="descname">delete_table</code><span class="sig-paren">(</span><em>table_id</em>, <em>table_owner_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.delete_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the specified table.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.ecdsa_credential">
+<code class="descname">ecdsa_credential</code><span class="sig-paren">(</span><em>nonce</em>, <em>extra_bytes</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.ecdsa_credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates ecdsa proof of credential using the specified nonce and bytes.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>nonce: int
+extra_bytes: list of bytes</dd>
+<dt>Returns: </dt>
+<dd>ProofOfCredential</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>table_id</em>, <em>keys</em>, <em>table_owner_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all items from the specified table with the specified keys.</p>
+<dl class="docutils">
+<dt>Parameters: </dt>
+<dd>table_id: string
+keys: list of strings
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns: </dt>
+<dd>PaginationHandler</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.get_credential">
+<code class="descname">get_credential</code><span class="sig-paren">(</span><em>nonce</em>, <em>x_bytes</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.get_credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates proof of credential based on which type of proof of credential the zetabase user is using, jwt or ecdsa.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>nonce: int
+x_bytes: bytes</dd>
+<dt>Returns: </dt>
+<dd>ProofOfCredential</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.get_sub_identities">
+<code class="descname">get_sub_identities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.get_sub_identities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all of the subusers of the ZetabaseClient.</p>
+<dl class="docutils">
+<dt>Returns: </dt>
+<dd>zbprotocol_pb2.SubIdentitiesList.subIdentities</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.grpc_stub">
+<code class="descname">grpc_stub</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.grpc_stub" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns:</dt>
+<dd>ZetabaseProviderStub</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.id">
+<code class="descname">id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives the ZetabaseClient’s user id.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>string</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.jwt_credential">
+<code class="descname">jwt_credential</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.jwt_credential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses the zetabase user’s jwt_token to create proof of credential if they have one.</p>
+<dl class="docutils">
+<dt>Returns: </dt>
+<dd>ProofOfCredential</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.list_keys">
+<code class="descname">list_keys</code><span class="sig-paren">(</span><em>table_id</em>, <em>table_owner_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.list_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the keys for the specified table.</p>
+<dl class="docutils">
+<dt>Parameter:</dt>
+<dd>table_id: string
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns: </dt>
+<dd>PaginationHandler</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.list_tables">
+<code class="descname">list_tables</code><span class="sig-paren">(</span><em>table_owner_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.list_tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists all tables owned by the specified id.</p>
+<dl class="docutils">
+<dt>Parameters: </dt>
+<dd>table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns: </dt>
+<dd>zbprotocol_pb2.ListTablesResponse</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.new_sub_user">
+<code class="descname">new_sub_user</code><span class="sig-paren">(</span><em>handle</em>, <em>email</em>, <em>mobile</em>, <em>password</em>, <em>signup_code</em>, <em>group_id</em>, <em>pub_key=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.new_sub_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new subuser and returns the subuser’s id.</p>
+<dl class="docutils">
+<dt>Parameters: </dt>
+<dd>handle: string 
+email: string 
+mobile: string
+password: string 
+signup_code: string 
+group_id: string 
+pub_key: fastecdsa.PublicKey (default=self.pub_key)</dd>
+<dt>Returns: </dt>
+<dd>string</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.put_data">
+<code class="descname">put_data</code><span class="sig-paren">(</span><em>table_id</em>, <em>key</em>, <em>value</em>, <em>overwrite=False</em>, <em>table_owner_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.put_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put the specified data into the specified table with the given key.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string
+key: string
+value: bytes
+overwrite: boolean (default=True)
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.put_dataframe">
+<code class="descname">put_dataframe</code><span class="sig-paren">(</span><em>table_id</em>, <em>dataframe</em>, <em>df_key</em>, <em>overwrite=False</em>, <em>table_owner_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.put_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put pandas DataFrame into a json table with a specified key that will designate all entries of the dataframe.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string 
+dataframe: pandas.DataFrame
+df_key: string 
+overwrite: boolean (default=False)
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.put_dataframe_new_table">
+<code class="descname">put_dataframe_new_table</code><span class="sig-paren">(</span><em>table_id</em>, <em>dataframe</em>, <em>df_key</em>, <em>perms=[]</em>, <em>specify_fields=None</em>, <em>allow_jwt=False</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.put_dataframe_new_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new table with indexed fields to match the names and types of the dataframe’s columns. By default, all columns will be indexed, but
+a subset can be specified by listing the names of the columns in the ‘specify_fields’ parameter.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string 
+dataframe: pandas.DataFrame 
+df_key: string 
+perms: list of PermEntry objects (default=[])
+specify_fields: list of strings (default=All columns)
+allow_jwt: boolean (default=False)</dd>
+<dt>Returns: </dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.put_multi">
+<code class="descname">put_multi</code><span class="sig-paren">(</span><em>table_id</em>, <em>keys</em>, <em>values</em>, <em>overwrite=False</em>, <em>table_owner_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.put_multi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put multiple pieces of data into a table with the specified keys.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string
+keys: list of strings
+values: list of bytes 
+overwrite: boolean (default=False)
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns: </dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.put_np_array">
+<code class="descname">put_np_array</code><span class="sig-paren">(</span><em>table_id</em>, <em>array</em>, <em>key</em>, <em>overwrite=False</em>, <em>table_owner_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.put_np_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put numpy array into a table with the given key.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string 
+array: np.array 
+key: string 
+overwrite: boolean (default=False)
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.query">
+<code class="descname">query</code><span class="sig-paren">(</span><em>table_id</em>, <em>qry</em>, <em>table_owner_id=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries data based on the specified query and table.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string
+qry: Query type object
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>PaginationHandler</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.set_cert_verify">
+<code class="descname">set_cert_verify</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.set_cert_verify" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets no certificate verification to False.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.set_id_key">
+<code class="descname">set_id_key</code><span class="sig-paren">(</span><em>priv</em>, <em>pub</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.set_id_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the private and public keys of the ZetabaseClient to priv and pub respectively.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>priv: fastecdsa.PrivateKey
+pub: fastecdsa.PublicKey</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.set_id_password">
+<code class="descname">set_id_password</code><span class="sig-paren">(</span><em>login_id</em>, <em>pwd</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.set_id_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the login_id and password of the ZetabaseClient.</p>
+<dl class="docutils">
+<dt>Parameter:</dt>
+<dd>login_id: string
+pwd: string</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.set_insecure">
+<code class="descname">set_insecure</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.set_insecure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets insecure of the ZetabaseClient to true.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.set_parent">
+<code class="descname">set_parent</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.set_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the parent_id of the ZetabaseClient to id.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>id: string.</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.set_server_addr">
+<code class="descname">set_server_addr</code><span class="sig-paren">(</span><em>addr</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient.set_server_addr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the server address of the ZetabaseClient.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>addr: string</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.client.import_key">
+<code class="descclassname">zbpy.client.</code><code class="descname">import_key</code><span class="sig-paren">(</span><em>filepath</em>, <em>public</em>, <em>curve=P256</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.import_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the keys located at the specified filepath.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>filepath: string 
+public: boolean 
+curve: fastecdsa.curve (default=P256)</dd>
+<dt>Returns:</dt>
+<dd>fastecdsa.key (public or private)</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-zbpy.cryptography">
+<span id="zbpy-cryptography-module"></span><h2>zbpy.cryptography module<a class="headerlink" href="#module-zbpy.cryptography" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="zbpy.cryptography.encode_private_key">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">encode_private_key</code><span class="sig-paren">(</span><em>priv_key</em>, <em>point</em>, <em>curve=P256</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.encode_private_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns string.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>priv_key: int
+point: fastecdsa.point 
+curve: fastecdsa.curve</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.encode_public_key">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">encode_public_key</code><span class="sig-paren">(</span><em>pub_key</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.encode_public_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns string.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>pub_key: fastecdsa.point</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.generate_key_pair">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">generate_key_pair</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.generate_key_pair" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns fastecdsa public and private keys (fastecdsa.privKey, fastecdsa.pubKey).</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.make_zetabase_signature">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">make_zetabase_signature</code><span class="sig-paren">(</span><em>uid</em>, <em>nonce</em>, <em>rel_data</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.make_zetabase_signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns tuple of strings.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>uid: string 
+nonce: int 
+rel_data: bytes 
+pk: fastecdsa.PrivateKey</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.multi_put_extra_signing_bytes">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">multi_put_extra_signing_bytes</code><span class="sig-paren">(</span><em>pairs</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.multi_put_extra_signing_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates extra bytes when inserting multiple pieces of data.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>pairs: list of DataPair objects</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.permission_set_signing_bytes">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">permission_set_signing_bytes</code><span class="sig-paren">(</span><em>perms</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.permission_set_signing_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of bytes.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>perms: list of PermissionsEntry objects</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.permission_signing_bytes">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">permission_signing_bytes</code><span class="sig-paren">(</span><em>entry</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.permission_signing_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of bytes.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>entry: PermEntry object</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.permissions_entry_signing_bytes">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">permissions_entry_signing_bytes</code><span class="sig-paren">(</span><em>perm</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.permissions_entry_signing_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns bytes.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>perm: PermissionsEntry object</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.sign_message_bytes">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">sign_message_bytes</code><span class="sig-paren">(</span><em>byts</em>, <em>rel_data_bytes</em>, <em>pk</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.sign_message_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return tuple of strings.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.signing_bytes">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">signing_bytes</code><span class="sig-paren">(</span><em>uid</em>, <em>nonce</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.signing_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of bytes.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>uid: string 
+nonce: int</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.table_create_signing_bytes">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">table_create_signing_bytes</code><span class="sig-paren">(</span><em>table_id</em>, <em>perms</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.table_create_signing_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns list of bytes.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string 
+perms: list of PermissionsEntry objects</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.table_put_extra_signing_bytes">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">table_put_extra_signing_bytes</code><span class="sig-paren">(</span><em>key</em>, <em>value</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.table_put_extra_signing_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates extra bytes when inserting a piece of data.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>key: string 
+value: list of bytes</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.cryptography.validate_signature_bytes">
+<code class="descclassname">zbpy.cryptography.</code><code class="descname">validate_signature_bytes</code><span class="sig-paren">(</span><em>pub_key</em>, <em>std_signing_bytes</em>, <em>special_data_bytes</em>, <em>r</em>, <em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.cryptography.validate_signature_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns boolean.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>pub_key: fastecdsa.PublicKey
+std_sigining_bytes: list of bytes
+special_data_bytes: list of bytes 
+r: string 
+s: string</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-zbpy.datasci">
+<span id="zbpy-datasci-module"></span><h2>zbpy.datasci module<a class="headerlink" href="#module-zbpy.datasci" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="zbpy.datasci.df_to_kvp">
+<code class="descclassname">zbpy.datasci.</code><code class="descname">df_to_kvp</code><span class="sig-paren">(</span><em>dataframe</em>, <em>df_key</em>, <em>start_entry</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.datasci.df_to_kvp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns keys (list of strings), values (list of bytes), done (boolean). df_to_kvp = dataframe to key-value pairs</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>dataframe: pandas.DataFrame
+df_key: string 
+start_entry: integer</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.datasci.parse_df_column">
+<code class="descclassname">zbpy.datasci.</code><code class="descname">parse_df_column</code><span class="sig-paren">(</span><em>col_name</em>, <em>col_type</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.datasci.parse_df_column" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an IndexedField object.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>col_name: string 
+col_type: pd.dtype</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.datasci.parse_df_columns">
+<code class="descclassname">zbpy.datasci.</code><code class="descname">parse_df_columns</code><span class="sig-paren">(</span><em>dataframe</em>, <em>specify_fields</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.datasci.parse_df_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of IndexedField objects.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>dataframe: pd.DataFrame 
+specify_fields: list of strings</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.datasci.parse_np_array">
+<code class="descclassname">zbpy.datasci.</code><code class="descname">parse_np_array</code><span class="sig-paren">(</span><em>array</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.datasci.parse_np_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns bytes of an encoded</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>array: np.array</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-zbpy.indexedfieldentity">
+<span id="zbpy-indexedfieldentity-module"></span><h2>zbpy.indexedfieldentity module<a class="headerlink" href="#module-zbpy.indexedfieldentity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="zbpy.indexedfieldentity.IndexedField">
+<em class="property">class </em><code class="descclassname">zbpy.indexedfieldentity.</code><code class="descname">IndexedField</code><span class="sig-paren">(</span><em>field_name</em>, <em>index_type</em>, <em>lang_code=''</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.indexedfieldentity.IndexedField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.indexedfieldentity.IndexedField.set_language_code">
+<code class="descname">set_language_code</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.indexedfieldentity.IndexedField.set_language_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the language code of the IndexedField.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>code: string</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.indexedfieldentity.IndexedField.to_protocol">
+<code class="descname">to_protocol</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.indexedfieldentity.IndexedField.to_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns:</dt>
+<dd>TableIndexField</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.indexedfieldentity.indexed_fields_to_protocol">
+<code class="descclassname">zbpy.indexedfieldentity.</code><code class="descname">indexed_fields_to_protocol</code><span class="sig-paren">(</span><em>ifs</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.indexedfieldentity.indexed_fields_to_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Parameters:</dt>
+<dd>ifs: IndexedField</dd>
+<dt>Returns: </dt>
+<dd>list of TableIndexFields</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-zbpy.pagination">
+<span id="zbpy-pagination-module"></span><h2>zbpy.pagination module<a class="headerlink" href="#module-zbpy.pagination" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="zbpy.pagination.PaginationHandler">
+<em class="property">class </em><code class="descclassname">zbpy.pagination.</code><code class="descname">PaginationHandler</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.pagination.PaginationHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.data">
+<code class="descname">data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.pagination.PaginationHandler.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns dict that maps strings to a list of bytes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.data_all">
+<code class="descname">data_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.pagination.PaginationHandler.data_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dict that maps strings to a list of bytes.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.pagination.PaginationHandler.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of strings.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.keys_all">
+<code class="descname">keys_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.pagination.PaginationHandler.keys_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of string.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.next">
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.pagination.PaginationHandler.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the next page if there is one.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.return_bytes">
+<code class="descname">return_bytes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.pagination.PaginationHandler.return_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will make items return as bytes when PaginationHandler is iterated through.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.return_pretty">
+<code class="descname">return_pretty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.pagination.PaginationHandler.return_pretty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will make items return as Python dictionaries or numpy arrays when PaginationHandler is iterated through.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.to_dataframe">
+<code class="descname">to_dataframe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.pagination.PaginationHandler.to_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Transforms all data in PaginationHandler into pandas.DataFrame.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.pagination.standard_pagination_handler">
+<code class="descclassname">zbpy.pagination.</code><code class="descname">standard_pagination_handler</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.pagination.standard_pagination_handler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an object of class PaginationHandler.</p>
+<dl class="docutils">
+<dt>Parameters: </dt>
+<dd>f: paginationRequester - func (int) -&gt; (dict[string][byte], bool)</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-zbpy.permissionentity">
+<span id="zbpy-permissionentity-module"></span><h2>zbpy.permissionentity module<a class="headerlink" href="#module-zbpy.permissionentity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="zbpy.permissionentity.PermConstraint">
+<em class="property">class </em><code class="descclassname">zbpy.permissionentity.</code><code class="descname">PermConstraint</code><span class="sig-paren">(</span><em>field</em>, <em>req_value='&#64;uid'</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.permissionentity.PermConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.permissionentity.PermEntry">
+<em class="property">class </em><code class="descclassname">zbpy.permissionentity.</code><code class="descname">PermEntry</code><span class="sig-paren">(</span><em>level</em>, <em>audience_type</em>, <em>audience_id</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.permissionentity.PermEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.permissionentity.PermEntry.add_constraint">
+<code class="descname">add_constraint</code><span class="sig-paren">(</span><em>c</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.permissionentity.PermEntry.add_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds constraint to the PermEntry.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>c: PermConstraint</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.permissionentity.PermEntry.to_protocol">
+<code class="descname">to_protocol</code><span class="sig-paren">(</span><em>uid</em>, <em>table_id</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.permissionentity.PermEntry.to_protocol" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns PermissionsEntry object.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>uid: string 
+table_id: string</dd>
+<dt>Returns: </dt>
+<dd>PermissionsEntry</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.permissionentity.to_field_constraint">
+<code class="descclassname">zbpy.permissionentity.</code><code class="descname">to_field_constraint</code><span class="sig-paren">(</span><em>uid</em>, <em>table_id</em>, <em>cs</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.permissionentity.to_field_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns PermissionConstraint object.</p>
+<dl class="docutils">
+<dt>Parameters: </dt>
+<dd>uid: string 
+table_id: string 
+cs: PermConstraint object</dd>
+<dt>Returns: </dt>
+<dd>PermissionConstraint</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.permissionentity.to_field_constraints">
+<code class="descclassname">zbpy.permissionentity.</code><code class="descname">to_field_constraints</code><span class="sig-paren">(</span><em>uid</em>, <em>table_id</em>, <em>cs</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.permissionentity.to_field_constraints" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns PermissionConstraint object.</p>
+<dl class="docutils">
+<dt>Paramters:</dt>
+<dd>uid: string 
+table_id: string 
+cs: PermConstraint object</dd>
+<dt>Returns: </dt>
+<dd>PermissionConstraint</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-zbpy.util">
+<span id="zbpy-util-module"></span><h2>zbpy.util module<a class="headerlink" href="#module-zbpy.util" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="zbpy.util.IdentityDefinition">
+<em class="property">class </em><code class="descclassname">zbpy.util.</code><code class="descname">IdentityDefinition</code><span class="sig-paren">(</span><em>id</em>, <em>parent_id</em>, <em>pub_key_enc</em>, <em>priv_key_enc</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.util.IdentityDefinition" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.util.IdentityDefinition.to_dict">
+<code class="descname">to_dict</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.util.IdentityDefinition.to_dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns dictionary.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.util.Nonce">
+<em class="property">class </em><code class="descclassname">zbpy.util.</code><code class="descname">Nonce</code><a class="headerlink" href="#zbpy.util.Nonce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="zbpy.util.Nonce.get_nonce">
+<code class="descname">get_nonce</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.util.Nonce.get_nonce" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns int.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.util.clean_string_for_filename">
+<code class="descclassname">zbpy.util.</code><code class="descname">clean_string_for_filename</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.util.clean_string_for_filename" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns string.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>filename: string</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.util.empty_signature">
+<code class="descclassname">zbpy.util.</code><code class="descname">empty_signature</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.util.empty_signature" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns empty EcdsaSignature object.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.util.get_cert">
+<code class="descclassname">zbpy.util.</code><code class="descname">get_cert</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.util.get_cert" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Zetabase certificate.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.util.get_stub">
+<code class="descclassname">zbpy.util.</code><code class="descname">get_stub</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.util.get_stub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns ZetabaseClientStub.</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.util.is_sem_ver_version_at_least">
+<code class="descclassname">zbpy.util.</code><code class="descname">is_sem_ver_version_at_least</code><span class="sig-paren">(</span><em>user_version</em>, <em>min_version</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.util.is_sem_ver_version_at_least" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns boolean.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>user_version: string 
+min_version: string</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.util.new_account_interactive">
+<code class="descclassname">zbpy.util.</code><code class="descname">new_account_interactive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.util.new_account_interactive" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="zbpy.util.unwrap_zb_error">
+<code class="descclassname">zbpy.util.</code><code class="descname">unwrap_zb_error</code><span class="sig-paren">(</span><em>error</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.util.unwrap_zb_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Unwraps error.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>error: ZbError</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="section" id="module-zbpy.zbcert">
+<span id="zbpy-zbcert-module"></span><h2>zbpy.zbcert module<a class="headerlink" href="#module-zbpy.zbcert" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-zbpy.zbprotocol_pb2">
+<span id="zbpy-zbprotocol-pb2-module"></span><h2>zbpy.zbprotocol_pb2 module<a class="headerlink" href="#module-zbpy.zbprotocol_pb2" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-zbpy.zbprotocol_pb2_grpc">
+<span id="zbpy-zbprotocol-pb2-grpc-module"></span><h2>zbpy.zbprotocol_pb2_grpc module<a class="headerlink" href="#module-zbpy.zbprotocol_pb2_grpc" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider">
+<em class="property">class </em><code class="descclassname">zbpy.zbprotocol_pb2_grpc.</code><code class="descname">ZetabaseProvider</code><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file</p>
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.ConfirmNewIdentity">
+<em class="property">static </em><code class="descname">ConfirmNewIdentity</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.ConfirmNewIdentity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.CreateTable">
+<em class="property">static </em><code class="descname">CreateTable</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.CreateTable" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.CreateUser">
+<em class="property">static </em><code class="descname">CreateUser</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.CreateUser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.DeleteObject">
+<em class="property">static </em><code class="descname">DeleteObject</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.DeleteObject" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.GetData">
+<em class="property">static </em><code class="descname">GetData</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.GetData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.ListKeys">
+<em class="property">static </em><code class="descname">ListKeys</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.ListKeys" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.ListSubIdentities">
+<em class="property">static </em><code class="descname">ListSubIdentities</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.ListSubIdentities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.ListTables">
+<em class="property">static </em><code class="descname">ListTables</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.ListTables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.LoginUser">
+<em class="property">static </em><code class="descname">LoginUser</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.LoginUser" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.ModifySubIdentity">
+<em class="property">static </em><code class="descname">ModifySubIdentity</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.ModifySubIdentity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.PutData">
+<em class="property">static </em><code class="descname">PutData</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.PutData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.PutDataMulti">
+<em class="property">static </em><code class="descname">PutDataMulti</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.PutDataMulti" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.QueryData">
+<em class="property">static </em><code class="descname">QueryData</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.QueryData" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.RegisterNewIdentity">
+<em class="property">static </em><code class="descname">RegisterNewIdentity</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.RegisterNewIdentity" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.SetPermission">
+<em class="property">static </em><code class="descname">SetPermission</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.SetPermission" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="staticmethod">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.VersionInfo">
+<em class="property">static </em><code class="descname">VersionInfo</code><span class="sig-paren">(</span><em>request</em>, <em>target</em>, <em>options=()</em>, <em>channel_credentials=None</em>, <em>call_credentials=None</em>, <em>compression=None</em>, <em>wait_for_ready=None</em>, <em>timeout=None</em>, <em>metadata=None</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProvider.VersionInfo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer">
+<em class="property">class </em><code class="descclassname">zbpy.zbprotocol_pb2_grpc.</code><code class="descname">ZetabaseProviderServicer</code><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file</p>
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.ConfirmNewIdentity">
+<code class="descname">ConfirmNewIdentity</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.ConfirmNewIdentity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.CreateTable">
+<code class="descname">CreateTable</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.CreateTable" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.CreateUser">
+<code class="descname">CreateUser</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.CreateUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.DeleteObject">
+<code class="descname">DeleteObject</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.DeleteObject" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.GetData">
+<code class="descname">GetData</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.GetData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.ListKeys">
+<code class="descname">ListKeys</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.ListKeys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.ListSubIdentities">
+<code class="descname">ListSubIdentities</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.ListSubIdentities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.ListTables">
+<code class="descname">ListTables</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.ListTables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.LoginUser">
+<code class="descname">LoginUser</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.LoginUser" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.ModifySubIdentity">
+<code class="descname">ModifySubIdentity</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.ModifySubIdentity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.PutData">
+<code class="descname">PutData</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.PutData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.PutDataMulti">
+<code class="descname">PutDataMulti</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.PutDataMulti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.QueryData">
+<code class="descname">QueryData</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.QueryData" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.RegisterNewIdentity">
+<code class="descname">RegisterNewIdentity</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.RegisterNewIdentity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.SetPermission">
+<code class="descname">SetPermission</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.SetPermission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.VersionInfo">
+<code class="descname">VersionInfo</code><span class="sig-paren">(</span><em>request</em>, <em>context</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderServicer.VersionInfo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.zbprotocol_pb2_grpc.ZetabaseProviderStub">
+<em class="property">class </em><code class="descclassname">zbpy.zbprotocol_pb2_grpc.</code><code class="descname">ZetabaseProviderStub</code><span class="sig-paren">(</span><em>channel</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.ZetabaseProviderStub" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Missing associated documentation comment in .proto file</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.zbprotocol_pb2_grpc.add_ZetabaseProviderServicer_to_server">
+<code class="descclassname">zbpy.zbprotocol_pb2_grpc.</code><code class="descname">add_ZetabaseProviderServicer_to_server</code><span class="sig-paren">(</span><em>servicer</em>, <em>server</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.zbprotocol_pb2_grpc.add_ZetabaseProviderServicer_to_server" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="module-zbpy">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-zbpy" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="modules.html" class="btn btn-neutral float-left" title="zbpy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, Austin Hochman
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

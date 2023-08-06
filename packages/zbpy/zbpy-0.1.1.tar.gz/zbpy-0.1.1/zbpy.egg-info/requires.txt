@@ -1,0 +1,18 @@
+pandas>=1.0.5
+numpy>=1.19.0
+grpcio>=1.29.0
+grpcio-tools>=1.29.0
+phonenumbers>=8.12.5
+ipython>=6.4.0
+ipython-genutils>=0.2.0
+protobuf>=3.12.2
+packaging>=17.1
+
+[:platform_system == "Darwin"]
+fastecdsa>=2.1.2
+
+[:platform_system == "Linux"]
+fastecdsa>=2.1.2
+
+[:platform_system == "Windows"]
+starkbank-ecdsa>=1.0.0

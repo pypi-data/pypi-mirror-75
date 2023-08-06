@@ -1,0 +1,1438 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>zbpy package &mdash; zbpy  documentation</title>
+
+
+
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/examplebutton.css" type="text/css"/>
+
+
+
+
+
+
+
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+
+
+      <script type="text/javascript">
+          var DOCUMENTATION_OPTIONS = {
+              URL_ROOT:'./',
+              VERSION:'',
+              LANGUAGE:'None',
+              COLLAPSE_INDEX:false,
+              FILE_SUFFIX:'.html',
+              HAS_SOURCE:  true,
+              SOURCELINK_SUFFIX: '.txt'
+          };
+      </script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="zbpy" href="modules.html" />
+</head>
+
+<body class="wy-body-for-nav">
+
+
+  <div class="wy-grid-for-nav">
+
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+
+
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> zbpy
+
+
+
+          </a>
+
+
+
+
+
+
+
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+
+        </div>
+
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+
+
+
+
+
+
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">zbpy</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">zbpy package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.client">zbpy.client module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.indexedfieldentity">zbpy.indexedfieldentity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.pagination">zbpy.pagination module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.permissionentity">zbpy.permissionentity module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.queries">zbpy.queries module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.util">zbpy.util module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-zbpy.zbprotocol_pb2">zbpy.zbprotocol_pb2 module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+        </div>
+
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+
+      <nav class="wy-nav-top" aria-label="top navigation">
+
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">zbpy</a>
+
+      </nav>
+
+
+      <div class="wy-nav-content">
+
+        <div class="rst-content">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+
+          <li><a href="modules.html">zbpy</a> &raquo;</li>
+
+      <li>zbpy package</li>
+
+
+      <li class="wy-breadcrumbs-aside">
+
+
+            <a href="_sources/zbpy.rst.txt" rel="nofollow"> View page source</a>
+
+
+      </li>
+
+  </ul>
+
+
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+
+  <div class="section" id="zbpy-package">
+<h1>zbpy package<a class="headerlink" href="#zbpy-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
+
+
+<div class="section" id="module-zbpy.client">
+<span id="zbpy-client-module"></span><h2>zbpy.client module<a class="headerlink" href="#module-zbpy.client" title="Permalink to this headline">¶</a></h2>
+
+<dl class="class">
+<dt id="zbpy.client.NewAccount">
+<em class="property">class </em><code class="descclassname">zbpy.client.</code><code class="descname">NewAccount</code><span class="sig-paren">(</span><em>shell=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><button class="button" id="button1" onclick="example('ex1', 'button1');">Show Example</button><a class="headerlink" href="#zbpy.client.NewAccount" title="Permalink to this definition">¶</a></dt>
+<code style="display: none;" id="ex1">from zbpy import client<br><br>%createaccount<br><br>
+    Please visit the Zetabase Terms of Service at: https://zetabase.io/tos<br>
+    Do you agree to and accept the Terms? [y/n]:
+</code>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">IPython.core.magic.Magics</span></code></p>
+<dl class="method">
+<dt id="zbpy.client.NewAccount.createaccount">
+<code class="descname">createaccount</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.NewAccount.createaccount" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="zbpy.client.NewAccount.magics">
+<code class="descname">magics</code><em class="property"> = {'cell': {}, 'line': {'createaccount': 'createaccount'}}</em><a class="headerlink" href="#zbpy.client.NewAccount.magics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="zbpy.client.NewAccount.registered">
+<code class="descname">registered</code><em class="property"> = True</em><a class="headerlink" href="#zbpy.client.NewAccount.registered" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.client.ZetabaseClient">
+<em class="property">class </em><code class="descclassname">zbpy.client.</code><code class="descname">ZetabaseClient</code><span class="sig-paren">(</span><em>uid</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.client.ZetabaseClient" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An instance of a Zetabase client.</p>
+<dt>__Init__ Parameters: <button class="button" id="button2" onclick="example('ex2', 'button2');">Show Example</button></dt>
+<dd>uid: string<br>
+</dd>
+<code style="display: none;" id="ex2">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client<br>
+    &lt;zbpy.client.ZetabaseClient object at 0x10cf52b38&gt;
+
+</code>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.add_permission">
+<code class="descname">add_permission</code><span class="sig-paren">(</span><em>table_id</em>, <em>perm</em>, <em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button3" onclick="example('ex3', 'button3');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.add_permission" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds a new permission to an existing table.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+perm: PermEntry<br>
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex3">
+    >>> from zbpy import client, permissionentity<br>
+    >>> from zbpy import zbprotocol_pb2 as zb<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> perm = permissionentity.PermEntry(zb.PermissionLevel.READ, zb.PermissionAudienceType.PUBLIC, '')<br>
+    >>> zb_client.add_permission('YOUR TABLE ID', perm)
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.auth_login_jwt">
+<code class="descname">auth_login_jwt</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button4" onclick="example('ex4', 'button4');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.auth_login_jwt" title="Permalink to this definition">¶</a></dt>
+<dd><p>Uses jwt to login.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex4">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br>
+    >>> zb_client.jwt_token<br>
+    eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9...
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.check_ready">
+<code class="descname">check_ready</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button5" onclick="example('ex5', 'button5');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.check_ready" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks to see if the ZetabaseClient is ready to make a request.</p>
+<dl class="docutils">
+<dt>Returns: </dt>
+<dd>boolean</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex5">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br>
+    >>> ready = zb_client.check_ready()<br>
+    >>> ready<br>
+    True
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.check_version">
+<code class="descname">check_version</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button6" onclick="example('ex6', 'button6');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.check_version" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks to see if Client version is compatible.</p>
+<dl class="docutils">
+<dt>Returns: </dt>
+<dd>boolean, zbpprotocol_pb2.VersionDetails</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex6">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> compatible, details = zb_client.check_version()<br>
+    >>> server_version, client_version, min_client_version = details.serverVersion, details.clientVersion, details.minClientVersion<br>
+    >>> compatible<br>
+    True<br>
+    >>> server_version, client_version, min_client_version<br>
+    0.1-alpha, 0.1, 0.1-alpha
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.confirm_new_sub_user">
+<code class="descname">confirm_new_sub_user</code><span class="sig-paren">(</span><em>subuser_id</em>, <em>verification_code</em><span class="sig-paren">)</span><button class="button" id="button7" onclick="example('ex7', 'button7');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.confirm_new_sub_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Confirms the creation of a new subuser using the subuser’s verification code (sent to phone).</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>subuser_id: string<br>
+verification_code: string</dd>
+<dt>Returns: </dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex7">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> new_subuser_id = zb_client.new_sub_user('SUBUSER ID', 'SUBUSER EMAIL', 'SUBUSER PHONE', 'SUBUSER PASSWORD', 'SIGNUP CODE', 'GROUP ID', YOUR PUBLIC KEY)<br>
+    >>> zb_client.confirm_new_sub_user(new_subuser_id, NUMBER TEXTED TO PHONE)
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.connect">
+<code class="descname">connect</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button8" onclick="example('ex8', 'button8');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Establishes a connection between the Zetabase client to the server.</p>
+</dd>
+<code style="display: none;" id="ex8">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.create_table">
+<code class="descname">create_table</code><span class="sig-paren">(</span><em>table_id</em>, <em>data_type</em>, <em>indexed_fields=[]</em>, <em>perms=[]</em>, <em>allow_jwt=False</em><span class="sig-paren">)</span><button class="button" id="button9" onclick="example('ex9', 'button9');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.create_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a table with given attributes.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+data_type: zbprotocol_pb2.TableDataFormat<br>
+indexed_fields: list of IndexedField (default=[])<br>
+perms: list of PermEntrys (default=[])<br>
+allow_jwt: boolean (default=False)</dd>
+<dt>Returns: </dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex9">
+    >>> from zbpy import client, permissionentity<br>
+    >>> from zbpy import zbprotocol_pb2 as zb<br>
+    >>> from zbpy.indexedfieldentity import IndexedField<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> perm = PermEntry(zb.PermissionLevel.READ, zb.PermissionAudienceType.PUBLIC, '')<br><br>
+    >>> age_field = IndexedField('age', zb.QueryOrdering.INTEGRAL_NUMBERS)<br>
+    >>> height_field = IndexedField('height', zb.QueryOrdering.REAL_NUMBERS)<br>
+    >>> name_field = IndexedField('name', zb.QueryOrdering.LEXICOGRAPHIC)<br>
+    >>> fields = [age_field, height_field, name_field]<br><br>
+    >>> zb_client.create_table('NEW TABLE ID', zb.QueryOrdering.JSON, fields, [perm], allow_jwt=True)
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.delete_key">
+<code class="descname">delete_key</code><span class="sig-paren">(</span><em>table_id</em>, <em>key</em>, <em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button10" onclick="example('ex10', 'button10');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.delete_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the specified key.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+key: string<br>
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns: </dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex10">
+    >>> from zbpy import client, permissionentity<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> zb_client.delete_key('TABLE ID', 'KEY')
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.delete_table">
+<code class="descname">delete_table</code><span class="sig-paren">(</span><em>table_id</em>, <em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button11" onclick="example('ex11', 'button11');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.delete_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Deletes the specified table.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex11">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> zb_client.delete_table('TABLE ID')
+    </code>
+</dl>
+
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.get">
+<code class="descname">get</code><span class="sig-paren">(</span><em>table_id</em>, <em>keys</em>, <em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button12" onclick="example('ex12', 'button12');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.get" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all items from the specified table with the specified keys.</p>
+<dl class="docutils">
+<dt>Parameters: </dt>
+<dd>table_id: string<br>
+keys: list of strings<br>
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns: </dt>
+<dd>PaginationHandler</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex12">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> list_keys = zb_client.list_keys('TABLE ID')<br>
+    >>> keys = [key for key in list_keys]<br>
+    >>> keys<br>
+    ['key1', 'key2', 'key3']<br>
+    >>> all_data = zb_client.get('TABLE ID', keys)<br>
+    >>> for data in all_data:<br>
+    ...&nbsp;&nbsp;&nbsp;&nbsp; print(data)<br>
+    b'{"age": 42, "height": 61.5, "name": "Tim"}'<br>
+    b'{"age": 33, "height": 67.8, "name": "Maya"}'<br>
+    b'{"age": 19, "height": 70.0, "name": "Cam"}'
+    </code>
+</dl>
+
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.get_sub_identities">
+<code class="descname">get_sub_identities</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button13" onclick="example('ex13', 'button13');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.get_sub_identities" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns all of the subusers of the ZetabaseClient.</p>
+<dl class="docutils">
+<dt>Returns: </dt>
+<dd>zbprotocol_pb2.SubIdentitiesList.subIdentities</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex13">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> sub_identities = zb_client.get_sub_identities()<br>
+    >>> sub_identities<br>
+    [id: "99a596c9-e9b5-4631-8344-..."<br>
+    name: "newSubUser"...<br>
+    .<br>
+    .<br>
+    .<br>
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.grpc_stub">
+<code class="descname">grpc_stub</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button14" onclick="example('ex14', 'button14');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.grpc_stub" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Returns:</dt>
+<dd>zbprotocol_pb2.ZetabaseProviderStub</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex14">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> stub = zb_client.grpc_stub()<br>
+    >>> stub<br>
+    &lt;zbpy.zbprotocol_pb2_grpc.ZetabaseProviderStub object at 0x115595be0&gt;
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.id">
+<code class="descname">id</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button15" onclick="example('ex15', 'button15');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gives the ZetabaseClient’s user id.</p>
+<dl class="docutils">
+<dt>Returns:</dt>
+<dd>string</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex15">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> user_id = zb_client.id()<br>
+    >>> user_id<br>
+    18259baf-b9e7-4cbd-...
+    </code>
+</dl>
+
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.list_keys">
+<code class="descname">list_keys</code><span class="sig-paren">(</span><em>table_id</em>, <em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button16" onclick="example('ex16', 'button16');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.list_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists the keys for the specified table.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns: </dt>
+<dd>PaginationHandler</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex16">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> list_keys = zb_client.list_keys('TABLE ID')<br>
+    >>> keys = [key for key in list_keys]<br>
+    >>> keys<br>
+    ['key1', 'key2', 'key3', 'key4']
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.list_keys_with_pattern">
+<code class="descname">list_keys_with_pattern</code><span class="sig-paren">(</span><em>table_id</em>, <em>pattern</em>, <em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button17" onclick="example('ex17', 'button17');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.list_keys_with_pattern" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists keys that begin with a certain prefix.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+pattern: string<br>
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns: </dt>
+<dd>PaginationHandler</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex17">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> list_keys = zb_client.list_keys_with_pattern('TABLE ID', 'train/%')<br>
+    >>> keys = [key for key in list_keys]<br>
+    >>> keys<br>
+    ['train/1', 'train/2', 'train3']
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.list_tables">
+<code class="descname">list_tables</code><span class="sig-paren">(</span><em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button18" onclick="example('ex18', 'button18');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.list_tables" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lists all tables owned by the specified id.</p>
+<dl class="docutils">
+<dt>Parameters: </dt>
+<dd>table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns: </dt>
+<dd>zbprotocol_pb2.ListTablesResponse</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex18">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> tables = zb_client.list_tables()<br>
+    >>> tables<br>
+    tableDefinitions {<br>
+    id: """''18259baf-b9e7-4cbd''""-..."<br>
+    tableId: "TestTable"<br>
+    dataFormat: JSON<br>
+    indices {<br>
+    .<br>
+    .<br>
+    .<br>
+    </code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.new_sub_user">
+<code class="descname">new_sub_user</code><span class="sig-paren">(</span><em>handle</em>, <em>email</em>, <em>mobile</em>, <em>password</em>, <em>signup_code</em>, <em>group_id</em>, <em>pub_key=None</em><span class="sig-paren">)</span><button class="button" id="button19" onclick="example('ex19', 'button19');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.new_sub_user" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new subuser and returns the subuser’s id.</p>
+<dl class="docutils">
+<dt>Parameters: </dt>
+<dd>handle: string<br>
+email: string<br>
+mobile: string<br>
+password: string<br>
+signup_code: string<br>
+group_id: string<br>
+pub_key: fastecdsa.PublicKey (default=self.pub_key)</dd>
+<dt>Returns: </dt>
+<dd>string</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex19">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> new_subuser_id = zb_client.new_sub_user('SUBUSER ID', 'SUBUSER EMAIL', 'SUBUSER PHONE', 'SUBUSER PASSWORD', 'SIGNUP CODE', 'GROUP ID', YOUR PUBLIC KEY)<br>
+    >>> new_subuser_id<br>
+    "34678ert-b1e5-8cbd..."
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.put_data">
+<code class="descname">put_data</code><span class="sig-paren">(</span><em>table_id</em>, <em>key</em>, <em>value</em>, <em>overwrite=False</em>, <em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button20" onclick="example('ex20', 'button20');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.put_data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put the specified data into the specified table with the given key.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+key: string<br>
+value: bytes<br>
+overwrite: boolean (default=True)<br>
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex20">
+    >>> from zbpy import client<br>
+    >>> import json<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> data = {'age': 19, 'height': 70.1, 'name': 'John'}<br>
+    >>> data_bytes = json.dumps(data).encode('utf-8')<br>
+    >>> zb_client.put_data('TABLE ID', 'data1', data_bytes)
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.put_dataframe">
+<code class="descname">put_dataframe</code><span class="sig-paren">(</span><em>table_id</em>, <em>dataframe</em>, <em>df_key</em>, <em>overwrite=False</em>, <em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button21" onclick="example('ex21', 'button21');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.put_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put pandas DataFrame into a json table with a specified key that will designate all entries of the dataframe.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+dataframe: pandas.DataFrame<br>
+df_key: string<br>
+overwrite: boolean (default=False)<br>
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex21">
+    >>> from zbpy import client<br>
+    >>> import pandas as pd<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> dataframe = pd.read_csv('datasets/train.csv')<br>
+    >>> zb_client.put_dataframe('TABLE ID', dataframe, 'train')
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.put_dataframe_new_table">
+<code class="descname">put_dataframe_new_table</code><span class="sig-paren">(</span><em>table_id</em>, <em>dataframe</em>, <em>df_key</em>, <em>perms=[]</em>, <em>specify_fields=None</em>, <em>allow_jwt=False</em><span class="sig-paren">)</span><button class="button" id="button22" onclick="example('ex22', 'button22');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.put_dataframe_new_table" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a new table with indexed fields to match the names and types of the dataframe’s columns. By default, all columns will be indexed, but
+a subset can be specified by listing the names of the columns in the ‘specify_fields’ parameter.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+dataframe: pandas.DataFrame<br>
+df_key: string<br>
+perms: list of PermEntry objects (default=[])<br>
+specify_fields: list of strings (default=All columns)<br>
+allow_jwt: boolean (default=False)</dd>
+<dt>Returns: </dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex22">
+    >>> from zbpy import client<br>
+    >>> import pandas as pd<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> dataframe = pd.read_csv('datasets/train.csv')<br>
+    >>> zb_client.put_dataframe_new_table('TABLE ID', dataframe, 'train')
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.put_multi">
+<code class="descname">put_multi</code><span class="sig-paren">(</span><em>table_id</em>, <em>keys</em>, <em>values</em>, <em>overwrite=False</em>, <em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button23" onclick="example('ex23', 'button23');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.put_multi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put multiple pieces of data into a table with the specified keys.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+keys: list of strings<br>
+values: list of bytes<br>
+overwrite: boolean (default=False)<br>
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns: </dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex23">
+    >>> from zbpy import client<br>
+    >>> import json<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> d1 = {'age': 19, 'height': 70.1, 'name': 'John'}<br>
+    >>> d2 = {'age': 21, 'height': 67.1, 'name': 'James'}<br>
+    >>> data_bytes = [json.dumps(d1).encode('utf-8'), json.dumps(d2).encode('utf-8')]<br>
+    >>> zb_client.put_multi('TABLE ID', ['key1', 'key2'], data_bytes)
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.put_np_array">
+<code class="descname">put_np_array</code><span class="sig-paren">(</span><em>table_id</em>, <em>array</em>, <em>key</em>, <em>overwrite=False</em>, <em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button24" onclick="example('ex24', 'button24');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.put_np_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Put numpy array into a table with the given key.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+array: np.array<br>
+key: string<br>
+overwrite: boolean (default=False)<br>
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>None (if no error else raises exception)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex24">
+    >>> from zbpy import client<br>
+    >>> import numpy as np<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> arr = np.array([[1, 2, 3], [4, 5, 6]])<br>
+    >>> zb_client.put_np_array('TABLE ID', 'nparr1', arr)
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.query">
+<code class="descname">query</code><span class="sig-paren">(</span><em>table_id</em>, <em>qry</em>, <em>table_owner_id=self.user_id</em><span class="sig-paren">)</span><button class="button" id="button25" onclick="example('ex25', 'button25');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.query" title="Permalink to this definition">¶</a></dt>
+<dd><p>Queries data based on the specified query and table.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>table_id: string<br>
+qry: Query type object<br>
+table_owner_id: string (default=self.user_id)</dd>
+<dt>Returns:</dt>
+<dd>PaginationHandler</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex25">
+    >>> from zbpy import client<br>
+    >>> from zbpy.queries import Field<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> age = Field('age')<br>
+    >>> name = Field('name')<br>
+    >>> query = ((age > 19) & (age <= 23)) | (name == 'James')<br>
+    >>> result = zb_client.query('TABLE ID', query)<br><br>
+    >>> for item in result:<br>
+    ... &nbsp;&nbsp;&nbsp;&nbsp;print(result)<br>
+    b'{"age": 42, "height": 61.5, "name": "James"}'<br>
+    b'{"age": 20, "height": 67.8, "name": "Maya"}'<br>
+    b'{"age": 23, "height": 70.0, "name": "Cam"}'
+</code>
+</dl>
+
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.set_id_key">
+<code class="descname">set_id_key</code><span class="sig-paren">(</span><em>priv</em>, <em>pub</em><span class="sig-paren">)</span><button class="button" id="button26" onclick="example('ex26', 'button26');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.set_id_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the private and public keys of the ZetabaseClient to priv and pub respectively.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>priv: fastecdsa.PrivateKey<br>
+pub: fastecdsa.PublicKey</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex26">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br><br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br><br>
+    >>> zb_client.set_id_key(priv_key, pub_key)
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.set_id_password">
+<code class="descname">set_id_password</code><span class="sig-paren">(</span><em>login_id</em>, <em>pwd</em><span class="sig-paren">)</span><button class="button" id="button27" onclick="example('ex27', 'button27');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.set_id_password" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the login_id and password of the ZetabaseClient.</p>
+<dl class="docutils">
+<dt>Parameter:</dt>
+<dd>login_id: string<br>
+pwd: string</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex27">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.client.ZetabaseClient.set_parent">
+<code class="descname">set_parent</code><span class="sig-paren">(</span><em>id</em><span class="sig-paren">)</span><button class="button" id="button28" onclick="example('ex28', 'button28');">Show Example</button><a class="headerlink" href="#zbpy.client.ZetabaseClient.set_parent" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the parent_id of the ZetabaseClient to id.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>id: string.</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex28">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+    >>> zb_client.set_parent('PARENT USER ID')
+</code>
+</dl>
+
+</dd></dl>
+
+<dl class="function">
+<dt id="zbpy.client.import_key">
+<code class="descclassname">zbpy.client.</code><code class="descname">import_key</code><span class="sig-paren">(</span><em>filepath</em>, <em>public</em>, <em>curve=P256</em><span class="sig-paren">)</span><button class="button" id="button29" onclick="example('ex29', 'button29');">Show Example</button><a class="headerlink" href="#zbpy.client.import_key" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the keys located at the specified filepath.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>filepath: string<br>
+public: boolean<br>
+curve: fastecdsa.curve (default=P256)</dd>
+<dt>Returns:</dt>
+<dd>fastecdsa.key (public or private)</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex29">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br><br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br><br>
+    >>> zb_client.set_id_key(priv_key, pub_key)
+</code>
+</dl>
+
+
+<div class="section" id="module-zbpy.indexedfieldentity">
+<span id="zbpy-indexedfieldentity-module"></span><h2>zbpy.indexedfieldentity module<a class="headerlink" href="#module-zbpy.indexedfieldentity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="zbpy.indexedfieldentity.IndexedField">
+<em class="property">class </em><code class="descclassname">zbpy.indexedfieldentity.</code><code class="descname">IndexedField</code><span class="sig-paren">(</span><em>field_name</em>, <em>index_type</em>, <em>lang_code=''</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.indexedfieldentity.IndexedField" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dt>__Init__ Parameters: <button class="button" id="button30" onclick="example('ex30', 'button30');">Show Example</button></dt>
+<dd>field_name: string<br>
+index_type: zbprotocol_pb2.QueryOrdering<br>
+lang_code: string
+</dd>
+<code style="display: none;" id="ex30">
+    >>> from zbpy import client<br>
+    >>> from zbpy import zbprotocol_pb2 as zb<br>
+    >>> from zbpy.indexedfieldentity import IndexedField<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br>
+    >>> zb_client.set_id_key(priv_key, pub_key)<br>
+    >>> zb_client.connect()<br><br>
+    >>> age_field = IndexedField('age', zb.QueryOrdering.INTEGRAL_NUMBERS)<br>
+    >>> height_field = IndexedField('height', zb.QueryOrdering.REAL_NUMBERS)<br>
+    >>> name_field = IndexedField('name', zb.QueryOrdering.LEXICOGRAPHIC)<br>
+    >>> fields = [age_field, height_field, name_field]<br><br>
+
+    >>> zb_client.create_table('NEW TABLE ID', zb.QueryOrdering.JSON, fields)
+</code>
+
+<dl class="method">
+<dt id="zbpy.indexedfieldentity.IndexedField.set_language_code">
+<code class="descname">set_language_code</code><span class="sig-paren">(</span><em>code</em><span class="sig-paren">)</span><button class="button" id="button31" onclick="example('ex31', 'button31');">Show Example</button><a class="headerlink" href="#zbpy.indexedfieldentity.IndexedField.set_language_code" title="Permalink to this definition">¶</a></dt>
+<dd><p>Sets the language code of the IndexedField.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>code: string</dd>
+</dl>
+</dd>
+<code style="display: none;" id="ex31">
+    >>> from zbpy import client<br>
+    >>> from zbpy import zbprotocol_pb2 as zb<br>
+    >>> from zbpy.indexedfieldentity import IndexedField<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br>
+    >>> zb_client.set_id_key(priv_key, pub_key)<br>
+    >>> zb_client.connect()<br><br>
+    >>> age_field = IndexedField('age', zb.QueryOrdering.INTEGRAL_NUMBERS)<br>
+    >>> text_field = IndexedField('name', zb.QueryOrdering.FULL_TEXT)<br>
+    >>> text_field.set_language_code('en')<br><br>
+    >>> fields = [age_field, name_field]<br><br>
+
+    >>> zb_client.create_table('NEW TABLE ID', zb.QueryOrdering.JSON, fields)
+</code>
+</dl>
+
+
+</dd></dl>
+
+
+</div>
+<div class="section" id="module-zbpy.pagination">
+<span id="zbpy-pagination-module"></span><h2>zbpy.pagination module<a class="headerlink" href="#module-zbpy.pagination" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="zbpy.pagination.PaginationHandler">
+<em class="property">class </em><code class="descclassname">zbpy.pagination.</code><code class="descname">PaginationHandler</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.pagination.PaginationHandler" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.data">
+<code class="descname">data</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button32" onclick="example('ex32', 'button32');">Show Example</button><a class="headerlink" href="#zbpy.pagination.PaginationHandler.data" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns dict that maps strings to a list of bytes.</p>
+</dd>
+<code style="display: none; line-height: normal" id="ex32">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br>
+    >>> zb_client.set_id_key(priv_key, pub_key)<br>
+    >>> zb_client.connect()<br><br>
+    >>> result = zb_client.get('TABLE ID', ['key1', 'key2', 'key3'])<br>
+    >>> result.data()<br>
+    {'key1': b'{"name": "Austin", "age": 24, "height": 70.4}', 'key2': b'{"name": "Lucie", "age": 11, "height": 60.4}', 'key3': b'{"name": "John", "age": 27, "height": 67.3}'}
+</code>
+</dl>
+
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.data_all">
+<code class="descname">data_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button33" onclick="example('ex33', 'button33');">Show Example</button><a class="headerlink" href="#zbpy.pagination.PaginationHandler.data_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a dict that maps strings to a list of bytes.</p>
+</dd>
+<code style="display: none; line-height: normal" id="ex33">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br>
+    >>> zb_client.set_id_key(priv_key, pub_key)<br>
+    >>> zb_client.connect()<br><br>
+    >>> result = zb_client.get('TABLE ID', ['key1', 'key2', 'key3'])<br>
+    >>> result.data_all()<br>
+    {'key1': b'{"name": "Austin", "age": 24, "height": 70.4}', 'key2': b'{"name": "Lucie", "age": 11, "height": 60.4}', 'key3': b'{"name": "John", "age": 27, "height": 67.3}'}
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.keys">
+<code class="descname">keys</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button34" onclick="example('ex34', 'button34');">Show Example</button><a class="headerlink" href="#zbpy.pagination.PaginationHandler.keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of strings.</p>
+</dd>
+<code style="display: none; line-height: normal" id="ex34">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br>
+    >>> zb_client.set_id_key(priv_key, pub_key)<br>
+    >>> zb_client.connect()<br><br>
+    >>> age = Field('age')<br>
+    >>> name = Field('name')<br>
+    >>> query = ((age > 19) & (age <= 23)) | (name == 'James')<br><br>
+    >>> result = zb_client.query('TABLE ID', query)<br>
+    >>> result.keys()<br>
+    ['key1', 'key2', 'key3']
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.keys_all">
+<code class="descname">keys_all</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button35" onclick="example('ex35', 'button35');">Show Example</button><a class="headerlink" href="#zbpy.pagination.PaginationHandler.keys_all" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of string.</p>
+</dd>
+<code style="display: none; line-height: normal" id="ex35">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br>
+    >>> zb_client.set_id_key(priv_key, pub_key)<br>
+    >>> zb_client.connect()<br><br>
+    >>> age = Field('age')<br>
+    >>> name = Field('name')<br>
+    >>> query = ((age > 19) & (age <= 23)) | (name == 'James')<br><br>
+    >>> result = zb_client.query('TABLE ID', query)<br>
+    >>> result.keys_all()<br>
+    ['key1', 'key2', 'key3']
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.next">
+<code class="descname">next</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button36" onclick="example('ex36', 'button36');">Show Example</button><a class="headerlink" href="#zbpy.pagination.PaginationHandler.next" title="Permalink to this definition">¶</a></dt>
+<dd><p>Changes the current data stored in the pagination handler to the next page if there is one.</p>
+</dd>
+<code style="display: none; line-height: normal" id="ex36">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br>
+    >>> zb_client.set_id_key(priv_key, pub_key)<br>
+    >>> zb_client.connect()<br><br>
+    >>> age = Field('age')<br>
+    >>> name = Field('name')<br>
+    >>> query = ((age > 19) & (age <= 23)) | (name == 'James')<br><br>
+    >>> result = zb_client.query('TABLE ID', query)<br>
+    >>> result.keys()<br>
+    ['key_1', 'key_2', 'key_3'..., 'key_i']<br><br>
+    >>> result.next()<br>
+    >>> result.keys()<br>
+    ['key_i+1', 'key_i+2', ..., 'key_i+j']
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.return_bytes">
+<code class="descname">return_bytes</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button37" onclick="example('ex37', 'button37');">Show Example</button><a class="headerlink" href="#zbpy.pagination.PaginationHandler.return_bytes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will make items return as bytes when PaginationHandler is iterated through.</p>
+</dd>
+<code style="display: none; line-height: normal" id="ex37">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br>
+    >>> zb_client.set_id_key(priv_key, pub_key)<br>
+    >>> zb_client.connect()<br><br>
+    >>> result = zb_client.get('TABLE ID', ['key1', 'key2', 'key3'])<br>
+    >>> result.return_bytes()<br>
+    >>> for data in result:<br>
+    ... &nbsp;&nbsp;&nbsp;&nbsp;print(data)<br>
+    b'{"name": "Austin", "age": 24, "height": 70.4}'<br>
+    b'{"name": "Lucie", "age": 11, "height": 60.4}'<br>
+    b'{"name": "John", "age": 27, "height": 67.3}'<br>
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.return_pretty">
+<code class="descname">return_pretty</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button38" onclick="example('ex38', 'button38');">Show Example</button><a class="headerlink" href="#zbpy.pagination.PaginationHandler.return_pretty" title="Permalink to this definition">¶</a></dt>
+<dd><p>Will make items return as Python dictionaries (or numpy arrays) when PaginationHandler is iterated through.</p>
+</dd>
+<code style="display: none; line-height: normal" id="ex38">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br>
+    >>> zb_client.set_id_key(priv_key, pub_key)<br>
+    >>> zb_client.connect()<br><br>
+    >>> result = zb_client.get('TABLE ID', ['key1', 'key2', 'key3'])<br>
+    >>> result.return_pretty()<br>
+    >>> for data in result:<br>
+    ... &nbsp;&nbsp;&nbsp;&nbsp;print(data)<br>
+    {"name": "Austin", "age": 24, "height": 70.4}<br>
+    {"name": "Lucie", "age": 11, "height": 60.4}<br>
+    {"name": "John", "age": 27, "height": 67.3}<br>
+</code>
+</dl>
+
+<dl class="method">
+<dt id="zbpy.pagination.PaginationHandler.to_dataframe">
+<code class="descname">to_dataframe</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button39" onclick="example('ex39', 'button39');">Show Example</button><a class="headerlink" href="#zbpy.pagination.PaginationHandler.to_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the data in the PaginationHandler as a pandas DataFrame.</p>
+</dd>
+<code style="display: none; line-height: normal" id="ex39">
+    >>> from zbpy import client<br><br>
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> pub_key = client.import_key('./zb/zetabase.15160.pub', public=True)<br>
+    >>> priv_key = client.import_key('./zb/zetabase.15160.priv', public=False)<br>
+    >>> zb_client.set_id_key(priv_key, pub_key)<br>
+    >>> zb_client.connect()<br><br>
+    >>> result = zb_client.get('TABLE ID', ['key1', 'key2', 'key3'])<br>
+    >>> df = result.to_dataframe<br>
+    >>> df<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;age&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height<br>
+key1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Austin&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;70.4<br>
+key2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Lucie&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;11&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;60.4<br>
+key3&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;John&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;27&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;67.4<br><br>
+[3 rows x 3 columns]
+</code>
+</dl>
+
+</dd></dl>
+
+
+</div>
+<div class="section" id="module-zbpy.permissionentity">
+<span id="zbpy-permissionentity-module"></span><h2>zbpy.permissionentity module<a class="headerlink" href="#module-zbpy.permissionentity" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="zbpy.permissionentity.PermConstraint">
+<em class="property">class </em><code class="descclassname">zbpy.permissionentity.</code><code class="descname">PermConstraint</code><span class="sig-paren">(</span><em>field</em>, <em>req_value='&#64;uid'</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.permissionentity.PermConstraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dt>__Init__ Parameters: <button class="button" id="button40" onclick="example('ex40', 'button40');">Show Example</button></dt>
+<dd>field: string<br>
+req_value: string (default='@uid')
+</dd>
+
+</dd>
+<code style="display: none; line-height: normal" id="ex40">
+    >>> from zbpy import client, permissionentity<br>
+    >>> from zbpy import zbprotocol_pb2 as zb<br><br>
+
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+
+    >>> perm_constraint = permissionentity.PermConstraint('age')<br>
+    >>> perm = permissionentity.PermEntry(zb.PermissionLevel.READ, zb.PermissionAudienceType.PUBLIC, '')<br><br>
+    >>> perm.add_constraint(perm_constraint)<br>
+    >>> zb_client.add_permission('YOUR TABLE ID', perm)
+</code>
+</dl>
+
+
+<dl class="class">
+<dt id="zbpy.permissionentity.PermEntry">
+<em class="property">class </em><code class="descclassname">zbpy.permissionentity.</code><code class="descname">PermEntry</code><span class="sig-paren">(</span><em>level</em>, <em>audience_type</em>, <em>audience_id</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.permissionentity.PermEntry" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dt>__Init__ Parameters: <button class="button" id="button41" onclick="example('ex41', 'button41');">Show Example</button></dt>
+<dd>level: zbprotocol_pb2.PermissionLevel<br>
+audience_type: zbprotocol_pb2.PermissionAudienceType<br>
+audience_id: string
+<code style="display: none; line-height: normal" id="ex41">
+    >>> from zbpy import client, permissionentity<br>
+    >>> from zbpy import zbprotocol_pb2 as zb<br><br>
+
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+
+    >>> perm = permissionentity.PermEntry(zb.PermissionLevel.READ, zb.PermissionAudienceType.PUBLIC, '')<br><br>
+    >>> zb_client.add_permission('YOUR TABLE ID', perm)
+</code>
+</dd>
+
+<dl class="method">
+<dt id="zbpy.permissionentity.PermEntry.add_constraint">
+<code class="descname">add_constraint</code><span class="sig-paren">(</span><em>c</em><span class="sig-paren">)</span><button class="button" id="button42" onclick="example('ex42', 'button42');">Show Example</button><a class="headerlink" href="#zbpy.permissionentity.PermEntry.add_constraint" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds constraint to the PermEntry.</p>
+<dl class="docutils">
+<dt>Parameters:</dt>
+<dd>c: PermConstraint</dd>
+</dl>
+</dd>
+<code style="display: none; line-height: normal" id="ex42">
+    >>> from zbpy import client, permissionentity<br>
+    >>> from zbpy import zbprotocol_pb2 as zb<br><br>
+
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+
+    >>> perm_constraint = permissionentity.PermConstraint('age')<br>
+    >>> perm = permissionentity.PermEntry(zb.PermissionLevel.READ, zb.PermissionAudienceType.PUBLIC, '')<br><br>
+    >>> perm.add_constraint(perm_constraint)<br>
+    >>> zb_client.add_permission('YOUR TABLE ID', perm)
+</code>
+</dl>
+
+
+</dd></dl>
+
+</div>
+
+
+<div class="section" id="module-zbpy.queries">
+<span id="zbpy-queries-module"></span><h2>zbpy.queries module<a class="headerlink" href="#module-zbpy.queries" title="Permalink to this headline">¶</a></h2>
+
+
+<dl class="class">
+<dt id="zbpy.queries.Field">
+<em class="property">class </em><code class="descclassname">zbpy.queries.</code><code class="descname">Field</code><span class="sig-paren">(</span><em>field</em><span class="sig-paren">)</span><a class="headerlink" href="#zbpy.queries.Field" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>An instance of this class allows you to query your Zetabase table by field.</p>
+<dt>__Init__ Parameters: <button class="button" id="button43" onclick="example('ex43', 'button43');">Show Example</button></dt>
+<dd>field: string<br>
+</dd>
+</dd>
+<code style="display: none; line-height: normal" id="ex43">
+    >>> from zbpy import client<br>
+    >>> from zbpy.queries import Field<br><br>
+
+    >>> zb_client = client.ZetabaseClient('YOUR ZETABASE ID')<br>
+    >>> zb_client.connect()<br>
+    >>> zb_client.set_id_password('YOUR HANDLE', 'YOUR PASSWORD')<br>
+    >>> zb_client.auth_login_jwt()<br><br>
+
+    >>> age = Field('age')<br>
+    >>> name = Field('name')<br>
+    >>> query = ((age > 19) & (age <= 23)) | (name == 'James')<br>
+    >>> result = zb_client.query('TABLE ID', query)<br><br>
+
+    >>> for item in result:<br>
+    ...     print(result)<br>
+    b'{"age": 42, "height": 61.5, "name": "James"}'<br>
+    b'{"age": 20, "height": 67.8, "name": "Maya"}'<br>
+    b'{"age": 23, "height": 70.0, "name": "Cam"}'<br>
+</code>
+</dl>
+
+
+</div>
+
+
+<div class="section" id="module-zbpy.util">
+<span id="zbpy-util-module"></span><h2>zbpy.util module<a class="headerlink" href="#module-zbpy.util" title="Permalink to this headline">¶</a></h2>
+
+<dl class="function">
+<dt id="zbpy.util.new_account_interactive">
+<code class="descclassname">zbpy.util.</code><code class="descname">new_account_interactive</code><span class="sig-paren">(</span><span class="sig-paren">)</span><button class="button" id="button44" onclick="example('ex44', 'button44');">Show Example</button><a class="headerlink" href="#zbpy.util.new_account_interactive" title="Permalink to this definition">¶</a></dt>
+<dd></dd>
+<code style="display: none; line-height: normal" id="ex44">
+    >>> from zbpy.util import new_account_interactive<br><br>
+    >>> new_account_interactive()<br>
+    Please visit the Zetabase Terms of Service at: https://zetabase.io/tos<br>
+    Do you agree to and accept the Terms? [y/n]:<br>
+</code>
+</dl>
+
+
+</div>
+
+<div class="section" id="module-zbpy.zbprotocol_pb2">
+<span id="zbpy-zbprotocol-pb2-module"></span><h2>zbpy.zbprotocol_pb2 module<a class="headerlink" href="#module-zbpy.zbprotocol_pb2" title="Permalink to this headline">¶</a></h2>
+
+
+<dl class="class">
+<dt id="zbpy.zbprotocol_pb2.enums">
+<em class="property"></em><code class="descclassname">Enums</code><code class="descname"></code><span class="sig-paren"></span><a class="headerlink" href="#zbpy.zbprotocol_pb2.enums" title="Permalink to this definition">¶</a></dt>
+<dd>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2.PermissionAudienceType">
+<code class="descname">zbpy.zbprotocol_pb2.PermissionAudienceType</code><span class="sig-paren"></span><a class="headerlink" href="#zbpy.zbprotocol_pb2.PermissionAudienceType" title="Permalink to this definition">¶</a></dt>
+<dd><p>Options for who a specific permission applied to a table pertains to.</p>
+<dl class="docutils">
+<dt>Enumerators:</dt>
+<dd>INDIVIDUAL<br>
+USER<br>
+PUBLIC</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2.PermissionLevel">
+<code class="descname">zbpy.zbprotocol_pb2.PermissionLevel</code><span class="sig-paren"></span><a class="headerlink" href="#zbpy.zbprotocol_pb2.PermissionLevel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Options for what type of permission is applied to a table.</p>
+<dl class="docutils">
+<dt>Enumerators:</dt>
+<dd>NONE<br>
+READ<br>
+APPEND<br>
+DELETE<br>
+ADMINISTER</dd>
+</dl>
+</dd></dl>
+
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2.QueryOrdering">
+<code class="descname">zbpy.zbprotocol_pb2.QueryOrdering</code><span class="sig-paren"></span><a class="headerlink" href="#zbpy.zbprotocol_pb2.QueryOrdering" title="Permalink to this definition">¶</a></dt>
+<dd><p>Options for the types of an indexed field.</p>
+<dl class="docutils">
+<dt>Enumerators:</dt>
+<dd>LEXICOGRAPHIC<br>
+REAL_NUMBERS<br>
+INTEGRAL_NUMBERS<br>
+FULL_TEXT</dd>
+</dl>
+</dd></dl>
+
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2.TableDataFormat">
+<code class="descname">zbpy.zbprotocol_pb2.TableDataFormat</code><span class="sig-paren"></span><a class="headerlink" href="#zbpy.zbprotocol_pb2.TableDataFormat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Options for the type of a table.</p>
+<dl class="docutils">
+<dt>Enumerators:</dt>
+<dd>BINARY<br>
+PLAIN_TEXT<br>
+JSON</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="zbpy.zbprotocol_pb2.messages">
+<em class="property"></em><code class="descclassname">Messages</code><code class="descname"></code><span class="sig-paren"></span><a class="headerlink" href="#zbpy.zbprotocol_pb2.messages" title="Permalink to this definition">¶</a></dt>
+<dd>
+
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2.VersionDetails">
+<code class="descname">zbpy.zbprotocol_pb2.VersionDetails</code><span class="sig-paren"></span><a class="headerlink" href="#zbpy.zbprotocol_pb2.VersionDetails" title="Permalink to this definition">¶</a></dt>
+<dd>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd>serverVersion: string<br>
+clientVersion: string<br>
+minClientVersion: string</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2.SubIdentitiesList">
+<code class="descname">zbpy.zbprotocol_pb2.SubIdentitiesList</code><span class="sig-paren"></span><a class="headerlink" href="#zbpy.zbprotocol_pb2.SubIdentitiesList" title="Permalink to this definition">¶</a></dt>
+<dd>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd>subIdentities: repeated NewSubIdentityRequest</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="zbpy.zbprotocol_pb2.NewSubIdentityRequest">
+<code class="descname">zbpy.zbprotocol_pb2.NewSubIdentityRequest</code><span class="sig-paren"></span><a class="headerlink" href="#zbpy.zbprotocol_pb2.NewSubIdentityRequest" title="Permalink to this definition">¶</a></dt>
+<dd>
+<dl class="docutils">
+<dt>Attributes:</dt>
+<dd>id: string<br>
+name: string<br>
+email: string<br>
+mobile: string<br>
+loginPassword: string<br>
+pubKeyEncoded: string<br>
+signupCode: string<br>
+groupId: string
+</dd>
+</dl>
+</dd></dl>
+
+
+</dd></dl>
+
+</div>
+
+</div>
+
+
+           </div>
+
+          </div>
+          <footer>
+
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+
+        <a href="modules.html" class="btn btn-neutral float-left" title="zbpy" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+
+    </div>
+
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+
+        &copy; Copyright 2020, Austin Hochman
+
+    </p>
+  </div>
+
+
+
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <script src="_static/js/examplebutton.js" type="text/javascript"></script>
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+
+
+
+
+
+</body>
+</html>
