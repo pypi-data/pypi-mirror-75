@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: datasette-publish-now
+Version: 0.7
+Summary: datasette-publish-now is now datasette-publish-vercel
+Home-page: UNKNOWN
+License: UNKNOWN
+Description: # datasette-publish-now is now datasette-publish-vercel
+        
+        This package has been renamed. Use `pip install datasette-publish-vercel` instead.
+        
+        New package: https://pypi.org/project/datasette-publish-vercel/
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 7 - Inactive
+Description-Content-Type: text/markdown
