@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: aiopdhttp
+Version: 1.8.1.dev20200804140542
+Summary: Swagger-generated Async API Client for Pulse Robotic Arm
+Home-page: https://rozum.com
+Author: Rozum Robotics
+Author-email: dev@rozum.com
+License: Apache License 2.0
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Framework :: AsyncIO
+Requires-Dist: certifi (>=2017.4.17)
+Requires-Dist: python-dateutil (>=2.1)
+Requires-Dist: six (>=1.10)
+Requires-Dist: urllib3 (>=1.23)
+Requires-Dist: aiohttp (>=3.6.2)
+
+UNKNOWN
+
+
