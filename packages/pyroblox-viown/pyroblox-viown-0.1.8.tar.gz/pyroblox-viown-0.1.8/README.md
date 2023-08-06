@@ -1,0 +1,36 @@
+# pyroblox
+[![Downloads](https://pepy.tech/badge/pyroblox-viown)](https://pepy.tech/project/pyroblox-viown)
+
+An API Wrapper for ROBLOX.  
+As of right now this library lacks some features and will experience breaking changes frequently. If your code breaks after updating, re-read the documentation to keep it up to date.
+
+This library is still incomplete and maturing, if you experience any problems or minor bugs please open an issue.
+***
+# Docs
+You can find the latest documentation here:
+https://viown.github.io/pyroblox/
+***
+# Installation
+
+Stable installation (Recommended):  
+```pip install pyroblox-viown==0.0.3```
+
+Latest installation:  
+```pip install git+https://github.com/viown/pyroblox.git```
+***
+# Examples
+
+```py
+import pyroblox
+
+client = pyroblox.Login(cookie=".ROBLOSECURITY here")
+
+user = client.account.get_user(username="ROBLOX") # Get the user by name/id
+print(user.id) # Print the users ID.
+```
+
+You can find a long list of examples in pyroblox/examples, but you should read the documentation to see everything you can do with pyroblox.
+***
+# Contact
+
+You can contact me on discord ```vi#0049``` for help with the library
