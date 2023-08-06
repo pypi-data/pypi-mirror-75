@@ -1,0 +1,13 @@
+README.md
+setup.cfg
+setup.py
+src/ai/backend/accelerator/cuda/__init__.py
+src/ai/backend/accelerator/cuda/nvidia.py
+src/ai/backend/accelerator/cuda/plugin.py
+src/backend.ai_accelerator_cuda.egg-info/PKG-INFO
+src/backend.ai_accelerator_cuda.egg-info/SOURCES.txt
+src/backend.ai_accelerator_cuda.egg-info/dependency_links.txt
+src/backend.ai_accelerator_cuda.egg-info/entry_points.txt
+src/backend.ai_accelerator_cuda.egg-info/not-zip-safe
+src/backend.ai_accelerator_cuda.egg-info/requires.txt
+src/backend.ai_accelerator_cuda.egg-info/top_level.txt
