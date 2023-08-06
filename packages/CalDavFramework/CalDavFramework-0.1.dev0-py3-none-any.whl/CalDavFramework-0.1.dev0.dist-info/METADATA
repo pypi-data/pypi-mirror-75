@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: CalDavFramework
+Version: 0.1.dev0
+Summary: A Django framework for building caldav servers
+Home-page: https://github.com/kfdm/caldavframework
+Author: Paul Traylor
+License: MIT License
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Dist: defusedxml
+Requires-Dist: Django (>=3.0)
+Requires-Dist: djangorestframework
+Requires-Dist: icalendar
+Requires-Dist: python-dateutil
+Requires-Dist: pytz
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: codecov ; extra == 'dev'
+Requires-Dist: django-nose ; extra == 'dev'
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: nose-cov ; extra == 'dev'
+Requires-Dist: psycopg2-binary ; extra == 'dev'
+Requires-Dist: unittest-xml-reporting ; extra == 'dev'
+Provides-Extra: standalone
+Requires-Dist: django-environ ; extra == 'standalone'
+Requires-Dist: prometheus-client ; extra == 'standalone'
+Requires-Dist: sentry-sdk ; extra == 'standalone'
+
+UNKNOWN
+
+
