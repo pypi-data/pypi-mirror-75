@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: flywheel-cli
+Version: 12.4.0rc0
+Summary: Flywheel Command Line Interface
+Home-page: https://gitlab.com/flywheel-io/public/python-cli
+Author-email: support@flywheel.io
+License: MIT
+Project-URL: Documentation, https://docs.flywheel.io/display/EM/CLI+-+Installation
+Keywords: Flywheel,flywheel,CLI
+Platform: UNKNOWN
+Requires-Dist: boto3
+Requires-Dist: crayons
+Requires-Dist: fs
+Requires-Dist: flywheel-bids
+Requires-Dist: flywheel-migration (>=11.4.0)
+Requires-Dist: flywheel-sdk (>=12.2.0)
+Requires-Dist: tzlocal
+Requires-Dist: urllib3
+Requires-Dist: pathvalidate
+Requires-Dist: psycopg2-binary
+Requires-Dist: pydantic (>=1.6)
+Requires-Dist: pytz
+Requires-Dist: sqlalchemy
+Requires-Dist: sqlalchemy-utils
+Provides-Extra: dev
+Requires-Dist: ipython ; extra == 'dev'
+Requires-Dist: isort ; extra == 'dev'
+Requires-Dist: mypy ; extra == 'dev'
+Requires-Dist: pip-compile-multi ; extra == 'dev'
+Requires-Dist: pycodestyle ; extra == 'dev'
+Requires-Dist: pylint ; extra == 'dev'
+Requires-Dist: pytest ; extra == 'dev'
+Requires-Dist: pytest-cov ; extra == 'dev'
+Requires-Dist: pytest-mock ; extra == 'dev'
+
+UNKNOWN
+
+
