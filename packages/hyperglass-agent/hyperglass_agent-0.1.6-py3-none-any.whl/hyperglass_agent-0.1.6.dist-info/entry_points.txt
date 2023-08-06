@@ -1,0 +1,3 @@
+[console_scripts]
+hyperglass-agent=hyperglass_agent.console:cli
+
