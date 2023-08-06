@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: django-partial-content
+Version: 0.9.3
+Summary: Support for partial content in Django staticfiles.
+Home-page: https://github.com/szatkus/django-partial-content
+Author: Tomasz Szatkowski
+Author-email: szatkus@gmail.com
+Maintainer: Tomasz Szatkowski
+Maintainer-email: szatkus@gmail.com
+License: BSD
+Description: .. image:: https://img.shields.io/pypi/v/django-partial-content.svg
+          :target: https://pypi.python.org/pypi/django-partial-content/
+        
+        Support for partial content in Django staticfiles.
+        
+        After an installation add the following app to your settings.
+        
+        .. code-block:: python
+        
+            INSTALLED_APPS = [
+                ...
+                'django-partial-content',
+                ...
+            ]
+        
+        After that Django will respect `Range` header in requests to static files. Note that using `staticfiles` module in production is not recommended. The extension is only for ease of development.
+        
+        Tested with Django (2.0, 3.0) and SRWare Iron.
+        
+        Known issues:
+         - Multiple ranges aren't supported.
+        
+Keywords: django,partial,range
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Framework :: Django :: 2.0
+Classifier: Framework :: Django :: 2.1
+Classifier: Framework :: Django :: 2.2
+Classifier: Framework :: Django :: 3.0
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Software Development :: Libraries :: Application Frameworks
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.5
+Description-Content-Type: text/x-rst
