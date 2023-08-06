@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  {% include DYNAMICFORMS.page_includes %}
+  <title>{% block title %}{% endblock %}</title>
+  {% block head_extra %}{% endblock %}
+  {%  include "dynamicforms/bootstrap/progress_dialog_style.html" %}
+</head>
+<body>
+{% block body %}{% endblock %}
+</body>
+</html>
