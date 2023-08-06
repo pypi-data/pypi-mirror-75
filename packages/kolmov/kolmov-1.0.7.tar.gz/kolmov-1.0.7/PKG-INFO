@@ -1,0 +1,24 @@
+Metadata-Version: 2.1
+Name: kolmov
+Version: 1.0.7
+Summary: A Framework to perfomance the cross validation for Ringer tunings
+Home-page: https://github.com/micaelverissimo/kolmov
+Author: Micael Veríssimo de Araújo, Gabriel Gazola Milan, João Victor da Fonseca Pinto
+Author-email: micael.verissimo@lps.ufrj.br, gabriel.milan@lps.ufrj.br, jodafons@lps.ufrj.br
+License: GPL-3.0
+Description: # KoLMoV
+        
+        [![Build Status](https://travis-ci.org/micaelverissimo/kolmov.svg?branch=master)](https://travis-ci.org/micaelverissimo/kolmov)
+        
+        KoLMoV (**K**it **o**f **L**earning **M**odels **V**alidation) A Framework to perfomance the cross validation for Ringer tunings
+        
+Keywords: framework,validation,machine-learning,ai,plotting,data-visualization
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Description-Content-Type: text/markdown
