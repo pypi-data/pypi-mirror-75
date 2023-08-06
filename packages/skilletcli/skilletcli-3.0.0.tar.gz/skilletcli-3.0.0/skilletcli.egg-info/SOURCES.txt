@@ -1,0 +1,15 @@
+README.md
+setup.py
+skilletcli.py
+Remotes/__init__.py
+Remotes/gcloud.py
+Remotes/github.py
+Remotes/skillet.py
+panosxml/__init__.py
+panosxml/device.py
+panosxml/keydb.py
+skilletcli.egg-info/PKG-INFO
+skilletcli.egg-info/SOURCES.txt
+skilletcli.egg-info/dependency_links.txt
+skilletcli.egg-info/requires.txt
+skilletcli.egg-info/top_level.txt
