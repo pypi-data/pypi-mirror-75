@@ -1,0 +1,26 @@
+Metadata-Version: 1.1
+Name: fathom-web
+Version: 3.7
+Summary: Commandline tools for training Fathom rulesets
+Home-page: https://mozilla.github.io/fathom/
+Author: Erik Rose
+Author-email: erik@mozilla.com
+License: MPL
+Description: ========================
+        Fathom Commandline Tools
+        ========================
+        
+        This is the commandline trainer and other tools for `Fathom <https://mozilla.github.io/fathom/>`_, which itself is a supervised-learning system for recognizing parts of web pages. See `docs for the trainer <http://mozilla.github.io/fathom/training.html#running-the-trainer>`_ and `reference docs for the other tools <https://mozilla.github.io/fathom/index.html#command-reference>`_ in the Fathom docs.
+        
+        Version History
+        ===============
+        
+        See the `version history <https://mozilla.github.io/fathom/versions.html>`_ in the main Fathom docs, under the "CLI tools" headers.
+        
+Keywords: machine learning,ml,semantic extraction
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)
+Classifier: Programming Language :: Python :: 3
