@@ -1,0 +1,3 @@
+[console_scripts]
+BeerKeeper=src.beer_keeper.cli:app
+
