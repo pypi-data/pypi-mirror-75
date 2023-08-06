@@ -1,0 +1,3 @@
+[console_scripts]
+spectron = spectron.cli:create_spectrum_schema
+
