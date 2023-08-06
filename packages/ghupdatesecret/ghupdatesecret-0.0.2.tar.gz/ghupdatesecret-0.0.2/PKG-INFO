@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: ghupdatesecret
+Version: 0.0.2
+Summary: A command-line utility to update GitHub repository secrets.
+Home-page: https://github.com/jansky/ghupdatesecret
+Author: Ian Duncan
+Author-email: janskykd@gmail.com
+License: UNKNOWN
+Description: # ghupdatesecret
+        
+        A command-line utility to update GitHub repository secrets.
+        
+        ## Usage
+        
+        `ghupdatesecret --user USER --password PASSWORD repository secret_name`
+        
+        Update the secret with `secret_name` in the repository `repository` (in
+        `owner/name` format) to the contents of STDIN. Named arguments `--user`
+        and `--password` are required to authenticate to the GitHub API.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development :: Version Control
+Classifier: Topic :: Software Development :: Version Control :: Git
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
