@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pyutgenerator
+Version: 0.2.0
+Summary: python ut generator
+Home-page: https://github.com/shigeshige/py-ut-generator
+License: MIT
+Author: shigeshige
+Author-email: 5540474+shigeshige@users.noreply.github.com
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Utilities
+Project-URL: Repository, https://github.com/shigeshige/py-ut-generator.git
