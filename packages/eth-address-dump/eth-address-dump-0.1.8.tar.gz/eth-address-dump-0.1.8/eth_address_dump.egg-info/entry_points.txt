@@ -1,0 +1,3 @@
+[console_scripts]
+eth_address_dump = eth_address_dump:run_main
+
