@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: cacao-accounting-desktop
+Version: 0.0.1
+Summary: Cacao Accounting as a dektop app
+Home-page: UNKNOWN
+Author: William José Moreno Reyes
+Author-email: williamjmorenor@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 1 - Planning
+Description-Content-Type: text/markdown
+Requires-Dist: cacao-accounting
+Requires-Dist: open-marquesote
+
+# cacao-accounting-desktop
+Cacao Accounting as stand alone desktop app.
+
+
