@@ -1,0 +1,7 @@
+xgboost<=0.90
+dask
+distributed>=1.15.2
+
+[sparse]
+sparse
+scipy
