@@ -1,0 +1,3 @@
+[console_scripts]
+osg-check-schema = openstack_governance._check_schema:main
+
