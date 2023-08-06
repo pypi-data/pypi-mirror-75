@@ -1,0 +1,978 @@
+{
+ "files": [
+  {
+   "format": 1, 
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": ".", 
+   "chksum_type": null
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "9016cea6f9a5c00fa334e97ef9ab5aab20258401b05721cc94d8c8cd1f205bc9", 
+   "name": ".gitignore", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "74ef69719758a63944e959504d5396e442ed023c1c589ed987d9fc4676096d53", 
+   "name": "codecov.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/old_mariadb_replication", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/old_mariadb_replication/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "615fbd5ffed3471edd2f8f6417532a4f25ccfb973a3c1f00e89a955ceee1f8b6", 
+   "name": "tests/integration/old_mariadb_replication/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/old_mariadb_replication/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "44e2227e478af9f735498ec9805b1a1076885e4159dcaa21be440115948f0221", 
+   "name": "tests/integration/old_mariadb_replication/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "fab156b92a4f740f1032b629c2c02726b716d570e6e306f36e3a7d904b702c83", 
+   "name": "tests/integration/old_mariadb_replication/tasks/mariadb_replication_initial.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f3b513a57566d276388c2613fa9e1f94066d7ea657f87bad8d25c3abb2fb0cf6", 
+   "name": "tests/integration/old_mariadb_replication/tasks/mariadb_master_use_gtid.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "033d2e2921c996279846f6d60a91335a8df55ebce7a1ca0428ad33029f21869e", 
+   "name": "tests/integration/old_mariadb_replication/tasks/mariadb_replication_connection_name.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/old_mariadb_replication/meta", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "4dd18f7c3640db3c083acd4bccd974f5ee92ab73485be0b71fd3431feefcd0e3", 
+   "name": "tests/integration/old_mariadb_replication/meta/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "8598fbccb4b6eaa7150d066f699e7bd937338c9de6cabbe1d630c7b9cf057ca4", 
+   "name": "tests/integration/old_mariadb_replication/aliases", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/old_mysql_replication", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/old_mysql_replication/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "096ce8fe1756d764a57eb97aa204c217d354de3f718f305bafaf275f6af494b9", 
+   "name": "tests/integration/old_mysql_replication/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/old_mysql_replication/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f4b5b27255c1eb58cd6cfd6a38300c883517fbb0aa05972af8c253d4a33da2ef", 
+   "name": "tests/integration/old_mysql_replication/tasks/mysql_replication_master_delay.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "6b75c60d8ae151e7d293a5c3aa9c381227c7bffafeda60e5547b2f8899a95bd8", 
+   "name": "tests/integration/old_mysql_replication/tasks/mysql_replication_channel.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "15add835ed0202a0bdd9e41933d1cbfae3cef40f708b7ed40f4f6ae1664a50d1", 
+   "name": "tests/integration/old_mysql_replication/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "01f708d4e9c7839fbb5700f8f414e9f3278e64777d5e3245c093a1c28a5f2277", 
+   "name": "tests/integration/old_mysql_replication/tasks/mysql_replication_resetmaster_mode.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "dceca9b2472f945aded2594c2edf7e2aca1821f1c0b01fc0423483a4bac57250", 
+   "name": "tests/integration/old_mysql_replication/tasks/mysql_replication_initial.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/old_mysql_replication/meta", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "83d8f9a86afbeecfc7c6fd58169b12c5e70ff83e97f7a7cc3654bfaa30931067", 
+   "name": "tests/integration/old_mysql_replication/meta/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "973b688f1f66930be321ac2932e07ad673a6ffe1a199e44cbcc67ab516700f23", 
+   "name": "tests/integration/old_mysql_replication/aliases", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/setup_mysql", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/setup_mysql/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "37ff81f5fe3cc331c54a541b57eca7f03123572dee1339b11578e645394d7c9a", 
+   "name": "tests/integration/targets/setup_mysql/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/setup_mysql/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "86d4bcabbba0b4d6cafd73983cc50a6a1b62d826725369c4fe05b3d351ff2f9c", 
+   "name": "tests/integration/targets/setup_mysql/tasks/config.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ebeb28b1ad217cb860646d17484f788091c33634365f59f6016f92742345b1b6", 
+   "name": "tests/integration/targets/setup_mysql/tasks/dir.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "a3af6f8eadddf2e1d67a313830e13ddc0fa07c496b5bd230afe13e7964c81a02", 
+   "name": "tests/integration/targets/setup_mysql/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "1e0d7eb53a3de13455699b40f90276d02a8f8355c500c90e8310f133a214e300", 
+   "name": "tests/integration/targets/setup_mysql/tasks/install.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "c49c298c50f85b99525cc6cfed8445594afa6e05c5009a00136838d7a46597f9", 
+   "name": "tests/integration/targets/setup_mysql/tasks/verify.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "4c6f650681985cb8d366ce865ec0b682a3a38a4162c67cfb6a4bf8cbba852c7f", 
+   "name": "tests/integration/targets/setup_mysql/tasks/setvars.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/setup_mysql/vars", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "d0c48f05f314b40404a306215efa2b0d3d8a1fce3ae08ffda38d339bba0e928f", 
+   "name": "tests/integration/targets/setup_mysql/vars/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/setup_mysql/handlers", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "d2d84831a7ceff91296440763b396692baf3ce3d0027cf1884d205dac31b36d6", 
+   "name": "tests/integration/targets/setup_mysql/handlers/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/setup_mysql/templates", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "838bee046d60c7cf9707aba8f8f33eaa4962aa4798b9d9cb5b66d7648dcf790d", 
+   "name": "tests/integration/targets/setup_mysql/templates/installed_file.j2", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/setup_remote_tmp_dir", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/setup_remote_tmp_dir/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "766ab141899717320ba54e2bb1a6ba8cbc3cc7642d0023670154b49981ed1a91", 
+   "name": "tests/integration/targets/setup_remote_tmp_dir/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "2441ac1753320d2cd3bea299c160540e6ae31739ed235923ca478284d1fcfe09", 
+   "name": "tests/integration/targets/setup_remote_tmp_dir/tasks/default.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e273324ab90d72180a971d99b9ab69f08689c8be2e6adb991154fc294cf1056e", 
+   "name": "tests/integration/targets/setup_remote_tmp_dir/tasks/default-cleanup.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/setup_remote_tmp_dir/handlers", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "050157a29c48915cf220b3cdcf5a032e53e359bdc4a210cd457c4836e8e32a4d", 
+   "name": "tests/integration/targets/setup_remote_tmp_dir/handlers/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_user", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_user/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e4a7a81d793fa0e78086ae31172e6de5556e83632b89f220b3d610bbff22ef0b", 
+   "name": "tests/integration/targets/test_mysql_user/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_user/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "d8217bdeda7811c559d7b307e132c57f9c71c2f216750f90665785bd19484e7c", 
+   "name": "tests/integration/targets/test_mysql_user/tasks/issue-29511.yaml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "408781add05c8da3c25a32f8b448d681fe8cc298756da23cb844dd3f570ff187", 
+   "name": "tests/integration/targets/test_mysql_user/tasks/create_user.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "287e3a41a5aae290aed7daa0f97f8561074ae12b24bb72a4ed1ea374d6bab5b4", 
+   "name": "tests/integration/targets/test_mysql_user/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "d359516ae1db55bd7eba631e6648bdd42d63f743730f2a0c03efe69ef459c0b0", 
+   "name": "tests/integration/targets/test_mysql_user/tasks/test_priv_dict.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "2fd72e53d7b4f4462259df2a6dbfaa094e7b73c939eb6f86845fa2bf94836698", 
+   "name": "tests/integration/targets/test_mysql_user/tasks/test_privs.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "3d1c15602321921d2cbed6fef60895586c4e0d343bc9f972aec623c41ccc95b8", 
+   "name": "tests/integration/targets/test_mysql_user/tasks/resource_limits.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "8f9d7cee387e3305757dd0dda7726418683f8e5e2fe95c501b96471e38007b42", 
+   "name": "tests/integration/targets/test_mysql_user/tasks/assert_user.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f64b1fce4343b6241116a1eb047cc32a47bfa568f1ffe74bf6134c624854adb0", 
+   "name": "tests/integration/targets/test_mysql_user/tasks/issue-64560.yaml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "a58e6271928c420c2152b96ee8d2e633ad0014603b53397217a8154234d1b479", 
+   "name": "tests/integration/targets/test_mysql_user/tasks/assert_no_user.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "10a146aecfe12195f8be0244f4725f3240ae2696a5429a7889f78512fe9f589b", 
+   "name": "tests/integration/targets/test_mysql_user/tasks/user_password_update_test.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "65323965a44c6ad75ff6eefa19a8e44f316c4f9a7b106f2d6cf423f3ef0e45a7", 
+   "name": "tests/integration/targets/test_mysql_user/tasks/remove_user.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_user/files", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "8386a2c5a55abf33d19484765d8354947773a81141e92434f8e736f766e6932d", 
+   "name": "tests/integration/targets/test_mysql_user/files/create-procedure.sql", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f9ba9df87bc460be46fb77cabaceef9f93a73474d30e07d3d90648909d3c63f1", 
+   "name": "tests/integration/targets/test_mysql_user/files/create-function.sql", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_user/meta", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "7134f696d30f85b5e664425adf33a405686fbd05e00b6bfc4e74445298d692c8", 
+   "name": "tests/integration/targets/test_mysql_user/meta/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_variables", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_variables/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "eaa231366a87314e0a4f18a261732d63e69a53db58b134b118ffa4d720576628", 
+   "name": "tests/integration/targets/test_mysql_variables/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_variables/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e5f806fc413f2a63986657c7b07a6bb6fe016da206d5eccf8fe1d217ce2fff6e", 
+   "name": "tests/integration/targets/test_mysql_variables/tasks/assert_fail_msg.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "5d2e6e2cc11027c3c50e8125a71fcffaf6a42a6a4569fea3f8983f7652a24af6", 
+   "name": "tests/integration/targets/test_mysql_variables/tasks/assert_var_output.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "73293e29c6dc2e2d48584293f76164a3908d6c01a4d6ee46342654abbbc098d0", 
+   "name": "tests/integration/targets/test_mysql_variables/tasks/mysql_variables.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ffbc0af3d53e800129458858c1113028b425b99f1364292f04cf75c7660b8d46", 
+   "name": "tests/integration/targets/test_mysql_variables/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "c5e415bc7d84bb9473dd92fdf55978e039ed6f1663f930514f87a7badd921c46", 
+   "name": "tests/integration/targets/test_mysql_variables/tasks/assert_var.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_variables/meta", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "60880581b8217fe6a3e8f1c2c3db334efb3fda0358eec8a70aa12375fdbda23b", 
+   "name": "tests/integration/targets/test_mysql_variables/meta/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_db", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_db/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "95dcabd6ea1f8b417232201592413a4f34ba975eb4726496a2ae598d16f27a48", 
+   "name": "tests/integration/targets/test_mysql_db/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_db/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "a763b489d5505a93b8077b4b3f5c6485441559b284fc2f90716feb739ad9e324", 
+   "name": "tests/integration/targets/test_mysql_db/tasks/multi_db_create_delete.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "d1df019e7552691341672c9f5a9197d8f31c0ddf295521b22176e1bfb4429ab3", 
+   "name": "tests/integration/targets/test_mysql_db/tasks/encoding_dump_import.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "df6493282bf3f755ab68064c8b2274358abaf9d34488c6fdd0635c24fcb77436", 
+   "name": "tests/integration/targets/test_mysql_db/tasks/state_dump_import.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "db30dbe49380062b05d09cdd06af55931f5c6c5654e37bc330e6e14283ae899a", 
+   "name": "tests/integration/targets/test_mysql_db/tasks/config_overrides_defaults.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "711f5ab304a3c89b5f03f873f0c3a07f40d366cde961ab6b543c56756b6b9cf0", 
+   "name": "tests/integration/targets/test_mysql_db/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_db/meta", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "60880581b8217fe6a3e8f1c2c3db334efb3fda0358eec8a70aa12375fdbda23b", 
+   "name": "tests/integration/targets/test_mysql_db/meta/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_info", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_info/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "9b7a3df011f1cf94919370fefc721304be45f3d00637ad22189b958d24676be8", 
+   "name": "tests/integration/targets/test_mysql_info/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_info/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "24cf3f7bef99fc70c6c98b67ce25ba207fcef2afa353ccc25b84a8c9a1961eef", 
+   "name": "tests/integration/targets/test_mysql_info/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_info/meta", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "7134f696d30f85b5e664425adf33a405686fbd05e00b6bfc4e74445298d692c8", 
+   "name": "tests/integration/targets/test_mysql_info/meta/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_info/templates", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "28ce9e82a1512ce76200e2953ccfaf069f01a7ec915afbeec8c10a677c4f68d8", 
+   "name": "tests/integration/targets/test_mysql_info/templates/my.cnf.j2", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_query", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_query/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "7a3c877d9ceeec49d71a6f55a2c71ff1df3bc657e83a9ae7e66848e6d0bce8df", 
+   "name": "tests/integration/targets/test_mysql_query/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_query/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "6c31d6f89b611dd7e1b37d2c1d0c504692c39db88cc30a4e28a20fe978d4d778", 
+   "name": "tests/integration/targets/test_mysql_query/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e749e2e8c5305d8c466bbb6aac23504eb83df2ac30cfdf77e17ff2145f8b0c3f", 
+   "name": "tests/integration/targets/test_mysql_query/tasks/mysql_query_initial.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/test_mysql_query/meta", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "12b1878a7556f7ef5ee2146014c54d1e0a490ba6a8889c426377246522d5ce97", 
+   "name": "tests/integration/targets/test_mysql_query/meta/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/sanity", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "26cf6bdacb30652f6105a97ed3695fbfcdce39966654c8f1179427f5ccd10267", 
+   "name": "tests/sanity/ignore-2.11.txt", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "563f5bc68b05205c5545785c81b9245355ed09596c5ab5f01dcc92fd3a54c876", 
+   "name": "tests/sanity/ignore-2.9.txt", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "26cf6bdacb30652f6105a97ed3695fbfcdce39966654c8f1179427f5ccd10267", 
+   "name": "tests/sanity/ignore-2.10.txt", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "meta", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "df18179bb2f5447a56ac92261a911649b96821c0b2c08eea62d5cc6b0195203f", 
+   "name": "meta/runtime.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/modules", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e642bcdf7fa33d0c7685506a00912d7a5949f664dc0100f050125132e601bab6", 
+   "name": "plugins/modules/mysql_query.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "c9dfd540e96d16ceec7b47a6c54aa0f4688e8dd20b1c1b48e572888ddfe37e24", 
+   "name": "plugins/modules/mysql_user.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "d529f780e58063ad984d7c63ac7f5efd5af9eed5a5a9825ee9c69a7284982f99", 
+   "name": "plugins/modules/mysql_variables.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "1fde6238a62a72b2ed4bf02199d1af5c93ca4bb0559f00198985022b6b55dd66", 
+   "name": "plugins/modules/mysql_info.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "648fb7dbc97b30451eac1752309cdc546afa9cde528007ca847b7ee6ef265ece", 
+   "name": "plugins/modules/mysql_db.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "431aab2bae4b5afcfbdc8745d618a2861009b08ba5351f11a4c85a3abd46ddc3", 
+   "name": "plugins/modules/mysql_replication.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/module_utils", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "40da3a84bc167c7b830d29b3395afec29c50b405a5d08dd2287e7b852420628d", 
+   "name": "plugins/module_utils/mysql.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "bf286e7fb228799c46b66d7e34bacb613838f65d8faa42efd2a1f29ee6759c1b", 
+   "name": "plugins/module_utils/database.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "c82ee692702ec1dd604cdbc38ff252114e5204e1b0627045a66c9451e7a918ac", 
+   "name": "plugins/README.md", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/doc_fragments", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f1c5aa75db7e5481cb7dd67e2a49a33d73968dac84c13687056517ebcd9b404a", 
+   "name": "plugins/doc_fragments/mysql.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": ".github", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": ".github/workflows", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "cac5855d222e18d6d9719e095605418d872d8d219427c9144d538b202c60d5f9", 
+   "name": ".github/workflows/ansible-test-roles.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "22744f10051a04cf957c90963ab6fc4f63b6acfa4a4746fff1bbec80fe20a7da", 
+   "name": ".github/workflows/ansible-test-plugins.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "3afcdfb833554ba932cb07d4ecd5f38e1272e03e7999a71c8a6db7e08d51c6b6", 
+   "name": "README.md", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "changelogs", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "5bf708304d0beb3bfbc420130e43eba00c430ca5bf202d6a6a22d796eab17241", 
+   "name": "changelogs/config.yaml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986", 
+   "name": "COPYING", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }
+ ], 
+ "format": 1
+}

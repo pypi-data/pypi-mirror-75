@@ -1,0 +1,628 @@
+{
+ "files": [
+  {
+   "format": 1, 
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": ".", 
+   "chksum_type": null
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "84f266f4433d17c2744ca25c6c71f675e5b93d652b3b2828b02dad6b806baeee", 
+   "name": ".gitignore", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/connection_libvirt_qemu", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "cb40d5a2e6d008f3d24987206225d961122ca2a7dac79c0fa692065125d6a61e", 
+   "name": "tests/integration/targets/connection_libvirt_qemu/test_connection.inventory", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656", 
+   "name": "tests/integration/targets/connection_libvirt_qemu/aliases", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ccdab97fd6569dbe495460cfec0b901006efa79ec4c6d066a98250901b0c9d0e", 
+   "name": "tests/integration/targets/connection_libvirt_qemu/runme.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/virt_net", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/virt_net/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "cd17c090b2b95622b00c1981f147a6067596ae441d7aa043b32ca5d20fa29516", 
+   "name": "tests/integration/targets/virt_net/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/virt_net/vars", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "abd108abc8b7648d1f151a3acb0c52d57b5bbc905191e7260dd8657ec5cdeaf1", 
+   "name": "tests/integration/targets/virt_net/vars/RedHat-8.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "74ff440d1b032d67597323f3c0da75bf9bf15a58facec36d4e8d71f5a0de8bde", 
+   "name": "tests/integration/targets/virt_net/vars/Ubuntu-16.04.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "74ff440d1b032d67597323f3c0da75bf9bf15a58facec36d4e8d71f5a0de8bde", 
+   "name": "tests/integration/targets/virt_net/vars/Ubuntu-18.04.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "abd108abc8b7648d1f151a3acb0c52d57b5bbc905191e7260dd8657ec5cdeaf1", 
+   "name": "tests/integration/targets/virt_net/vars/Fedora-29.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "c14a6a591bb5743118ef270270598907dd9bf88df5de48f7e8ec95cb8a2f9c69", 
+   "name": "tests/integration/targets/virt_net/vars/Debian.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "74ff440d1b032d67597323f3c0da75bf9bf15a58facec36d4e8d71f5a0de8bde", 
+   "name": "tests/integration/targets/virt_net/vars/default.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "c14a6a591bb5743118ef270270598907dd9bf88df5de48f7e8ec95cb8a2f9c69", 
+   "name": "tests/integration/targets/virt_net/vars/Ubuntu-18.10.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "a3521d37bb8642693686bf3399f8b82a6a76967a22aa8c5c80b9358a5410f3c0", 
+   "name": "tests/integration/targets/virt_net/vars/RedHat-7.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/virt_net/files", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "0eef2a64edd93c343bebeb04329b71950bf277c617814d4c522ff88fffe4ae00", 
+   "name": "tests/integration/targets/virt_net/files/foobar.xml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ed88adb08cb822c2646eec4b136ae4379b0f27f9c8025656446542f100844860", 
+   "name": "tests/integration/targets/virt_net/aliases", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/inventory_libvirt", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "1f749a8321cfb62f5b8b7b7f5b03795dd6d0af247b9451516412152b8a04e0ae", 
+   "name": "tests/integration/targets/inventory_libvirt/libvirt_lxc.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/inventory_libvirt/playbooks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "80c34796e292eab6019d455e13acb7b574ba4b81aeec760da0cd79cef1df9e6a", 
+   "name": "tests/integration/targets/inventory_libvirt/playbooks/test-inventory.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "4eb5ba0c9ba6841323de3d26efa74db1536b808cb4b1732ff37d78d10a0f5d96", 
+   "name": "tests/integration/targets/inventory_libvirt/libvirt_qemu.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656", 
+   "name": "tests/integration/targets/inventory_libvirt/aliases", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "8a432783339cd49692af26c0245f35cdf5c9507c77d830c3f77d1e95aae182d3", 
+   "name": "tests/integration/targets/inventory_libvirt/runme.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/connection_libvirt_lxc", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "d354b2fc291709ce47fbdbbf9da6a6bb27556a4f13f110d38655721f4324293f", 
+   "name": "tests/integration/targets/connection_libvirt_lxc/test_connection.inventory", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656", 
+   "name": "tests/integration/targets/connection_libvirt_lxc/aliases", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ccdab97fd6569dbe495460cfec0b901006efa79ec4c6d066a98250901b0c9d0e", 
+   "name": "tests/integration/targets/connection_libvirt_lxc/runme.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/sanity", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "b2fdd186af77b58d92bffbab78cccca1d4bd49acc11564b0934214bd89c992c9", 
+   "name": "tests/sanity/ignore-2.10.txt", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit/mock", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "5ee51da1a6ec8367e0fff9dadc8b012a4af96e00235bfea53301ee124c422434", 
+   "name": "tests/unit/mock/yaml_helper.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ee6c51ad6bb107708d9fe2a97a40302bf0b9dc23a30bf187fe4b3a8cda7846a6", 
+   "name": "tests/unit/mock/path.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "4be64fe930952ee9967d840f02719fc913368f80badf3eb77f61b1422e8ddad7", 
+   "name": "tests/unit/mock/procenv.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "tests/unit/mock/__init__.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "4535613601c419f7d20f0c21e638dabccf69b4a7fac99d5f6f9b81d1519dafd6", 
+   "name": "tests/unit/mock/vault_helper.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "c45064a0beb765cd0b6cfbb74ca0cd491ceed2f4c2d22808f60a57071d9712cc", 
+   "name": "tests/unit/mock/loader.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit/compat", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "0ca4cac919e166b25e601e11acb01f6957dddd574ff0a62569cb994a5ecb63e1", 
+   "name": "tests/unit/compat/builtins.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "5401a046e5ce71fa19b6d905abd0f9bdf816c0c635f7bdda6730b3ef06e67096", 
+   "name": "tests/unit/compat/unittest.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "tests/unit/compat/__init__.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "0af958450cf6de3fbafe94b1111eae8ba5a8dbe1d785ffbb9df81f26e4946d99", 
+   "name": "tests/unit/compat/mock.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit/modules", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit/modules/cloud", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit/modules/cloud/misc", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit/modules/cloud/misc/virt_net", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "tests/unit/modules/cloud/misc/virt_net/__init__.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "775046136ce72fdada508a8f3d541477e600a7e24cebae44dd10ea977ab4f468", 
+   "name": "tests/unit/modules/cloud/misc/virt_net/test_virt_net.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "a47598c50db65c1a4c60b347c94799cdf1d0d8577a26529b05bb2fd010c748ad", 
+   "name": "tests/unit/modules/cloud/misc/virt_net/conftest.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/utils", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/utils/shippable", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f3f3cc03a997cdba719b0542fe668fc612451841cbe840ab36865f30aa54a1bd", 
+   "name": "tests/utils/shippable/timing.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "07aa5e07a0b732a671bf9fdadfe073dd310b81857b897328ce2fa829e2c76315", 
+   "name": "tests/utils/shippable/linux.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "2a140a1cea2fbf3b291009694bcfcf0f2877e92ec01c7e929e787f5b4cdd6d92", 
+   "name": "tests/utils/shippable/freebsd.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "2a140a1cea2fbf3b291009694bcfcf0f2877e92ec01c7e929e787f5b4cdd6d92", 
+   "name": "tests/utils/shippable/remote.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "2a140a1cea2fbf3b291009694bcfcf0f2877e92ec01c7e929e787f5b4cdd6d92", 
+   "name": "tests/utils/shippable/rhel.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ebb7d3553349747ad41d80899ed353e13cf32fcbecbb6566cf36e9d2bc33703e", 
+   "name": "tests/utils/shippable/timing.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "78eba99dcb41c0dc05acd87fd11b4faf515f85eba34536ed2d315369b654d420", 
+   "name": "tests/utils/shippable/shippable.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "9741924310f7fbbde5eac792b8a34ee33f2ff42aa30ee4d3593410bbb2961bc3", 
+   "name": "tests/utils/shippable/units.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "1cd365c5bad1facb7e98cad97a20e34231f49fca169653ccd7d34bd955bd88f6", 
+   "name": "tests/utils/shippable/sanity.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "aa877ec932e06e496daf6dd15e9a952c75165f2c3963e5aff605b25e4ed47497", 
+   "name": "tests/utils/shippable/check_matrix.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "2a140a1cea2fbf3b291009694bcfcf0f2877e92ec01c7e929e787f5b4cdd6d92", 
+   "name": "tests/utils/shippable/osx.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "99db6946e47cf9e49ab2fccbe0aca8ffc9aaa0918fdc9e3ef543601c55a98713", 
+   "name": "tests/utils/shippable/cloud.sh", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986", 
+   "name": "LICENSE", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/modules", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "afc82316181e603633b3c091a6f3906469fe43b539115ce6be25d9bcd5bd7c8f", 
+   "name": "plugins/modules/virt_pool.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "c9304adc747b73a991f9af98b5ee0c02695605420f9e2ed9884264ed690a4d96", 
+   "name": "plugins/modules/virt_net.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f2ad92a4510c8b6e3c1b73906fa01547c8cf06264d74291018ded5b38678dcff", 
+   "name": "plugins/modules/virt.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/inventory", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "plugins/inventory/__init__.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "b08523e7e48f3a1d8c04ac0d73d7545982b1d2582c182173b32f97eff4aac772", 
+   "name": "plugins/inventory/libvirt.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/connection", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "48db718d4e0d52997842c055e8fbe8612b554dbc0785b9589476514f7ddb092f", 
+   "name": "plugins/connection/libvirt_lxc.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "0d6d03837ba32d93b4ee18e3ab4545ca26ad8c540836543be467db29fd5e611c", 
+   "name": "plugins/connection/libvirt_qemu.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "72ce419b1d8f4fbad5561395ec669f612f66ad638f0020787f0a43e75c0476a2", 
+   "name": "README.md", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "changelogs", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "changelogs/fragments", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "0a321d7e2e8ac5a99084539e3140283b077ed6b86011af7a65492537e4275dcd", 
+   "name": "changelogs/fragments/23-inventory.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ece4d89529aa81860f617b423211af2379a6d735c7de9e1c2f469ee108fe65e2", 
+   "name": "shippable.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "0ae0485a5bd37a63e63603596417e4eb0e653334fa6c7f932ca3a0e85d4af227", 
+   "name": "COPYING", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }
+ ], 
+ "format": 1
+}

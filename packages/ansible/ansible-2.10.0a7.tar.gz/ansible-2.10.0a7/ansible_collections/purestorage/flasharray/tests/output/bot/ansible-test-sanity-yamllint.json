@@ -1,0 +1,10 @@
+{
+    "docs": null,
+    "results": [
+        {
+            "message": "The test `ansible-test sanity --test yamllint` failed with 1 error:",
+            "output": "plugins/modules/purefa_info.py:404:5: error: RETURN: syntax error: expected ',' or '}', but got '<scalar>'"
+        }
+    ],
+    "verified": false
+}

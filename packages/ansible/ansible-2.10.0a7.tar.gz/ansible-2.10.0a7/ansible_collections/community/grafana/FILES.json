@@ -1,0 +1,628 @@
+{
+ "files": [
+  {
+   "format": 1, 
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": ".", 
+   "chksum_type": null
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "840e608a3cd21dffa6bff22d0b3887b08db5e6cc07e2669daa13e9401a7d3048", 
+   "name": ".all-contributorsrc", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e55a41874408d15b899f7df85fa9f4c6c3c476cf4a9e919b9a396c3f1aa1a1f0", 
+   "name": "codecov.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "b5726d3ec9335a09c124469eca039523847a6b0f08a083efaefd002b83326600", 
+   "name": "tests/.gitignore", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_datasource", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_datasource/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "7c9856c26c7fda2df3157d1a25073f8268f4e0b642f560690f40c9e83ca3b62c", 
+   "name": "tests/integration/targets/grafana_datasource/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_datasource/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "de7a8f79243c2632928be942f7fa412fb7b3d161a9abd00d385c50a459be16fc", 
+   "name": "tests/integration/targets/grafana_datasource/tasks/postgres.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "5872025c77594c314e604807c5520fa1b8650a9d13dffdbeea93c4cbd452960e", 
+   "name": "tests/integration/targets/grafana_datasource/tasks/thruk.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ba7dc679d98df98b92547a799eb1a03e0295305c567799b2f0b2fdad7306fb75", 
+   "name": "tests/integration/targets/grafana_datasource/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "36eb839f2edf890ee20f30e041187cda7ef98a7809f57e50464f4d61e9a43b65", 
+   "name": "tests/integration/targets/grafana_datasource/tasks/elastic.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "0c07304999b4a207211ef2ababc3bea780975f10356508e01e8e98866bf5ee86", 
+   "name": "tests/integration/targets/grafana_datasource/tasks/influx.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "556537a82506b9f848059c16cf72a60b937fbe199ac5b935ca80cca90a9b13af", 
+   "name": "tests/integration/targets/grafana_datasource/tasks/cloudwatch.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "811322fad85866ac31f9501f8da0c7072809065397d53c06712447946b746b6b", 
+   "name": "tests/integration/targets/grafana_datasource/aliases", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_team", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_team/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "7c9856c26c7fda2df3157d1a25073f8268f4e0b642f560690f40c9e83ca3b62c", 
+   "name": "tests/integration/targets/grafana_team/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_team/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "b09374a08bae1513492e7a431abf23ae86dab16093a6c0937dc2d680e3d2523d", 
+   "name": "tests/integration/targets/grafana_team/tasks/create_user.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "9d1651fdd1cde28a688cc97b7343fd490215db946eacdff0eeef9dff7873b3b5", 
+   "name": "tests/integration/targets/grafana_team/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_folder", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_folder/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "7c9856c26c7fda2df3157d1a25073f8268f4e0b642f560690f40c9e83ca3b62c", 
+   "name": "tests/integration/targets/grafana_folder/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_folder/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "47bc05ebcddd2fe27fa914c732be64a7c2c6378578d5c8cb6429d73f25d355f5", 
+   "name": "tests/integration/targets/grafana_folder/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_dashboard", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_dashboard/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "7c9856c26c7fda2df3157d1a25073f8268f4e0b642f560690f40c9e83ca3b62c", 
+   "name": "tests/integration/targets/grafana_dashboard/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_dashboard/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "af8d845eacee43b7b85e55d6d9cad0b27d86c60741a62852da8df1a3d32e217f", 
+   "name": "tests/integration/targets/grafana_dashboard/tasks/delete-dashboard.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "47ab2644c2627aec121762a9372dd7832e69831f971a6ddf1f8cb14af5099619", 
+   "name": "tests/integration/targets/grafana_dashboard/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "7e8f7a9d17569e9b8e91fd411294a86284d2e952ba3cb541283a07235ba4d628", 
+   "name": "tests/integration/targets/grafana_dashboard/tasks/dashboard-from-id.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "215320e0dece857a4e6899700b4cb3f3d7f042f0d2f33033074eef9cd963aa59", 
+   "name": "tests/integration/targets/grafana_dashboard/tasks/dashboard-from-url.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "924c074084e2d8cb1b268284ed88475336508f26062c0e3eed699f6865b42628", 
+   "name": "tests/integration/targets/grafana_dashboard/tasks/dashboard-from-file.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_dashboard/files", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "81bf045dfa0d6e8262abf423ceb0fc008c8db82ba9616c4ce9a5ac7679bc1fa8", 
+   "name": "tests/integration/targets/grafana_dashboard/files/dashboard.json", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "811322fad85866ac31f9501f8da0c7072809065397d53c06712447946b746b6b", 
+   "name": "tests/integration/targets/grafana_dashboard/aliases", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_user", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_user/defaults", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e1fd56ed28989838abaca1d4b86ac2abd1d819607f1556a15347a5f9836781d8", 
+   "name": "tests/integration/targets/grafana_user/defaults/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/integration/targets/grafana_user/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "870a33be1f53be86ceec0601c1bb3eff480e91286005864e09be370176d1b7e7", 
+   "name": "tests/integration/targets/grafana_user/tasks/main.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/sanity", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "9c94aed17d123ac549159a77f80adcb3a16c714f544fbbe6a092a5dcf0861dc9", 
+   "name": "tests/sanity/ignore-2.9.txt", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "6f30433f464a48b8503f0fbf5e5bc44ca112acc6b75535490493c398cd7c97c9", 
+   "name": "tests/sanity/ignore-2.10.txt", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "c8a4ac4bfdef88e75d6e748e35a42fb4915947dfa2b7dd788626fd829600e014", 
+   "name": "tests/sanity/requirements.txt", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit/modules", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit/modules/grafana", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit/modules/grafana/grafana_plugin", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "5a9c1af29c4e7ecb9ab7dd7430e25f5f283a2619b9c8b5e29f0fd6c04b917d11", 
+   "name": "tests/unit/modules/grafana/grafana_plugin/test_grafana_plugin.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit/modules/grafana/grafana_team", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "96116b92002f89708a978cf54ba9209234bc65622b82ea37f67b942a8d19b849", 
+   "name": "tests/unit/modules/grafana/grafana_team/test_grafana_team.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/unit/modules/grafana/grafana_user", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ebe4eca4179be5a9780ef606dbd01da1e8512df914b9d576a256a9f0b72c66bb", 
+   "name": "tests/unit/modules/grafana/grafana_user/test_grafana_user.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986", 
+   "name": "LICENSE", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/modules", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f25a6d31b8d8daffa95624ec8e1580e91d921b5896342d2b9a2e0eef20c30785", 
+   "name": "plugins/modules/grafana_user.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e9e3cc0f01d5d3ea1080faf73e26a7e3e2159e6f9f9f9be0a73a26b0a4e3d62f", 
+   "name": "plugins/modules/grafana_plugin.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "73619104b3b1f475970f3bd19600dd6191b86e8e259268b7798f60516590b180", 
+   "name": "plugins/modules/grafana_folder.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "397d2b26c13a60095b75ab97b9804d30b0fc9f977d608a2cc9d7f886c4f9c349", 
+   "name": "plugins/modules/grafana_dashboard.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "plugins/modules/__init__.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "fa41f8503f79b2a097fe11e73049353d91dbb4b4fb3d6cdaebcae7cec89ffe3b", 
+   "name": "plugins/modules/grafana_datasource.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "d1f424b5b96f47666317cdd3bb94c59eb82c4ab841413f322d8bfe7e8b21255b", 
+   "name": "plugins/modules/grafana_team.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/callback", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "plugins/callback/__init__.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "160d777ee806a58407fdac347d17ecc2e1317651640155abe1d487d8a4e1003a", 
+   "name": "plugins/callback/grafana_annotations.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/module_utils", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "9fc5d3ef1729cba9abae7e320e7e485d34d5a28d48e05188f49f82dd60dbefb4", 
+   "name": "plugins/module_utils/base.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/lookup", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "10d82b34df356915afbf946fc1139570d6479aed9d9bab669e04295239ab6204", 
+   "name": "plugins/lookup/grafana_dashboard.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "plugins/lookup/__init__.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/doc_fragments", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "plugins/doc_fragments/__init__.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "b6d377cb550f4867b8832bec2a568131caa21f37fc464512f60bfd0d8ba984ae", 
+   "name": "plugins/doc_fragments/api_key.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "9d4fc6cf2800a6e4faea4dd5787192f7db5b0940d70c1ee2c5309fd492d3b333", 
+   "name": "plugins/doc_fragments/basic_auth.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "2244aea34f83cc0d7e9401d7908eec3554ad3f9b51c5fd5c7e4508a938183442", 
+   "name": "CHANGELOG.md", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": ".github", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "27ba6e53b61251034d894049f866e4e15f9946b605b91756597e2a4727beef98", 
+   "name": ".github/CODEOWNERS", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": ".github/workflows", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "0990917e47f8c2173baee97de3ef5b5f990783d7cb3ee8aebea2f69f510452ce", 
+   "name": ".github/workflows/ansible-test.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "548249a2d9a8d51e0c6503850c30e044f7a90337c7e7f65cea8704cca215942f", 
+   "name": ".github/workflows/rebase.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ac7c48229438311bfcb2676f762abadeb754d113288aab1f96389d4ce82de433", 
+   "name": ".github/settings.yml", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ff9a330f4ffb8dbe63df620e7f85c39cd5d3fa3358fe5338c333cfd54e09cdbc", 
+   "name": "README.md", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }
+ ], 
+ "format": 1
+}

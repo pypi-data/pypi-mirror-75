@@ -1,0 +1,42 @@
+{
+ "collection_info": {
+  "description": null, 
+  "repository": "https://github.com/ansible-collections/community.crypto", 
+  "tags": [
+   "acme", 
+   "certificate", 
+   "community", 
+   "crl", 
+   "cryptography", 
+   "csr", 
+   "dhparam", 
+   "entrust", 
+   "letsencrypt", 
+   "luks", 
+   "openssl", 
+   "openssh", 
+   "pkcs12"
+  ], 
+  "dependencies": {}, 
+  "authors": [
+   "Ansible (github.com/ansible)"
+  ], 
+  "issues": "https://github.com/ansible-collections/community.crypto/issues", 
+  "name": "crypto", 
+  "license": [], 
+  "documentation": null, 
+  "namespace": "community", 
+  "version": "1.0.0", 
+  "readme": "README.md", 
+  "license_file": "COPYING", 
+  "homepage": "https://github.com/ansible-collections/community.crypto"
+ }, 
+ "file_manifest_file": {
+  "format": 1, 
+  "ftype": "file", 
+  "chksum_sha256": "b5cc2535adfb97234edbc8adb7c8984329c141c186994b931479943b0daf7fe6", 
+  "name": "FILES.json", 
+  "chksum_type": "sha256"
+ }, 
+ "format": 1
+}

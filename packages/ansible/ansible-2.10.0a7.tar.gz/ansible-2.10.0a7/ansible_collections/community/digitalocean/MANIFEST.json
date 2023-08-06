@@ -1,0 +1,30 @@
+{
+ "collection_info": {
+  "namespace": "community",
+  "name": "digitalocean",
+  "version": "0.1.0",
+  "authors": [
+   "Ansible (https://github.com/ansible)"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "digitalocean"
+  ],
+  "description": null,
+  "license": [],
+  "license_file": "COPYING",
+  "dependencies": {},
+  "repository": "https://github.com/ansible-collections/community.digitalocean",
+  "documentation": null,
+  "homepage": "https://github.com/ansible-collections/community.digitalocean",
+  "issues": "https://github.com/ansible-collections/community.digitalocean/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "a3aac3e818cb434f57a6fffc0e89d423cadcdd3561c4e02ee3af145adfc83a41",
+  "format": 1
+ },
+ "format": 1
+}

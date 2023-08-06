@@ -1,0 +1,1279 @@
+{
+ "files": [
+  {
+   "name": ".",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/doc_fragments/meraki.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "971526821c3f6f3f6ad10bbd5f0c475380c1a53aedc23697a0f66a7af3504400",
+   "format": 1
+  },
+  {
+   "name": "plugins/action",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/inventory",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/network",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/network/meraki",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/network/meraki/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/module_utils/network/meraki/meraki.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "72c33ecebe386220c097262e669a14514e210f4779bb2d18868167b6c0f49388",
+   "format": 1
+  },
+  {
+   "name": "plugins/filter",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/modules",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_organization.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5f907f7bd6c204c0b14d1db52ed9b0f95b09e670d3ea7743f63537ef53810464",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_config_template.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "bdebbd9aac77ab3d613b1fdee13554b03367179978dfff640caee91f9c97b2e1",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_device.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "694535f907b6de47b83bcd4c944ed40b2023d9cf642a346a40de720acf0b066a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_network.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "38e9320db692258973a4d346d4c8da4377420a453a99f5e2e85dea3e77ff1f76",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_content_filtering.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ed1d04007806c739184e5b358d07a0431c72badce0cebc3ed97587851e1c935a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_mr_l3_firewall.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c4a5f5fd10cb827676acb69df336dba62644893b0d356e66e77a7d6095a67a76",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_switchport.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c18576a3acbe08d0bc0396b5472e6b7f8b7f4d6e2ef676abe24278615157dc14",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_mx_site_to_site_firewall.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "d705a30fd5f4c5213fa072c010632d1185d102f9b4a4051dd13da90a1be52062",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_site_to_site_vpn.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b20af5a2bd777f84899fb1c2cf6d8fffd803ffeec1003d2b0e073358e20bb267",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_mx_l3_firewall.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "31f9ecb7ff98d8e6ad6cd0d857fa5c03175a1e6d7cd7bbc02a3efafda48a6ded",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_vlan.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "cfe694b4c566cb1d41cf715caab75c23ba17282f8b7f3f8a9225b0612fb67968",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_nat.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9fcdbc9ddb5aa54850fc80b2287e037357c0a56cea5ee16fe3a653529fa2204c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/__init__.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_static_route.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "caa2d4bbadbc0f1269fa328c37cb16386dc58ab46a11985ff8f12b78b5294946",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_switch_storm_control.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "469d15f703d95ba5114bd03f6342bbac7dbc0491ad34476cfe841a59c16a8ed2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_switch_stack.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "97697b4be7185d94e788f90149b39d879f36f0bcac34811e6a30984073bbefc5",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_firewalled_services.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "aea7753740582b6b1e3a78b6c3fe8b7fba3c6e9679b1185de1f3d928917d25a2",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_webhook.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0d86de3ea8f7a94fe219ee3f0f0b3eb271fdd775c7838ee3797ed6836f0ccc42",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_admin.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "47ef99ac8c1c2c8049ade59265ea80e17c2579a229ac57d195af2b272a767067",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_intrusion_prevention.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5ed65a9dc2d7a4de98774f7bc6eb1928597a8d3c2a9d6c48fda5632c07c7e63c",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_management_interface.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "03c78b62690c09bb21aa2967747e7e469bb0b210d40fbec53ad121d7496e9f5a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_ssid.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8f6685aa452960feaf53c4c5799fd62bd830866246fab0358f75c7b0edc8342a",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_ms_link_aggregation.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ae9bd2aecf70cb11de9153bbd7b861b2dfefe3d2d598f326bc10517d9b5db622",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_switch_access_list.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0bce26bc17f9901c521a90a9c6f3042191efb4c6b23250f55ec5da331f3c48d5",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_mx_l7_firewall.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "0c3b74159ed541e2cba525ca16a5056b9b8a6d1fac3523fe69cd9a1dc4a01ace",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_malware.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e5ff14e0de1c489b0222d8a731d79e8d953ed028d34641be7541b70383672295",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_mx_uplink.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "493db4a8cb97c1426590210874d845a3a1e5037da1f277dd5d1ceb3f9f5ae1cf",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_syslog.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "adcc04c5f83361b09ffe3a0fcb6158121d7cfc7b15a05a177f2552ed60688c07",
+   "format": 1
+  },
+  {
+   "name": "plugins/modules/meraki_snmp.py",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e330ea793da02d63bd40293e5eda42701f4c6bc0a706c50b16b3dbce86499f74",
+   "format": 1
+  },
+  {
+   "name": "tests",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_l7_firewall",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_l7_firewall/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_l7_firewall/tasks/tests.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ed5049a6747eda3da9d1e44a1fc6701998de2f38708995437dda16e13f76e6fe",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_l7_firewall/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "617754c4028cc50da675746f5b74f3f2282a7136d8b3808da969391cb9bbce7d",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_l7_firewall/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a2f0223f94e7b3ac8a2fc3e175f868505568612d55d9b3b30631ab93fa118bd3",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_network",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_network/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_network/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "54d47981fa1b84efbdf3aab9b2dc728b66c7534ecf913b16b63953ae4621c96f",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_network/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_nat",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_nat/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_nat/tasks/tests.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "efa894c594a21000062c96fc37d06a7f545ade22c3f3068f28d2ebb477765890",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_nat/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7d721fb7675ced2f9f23e2b731c75c625e3d550de22eed6a6e188fb8bcc20591",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_nat/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_malware",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_malware/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_malware/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e6246b94dfec303865d9e5e3ef46e02871dcee717bcc9be03621294a1392709f",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_malware/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_syslog",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_syslog/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_syslog/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1cfd71a470cbbd294b2150673c935ef8115805fb8b211615980d8626ff8286a7",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_syslog/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_uplink",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_uplink/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_uplink/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "e1a9a9ab00d1c95e690f10019d25af3beba9d21c88fe7e262e126269f83f9b5b",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_uplink/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_site_to_site_vpn",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_site_to_site_vpn/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_site_to_site_vpn/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "ca03fd940cd053bb8b79f6d2c9677448d3aa55ac99b74063606d4a396e5815c2",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_site_to_site_vpn/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_admin",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_admin/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_admin/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "580ded38a650e6d1851e499143ca91c153f816805512a3dba90031a4f0b9df39",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_admin/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_webhook",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_webhook/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_webhook/tasks/tests.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "20affe23258657b62f35eef4547bc071b7108c6c346ac763200bef554e0a2a9d",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_webhook/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "53fa9852c9f50ce3ef61cdbfbd87831e062cfd27869b6607c27c7a41225148a7",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_webhook/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_snmp",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_snmp/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_snmp/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5578cb4f537bbef3b100792b152b50b964b6a6e547603819ca9fcb7b7df37edd",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_snmp/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_config_template",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_config_template/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_config_template/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f7778b3c15b3b552efbabd5e1d762541ce7e2a4171e9d5562b093c181517e344",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_config_template/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_organization",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_organization/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_organization/tasks/tests.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c066b25f1d46b51fa6f74fac91376b4d9911bc71a7e85cfddfd61b8d9f3abba3",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_organization/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "197afdd10ec2d16f63702c979136a54bca85025209ffdcd516db712ffbe89cde",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_organization/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switchport",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switchport/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switchport/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1abfc58718394ab54ed8c39e8d90570caadad0bcfdfe9a39a804ee7c44a844ef",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switchport/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_static_route",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_static_route/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_static_route/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f5c658d00c7ac906a17f450a9417aa0ff575af1c211a6b36ee3f128b16a13177",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_static_route/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_storm_control",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_storm_control/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_storm_control/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "941d2b38b87eb70307bafe786ebfe807e32d00958a65ef1f97b57d7351a14620",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_storm_control/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_management_interface",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_management_interface/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_management_interface/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "fc64b479974ee2b2666b2e9852a4f36e431878e9c289480944ea77dabb0ca7dc",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_management_interface/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_firewalled_services",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_firewalled_services/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_firewalled_services/tasks/tests.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "9f03a8444ca9c18df03441f4e043a0b4fefe7a144695cba1615b76506f3bbf4d",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_firewalled_services/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "1e83581a07172337934cc5c220a258defe30f04086b0c9e6f96f4ec6015fbcce",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_firewalled_services/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_site_to_site_firewall",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_site_to_site_firewall/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_site_to_site_firewall/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5ebe0589d653938814e4bb95e3c88656325d535b2fa1af17299b6eabce72b42d",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_site_to_site_firewall/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mr_l3_firewall",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mr_l3_firewall/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mr_l3_firewall/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "93a116d624797e0784d58407a3043e7f36bffc62b73f998045367e9f8651b5ae",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mr_l3_firewall/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_access_list",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_access_list/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_access_list/tasks/tests.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "5da21e4a9a67b88be6d4f6f0def23e3506c53ee69d44d96138624b703b026645",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_access_list/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "53fa9852c9f50ce3ef61cdbfbd87831e062cfd27869b6607c27c7a41225148a7",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_access_list/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ssid",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ssid/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ssid/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7d9bcec0eb76106831ca6d636a0df4f077b4a5afe0e5b35b83ae880822dac191",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ssid/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_device",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_device/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_device/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "07fe756fbaca0b084330490e1309233efb1951aa221ef5c49ac97f2c08b33078",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_device/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "60945d49535300be8e42108658dba31fcd5d665fc40d6f186798e7e0682320ae",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_intrusion_prevention",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_intrusion_prevention/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_intrusion_prevention/tasks/tests.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c58b098e7a2a7259bf0df8a6c889d68ba7466c81202011f06a35324733675a00",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_intrusion_prevention/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "53fa9852c9f50ce3ef61cdbfbd87831e062cfd27869b6607c27c7a41225148a7",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_intrusion_prevention/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_l3_firewall",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_l3_firewall/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_l3_firewall/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "2145bcc1e0222e55f44c066e17f5412e53b6990e6dd6ebad47f6b6d3c80baf01",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_mx_l3_firewall/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_stack",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_stack/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_stack/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "689b764075cbf34706cf8ca77339c4d2b740d233a4a468828beb50099a3f1cce",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_switch_stack/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_content_filtering",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_content_filtering/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_content_filtering/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7d5668f94f2c547c1069abcb680c90d8b738db067a5359611f34d01608de1444",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_content_filtering/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ms_link_aggregation",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ms_link_aggregation/meraki_network",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ms_link_aggregation/meraki_network/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ms_link_aggregation/meraki_network/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "54d47981fa1b84efbdf3aab9b2dc728b66c7534ecf913b16b63953ae4621c96f",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ms_link_aggregation/meraki_network/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ms_link_aggregation/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ms_link_aggregation/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8b9e65bb4a62fc25ba4ff48ca50ee6840adf263717f504b5f187802faf7150f8",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_ms_link_aggregation/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_vlan",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_vlan/tasks",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_vlan/tasks/main.yml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8a924b088a27e9a2907bbf06ec4c88597596c64e602e6ab0554ea6c68a33c9f8",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/targets/meraki_vlan/aliases",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "f13674351f8231c9e60fc923652b1ce94b62357ee00fedaf23ad3af677aff656",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/target-prefixes.network",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b8a734712fe5c9c772fd93a16a62bc6239cc4ed638239fedf060285a4aa6a59c",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/inventory.networking.template",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "7aa8bfbb8114eea3abc738cf75ecc34de011976d4cc21c42be30c673ac4fec94",
+   "format": 1
+  },
+  {
+   "name": "tests/integration/inventory.networking",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b42189f44ba97451c8d8eb9554cef258d235c5ea08b879dc2e3e546d35fc3af6",
+   "format": 1
+  },
+  {
+   "name": "tests/sanity",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "tests/sanity/ignore-2.11.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b675e617e54202c3a3461e939d2b843de989a454bcab58c52568620e2149c00a",
+   "format": 1
+  },
+  {
+   "name": "tests/sanity/ignore-2.10.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "b675e617e54202c3a3461e939d2b843de989a454bcab58c52568620e2149c00a",
+   "format": 1
+  },
+  {
+   "name": "tests/sanity/ignore-2.9.txt",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "014a8541fd8acfd7617be7ec00780bd196fb955936f8ffb5077edc7582fdc61e",
+   "format": 1
+  },
+  {
+   "name": "changelogs",
+   "ftype": "dir",
+   "chksum_type": null,
+   "chksum_sha256": null,
+   "format": 1
+  },
+  {
+   "name": "changelogs/config.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "8d2d74737a0995d2004ac140be5c94cc8e120c98b32bf00744c7d5508419d2e9",
+   "format": 1
+  },
+  {
+   "name": "changelogs/.plugin-cache.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "26f86c0ddfc0d3c5832da74f776132ca97d420845164512ebd32bad785d396dd",
+   "format": 1
+  },
+  {
+   "name": "changelogs/CHANGELOG.rst",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "c16aae04a16f8b6bd53e5a3f6b29e8c844cce04881bda62a034beb642c81cfc8",
+   "format": 1
+  },
+  {
+   "name": "changelogs/changelog.yaml",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "a58aaec31cfc1ca189eac7398c96fefac90e50cee52c734b22e68d9a50009765",
+   "format": 1
+  },
+  {
+   "name": "README.md",
+   "ftype": "file",
+   "chksum_type": "sha256",
+   "chksum_sha256": "237d6096aa38511049994468eb8b4001b0f9d3aec0a862dcb361d1a18bdc97f7",
+   "format": 1
+  }
+ ],
+ "format": 1
+}

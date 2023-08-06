@@ -1,0 +1,12 @@
+---
+- include: cli.yaml
+  tags:
+    - network_cli
+
+- include: cli_config.yaml
+  tags:
+    - network_cli
+
+- include: eapi.yaml
+  tags:
+    - httpapi

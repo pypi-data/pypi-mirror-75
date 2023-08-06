@@ -1,0 +1,481 @@
+{
+ "files": [
+  {
+   "format": 1, 
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": ".", 
+   "chksum_type": null
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "roles", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "roles/.keep", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/sanity", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "933e8897349d63183f71b360678bd33dc2fa33a59acef0167e9801cdc4a8abdc", 
+   "name": "tests/sanity/ignore-2.9.txt", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/output", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/output/bot", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "67fc940d3471a031ff4def37d67fc5681719983f6a33ddbfca56e239da90040b", 
+   "name": "tests/output/bot/ansible-test-sanity-yamllint.json", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/output/coverage", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "tests/output/data", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "56b16a5a71f60bf7be6d990cd0cd33a65a63e6be755fbcffbfe2fd800f8070f9", 
+   "name": "README.md", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "playbooks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "playbooks/roles", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "playbooks/roles/.keep", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "playbooks/.keep", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "playbooks/templates", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "playbooks/templates/.keep", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "playbooks/files", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "playbooks/files/.keep", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "playbooks/vars", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "playbooks/vars/.keep", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "playbooks/tasks", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855", 
+   "name": "playbooks/tasks/.keep", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/modules", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "d9f0e1a66c4870ea4580a31f4a721537d3088daea17f6ad26e2e451eacde4a37", 
+   "name": "plugins/modules/purefa_user.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e718da6be4f894738c58cefa366b21142c6bb43df85a7c4422163cd3927128f2", 
+   "name": "plugins/modules/purefa_alert.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "fcc5914ef42a29a30818056e2dce85b79f59ec528f8697fac7e4c0ad0a6dbfb7", 
+   "name": "plugins/modules/purefa_host.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "8222dc8e5e6a4aa38befeddcd65c4b28702b6b3750367f5e483f7faccb186f0b", 
+   "name": "plugins/modules/purefa_vg.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "20c53005e33fc110dd4636da42d110d0ffa6b49b670d5ded19c125d2f52df88d", 
+   "name": "plugins/modules/purefa_ntp.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "53af56065de8d199ea064b24f89fb9202121a931ea1274154e7b6c7ec7a59d14", 
+   "name": "plugins/modules/purefa_offload.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "6b21fd834c61e70628e8abd739bc80d76b3da705ca6bb87d5421030f353bfaac", 
+   "name": "plugins/modules/purefa_pg.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "75cabc06fac30390c4d0881974853392c057a171232697724910986d9238bd38", 
+   "name": "plugins/modules/purefa_vnc.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "9bd2daf0ac1010f9d53f1fd1156ee89a79b3249390f112c98ac6bd1f0f85f867", 
+   "name": "plugins/modules/purefa_pgsched.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "73ecfac4e8a39731e27b7b2dc4359f224e5870ed78823c628cae28128674431f", 
+   "name": "plugins/modules/purefa_phonehome.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "29796492b9cbc0795ba57f7f503cdfc1727145449650934c52474e68d64f8f57", 
+   "name": "plugins/modules/purefa_subnet.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "6bbf60a3e27442a925da037c2af88958a7d9498df7664d1811b138beb92b2d59", 
+   "name": "plugins/modules/purefa_timeout.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f598ef80e1e4fafaea8ac92e9c6738536f4f3199ed07bc56efb371ea900aafb6", 
+   "name": "plugins/modules/purefa_dns.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "58cb860a1a93812f40e502af2468d63fe6ef736d5001488b69b618e315506106", 
+   "name": "plugins/modules/purefa_endpoint.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "13f864d3c80289c7b0ac2355543f14bf680e8e5c3aea253c29d8c5895984a246", 
+   "name": "plugins/modules/purefa_console.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "f89dfeb298d2f59877cfa2049834028ff947f843d015438805a8d34387c7c4e7", 
+   "name": "plugins/modules/purefa_pod.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "3c949e64b366e8700888b5972728dd521d56dde729232c61678a6d2a002d030a", 
+   "name": "plugins/modules/purefa_pgsnap.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "b7305ad1c6985df82e43b26413d28cb93f278c5b48668e9bc440164d25e5d259", 
+   "name": "plugins/modules/purefa_snmp.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "904184599be539f9ba9174af84040bdc3b99679ca7251a9997499acd78b12f1e", 
+   "name": "plugins/modules/purefa_volume.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "2396c6dadef2c9710ada16c7981e9619836f4632fc55c0b7d71c3ff58fb04acf", 
+   "name": "plugins/modules/purefa_smtp.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e8b3fa19cadded8e6eb1b652a2aad7b7a79ebd825239f989b8c29568bfcd8311", 
+   "name": "plugins/modules/purefa_connect.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "6547bd06ef6698439a6bfa7fa2cd1677edba9ff0e8c3111241b3ea5cc765f200", 
+   "name": "plugins/modules/purefa_ds.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "9310cb0776f428684d18c6d3ea1b16949bc18eb6e889fdc1458b72427a94fd45", 
+   "name": "plugins/modules/purefa_dsrole.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "ae45ce73e7f7b3008c0a02c19f60a6c50494b4b4a0929e3b546c38c36047a6e0", 
+   "name": "plugins/modules/purefa_inventory.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "6c0a4073a5a23e4b41679a276e122bd59a471435d21d422140b95b058e13fa4c", 
+   "name": "plugins/modules/purefa_hg.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "55b03d59289a266f3d6cae3368467913156eb51fd1f605aef62eb9d0e378a9c9", 
+   "name": "plugins/modules/purefa_vlan.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "53514ce25b648beaf658d218309b5597655bb07480c340488cc54be9008e9a64", 
+   "name": "plugins/modules/purefa_volume_tags.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "4fe1abbc1cfaac48d577631aa494e3b8575af0c180df9bc365fdea3aecabf739", 
+   "name": "plugins/modules/purefa_proxy.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "a12cafbd078feb866225c7ff3de7fdca18baac8d375f23791d3d60dc71bb6f55", 
+   "name": "plugins/modules/purefa_network.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "20e4a77c9548774d63b9c60fcb0ae35cd929e258f21b396f3ea905a2e77297c2", 
+   "name": "plugins/modules/purefa_info.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "6da9fe70cc11e56b9cb38d6a7aee6d7461957d9631bee2fdcd438b8fb82c8fba", 
+   "name": "plugins/modules/purefa_smis.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "e2fc38b62e38a11457873355e900b981156f83cd7681b112bbf0b4604adada2b", 
+   "name": "plugins/modules/purefa_syslog.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "6c1e1f5cf569d9654e3c3ef243fb83d12d52014c9fd3e6f389400be35028afbd", 
+   "name": "plugins/modules/purefa_ra.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "50358a949d5e62961cfbd29a7b48f5df1840c04812fad3831e0040137ac6f015", 
+   "name": "plugins/modules/purefa_snap.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "c9bba5811e8f16884d468068c175c407471b5d05f840d19c1d552305df203876", 
+   "name": "plugins/modules/purefa_banner.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "8bb1e05c06ed87741e1e20c3dbca0c78af266ea1f1bf15589f765526d5bae0b6", 
+   "name": "plugins/modules/purefa_eula.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "85061584e018688be3ab8d0e56a5fc6d81be451d5689576434d5fcdad715308d", 
+   "name": "plugins/modules/purefa_arrayname.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "5e017bb273a301a6ce676e12f11857ed9c4b42fe732588ba197c722c4d67b74f", 
+   "name": "plugins/modules/purefa_pod_replica.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/doc_fragments", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "1c9e760df8409660639351e4ed4503a0fa70c0a4f0a598eea02f24e5f93e06d9", 
+   "name": "plugins/doc_fragments/purestorage.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }, 
+  {
+   "ftype": "dir", 
+   "chksum_sha256": null, 
+   "name": "plugins/module_utils", 
+   "chksum_type": null, 
+   "format": 1
+  }, 
+  {
+   "ftype": "file", 
+   "chksum_sha256": "dba061f0bd459a5ee3575379f9ee68fdbb7159b9569a7b682980699851177b25", 
+   "name": "plugins/module_utils/purefa.py", 
+   "chksum_type": "sha256", 
+   "format": 1
+  }
+ ], 
+ "format": 1
+}

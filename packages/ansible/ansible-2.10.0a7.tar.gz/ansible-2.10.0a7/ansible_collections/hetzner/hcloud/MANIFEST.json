@@ -1,0 +1,36 @@
+{
+ "collection_info": {
+  "namespace": "hetzner",
+  "name": "hcloud",
+  "version": "0.2.0",
+  "authors": [
+   "Hetzner Cloud (github.com/hetznercloud)"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "hetzner",
+   "cloud",
+   "hcloud"
+  ],
+  "description": "A Collection for managing Hetzner Cloud resources",
+  "license": [
+   "GPL-3.0-or-later"
+  ],
+  "license_file": null,
+  "dependencies": {
+   "ansible.netcommon": ">=0.0.1"
+  },
+  "repository": "https://github.com/ansible-collections/hetzner.hcloud",
+  "documentation": "https://github.com/ansible-collections/hetzner.hcloud/tree/master/docs",
+  "homepage": "https://github.com/ansible-collections/hetzner.hcloud",
+  "issues": "https://github.com/ansible-collections/hetzner.hcloud/issues"
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "13cdc8867463adfe131ccd2dcca54c387609bd4c40a4f57c85f1d754fb9e5bc8",
+  "format": 1
+ },
+ "format": 1
+}

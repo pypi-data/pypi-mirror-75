@@ -1,0 +1,31 @@
+{
+ "collection_info": {
+  "description": null, 
+  "repository": "https://github.com/ansible-collections/community.mongodb", 
+  "tags": [], 
+  "dependencies": {
+   "community.general": ">=0.1.1"
+  }, 
+  "authors": [
+   "Ansible (https://github.com/ansible)", 
+   "Rhys Campbell (https://github.com/rhysmeister)"
+  ], 
+  "issues": "https://github.com/ansible-collections/community.mongodb", 
+  "name": "mongodb", 
+  "license": [], 
+  "documentation": "https://github.com/ansible-collections/community.mongodb/tree/master/docs", 
+  "namespace": "community", 
+  "version": "0.1.2", 
+  "readme": "README.md", 
+  "license_file": "COPYING", 
+  "homepage": "https://github.com/ansible-collections/community.mongodb"
+ }, 
+ "file_manifest_file": {
+  "format": 1, 
+  "ftype": "file", 
+  "chksum_sha256": "527f67dd55ba71ac9e67c6d78f784755eec94b660f44b2cf5bde1aed77a336cc", 
+  "name": "FILES.json", 
+  "chksum_type": "sha256"
+ }, 
+ "format": 1
+}

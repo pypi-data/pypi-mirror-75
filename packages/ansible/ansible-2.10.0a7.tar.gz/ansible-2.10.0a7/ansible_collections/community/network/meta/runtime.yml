@@ -1,0 +1,135 @@
+requires_ansible: '>=2.9.10'
+plugin_routing:
+  modules:
+    pn_cluster:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_ospf:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_ospfarea:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_show:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_trunk:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vlag:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vlan:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vrouter:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vrouterbgp:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vrouterif:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    pn_vrouterlbif:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_admin:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_admpwd:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_cert_gen_ssh:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_check:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_commit:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_dag:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_dag_tags:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_import:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_interface:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_lic:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_loadcfg:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_match_rule:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_mgtconfig:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_nat_rule:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_object:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_op:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_pg:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_query_rules:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_restart:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_sag:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_security_rule:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details
+    panos_set:
+      deprecation:
+        removal_version: 2.0.0
+        warning_text: see plugin documentation for details

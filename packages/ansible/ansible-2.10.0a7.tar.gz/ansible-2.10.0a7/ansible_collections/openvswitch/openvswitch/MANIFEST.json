@@ -1,0 +1,35 @@
+{
+ "collection_info": {
+  "namespace": "openvswitch",
+  "name": "openvswitch",
+  "version": "1.0.1-dev4",
+  "authors": [
+   "Ansible Network Community (ansible-network)"
+  ],
+  "readme": "README.md",
+  "tags": [
+   "networking",
+   "vswitch",
+   "bridge",
+   "vlan"
+  ],
+  "description": null,
+  "license": [],
+  "license_file": "LICENSE",
+  "dependencies": {
+   "ansible.netcommon": "*"
+  },
+  "repository": "https://github.com/ansible-collections/openvswitch.openvswitch",
+  "documentation": null,
+  "homepage": null,
+  "issues": null
+ },
+ "file_manifest_file": {
+  "name": "FILES.json",
+  "ftype": "file",
+  "chksum_type": "sha256",
+  "chksum_sha256": "d51ac7cbadda308018e4bb81e3a41ab7e1eb93f6fb691670ca495c1655b5a73d",
+  "format": 1
+ },
+ "format": 1
+}
