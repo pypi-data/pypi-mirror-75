@@ -1,0 +1,15 @@
+{% if messages %}
+    <ul class="messages white-text" style="text-align: center;">
+        {% for message in messages %}
+            {% if message.tags == 'success'%}
+                <!--li class="green rounded" style="opacity: .8; padding: 10px; display:inline;">{{ message | title}}</li-->
+            {% elif message.tags == 'info'%}
+                <!--li class="blue rounded" style="opacity: .8; padding: 10px; display:inline;">{{ message | title}}</li>-->
+            {% elif message.tags  == 'warning'%}
+            <li class="orange rounded" style="opacity: .8; padding: 10px; display:inline;">{{ message }}</li>
+            {% elif message.tags == 'error'%}
+            <li class="red rounded" style="opacity: .8; padding: 10px; display:inline;">{{ message }}</li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+{% endif %}
