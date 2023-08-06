@@ -1,0 +1,368 @@
+ <!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Anexo II</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+</head>
+
+<style type="text/css">
+{% include "anexo2.css" %}
+</style>
+ 
+<body> 
+<!--tabla-->
+<div class="ritz grid-container" dir="ltr" style="padding-bottom: 10px; padding-top: 10px;">
+  <table class="waffle" cellspacing="0" cellpadding="0" style="margin: 0 auto">
+    <thead>
+      <tr>
+         
+        <th id="0C0" style="width:25px" class="column-headers-background">A</th>
+        <th id="0C1" style="width:25px" class="column-headers-background">B</th>
+        <th id="0C2" style="width:25px" class="column-headers-background">C</th>
+        <th id="0C3" style="width:25px" class="column-headers-background">D</th>
+        <th id="0C4" style="width:25px" class="column-headers-background">E</th>
+        <th id="0C5" style="width:25px" class="column-headers-background">F</th>
+        <th id="0C6" style="width:25px" class="column-headers-background">G</th>
+        <th id="0C7" style="width:25px" class="column-headers-background">H</th>
+        <th id="0C8" style="width:25px" class="column-headers-background">I</th>
+        <th id="0C9" style="width:25px" class="column-headers-background">J</th>
+        <th id="0C10" style="width:25px" class="column-headers-background">K</th>
+        <th id="0C11" style="width:25px" class="column-headers-background">L</th>
+        <th id="0C12" style="width:25px" class="column-headers-background">M</th>
+        <th id="0C13" style="width:25px" class="column-headers-background">N</th>
+        <th id="0C14" style="width:25px" class="column-headers-background">O</th>
+        <th id="0C15" style="width:25px" class="column-headers-background">P</th>
+        <th id="0C16" style="width:25px" class="column-headers-background">Q</th>
+        <th id="0C17" style="width:25px" class="column-headers-background">R</th>
+        <th id="0C18" style="width:25px" class="column-headers-background">S</th>
+        <th id="0C19" style="width:25px" class="column-headers-background">T</th>
+        <th id="0C20" style="width:25px" class="column-headers-background">U</th>
+        <th id="0C21" style="width:25px" class="column-headers-background">V</th>
+        <th id="0C22" style="width:25px" class="column-headers-background">W</th>
+        <th id="0C23" style="width:25px" class="column-headers-background">X</th>
+        <th id="0C24" style="width:25px" class="column-headers-background">Y</th>
+        <th id="0C25" style="width:25px" class="column-headers-background">Z</th>
+        <th id="0C26" style="width:25px" class="column-headers-background">AA</th>
+        <th id="0C27" style="width:25px" class="column-headers-background">AB</th>
+        <th id="0C28" style="width:25px" class="column-headers-background">AC</th>
+        <th id="0C29" style="width:25px" class="column-headers-background">AD</th>
+        <th id="0C30" style="width:25px" class="column-headers-background">AE</th>
+        <th id="0C31" style="width:25px" class="column-headers-background">AF</th>
+        <th id="0C32" style="width:25px" class="column-headers-background">AG</th>
+        <th id="0C33" style="width:25px" class="column-headers-background">AH</th>
+        <th id="0C34" style="width:25px" class="column-headers-background">AI</th>
+        <th id="0C35" style="width:25px" class="column-headers-background">AJ</th>
+        <th id="0C36" style="width:25px" class="column-headers-background">AK</th>
+        <th id="0C37" style="width:25px" class="column-headers-background">AL</th>
+        <th id="0C38" style="width:25px" class="column-headers-background">AM</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr style='height:26px;'>
+         
+        <td class="s0" dir="ltr" colspan="33" rowspan="2" style="border-left: 1px SOLID #000000;"> COMPROBANTE DE ATENCIÓN<br> DE BENEFICIARIOS DE OBRAS SOCIALES</td>
+        <td class="s1" dir="ltr" colspan="6">FECHA</td>
+      </tr>
+      <tr style='height:27px;'>
+         
+        <td class="s2 f2" colspan="2">{{ dia }}</td>
+        <td class="s2 f2" colspan="2">{{ mes }}</td>
+        <td class="s2 f2" colspan="2">{{ anio }}</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s2" colspan="39"  style="border-left: 1px SOLID #000000;"></td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s3" dir="ltr" colspan="31" rowspan="2" style="border-left: 1px SOLID #000000;"> HOSPITAL: <span class="f3">{{ hospital.nombre }}</span></td>
+        <td class="s1" dir="ltr" colspan="8">Código de HPGD</td>
+      </tr>
+      <tr style='height:30px;'>
+         
+        <td class="s2" colspan="8">{{ hospital.codigo_hpgd }}</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s2" colspan="39" style="border-left: 1px SOLID #000000;"></td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s0" dir="ltr" colspan="26" style="border-left: 1px SOLID #000000;"> APELLIDOS Y NOMBRES</td>
+        <td class="s2" rowspan="3"></td>
+        <td class="s1" dir="ltr" colspan="2">DNI</td>
+        <td class="s2" colspan="2">{% if beneficiario.tipo_dni == 'DNI' %}X{% endif %}</td>
+        <td class="s1" dir="ltr" colspan="8">Númer del documento</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s2" colspan="26" rowspan="2" style="border-left: 1px SOLID #000000;">{{ beneficiario.apellido_y_nombres }}</td>
+        <td class="s1" dir="ltr" colspan="2">LE</td>
+        <td class="s2" colspan="2">{% if beneficiario.tipo_dni == 'LE' %}X{% endif %}</td>
+        <td class="s2" colspan="8" rowspan="2">{{ beneficiario.dni }}</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s1" dir="ltr" colspan="2">LC</td>
+        <td class="s2" colspan="2">{% if beneficiario.tipo_dni == 'LC' %}X{% endif %}</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s2" colspan="39" style="border-left: 1px SOLID #000000;"></td>
+      </tr>
+      <tr style='height:20px;'>
+        
+        <td class="s1" dir="ltr" colspan="14" style="border-left: 1px SOLID #000000;">Tipo de Beneficiario</td>
+        <td class="s1" dir="ltr" colspan="15">Parentesco</td>
+        <td class="s1" dir="ltr" colspan="7">Sexo</td>
+        <td class="s1" dir="ltr" colspan="3">Edad</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s4" dir="ltr" colspan="3" rowspan="2" style="border-left: 1px SOLID #000000;">Titular</td>
+        <td class="s5" colspan="2" rowspan="2">{% if beneficiario.tipo_beneficiario == 'titular' %}X{% endif %}</td>
+        <td class="s4" dir="ltr" colspan="3" rowspan="2">No Titu</td>
+        <td class="s5" colspan="2" rowspan="2">{% if beneficiario.tipo_beneficiario == 'no titular' %}X{% endif %}</td>
+        <td class="s4" dir="ltr" colspan="3" rowspan="2">Adhere</td>
+        <td class="s5" rowspan="2">{% if beneficiario.tipo_beneficiario == 'adherente' %}X{% endif %}</td>
+        <td class="s4" dir="ltr" colspan="3" rowspan="2">Conyug</td>
+        <td class="s5" colspan="2" rowspan="2">{% if beneficiario.parentesco == 'conyuge' %}X{% endif %}</td>
+        <td class="s4" dir="ltr" colspan="3" rowspan="2">Hijo</td>
+        <td class="s5" colspan="2" rowspan="2">{% if beneficiario.parentesco == 'hijo' %}X{% endif %}</td>
+        <td class="s4" dir="ltr" colspan="3" rowspan="2">Otro</td>
+        <td class="s5" colspan="2" rowspan="2">{% if beneficiario.parentesco == 'otro' %}X{% endif %}</td>
+        <td class="s4" dir="ltr" colspan="2" rowspan="2">Masc.</td>
+        <td class="s5" rowspan="2">{% if beneficiario.sexo == 'M' %}X{% endif %}</td>
+        <td class="s4" dir="ltr" colspan="3" rowspan="2">Femen.</td>
+        <td class="s5" rowspan="2">{% if beneficiario.sexo == 'F' %}X{% endif %}</td>
+        <td class="s5" rowspan="2">{{ beneficiario.__edad[0] }}</td>
+        <td class="s5" rowspan="2">{{ beneficiario.__edad[1] }}</td>
+        <td class="s5" rowspan="2">{{ beneficiario.__edad[2] }}</td>
+      </tr>
+      <tr style='height:20px;'>
+         <!-- probable--error-->
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s2" colspan="39" style="border-left: 1px SOLID #000000;"></td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s1" dir="ltr" colspan="33" rowspan="2" style="border-left: 1px SOLID #000000;">TIPO DE ATENCIÓN</td>
+        <td class="s1" dir="ltr" colspan="6" rowspan="2">FECHA</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s0" dir="ltr" colspan="5" rowspan="2" style="border-left: 1px SOLID #000000;"> CONSULTA</td>
+        <td class="s5" colspan="2" rowspan="2">{% if atencion.tipo == 'consulta' %}X{% endif %}</td>
+        <td class="s5" rowspan="6"></td>
+        <td class="s4" dir="ltr" colspan="5" rowspan="2">Especialidad</td>
+        <td class="f5 s5" colspan="20" rowspan="2">{{ atencion.especialidad }}</td>
+        <td class="s5" colspan="2" rowspan="2">{{ atencion.fecha.dia }}</td>
+        <td class="s5" colspan="2" rowspan="2">{{ atencion.fecha.mes }}</td>
+        <td class="s5" colspan="2" rowspan="2">{{ atencion.fecha.anio }}</td>
+      </tr>
+      <tr style='height:20px;'>
+        
+      </tr>
+      <tr style='height:20px;'>
+        
+        <td class="s0" dir="ltr" colspan="5" rowspan="2" style="border-left: 1px SOLID #000000;"> PRACTICA</td>
+        <td class="s2" colspan="2" rowspan="2">{% if atencion.tipo == 'practica' %}X{% endif %}</td>
+        <td class="s1" dir="ltr" colspan="5" rowspan="2">Códigos de<br>N.HPGD</td>
+        
+        <td class="s2" colspan="3" rowspan="2">{{ atencion.codigos_N_HPGD[0] }}</td>
+        <td class="s2" colspan="3" rowspan="2">{{ atencion.codigos_N_HPGD[1] }}</td>
+        <td class="s2" colspan="3" rowspan="2">{{ atencion.codigos_N_HPGD[2] }}</td>
+        <td class="s2" colspan="3" rowspan="2">{{ atencion.codigos_N_HPGD[3] }}</td>
+        <td class="s2" colspan="3" rowspan="2">{{ atencion.codigos_N_HPGD[4] }}</td>
+        <td class="s2" colspan="3" rowspan="2">{{ atencion.codigos_N_HPGD[5] }}</td>
+        <td class="s2" colspan="3" rowspan="2">{{ atencion.codigos_N_HPGD[6] }}</td>
+        <td class="s2" colspan="3" rowspan="2">{{ atencion.codigos_N_HPGD[7] }}</td>
+        <td class="s2" colspan="2" rowspan="2">{{ atencion.codigos_N_HPGD[8] }}</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s0" dir="ltr" colspan="5" rowspan="2" style="border-left: 1px SOLID #000000;"> INTERNAC</td>
+        <td class="s2" colspan="2" rowspan="2">{% if atencion.tipo == 'internacion' %}X{% endif %}</td>
+        <td class="s1" dir="ltr" colspan="9" rowspan="2">DIAGNOSTICO DE EGRESO<br>CIE 10</td>
+        <td class="s1" dir="ltr" colspan="5" rowspan="2">CODIGO <br>PRINCIPAL</td>
+        <td class="s2" colspan="5" rowspan="2">{{ atencion.diagnostico_ingreso_cie10.principal }}</td>
+        <td class="s1" dir="ltr" colspan="3" rowspan="2">OTROS<br>CODIGOS</td>
+        <td class="s2" colspan="3" rowspan="2">{{ atencion.diagnostico_ingreso_cie10.otros[0] }}</td>
+        <td class="s2" colspan="3" rowspan="2">{{ atencion.diagnostico_ingreso_cie10.otros[1] }}</td>
+        <td class="s2" colspan="3" rowspan="2">{{ atencion.diagnostico_ingreso_cie10.otros[2] }}</td>
+      </tr>
+      <tr style='height:20px;'></tr>
+      <tr style='height:20px;'>
+         
+        <td class="s4" dir="ltr" colspan="39" style="border-left: 1px SOLID #000000;">N.HPGD: Nomenclador de Hospitales Públicos de Gestión Descentralizada - CIE 10: Clasificación Internacional de Enfermedades</td>
+      </tr>
+      <tr style='height:180px;'>
+        <td class="s4" dir="ltr" colspan="39" style="border-left: 1px SOLID #000000;"></td>
+      </tr>
+      
+      <tr style='height:20px;'>
+        <td class="s4" dir="ltr" colspan="39" style="border-left: 1px SOLID #000000;">
+          Firma del Médico y Sello con Nº de Matrícula - {{ atencion.profesional.apellido_y_nombres }} - MP.: {{ atencion.profesional.matricula_profesional }}
+        </td>
+      </tr>
+      
+      <tr style='height:20px;'>
+         
+        <td class="s6" dir="ltr" colspan="33" style="border-left: 1px SOLID #000000;">DATOS DE LA OBRA SOCIAL: Nombre Completo</td>
+        <td class="s1" dir="ltr" colspan="6">Código</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s2" colspan="33" rowspan="2" style="border-left: 1px SOLID #000000;">{{ obra_social.nombre }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__codigo_rnos[0] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__codigo_rnos[1] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__codigo_rnos[2] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__codigo_rnos[3] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__codigo_rnos[4] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__codigo_rnos[5] }}</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s2" colspan="39" style="border-left: 1px SOLID #000000;"></td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s1" dir="ltr" colspan="22" style="border-left: 1px SOLID #000000;">Nº de Carnet de Obra Social</td>
+        <td class="s2" colspan="2" rowspan="3"></td>
+        <td class="s1" dir="ltr" colspan="8">Fecha de Emisión</td>
+        <td class="s2" colspan="1" rowspan="3"></td>
+        <td class="s1" dir="ltr" colspan="6">Vencimiento</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s2" colspan="5" rowspan="2" style="border-left: 1px SOLID #000000;"></td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[0] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[1] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[2] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[3] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[4] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[5] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[6] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[7] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[8] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[9] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[10] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[11] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[12] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[13] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[14] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[15] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__nro_carnet_obra_social[16] }}</td>
+
+        <td class="s2" rowspan="2">{{ obra_social.__fed[0] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fed[1] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fem[0] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fem[1] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fea[0] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fea[1] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fea[2] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fea[3] }}</td>
+        
+        <td class="s2" rowspan="2">{{ obra_social.__fvm[0] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fvm[1] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fva[0] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fva[1] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fva[2] }}</td>
+        <td class="s2" rowspan="2">{{ obra_social.__fva[3] }}</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s2" colspan="39" style="border-left: 1px SOLID #000000;"></td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s7" dir="ltr" colspan="39" rowspan="2" style="border-left: 1px SOLID #000000;">DATOS DE LA EMPRESA</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s0" dir="ltr" colspan="31" style="border-left: 1px SOLID #000000;"> NOMBRE O RAZON SOCIAL</td>
+        <td class="s4" dir="ltr" colspan="4" rowspan="3">Último Recido<br>de Sueldo</td>
+        <td class="s1" dir="ltr" colspan="2">Mes</td>
+        <td class="s1" dir="ltr" colspan="2">Año</td>
+      </tr>
+      <tr style='height:20px;'>
+        
+        <td class="s2" colspan="31" rowspan="3" style="border-left: 1px SOLID #000000;">{{ empresa.nombre }}</td>
+        <td class="s2" rowspan="2">{{ empresa.__ursm[0] }}</td>
+        <td class="s2" rowspan="2">{{ empresa.__ursm[1] }}</td>
+        <td class="s2" rowspan="2">{{ empresa.__ursa[2] }}</td>
+        <td class="s2" rowspan="2">{{ empresa.__ursa[3] }}</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s1" dir="ltr" colspan="8" rowspan="2"> CUIT DE LA EMPRESA</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s0" dir="ltr" colspan="31" style="border-left: 1px SOLID #000000;"> DIRECCIÓN DE LA EMPRESA</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s2" colspan="31" rowspan="3" style="border-left: 1px SOLID #000000;">{{ empresa.direccion }}</td>
+        <td class="s2" colspan="8" rowspan="3">{{ empresa.cuit }}</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+      </tr>
+      <tr style='height:20px;'>
+        
+      </tr>
+      <tr style='height:20px;'>
+         
+        <td class="s1" dir="ltr" colspan="13" rowspan="2" style="border-left: 1px SOLID #000000;">FIRMA DEL RESPONSABLE<br>ADMINISTRATIVO CONTABLE</td>
+        <td class="s1" dir="ltr" colspan="14" rowspan="2">ACLARACION DE FIRMA</td>
+        <td class="s1" dir="ltr" colspan="12" rowspan="2">FIRMA DEL BENEFICIARIO</td>
+      </tr>
+      <tr style='height:20px;'>
+         
+      </tr>
+      <tr style='height:120px;'>
+         
+        <td class="s2" colspan="13" rowspan="4" style="border-left: 1px SOLID #000000;"></td>
+        <td class="s2" colspan="14" rowspan="4"></td>
+        <td class="s2" colspan="12" rowspan="4"></td>
+      </tr>
+      <tr style='height:20px;' style="border-left: 1px SOLID #000000;">
+         
+      </tr>
+      <tr style='height:20px;'>
+         
+      </tr>
+      <tr style='height:20px;'>
+         
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--tabla-->
+
+</body>
+</html>
