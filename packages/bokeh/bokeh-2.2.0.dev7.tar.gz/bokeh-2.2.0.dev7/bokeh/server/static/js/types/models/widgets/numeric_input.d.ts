@@ -1,0 +1,36 @@
+import { InputWidgetView, InputWidget } from "./input_widget";
+import * as p from "../../core/properties";
+import { TickFormatter } from "../../api";
+export declare function setInputFilter(textbox: HTMLInputElement, inputFilter: (value: string) => boolean): void;
+export declare class NumericInputView extends InputWidgetView {
+    model: NumericInput;
+    protected input_el: HTMLInputElement;
+    connect_signals(): void;
+    get format_value(): string;
+    render(): void;
+    set_input_filter(): void;
+    bound_value(value: number): number;
+    get value(): number | null;
+    change_input(): void;
+}
+export declare namespace NumericInput {
+    type Attrs = p.AttrsOf<Props>;
+    type Props = InputWidget.Props & {
+        value: p.Property<number | null>;
+        placeholder: p.Property<string>;
+        mode: p.Property<"int" | "float">;
+        format: p.Property<string | TickFormatter | null>;
+        low: p.Property<number | null>;
+        high: p.Property<number | null>;
+    };
+}
+export interface NumericInput extends NumericInput.Attrs {
+}
+export declare class NumericInput extends InputWidget {
+    properties: NumericInput.Props;
+    __view_type__: NumericInputView;
+    constructor(attrs?: Partial<NumericInput.Attrs>);
+    static init_NumericInput(): void;
+    protected _formatter(value: number, format: string | TickFormatter): string;
+    pretty(value: number): string;
+}
