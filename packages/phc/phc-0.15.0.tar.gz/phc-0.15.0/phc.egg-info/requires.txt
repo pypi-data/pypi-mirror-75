@@ -1,0 +1,14 @@
+aiohttp>3.5.3
+backoff==1.10.0
+nest_asyncio
+pyjwt
+pandas
+funcy
+lenses
+toolz
+
+[pandas]
+pandas
+
+[tqdm]
+tqdm
