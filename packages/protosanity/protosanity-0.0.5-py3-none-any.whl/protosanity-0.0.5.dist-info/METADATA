@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: protosanity
+Version: 0.0.5
+Summary: UNKNOWN
+Home-page: https://github.com/xkortex/protosanity
+Author: Michael McDermott
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >3.5
+Requires-Dist: pyyaml
+Requires-Dist: grpcio (>=1.22)
+Requires-Dist: grpcio-tools
+Requires-Dist: protobuf (>=3.9)
+
+UNKNOWN
+
+
