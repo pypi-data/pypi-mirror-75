@@ -1,0 +1,123 @@
+Metadata-Version: 2.1
+Name: exoedge-fileio
+Version: 0.1.1
+Summary: An ExoEdge source for reading and writing files.
+Home-page: https://github.com/exosite/lib_exoedge_file_io_python
+Author: Exosite LLC
+Author-email: support@exosite.com
+License: Apache 2.0
+Keywords: murano exosite iot iiot client gateway fileio
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Topic :: System :: Operating System Kernels :: Linux
+Classifier: Topic :: Software Development :: Embedded Systems
+Classifier: License :: OSI Approved :: Apache Software License
+Requires-Python: <4,>=2.7.9
+Requires-Dist: exoedge
+
+Description
+############
+
+The purpose of this repository is to provide an ExoEdge protocol source that uses a text files as the input and output.
+
+A protocol source (often just referred to as a "source") is the glue between ExoEdge and the field-bus that you want to get data to and from. It is helpful to think of a source as a plugin to ExoEdge.
+
+Current Usage
+#############
+
+Currently, the source will read from a file and push the last line of data to ExoSense. 
+
+This can be used either by overwriting the file (always one line in the file) or appending the input file with a new line to keep historical information on the edge.
+
+
+Planned Features
+################
+* Implement output_file for controlling the device
+* Add custom delimiter
+
+Install
+#########
+
+Installing a build can be done in several ways:
+
+Installing From Source
+"""""""""""""""""""""""
+
+.. code-block:: bash
+
+    $ python setup.py install
+
+
+Installing From Builds
+"""""""""""""""""""""""
+
+.. code-block:: bash
+
+    $ pip install dist/*.whl
+
+
+Installing From Builds
+"""""""""""""""""""""""
+
+.. code-block:: bash
+
+    $ pip install exoedge_fileio
+
+
+ExoSense Configuration
+########################
+
+Below is an example config\_io for reading from input_file and using output_file for device control.
+
+.. code-block:: json
+
+    {
+      "channels": {
+        "000": {
+          "channel_name": "000",
+          "description": "File Reader",
+          "display_name": "FileIO",
+          "properties": {
+            "data_type": "TEMPERATURE",
+            "data_unit": "DEG_FAHRENHEIT",
+            "device_diagnostic": false,
+            "max": null,
+            "min": null,
+            "precision": 2
+          },
+          "protocol_config": {
+            "app_specific_config": {
+              "input_file": "<Fully qualified path to file>",
+              "output_file": "<Fully qualified path to file>"
+            },
+            "application": "FileIO",
+            "down_sample": "actual",
+            "input_raw": {},
+            "interface": null,
+            "report_on_change": false,
+            "report_rate": 10000,
+            "sample_rate": 10000,
+            "timeout": null
+          }
+        }
+      }
+    }
+
+Example Protocol Configuration in ExoSense
+##########################################
+.. image:: images/FileIO_Protocol_Configuration.png
+
+Device Control
+########################
+Device control is available by using an "output_file" in the app_specific_config
+
+ExoEdge will write the Device Control (data_out) value to this file. It will also write the latest value upon starting (in case the value was set when the device was off).
+
+
+
+
