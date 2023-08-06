@@ -1,0 +1,89 @@
+# upload 
+path_to_folder: ''            # path to folder which holds images
+path_to_embeddings: ''        # path to csv file which holds embeddings
+
+dataset_id: ''                # identifier of the dataset on the platform
+token: ''                     # access token
+
+# training and embeddings
+from_folder: ''               # path to folder which holds dataset
+data: ''                      # name of the dataset (optional if from_folder is set)
+root: ''                      # root directory (optional if from_folder is set)
+download: True                # download dataset (optional if from_folder is set)
+pre_trained: True             # whether to use a pre-trained model or not
+checkpoint: ''
+
+model:
+  name: 'resnet-18'           # name of the model, currently supports resnet-18 to resnet-151
+  out_dim: 128                # dimensionality of output on which self-supervised loss is computed
+  num_ftrs: 16                # dimensionality of feature vectors (embedding size)
+  width: 1                    # width of the resnet
+
+criterion:            
+  temperature: 0.5            # number by which logits are divided
+
+optimizer:
+  lr: 1.                      # learning rate
+  weight_decay: 0.00001       # L2 penalty
+
+collate:
+  input_size: 32              # image input size
+  cj_prob: 0.8                # probability that color jitter is applied
+  cj_bright: 0.7              # color_jitter intensity for brightness,
+  cj_contrast: 0.7            # contrast,
+  cj_sat: 0.7                 # saturation,
+  cj_hue: 0.2                 # and hue
+  min_scale: 0.08             # minimum size of random crop relative to input_size
+  random_gray_scale: 0.2      # probability of converting image to gray scale
+  kernel_size: 0.1            # kernel size of gauss. blur relative to input_size
+
+loader:
+  batch_size: 16              # batch_size
+  shuffle: True               # reshuffle data each epoch
+  num_workers: 1              # number of workers pre-fetching batches
+  drop_last: True             # 
+
+trainer:
+  gpus: 1                     # number of gpus to use for training
+  max_epochs: 100
+#  precision: 16
+
+# other
+seed: 1
+
+hydra:
+  help:
+    header: |
+      == Description ==
+      Boris is a command-line tool for self-supervised active learning.
+
+    footer: |
+      == Examples ==
+
+      Use a pre-trained resnet-18 to embed your images
+      > boris-embed from_folder='path/to/image/folder' collate.input_size=224
+
+      Load a model from a custom checkpoint to embed your images
+      > boris-embed from_folder='path/to/image/folder' collate.input_size=224 checkpoint='path/to/checkpoint.ckpt'
+
+      Train a self-supervised model on your image dataset from scratch
+      > boris-train from_folder='path/to/image/folder' loader.batch_size=128 collate.input_size=224 pre_trained=False
+
+      Train a self-supervised model starting from the pre-trained checkpoint
+      > boris-train from_folder='path/to/image/folder' loader.batch_size=128 collate.input_size=224
+
+      Train a self-supervised model starting from a custom checkpoint
+      > boris-train from_folder='path/to/image/folder' loader.batch_size=128 collate.input_size=224 checkpoint='path/to/checkpoint.ckpt'
+
+      Upload images to the WhatToLabel cloud solution
+      > boris-upload path_to_folder='path/to/image/folder' dataset_id='your_dataset_id' token='your_access_token'
+
+      Upload embeddings to the WhatToLabel cloud solution
+      > boris-upload path_to_folder='path/to/embeddings.csv' dataset_id='your_dataset_id' token='your_access_token'
+
+      == Additional Information ==
+
+      Use self-supervised methods to understand and filter raw image data:
+
+      Website: https://www.whattolabel.com
+      Documentation: https://www.notion.so/whattolabel/WhatToLabel-Documentation-28e645f5564a453e807d0a384a4e6ea7
