@@ -1,0 +1,33 @@
+Metadata-Version: 1.2
+Name: pymhelper
+Version: 0.1.2
+Summary: Helpers, utils, functions and dataclasses for Binance bot.
+Home-page: https://github.com/markeyev/pymhelper
+Author: Ivan Markeev
+Author-email: markeev@gmail.com
+License: GNU General Public License v3
+Description: =========
+        pymhelper
+        =========
+        
+        My <-> python  helper.
+        
+        .. image:: https://img.shields.io/pypi/v/pymhelper.svg
+                :target: https://pypi.python.org/pypi/pymhelper
+        
+        .. image:: https://img.shields.io/travis/markeyev/pymhelper.svg
+                :target: https://travis-ci.com/markeyev/pymhelper
+        
+        * Free software: GNU General Public License v3
+        
+Keywords: pymhelper
+Platform: UNKNOWN
+Classifier: Development Status :: 2 - Pre-Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Requires-Python: >=3.5
