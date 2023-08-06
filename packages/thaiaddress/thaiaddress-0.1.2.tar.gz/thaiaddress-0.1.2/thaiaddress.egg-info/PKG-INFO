@@ -1,0 +1,28 @@
+Metadata-Version: 1.2
+Name: thaiaddress
+Version: 0.1.2
+Summary: A Python parser for Thai address
+Home-page: https://github.com/425degree-developers/thaiaddress
+Author: Titipat Achakulvisut
+Author-email: my.titipat@gmail.com
+License: Apache Software License 2.0 (c) 2020 Titipat Achakulvisut, 425 Degree Co., Bangkok, Thailand
+Download-URL: https://github.com/425degree-developers/thaiaddress.git
+Project-URL: Source, https://github.com/425degree-developers/thaiaddress
+Project-URL: Documentation, https://github.com/425degree-developers/thaiaddress
+Project-URL: Bug Reports, https://github.com/425degree-developers/thaiaddress/issues
+Description: UNKNOWN
+Keywords: Parser,Address,Thai Address,Thai Natural Language Processing,Natural Language Processing
+Platform: any
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development
+Classifier: Topic :: Scientific/Engineering
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: Unix
+Classifier: Operating System :: MacOS
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.6
