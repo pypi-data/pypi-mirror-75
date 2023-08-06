@@ -1,0 +1,17 @@
+sphinxsearch/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+sphinxsearch/compat.py,sha256=DNanPWUCtdye1HPYWAf7RpcVHndrrArPU7hTaXUGUl0,70
+sphinxsearch/fields.py,sha256=bRE4gCOER0pyHjnj3lkdiYGUbEBNWZ4KNDF689K3tag,3098
+sphinxsearch/lookups.py,sha256=QYUDcUm6hytWw3FX55oVE_J-CEBnqXhQF5s9tBC2HD0,507
+sphinxsearch/models.py,sha256=NXFsXl95NCtEuB73dO4V65fBmrMHKBkAbjF8cok-ENg,9660
+sphinxsearch/routers.py,sha256=4tJVtIB0v5QQE5DROxwuJun-jrfsGbxDTsAN8t2RV5A,1271
+sphinxsearch/sql.py,sha256=uXrH8qqaSF9XauoAYZ_HuJPyGzWjn9OajXBL5hZCi3I,4855
+sphinxsearch/utils.py,sha256=jknJ-i_XdXEiGKYa1EX8ISt_dgu301PCr9rzL78l4ig,325
+sphinxsearch/backend/__init__.py,sha256=hIbeDRCzR9LjNQTMSxx-o6jiNpA73s5uHKZ3IoskiHg,28
+sphinxsearch/backend/sphinx/__init__.py,sha256=hIbeDRCzR9LjNQTMSxx-o6jiNpA73s5uHKZ3IoskiHg,28
+sphinxsearch/backend/sphinx/base.py,sha256=aGeu72enPviniXnoOOaZ4dB26sjr-HaWuI7_EW8B2Po,7620
+sphinxsearch/backend/sphinx/compiler.py,sha256=7JD6XeaMNBYx9lrqE85S7YgA_OFcTH6MXUgzyQCzLuk,13469
+django_sphinxsearch-4.2.0.dist-info/LICENSE.txt,sha256=iUtjohyRfXe5QCndFggLGAqawDbC2EGHUICR7vA61ew,289
+django_sphinxsearch-4.2.0.dist-info/METADATA,sha256=jU-dwSHH3ifAFu88f7DlQYU1TQc9rCdkxVv_93MXghA,5266
+django_sphinxsearch-4.2.0.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+django_sphinxsearch-4.2.0.dist-info/top_level.txt,sha256=xR3weOa09CdtqY9V55Gl-wKmIc42SoAS0kg9qq7ZDxA,13
+django_sphinxsearch-4.2.0.dist-info/RECORD,,
