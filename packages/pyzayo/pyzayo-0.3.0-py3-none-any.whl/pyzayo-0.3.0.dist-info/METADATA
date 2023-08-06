@@ -1,0 +1,79 @@
+Metadata-Version: 2.1
+Name: pyzayo
+Version: 0.3.0
+Summary: Zayo API python client
+Home-page: UNKNOWN
+Author: Jeremy Schulman
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: System :: Networking
+Description-Content-Type: text/markdown
+Requires-Dist: httpx (~=0.13.3)
+Requires-Dist: pydantic (~=1.6.1)
+Requires-Dist: tenacity (~=6.2.0)
+Requires-Dist: click (~=7.1.2)
+Requires-Dist: rich (~=4.2.1)
+Requires-Dist: first (~=2.0.2)
+Requires-Dist: maya (~=0.6.1)
+Requires-Dist: invoke (~=1.4.1)
+
+# Python client for Zayo API
+
+This package provides a python 3.8 asyncio based client to access the Zayo
+API system.
+
+The following API functional areas are supported:
+   * Service Inventory
+   * Maintenance
+
+This package also includes a CLI tool `zayocli` to retrieve and display information
+obtained via the API.
+
+# Installation
+
+```bash
+pip install pyzayo
+```
+
+# Before You Begin
+
+You must export two environment variables for use with this library:
+
+  * `ZAYO_CLIENT_ID` - Your unique client ID value
+  * `ZAYO_CLIENT_SECRET` - Your unique client secret value
+
+You must obtain these values from Zayo.
+
+# Quick Start
+
+```python
+from pyzayo import ZayoClient
+
+# create a client to the Maintenace API authenticate using the ZAYO_ variables
+zapi = ZayoClient()
+
+# use the instance methods to retrieve data
+cases = zapi.get_cases()
+```
+
+# Usage Documentation
+**WORK IN PROGRESS** 
+
+For now, please use the docstrings by doing:
+```python
+from pyzayo import ZayoClient
+
+help(ZayoClient)
+```
+
+# Zayo API Documentation
+   * [Serivce Inventory](http://54.149.224.75/wp-content/uploads/2020/02/Service-Inventory-Wiki.pdf) 
+   * [Maintenance](http://54.149.224.75/wp-content/uploads/2020/03/Maintenance-Cases-Wiki.pdf) 
+
+
+
