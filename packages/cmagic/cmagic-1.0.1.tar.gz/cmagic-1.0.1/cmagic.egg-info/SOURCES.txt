@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.py
+cmagic/__init__.py
+cmagic/_magic.c
+cmagic/_magic.pyi
+cmagic/py.typed
+cmagic/utils.py
+cmagic/version.py
+cmagic.egg-info/PKG-INFO
+cmagic.egg-info/SOURCES.txt
+cmagic.egg-info/dependency_links.txt
+cmagic.egg-info/requires.txt
+cmagic.egg-info/top_level.txt
