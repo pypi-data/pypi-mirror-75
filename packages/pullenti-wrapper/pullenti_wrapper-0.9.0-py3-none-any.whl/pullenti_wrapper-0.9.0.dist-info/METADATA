@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: pullenti-wrapper
+Version: 0.9.0
+Summary: Simpler interface for PullEnti Python package
+Home-page: https://github.com/pullenti/pullenti-wrapper
+Author: Alexander Kukushkin
+Author-email: alex@alexkuk.ru
+License: MIT
+Keywords: natural language processing,named entity recognition
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Text Processing :: Linguistic
+Requires-Dist: pullenti (==3.23)
+Requires-Dist: pullenti-client (==0.6.0)
+
+UNKNOWN
+
+
