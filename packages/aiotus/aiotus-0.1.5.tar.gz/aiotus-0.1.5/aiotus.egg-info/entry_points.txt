@@ -1,0 +1,4 @@
+[console_scripts]
+aiotus-metadata = aiotus.entrypoint:aiotus_metadata
+aiotus-upload = aiotus.entrypoint:aiotus_upload
+
