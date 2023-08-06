@@ -1,0 +1,15 @@
+oximachine_featurizer
+ipywidgets
+traitlets
+
+[changelog]
+gitchangelog
+
+[dev]
+prospector
+pre-commit
+pylint
+pytest
+versioneer
+isort
+yapf

@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: oximachinerunner
+Version: 0.2.1
+Summary: Run the oximachine
+Home-page: https://github.com/kjappelbaum/oximachinerunner
+Author: Kevin M. Jablonka, Daniele Ongari, Mohamad Moosavi, Berend Smit
+Author-email: kevin.jablonka@epfl.ch
+License: GPL
+Description: 
+        # oximachinerunner
+        
+        [![Actions Status](https://github.com/kjappelbaum/oximachinerunner/workflows/Python%20package/badge.svg)](https://github.com/kjappelbaum/oximachinerunner/actions)
+        
+        _oximachine for AiiDA lab_: Core functionalities of oximachine with stripped dependencies.
+        
+        _**Warning:** This model works excellent on a test set but it might give fully unphysical predictions in some cases when it is used outside the domain of applicability (structures similar to the ones in the MOF subset of the CSD). This is currently estimated with an uncertainty vote. Consider it in alpha phase_
+        
+        ## assets
+        
+        - `votingclassifier.joblib` is the model that is currently deployed. It is a voting classifier with four different base estimators
+        - `scaler.joblib` is the standard scaler
+        - `KAJZIH_freeONLY.cif` and `ACODAA.cif` are some test structures.
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Topic :: Scientific/Engineering :: Chemistry
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Science/Research
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6.0,<3.8.0
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Provides-Extra: changelog
