@@ -1,0 +1,15 @@
+README.md
+setup.py
+notedata/__init__.py
+notedata.egg-info/PKG-INFO
+notedata.egg-info/SOURCES.txt
+notedata.egg-info/dependency_links.txt
+notedata.egg-info/requires.txt
+notedata.egg-info/top_level.txt
+notedata/dataset/__init__.py
+notedata/dataset/core.py
+notedata/dataset/datas.py
+notedata/dataset/images.py
+notedata/manage/__init__.py
+notedata/manage/core.py
+notedata/manage/library.py
