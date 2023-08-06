@@ -1,0 +1,54 @@
+<configure
+  xmlns="http://namespaces.zope.org/zope"
+  xmlns:genericsetup="http://namespaces.zope.org/genericsetup">
+
+  <genericsetup:upgradeStep
+    source="*"
+    destination="1001"
+    title="Fix username on comments"
+    description="Replace email addresses by user names on comments"
+    profile="ideabox.policy:default"
+    handler=".upgrades.fix_comments_1001"
+    />
+
+  <genericsetup:upgradeStep
+    source="1001"
+    destination="1002"
+    title="Fix project_district index"
+    profile="ideabox.policy:default"
+    handler=".upgrades.to_1002"
+    />
+
+  <genericsetup:upgradeStep
+    source="1002"
+    destination="1003"
+    title="Hide comment viewlet from belowcontent viewlet manager"
+    profile="ideabox.policy:default"
+    handler=".upgrades.to_1003"
+    />
+
+  <genericsetup:upgradeStep
+    source="1003"
+    destination="1004"
+    title="Add priority action, progress and campaign content types"
+    profile="ideabox.policy:default"
+    handler=".upgrades.reload_content_types"
+    />
+
+  <genericsetup:upgradeStep
+    source="1004"
+    destination="1005"
+    title="Add priority action mosaic tiles"
+    profile="ideabox.policy:default"
+    handler=".upgrades.to_1005"
+    />
+
+  <genericsetup:upgradeStep
+    source="1005"
+    destination="1006"
+    title="Update campaign allowed content types"
+    profile="ideabox.policy:default"
+    handler=".upgrades.reload_content_types"
+    />
+
+</configure>

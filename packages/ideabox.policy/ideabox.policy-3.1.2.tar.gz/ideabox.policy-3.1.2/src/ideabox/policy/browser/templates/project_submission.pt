@@ -1,0 +1,25 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"
+      xmlns:tal="http://xml.zope.org/namespaces/tal"
+      xmlns:metal="http://xml.zope.org/namespaces/metal"
+      xmlns:i18n="http://xml.zope.org/namespaces/i18n"
+      lang="en"
+      metal:use-macro="context/main_template/macros/master"
+      i18n:domain="ideabox.policy">
+<body>
+  <div metal:fill-slot="main">
+    <tal:block condition="not: view/enable_submission">
+      <fieldset class="legal-information">
+      <p i18n:translate="">Project submission is currently disabled</p>
+    </fieldset>
+    </tal:block>
+    <tal:block condition="view/enable_submission">
+    <tal:block replace="structure view/contents"></tal:block>
+    <fieldset class="legal-information">
+      <p>En renvoyant ce formulaire, j’accepte que mes données à caractère personnel fournies ici soient exclusivement utilisées dans le cadre de ce « Projet de Ville », à des fins statistiques, d’information et de publication des informations sur les différents supports de la Ville de Liège, pour une durée de 6 ans.</p>
+      <p>Vous avez le droit de retirer votre consentement à tout moment, d’être informé sur la manière dont vos données sont traitées, d’en recevoir copie afin de les transmettre le cas échéant, de faire modifier, rectifier, compléter ou effacer vos données, de vous opposer à leur utilisation ou d’en limiter le traitement à certaines fins, et de ne pas faire l’objet d’une décision individuelle automatisée. Si vous souhaitez exercer un ou plusieurs de vos droits, nous vous invitons à contacter le Délégué à la protection des données (DPO) de la Ville de Liège via l’adresse <a href="mailto:dpo@liege.be">dpo@liege.be</a>.</p>
+      <p>Dans le cas où vous ne seriez pas satisfait de la manière dont la Ville de Liège traite vos données à caractère personnel ou de la réaction de son DPO à votre demande, vous pouvez également introduire une plainte auprès de l’Autorité de la protection des données.</p>
+    </fieldset>
+  </tal:block>
+  </div>
+</body>
+</html>
