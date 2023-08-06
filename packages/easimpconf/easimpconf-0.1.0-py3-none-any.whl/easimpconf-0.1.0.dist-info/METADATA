@@ -1,0 +1,37 @@
+Metadata-Version: 2.1
+Name: easimpconf
+Version: 0.1.0
+Summary: Easy and simple configuration.
+Home-page: https://andreas19.github.io/easimpconf/
+Author: Andreas Suhre
+Author-email: andreas19@posteo.eu
+License: BSD-3-Clause
+Project-URL: Source code, https://github.com/andreas19/easimpconf/
+Keywords: configuration
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: salmagundi (>=0.13.0)
+
+# EaSimpConf
+
+**Ea**sy and **Simp**le **Conf**iguration.
+
+For more information see the [documentation](https://andreas19.github.io/easimpconf/overview.html).
+
+History
+-------
+
+**2020-07-30 (0.1.0)**
+ - First public release
+
+
