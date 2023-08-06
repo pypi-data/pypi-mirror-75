@@ -1,0 +1,16 @@
+HISTORY.md
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+sheet2api/__init__.py
+sheet2api/client.py
+sheet2api.egg-info/PKG-INFO
+sheet2api.egg-info/SOURCES.txt
+sheet2api.egg-info/dependency_links.txt
+sheet2api.egg-info/not-zip-safe
+sheet2api.egg-info/requires.txt
+sheet2api.egg-info/top_level.txt
+tests/__init__.py
+tests/tests.py
