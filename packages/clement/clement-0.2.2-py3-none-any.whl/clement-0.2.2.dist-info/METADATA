@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: clement
+Version: 0.2.2
+Summary: GUI for Correlative Light and Electron Microscopy
+Home-page: https://github.com/kartikayyer/Clement
+Author: CNI Group at MPSD
+Author-email: kartik.ayyer@mpsd.mpg.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v3 (GPLv3)
+Classifier: Development Status :: 3 - Alpha
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Operating System :: OS Independent
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: scipy (>=1.0.0)
+Requires-Dist: scikit-image
+Requires-Dist: scikit-learn
+Requires-Dist: pyqt5
+Requires-Dist: numexpr
+Requires-Dist: mrcfile
+Requires-Dist: read-lif (==0.4.0)
+Requires-Dist: tifffile
+Requires-Dist: matplotlib
+Requires-Dist: pyqtgraph (==0.11.0rc0)
+Requires-Dist: pyyaml
+
+# Clement
+[![PyPI version](https://badge.fury.io/py/clement.svg)](https://badge.fury.io/py/clement)
+## GUI for Correlative Light and Electron Microscopy
+A graphical program to correlate electron microscopy and fluorescent optical images of the same sample.
+
+## Installation
+The package is pure python, and the easiest way to install it is through PyPi with the following command:
+```
+$ pip install clement
+```
+We recommend create a separate environment using either `conda` or `virtualenv` to manage dependencies.
+
+Further instructions are available in the Wiki [here](https://github.com/kartikayyer/Clement/wiki/installation).
+
+## Tutorial
+A guide with screenshots for semi-automatic alignment of FM and EM images based on observable features is also described on the [wiki](https://github.com/kartikayyer/Clement/wiki/tutorial-2D).
+
+
+
