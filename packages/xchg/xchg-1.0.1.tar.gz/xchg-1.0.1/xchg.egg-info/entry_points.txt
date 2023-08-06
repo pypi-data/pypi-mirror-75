@@ -1,0 +1,3 @@
+[console_scripts]
+download_sample = xchg.download_sample:_main
+
