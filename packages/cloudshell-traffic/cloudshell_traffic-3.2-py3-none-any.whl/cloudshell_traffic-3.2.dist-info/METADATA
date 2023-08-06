@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: cloudshell-traffic
+Version: 3.2
+Summary: UNKNOWN
+Home-page: https://github.com/QualiSystems/cloudshell-traffic
+Author: QualiSystems
+Author-email: info@qualisystems.com
+License: Apache Software License
+Platform: any
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Natural Language :: English
+Classifier: Topic :: Software Development :: Testing :: Traffic Generation
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: cloudshell-logging (==1.0.3)
+Requires-Dist: cloudshell-orch-core (<3.2.0.0,>=3.1.0.0)
+Requires-Dist: cloudshell-automation-api (<9.4,>=9.3)
+Requires-Dist: cloudshell-shell-core (<6.0.0,>=5.0.3)
+Requires-Dist: requests
+
+CloudShell Traffic Controller Shell base package, powered by Quali.
+
+This base package provides base classes for CloudShell Traffic Controller driver and handler and helpers utilities.
+
+
