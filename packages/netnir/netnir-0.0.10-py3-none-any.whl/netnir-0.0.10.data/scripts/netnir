@@ -1,0 +1,10 @@
+#!python
+
+from netnir.cli import Cli
+
+
+try:
+    cli = Cli()
+    cli.dispatch()
+except KeyboardInterrupt:
+    pass
