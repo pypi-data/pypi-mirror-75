@@ -1,0 +1,1381 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head profile="http://www.w3.org/2006/03/hcard%20http://dublincore.org/documents/2008/08/04/dc-html/">
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii" />
+
+  <title>Diamond Protocol</title>
+
+  <style type="text/css" title="Xml2Rfc (sans serif)">
+  /*<![CDATA[*/
+	  a {
+	  text-decoration: none;
+	  }
+	  a.smpl {
+	  color: black;
+	  }
+	  a:hover {
+	  text-decoration: underline;
+	  }
+	  a:active {
+	  text-decoration: underline;
+	  }
+	  address {
+	  margin-top: 1em;
+	  margin-left: 2em;
+	  font-style: normal;
+	  }
+	  body {
+	  color: black;
+	  font-family: verdana, helvetica, arial, sans-serif;
+	  font-size: 10pt;
+	  
+	  }
+	  cite {
+	  font-style: normal;
+	  }
+	  dd {
+	  margin-right: 2em;
+	  }
+	  dl {
+	  margin-left: 2em;
+	  }
+	
+	  ul.empty {
+	  list-style-type: none;
+	  }
+	  ul.empty li {
+	  margin-top: .5em;
+	  }
+	  dl p {
+	  margin-left: 0em;
+	  }
+	  dt {
+	  margin-top: .5em;
+	  }
+	  h1 {
+	  font-size: 14pt;
+	  line-height: 21pt;
+	  page-break-after: avoid;
+	  }
+	  h1.np {
+	  page-break-before: always;
+	  }
+	  h1 a {
+	  color: #333333;
+	  }
+	  h2 {
+	  font-size: 12pt;
+	  line-height: 15pt;
+	  page-break-after: avoid;
+	  }
+	  h3, h4, h5, h6 {
+	  font-size: 10pt;
+	  page-break-after: avoid;
+	  }
+	  h2 a, h3 a, h4 a, h5 a, h6 a {
+	  color: black;
+	  }
+	  img {
+	  margin-left: 3em;
+	  }
+	  li {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  ol p {
+	  margin-left: 0em;
+	  }
+	  p {
+	  margin-left: 2em;
+	  margin-right: 2em;
+	  }
+	  pre {
+	  margin-left: 3em;
+	  background-color: lightyellow;
+	  padding: .25em;
+	  }
+	  pre.text2 {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f0f0f0;
+	  width: 69em;
+	  }
+	  pre.inline {
+	  background-color: white;
+	  padding: 0em;
+	  }
+	  pre.text {
+	  border-style: dotted;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  width: 69em;
+	  }
+	  pre.drawing {
+	  border-style: solid;
+	  border-width: 1px;
+	  background-color: #f8f8f8;
+	  padding: 2em;
+	  }
+	  table {
+	  margin-left: 2em;
+	  }
+	  table.tt {
+	  vertical-align: top;
+	  }
+	  table.full {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.headers {
+	  border-style: outset;
+	  border-width: 1px;
+	  }
+	  table.tt td {
+	  vertical-align: top;
+	  }
+	  table.full td {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.tt th {
+	  vertical-align: top;
+	  }
+	  table.full th {
+	  border-style: inset;
+	  border-width: 1px;
+	  }
+	  table.headers th {
+	  border-style: none none inset none;
+	  border-width: 1px;
+	  }
+	  table.left {
+	  margin-right: auto;
+	  }
+	  table.right {
+	  margin-left: auto;
+	  }
+	  table.center {
+	  margin-left: auto;
+	  margin-right: auto;
+	  }
+	  caption {
+	  caption-side: bottom;
+	  font-weight: bold;
+	  font-size: 9pt;
+	  margin-top: .5em;
+	  }
+	
+	  table.header {
+	  border-spacing: 1px;
+	  width: 95%;
+	  font-size: 10pt;
+	  color: white;
+	  }
+	  td.top {
+	  vertical-align: top;
+	  }
+	  td.topnowrap {
+	  vertical-align: top;
+	  white-space: nowrap; 
+	  }
+	  table.header td {
+	  background-color: gray;
+	  width: 50%;
+	  }
+	  table.header a {
+	  color: white;
+	  }
+	  td.reference {
+	  vertical-align: top;
+	  white-space: nowrap;
+	  padding-right: 1em;
+	  }
+	  thead {
+	  display:table-header-group;
+	  }
+	  ul.toc, ul.toc ul {
+	  list-style: none;
+	  margin-left: 1.5em;
+	  margin-right: 0em;
+	  padding-left: 0em;
+	  }
+	  ul.toc li {
+	  line-height: 150%;
+	  font-weight: bold;
+	  font-size: 10pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  ul.toc li li {
+	  line-height: normal;
+	  font-weight: normal;
+	  font-size: 9pt;
+	  margin-left: 0em;
+	  margin-right: 0em;
+	  }
+	  li.excluded {
+	  font-size: 0pt;
+	  }
+	  ul p {
+	  margin-left: 0em;
+	  }
+	
+	  .comment {
+	  background-color: yellow;
+	  }
+	  .center {
+	  text-align: center;
+	  }
+	  .error {
+	  color: red;
+	  font-style: italic;
+	  font-weight: bold;
+	  }
+	  .figure {
+	  font-weight: bold;
+	  text-align: center;
+	  font-size: 9pt;
+	  }
+	  .filename {
+	  color: #333333;
+	  font-weight: bold;
+	  font-size: 12pt;
+	  line-height: 21pt;
+	  text-align: center;
+	  }
+	  .fn {
+	  font-weight: bold;
+	  }
+	  .hidden {
+	  display: none;
+	  }
+	  .left {
+	  text-align: left;
+	  }
+	  .right {
+	  text-align: right;
+	  }
+	  .title {
+	  color: #990000;
+	  font-size: 18pt;
+	  line-height: 18pt;
+	  font-weight: bold;
+	  text-align: center;
+	  margin-top: 36pt;
+	  }
+	  .vcardline {
+	  display: block;
+	  }
+	  .warning {
+	  font-size: 14pt;
+	  background-color: yellow;
+	  }
+	
+	
+	  @media print {
+	  .noprint {
+		display: none;
+	  }
+	
+	  a {
+		color: black;
+		text-decoration: none;
+	  }
+	
+	  table.header {
+		width: 90%;
+	  }
+	
+	  td.header {
+		width: 50%;
+		color: black;
+		background-color: white;
+		vertical-align: top;
+		font-size: 12pt;
+	  }
+	
+	  ul.toc a::after {
+		content: leader('.') target-counter(attr(href), page);
+	  }
+	
+	  ul.ind li li a {
+		content: target-counter(attr(href), page);
+	  }
+	
+	  .print2col {
+		column-count: 2;
+		-moz-column-count: 2;
+		column-fill: auto;
+	  }
+	  }
+	
+	  @page {
+	  @top-left {
+		   content: "Internet-Draft"; 
+	  } 
+	  @top-right {
+		   content: "December 2010"; 
+	  } 
+	  @top-center {
+		   content: "Abbreviated Title";3
+	  } 
+	  @bottom-left {
+		   content: "Doe"; 
+	  } 
+	  @bottom-center {
+		   content: "Expires June 2011"; 
+	  } 
+	  @bottom-right {
+		   content: "[Page " counter(page) "]"; 
+	  } 
+	  }
+	
+	  @page:first { 
+		@top-left {
+		  content: normal;
+		}
+		@top-right {
+		  content: normal;
+		}
+		@top-center {
+		  content: normal;
+		}
+	  }
+  /*]]>*/
+  </style>
+
+  <link href="#rfc.toc" rel="Contents">
+<link href="#rfc.section.1" rel="Chapter" title="1 Introduction">
+<link href="#rfc.section.1.1" rel="Chapter" title="1.1 Overview">
+<link href="#rfc.section.1.2" rel="Chapter" title="1.2 Diamond Protocol Overview">
+<link href="#rfc.section.1.3" rel="Chapter" title="1.3 Requesting and Retrieving Attributes">
+<link href="#rfc.section.1.4" rel="Chapter" title="1.4 Scope Cookies">
+<link href="#rfc.section.2" rel="Chapter" title="2 Nonce Exchange">
+<link href="#rfc.section.2.1" rel="Chapter" title="2.1 Nonce">
+<link href="#rfc.section.3" rel="Chapter" title="3 Protocol Message">
+<link href="#rfc.section.3.1" rel="Chapter" title="3.1 Messages">
+<link href="#rfc.section.3.1.1" rel="Chapter" title="3.1.1 Request Message">
+<link href="#rfc.section.3.1.2" rel="Chapter" title="3.1.2 Response Message">
+<link href="#rfc.section.3.2" rel="Chapter" title="3.2 Sequence Number">
+<link href="#rfc.section.3.3" rel="Chapter" title="3.3 Status">
+<link href="#rfc.section.3.4" rel="Chapter" title="3.4 Command">
+<link href="#rfc.section.4" rel="Chapter" title="4 RPC Definitions">
+<link href="#rfc.section.4.1" rel="Chapter" title="4.1 Control Connection RPC Definitions">
+<link href="#rfc.section.4.1.1" rel="Chapter" title="4.1.1 setup">
+<link href="#rfc.section.4.1.1.1" rel="Chapter" title="4.1.1.1 setup Request Body Encoding">
+<link href="#rfc.section.4.1.1.2" rel="Chapter" title="4.1.1.2 setup Response Body Encoding">
+<link href="#rfc.section.4.1.2" rel="Chapter" title="4.1.2 send_blobs">
+<link href="#rfc.section.4.1.2.1" rel="Chapter" title="4.1.2.1 send_blobs Request Body Encoding">
+<link href="#rfc.section.4.1.2.2" rel="Chapter" title="4.1.2.2 send_blobs Response Body Encoding">
+<link href="#rfc.section.4.1.3" rel="Chapter" title="4.1.3 start">
+<link href="#rfc.section.4.1.3.1" rel="Chapter" title="4.1.3.1 start Request Body Encoding">
+<link href="#rfc.section.4.1.3.2" rel="Chapter" title="4.1.3.2 start Response Body Encoding">
+<link href="#rfc.section.4.1.4" rel="Chapter" title="4.1.4 reexecute">
+<link href="#rfc.section.4.1.4.1" rel="Chapter" title="4.1.4.1 reexecute Request Body Encoding">
+<link href="#rfc.section.4.1.4.2" rel="Chapter" title="4.1.4.2 reexecute Response Body Encoding">
+<link href="#rfc.section.4.1.5" rel="Chapter" title="4.1.5 statistics">
+<link href="#rfc.section.4.1.5.1" rel="Chapter" title="4.1.5.1 statistics Request Body Encoding">
+<link href="#rfc.section.4.1.5.2" rel="Chapter" title="4.1.5.2 statistics Response Body Encoding">
+<link href="#rfc.section.4.1.6" rel="Chapter" title="4.1.6 get_session_variables">
+<link href="#rfc.section.4.1.6.1" rel="Chapter" title="4.1.6.1 get_session_variables Request Body                             Encoding">
+<link href="#rfc.section.4.1.6.2" rel="Chapter" title="4.1.6.2 get_session_variables Response Body                             Encoding">
+<link href="#rfc.section.4.1.7" rel="Chapter" title="4.1.7 set_session_variables">
+<link href="#rfc.section.4.1.7.1" rel="Chapter" title="4.1.7.1 set_session_variables Request Body                         Encoding">
+<link href="#rfc.section.4.1.7.2" rel="Chapter" title="4.1.7.2 set_session_variables Response Body                         Encoding">
+<link href="#rfc.section.4.2" rel="Chapter" title="4.2 Blast Connection RPC Definitions">
+<link href="#rfc.section.4.2.1" rel="Chapter" title="4.2.1 get_object">
+<link href="#rfc.section.4.2.1.1" rel="Chapter" title="4.2.1.1 get_object Request Body Encoding">
+<link href="#rfc.section.4.2.1.2" rel="Chapter" title="4.2.1.2 object Encoding">
+<link href="#rfc.section.5" rel="Chapter" title="5 Security Considerations">
+<link href="#rfc.references" rel="Chapter" title="6 References">
+<link href="#rfc.appendix.Appendix%20A" rel="Chapter" title="Appendix A Terminology">
+<link href="#rfc.appendix.Appendix%20B" rel="Chapter" title="Appendix B Attributes">
+<link href="#rfc.appendix.Appendix%20B.1" rel="Chapter" title="Appendix B.1 Attributes that are Handled Directly by the Server">
+<link href="#rfc.appendix.Appendix%20B.2" rel="Chapter" title="Appendix B.2 Common Diamond Attributes">
+<link href="#rfc.appendix.Appendix%20B.3" rel="Chapter" title="Appendix B.3 Attribute Name Suffixes">
+<link href="#rfc.appendix.Appendix%20C" rel="Chapter" title="Appendix C List of Statistics">
+<link href="#rfc.appendix.Appendix%20C.1" rel="Chapter" title="Appendix C.1 List of Server Statistics">
+<link href="#rfc.appendix.Appendix%20C.2" rel="Chapter" title="Appendix C.2 List of Filter Statistics">
+<link href="#rfc.authors" rel="Chapter">
+
+
+  <meta name="generator" content=
+  "http://greenbytes.de/tech/webdav/rfc2629.xslt, Revision 1.539, 2011-01-02 17:13:00, XSLT vendor: SAXON 6.5.5 from Michael Kay http://saxon.sf.net/" />
+  <link rel="schema.dct" href="http://purl.org/dc/terms/" />
+  <meta name="dct.creator" content="Doe, J." />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-sample-input-00" />
+  <meta name="dct.issued" scheme="ISO8601" content="2010-12" />
+  
+  <meta name="dct.abstract" content="The Diamond system is a framework for interactive search of non-indexed content such as medical images. The Diamond system is centered around an open source implementation named OpenDiamond. The Diamond protocol defines the communication mechanisms between the Diamond server and the client. The Diamond protocol carries data serialized according to the RFC 4506 format, and uses a custom Remote Procedure Call (RPC) protocol.  " />
+  <meta name="description" content="The Diamond system is a framework for interactive search of non-indexed content such as medical images. The Diamond system is centered around an open source implementation named OpenDiamond. The Diamond protocol defines the communication mechanisms between the Diamond server and the client. The Diamond protocol carries data serialized according to the RFC 4506 format, and uses a custom Remote Procedure Call (RPC) protocol.  " />
+  <meta name="keywords" content="diamond, Diamond, Carnegie Mellon, image, search, non-indexed" />
+
+</head>
+
+<body>
+
+  <table class="header">
+    <tbody>
+    
+    	<tr>
+<td class="left">Network Working Group</td>
+<td class="right">B. Gilbert</td>
+</tr>
+<tr>
+<td class="left">Internet-Draft</td>
+<td class="right">HJ. Cho</td>
+</tr>
+<tr>
+<td class="left">Intended status: Standards Track</td>
+<td class="right">A. Goode</td>
+</tr>
+<tr>
+<td class="left">Expires: February 08, 2013</td>
+<td class="right">J. Harkes</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">L. Huston</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">W. Richter</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">M. Satyanarayanan</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">R. Sukthankar</td>
+</tr>
+<tr>
+<td class="left"></td>
+<td class="right">August 9, 2012</td>
+</tr>
+
+    	
+    </tbody>
+  </table>
+
+  <p class="title">Diamond Protocol<br />
+  <span class="filename">diamond-protocol</span></p>
+  
+  <h1 id="rfc.abstract"><a href="#rfc.abstract">Abstract</a></h1>
+<p>The Diamond system is a framework for interactive search of non-indexed content such as medical images. The Diamond system is centered around an open source implementation named OpenDiamond. The Diamond protocol defines the communication mechanisms between the Diamond server and the client. The Diamond protocol carries data serialized according to the RFC 4506 format, and uses a custom Remote Procedure Call (RPC) protocol.  </p>
+<h1 id="rfc.status"><a href="#rfc.status">Status of this Memo</a></h1>
+<p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
+<p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet- Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
+<p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
+<p>This Internet-Draft will expire on February 08, 2013.</p>
+<h1 id="rfc.copyrightnotice"><a href="#rfc.copyrightnotice">Copyright Notice</a></h1>
+<p>Copyright (c) 2012 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
+
+  
+  <hr class="noprint" />
+  <h1 class="np" id="rfc.toc"><a href="#rfc.toc">Table of Contents</a></h1>
+  <ul class="toc">
+
+  	<li>1.   <a href="#rfc.section.1">Introduction</a>
+</li>
+<li>1.1.   <a href="#rfc.section.1.1">Overview</a>
+</li>
+<li>1.2.   <a href="#rfc.section.1.2">Diamond Protocol Overview</a>
+</li>
+<li>1.3.   <a href="#rfc.section.1.3">Requesting and Retrieving Attributes</a>
+</li>
+<li>1.4.   <a href="#rfc.section.1.4">Scope Cookies</a>
+</li>
+<li>2.   <a href="#rfc.section.2">Nonce Exchange</a>
+</li>
+<li>2.1.   <a href="#rfc.section.2.1">Nonce</a>
+</li>
+<li>3.   <a href="#rfc.section.3">Protocol Message</a>
+</li>
+<li>3.1.   <a href="#rfc.section.3.1">Messages</a>
+</li>
+<li>3.1.1.   <a href="#rfc.section.3.1.1">Request Message</a>
+</li>
+<li>3.1.2.   <a href="#rfc.section.3.1.2">Response Message</a>
+</li>
+<li>3.2.   <a href="#rfc.section.3.2">Sequence Number</a>
+</li>
+<li>3.3.   <a href="#rfc.section.3.3">Status</a>
+</li>
+<li>3.4.   <a href="#rfc.section.3.4">Command</a>
+</li>
+<li>4.   <a href="#rfc.section.4">RPC Definitions</a>
+</li>
+<li>4.1.   <a href="#rfc.section.4.1">Control Connection RPC Definitions</a>
+</li>
+<li>4.1.1.   <a href="#rfc.section.4.1.1">setup</a>
+</li>
+<li>4.1.1.1.   <a href="#rfc.section.4.1.1.1">setup Request Body Encoding</a>
+</li>
+<li>4.1.1.2.   <a href="#rfc.section.4.1.1.2">setup Response Body Encoding</a>
+</li>
+<li>4.1.2.   <a href="#rfc.section.4.1.2">send_blobs</a>
+</li>
+<li>4.1.2.1.   <a href="#rfc.section.4.1.2.1">send_blobs Request Body Encoding</a>
+</li>
+<li>4.1.2.2.   <a href="#rfc.section.4.1.2.2">send_blobs Response Body Encoding</a>
+</li>
+<li>4.1.3.   <a href="#rfc.section.4.1.3">start</a>
+</li>
+<li>4.1.3.1.   <a href="#rfc.section.4.1.3.1">start Request Body Encoding</a>
+</li>
+<li>4.1.3.2.   <a href="#rfc.section.4.1.3.2">start Response Body Encoding</a>
+</li>
+<li>4.1.4.   <a href="#rfc.section.4.1.4">reexecute</a>
+</li>
+<li>4.1.4.1.   <a href="#rfc.section.4.1.4.1">reexecute Request Body Encoding</a>
+</li>
+<li>4.1.4.2.   <a href="#rfc.section.4.1.4.2">reexecute Response Body Encoding</a>
+</li>
+<li>4.1.5.   <a href="#rfc.section.4.1.5">statistics</a>
+</li>
+<li>4.1.5.1.   <a href="#rfc.section.4.1.5.1">statistics Request Body Encoding</a>
+</li>
+<li>4.1.5.2.   <a href="#rfc.section.4.1.5.2">statistics Response Body Encoding</a>
+</li>
+<li>4.1.6.   <a href="#rfc.section.4.1.6">get_session_variables</a>
+</li>
+<li>4.1.6.1.   <a href="#rfc.section.4.1.6.1">get_session_variables Request Body                             Encoding</a>
+</li>
+<li>4.1.6.2.   <a href="#rfc.section.4.1.6.2">get_session_variables Response Body                             Encoding</a>
+</li>
+<li>4.1.7.   <a href="#rfc.section.4.1.7">set_session_variables</a>
+</li>
+<li>4.1.7.1.   <a href="#rfc.section.4.1.7.1">set_session_variables Request Body                         Encoding</a>
+</li>
+<li>4.1.7.2.   <a href="#rfc.section.4.1.7.2">set_session_variables Response Body                         Encoding</a>
+</li>
+<li>4.2.   <a href="#rfc.section.4.2">Blast Connection RPC Definitions</a>
+</li>
+<li>4.2.1.   <a href="#rfc.section.4.2.1">get_object</a>
+</li>
+<li>4.2.1.1.   <a href="#rfc.section.4.2.1.1">get_object Request Body Encoding</a>
+</li>
+<li>4.2.1.2.   <a href="#rfc.section.4.2.1.2">object Encoding</a>
+</li>
+<li>5.   <a href="#rfc.section.5">Security Considerations</a>
+</li>
+<li>6.   <a href="#rfc.references">References</a>
+</li>
+<li>Appendix A.   <a href="#rfc.appendix.Appendix%20A">Terminology</a>
+</li>
+<li>Appendix B.   <a href="#rfc.appendix.Appendix%20B">Attributes</a>
+</li>
+<li>Appendix B.1.   <a href="#rfc.appendix.Appendix%20B.1">Attributes that are Handled Directly by the Server</a>
+</li>
+<li>Appendix B.2.   <a href="#rfc.appendix.Appendix%20B.2">Common Diamond Attributes</a>
+</li>
+<li>Appendix B.3.   <a href="#rfc.appendix.Appendix%20B.3">Attribute Name Suffixes</a>
+</li>
+<li>Appendix C.   <a href="#rfc.appendix.Appendix%20C">List of Statistics</a>
+</li>
+<li>Appendix C.1.   <a href="#rfc.appendix.Appendix%20C.1">List of Server Statistics</a>
+</li>
+<li>Appendix C.2.   <a href="#rfc.appendix.Appendix%20C.2">List of Filter Statistics</a>
+</li>
+<li><a href="#rfc.authors">Authors' Addresses</a>
+</li>
+
+
+  </ul>
+
+  <h1 id="rfc.section.1">
+<a href="#rfc.section.1">1.</a> <a href="#introduction" id="introduction">Introduction</a>
+</h1>
+<h1 id="rfc.section.1.1">
+<a href="#rfc.section.1.1">1.1.</a> <a href="#overview" id="overview">Overview</a>
+</h1>
+<p id="rfc.section.1.1.p.1">The OpenDiamond system is a client-server search system that enables interactive search of Internet repositories that store vast amounts of complex and non-indexed data, such as webcam photographs and medical images. These data are referred to as objects, and a user can configure a search to return only the objects that meet some user-specified requirements. The user does this by requesting the OpenDiamond servers to run user-provided executables against the objects. For each executable the user also provides string parameters, a binary argument and various other configuration parameters (see <a href="#setup">Section 4.1.1</a> for a detailed list). The executable is called a filter, and the binary argument is called a blob argument; together, these are called blobs.  At runtime, each filter produces a floating-point value called a score; for an object to pass the filter, its score must be within the range specified by the minimum and maximum threshold values in the configuration parameters.  </p>
+<p id="rfc.section.1.1.p.2">Before initiating a search, a user must first define the scope: the set of objects that she desires to execute the search on. The user does this through the scopeserver, one of the main components of the OpenDiamond system. Using a web browser, the user connects to the scopeserver, authenticates, and selects a set of objects.  Optionally, she can instruct the scopeserver to further restrict the set based on arbitrary object metadata.  Once a scope has been selected, the user downloads a set of scope cookies, which are the entities that define the scope of objects to be searched.  </p>
+<p id="rfc.section.1.1.p.3">Once the user obtains the scope cookies, she can invoke a client application to send the scope cookies to the servers, and the servers use the cookies to define the search scope.  The client application also sends the filter configurations, which include a list of blob signatures that the servers use to determine whether they have all the blobs that are necessary to execute the search. After the client application has sent the blobs that are missing, the servers are ready for the search.  </p>
+<p id="rfc.section.1.1.p.4">To initiate the search, the client application specifies the properties of objects that a user desires by sending the servers the names of a set of desired attributes. Attributes are named binary property values associated with an object, and the servers can use them to return properties of objects, such as thumbnail images, to the user. Attributes are typically generated by the filters while an object is being examined.  </p>
+<p id="rfc.section.1.1.p.5">Upon the search request, the servers query the dataretrievers, which are essentially proxy servers that retrieve data from Internet repositories, to return the objects specified by the scope cookies. Once the servers obtain the objects, they carry out the selection process using the filters, and they return to the user the requested attributes for the objects that pass the filters. Typically in a search, a user will only request a subset of all the attributes, such as a small thumbnail image and the object name. Users can then request a more detailed set of information including more attributes. This process is referred to as reexecution.  </p>
+<p id="rfc.section.1.1.p.6">The servers maintain double-precision floating-point values called session variables that are specific to a particular search. A filter can use these variables to keep track of typical parameter values for objects encountered during the search.  This allows the filter to detect significant differences between the object it is currently examining and the objects that have already been examined. The OpenDiamond system is a distributed system, and by nature, the states across all servers can differ. To prevent the servers from becoming too far out of sync, the client can periodically retrieve the session variables, merge their values together, and send the combined values to all of the servers.  </p>
+<p id="rfc.section.1.1.p.7">The remainder of this RFC is organized as follows.  <a href="#opendiamond_protocol_overview">Section 1.2</a> briefly describes the OpenDiamond wire protocol.  <a href="#requesting_and_retrieving_attributes">Section 1.3</a> describes the basics of requesting object attributes.  <a href="#scope_cookies">Section 1.4</a> describes scope cookies.  <a href="#nonce_exchange">Section 2</a> describes the nonce exchange process that is required to begin a search.  <a href="#protocol_message">Section 3</a> describes the structure of an OpenDiamond RPC. <a href="#rpc_definitions">Section 4</a> describes the protocol RPCs.  <a href="#security_considerations">Section 5</a> discusses system integrity and issues associated with security.  <a href="#terminology">Appendix Appendix A</a> provides a reference guide of common Diamond terminology. <a href="#attributes">Appendix Appendix B</a> lists commonly-used Diamond attributes and attribute types.  <a href="#list_of_statistics">Appendix Appendix C</a>  lists server and filter-specific statistics values.  </p>
+<h1 id="rfc.section.1.2">
+<a href="#rfc.section.1.2">1.2.</a> <a href="#opendiamond_protocol_overview" id="opendiamond_protocol_overview">Diamond Protocol Overview</a>
+</h1>
+<p id="rfc.section.1.2.p.1">OpenDiamond uses a custom XDR-based Remote Procedure Call (RPC) protocol in a client-server model. Similar to a regular function or a procedure call, all operations are synchronous; when a client makes a request, it waits until the results of the remote procedure it requests are returned.  </p>
+<p id="rfc.section.1.2.p.2">To perform a search, a client establishes two TCP connections with the server: the control connection and the blast connection. As the server can perform multiple simultaneous searches for multiple users, there must be a way to associate the control and blast connections of the same search. The two connections are therefore paired using an exchange of random nonces.  The blast channel is used for transferring objects found during a search, and the control channel is used for all other client-server interactions.  </p>
+<p id="rfc.section.1.2.p.3">Through the control channel, a client can use a set of RPCs to request searches, manipulate session variables or retrieve server statistics. The client typically begins a search by using the setup RPC (<a href="#setup">Section 4.1.1</a>) to send the scope cookies and filter configurations to the server. The filter configuration does not include a copy of the filter code or blob arguments, as these are typically quite large; instead, a SHA-256 signature of this data is sent. The server replies with a list of filters and blob arguments it does not have. The client then uses the send_blobs RPC (<a href="#send_blobs">Section 4.1.2</a>) to send the missing filters and blob arguments. After these initial steps, the server is ready to perform a search. The client can then call the start RPC (<a href="#start">Section 4.1.3</a>) to initiate the search, and/or the reexecute RPC (<a href="#reexecute">Section 4.1.4</a>) to obtain more information on a particular object. The client can also use the statistics RPC (<a href="#statistics">Section 4.1.5</a>) to obtain statistical information regarding the server, such as the average processing time of objects. If session variables are supported by the filters being used, the client can retrieve and update session variables with the get_session_variables (<a href="#get_session_variables">Section 4.1.6</a>) and set_session_variables (<a href="#set_session_variables">Section 4.1.7</a>) RPCs.  </p>
+<p id="rfc.section.1.2.p.4">The blast channel is used for transferring search result objects. A client can call the get_object RPC (<a href="#get_object">Section 4.2.1</a>) to request an object. The get_object RPC does not have to be used synchronously, and the client will typically pipeline multiple get_object RPCs to minimize the effect of round-trip latency.  </p>
+<p id="rfc.section.1.2.p.5">When the search has completed the server returns an object containing no attributes. The client MAY terminate the search at any time by closing the control and blast connections.  </p>
+<p id="rfc.section.1.2.p.6">Below is a typical protocol interaction in a regex-like notation: </p>
+<div id="#rfc.figure.1"></div>
+<pre>
+    setup send_blobs? ((reexecute (send_blobs reexecute)?)+ |
+        (start (statistics | (get_session_variables set_session_variables))*))</pre>
+<h1 id="rfc.section.1.3">
+<a href="#rfc.section.1.3">1.3.</a> <a href="#requesting_and_retrieving_attributes" id="requesting_and_retrieving_attributes">Requesting and Retrieving Attributes</a>
+</h1>
+<p id="rfc.section.1.3.p.1">A client may specify a list of attributes when starting a search or reexecution. This list is called the push attribute list and it serves to restrict the set of attribute values that will be returned: the server returns the keys of all object attributes, but only returns values for those attributes included in the push attributes list. If no push attribute list is specified, the server returns values for all attributes. As a special case, the server MUST always return a value for the _ObjectID attribute.  </p>
+<h1 id="rfc.section.1.4">
+<a href="#rfc.section.1.4">1.4.</a> <a href="#scope_cookies" id="scope_cookies">Scope Cookies</a>
+</h1>
+<p id="rfc.section.1.4.p.1">OpenDiamond servers use cookies for two purposes: for authorization and to specify the objects to search. A scope cookie includes a cryptographic signature, and the servers MUST verify that this signature is from a trusted public key before executing a search. Scope cookies also contain the URLs of scope lists, which enumerate the objects to be searched.  </p>
+<p id="rfc.section.1.4.p.2">Scope cookies are Base64-encoded, and the beginning and the end of a scope cookie are delimited by the strings: </p>
+<div id="#rfc.figure.2"></div>
+<pre>
+    -----BEGIN OPENDIAMOND SCOPECOOKIE-----
+
+    -----END OPENDIAMOND SCOPECOOKIE-----</pre>
+<p id="rfc.section.1.4.p.3">The Base64-decoded contents of a scope cookie can be represented as follows: </p>
+<div id="#rfc.figure.3"></div>
+<pre>
+    scope-cookie = signature LF data
+
+    signature = 1*(DIGIT / "a" / "b" / "c" / "d" / "e" / "f")
+
+    data = header LF body
+
+    headers = *(header LF)
+
+    (* Each header must appear once only *)
+    header = "Version:" version |
+             "Serial:" random-uuid |
+             "Expires:" expiration-time |
+             "Servers:" servers-list |
+             "Blaster:" URL
+
+    servers-list = server-address *((";" | ",") server-address)
+
+    body = scopelist-url *(LF scopelist-url) [LF]</pre>
+<p id="rfc.section.1.4.p.4">Scope cookie headers are defined as follows: </p>
+<p></p>
+
+<dl>
+<dt>Version (mandatory) :</dt>
+<dd style="margin-left: 8">Cookie format version. The current version is 1.  </dd>
+<dt>Serial (mandatory) :</dt>
+<dd style="margin-left: 8">Random UUID that uniquely identifies the scope cookie.  </dd>
+<dt>Expires (mandatory) :</dt>
+<dd style="margin-left: 8">The expiration time of the scope cookie in ISO8601 format. The server MUST NOT accept an expired cookie.  </dd>
+<dt>Servers (mandatory) :</dt>
+<dd style="margin-left: 8">A list of hostnames or IP addresses for Diamond servers to be contacted for this search, separated by commas or semicolons. The server MUST verify that its name appears in this list.  </dd>
+<dt>Blaster (optional) :</dt>
+<dd style="margin-left: 8">The URL for the JSON Blaster that can communicate with the Diamond servers specified by the Servers header.  </dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.section.2">
+<a href="#rfc.section.2">2.</a> <a href="#nonce_exchange" id="nonce_exchange">Nonce Exchange</a>
+</h1>
+<p id="rfc.section.2.p.1">A control connection and a blast connection are paired with a handshake using an exchange of random nonces. As soon as the socket connection is established for the control connection, the client MUST send a sequence of 16 null bytes as a nonce.  The server MUST respond with a random nonce of 16 characters.  The client uses this random nonce to establish the blast connection. As soon as the socket connection is established for the blast connection, the client MUST send this random nonce and the server MUST respond with the same random nonce.  </p>
+<h1 id="rfc.section.2.1">
+<a href="#rfc.section.2.1">2.1.</a> <a href="#nonce" id="nonce">Nonce</a>
+</h1>
+<p id="rfc.section.2.1.p.1">A nonce is a sequence of 16 random bytes. Below is the XDR representation of a nonce, serialized according to the RFC 4506 format: </p>
+<div id="#rfc.figure.4"></div>
+<pre>
+    typedef opaque nonce[16];</pre>
+<h1 id="rfc.section.3">
+<a href="#rfc.section.3">3.</a> <a href="#protocol_message" id="protocol_message">Protocol Message</a>
+</h1>
+<h1 id="rfc.section.3.1">
+<a href="#rfc.section.3.1">3.1.</a> <a href="#message" id="message">Messages</a>
+</h1>
+<p id="rfc.section.3.1.p.1">Diamond client-server messages consist of requests from client to server and responses from server to client. The requests and responses consist of a header and an optional body depending on the RPC. Request and response messages are serialized according to the RFC 4506 format. Below is the generic protocol message in the XDR data description language.  </p>
+<div id="#rfc.figure.5"></div>
+<pre>
+    struct message
+    {
+        int sequence_number;
+        int status;             /* See Section 3.3 for status code definitions */
+        int command;            /* See Section 3.4 for command code definitions */
+        opaque message_body&lt;&gt;;
+    };</pre>
+<h1 id="rfc.section.3.1.1">
+<a href="#rfc.section.3.1.1">3.1.1.</a> <a href="#request_message" id="request_message">Request Message</a>
+</h1>
+<p id="rfc.section.3.1.1.p.1">Request messages are signified by a status code of MINIRPC_PENDING (<a href="#status">Section 3.3</a>).  </p>
+<h1 id="rfc.section.3.1.2">
+<a href="#rfc.section.3.1.2">3.1.2.</a> <a href="#response_message" id="response_message">Response Message</a>
+</h1>
+<p id="rfc.section.3.1.2.p.1">A successful response message MUST have the status code of MINIRPC_OK (<a href="#status">Section 3.3</a>). A non-zero status code indicates an error. Negative codes indicate errors at the RPC protocol layer, and positive codes indicate errors in the application layer. The status code MINIRPC_PENDING MUST NOT be used in a response message. Error responses MUST have an empty message body.  </p>
+<h1 id="rfc.section.3.2">
+<a href="#rfc.section.3.2">3.2.</a> <a href="#sequence_number" id="sequence_number">Sequence Number</a>
+</h1>
+<p id="rfc.section.3.2.p.1">Each request MUST have a unique sequence number. The sequence number of the server response MUST match the sequence number of the request.  </p>
+<h1 id="rfc.section.3.3">
+<a href="#rfc.section.3.3">3.3.</a> <a href="#status" id="status">Status</a>
+</h1>
+<p id="rfc.section.3.3.p.1">The status element signifies the status of a particular RPC.  Below is the list of status codes: </p>
+<div id="#rfc.figure.6"></div>
+<pre>
+    enum status_code
+    {
+        MINIRPC_OK                      = 0,   /* request processed successfully */
+        MINIRPC_PENDING                 = -1,  /* denotes that a message is a client request */
+        MINIRPC_ENCODING_ERR            = -2,  /* encoding error due to bad XDR structure */
+        MINIRPC_PROCEDURE_UNAVAIL       = -3,  /* requested remote procedure not available */
+        MINIRPC_INVALID_ARGUMENT        = -4,  /* request message body contains invalid value */
+        DIAMOND_FAILURE                 = 500, /* no search scope, filters configured; cookie invalid */
+        DIAMOND_FCACHEMISS              = 501, /* requested object is not cached */
+        DIAMOND_COOKIE_EXPIRED          = 504, /* scope cookies have expired */
+        DIAMOND_SCHEME_NOT_SUPPORTED    = 505  /* server does not support blob uri scheme */
+    };</pre>
+<h1 id="rfc.section.3.4">
+<a href="#rfc.section.3.4">3.4.</a> <a href="#command" id="command">Command</a>
+</h1>
+<p id="rfc.section.3.4.p.1">The command element indicates the remote procedure to execute. Below is the list of command codes: </p>
+<div id="#rfc.figure.7"></div>
+<pre>
+    enum control_command_code
+    {
+        setup                   = 25, /* used for search configuration (Section 4.1.1) */
+        send_blobs              = 26, /* used to send filters and blob arguments (Section 4.1.2) */
+        start                   = 28, /* used to initiate search (Section 4.1.3) */
+        reexecute               = 30, /* used to request reexecution (Section 4.1.4) */
+        statistics              = 29, /* used to request server statistics (Section 4.1.5) */
+        get_session_variables   = 18, /* used to request session variables (Section 4.1.6) */
+        set_session_variables   = 19  /* used to update session variables (Section 4.1.7) */
+    };
+
+    enum blast_command_code
+    {
+        get_object              = 2 /* used to request objects (Section 4.2.1) */
+    };</pre>
+<h1 id="rfc.section.4">
+<a href="#rfc.section.4">4.</a> <a href="#rpc_definitions" id="rpc_definitions">RPC Definitions</a>
+</h1>
+<h1 id="rfc.section.4.1">
+<a href="#rfc.section.4.1">4.1.</a> <a href="#control_connection_rpc_definitions" id="control_connection_rpc_definitions">Control Connection RPC Definitions</a>
+</h1>
+<h1 id="rfc.section.4.1.1">
+<a href="#rfc.section.4.1.1">4.1.1.</a> <a href="#setup" id="setup">setup</a>
+</h1>
+<p id="rfc.section.4.1.1.p.1">The setup RPC is used to configure the server for a search. In this RPC, a client sends the server the following entities to be used for search configuration: </p>
+<p></p>
+
+<ul>
+<li>scope cookies </li>
+<li>a list of filter configurations </li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.1.1.p.3">The server uses the scope cookies to define the set of objects to be searched.  </p>
+<p id="rfc.section.4.1.1.p.4">Each filter configuration contains the following: </p>
+<p></p>
+
+<ul>
+<li>a filter name, which MUST be unique for this search </li>
+<li>a list of string arguments to the filter </li>
+<li>the names of the other filters that must process an object before this filter does </li>
+<li>minimum and maximum bounds on the score for an object to pass </li>
+<li>filter URI </li>
+<li>blob argument URI </li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.1.1.p.6">The filter and blob argument URIs have the following format: sha256:&lt;hexadecimal SHA-256 sum&gt;.  </p>
+<p id="rfc.section.4.1.1.p.7">The server MUST respond with a list of blob URIs that are not present in its cache.  </p>
+<h1 id="rfc.section.4.1.1.1">
+<a href="#rfc.section.4.1.1.1">4.1.1.1.</a> <a href="#setup_request_body_encoding" id="setup_request_body_encoding">setup Request Body Encoding</a>
+</h1>
+<p id="rfc.section.4.1.1.1.p.1">The setup request body uses the following format: </p>
+<div id="#rfc.figure.8"></div>
+<pre>
+    typedef string cookie&lt;&gt;;
+    typedef string argument&lt;&gt;;
+    typedef string dependency&lt;&gt;;
+
+    struct filter_config
+    {
+        string name&lt;&gt;;                /* filter name */
+        argument arguments&lt;&gt;;         /* arguments to the filter */
+        dependency dependencies&lt;&gt;;    /* list of other filters that the filter is dependent on */
+        double min_score;             /* lower threshold to pass filter execution */
+        double max_score;             /* upper threshold to pass filter execution */
+        string code&lt;&gt;;                /* filter uri */
+        string blob&lt;&gt;;                /* blob argument uri */
+    };
+
+    struct setup_request_body
+    {
+        cookie cookies&lt;&gt;;
+        filter_config filters&lt;&gt;;
+    };</pre>
+<h1 id="rfc.section.4.1.1.2">
+<a href="#rfc.section.4.1.1.2">4.1.1.2.</a> <a href="#setup_response_body_encoding" id="setup_response_body_encoding">setup Response Body Encoding</a>
+</h1>
+<p id="rfc.section.4.1.1.2.p.1">The setup response body uses the following format: </p>
+<div id="#rfc.figure.9"></div>
+<pre>
+    typedef string uri&lt;&gt;;
+
+    struct setup_response_body
+    {
+        uri uris&lt;&gt;;
+    };</pre>
+<h1 id="rfc.section.4.1.2">
+<a href="#rfc.section.4.1.2">4.1.2.</a> <a href="#send_blobs" id="send_blobs">send_blobs</a>
+</h1>
+<p id="rfc.section.4.1.2.p.1">The send_blobs RPC is used to transmit filters and blob arguments to be added to the server's cache.  </p>
+<p id="rfc.section.4.1.2.p.2">The response from the server MUST have an empty body.  </p>
+<p id="rfc.section.4.1.2.p.3">The purpose of send_blobs is to send filters and blob arguments that are missing in the server. Therefore send_blobs RPC SHOULD only be used after the setup RPC, and only if the server indicates that there are missing filters and blobs.  </p>
+<h1 id="rfc.section.4.1.2.1">
+<a href="#rfc.section.4.1.2.1">4.1.2.1.</a> <a href="#send_blobs_request_body_encoding" id="send_blobs_request_body_encoding">send_blobs Request Body Encoding</a>
+</h1>
+<p id="rfc.section.4.1.2.1.p.1">The send_blobs request body uses the following format: </p>
+<div id="#rfc.figure.10"></div>
+<pre>
+    typedef opaque blob&lt;&gt;;
+
+    struct send_blobs_request_body
+    {
+        blob blobs&lt;&gt;;
+    };</pre>
+<h1 id="rfc.section.4.1.2.2">
+<a href="#rfc.section.4.1.2.2">4.1.2.2.</a> <a href="#send_blobs_response_body_encoding" id="send_blobs_response_body_encoding">send_blobs Response Body Encoding</a>
+</h1>
+<p id="rfc.section.4.1.2.2.p.1">The send_blobs response body MUST be empty.  </p>
+<h1 id="rfc.section.4.1.3">
+<a href="#rfc.section.4.1.3">4.1.3.</a> <a href="#start" id="start">start</a>
+</h1>
+<p id="rfc.section.4.1.3.p.1">The start RPC is used to request that the server initiate a search. In this RPC, a client sends to the server the following entities to be used for the search.  </p>
+<p></p>
+
+<ul>
+<li>search ID </li>
+<li>list of push attributes </li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.1.3.p.3">The search ID is used to correlate searches across multiple servers; each server used in a search MUST receive the same search ID. The search ID MUST be a UUID in canonical string representation, and SHOULD be unique to the requested search over the lifetime of the scope cookies used.  </p>
+<p id="rfc.section.4.1.3.p.4">When the start RPC is invoked, the server begins evaluating the objects in the scope and returning passed objects via the get_object RPC. The start RPC MUST NOT be called until necessary configuration has been performed using the setup and send_blobs RPCs. The response from the server MUST have an empty body.  </p>
+<h1 id="rfc.section.4.1.3.1">
+<a href="#rfc.section.4.1.3.1">4.1.3.1.</a> <a href="#start_request_body_encoding" id="start_request_body_encoding">start Request Body Encoding</a>
+</h1>
+<p id="rfc.section.4.1.3.1.p.1">The start request body uses the following format: </p>
+<div id="#rfc.figure.11"></div>
+<pre>
+    typedef string attribute_name&lt;&gt;;
+
+    struct start_request_body
+    {
+        opaque search_id[36];
+        attribute_name *attribute_list;
+    };</pre>
+<h1 id="rfc.section.4.1.3.2">
+<a href="#rfc.section.4.1.3.2">4.1.3.2.</a> <a href="#start_response_body_encoding" id="start_response_body_encoding">start Response Body Encoding</a>
+</h1>
+<p id="rfc.section.4.1.3.2.p.1">The start response body MUST be empty.  </p>
+<h1 id="rfc.section.4.1.4">
+<a href="#rfc.section.4.1.4">4.1.4.</a> <a href="#reexecute" id="reexecute">reexecute</a>
+</h1>
+<p id="rfc.section.4.1.4.p.1">A search invoked by the start RPC evaluates every object in the scope. The reexecute RPC, in contrast, allows a Diamond client to request that the filters be executed against one particular object, to obtain additional information about it. In this RPC, a client sends to the server the following: </p>
+<p></p>
+
+<ul>
+<li>object ID </li>
+<li>a list of push attributes </li>
+</ul>
+
+<p> </p>
+<p id="rfc.section.4.1.4.p.3">The object ID identifies the object to be processed, and is obtained from the _ObjectID attribute from a previous search.  </p>
+<p id="rfc.section.4.1.4.p.4">A client MAY specify an object ID consisting of the string "sha256:" followed by an SHA-256 hash value in hexadecimal. If an object matching this checksum is stored in the server's cache, the server MUST perform reexecution on this object. Otherwise, the server MUST respond with a DIAMOND_FCACHEMISS error. The client MAY then call send_blobs to send the object and then retry the reexecute RPC.  </p>
+<p id="rfc.section.4.1.4.p.5">If the requested object is dropped by the filters, the server MUST return only the _ObjectID attribute.  </p>
+<h1 id="rfc.section.4.1.4.1">
+<a href="#rfc.section.4.1.4.1">4.1.4.1.</a> <a href="#reexecute_request_body_encoding" id="reexecute_request_body_encoding">reexecute Request Body Encoding</a>
+</h1>
+<p id="rfc.section.4.1.4.1.p.1">The reexecute request body uses the following format: </p>
+<div id="#rfc.figure.12"></div>
+<pre>
+    struct reexecute_request_body
+    {
+        string object_id&lt;&gt;;
+        attribute_name *attributes_list; /* see Section 4.1.3.1 for attribute_name */
+    };</pre>
+<h1 id="rfc.section.4.1.4.2">
+<a href="#rfc.section.4.1.4.2">4.1.4.2.</a> <a href="#reexecute_response_body_encoding" id="reexecute_response_body_encoding">reexecute Response Body Encoding</a>
+</h1>
+<p id="rfc.section.4.1.4.2.p.1">The reexecute response body uses the following format: </p>
+<div id="#rfc.figure.13"></div>
+<pre>
+    struct attribute
+    {
+        string name&lt;&gt;;
+        opaque data&lt;&gt;;
+    };
+
+    struct reexecute_response_body
+    {
+        attribute attributes&lt;&gt;;
+    };</pre>
+<h1 id="rfc.section.4.1.5">
+<a href="#rfc.section.4.1.5">4.1.5.</a> <a href="#statistics" id="statistics">statistics</a>
+</h1>
+<p id="rfc.section.4.1.5.p.1">The statistics RPC is used to request that the server return statistical information about the search.  </p>
+<h1 id="rfc.section.4.1.5.1">
+<a href="#rfc.section.4.1.5.1">4.1.5.1.</a> <a href="#statistics_request_body_encoding" id="statistics_request_body_encoding">statistics Request Body Encoding</a>
+</h1>
+<p id="rfc.section.4.1.5.1.p.1">The statistics request body MUST be empty.  </p>
+<h1 id="rfc.section.4.1.5.2">
+<a href="#rfc.section.4.1.5.2">4.1.5.2.</a> <a href="#statistics_response_body_encoding" id="statistics_response_body_encoding">statistics Response Body Encoding</a>
+</h1>
+<p id="rfc.section.4.1.5.2.p.1">The statistics response body uses the following format: </p>
+<div id="#rfc.figure.14"></div>
+<pre>
+    struct stat
+    {
+        string name&lt;&gt;;    /* name of statistic */
+        hyper value;
+    };
+
+    struct filter_stat
+    {
+        string name&lt;&gt;;    /* name of filter */
+        stat stats&lt;&gt;;     /* list of statistics of this filter */
+    };
+
+    struct statistics_response_body
+    {
+        stat stats&lt;&gt;;  /* list of statistics associated with search */
+        filter_stat filter_stats&lt;&gt;;   /* filter-specific statistics */
+    };</pre>
+<h1 id="rfc.section.4.1.6">
+<a href="#rfc.section.4.1.6">4.1.6.</a> <a href="#get_session_variables" id="get_session_variables">get_session_variables</a>
+</h1>
+<p id="rfc.section.4.1.6.p.1">A client can retrieve the server's session variables by calling the get_session_variables procedure.  </p>
+<p id="rfc.section.4.1.6.p.2">The get_session_variables RPC MUST have an empty request body.  </p>
+<p id="rfc.section.4.1.6.p.3">The client MUST NOT call get_session_variables twice without an intervening set_session_variables call.  </p>
+<h1 id="rfc.section.4.1.6.1">
+<a href="#rfc.section.4.1.6.1">4.1.6.1.</a> <a href="#get_session_variables_request_body" id="get_session_variables_request_body">get_session_variables Request Body                             Encoding</a>
+</h1>
+<p id="rfc.section.4.1.6.1.p.1">The get_session_variables request body MUST be empty.  </p>
+<h1 id="rfc.section.4.1.6.2">
+<a href="#rfc.section.4.1.6.2">4.1.6.2.</a> <a href="#get_session_variables_response_body" id="get_session_variables_response_body">get_session_variables Response Body                             Encoding</a>
+</h1>
+<p id="rfc.section.4.1.6.2.p.1">The get_session_variables response body uses the following format: </p>
+<div id="#rfc.figure.15"></div>
+<pre>
+    struct session_variable
+    {
+        string name&lt;&gt;;
+        double value;
+    };
+
+    struct get_session_variables_response_body
+    {
+        session_variable session_variables&lt;&gt;;
+    };</pre>
+<h1 id="rfc.section.4.1.7">
+<a href="#rfc.section.4.1.7">4.1.7.</a> <a href="#set_session_variables" id="set_session_variables">set_session_variables</a>
+</h1>
+<p id="rfc.section.4.1.7.p.1">A client can use the set_session_variables RPC to modify the server's session variables.  </p>
+<p id="rfc.section.4.1.7.p.2">The server MUST update each specified session variable to contain the specified value plus the difference between the current value of the variable and its value at the time of the most recent get_session_variables RPC.  </p>
+<p id="rfc.section.4.1.7.p.3">The response to this RPC MUST have an empty message body.  </p>
+<h1 id="rfc.section.4.1.7.1">
+<a href="#rfc.section.4.1.7.1">4.1.7.1.</a> <a href="#set_session_variables_request_body" id="set_session_variables_request_body">set_session_variables Request Body                         Encoding</a>
+</h1>
+<p id="rfc.section.4.1.7.1.p.1">The set_session_variables request body uses the following format: </p>
+<div id="#rfc.figure.16"></div>
+<pre>
+    struct set_session_variables_request_body
+    {
+        /* See Section 4.1.6.1 for session_variable definition */
+        session_variable session_variables&lt;&gt;;
+    };</pre>
+<h1 id="rfc.section.4.1.7.2">
+<a href="#rfc.section.4.1.7.2">4.1.7.2.</a> <a href="#set_session_variables_response_body" id="set_session_variables_response_body">set_session_variables Response Body                         Encoding</a>
+</h1>
+<p id="rfc.section.4.1.7.2.p.1">The set_session_variables response body MUST be empty.  </p>
+<h1 id="rfc.section.4.2">
+<a href="#rfc.section.4.2">4.2.</a> <a href="#blast_connection_rpc_definitions" id="blast_connection_rpc_definitions">Blast Connection RPC Definitions</a>
+</h1>
+<h1 id="rfc.section.4.2.1">
+<a href="#rfc.section.4.2.1">4.2.1.</a> <a href="#get_object" id="get_object">get_object</a>
+</h1>
+<p id="rfc.section.4.2.1.p.1">The get_object RPC is called on the blast connection to request an object that has passed the filters. This RPC will block until an object is ready. If no get_object RPCs are pending and the server produces a search result, the server MAY block, MAY queue the object and continue executing the search, but MUST NOT drop the search result. Multiple get_object requests MAY be pipelined so that the effect of round-trip latency between object requests can be minimized.  </p>
+<p id="rfc.section.4.2.1.p.2">The client MAY perform the get_object RPC at any time after the blast connection is established. The server MUST indicate that the search has completed by returning an object containing no attributes on the blast channel. If the client performs further get_object RPCs after the completion of the search, the server's response is undefined.  </p>
+<p id="rfc.section.4.2.1.p.3">The attributes included in the object struct MUST comply with the rules specified in <a href="#requesting_and_retrieving_attributes">Section 1.3</a>.  The list of push attributes is taken from the start RPC.  </p>
+<h1 id="rfc.section.4.2.1.1">
+<a href="#rfc.section.4.2.1.1">4.2.1.1.</a> <a href="#get_object_request_body_encoding" id="get_object_request_body_encoding">get_object Request Body Encoding</a>
+</h1>
+<p id="rfc.section.4.2.1.1.p.1">The get_object request body MUST be empty.  </p>
+<h1 id="rfc.section.4.2.1.2">
+<a href="#rfc.section.4.2.1.2">4.2.1.2.</a> <a href="#object_encoding" id="object_encoding">object Encoding</a>
+</h1>
+<p id="rfc.section.4.2.1.2.p.1">The XDR representation of a Diamond object is shown below: </p>
+<div id="#rfc.figure.17"></div>
+<pre>
+    struct object
+    {
+        attribute attributes&lt;&gt;; /* See Section 3.1.4.2 for attribute definition */
+    };</pre>
+<h1 id="rfc.section.5">
+<a href="#rfc.section.5">5.</a> <a href="#security_considerations" id="security_considerations">Security Considerations</a>
+</h1>
+<p id="rfc.section.5.p.1">The OpenDiamond system allows users to run arbitrary x86 executable filter code on the servers. Although this feature makes the OpenDiamond platform a versatile search system, it also poses a major threat to server integrity. Server implementations must take care to execute filter code in a restricted sandbox to minimize the damage that can be caused by rogue filters.  </p>
+<h1 id="rfc.references">
+<a href="#rfc.references">6.</a> References</h1>
+<h1 id="rfc.appendix.Appendix A">
+<a href="#rfc.appendix.Appendix%20A">Appendix A.</a> <a href="#terminology" id="terminology">Terminology</a>
+</h1>
+<p></p>
+
+<dl>
+<dt>attribute :</dt>
+<dd style="margin-left: 8">A named binary value associated with an object during search execution. As an object is retrieved and filters are executed against it, attributes are associated with the object which can store result values, image thumbnails data, and so on.  </dd>
+<dt>blob argument :</dt>
+<dd style="margin-left: 8">A binary argument to a filter.  </dd>
+<dt>dataretriever :</dt>
+<dd style="margin-left: 8">The dataretriever is a simple HTTP server that emits an object list and objects in the format that an OpenDiamond server expects. In a simple Diamond setup, the scopeserver would be configured to produce a URL that points to a dataretriever local to the system that the OpenDiamond server is running on. The dataretriever will read objects locally and feed them to the OpenDiamond server.  </dd>
+<dt>filter :</dt>
+<dd style="margin-left: 8">A single program to be included in a search. Responsible for a single task, such as face detection or texture recognition. A filter is started when the search starts and killed when the search completes. Filters accept zero or more string arguments and exactly one blob (binary) argument. Filters can have dependencies on other filters; for example, a face detection filter can depend on another filter that decodes JPEG image to an RGB pixel array.  </dd>
+<dt>object :</dt>
+<dd style="margin-left: 8">A unit of data to be searched, such as a single image or text file. Each object to be examined is processed by one or more filters.  </dd>
+<dt>scope :</dt>
+<dd style="margin-left: 8">The set of objects to be examined during a particular search, typically computed via user interaction with a scopeserver. The scope is encoded in a scope cookie which is downloaded to the Diamond client, and then uploaded to one or more Diamond servers.  </dd>
+<dt>scope cookie :</dt>
+<dd style="margin-left: 8">OpenDiamond uses scope cookies to define what objects are going to be searched. The scope cookie contains one or more URLs, which the OpenDiamond server program uses to contact a dataretriever, which returns a list of objects. Each object in this list is again identified by a URL, which is used to retrieve the object before it is passed to the filters.  </dd>
+<dt>session variable :</dt>
+<dd style="margin-left: 8">The servers maintain double-precision floating-point values called session variables that are specific to a particular search. A filter can use these variables to keep track of typical parameter values for objects encountered during the search. This allows the filter to detect significant differences between the object it is currently examining and the objects that have already been examined. The OpenDiamond system is a distributed system, and by nature, the states across all servers can differ. To prevent the servers from becoming too far out of sync, the client can periodically retrieve the session variables, merge their values together, and send the combined values to all of the servers.  </dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.appendix.Appendix B">
+<a href="#rfc.appendix.Appendix%20B">Appendix B.</a> <a href="#attributes" id="attributes">Attributes</a>
+</h1>
+<h1 id="rfc.appendix.Appendix B.1">
+<a href="#rfc.appendix.Appendix%20B.1">Appendix B.1.</a> <a href="#attributes_that_are_handled_directly_by_the_server" id="attributes_that_are_handled_directly_by_the_server">Attributes that are Handled Directly by the Server</a>
+</h1>
+<p id="rfc.section.Appendix B.1.p.1">Most attributes are generated by filters while an object is being examined, but some attributes are generated directly by the server. These include: </p>
+<p></p>
+
+<dl>
+<dt>"" (the zero-length string):</dt>
+<dd style="margin-left: 8">object data </dd>
+<dt>_ObjectID :</dt>
+<dd style="margin-left: 8">URI uniquely identifying an object </dd>
+<dt>Display-Name :</dt>
+<dd style="margin-left: 8">user-friendly name of an object </dd>
+<dt>Device-Name :</dt>
+<dd style="margin-left: 8">string uniquely identifying the server that processed this object </dd>
+<dt>_filter.%s_score (%s is the name of the                                 filter) :</dt>
+<dd style="margin-left: 8">the score assigned to the object by the named filter, as a string </dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.appendix.Appendix B.2">
+<a href="#rfc.appendix.Appendix%20B.2">Appendix B.2.</a> <a href="#common_diamond_attributes" id="common_diamond_attributes">Common Diamond Attributes</a>
+</h1>
+<p></p>
+
+<dl>
+<dt>thumbnail.jpeg :</dt>
+<dd style="margin-left: 8">small thumbnail image for the object </dd>
+<dt>_rows.int :</dt>
+<dd style="margin-left: 8">height of an object in pixels </dd>
+<dt>_cols.int :</dt>
+<dd style="margin-left: 8">width of an object in pixels </dd>
+<dt>_rgb_image.rgbimage :</dt>
+<dd style="margin-left: 8">decoded pixel data for the object.  </dd>
+<dt>_filter.%s.patches :</dt>
+<dd style="margin-left: 8">regions of interest located by the named filter.  %s is the name of the filter.  </dd>
+<dt>_filter.%s.heatmap.png :</dt>
+<dd style="margin-left: 8">a grayscale heat map of regions deemed interesting by the filter; brighter pixels are more interesting.  %s is the name of the filter.  </dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.appendix.Appendix B.3">
+<a href="#rfc.appendix.Appendix%20B.3">Appendix B.3.</a> <a href="#attribute_name_suffixes" id="attribute_name_suffixes">Attribute Name Suffixes</a>
+</h1>
+<p id="rfc.section.Appendix B.3.p.1">By convention, Diamond attribute names include a suffix that indicates the type of data stored in the value. This allows the client to implement generic display handlers for different types of data.  </p>
+<p></p>
+
+<dl>
+<dt>.int :</dt>
+<dd style="margin-left: 8">32-bit binary-encoded little-endian integer </dd>
+<dt>.float :</dt>
+<dd style="margin-left: 8">32-bit binary-encoded little-endian floating-point value </dd>
+<dt>.double :</dt>
+<dd style="margin-left: 8">64-bit binary-encoded little-endian floating-point value </dd>
+<dt>.jpeg :</dt>
+<dd style="margin-left: 8">JPEG image data </dd>
+<dt>.png :</dt>
+<dd style="margin-left: 8">PNG image data </dd>
+<dt>.rgbimage :</dt>
+<dd style="margin-left: 8">Uncompressed pixel data, encoded as a C structure with little-endian members (see below).  Since these attributes can be large, filters that produce them will typically request that the Diamond server not return them to the client.  </dd>
+<dt>.patches :</dt>
+<dd style="margin-left: 8">Regions of interest in an image. The value is encoded as a C structure with little-endian members (see below). The distance value signifies how dissimilar the regions of interest are from the example patches provided by a client. For example, if there is a 90% resemblance, the distance is 0.1.  The minimum and maximum x/y values specify the upper-left and lower-right pixel coordinates of a region within the image.  </dd>
+<dt>.binary :</dt>
+<dd style="margin-left: 8">Arbitrary binary data such as object data.  </dd>
+</dl>
+
+<p> </p>
+<div id="#rfc.figure.18"></div>
+<pre>
+    struct RGBImage
+    {
+        uint32_t type;      /* RGBImageType */
+        uint32_t nbytes;    /* size of this struct */
+        int32_t height;
+        int32_t width;
+        struct RGBPixel data[0];
+    };
+
+    struct RGBPixel
+    {
+        uint8_t r;
+        uint8_t g;
+        uint8_t b;
+        uint8_t a;          /* mainly just padding */
+    };
+
+    enum RGBImageType
+    {
+        IMAGE_UNKNOWN = 0,
+        IMAGE_PBM = 1,
+        IMAGE_PGM = 2,
+        IMAGE_PPM = 3,
+        IMAGE_TIFF = 4,
+        IMAGE_JPEG = 5,
+        IMAGE_PNG = 6
+    };
+
+    struct __attribute__((packed)) patches
+    {
+        int32_t num_patches;
+        double distance;
+        struct patch patches[0];
+    };
+
+    struct patch
+    {
+        int32_t min_x;
+        int32_t min_y;
+        int32_t max_x;
+        int32_t max_y;
+    };</pre>
+<p></p>
+<h1 id="rfc.appendix.Appendix C">
+<a href="#rfc.appendix.Appendix%20C">Appendix C.</a> <a href="#list_of_statistics" id="list_of_statistics">List of Statistics</a>
+</h1>
+<h1 id="rfc.appendix.Appendix C.1">
+<a href="#rfc.appendix.Appendix%20C.1">Appendix C.1.</a> <a href="#list_of_server_statistics" id="list_of_server_statistics">List of Server Statistics</a>
+</h1>
+<p></p>
+
+<dl>
+<dt>objs_total :</dt>
+<dd style="margin-left: 8">Total number of objects in the scope.  </dd>
+<dt>objs_processed :</dt>
+<dd style="margin-left: 8">Total number of processed objects.  </dd>
+<dt>objs_dropped :</dt>
+<dd style="margin-left: 8">Total number of objects dropped while being processed.  </dd>
+<dt>objs_passed :</dt>
+<dd style="margin-left: 8">Total number of objects passed after being processed.  </dd>
+<dt>objs_unloadable :</dt>
+<dd style="margin-left: 8">Total number of objects that could not be fetched.  </dd>
+<dt>avg_obj_time_us :</dt>
+<dd style="margin-left: 8">Average processing time per object in microseconds.  </dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.appendix.Appendix C.2">
+<a href="#rfc.appendix.Appendix%20C.2">Appendix C.2.</a> <a href="#list_of_filter_statistics" id="list_of_filter_statistics">List of Filter Statistics</a>
+</h1>
+<p></p>
+
+<dl>
+<dt>objs_processed :</dt>
+<dd style="margin-left: 8">Number of objects considered.  </dd>
+<dt>objs_dropped :</dt>
+<dd style="margin-left: 8">Number of objects dropped.  </dd>
+<dt>objs_cache_dropped :</dt>
+<dd style="margin-left: 8">Number of objects dropped by the cache.  </dd>
+<dt>objs_cache_passed :</dt>
+<dd style="margin-left: 8">Number of objects accepted by the cache.  </dd>
+<dt>objs_computed :</dt>
+<dd style="margin-left: 8">Number of objects examined by the filter.  </dd>
+<dt>objs_terminate :</dt>
+<dd style="margin-left: 8">Number of objects causing the filter to crash.  </dd>
+<dt>avg_exec_time_us :</dt>
+<dd style="margin-left: 8">Average filter execution time per object.  </dd>
+</dl>
+
+<p> </p>
+<h1 id="rfc.authors"><a href="#rfc.authors">Authors' Addresses</a></h1>
+<div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Benjamin Gilbert</span> 
+	  <span class="n hidden">
+		<span class="family-name">Gilbert</span>
+	  </span>
+	</span>
+	<span class="org vcardline"></span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:bgilbert%20AT%20cs%20DOT%20cmu%20DOT%20edu">bgilbert AT cs DOT cmu DOT edu</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">HongJai Cho</span> 
+	  <span class="n hidden">
+		<span class="family-name">Cho</span>
+	  </span>
+	</span>
+	<span class="org vcardline"></span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:ahjcho.tb%20AT%20gmail%20DOT%20com">ahjcho.tb AT gmail DOT com</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Adam Goode</span> 
+	  <span class="n hidden">
+		<span class="family-name">Goode</span>
+	  </span>
+	</span>
+	<span class="org vcardline"></span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Jan Harkes</span> 
+	  <span class="n hidden">
+		<span class="family-name">Harkes</span>
+	  </span>
+	</span>
+	<span class="org vcardline"></span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:jaharkes%20AT%20andrew%20DOT%20cmu%20DOT%20edu">jaharkes AT andrew DOT cmu DOT edu</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Larry Huston</span> 
+	  <span class="n hidden">
+		<span class="family-name">Huston</span>
+	  </span>
+	</span>
+	<span class="org vcardline"></span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Wolfgang Richter</span> 
+	  <span class="n hidden">
+		<span class="family-name">Richter</span>
+	  </span>
+	</span>
+	<span class="org vcardline"></span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:wolf%20AT%20cs%20DOT%20cmu%20DOT%20edu">wolf AT cs DOT cmu DOT edu</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Mahadev Satyanarayanan</span> 
+	  <span class="n hidden">
+		<span class="family-name">Satyanarayanan</span>
+	  </span>
+	</span>
+	<span class="org vcardline"></span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:satya%20AT%20cs%20DOT%20cmu%20DOT%20edu">satya AT cs DOT cmu DOT edu</a></span>
+
+  </address>
+</div><div class="avoidbreak">
+  <address class="vcard">
+	<span class="vcardline">
+	  <span class="fn">Rahul Sukthankar</span> 
+	  <span class="n hidden">
+		<span class="family-name">Sukthankar</span>
+	  </span>
+	</span>
+	<span class="org vcardline"></span>
+	<span class="adr">
+	  
+	  <span class="vcardline">
+		<span class="locality"></span> 
+		<span class="region"></span>
+		<span class="code"></span>
+	  </span>
+	  <span class="country-name vcardline"></span>
+	</span>
+	<span class="vcardline">EMail: <a href="mailto:rahul%20AT%20cs%20DOT%20cmu%20DOT%20edu">rahul AT cs DOT cmu DOT edu</a></span>
+
+  </address>
+</div>
+
+</body>
+</html>
