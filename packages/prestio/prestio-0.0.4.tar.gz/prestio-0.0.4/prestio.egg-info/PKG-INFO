@@ -1,0 +1,34 @@
+Metadata-Version: 2.1
+Name: prestio
+Version: 0.0.4
+Summary: Plone REST API IO tool
+Home-page: https://github.com/wobsta/prestio
+Author: André Wobst
+Author-email: project.prestio@wobsta.de
+License: UNKNOWN
+Description: # Plone REST API IO tool
+        
+        dump and load content from and to a Plone instance
+        
+        ## Installation
+        
+        ```python
+        pip install prestio
+        ```
+        
+        ## Usage
+        
+        ```bash
+        # dump content to local directory:
+        prestio --password admin dump http://127.0.0.1:8080/Plone/muster .
+        
+        # load content into plone instance:
+        prestio --password admin load work http://127.0.0.1:8080/Plone
+        ```
+        
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
