@@ -1,0 +1,13 @@
+celery
+django
+djangorestframework
+psycopg2-binary
+politico-civic-utils
+politico-civic-entity
+politico-civic-geography
+politico-civic-government
+politico-civic-election
+us
+
+[test]
+pytest
