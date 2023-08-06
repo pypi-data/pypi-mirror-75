@@ -1,0 +1,166 @@
+Metadata-Version: 2.1
+Name: wbia-utool
+Version: 3.0.3
+Summary: utool - Useful utilities and the kitchen sink
+Home-page: https://github.com/WildbookOrg/wbia-utool
+Author: Jon Crall, Jason Parham, WildMe Developers
+Author-email: dev@wildme.org
+License: BSD
+Platform: UNKNOWN
+Classifier: Development Status :: 6 - Mature
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Unix
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Utilities
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/x-rst
+Requires-Dist: delorean
+Requires-Dist: gitpython
+Requires-Dist: numpy
+Requires-Dist: pandas
+Requires-Dist: parse
+Requires-Dist: pint
+Requires-Dist: psutil
+Requires-Dist: pyparsing
+Requires-Dist: requests
+Requires-Dist: six
+Requires-Dist: ubelt
+Requires-Dist: futures ; python_version < "3.0"
+Requires-Dist: lockfile ; python_version < "3.0"
+Requires-Dist: networkx ; python_version < "3.0"
+Requires-Dist: networkx ; python_version > "3.0"
+Provides-Extra: all
+Requires-Dist: cmake ; extra == 'all'
+Requires-Dist: ninja ; extra == 'all'
+Requires-Dist: scikit-build ; extra == 'all'
+Requires-Dist: setuptools ; extra == 'all'
+Requires-Dist: setuptools-scm[toml] ; extra == 'all'
+Requires-Dist: wheel ; extra == 'all'
+Requires-Dist: delorean ; extra == 'all'
+Requires-Dist: gitpython ; extra == 'all'
+Requires-Dist: numpy ; extra == 'all'
+Requires-Dist: pandas ; extra == 'all'
+Requires-Dist: parse ; extra == 'all'
+Requires-Dist: pint ; extra == 'all'
+Requires-Dist: psutil ; extra == 'all'
+Requires-Dist: pyparsing ; extra == 'all'
+Requires-Dist: requests ; extra == 'all'
+Requires-Dist: six ; extra == 'all'
+Requires-Dist: ubelt ; extra == 'all'
+Requires-Dist: brunette ; extra == 'all'
+Requires-Dist: codecov ; extra == 'all'
+Requires-Dist: coverage ; extra == 'all'
+Requires-Dist: pytest ; extra == 'all'
+Requires-Dist: pytest-cov ; extra == 'all'
+Requires-Dist: xdoctest ; extra == 'all'
+Requires-Dist: futures ; (python_version < "3.0") and extra == 'all'
+Requires-Dist: lockfile ; (python_version < "3.0") and extra == 'all'
+Requires-Dist: networkx ; (python_version < "3.0") and extra == 'all'
+Requires-Dist: networkx ; (python_version > "3.0") and extra == 'all'
+Provides-Extra: build
+Requires-Dist: cmake ; extra == 'build'
+Requires-Dist: ninja ; extra == 'build'
+Requires-Dist: scikit-build ; extra == 'build'
+Requires-Dist: setuptools ; extra == 'build'
+Requires-Dist: setuptools-scm[toml] ; extra == 'build'
+Requires-Dist: wheel ; extra == 'build'
+Provides-Extra: runtime
+Requires-Dist: delorean ; extra == 'runtime'
+Requires-Dist: gitpython ; extra == 'runtime'
+Requires-Dist: numpy ; extra == 'runtime'
+Requires-Dist: pandas ; extra == 'runtime'
+Requires-Dist: parse ; extra == 'runtime'
+Requires-Dist: pint ; extra == 'runtime'
+Requires-Dist: psutil ; extra == 'runtime'
+Requires-Dist: pyparsing ; extra == 'runtime'
+Requires-Dist: requests ; extra == 'runtime'
+Requires-Dist: six ; extra == 'runtime'
+Requires-Dist: ubelt ; extra == 'runtime'
+Requires-Dist: futures ; (python_version < "3.0") and extra == 'runtime'
+Requires-Dist: lockfile ; (python_version < "3.0") and extra == 'runtime'
+Requires-Dist: networkx ; (python_version < "3.0") and extra == 'runtime'
+Requires-Dist: networkx ; (python_version > "3.0") and extra == 'runtime'
+Provides-Extra: tests
+Requires-Dist: brunette ; extra == 'tests'
+Requires-Dist: codecov ; extra == 'tests'
+Requires-Dist: coverage ; extra == 'tests'
+Requires-Dist: pytest ; extra == 'tests'
+Requires-Dist: pytest-cov ; extra == 'tests'
+Requires-Dist: xdoctest ; extra == 'tests'
+
+===================
+Wildbook IA - utool
+===================
+
+|Build| |Pypi| |ReadTheDocs|
+
+Useful Utility Tools For You! - Part of the WildMe / Wildbook IA Project.
+
+Notice: This is a "kitchen sink" library. While it is still somewhat maintained, it should be considered "end-of-life". Please see https://github.com/Erotemic/ubelt and https://github.com/Erotemic/xdevfor a well-maintained curated collection of utilities.
+
+----
+
+The `utool` library is a collection of tools that I've found useful. I've
+written most of them from scratch, but there are a few I've taken or partially
+taken from StackOverflow. References are given in most locations.
+
+In my experience the most useful functions in this library are:
+
+* `utool.flatten`
+* `utool.take`
+* `utool.take_column`
+* `utool.compress`
+* `utool.ichunks`
+* `utool.itertwo`
+* `utool.isiterable`
+* `utool.group_items`
+* `utool.dict_subset`
+* `utool.dict_hist`
+* `utool.map_dict_vals`
+* `utool.map_dict_keys`
+* `utool.memoize`
+* `utool.get_argflag`
+* `utool.get_argval`
+* `utool.ProgIter`
+* `utool.Timer`
+* `utool.Timerit`
+* `utool.MemoryTracker`
+* `utool.InteractiveIter`
+* `utool.color_print`
+* `utool.ensuredir`
+* `utool.glob`
+* `utool.grep`
+* `utool.sed`
+* `utool.ls`
+* `utool.repr2`
+
+
+Installation
+--------------
+Installation can now be done via pypi
+
+.. code:: bash
+
+    pip install wbia-utool
+
+
+.. |Build| image:: https://img.shields.io/github/workflow/status/WildbookOrg/wbia-utool/Build%20and%20upload%20to%20PyPI/master
+    :target: https://github.com/WildbookOrg/wbia-utool/actions?query=branch%3Amaster+workflow%3A%22Build+and+upload+to+PyPI%22
+    :alt: Build and upload to PyPI (master)
+
+.. |Pypi| image:: https://img.shields.io/pypi/v/wbia-utool.svg
+   :target: https://pypi.python.org/pypi/wbia-utool
+   :alt: Latest PyPI version
+
+.. |ReadTheDocs| image:: https://readthedocs.org/projects/wbia-utool/badge/?version=latest
+    :target: http://wbia-utool.readthedocs.io/en/latest/
+    :alt: Documentation on ReadTheDocs
+
+
