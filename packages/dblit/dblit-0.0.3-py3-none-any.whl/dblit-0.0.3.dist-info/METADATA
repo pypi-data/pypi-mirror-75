@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: dblit
+Version: 0.0.3
+Summary: A library for persistent management of machine learning ground truth labeling jobs
+Home-page: https://github.com/BigNerd/dblit
+Author: Matthias Burbach
+Author-email: matthias.burbach@web.de
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: sqlalchemy
+Requires-Dist: pymysql
+
+# dblit
+
+This Python package is a library for persistent management of machine learning ground truth labeling jobs.
+
+
+## Installation
+
+From [PyPi](https://pypi.python.org/pypi/dblit/):
+
+```
+pip3 install dblit
+```
+
+## Documentation
+
+Find documentation on when and how to use dblit in the [Wiki](https://github.com/BigNerd/dblit/wiki).
+
+
