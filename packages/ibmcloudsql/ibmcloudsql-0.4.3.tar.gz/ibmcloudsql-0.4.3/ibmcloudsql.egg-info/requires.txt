@@ -1,0 +1,8 @@
+pandas
+requests
+ibm-cos-sdk-core
+ibm-cos-sdk
+numpy
+pyarrow==0.15.1
+backoff==1.10.0
+sqlparse
