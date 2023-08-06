@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Manage Subscriptions</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+<span class="mainHeading"><a href="/bizzbuzz/home"><img src="{%  static "images/newlogo.png" %}" style="height: 140px; width: 180px;margin-top: -45px;"></a> </span>
+    <span class="subHeading"><a href="/bizzbuzz/selectchannel">Manage Company Subscriptions</a></span>
+    <span class="subHeading"><a href="/bizzbuzz/login">Logout</a></span>
+    <span class="subHeading" style="margin-left: 650px; color: white; text-transform:capitalize; ">Welcome <b>{{ name }}</b>!</span>
+</div>
+<div class="container" >
+    <div class="feed" style="width: 100%;;margin-left: -1%;padding-top: 4%;">
+{#        <span class="loginHeading" style="margin-left: 370px; margin-bottom: 7px">Manage Company Subscriptions</span>#}
+{#        <span class="loginHeading" style="margin-left: 440px; margin-bottom: 5px; font-size: 16px;padding-top: 0px;">You Are Currently Subscribed To: </span>#}
+{#        {% for field in preferred %}#}
+{#        <span class="loginHeading" style="margin-left: 510px;font-size: 16px;padding-top: 0px;">{{ field }} </span>#}
+{#        {% endfor %}#}
+{##}
+{#        <span class="loginHeading" style="margin-left: 420px; margin-top: 7px; margin-bottom: 5px; font-size: 16px;padding-top: 0px;">You Are Currently NOT Subscribed To: </span>#}
+{#        {% for field in not_preferred %}#}
+{#        <span class="loginHeading" style="margin-left: 510px;font-size: 16px;padding-top: 0px;">{{ field }} </span>#}
+{#        {% endfor %}#}
+<div class="loginContainer" style="margin-bottom: 160px;margin-top: 50px;">
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">Amazon</span>
+  <input type="checkbox" value="Amazon" name="amazon" {%  if preference.amazon %} checked="checked" {% endif %} style="margin-left: -74px;margin-top: 22px;">
+        </div>
+
+         <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">Apple</span>
+  <input type="checkbox" value="Apple" name="apple" {%  if preference.apple %} checked="checked" {% endif %} style="margin-left: -53px;margin-top: 22px;">
+            </div>
+
+        <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">Facebook</span>
+  <input type="checkbox" value="Facebook" name="facebook" {%  if preference.facebook %} checked="checked" {% endif %} style="margin-left: -85px;margin-top: 22px;">
+            </div>
+
+        <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">Google</span>
+  <input type="checkbox" value="Google" name="google" {%  if preference.google %} checked="checked" {% endif %} style="margin-left: -63px;margin-top: 22px;">
+            </div>
+
+        <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">IBM</span>
+  <input type="checkbox" value="IBM" name="ibm" {%  if preference.ibm %} checked="checked" {% endif %} style="margin-left: -39px;margin-top: 22px;">
+            </div>
+
+        <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">Microsoft</span>
+  <input type="checkbox" value="Microsoft" name="microsoft" {%  if preference.microsoft %} checked="checked" {% endif %} style="margin-left: -85px;margin-top: 22px;">
+            </div>
+
+        <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">Netflix</span>
+  <input type="checkbox" value="Netflix" name="netflix" {%  if preference.netflix %} checked="checked" {% endif %} style="margin-left: -61px;margin-top: 22px;">
+            </div>
+
+         <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">Oracle</span>
+  <input type="checkbox" value="Oracle" name="oracle" {%  if preference.oracle %} checked="checked" {% endif %} style="margin-left: -59px;margin-top: 22px;">
+            </div>
+
+        <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">Salesforce</span>
+  <input type="checkbox" value="Salesforce" name="salesforce" {%  if preference.salesforce %} checked="checked" {% endif %} style="margin-left: -91px;margin-top: 22px;">
+            </div>
+
+         <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">Samsung</span>
+  <input type="checkbox" value="Samsung" name="samsung" {%  if preference.samsung %} checked="checked" {% endif %} style="margin-left: -82px;margin-top: 22px;">
+            </div>
+
+        <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">SAP</span>
+  <input type="checkbox" value="SAP" name="sap" {%  if preference.sap %} checked="checked" {% endif %} style="margin-left: -38px;margin-top: 22px;">
+            </div>
+
+         <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">SpaceX</span>
+  <input type="checkbox" value="SpaceX" name="spacex" {%  if preference.spacex %} checked="checked" {% endif %} style="margin-left: -67px;margin-top: 22px;">
+            </div>
+
+         <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">Tesla</span>
+  <input type="checkbox" value="Tesla" name="tesla" {%  if preference.tesla %} checked="checked" {% endif %} style="margin-left: -47px;margin-top: 22px;">
+            </div>
+
+         <div class="row">
+            <span class="subHeading" style="padding-left: 85px;padding-top: 15px;font-size: 20px;">Twitter</span>
+  <input type="checkbox" value="Twitter" name="twitter" {%  if preference.twitter %} checked="checked" {% endif %} style="margin-left: -67px;margin-top: 22px;">
+            </div>
+
+        <input type="submit" name="" value="Save" class="logibtn"><br>
+    </form>
+</div>
+</div>
+    </div>
+
+</body>
+</html>
