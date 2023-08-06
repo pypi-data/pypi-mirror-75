@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: pyscnet
+Version: 0.0.3
+Summary: A tool for reconstructing and analyzing gene regulatory network from single-cell RNA-Seq data
+Home-page: https://github.com/MingBit/PySCNet
+Author: Ming Wu
+Author-email: ming.wu@tum.de
+License: MIT
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Dist: numpy (~=1.17.3)
+Requires-Dist: pandas
+Requires-Dist: sklearn (~=0.0)
+Requires-Dist: scipy
+Requires-Dist: scikit-learn (~=0.22.2.post1)
+Requires-Dist: dask
+Requires-Dist: distributed
+Requires-Dist: xlrd
+Requires-Dist: fsspec (>=0.3.3)
+Requires-Dist: arboreto (~=0.1.5)
+Requires-Dist: gensim
+Requires-Dist: inspect-it
+Requires-Dist: networkx
+Requires-Dist: tqdm
+Requires-Dist: multiprocess
+Requires-Dist: pickle-mixin
+Requires-Dist: community
+Requires-Dist: snfpy
+Requires-Dist: scanpy
+Requires-Dist: docker (~=4.0.2)
+Requires-Dist: seaborn (~=0.9.0)
+Requires-Dist: matplotlib
+Requires-Dist: pyvis (~=0.1.7.0)
+Requires-Dist: python-louvain (~=0.13)
+Requires-Dist: setuptools (~=46.4.0)
+Requires-Dist: nbsphinx
+
+UNKNOWN
+
+
