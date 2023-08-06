@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <h1 class="h1"> Welcome to Driveways </h1>
+  	  {% block title %}<title>Local Library</title>{% endblock %}
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+		 
+    {% load static %}
+		<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  </head>
+
+
+
+  <body>
+		{% block sidebar %}
+    <div class="flex flex-wrap" style="margin: 30px; overflow:auto;">
+    <ul class="flex flex-wrap">
+    {% if user.is_authenticated %}
+    <li class="mr-3" > <h3 class="h3"> User: {{ user.get_username }} </h3></li>
+  <li class="mr-3">
+    <a  class="inline-block border border-blue-500 rounded py-1 px-3 bg-red-500 text-white" href="{% url 'logout'%}?next=/userface">Logout</a>
+  </li>
+  <li class="mr-3">
+    <a  class="inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white" href="{% url 'userface:my-vehicles'%}?next={{request.path}}">Vehicles</a>
+  </li>
+  <li class="mr-3">
+    <a  class="inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white" href="{% url 'userface:search'%}?next={{request.path}}">Search Destination</a>
+  </li>
+  <li class="mr-3"> 
+    <a class="inline-block border border-blue-500 rounded py-1 px-3 bg-purple-500 text-white" href="{% url 'userface:registervehicle'%}?next={{request.path}}">Register Vehicle</a>
+  </li>
+  <li class="mr-3">
+    <a class="inline-block border border-blue-500 rounded py-1 px-3 bg-purple-500 text-white" href="{% url 'userface:addspot'%}?next={{request.path}}">Add Parking Spot</a>
+  </li>
+{% else %}
+      {% block header %}
+  <li class="mr-3"><a class="inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white" href="{% url 'login'%}?next=/userface/search">Login</a></li>
+              <li class="mr-3"><a class="inline-block border border-blue-500 rounded py-1 px-3 bg-blue-500 text-white" href="{% url 'userface:register'%}?next={{request.path}}">Register</a></li>
+      {% endblock header %}
+              {% endif %}
+    </ul>
+    </div>
+    {% endblock %}  
+
+    <div class="flex" style="margin: 10px;padding: 10px; border-top:solid gray">{% block content %}{% endblock %}</div>
+
+  </body>
+</html>
