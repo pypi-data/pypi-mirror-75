@@ -1,0 +1,7 @@
+PyYAML>=3.1.0
+jsonschema>=3.2.0
+mwclient==0.8.1
+pydot2>=1.0.32
+ruamel.yaml
+six>=1.9.0
+yamlordereddictloader
