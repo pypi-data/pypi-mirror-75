@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bizzbuzz</title>
+    <link rel="stylesheet" href="{% static "css/style.css" %}" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div class="navbar">
+<span class="mainHeading"><a href="/bizzbuzz/"><img src="{%  static "images/newlogo.png" %}" style="height: 140px; width: 180px;margin-top: -45px;"></a> </span>
+{#    <span class="subHeading"><a href="/bizzbuzz/searchchannel"> Search Channel</a></span>#}
+    <span class="subHeading"><a href="/bizzbuzz/login"> Login</a></span>
+    <span class="subHeading"><a href="/bizzbuzz/signup"> Sign Up</a></span>
+</div>
+<div style="background: white;padding-top: 5%;height: 100%;width: 100%;margin-left: -1%;">
+    <div class="col" style="width: 100%;padding-left: 14%;height: 100px;">
+    <div class="row" style="width: 100%;padding-top: 60px;font-size: 46px;color: #055662;font-family:Georgia;line-height:1.5em;padding-left: 110px;font-weight: bold;">One stop for all the news from your<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;favorite channels</div>
+<div class="row" style="color: #055662;padding-top: 1%; width: 100%;font-size: 26px;color: #055662;padding-left: 13%;line-height: 1.5em;">BizzBuzz is the simple free news reader. Discover the best tools,<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;resources and inspiration in the world of design and tech.</div>
+</div>
+    <div class="row" style="padding-top:16%;padding-left: 2%;">
+    <img src="{% static "images/Amazon.png" %}" class="channel" >
+    <img src="{% static "images/apple.png" %}" class="channel" >
+    <img src="{% static "images/facebook.png" %}" class="channel" >
+    <img src="{% static "images/google.png" %}" class="channel" >
+    <img src="{% static "images/ibm.png" %}" class="channel" >
+    <img src="{% static "images/microsoft.png" %}" class="channel" >
+    <img src="{% static "images/netflix.png" %}" class="channel" >
+    <img src="{% static "images/oracle.png" %}" class="channel" >
+    <img src="{% static "images/sales.png" %}" class="channel" >
+    <img src="{% static "images/samsung.png" %}" class="channel" >
+    <img src="{% static "images/Sap.png" %}" class="channel" >
+    <img src="{% static "images/spacex.png" %}" class="channel" >
+    <img src="{% static "images/tesla.png" %}" class="channel" >
+    <img src="{% static "images/twitter.png" %}" class="channel" >
+</div>
+</div>
+
+</body>
+</html>
