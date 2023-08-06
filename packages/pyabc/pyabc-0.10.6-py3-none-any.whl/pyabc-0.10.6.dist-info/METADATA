@@ -1,0 +1,125 @@
+Metadata-Version: 2.1
+Name: pyabc
+Version: 0.10.6
+Summary: Distributed, likelihood-free ABC-SMC inference
+Home-page: https://github.com/icb-dcm/pyabc
+Author: The pyABC developers
+Author-email: yannik.schaelte@gmail.com
+Maintainer: Yannik Schaelte
+Maintainer-email: yannik.schaelte@gmail.com
+License: BSD-3-Clause
+Download-URL: https://github.com/icb-dcm/pyabc/releases
+Project-URL: Bug Tracker, https://github.com/icb-dcm/pyabc/issues
+Project-URL: Documentation, https://pyabc.readthedocs.io
+Project-URL: Changelog, https://pyabc.readthedocs.io/en/latest/releasenotes.html
+Keywords: likelihood-free,inference,abc,approximate bayesian computation,sge,distributed
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.6
+Requires-Python: >=3.6
+Description-Content-Type: text/x-rst
+Requires-Dist: numpy (>=1.19.1)
+Requires-Dist: scipy (>=1.5.2)
+Requires-Dist: pandas (>=1.0.5)
+Requires-Dist: cloudpickle (>=1.5.0)
+Requires-Dist: flask-bootstrap (>=3.3.7.1)
+Requires-Dist: flask (>=1.1.2)
+Requires-Dist: bokeh (>=2.1.1)
+Requires-Dist: redis (>=2.10.6)
+Requires-Dist: dill (>=0.3.2)
+Requires-Dist: gitpython (>=3.1.7)
+Requires-Dist: scikit-learn (>=0.23.1)
+Requires-Dist: matplotlib (>=3.3.0)
+Requires-Dist: sqlalchemy (>=1.3.18)
+Requires-Dist: click (>=7.1.2)
+Requires-Dist: feather-format (>=0.4.1)
+Requires-Dist: distributed (>=2.21.0)
+Requires-Dist: pygments (>=2.6.1)
+Requires-Dist: ipython (>=7.16.1)
+Requires-Dist: pyarrow (>=1.0.0)
+Requires-Dist: jabbar (>=0.0.7)
+Provides-Extra: docs
+Requires-Dist: sphinx (>=3.1.0) ; extra == 'docs'
+Requires-Dist: nbsphinx (>=0.7.0) ; extra == 'docs'
+Requires-Dist: nbconvert (>=5.6.1) ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme (>=0.4.3) ; extra == 'docs'
+Provides-Extra: petab
+Requires-Dist: petab (>=0.1.1) ; extra == 'petab'
+Requires-Dist: amici (>=0.10.18) ; extra == 'petab'
+Provides-Extra: quality
+Requires-Dist: flake8 (>=3.8.3) ; extra == 'quality'
+Requires-Dist: flake8-colors (>=0.1.6) ; extra == 'quality'
+Requires-Dist: flake8-bandit (>=2.1.2) ; extra == 'quality'
+Requires-Dist: flake8-bugbear (>=20.1.4) ; extra == 'quality'
+Requires-Dist: flake8-commas (>=2.0.0) ; extra == 'quality'
+Requires-Dist: flake8-comprehensions (>=3.2.3) ; extra == 'quality'
+Requires-Dist: flake8-print (>=3.1.4) ; extra == 'quality'
+Requires-Dist: pygments (>=2.6.1) ; extra == 'quality'
+Requires-Dist: pyroma (>=2.6) ; extra == 'quality'
+Requires-Dist: restructuredtext-lint (>=1.3.1) ; extra == 'quality'
+Provides-Extra: r
+Requires-Dist: rpy2 (>=3.2.0) ; extra == 'r'
+Requires-Dist: cffi (>=1.13.1) ; extra == 'r'
+Provides-Extra: test
+Requires-Dist: pytest (>=5.4.3) ; extra == 'test'
+Requires-Dist: pytest-cov (>=2.10.0) ; extra == 'test'
+
+pyABC
+=====
+
+.. figure:: https://raw.githubusercontent.com/ICB-DCM/pyABC/master/doc/logo/logo.svg
+   :alt: pyABC logo
+   :width: 30 %
+   :align: center
+
+|CI| |docs| |codacy| |codecov| |pypi| |doi|
+
+Massively parallel, distributed and scalable ABC-SMC
+(Approximate Bayesian Computation - Sequential Monte Carlo)
+for parameter estimation of complex stochastic models.
+Implemented in Python with support of the R language.
+
+- **Documentation:** `https://pyabc.readthedocs.io <https://pyabc.readthedocs.io>`_
+- **Contact:** `https://pyabc.readthedocs.io/en/latest/about.html <https://pyabc.readthedocs.io/en/latest/about.html>`_
+- **Source:** `https://github.com/icb-dcm/pyabc <https://github.com/icb-dcm/pyabc>`_
+- **Bug reports:** `https://github.com/icb-dcm/pyabc/issues <https://github.com/icb-dcm/pyabc/issues>`_
+
+Examples
+--------
+
+Many examples are available as Jupyter Notebooks in the
+`examples directory <https://github.com/icb-dcm/pyabc/tree/master/doc/examples>`_
+and also for download and for online inspection in the
+`example section of the documentation <http://pyabc.readthedocs.io/en/latest/examples.html>`_.
+
+
+.. |CI| image:: https://github.com/ICB-DCM/pyABC/workflows/CI/badge.svg
+   :target: https://github.com/ICB-DCM/pyABC/actions
+   :alt: CI
+
+.. |docs| image:: https://readthedocs.org/projects/pyabc/badge/?version=latest
+   :target: http://pyabc.readthedocs.io/en/latest/
+   :alt: docs
+
+.. |codacy| image:: https://api.codacy.com/project/badge/Grade/923a9ab160e6420b9fc468701be60a98
+   :target: https://www.codacy.com/app/yannikschaelte/pyABC?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ICB-DCM/pyABC&amp;utm_campaign=Badge_Grade
+   :alt: codacy
+
+.. |codecov| image:: https://codecov.io/gh/ICB-DCM/pyABC/branch/master/graph/badge.svg
+   :target: https://codecov.io/gh/ICB-DCM/pyABC
+   :alt: codecov
+
+.. |pypi| image:: https://badge.fury.io/py/pyabc.svg
+   :target: https://badge.fury.io/py/pyabc
+   :alt: pypi
+
+.. |doi| image:: https://zenodo.org/badge/DOI/10.5281/zenodo.3364560.svg
+   :target: https://doi.org/10.5281/zenodo.3364560
+   :alt: doi
+
+
