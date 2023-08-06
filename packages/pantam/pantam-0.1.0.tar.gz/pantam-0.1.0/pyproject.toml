@@ -1,0 +1,52 @@
+[tool.poetry]
+name = "pantam"
+version = "0.1.0"
+description = "The microframework for microservices"
+authors = ["Matt Davies <matt@filament.so>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/flmnt/pantam/blob/master/README.md"
+repository = "https://github.com/flmnt/pantam"
+packages = [
+    { include = "pantam" },
+    { include = "pantam_cli" },
+]
+
+[tool.poetry.dependencies]
+python = "^3.6"
+starlette = "^0.13.6"
+colored = "^1.4.2"
+uvicorn = "^0.11.6"
+PyInquirer = "^1.0.3"
+typer = "^0.3.1"
+shellingham = "^1.3.2"
+python-multipart = "^0.0.5"
+
+[tool.poetry.dev-dependencies]
+pylint = "^2.5.3"
+autohooks = "^2.1.0"
+black = "^19.10b0"
+autohooks-plugin-pylint = "^1.2.0"
+autohooks-plugin-black = "^1.2.0"
+pytest = "^5.4.3"
+pytest-watch = "^4.2.0"
+pytest-testmon = "^1.0.2"
+
+[tool.poetry.scripts]
+pantam = "pantam_cli.cli:run"
+
+[tool.autohooks]
+mode = "poetry"
+pre-commit = ["autohooks.plugins.pylint", "autohooks.plugins.black"]
+
+[tool.autohooks.plugins.black]
+include = ["pantam/*.py"]
+arguments = ["--check"]
+
+[tool.autohooks.plugins.pylint]
+include = ["pantam/*.py"]
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
