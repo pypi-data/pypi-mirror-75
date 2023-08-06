@@ -1,0 +1,47 @@
+Metadata-Version: 2.1
+Name: sms77api
+Version: 1.0.0
+Summary: A Python wrapper for the Sms77.io SMS gateway.
+Home-page: https://github.com/sms77io/python-client
+Author: sms77 e.K.
+Author-email: support@sms77.io
+License: UNKNOWN
+Description: ![Sms77 Logo](https://www.sms77.io/wp-content/uploads/2019/07/sms77-Logo-400x79.png "sms77")
+        # Sms77.io SMS Gateway API Client for Python
+        
+        ## Installation
+        ```shell script
+        pip3 install sms77api
+        ```
+        
+        ### Example
+        ```python
+        from sms77api import Sms77api
+        client = Sms77api('MySuperSecretApiKey!!!')
+        print(client.balance())
+        ```
+        
+        #### Implemented endpoints:
+        - analytics
+        - balance
+        - contacts
+        - lookup
+        - pricing
+        - sms
+        - status
+        - validate_for_voice
+        - voice
+Keywords: sms,text2voice
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.5, <4
+Description-Content-Type: text/markdown
