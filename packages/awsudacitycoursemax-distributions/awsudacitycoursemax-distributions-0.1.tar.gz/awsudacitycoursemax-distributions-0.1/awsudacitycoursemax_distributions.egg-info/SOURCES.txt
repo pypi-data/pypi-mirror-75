@@ -1,0 +1,10 @@
+setup.py
+awsudacitycoursemax_distributions.egg-info/PKG-INFO
+awsudacitycoursemax_distributions.egg-info/SOURCES.txt
+awsudacitycoursemax_distributions.egg-info/dependency_links.txt
+awsudacitycoursemax_distributions.egg-info/not-zip-safe
+awsudacitycoursemax_distributions.egg-info/top_level.txt
+distributions/Binomialdistribution.py
+distributions/Gaussiandistribution.py
+distributions/Generaldistribution.py
+distributions/__init__.py
