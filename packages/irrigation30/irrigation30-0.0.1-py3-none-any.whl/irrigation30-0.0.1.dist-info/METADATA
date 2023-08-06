@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: irrigation30
+Version: 0.0.1
+Summary: Generate irrigation predictions at 30m resolution using Google Earth Engine.
+Home-page: https://github.com/AngelaWuGitHub/irrigation30
+Author: Weixin Wu
+Author-email: wwu34@berkeley.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Requires-Dist: pandas (>=1.0.5)
+Requires-Dist: shapely (>=1.7.0)
+Requires-Dist: earthengine-api (>=0.1.227)
+Requires-Dist: folium (>=0.11.0)
+Requires-Dist: matplotlib (>=3.2.2)
+Requires-Dist: numpy (>=1.19.0)
+Requires-Dist: scipy (>=1.5.0)
+
+UNKNOWN
+
+
