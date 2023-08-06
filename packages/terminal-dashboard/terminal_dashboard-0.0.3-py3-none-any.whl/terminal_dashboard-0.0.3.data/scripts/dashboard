@@ -1,0 +1,220 @@
+#!python
+# code=UTF-8
+# Copyright 2020 James P Goodwin dashboard@jlgoodwin.com
+import locale
+locale.setlocale(locale.LC_ALL,"")
+import curses
+import curses.ascii
+import sys
+import os
+import re
+import traceback
+import signal
+import json
+from io import StringIO
+from optparse import OptionParser
+from dashboard.version import __version__
+from dashboard.dashboard import Dashboard,Page,Panel
+from char_draw.graph import LineGraph,BarGraph,PieGraph,TableGraph
+from data_sources.syslog_data import SyslogDataTable
+from data_sources.proc_data import ProcDataTable
+from data_sources.elastic_data import ElasticsearchDataTable
+from data_sources.remote_data import RemoteDataTable,shutdown_connection_manager
+from data_sources.data_table import to_json,from_json
+
+# A config file is of the form:
+# {
+#   "tables" : list of table objects describing the data sources to be graphed in the dashboard below
+#       [
+#           {
+#           "name" : name to refer to this table below,
+#           "type" : one of "SyslogDataTable","ProcDataTable","ElasticsearchDataTable" ( more to come),
+#           "refresh_minutes" : number of minutes to automatically refresh optional, 0 if only manual, default is 5 minutes
+#           "num_hours" : number of hours of history to look at
+#           "bucket_hours" : number of hours per bucket, table will have num_hours/bucket_hours entries
+#           "syslog_glob" : full unix glob pattern to match syslogs for the SyslogDataTable
+#           "es_index_pattern" : only for ElasticsearchDataTable, Elasticsearch index pattern wildcard to query
+#           "es_query_body" : { body of the query to execute as well formed JSON Elasticsearch DSL },
+#           "es_field_map" : [ array of tuples [ json_path ex "aggregations.3.buckets.key" matching the value you want, column name to append it to in the table, value type one of int,float,str,or date where date is a timestamp numerical value ]...]
+#           "ssh_spec" : for the RemoteDataTable a string of the form ssh://username@hostname:port to connect to the remote system
+#           "table_def" : for the RemoteDataTable one of these table definitions, defines the remote table to populate, assumes local keyring has credentials for user at hostname
+#           },
+#       ],
+#   "dashboard": definition of the dashboard to present
+#       {
+#       "auto_tour_delay" : integer seconds or 0 for no tour,
+#       "pages" : list of page objects defining pages of dashboard
+#           [
+#               {
+#                   "height" : height in characters, optional, -1 if not provided indicating to fill initial window,
+#                   "width" : width in characters, optional, -1 if not provided indicating to fill initial window,
+#                   "panels" : list of panel objects defining how this page is divided up
+#                       [
+#                           {
+#                           "y" : vertical offset in page in characters optional, -1 if not provided saying to have the container lay out the panel,
+#                           "x" : horizontal offset in page in characters optional, -1 if not provided saying to have the container lay out the panel,
+#                           "height" : height in characters optional, -1 if not provided saying to have the container lay out the panel,
+#                           "width" : width in characters optional, -1 if not provided saying to have the container lay out the panel,
+#                           "graphs" : list of graph objects to be laid out in this panel
+#                               [
+#                                   {
+#                                   "type" : one of "LineGraph","BarGraph","PieGraph","TableGraph"
+#                                   "table" : name of table from tables list above,
+#                                   "xseries" : name of the column in the table that represents the x axis values or pie labels for the graph,
+#                                   "yseries" : [ list of column names of series to graph against the xseries ],
+#                                   "yunit" : name of the units on the Y axis Bar and Line Graph only,
+#                                   "top" : for graphs that support top-n selection it defines how many top items from the columns to graph, default is 0 which graphs all values in column,
+#                                   "title" : title of this graph defaults to name of data table,
+#                                   "area" : for LineGraph draw this as an area chart filling under the curve, defaults to False
+#                                   },
+#                               ]
+#                           },
+#                       ]
+#               },
+#           ]
+#       }
+# }
+
+def load_table( t ):
+    """ load and instantiate a table based on the JSON specification t """
+    refresh_minutes = t.get("refresh_minutes",1)
+    syslog_glob = t.get("syslog_glob","/var/log/syslog*")
+    num_hours = t.get("num_hours",24)
+    bucket_hours = t.get("bucket_hours",1)
+    es_index_pattern = t.get("es_index_pattern",None)
+    es_query_body = t.get("es_query_body",None)
+    es_field_map = t.get("es_field_map",None)
+    ssh_spec = t.get("ssh_spec",None)
+    table_def = t.get("table_def",None)
+    if t["type"] == "SyslogDataTable":
+        dt = SyslogDataTable(syslog_glob,num_hours,bucket_hours,refresh_minutes)
+    elif t["type"] == "ProcDataTable":
+        dt = ProcDataTable(num_hours,bucket_hours,refresh_minutes)
+    elif t["type"] == "ElasticsearchDataTable":
+        dt = ElasticsearchDataTable(refresh_minutes,es_index_pattern,es_query_body,es_field_map)
+    elif t["type"] == "RemoteDataTable":
+        dt = RemoteDataTable(ssh_spec,table_def,t["name"],refresh_minutes)
+
+    dt.start_refresh()
+    return dt
+
+
+def load_config( stdscr, options ):
+    """ load the dashboard configuration from the options.config path and factory all the objects, returns a context with the initialized objects  """
+    cf = json.load(open(options.config,"r"))
+    context = {}
+    context["tables"] = []
+    for t in cf["tables"]:
+        context["tables"].append((t["name"],load_table(t)))
+
+    def lookup_table( name ):
+        for t in context["tables"]:
+            if t[0] == name:
+                return t[1]
+
+    df = cf["dashboard"]
+    auto_tour_delay = df.get("auto_tour_delay",None)
+    if auto_tour_delay != None:
+        dashboard = Dashboard(stdscr,auto_tour_delay = auto_tour_delay)
+    else:
+        dashboard = Dashboard(stdscr)
+
+    context["dashboard"] = dashboard
+    for p in df["pages"]:
+        height = p.get("height",-1)
+        width  = p.get("width",-1)
+        page = Page(stdscr,height=height,width=width)
+        for pp in p["panels"]:
+            x = pp.get("x",-1)
+            y = pp.get("y",-1)
+            height = pp.get("height",-1)
+            width = pp.get("width",-1)
+            panel = Panel(x = x, y = y, height = height, width = width )
+            for g in pp["graphs"]:
+                type = g["type"]
+                graph = None
+                yunit = g.get("yunit","")
+                top = g.get("top",0)
+                title = g.get("title",None)
+                area = g.get("area",False)
+                if type == "LineGraph":
+                    graph = LineGraph(lookup_table(g["table"]),g["xseries"],g["yseries"],yunit,None,None,title=title,area=area)
+                elif type == "BarGraph":
+                    graph = BarGraph(lookup_table(g["table"]),g["xseries"],g["yseries"],yunit,None,None,top,title=title)
+                elif type == "PieGraph":
+                    graph = PieGraph(lookup_table(g["table"]),g["xseries"],g["yseries"],None,None,title=title)
+                elif type == "TableGraph":
+                    graph = TableGraph(lookup_table(g["table"]),g["xseries"],g["yseries"],None,None,title=title)
+                panel.add_graph(graph)
+            page.add_panel(panel)
+        dashboard.add_page(page)
+
+    return context
+
+def server( options, args ):
+    """ run as a data table server and respond to commands read from stdin """
+    tables = {}
+    try:
+        while True:
+            line = sys.stdin.readline()
+            if line.startswith("table"):
+                command,json_blob = line.strip().split(":",1)
+                td = json.loads(json_blob.strip())
+                tables[td["name"]] = load_table(td)
+                print("loaded:%s"%(td["name"]))
+            elif line.startswith("refresh"):
+                command,name = line.strip().split(":",1)
+                tables[name].refresh()
+                table_json = StringIO()
+                to_json(tables[name],table_json)
+                print("%s:%s"%(name,table_json.getvalue()))
+            elif line.startswith("get"):
+                command,name = line.strip().split(":",1)
+                table_json = StringIO()
+                to_json(tables[name],table_json)
+                print("%s:%s"%(name,table_json.getvalue()))
+            elif line.startswith("exit"):
+                break
+    finally:
+        for k in tables:
+            tables[k].stop_refresh()
+    return 0
+
+def main(stdscr, options, args):
+    """ The main driver for the dashboard utility """
+    c = None
+    try:
+        c = load_config(stdscr,options)
+        ret = c["dashboard"].main()
+    finally:
+        if c and "tables" in c:
+            for d in c["tables"]:
+                d[1].stop_refresh()
+        shutdown_connection_manager()
+    return 0
+
+if __name__ == '__main__':
+    parser = OptionParser(usage="usage: %prog [options]", description="A dashboard to display pages of graphs of data from multiple sources and refresh them")
+    parser.add_option("-c","--config", dest="config", default="~/.dashboard/config", help="Path to dashboard config file, defaults to ~/.dashboard/config")
+    parser.add_option("-s","--server", dest="server", action="store_true", default=False, help="Start in server mode, read commands from stdin and write responses to stdout")
+    parser.add_option("-v","--verbose", dest="verbose", action="store_true", default=False, help="Log all activity to console")
+    parser.add_option("-V","--version", dest="version", action="store_true", default=False, help="Print the version of the script and exit")
+
+    (options,args) = parser.parse_args()
+
+    if options.version:
+        print("dashboard version %s"%__version__)
+        exit(0)
+
+    try:
+        if options.server:
+            ret = server(options,args)
+        else:
+            ret = curses.wrapper(main,options,args)
+    except:
+        tb = traceback.format_exc()
+        print(tb, file=sys.stderr)
+        sys.stderr.flush()
+        ret = 1
+
+    exit(ret)
