@@ -1,0 +1,4 @@
+include rete/VERSION
+include config/*
+recursive-include data *
+global-exclude *.py[cod] __pycache__ *.so
