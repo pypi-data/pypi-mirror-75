@@ -1,0 +1,7 @@
+include README.rst
+include requirements.txt
+recursive-include djlicencias_sic templates *
+recursive-include djlicencias_sic static *
+recursive-include djlicencias_sic media *
+recursive-include djlicencias_sic *.pyc
+recursive-include djlicencias_sic __init__.py
