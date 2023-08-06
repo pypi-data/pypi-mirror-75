@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: quotool
+Version: 0.0.4
+Summary: quotool
+Home-page: https://github.com/Olaful/
+Author: taner
+Author-email: taner@example.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# usage
+trans(words, direction)
+direstion: 
+1 English2Chinese
+2 Chinese2English
+
