@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: FastAPI-battery
+Version: 0.0.4
+Summary: Some private battery for FastAPI.
+Home-page: https://github.com
+Author: d_mok
+Author-email: unknown@gmail.com
+License: MIT
+Description: Usage:
+        
+        from fastapi import FastAPI
+        from fastapi_battery import install_battery
+        
+        app = FastAPI()
+        install_battery(app)
+        
+        
+        
+        
+        Required ENV:
+        
+        DATABASE_URL
+        DATABASE_SCHEMA
+        SPYC_LOGIN_URL_ENTRY
+        SPYC_LOGIN_URL_VERIFY
+        FASTAPI_SECRET_KEY
+        CORS_ORIGINS
+        GMAIL_ACCOUNT
+        GMAIL_APP_PASSWORD
+        ENABLE_SQLTAP
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
