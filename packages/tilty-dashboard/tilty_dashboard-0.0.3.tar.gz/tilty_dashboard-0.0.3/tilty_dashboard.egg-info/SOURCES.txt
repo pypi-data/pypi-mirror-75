@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+setup.cfg
+setup.py
+tilty_dashboard/__init__.py
+tilty_dashboard/model.py
+tilty_dashboard.egg-info/PKG-INFO
+tilty_dashboard.egg-info/SOURCES.txt
+tilty_dashboard.egg-info/dependency_links.txt
+tilty_dashboard.egg-info/requires.txt
+tilty_dashboard.egg-info/top_level.txt
+tilty_dashboard/templates/__init__.py
+tilty_dashboard/templates/index.html
+tilty_dashboard/templates/layout.html
