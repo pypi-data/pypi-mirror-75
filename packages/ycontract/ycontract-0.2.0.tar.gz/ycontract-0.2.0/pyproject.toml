@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "ycontract"
+version = "0.2.0"
+description = "Python library for contracts testing"
+readme = "Readme.md"
+keywords = ["contract", "test",]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "License :: OSI Approved :: Apache Software License",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Topic :: Software Development :: Libraries",
+]
+authors = ["yassu <yasu0320.dev@gmail.com>"]
+repository = "https://gitlab.com/yassu/ycontract.py"
+license = "Apache-2.0"
+
+[tool.poetry.dependencies]
+python = ">=3.7,<4.0"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.8.3"
+invoke = "^1.4.1"
+ipython = "^7.17.0"
+isort = "^5.2.2"
+mypy = "^0.782"
+py-term = "^0.6"
+pytest = "^6.0.1"
+pytest-cov = "^2.10.0"
+typing-extensions = "^3.7.4"
+yapf = "^0.30.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
