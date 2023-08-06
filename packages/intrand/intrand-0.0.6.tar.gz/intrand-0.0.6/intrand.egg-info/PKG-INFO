@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: intrand
+Version: 0.0.6
+Summary: various handy utilities
+Home-page: https://github.com/intrand/intrand.py
+Author: intrand
+Author-email: intrand@intrand.io
+License: UNKNOWN
+Description: # intrand.py
+        Python utilities that are useful in their own little ways.
+        
+        # Installation
+        pip: `pip install --upgrade intrand`
+        
+        # Usage
+        ```python
+        import intrand
+        
+        # some default values
+        defaults = {
+        	"preferences":{
+        		"color":"blue",
+        		"size":"medium",
+        		"gradient":True
+        	}
+        }
+        
+        # some user input (perhaps via API)
+        userConfig = {
+        	"id":1234567890,
+        	"name":{
+        		"first":"John",
+        		"middle":"James",
+        		"last":"Smith"
+        	},
+        	"preferences":{
+        		"color":"gray"
+        	}
+        }
+        
+        intrand.dict_utils.merge(defaults, userConfig)	# merge keys present in defaults,
+        												# but missing in userConfig
+        												# into userConfig
+        
+        print(userConfig)
+        ```
+        
+        Optionally, you may choose to overwrite your existing values with the new by specifying `overwrite=True`.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
