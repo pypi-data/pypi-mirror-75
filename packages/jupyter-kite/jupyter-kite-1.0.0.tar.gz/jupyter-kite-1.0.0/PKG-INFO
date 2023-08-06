@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: jupyter-kite
+Version: 1.0.0
+Summary: Kite WebSocket proxy for Jupyter notebook or lab server for Python 3.5+.
+Home-page: https://github.com/kiteco/jupyterlab-kite
+Author: Kite
+Author-email: support@kite.com
+License: UNKNOWN
+Description: # jupyter-kite
+        
+        Kite-LSP WebSocket proxy for your Jupyter
+        `notebook` or `lab` server. For Python 3.5+.
+        
+Keywords: Interactive,Language Server,LSP
+Platform: UNKNOWN
+Classifier: Framework :: Jupyter
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Information Technology
+Classifier: Programming Language :: Python
+Description-Content-Type: text/markdown
