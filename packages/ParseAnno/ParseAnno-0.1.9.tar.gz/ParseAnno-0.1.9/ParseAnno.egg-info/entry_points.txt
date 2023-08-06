@@ -1,0 +1,3 @@
+[console_scripts]
+parse-anno = parseanno.tools.cli:main
+
