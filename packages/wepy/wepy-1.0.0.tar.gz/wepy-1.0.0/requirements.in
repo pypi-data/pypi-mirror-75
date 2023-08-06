@@ -1,0 +1,35 @@
+# this is an abstract listing of the requirements for other projects
+# which are co-developing with this repo can use to compile dependencies
+# for
+
+--index-url https://pypi.python.org/simple/
+
+numpy
+h5py
+networkx == 2.3
+pandas
+dill
+
+click
+scipy
+matplotlib
+tabulate
+jinja2
+pint
+
+eliot
+multiprocessing_logging
+
+# mdtraj
+mdtraj
+
+# distributed
+dask[bag]
+
+# prometheus
+prometheus_client
+pympler
+
+git+https://github.com/ADicksonLab/geomm
+git+https://github.com/ADicksonLab/openmm_systems
+
