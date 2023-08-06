@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: cachetools-redis
+Version: 0.1.0
+Summary: 
+Author: Anish Padhi
+Author-email: padhi.anish@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: cachetools (>=4.1.1,<5.0.0)
+Requires-Dist: redis (>=3.5.3,<4.0.0)
