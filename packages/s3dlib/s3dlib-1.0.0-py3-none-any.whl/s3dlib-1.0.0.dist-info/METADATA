@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: s3dlib
+Version: 1.0.0
+Summary: Python classes to create 3D surface objects rendered in Matplotlib
+Home-page: UNKNOWN
+Author: Frank Zaverl, Jr.
+Author-email: fzaverl@s3dlib.org
+License: UNKNOWN
+Project-URL: Documentation, https://s3dlib.org/
+Project-URL: Source, https://github.com/fzaverl/s3dlib/
+Keywords: python matplotlib 3D surface visualization
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Visualization
+Classifier: Intended Audience :: Science/Research
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+
+# S3Dlib
+
+### Python classes to create 3D surface objects rendered in *Matplotlib*
+
+
+Detailed documentation and examples are provided at [s3dlib.org](https://s3dlib.org)
+
+---
+
+A 3D surface object is a collection of faces with vertices ordered using
+the 'right hand rule' to designate the 'outer' surface normals.  All surface faces
+are joined with a minimum of one adjacent face. Adjacent faces share two
+common vertices.
+
+The surface object geomentry and color are controlled through various
+object methods in the 'Surface3DCollection' base class.
+Surface instantiation is performed using the four subclasses that
+have predefined surface topologies in native coordinates.
+Base class objects may be created by addition of subclass objects to
+form a single 'composite' surface.
+
+Objects are added to the mpl_toolkits.mplot3d.Art3d using
+the Axis3d.add_collection3d() method.
+
+Included is a module containing functions to create custom Matplotlib color maps.
+
+
+
