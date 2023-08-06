@@ -1,0 +1,3 @@
+[console_scripts]
+ehpp = ehpp.__main__:main
+

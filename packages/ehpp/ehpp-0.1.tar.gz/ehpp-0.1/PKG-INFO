@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: ehpp
+Version: 0.1
+Summary: EHPP is a preprocessor for EspHome (formely esphomeyaml)
+Home-page: https://github.com/AlexDanault/EspHomePreprocessor
+Author: Alexandre Danault
+Author-email: alexandre@danault.net
+License: UNKNOWN
+Project-URL: Bug Reports, https://github.com/AlexDanault/EspHomePreprocessor/issues
+Project-URL: Source, https://github.com/AlexDanault/EspHomePreprocessor
+Description: EHPP is a preprocessor for [EspHome](https://esphomelib.com/esphomeyaml/) that simplifies the management of configuration files when you have multiple devices.
+        
+        (more to come...)
+Keywords: home,automation,esphome,esphomeyaml,preprocessor,home-assistant
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Topic :: Home Automation
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3 :: Only
+Requires-Python: >=3.0, <4
+Description-Content-Type: text/markdown
