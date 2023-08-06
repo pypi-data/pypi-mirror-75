@@ -1,0 +1,15 @@
+README.md
+setup.cfg
+setup.py
+umdpm.egg-info/PKG-INFO
+umdpm.egg-info/SOURCES.txt
+umdpm.egg-info/dependency_links.txt
+umdpm.egg-info/entry_points.txt
+umdpm.egg-info/requires.txt
+umdpm.egg-info/top_level.txt
+umdpm.egg-info/zip-safe
+upm/__init__.py
+upm/cdn.py
+upm/config.py
+upm/index.py
+upm/npm.py
