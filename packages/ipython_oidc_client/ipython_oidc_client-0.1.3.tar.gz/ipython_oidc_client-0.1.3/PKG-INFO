@@ -1,0 +1,7 @@
+Metadata-Version: 1.1
+Name: ipython_oidc_client
+Version: 0.1.3
+Summary: A Jupyter extension to perform OAuth2 flows (e.g. token, code) in notebooks.
+Home-page: https://github.com/jorgecarleitao/ipython-oidc-client
+Author: Jorge C. Leitao
+Author-email: jorgecarleitao@gmail.com
