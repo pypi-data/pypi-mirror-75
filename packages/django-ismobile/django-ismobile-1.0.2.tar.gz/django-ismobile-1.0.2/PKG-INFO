@@ -1,0 +1,59 @@
+Metadata-Version: 2.1
+Name: django-ismobile
+Version: 1.0.2
+Summary: Middleware for Django.
+Home-page: https://github.com/cansarigol/django-ismobile
+Author: Can Sarigol
+Author-email: ertugrulsarigol@gmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Project-URL: Repository, https://github.com/cansarigol/django-ismobile
+Description-Content-Type: text/markdown
+
+# django-ismobile
+
+
+"is_mobile" middleware for Django
+
+## Requirements
+Requires Django 2.0 or later.
+
+## Installing
+
+Install with `pip` or your favorite PyPi package manager.
+
+```
+pip install django-ismobile
+```
+
+## Using
+
+Include MobileControlMiddleware into your MIDDLEWARE:
+
+```
+MIDDLEWARE = (
+    ...
+    'ismobile.middleware.MobileControlMiddleware',
+    ...
+)
+```
+
+## Config
+
+In order to change request attribute name, 
+set **IS_MOBILE_ATTR_NAME** in django **settings** file.
+
+```
+IS_MOBILE_ATTR_NAME="custom_name"
+```
