@@ -1,0 +1,14 @@
+.gitignore
+LICENSE
+MANIFEST.in
+README.md
+setup.py
+ccAF/__init__.py
+ccAF/actinn.py
+ccAF/ccAF_1536_smaller.pkl
+ccAF/classifier.py
+ccAF.egg-info/PKG-INFO
+ccAF.egg-info/SOURCES.txt
+ccAF.egg-info/dependency_links.txt
+ccAF.egg-info/requires.txt
+ccAF.egg-info/top_level.txt
