@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: is-thirteen
+Version: 0.0.1
+Summary: Minimal python library for genetic algorithm
+Home-page: https://github.com/amalshaji/is_thirteen
+Author: Amal Shaji
+Author-email: amalshaji@protonmail.com
+License: MIT
+Description: # Python implementation of `is_thirteen`  by [jezen](https://github.com/jezen/is-thirteen)
+        A python package(pypi) to check whether the input is `13` or not.
+        
+        
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
