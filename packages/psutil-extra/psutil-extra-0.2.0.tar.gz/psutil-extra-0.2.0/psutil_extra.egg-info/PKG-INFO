@@ -1,0 +1,30 @@
+Metadata-Version: 2.1
+Name: psutil-extra
+Version: 0.2.0
+Summary: Some helper functions to go along with the ones in psutil
+Home-page: https://github.com/cptpcrd/psutil-extra
+License: MIT
+Project-URL: Documentation, https://psutil-extra.readthedocs.io/en/latest
+Description: # psutil-extra
+        
+        [![PyPI](https://img.shields.io/pypi/v/psutil-extra)](https://pypi.org/project/psutil-extra)
+        [![Python Versions](https://img.shields.io/pypi/pyversions/psutil-extra)](https://pypi.org/project/psutil-extra)
+        [![Documentation Status](https://readthedocs.org/projects/psutil-extra/badge/?version=latest)](https://psutil-extra.readthedocs.io/en/latest/)
+        [![GitHub Actions](https://github.com/cptpcrd/psutil-extra/workflows/CI/badge.svg?branch=master&event=push)](https://github.com/cptpcrd/psutil-extra/actions?query=workflow%3ACI+branch%3Amaster+event%3Apush)
+        [![Cirrus CI](https://api.cirrus-ci.com/github/cptpcrd/psutil-extra.svg?branch=master)](https://cirrus-ci.com/github/cptpcrd/psutil-extra)
+        [![codecov](https://codecov.io/gh/cptpcrd/psutil-extra/branch/master/graph/badge.svg)](https://codecov.io/gh/cptpcrd/psutil-extra)
+        
+        Some helper functions to go along with the ones in psutil.
+        
+Keywords: psutil
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: POSIX :: BSD :: NetBSD
+Classifier: Operating System :: POSIX :: BSD :: FreeBSD
+Classifier: Operating System :: POSIX :: SunOS/Solaris
+Classifier: Operating System :: MacOS :: MacOS X
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
