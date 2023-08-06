@@ -1,0 +1,17 @@
+astropy>=4.0
+entrypoints
+
+[all]
+baseband-tasks[all]
+
+[cov]
+pytest-cov
+
+[docs]
+sphinx-astropy
+
+[test]
+pytest-astropy-header
+pytest-doctestplus
+pytest-openfiles
+pytest<6.0
