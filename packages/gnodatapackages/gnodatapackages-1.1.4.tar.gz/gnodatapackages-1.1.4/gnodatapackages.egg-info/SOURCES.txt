@@ -1,0 +1,17 @@
+MANIFEST.in
+README.rst
+setup.py
+gnodatapackages/__init__.py
+gnodatapackages/coname_stopwords_gno.csv
+gnodatapackages/gen_stopwords_gno.csv
+gnodatapackages/gno_coname_stopwords.py
+gnodatapackages/gno_gen_stopwords.py
+gnodatapackages/gno_name_stopwords.py
+gnodatapackages/honorifics_remove_gno.csv
+gnodatapackages/personname_wordsremove_gno.csv
+gnodatapackages/stopwords_cn.csv
+gnodatapackages.egg-info/PKG-INFO
+gnodatapackages.egg-info/SOURCES.txt
+gnodatapackages.egg-info/dependency_links.txt
+gnodatapackages.egg-info/requires.txt
+gnodatapackages.egg-info/top_level.txt

@@ -1,0 +1,29 @@
+﻿tosearch,toreplace,comments
+.,  ,punctuations
+-, ,punctuations
+', ,punctuations
+",", ,punctuations
+(, ,punctuations
+), ,punctuations
+&,  and ,punctuations
+`, ,punctuations
+ co , company ,
+intl, international ,
+ltd,limited,
+pvt, private ,
+pte, private ,
+hldgs, holdings ,
+ inc , incorporated ,
+hongkong,hong kong,
+bhd,berhad,
+sdn,sendirian,
+pt,perseroan terbatas ,
+ tech , technology ,
+ grp, group ,
+ corp , corporation ,
+ env ,environment,
+ (S) , singapore ,
+ (M) , malaysia ,
+ (HK) , hong kong ,
+ inc$, incorporated,endofname
+ corp$, corporation,endofname
