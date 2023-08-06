@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: Argspect
+Version: 0.0.1
+Summary: Short descriptioon
+Home-page: https://github.com/cnheider/argspect
+Author: Christian Heider Nielsen
+Author-email: christian.heider@alexandra.dk
+Maintainer: Christian Heider Nielsen
+Maintainer-email: christian.heider@alexandra.dk
+License: Apache License, Version 2.0
+Download-URL: https://github.com/cnheider/argspect/releases
+Keywords: python interface api
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: POSIX
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Natural Language :: English
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: devpack
+Provides-Extra: all
+
+# ProjectName
+
+```bash
+pip install projectname
+```
+
