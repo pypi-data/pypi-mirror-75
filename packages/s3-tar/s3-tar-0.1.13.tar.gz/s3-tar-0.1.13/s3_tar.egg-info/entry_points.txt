@@ -1,0 +1,3 @@
+[console_scripts]
+s3-tar = s3_tar.cli:cli
+
