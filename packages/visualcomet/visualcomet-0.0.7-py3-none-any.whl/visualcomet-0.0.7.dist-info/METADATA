@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: visualcomet
+Version: 0.0.7
+Summary: Codebase for the Visual COMeT model code
+Home-page: https://github.com/jamespark3922/vcg_demo
+Author: Jae Sung Park
+Author-email: jspark96@cs.washington.edu
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Python: >=3.6
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: scikit-learn
+Requires-Dist: matplotlib
+Requires-Dist: ftfy (==5.1)
+Requires-Dist: tqdm
+Requires-Dist: pandas
+Requires-Dist: ipython
+Requires-Dist: opencv-python
+Requires-Dist: pytorch-transformers (==1.1.0)
+Requires-Dist: allennlp
+
+UNKNOWN
+
+
