@@ -1,0 +1,9 @@
+graphviz
+psycopg2
+python-benedict
+PyYAML
+
+[test]
+hypothesis
+pytest
+pytest-mock
