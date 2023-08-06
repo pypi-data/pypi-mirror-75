@@ -1,0 +1,3 @@
+from kolibri.classifier_evaluator import metrics
+from kolibri.classifier_evaluator import visualisations as vis
+from kolibri.classifier_evaluator.eval_panel import ClassifierEvalPanel
