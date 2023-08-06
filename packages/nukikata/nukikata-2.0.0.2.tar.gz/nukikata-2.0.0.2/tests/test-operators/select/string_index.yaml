@@ -1,0 +1,14 @@
+stuff: things
+
+choices:
+  type: select
+  message: You foo?
+  default: bar
+  index: true
+  choices:
+    - bar
+    - things
+
+debug:
+  type: print
+  statement: "{{ string_index }}"

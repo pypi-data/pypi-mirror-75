@@ -1,0 +1,22 @@
+alist:
+  type: stat
+  input:
+    - stuff
+    - things
+
+blocker:
+  type: block
+  loop: "{{ looped.alist }}"
+  items:
+    nuki1:
+      type: nukikata
+      template: .
+      chdir: fake-nuki
+
+    print:
+      type: print
+      statement: "{{ looped }}"
+
+output:
+  type: print
+  statement: "{{ looped }}"

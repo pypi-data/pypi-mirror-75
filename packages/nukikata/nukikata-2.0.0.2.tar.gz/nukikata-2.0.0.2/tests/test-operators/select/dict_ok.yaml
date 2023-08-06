@@ -1,0 +1,13 @@
+stuff: things
+
+choices:
+  type: select
+  message: You foo?
+  default: sturff
+  choices:
+    - foo: Do you want to bar?
+    - stuff: All the things?
+
+debug:
+  type: print
+  statement: "{{ dict_ok }}"

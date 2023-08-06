@@ -1,0 +1,14 @@
+stuff: things
+
+choices:
+  type: select
+  message: You foo?
+  default: bar
+  index: true
+  choices:
+    - foo: Do you want to bar?
+    - stuff: All the things?
+
+debug:
+  type: print
+  statement: "{{ dict_index }}"
