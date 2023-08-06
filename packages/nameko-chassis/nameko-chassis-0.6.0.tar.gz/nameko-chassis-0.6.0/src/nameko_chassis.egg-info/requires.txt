@@ -1,0 +1,5 @@
+nameko<3,>=2
+nameko-sentry<2,>=1.0
+emplo-nameko-zipkin>=0.1.7
+nameko-prometheus<2,>=1.0
+pyrabbit<2,>=1.1
