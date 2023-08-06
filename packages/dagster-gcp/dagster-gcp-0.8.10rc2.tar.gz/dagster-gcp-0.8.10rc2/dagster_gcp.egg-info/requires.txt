@@ -1,0 +1,12 @@
+dagster
+dagster_pandas
+google-api-python-client
+google-cloud-bigquery<1.26.0,>=1.19.*
+google-cloud-storage<1.30.0
+oauth2client
+
+[:python_version < "3"]
+rsa<=4.0
+
+[pyarrow]
+pyarrow
