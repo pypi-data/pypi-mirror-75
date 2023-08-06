@@ -1,0 +1,15 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+trylmz1/Checkers.py
+trylmz1/__init__.py
+trylmz1.egg-info/PKG-INFO
+trylmz1.egg-info/SOURCES.txt
+trylmz1.egg-info/dependency_links.txt
+trylmz1.egg-info/requires.txt
+trylmz1.egg-info/top_level.txt
+trylmz1/tokenizers/tokenizer_deda.pickle
+trylmz1/tokenizers/tokenizer_ki.pickle
+trylmz1/weights/Model_deda.h5
+trylmz1/weights/Model_ki.h5
