@@ -1,0 +1,13 @@
+flowserv-core>=0.2.1
+flask
+flask_cors
+
+[docs]
+Sphinx
+sphinx-rtd-theme
+
+[tests]
+coverage>=4.0
+pytest
+pytest-cov
+tox
