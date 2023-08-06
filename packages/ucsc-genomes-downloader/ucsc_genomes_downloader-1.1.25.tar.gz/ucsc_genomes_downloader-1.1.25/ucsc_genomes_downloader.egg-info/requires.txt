@@ -1,0 +1,12 @@
+requests
+tqdm
+dateparser
+pandas
+numba>=0.50.0
+
+[test]
+coveralls
+pytest
+codacy-coverage
+validate_version_code
+pytest-cov
