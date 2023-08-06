@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: lb-dev
+Version: 0.0.4
+Summary: LHCb Development Tools
+Home-page: https://gitlab.cern.ch/lhcb-core/lb_dev
+Author: CERN - LHCb Core Software
+Author-email: lhcb-core-soft@cern.ch
+License: GPLv3+
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4
+Requires-Dist: click
+Requires-Dist: requests
+Requires-Dist: click-plugins
+Requires-Dist: LbEnv
+Requires-Dist: lb-utils
+
+
+LHCb Development Tools
+
+Purpose:
+
+This python package exists to make easier some procedures needed for LHCb related projects previously done manually by people working on LHCb
+
+
