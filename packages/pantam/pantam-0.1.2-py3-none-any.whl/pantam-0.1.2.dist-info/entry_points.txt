@@ -1,0 +1,3 @@
+[console_scripts]
+pantam=pantam_cli.cli:run
+
