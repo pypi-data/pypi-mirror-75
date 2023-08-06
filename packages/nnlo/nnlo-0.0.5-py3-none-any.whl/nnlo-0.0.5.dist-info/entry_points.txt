@@ -1,0 +1,5 @@
+[console_scripts]
+CountEpoch = nnlo.util.count_epoch:main
+GetData = nnlo.models.getdata:main
+TrainingDriver = nnlo.driver.TrainingDriver:main
+
