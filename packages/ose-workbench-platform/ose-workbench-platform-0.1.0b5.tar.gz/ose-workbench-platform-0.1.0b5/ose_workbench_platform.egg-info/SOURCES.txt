@@ -1,0 +1,74 @@
+CONTRIBUTING.md
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+ose_workbench_platform.egg-info/PKG-INFO
+ose_workbench_platform.egg-info/SOURCES.txt
+ose_workbench_platform.egg-info/dependency_links.txt
+ose_workbench_platform.egg-info/entry_points.txt
+ose_workbench_platform.egg-info/requires.txt
+ose_workbench_platform.egg-info/top_level.txt
+osewb/.flake8
+osewb/.mustache
+osewb/.mypy.ini
+osewb/.pycodestyle
+osewb/__init__.py
+osewb/_version.py
+osewb/check_for_executable_in_path.py
+osewb/execute_command.py
+osewb/find_base_package.py
+osewb/handle_browse_command.py
+osewb/handle_build_command.py
+osewb/handle_docs_command.py
+osewb/handle_editor_config_command.py
+osewb/handle_lint_command.py
+osewb/handle_make_component_command.py
+osewb/handle_make_workbench_command.py
+osewb/handle_test_command.py
+osewb/osewb.py
+osewb/part_screenshot.py
+osewb/cookiecutter_ose_workbench/cookiecutter.json
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/.env
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/.gitignore
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/.readthedocs.yml
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/.travis.yml
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/CONTRIBUTING.md
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/LICENSE
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/MANIFEST.in
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/README.md
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/environment.yml
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/setup.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/.vscode/extensions.json
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/docs/conf.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/docs/index.rst
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/freecad/{{ cookiecutter.base_package }}/__init__.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/freecad/{{ cookiecutter.base_package }}/init_gui.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/freecad/{{ cookiecutter.base_package }}/{{ cookiecutter.command_registry_filename }}.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/freecad/{{ cookiecutter.base_package }}/command/__init__.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/freecad/{{ cookiecutter.base_package }}/command/_add_box/__init__.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/freecad/{{ cookiecutter.base_package }}/command/_add_box/add_box_command.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/freecad/{{ cookiecutter.base_package }}/icon/Box.svg
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/freecad/{{ cookiecutter.base_package }}/icon/__init__.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/tests/__init__.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/tests/box_test.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/tests/__pycache__/__init__.cpython-38.pyc
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/{{ cookiecutter.base_package }}/__init__.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/{{ cookiecutter.base_package }}/part/__init__.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/{{ cookiecutter.base_package }}/part/_box/__init__.py
+osewb/cookiecutter_ose_workbench/{{ cookiecutter.repo_name }}/{{ cookiecutter.base_package }}/part/_box/box.py
+osewb/docs/__init__.py
+osewb/docs/conf.py
+osewb/docs/ose-sticker-logo.svg
+osewb/docs/ext/__init__.py
+osewb/docs/ext/all_summary_table.py
+osewb/docs/ext/freecad_custom_property_table.py
+osewb/docs/ext/freecad_icon.py
+osewb/docs/ext/osewb_docstring_process.py
+osewb/docs/templates/package.rst_t
+osewb/docs/templates/toc.rst_t
+osewb/templates/command.py
+osewb/templates/model.py
+osewb/templates/part.py
+osewb/templates/part_feature.py
