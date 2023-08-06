@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: pynumerals
+Version: 1.0.0
+Summary: Helper library for numeralbank projects
+Home-page: https://github.com/numeralbank/pynumerals
+Author: Hans-Jörg Bibiko, Christoph Rzymski, Robert Forkel
+Author-email: lingweb@shh.mpg.de
+License: Apache 2.0
+Keywords: data
+Platform: any
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: attr
+Requires-Dist: beautifulsoup4 (>=4.6.3)
+Requires-Dist: clldutils
+Requires-Dist: fuzzywuzzy
+Requires-Dist: python-levenshtein
+Provides-Extra: dev
+Requires-Dist: flake8 ; extra == 'dev'
+Requires-Dist: twine ; extra == 'dev'
+Requires-Dist: wheel ; extra == 'dev'
+Provides-Extra: test
+Requires-Dist: coverage (>=4.2) ; extra == 'test'
+Requires-Dist: mock ; extra == 'test'
+Requires-Dist: pyglottolog (>=3.2.2) ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-mock ; extra == 'test'
+Requires-Dist: pytest (>=5.4) ; extra == 'test'
+
+# pynumerals
+
+
