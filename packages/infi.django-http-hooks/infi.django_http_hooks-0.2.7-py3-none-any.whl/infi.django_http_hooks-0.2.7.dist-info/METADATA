@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: infi.django-http-hooks
+Version: 0.2.7
+Summary: a plugin to support sending http requests for any registered model
+Home-page: https://git.infinidat.com/host-opensource/infi.django_http_hooks
+Author: Itay Galea
+Author-email: igalea@infinidat.com
+License: BSD
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Dist: setuptools
+Requires-Dist: requests
+Requires-Dist: lxml
+Requires-Dist: django-admin-list-filter-dropdown
+
+UNKNOWN
+
+
