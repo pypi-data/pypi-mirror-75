@@ -1,0 +1,12 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+listen/__init__.py
+listen/signal_handler.py
+listen.egg-info/PKG-INFO
+listen.egg-info/SOURCES.txt
+listen.egg-info/dependency_links.txt
+listen.egg-info/top_level.txt
+test/__init__.py
+test/example.py
