@@ -1,0 +1,36 @@
+Metadata-Version: 2.1
+Name: pydra
+Version: 0.8
+Summary: Pydra dataflow engine
+Home-page: https://github.com/nipype/pydra
+Author: nipype developers
+Author-email: neuroimaging@python.org
+Maintainer: nipype developers
+Maintainer-email: neuroimaging@python.org
+License: Apache License, 2.0
+Description: ======================
+        Pydra: Dataflow Engine
+        ======================
+        
+        Pydra is a rewrite of the Nipype engine with mapping and joining as
+        first-class operations. It forms the core of the Nipype 2.0 ecosystem.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: MacOS :: MacOS X
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Topic :: Scientific/Engineering
+Provides: pydra
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst; charset=UTF-8
+Provides-Extra: doc
+Provides-Extra: docs
+Provides-Extra: test
+Provides-Extra: tests
+Provides-Extra: dev
+Provides-Extra: dask
+Provides-Extra: all
