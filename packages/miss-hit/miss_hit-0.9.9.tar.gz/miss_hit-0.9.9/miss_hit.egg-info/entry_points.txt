@@ -1,0 +1,4 @@
+[console_scripts]
+mh_metric = miss_hit.mh_metric:main
+mh_style = miss_hit.mh_style:main
+
