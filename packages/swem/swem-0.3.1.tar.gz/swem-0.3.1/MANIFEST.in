@@ -1,0 +1,9 @@
+include LICENSE
+include *.md
+include requirements.txt
+include requirements-dev.txt
+include .coveragerc
+include .flake8
+include mypy.ini
+recursive-include examples *.py
+recursive-include tests *.py
