@@ -1,0 +1,14 @@
+// Fixes
+
+.button-secondary {
+  @include button($grey-3);
+}
+
+.button-footer {
+  @include button($govuk-blue);
+}
+
+.button + .button {
+  margin-top: 0;
+  margin-left: .5em;
+}
