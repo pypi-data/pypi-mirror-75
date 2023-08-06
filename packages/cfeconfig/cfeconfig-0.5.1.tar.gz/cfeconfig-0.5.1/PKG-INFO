@@ -1,0 +1,13 @@
+Metadata-Version: 2.1
+Name: cfeconfig
+Version: 0.5.1
+Summary: Manage app configuration with CLI options, Config File, or Env.
+Home-page: https://github.com/matt2000/cfeconfig
+Author: Matt Chapman
+Author-email: Matt@NinjitsuWeb.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pyyaml (>=5.3,<6.0)
+Project-URL: Repository, https://github.com/matt2000/cfeconfig
