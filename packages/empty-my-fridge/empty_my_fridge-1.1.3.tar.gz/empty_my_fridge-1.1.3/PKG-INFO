@@ -1,0 +1,48 @@
+Metadata-Version: 2.1
+Name: empty_my_fridge
+Version: 1.1.3
+Summary: Get your Daily Recipes
+Home-page: https://github.com/edwarddubi/empty_my_fridge_django
+Author: Charles Charlestin, Rebecca Boes, Cyan Perez, Randolph Maynes, Edward Mensah
+License: MI
+Description: ## Empty My Fridge (Django)
+        
+        A web application that tells users recipes they can make based on ingredients in their fridge
+        
+        ## Github link
+        
+        [Empty My Fridge](https://github.com/edwarddubi/empty_my_fridge_django)
+        
+        ## PYPI
+        
+        [empty-my-fridge 1.1.1](https://pypi.org/project/empty-my-fridge/)
+        
+        ### Install using command
+          - pip3 install empty-my-fridge
+        
+        ### Run app using
+          - empty_my_fridge
+        
+        ## Python FrameWork
+        
+        - [Django](https://pypi.org/project/Django/)
+        
+        ## Libraries/Tools
+        
+        [Pyrebase](https://pypi.org/project/Pyrebase/)
+        
+        [BeautifulSoup](https://pypi.org/project/beautifulsoup4/)
+        
+        Semantic Ui or fomantic Ui css (currently, Semantic Ui)
+        
+        ## Templates
+        
+        - HTML, CSS, and JS (Snippets)
+        
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
