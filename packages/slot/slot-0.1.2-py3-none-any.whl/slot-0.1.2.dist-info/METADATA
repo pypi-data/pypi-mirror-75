@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: slot
+Version: 0.1.2
+Summary: Rotate your files via symlink
+Home-page: https://github.com/markrawls/slot
+Author: Mark Rawls
+Author-email: markrawls96@gmail.com
+Requires-Python: >=3.7,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: click (>=7.1.2,<8.0.0)
+Requires-Dist: colorama (>=0.4.3,<0.5.0)
+Requires-Dist: importlib-metadata (>=1.7.0,<2.0.0)
+Requires-Dist: python-box (>=5.1.0,<6.0.0)
+Requires-Dist: ruamel.yaml (>=0.16.10,<0.17.0)
+Requires-Dist: use-dir (>=0.1.4,<0.2.0)
+Project-URL: Repository, https://github.com/markrawls/slot
+Description-Content-Type: text/markdown
+
+# slot
+
+Rotates a symlink between multiple different possible options.
+
+## Installation
+
+```bash
+pip install slot
+```
+
+## Terminology
+
+A `target` is the file name that you are going to be turning into a symbolic link.
+
+A `store` is a repository of data files that act as potential options for a `target`.
+
+An `option` is a data file inside of a store.
+
+## Usage
+
+### Create a new store
+
+(and optionally ingest current file as an `option`)
+
+```bash
+Usage: slt stores create [OPTIONS] NAME TARGET
+
+Options:
+  --help  Show this message and exit.
+```
+
+### Add an option to a store
+
+```bash
+Usage: slt stores ingest [OPTIONS] STORE_NAME FILE_NAME
+
+Options:
+  -n, --name TEXT       Name of the option this file becomes
+  -s, --silent BOOLEAN  Disable user interaction
+  --help                Show this message and exit.
+```
+
+### List stores
+
+```bash
+Usage: slt list [OPTIONS]
+
+Options:
+  --help  Show this message and exit.
+```
+
+### See available options for a store
+
+```bash
+Usage: slt options [OPTIONS] STORE_NAME
+
+Options:
+  --help  Show this message and exit.
+```
+
