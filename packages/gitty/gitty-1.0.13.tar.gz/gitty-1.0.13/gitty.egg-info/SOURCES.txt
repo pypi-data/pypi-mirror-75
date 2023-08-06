@@ -1,0 +1,13 @@
+README.md
+setup.py
+bin/gitty
+gitty/__init__.py
+gitty/gitty_support.py
+gitty/gitty_support_maven.py
+gitty/gitty_support_node.py
+gitty/gitty_support_pip.py
+gitty/gitty_support_unknown.py
+gitty.egg-info/PKG-INFO
+gitty.egg-info/SOURCES.txt
+gitty.egg-info/dependency_links.txt
+gitty.egg-info/top_level.txt
