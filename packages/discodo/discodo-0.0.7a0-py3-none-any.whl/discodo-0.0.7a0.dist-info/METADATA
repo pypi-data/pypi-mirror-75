@@ -1,0 +1,74 @@
+Metadata-Version: 2.1
+Name: discodo
+Version: 0.0.7a0
+Summary: Audio Player for Discord
+Home-page: https://github.com/kijk2869/discodo
+Author: kijk2869
+License: MIT
+Project-URL: Source, https://github.com/kijk2869/discodo
+Project-URL: Tracker, https://github.com/kijk2869/discodo/issues
+Platform: UNKNOWN
+Classifier: Environment :: Console
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Requires-Dist: aiohttp (==3.6.2)
+Requires-Dist: av (==8.0.2)
+Requires-Dist: colorlog (==4.2.1)
+Requires-Dist: youtube-dl (==2020.7.28)
+Requires-Dist: youtube-related (==0.0.1)
+Requires-Dist: markdownify (==0.4.1)
+Requires-Dist: PyNaCl (==1.4.0)
+Requires-Dist: sanic (==20.6.3)
+Requires-Dist: websockets (==8.1)
+
+# Discodo
+
+![PyPI](https://img.shields.io/pypi/v/discodo)
+![PyPI - License](https://img.shields.io/pypi/l/discodo)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kijk2869/discodo/Python%20application)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/kijk2869/discodo/Upload%20Python%20Package?label=release)
+
+
+Discodo is an enhanced audio player for discord.
+
+## Features
+
+* Standalone Audio Node
+* Youtube Related Video Autoplay
+* Crossfade and Audio effects
+* Synced Youtube Video Subtitle
+
+## Installation
+
+**Discodo requires Python 3.7 or higher**
+
+```sh
+python -m pip install discodo
+```
+
+
+## Execution
+
+### Audio Node Server
+
+**Additional options can be seen with the --help flag**
+
+```sh
+python -m discodo
+```
+
+### Client libraries
+
+* [discodo](https://github.com/kijk2869/discodo) (Python)
+* [discodo.js](https://github.com/SiruBOT/discodo.js) (Node.JS)
+
+## Supported sources
+
++ All sources that can be extracted from [youtube_dl](https://github.com/ytdl-org/youtube-dl)
++ All formats that can be demuxed by [libav](https://libav.org/)
+
+
