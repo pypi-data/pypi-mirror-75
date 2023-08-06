@@ -1,0 +1,3 @@
+[console_scripts]
+snappysonic = snappysonic.__main__:main
+
