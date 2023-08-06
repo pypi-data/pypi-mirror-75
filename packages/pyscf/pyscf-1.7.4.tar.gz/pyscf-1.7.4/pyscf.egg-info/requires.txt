@@ -1,0 +1,7 @@
+numpy>1.8
+scipy<1.5
+h5py>2.2
+
+[geomopt]
+pyberny>=0.6.2
+geometric>=0.9.7.2
