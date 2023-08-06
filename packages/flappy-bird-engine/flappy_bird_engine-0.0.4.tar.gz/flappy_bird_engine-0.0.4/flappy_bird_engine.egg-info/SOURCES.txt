@@ -1,0 +1,17 @@
+README.md
+setup.py
+assets/Bird.png
+assets/Ground.png
+assets/bg.png
+assets/pipe.png
+flappy_bird/__init__.py
+flappy_bird/game_engine.py
+flappy_bird_engine.egg-info/PKG-INFO
+flappy_bird_engine.egg-info/SOURCES.txt
+flappy_bird_engine.egg-info/dependency_links.txt
+flappy_bird_engine.egg-info/requires.txt
+flappy_bird_engine.egg-info/top_level.txt
+src/__init__.py
+src/bird.py
+src/game_object.py
+src/pipe.py
