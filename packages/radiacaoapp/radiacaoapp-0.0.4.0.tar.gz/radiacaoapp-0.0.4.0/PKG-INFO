@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: radiacaoapp
+Version: 0.0.4.0
+Summary: A small package for radiation heat transfer problems
+Home-page: https://github.com/pypa/sampleproject
+Author: Chandler Klüser
+Author-email: chandler.kluser@gmail.com
+License: UNKNOWN
+Description: # README #
+        
+        This python package is destinated to solve radiation heat transfer problems between multiple radiant surfaces.
+        
+        ### How do I get set up? ###
+        
+        ` pip install radiacaoapp `
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Affero General Public License v3
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Physics
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
