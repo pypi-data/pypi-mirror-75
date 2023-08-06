@@ -1,0 +1,40 @@
+Metadata-Version: 2.1
+Name: fly-graph
+Version: 0.0.1rc10
+Summary: A graph library for FLY language, written in Python
+Home-page: https://github.com/bissim/FLY-graph
+Author: Simone Bisogno
+Author-email: s.bisogno90@gmail.com
+License: MIT
+Project-URL: Source, https://github.com/bissim/FLY-graph
+Project-URL: Tracker, https://github.com/bissim/FLY-graph/issues
+Description: # FLY Graph
+        
+        [![Travis CI Build Status](https://travis-ci.com/bissim/FLY-graph.svg?branch=master)](https://travis-ci.com/bissim/FLY-graph) ![Release](https://github.com/bissim/FLY-graph/workflows/Release/badge.svg) ![Java Deploy](https://github.com/bissim/FLY-graph/workflows/Java%20Deploy/badge.svg) ![Python Deploy](https://github.com/bissim/FLY-graph/workflows/Python%20Deploy/badge.svg)
+        
+        Graph library for [**FLY language**](https://github.com/spagnuolocarmine/FLY-language); it enhances FLY capability by introducing *graph* ADT methods to handle graphs.
+        
+        It is based on common graph libraries like [JGraphT](https://github.com/jgrapht/jgrapht) for Java and [NetworkX](https://github.com/networkx/networkx) for Python. **FLY Graph** defines a common API by picking a minimal subset of the intersection of both library features; such features include:
+        
+        - basic graph creation and manipulation;
+        - graph serialization;
+        - graph tours (breadth-first, depth-first);
+        - connectivity and strong connectivity;
+        - directed acyclic graphs and topological order;
+        - minimum-spanning tree.
+        
+        ## ⚠️ WARNING ⚠️
+        
+        This library is not intended for stand-alone use in project as it is part of FLY language; if you just need a library to handle graphs, just refer to above-mentioned, well-known libraries.
+        
+Keywords: FLY graph management
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Other
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: ~=3.6, !=3.7
+Description-Content-Type: text/markdown
