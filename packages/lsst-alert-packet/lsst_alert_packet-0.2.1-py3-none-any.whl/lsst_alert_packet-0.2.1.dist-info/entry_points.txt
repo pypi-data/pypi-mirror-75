@@ -1,0 +1,4 @@
+[console_scripts]
+simulateAlerts.py = lsst.alert.packet.bin.simulateAlerts:main
+validateAvroRoundTrip.py = lsst.alert.packet.bin.validateAvroRoundTrip:main
+
