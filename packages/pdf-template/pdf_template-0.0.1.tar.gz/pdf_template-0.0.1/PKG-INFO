@@ -1,0 +1,69 @@
+Metadata-Version: 2.1
+Name: pdf_template
+Version: 0.0.1
+Summary: Library wrapping pdftk to fill and sign PDFs
+Home-page: https://github.com/vote/pdf_template
+Author: Ben Weissmann
+Author-email: ben@voteamerica.com
+Maintainer: Ben Weissmann
+Maintainer-email: ben@voteamerica.com
+License: BSD
+Description: # pdf_template
+        
+        Small wrapper around pdftk for filling and signing PDFs
+        
+        Example:
+        
+        ```py
+        from pdf_template import PDFTemplate, PDFTemplateSection, SignatureBoundingBox
+        
+        input_data = {
+            "is_18_or_over": True,
+            "title_mr": False,
+            "title_ms": True,
+            "first_name": "Foo",
+            "last_name": "Bar",
+            "address1": "None",
+            "zipcode": None,
+            "mailto_line_1": "some address!",
+        }
+        
+        template = PDFTemplate(
+            [
+                PDFTemplateSection(path="tests/test-input-page-1.pdf", is_form=True),
+                PDFTemplateSection(
+                    path="tests/test-input-page-2-3.pdf",
+                    is_form=True,
+                    signature_locations={
+                        1: SignatureBoundingBox(x=300, y=490, width=200, height=37)
+                    },
+                ),
+                PDFTemplateSection(
+                    path="tests/test-input-page-4.pdf",
+                    signature_locations={
+                        1: SignatureBoundingBox(x=188, y=50, width=200, height=28)
+                    },
+                ),
+            ]
+        )
+        
+        with template.fill(
+            input_data, signature=Image.open("tests/sig.jpeg")
+        ) as output_pdf:
+            with open("output.pdf") as out_file:
+                out_file.write(output_pdf.read())
+        ```
+        
+Keywords: python pdf signature pdftk template
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: System Administrators
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Text Editors :: Word Processors
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
