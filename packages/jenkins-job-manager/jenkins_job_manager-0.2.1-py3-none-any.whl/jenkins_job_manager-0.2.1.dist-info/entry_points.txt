@@ -1,0 +1,3 @@
+[console_scripts]
+jjm=jenkins_job_manager.cli:jjm
+
