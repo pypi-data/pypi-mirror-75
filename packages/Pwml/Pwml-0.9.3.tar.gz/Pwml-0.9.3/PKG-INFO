@@ -1,0 +1,24 @@
+Metadata-Version: 1.2
+Name: Pwml
+Version: 0.9.3
+Summary: Python Wrappers for Machine Learning
+Home-page: https://github.com/braibaud/pwml
+Author: Benjamin Raibaud
+Author-email: braibaud@gmail.com
+License: MIT
+Description: 
+        Pwml is a high-level machine learning API, written in Python.
+        Pwnl stands for Python Wrappers for Machine Learning.
+        Pwml is compatible with Python 3.6 and is distributed under the MIT license.
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Education
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Requires-Python: >=3.6

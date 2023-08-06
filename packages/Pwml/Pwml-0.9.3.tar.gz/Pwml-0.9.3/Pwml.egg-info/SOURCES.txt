@@ -1,0 +1,17 @@
+README.md
+setup.py
+Pwml.egg-info/PKG-INFO
+Pwml.egg-info/SOURCES.txt
+Pwml.egg-info/dependency_links.txt
+Pwml.egg-info/requires.txt
+Pwml.egg-info/top_level.txt
+pwml/__init__.py
+pwml/classifiers/__init__.py
+pwml/classifiers/embedders.py
+pwml/classifiers/features.py
+pwml/classifiers/hierarchical.py
+pwml/utilities/__init__.py
+pwml/utilities/filehelpers.py
+pwml/utilities/httphelpers.py
+pwml/utilities/imagehelpers.py
+pwml/utilities/mssqlhelpers.py
