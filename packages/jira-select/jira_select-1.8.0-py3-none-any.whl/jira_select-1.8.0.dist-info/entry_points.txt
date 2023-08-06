@@ -1,0 +1,36 @@
+[console_scripts]
+jira-select = jira_select.cmdline:main
+
+[jira_select.commands]
+build-query = jira_select.commands.build_query:Command
+configure = jira_select.commands.configure:Command
+functions = jira_select.commands.functions:Command
+run-query = jira_select.commands.run:Command
+run-script = jira_select.commands.run_script:Command
+schema = jira_select.commands.schema:Command
+shell = jira_select.commands.shell:Command
+store-password = jira_select.commands.store_password:Command
+
+[jira_select.formatters]
+csv = jira_select.formatters.csv:Formatter
+table = jira_select.formatters.table:Formatter
+
+[jira_select.functions]
+estimate_to_days = jira_select.functions.estimate_to_days:Function
+extract = jira_select.functions.extract:Function
+field_by_name = jira_select.functions.field_by_name:Function
+flatten_changelog = jira_select.functions.flatten_changelog:Function
+flatten_list = jira_select.functions.flatten_list:Function
+get_sprint_by_id = jira_select.functions.get_sprint_by_id:Function
+get_sprint_by_name = jira_select.functions.get_sprint_by_name:Function
+parse_datetime = jira_select.functions.parse_datetime:Function
+simple_filter = jira_select.functions.simple_filter:Function
+simple_filter_any = jira_select.functions.simple_filter_any:Function
+sprint_details = jira_select.functions.sprint_details:Function
+sprint_name = jira_select.functions.sprint_name:Function
+
+[jira_select.sources]
+boards = jira_select.sources.boards:Source
+issues = jira_select.sources.issues:Source
+sprints = jira_select.sources.sprints:Source
+
