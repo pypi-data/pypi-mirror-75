@@ -1,0 +1,14 @@
+README.md
+pyproject.toml
+setup.py
+camel_spitter/__init__.py
+camel_spitter/apps.py
+camel_spitter/db_filter.py
+camel_spitter/db_handler.py
+camel_spitter/models.py
+camel_spitter/version.py
+django_camel_spitter.egg-info/PKG-INFO
+django_camel_spitter.egg-info/SOURCES.txt
+django_camel_spitter.egg-info/dependency_links.txt
+django_camel_spitter.egg-info/requires.txt
+django_camel_spitter.egg-info/top_level.txt
