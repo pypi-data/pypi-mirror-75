@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: epython
+Version: 0.0.5
+Summary: A typed subset of Python to be used as an extension language
+Home-page: https://github.com/epython-dev/epython
+Author: Quansight Labs
+Author-email: labs@quansight.com
+License: BSD-3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+
+# epython
+EPython is a typed-subset of the Python language useful for extending the language with new builtin types and methods. 
+
+The goal is to be able to write things like NumPy, SciPy, Pandas, bitarray, and any other extension module of Python in this language and get equivalent or better perfomance than writing it using the C-API typically provided. 
+
+This project is in development and extremely alpha.   You should not use this for anything.
+
+Learn more on this talk [Travis Oliphant gave at PyData Austin 2019](https://www.youtube.com/watch?v=Z8vsTxzmorE).
+
+
+If you are interested in contributing to the design and goals, then join the Discussion at [OpenTeams Slack](https://openteams.com/projects/epython)
+
+
+# Installation
+
+    pip install epython
+
+# Usage
+
+    epython extmodule.epy --runtime=cpython  
+
+Produces a compiled extension module for the given Python runtime.
+
+
+
+
+
+
