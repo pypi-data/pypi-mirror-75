@@ -1,0 +1,3 @@
+[console_scripts]
+yandex-tracker-import = yandex_tracker_import.cli.main:cli
+
