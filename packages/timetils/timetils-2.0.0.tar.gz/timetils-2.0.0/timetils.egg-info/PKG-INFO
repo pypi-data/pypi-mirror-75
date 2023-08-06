@@ -1,0 +1,58 @@
+Metadata-Version: 1.1
+Name: timetils
+Version: 2.0.0
+Summary: A easy to use time util library.
+Home-page: https://github.com/shahprog/timetils/
+Author: Md Shahriyar Alam
+Author-email: mdshahriyaralam552@gmail.com
+License: MIT
+Description: A easy to use time util library.
+        
+        See homepage for more info on how to use and available methods.
+        
+        Change Log
+        ===========
+        
+        0.0.1 (03/06/2020)
+        --------------------------------
+        - Release
+        
+        1.0.0 (12/7/2020)
+        --------------------------------
+        - Bug fix
+        
+        1.0.1 (12/7/2020)
+        --------------------------------
+        - Import fix
+        
+        1.0.2 (12/7/2020)
+        --------------------------------
+        - Import fix
+        
+        1.0.3 (12/7/2020)
+        --------------------------------
+        - Test fix
+        
+        1.1.0 (12/7/2020)
+        --------------------------------
+        - Playing around
+        
+        1.1.1 (12/7/2020)
+        --------------------------------
+        - Month issue fix
+        
+        2.0.0 (5/8/2020)
+        --------------------------------
+        - Formatter changed
+        - New classes to represent delta, date, time and datetime objects
+        - as_dict changed to as_dict
+        
+Keywords: date time datetime timedelta time-difference
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Education
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Operating System :: Microsoft :: Windows
+Classifier: Operating System :: MacOS
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
