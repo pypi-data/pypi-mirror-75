@@ -1,0 +1,9 @@
+pillow
+numpy
+texttable
+matplotlib
+pandas
+cuitools==1.7.2.6
+prompt-toolkit>3.0
+pygments
+mistune==2.0.0a4
