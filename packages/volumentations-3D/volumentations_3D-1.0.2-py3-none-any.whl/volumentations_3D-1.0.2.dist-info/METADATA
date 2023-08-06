@@ -1,0 +1,17 @@
+Metadata-Version: 2.1
+Name: volumentations-3D
+Version: 1.0.2
+Summary: Library for 3D augmentations
+Home-page: https://github.com/ZFTurbo/volumentations
+Author: Roman Sol (ZFTurbo)
+Author-email: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: scikit-image
+Requires-Dist: scipy
+Requires-Dist: opencv-python
+Requires-Dist: numpy
+
+Library for 3D augmentations. Inspired by albumentations.More details: https://github.com/ZFTurbo/volumentations
+
+
