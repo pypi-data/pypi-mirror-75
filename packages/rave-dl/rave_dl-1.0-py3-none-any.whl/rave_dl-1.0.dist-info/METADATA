@@ -1,0 +1,82 @@
+Metadata-Version: 2.1
+Name: rave-dl
+Version: 1.0
+Summary: Rips video and audio (with metadata) from music mixing website RaveDJ.
+Home-page: https://github.com/SuperSonicHub1/rave-dl
+License: Unlicense
+Keywords: ravedl,downloader,rave,music
+Author: Kyle Williams
+Author-email: kyle.anthony.williams2@gmail.com
+Requires-Python: >=3.6,<4
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: Intended Audience :: End Users/Desktop
+Classifier: License :: Other/Proprietary License
+Classifier: License :: Public Domain
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Multimedia
+Provides-Extra: metadata
+Requires-Dist: regex (>=2020.7.14,<2021.0.0)
+Requires-Dist: requests (>=2.24.0,<3.0.0)
+Project-URL: Repository, https://github.com/SuperSonicHub1/rave-dl
+Description-Content-Type: text/markdown
+
+# Rave-DL
+Rips video and audio (with metadata) from music mixing website [RaveDJ](https://rave.dj/). Support the creators of the website on [Patreon](https://www.patreon.com/RaveDJ/). <br>
+
+Install with `python3 -m pip install rave-dl` or `poetry add rave-dl`.
+
+## Example Usage
+### Application Programming Interface
+```python
+from rave-dl import RaveDJ
+
+rave = RaveDJ('https://rave.dj/sZJr6b9MG6vpPA')
+rave.scraper(filetype="mp3+mp4", metadata=True, output="hello_world")
+```
+### Command Line Interface
+```bash
+python3 -m rave-dl "https://rave.dj/sZJr6b9MG6vpPA" -m -f mp3+mp4 -o hello_world
+```
+## API
+### class RaveDJ
+Attributes:
+* datastore (list): Contains information on multiple videos
+
+Args:
+* url (str): URL of RaveDJ video
+### def scraper(filetype="mp4", metadata=False, output="output")
+Download music videos from RaveDJ.
+
+Args:
+* filetype (str, optional): Choose to download MP3s (mp3), MP4s (mp4), or both (mp3+mp4). Defaults to "mp4".
+* metadata (bool, optional): Adds metadata (title, artist, album art) to MP3s. Defaults to False.
+* output (str, optional): Folder files are downloaded to. Defaults to "output".
+## CLI
+Invoke it with `python3 -m rave-dl` or `python3 rave-dl.py`.
+```bash
+usage: rave-dl [-h] [-m] [-f FILETYPE] [-o OUTPUT] [-nb] [-v] URL
+
+Rips video and audio (with metadata) from music mixing website RaveDJ. (v1.0)
+
+positional arguments:
+  URL                   link to RaveDJ video
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -m, --metadata        Adds metadata (title, artist, album art) to MP3s.
+  -f FILETYPE, --filetype FILETYPE
+                        Choose to download MP3s [mp3], MP4s [mp4], or both
+                        [mp3+mp4].
+  -o OUTPUT, --output OUTPUT
+                        Folder to download files to.
+  -nb, --nobar          Do not display bar when downloading.
+  -v, --version         Show version number and exit.
+```
