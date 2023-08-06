@@ -1,0 +1,14 @@
+README.md
+setup.py
+textwrangler/__init__.py
+textwrangler/extract.py
+textwrangler/normalize.py
+textwrangler/patterns.py
+textwrangler/remove.py
+textwrangler/replace.py
+textwrangler/transform.py
+textwrangler.egg-info/PKG-INFO
+textwrangler.egg-info/SOURCES.txt
+textwrangler.egg-info/dependency_links.txt
+textwrangler.egg-info/requires.txt
+textwrangler.egg-info/top_level.txt

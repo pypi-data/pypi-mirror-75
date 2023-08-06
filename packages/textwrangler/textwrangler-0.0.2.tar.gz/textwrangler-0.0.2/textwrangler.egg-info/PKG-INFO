@@ -1,0 +1,15 @@
+Metadata-Version: 1.2
+Name: textwrangler
+Version: 0.0.2
+Summary: A simple library for cleaning and pre-processing text.
+Home-page: https://github.com/mattmurray/textwrangler
+License: UNKNOWN
+Download-URL: https://github.com/mattmurray/textwrangler/archive/v0.0.2.tar.gz
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Text Processing
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.6
