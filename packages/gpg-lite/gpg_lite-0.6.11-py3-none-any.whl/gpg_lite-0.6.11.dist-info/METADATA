@@ -1,0 +1,80 @@
+Metadata-Version: 2.1
+Name: gpg-lite
+Version: 0.6.11
+Summary: python gpg bindings
+Home-page: https://gitlab.com/biomedit/gpg-lite
+Author: Jaroslaw Surkont, Gerhard Bräunlich, Robin Engler, Christian Ribeaud
+Author-email: jaroslaw.surkont@unibas.ch, gerhard.braeunlich@id.ethz.ch, robin.engler@sib.swiss, christian.ribeaud@karakun.com
+License: LGPL3
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+Requires-Dist: dataclasses ; python_version < "3.7"
+
+[![pipeline status](https://gitlab.com/biomedit/gpg-lite/badges/master/pipeline.svg)](https://gitlab.com/biomedit/gpg-lite/-/commits/master)
+[![coverage report](https://gitlab.com/biomedit/gpg-lite/badges/master/coverage.svg?job=coverage)](https://gitlab.com/biomedit/gpg-lite/-/commits/master)
+
+# gpg python binding (incomplete functionality)
+
+A python `gpg` module written from scratch.
+
+## Installation
+
+### From `PyPI`
+
+It's simple. Just do:
+
+```bash
+[sudo] pip install [--user] gpg-lite
+```
+
+### From git
+
+To install this package from this git repository, do:
+
+```bash
+git clone https://gitlab.com/biomedit/gpg-lite.git
+cd gpg-lite
+./setup.py install [--user]
+```
+
+To get started using python-gnupg's API, see the documentation,
+and import the module like:
+
+```python
+import gpg_lite
+```
+
+The primary interface class you'll likely want to interact with is `gpg_lite.GPGStore`
+
+```python
+gpg_store = gpg_lite.GPGStore(config_dir='/home/user/.gnupg')
+gpg_store.gen_key(
+    key_type='RSA',
+    key_length=4096,
+    full_name="Chuck Norris",
+	email="chuck.norris@roundhouse.gov",
+	passphrase="Chuck Norris does not need one - the password needs him")
+keys = gpg_store.list_pub_keys()
+print(keys)
+```
+
+**Note**: Make sure that the `/home/user/.gnupg` directory exists.
+
+## Bug Reports & Feature Requests
+
+Our bugtracker can be found on **GitLab** https://gitlab.com/biomedit/gpg-lite/issues. 
+
+Public comments and discussions are also welcome on the bugtracker.
+
+Patches are always welcome.
+
+## Supported GPG versions
+
+We officially support all **GPG** versions starting from _v2.2.8_.
+Inofficially, we also try to support _v2.0.22_.
+
+
