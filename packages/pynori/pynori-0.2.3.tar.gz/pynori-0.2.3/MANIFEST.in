@@ -1,0 +1,10 @@
+include LICENSE
+include README.md
+include requirements.txt
+include pynori/config.ini
+include pynori/resources/synonyms.txt
+include pynori/resources/userdict_ko.txt
+include pynori/resources/pkl_mecab_matrix/matrix_def.pkl
+include pynori/resources/pkl_mecab_csv/mecab_csv.pkl
+include pynori/resources/mecab-ko-dic-2.1.1-20180720/*
+include pynori/resources/mecab-ko-dic-2.1.1-20180720/tools/*
