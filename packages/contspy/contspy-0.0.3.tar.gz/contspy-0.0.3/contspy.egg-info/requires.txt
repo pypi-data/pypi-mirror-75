@@ -1,0 +1,6 @@
+numpy
+termcolor
+matplotlib
+
+[:python_version < "3.8"]
+importlib_metadata
