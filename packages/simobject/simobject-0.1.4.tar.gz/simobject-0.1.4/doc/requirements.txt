@@ -1,0 +1,11 @@
+numpy
+astropy
+pytest
+sphinx>=3.0
+nbsphinx
+numpydoc
+recommonmark
+simobject
+nbconvert
+ipykernel
+jupyter
