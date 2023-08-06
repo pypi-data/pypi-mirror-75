@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: s-exp-parser
+Version: 1.2.0
+Summary: S expression parser for python.
+Home-page: https://github.com/kavigupta/s-exp-parser
+Author: Kavi Gupta
+Author-email: s_exp_parser@kavigupta.org
+License: UNKNOWN
+Description: 
+        # S expression parser
+        
+        Parses s-expressions, which are used by lisp-like languages to represent unambiguous syntax trees.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
