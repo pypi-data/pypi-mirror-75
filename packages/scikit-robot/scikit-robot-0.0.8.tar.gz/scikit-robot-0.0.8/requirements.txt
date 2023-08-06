@@ -1,0 +1,19 @@
+cached-property
+cvxopt
+future
+gdown
+lxml
+networkx==2.2.0
+numpy>=1.16.0
+ordered_set
+pillow
+pycollada!=0.7  # required for robot model using collada
+pyglet
+python-fcl  # for collision check in trimesh module
+pyyaml
+quadprog
+scipy==1.2.1
+six
+trimesh>=3.5.20
+sphinx==1.8.2
+sphinx_rtd_theme

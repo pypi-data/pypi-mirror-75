@@ -1,0 +1,3 @@
+[console_scripts]
+visualize-urdf = skrobot.apps.visualize_urdf:main
+

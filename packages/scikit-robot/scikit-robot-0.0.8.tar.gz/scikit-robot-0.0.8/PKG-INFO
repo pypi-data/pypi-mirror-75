@@ -1,0 +1,58 @@
+Metadata-Version: 2.1
+Name: scikit-robot
+Version: 0.0.8
+Summary: A Flexible Framework for Robot Control in Python
+Home-page: https://github.com/iory/scikit-robot
+Author: iory
+Author-email: ab.ioryz@gmail.com
+License: MIT
+Description: # scikit-robot: A Flexible Framework for Robot Control in Python
+        
+        [![Build Status](https://travis-ci.com/iory/scikit-robot.svg?token=zM5rExyvuRoJThsnqHAF&branch=master)](https://travis-ci.com/iory/scikit-robot)
+        
+        <h4>
+            <a href="https://scikit-robot.readthedocs.io/en/latest/">Documentation</a> |
+            <a href="https://scikit-robot.readthedocs.io/en/latest/install/index.html">Installation</a> |
+            <a href="https://scikit-robot.readthedocs.io/en/latest/examples/index.html">Quick Start</a> |
+            <a href="https://scikit-robot.readthedocs.io/en/latest/reference/index.html">Python API</a> |
+            <a href="https://scikit-robot.readthedocs.io/en/latest/development/index.html">Contribute</a>
+        </h4>
+        
+        Scikit-Robot is a lightweight pure-Python library for robotic kinematics,
+        motion planning, visualization and control.
+        
+        ## Installation
+        
+        ```bash
+        pip install scikit-robot
+        ```
+        
+        If you would like to use `Pybullet Interface`,
+        
+        ```bash
+        pip install scikit-robot[all]
+        ```
+        
+        ## Features
+        
+        - [x] Loading robot model from URDF ([examples/robot_models.py](examples/robot_models.py))
+        - [x] Forward and inverse kinematics ([examples/trimesh_scene_viewer.py](examples/trimesh_scene_viewer.py))
+        - [x] Collision detection
+        - [x] Interactive viewer ([examples/trimesh_scene_viewer.py](examples/trimesh_scene_viewer.py))
+        - [x] Pybullet and ROS command interface ([examples/pybullet_robot_interface.py](examples/pybullet_robot_interface.py))
+        - [ ] Forward and inverse dynamics
+        - [ ] Path planning
+        
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Description-Content-Type: text/markdown
+Provides-Extra: all
