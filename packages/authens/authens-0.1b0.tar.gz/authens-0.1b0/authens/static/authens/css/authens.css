@@ -1,0 +1,175 @@
+/*
+  Generic page layout
+*/
+
+html, body {
+  width: 100%;
+  background: #eee;
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+#container {
+  padding: 10% 1em;
+  min-width: 300px;
+  max-width: 900px;
+  margin: auto;
+}
+
+#container-title {
+  width: 100%;
+  background: #505160;
+  color: white;
+}
+
+#container-title h2 {
+  padding: 15px;
+  font-weight: initial;
+  font-size: 2em;
+  margin: 0;
+}
+
+#container-content {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+/*
+  Background color definitions
+*/
+
+.cas {
+  background: #4D85BD;
+  color: white;
+}
+
+.exte {
+  background: #598507;
+  color: white;
+}
+
+.oldcas {
+  background: #CB6318;
+  color: white;
+}
+
+/*
+  Login switch layout
+*/
+
+.big-button {
+  flex: 1;
+  height: 200px;
+  min-width: 300px;
+  text-align: center;
+  font-size: 2.5em;
+  color: white;
+  line-height: 200px;
+  text-decoration: none;
+}
+
+.big-button :hover {
+  text-decoration: underline;
+}
+
+/*
+  Message styling
+*/
+
+.error {
+  background: red;
+  color: white;
+  width: 100%;
+  padding: 0.5em 0;
+  margin: 0;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.success {
+  background: green;
+  color: white;
+  width: 100%;
+  padding: 0.5em 0;
+  margin: 0;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+/*
+  Form styling
+*/
+
+.auth_form {
+  width: 100%;
+  padding: 0.5em;
+  font-size: 1.5em;
+}
+
+.auth_form table {
+  margin: 20px auto;
+  border-spacing: 0.3em;
+}
+
+.auth_form th {
+  padding: 10px 0;
+  vertical-align: text-top;
+  text-align: right;
+}
+
+ul.errorlist {
+  text-align: left;
+  font-size: 0.8em;
+  padding-left: 20px;
+}
+
+input {
+  font-size: 1em;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+  border: 0;
+  padding: 5px;
+  width: 100%;
+  max-width: 390px;
+}
+
+input[type="submit"] {
+  font-size: 1.2em;
+  background: #505160;
+  color: white;
+  border-radius: 0.25rem;
+  border: solid #505160;
+  padding: 0.2em 0.5em;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  border-color: white;
+}
+
+select {
+  border: 0;
+  font-size: 1em;
+  background-color: white;
+  width: 100%;
+  max-width: 400px;
+  text-align: end;
+}
+
+/*
+  Misc
+*/
+
+.forgot-pwd {
+  width:100%;
+  padding: 0.5em 0px 1em;
+  font-size: 1.2em;
+}
+
+.forgot-pwd > a {
+  color: white;
+}

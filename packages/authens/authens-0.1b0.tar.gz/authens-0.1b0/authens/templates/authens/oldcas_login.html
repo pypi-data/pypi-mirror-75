@@ -1,0 +1,12 @@
+{% extends "authens/base.html" %}
+{% load i18n %}
+
+{% block container-title %}
+{% trans "Connexion vieilleux" %}
+{% endblock %}
+
+{% block content %}
+<div id="container-content" class="oldcas">
+  {% include "authens/form_full_snippet.html" with submit_text="Se connecter" %}
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "authens/base.html" %}
+{% load i18n %}
+
+{% block container-title %}
+{% trans "Mode de connexion" %}
+{% endblock %}
+
+{% block content %}
+<div id="container-content">
+  <a class="big-button cas" href="{% url "authens:login.cas" %}?next={{ next| urlencode }}">
+    {% trans "Clipper" %}
+  </a>
+  <a class="big-button exte" href="{% url "authens:login.pwd" %}?next={{ next| urlencode }}">
+    {% trans "Mot de passe" %}
+  </a>
+  {% if oldcas %}
+    <a class="big-button oldcas" href="{% url "authens:login.oldcas" %}?next={{ next| urlencode }}">
+      {% trans "Vieilleux" %}
+    </a>
+  {% endif %}
+</div>
+{% endblock %}

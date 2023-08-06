@@ -1,0 +1,12 @@
+{% extends "authens/base.html" %}
+{% load i18n %}
+
+{% block container-title %}
+{% trans "Réinitialisation du mot de passe" %}
+{% endblock %}
+
+{% block content %}
+<div id="container-content" class="exte">
+  {% include "authens/form_full_snippet.html" with submit_text="Envoyer un mail" %}
+</div>
+{% endblock %}

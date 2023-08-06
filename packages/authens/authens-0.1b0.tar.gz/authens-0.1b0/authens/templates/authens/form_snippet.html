@@ -1,0 +1,7 @@
+<table>
+  <tbody>
+    {% for field in form %}
+      {% include 'authens/form_field_snippet.html' with field=field %}
+    {% endfor %}
+  </tbody>
+</table>

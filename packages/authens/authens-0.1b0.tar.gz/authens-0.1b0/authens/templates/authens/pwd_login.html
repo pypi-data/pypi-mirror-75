@@ -1,0 +1,16 @@
+{% extends "authens/base.html" %}
+{% load i18n %}
+
+{% block container-title %}
+{% trans "Connexion par mot de passe" %}
+{% endblock %}
+
+{% block content %}
+<div id="container-content" class="exte">
+  {% include "authens/form_full_snippet.html" with submit_text="Se connecter" %}
+
+  <div class="forgot-pwd">
+    <a href={% url "authens:reset.pwd" %}>{% trans "Mot de passe oublié ?" %}</a>
+  </div>
+</div>
+{% endblock %}

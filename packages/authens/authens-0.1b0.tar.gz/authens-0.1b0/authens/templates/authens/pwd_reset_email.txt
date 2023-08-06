@@ -1,0 +1,12 @@
+{% load i18n %}{% autoescape off %}
+{% blocktrans %}Quelqu'un (probablement vous) a demandé la réinitialisation du mot de passe associé à cette addresse sur {{ site_name }}.{% endblocktrans %}
+
+{% blocktrans %}S'il s'agit bien de vous, vous pouvez vous rendre à l'adresse suivante pour en choisir un nouveau : {% endblocktrans %}
+{% block reset_link %}
+{{ protocol }}://{{ domain }}{% url "authens:reset.pwd.confirm" uidb64=uid token=token %}
+{% endblock %}
+{% blocktrans with username=user.get_username %}Pour information, votre nom d'utilisateur est le suivant : {{ username }}{% endblocktrans %}
+
+{% block signature %}{% blocktrans %}L'équipe {{site_name}}{% endblocktrans %}{% endblock %}
+
+{% endautoescape %}

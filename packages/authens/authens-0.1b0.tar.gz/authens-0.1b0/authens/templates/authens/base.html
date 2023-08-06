@@ -1,0 +1,39 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="{% static "authens/css/authens.css" %}" type="text/css">
+
+    <title>
+      {% if request.site.name %}{{ request.site.name }}{% else %}AuthENS{% endif %} - login
+    </title>
+  </head>
+  <body>
+    <div id="container">
+      {% block container-top %}
+      <div id="container-title">
+        <h2>{% if request.site.name %}{{ request.site.name }}{% else %}AuthENS{% endif %} - {% block container-title %}{% endblock %}</h2>
+      </div>
+      {% endblock %}
+
+      {% if messages %}
+        {% for message in messages %}
+              <p class="{{ message.level_tag }}">
+                {% if 'safe' in message.tags %}
+                    {{ message|safe }}
+                {% else %}
+                    {{ message }}
+                {% endif %}
+              </p>
+        {% endfor %}
+      {% endif %}
+      
+      {% block content %}{% endblock %}
+    </div>
+  </body>
+</html>
