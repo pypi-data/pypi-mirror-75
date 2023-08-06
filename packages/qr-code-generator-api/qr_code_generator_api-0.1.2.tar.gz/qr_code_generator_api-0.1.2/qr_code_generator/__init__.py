@@ -1,0 +1,1 @@
+from qr_code_generator.wrapper import QrGenerator
