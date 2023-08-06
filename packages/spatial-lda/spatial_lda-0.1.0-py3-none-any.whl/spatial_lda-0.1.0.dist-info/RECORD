@@ -1,0 +1,15 @@
+spatial_lda/__init__.py,sha256=2RZqnOKncqOGT6LQOaIFutYqzuOynOGgbTcKWpuywDQ,50
+spatial_lda/admm.py,sha256=PdR7BJSmUrQo2rPrYdbwMQ75JjriAGEd5DjdNYQnBGQ,14390
+spatial_lda/featurization.py,sha256=EVusVexHrJCy6oSaJwJOFCDV6uns6kiIXa1_sZ4hTYM,7474
+spatial_lda/model.py,sha256=pLGuAjSQXJ4oJlc3VdRAHeB70XBUp7yvuClxw4oIjww,10703
+spatial_lda/online_lda.py,sha256=Nm9m7wiQqiSfK29fcypsZHtU8wLECT8Om685ec9T76g,32465
+spatial_lda/primal_dual.py,sha256=xrOeKV3Nj589jQ1I1f035F9ZbIHngu9g1qHZRWeh8I8,6270
+spatial_lda/visualization.py,sha256=2tZ2qnCJ5OMr7PlSppU0uRPX4R0RE6Y0mm8C2XqFLRA,8097
+tests/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+tests/test_admm.py,sha256=SEvCneNqf8TSVHO60hJSozS61E_T6aO5BNmCBsAoR94,10569
+tests/test_featurization.py,sha256=aaymJPXNsA5uxVPfCoUPU1Xb6ERcCANTNmgAY4x5fBc,2894
+spatial_lda-0.1.0.dist-info/LICENSE,sha256=vU7y9UKDtiJ4qL6oFxHvLbWfB14gWvrKjTG2zQLBtdI,1063
+spatial_lda-0.1.0.dist-info/METADATA,sha256=sLp5WhCSCoGdJHO9wghz6avRVDfQvQ_rpTMBRqM5GL4,5771
+spatial_lda-0.1.0.dist-info/WHEEL,sha256=S8S5VL-stOTSZDYxHyf0KP7eds0J72qrK0Evu3TfyAY,92
+spatial_lda-0.1.0.dist-info/top_level.txt,sha256=SHOJL82w86iifXvO-qaYdnPeax-m6AqVGklwPj49ngM,18
+spatial_lda-0.1.0.dist-info/RECORD,,
