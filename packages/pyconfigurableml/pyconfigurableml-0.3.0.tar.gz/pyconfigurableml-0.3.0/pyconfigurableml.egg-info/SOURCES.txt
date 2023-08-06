@@ -1,0 +1,13 @@
+README.md
+setup.py
+pyconfigurableml/__init__.py
+pyconfigurableml/_core.py
+pyconfigurableml/azure.py
+pyconfigurableml/entry.py
+pyconfigurableml/logging.py
+pyconfigurableml/munch.py
+pyconfigurableml.egg-info/PKG-INFO
+pyconfigurableml.egg-info/SOURCES.txt
+pyconfigurableml.egg-info/dependency_links.txt
+pyconfigurableml.egg-info/requires.txt
+pyconfigurableml.egg-info/top_level.txt
