@@ -1,0 +1,3 @@
+[console_scripts]
+blyzer-client=blyzer.client2.run:main
+
