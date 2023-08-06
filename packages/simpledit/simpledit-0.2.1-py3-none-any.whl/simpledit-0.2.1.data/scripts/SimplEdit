@@ -1,0 +1,4 @@
+#!python
+
+from simpledit import main
+main.RunApp()
