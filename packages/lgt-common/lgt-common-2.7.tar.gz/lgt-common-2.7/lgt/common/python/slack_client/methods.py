@@ -1,0 +1,15 @@
+class SlackMethods:
+    pass
+    profile_set = 'users.profile.set'
+    profile_get = 'users.profile.get'
+    conversations_join = 'conversations.join'
+    conversations_leave = 'conversations.leave'
+    conversations_list = 'conversations.list'
+    conversations_open = 'conversations.open'
+    chat_delete = 'chat.delete'
+    chat_update = 'chat.update'
+    conversations_history = 'conversations.history'
+    chat_post_message = 'chat.postMessage'
+    users_list = 'users.list'
+    users_info = 'users.info'
+    rtm_connect = 'rtm.connect'
