@@ -1,0 +1,15 @@
+tqdm
+requests
+numpy
+scikit-image
+
+[plot]
+matplotlib
+
+[register]
+dipy
+
+[test]
+docutils
+pygments
+flake8
