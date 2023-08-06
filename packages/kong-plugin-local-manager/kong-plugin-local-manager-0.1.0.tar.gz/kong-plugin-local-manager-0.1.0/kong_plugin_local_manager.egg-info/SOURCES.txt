@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+kong_plugin_local_manager/__init__.py
+kong_plugin_local_manager/manager.py
+kong_plugin_local_manager.egg-info/PKG-INFO
+kong_plugin_local_manager.egg-info/SOURCES.txt
+kong_plugin_local_manager.egg-info/dependency_links.txt
+kong_plugin_local_manager.egg-info/requires.txt
+kong_plugin_local_manager.egg-info/top_level.txt
+kong_plugin_local_manager/example/__init__.py
+kong_plugin_local_manager/example/manager.py
+kong_plugin_local_manager/example/src/plugin.rockspec
+kong_plugin_local_manager/example/src/lua/handler.lua
+kong_plugin_local_manager/example/src/lua/schema.lua
