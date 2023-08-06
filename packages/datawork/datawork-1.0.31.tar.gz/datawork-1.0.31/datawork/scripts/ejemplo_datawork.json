@@ -1,0 +1,23 @@
+{
+  "DW_DIR": "/home/datawork/datawork_system/datawork/datawork/scripts",
+  "DATAWORK_EST_X_PROC": "8",
+  "DATAWORK_TSLEEP": "2",
+  "DATAWORK_WORKERS": "12",
+  "DW_STATUS": "ALL",
+  "DW_GROUP": "[\"QSCO\"]",
+  "SELECT_GROUP": "4",
+  "COLLECTOR_SOCKET_IP": "10.54.218.39",
+  "COLLECTOR_SOCKET_PORT": "6677",
+  "DATAWORK_SOCKET_IP": "localhost",
+  "DATAWORK_SOCKET_PORT": "6666",
+  "RDB_SOURCE_HOST": "10.54.217.15",
+  "RDB_SOURCE_PORT": "28015",
+  "RDB_ENU_HOST": "10.54.218.66",
+  "RDB_ENU_PORT": "28015",
+  "MQ_HOST": "10.54.217.95",
+  "MQ_NAME": "enugeojson_prod",
+  "MQ_PASS": "geognss_prod",
+  "MQ_VHOST": "gpsdata",
+  "MQ_CODE": "geo_enu_data",
+  "MQ_QUEUE_NAME": "gpsstream"
+}
