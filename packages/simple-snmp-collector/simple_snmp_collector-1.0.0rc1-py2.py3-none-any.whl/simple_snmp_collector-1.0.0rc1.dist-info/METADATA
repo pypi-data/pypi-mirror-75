@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: simple-snmp-collector
+Version: 1.0.0rc1
+Summary: SNMP collector through an asyncio loop
+Home-page: https://github.com/agn-7/simple-snmp-collector
+Author: agn-7
+Author-email: benyaminjmf@gmail.com
+License: MIT
+Download-URL: https://github.com/agn-7/simple-snmp-collector/archive/1.0.0-rc1.zip
+Keywords: snmp,snmp-collector,asyncio,python3,python,docker,docker-compose
+Platform: UNKNOWN
+Requires-Dist: pyserial
+Requires-Dist: easydict
+Requires-Dist: pysnmp (==4.4.9)
+Requires-Dist: async-timeout
+
+UNKNOWN
+
+
