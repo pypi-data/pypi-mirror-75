@@ -1,0 +1,32 @@
+Metadata-Version: 2.1
+Name: easy_differ
+Version: 0.1
+Summary: Compare Text line by line. When your texts has different place in file you can't use beyond compare totaly so you may need to compare line by line.
+Home-page: https://github.com/FurkanOzkaya/easy_differ
+Author: Furkan Ozkaya
+Author-email: furkanozkaya45@gmail.com
+License: MIT
+Download-URL: https://github.com/FurkanOzkaya/easy_differ/archive/0.1.tar.gz
+Description: # Differ
+        
+        Compare Texts with easy_differ
+        
+        When your texts has different place in file you can't use beyond compare totally so you may need to compare line by line.
+        
+        Easy to use and easy to see missing lines.
+        
+        # []()
+        
+Keywords: DIFFER,COMPARE,TEXT COMPARE,ARRAY COMPARE
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
