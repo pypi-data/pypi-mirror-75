@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+setup.py
+ier_processor/__init__.py
+ier_processor/__main__.py
+ier_processor/image_record_processing.py
+ier_processor/pdf_slicing.py
+ier_processor/utils.py
+indian_electoral_roll_processor.egg-info/PKG-INFO
+indian_electoral_roll_processor.egg-info/SOURCES.txt
+indian_electoral_roll_processor.egg-info/dependency_links.txt
+indian_electoral_roll_processor.egg-info/requires.txt
+indian_electoral_roll_processor.egg-info/top_level.txt
