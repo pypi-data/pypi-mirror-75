@@ -1,0 +1,35 @@
+Metadata-Version: 2.1
+Name: django-handy-utils
+Version: 1.1.0
+Summary: Handy utilities for working on Django projects
+Home-page: https://github.com/mfdeux/django-handy-utils
+License: MIT
+Author: Marc Ford
+Author-email: mrfxyz567@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: Django (>=2)
+Requires-Dist: djangorestframework (>=3)
+Project-URL: Repository, https://github.com/mfdeux/django-handy-utils
+Description-Content-Type: text/markdown
+
+# django-handy-utils
+
+`django-handy-utils` contains various model, view, filter, and other miscellaneous utilities that are standardized across projects.
+
+## Installation
+
+```shell
+pip install django-handy-utils --upgrade
+```
+
+## Usage in Django
+
+TO COME
+
+
+## Contributors
+
+All contributors are welcome.
