@@ -1,0 +1,30 @@
+{%- macro _render_delimiter(loop) %}
+{%- if not loop.last %}
+
+{{ config["delimiter"] | read_config("===============") }}
+{% endif %}
+{%- endmacro %}
+
+{%- for tag, version in versions if version.has_commits() %}{%- for type, changes in version.items() %}{%- for change in changes if "data" in change %}
+
+{#- Render subject line #}
+{{- change["data"]["subject"]["type"] }}{% if "scope" in change["data"]["subject"] %}({{ change["data"]["subject"]["scope"] }}){% endif %}{% if change["data"]["metadata"]["breaking"] %}!{% endif %}: {{ change["data"]["subject"]["message"] }}
+
+{#- If content exists, render it after two newline characters #}
+{%- if "content" in change["data"]["body"] %}
+
+{{ change["data"]["body"]["content"] }}
+{%- endif %}
+
+{#- If any footers exists, render each item on a new line #}
+{%- if "footer" in change["data"]["body"] %}
+
+{#- #}
+{% for item in change["data"]["body"]["footer"]["items"] %}
+{{ item["key"] }}: {{ item["value"] }}
+{%- endfor %}
+{%- endif %}
+
+{{- _render_delimiter(loop) }}{% endfor %}
+{{- _render_delimiter(loop) }}{% endfor %}
+{{- _render_delimiter(loop) }}{% endfor %}
