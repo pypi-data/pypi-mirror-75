@@ -1,0 +1,11 @@
+pytest>=5.3.0
+pytest-xdist
+pytest-profiling
+pytest-repeat
+pytest-cov
+pytest-timeout
+pylint
+mypy==0.770
+flaky>=3.6
+coverage
+codecov
