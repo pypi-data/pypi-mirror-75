@@ -1,0 +1,4 @@
+[console_scripts]
+pit_init = pitapp.init:main
+pit_run = pitapp.run:main
+

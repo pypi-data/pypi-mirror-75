@@ -1,0 +1,54 @@
+{% extends "mainTemplate.html" %}
+
+{% block title %}General Observation{% endblock %}
+
+{% load crispy_forms_tags %}
+
+{% block content %}
+
+    <div class="container-fluid">
+        <div style="padding-top: 100px; padding-left: 10px">
+        <div class="card">
+            <div class="card-body">
+
+            <h2 style="text-align: center">General Observation</h2>
+
+                <div class="container">
+                    <hr>
+
+                    <div>
+                        <p><b>Before starting, please fill out the individual observation forms first to attach at the "Obs client" field:</b></p>
+                        <div class="d-flex justify-content-center">
+                            <a href="/observation_ind_new" class="btn btn-primary" role="button">Add Individual</a>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <form method="POST" class="post-form">
+                            {% csrf_token %}
+
+                            {{ form.obs_reason|as_crispy_field }}
+
+                            <div class="form-row">
+                              <div class="form-group col-md-6 mb-0">
+                                {{ form.obs_time|as_crispy_field }}
+                              </div>
+                            </div>
+
+                            {{ form.obs_client|as_crispy_field }}
+
+
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
+
+                </div>
+    
+            </div>
+        </div>
+        </div>
+    </div>
+
+{% endblock %}
