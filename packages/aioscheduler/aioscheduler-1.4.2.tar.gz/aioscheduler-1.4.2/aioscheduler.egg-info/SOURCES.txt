@@ -1,0 +1,11 @@
+README.md
+setup.cfg
+setup.py
+aioscheduler/__init__.py
+aioscheduler/manager.py
+aioscheduler/scheduler.py
+aioscheduler/task.py
+aioscheduler.egg-info/PKG-INFO
+aioscheduler.egg-info/SOURCES.txt
+aioscheduler.egg-info/dependency_links.txt
+aioscheduler.egg-info/top_level.txt
