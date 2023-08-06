@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import argparse
+import time
+import kachery as ka
+
+def main():
+    old_stdout = sys.stdout
+    sys.stdout = sys.stderr
+
+    parser = argparse.ArgumentParser(description='Print the contents of a file to stdout.')
+    parser.add_argument('path', help='Hash path to the file (e.g. sha1://906faceaf874dd64e81de0048f36f4bab0f1f171)')
+    parser.add_argument('--start', help='The start byte', required=False, default=None)
+    parser.add_argument('--end', help='The end byte (+1)', required=False, default=None)
+    parser.add_argument
+    ka._add_download_args(parser)
+    parser.add_argument('--use-hard-links', action='store_true', help='Whether to use hard links when storing files in the kachery storage directory')
+
+    args = parser.parse_args()
+    path = args.path
+
+    ka._set_download_config_from_parsed_args(args)
+    if args.use_hard_links:
+        ka.set_config(use_hard_links=True)
+    
+    if args.start is None and args.end is None:
+        path1 = ka.load_file(path)
+        if not path1:
+            raise Exception('Error loading file.')
+
+        sys.stdout = old_stdout
+        with open(path1, 'rb') as f:
+            while True:
+                data = os.read(f.fileno(), 4096)
+                if len(data) == 0:
+                    break
+                os.write(sys.stdout.fileno(), data)
+    else:
+        sys.stdout = old_stdout
+        start = int(args.start) if args.start is not None else None
+        end = int(args.end) if args.end is not None else None
+        ka.load_bytes(path, start=start, end=end, write_to_stdout=True)
+
+if __name__ == "__main__":
+    main()

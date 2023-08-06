@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import argparse
+import time
+import kachery as ka
+
+def main():
+    old_stdout = sys.stdout
+    sys.stdout = sys.stderr
+
+    parser = argparse.ArgumentParser(description='Store a file in the local hash cache and optionally upload to a remote kachery database.')
+    parser.add_argument('path', help='Path to local file or directory')
+    parser.add_argument('--algorithm', '-a', help='The hash algorithm to use: sha1 or md5', default='sha1')
+    parser.add_argument('--git-annex-mode', help='Act smart with git-annex repos', required=False, action='store_true')
+
+    ka._add_upload_args(parser)
+    parser.add_argument('--use-hard-links', action='store_true', help='Whether to use hard links when storing files in the kachery storage directory')
+
+    args = parser.parse_args()
+    path = args.path
+
+    ka._set_upload_config_from_parsed_args(args)
+    if args.use_hard_links:
+        ka.set_config(use_hard_links=True)
+
+    ka.set_config(
+        algorithm=args.algorithm
+    )
+
+    if os.path.isfile(path):
+        address = ka.store_file(path)
+    elif os.path.isdir(path):
+        address = ka.store_dir(path, git_annex_mode=args.git_annex_mode)
+    else:
+        raise Exception('Not a file or directory: {}'.format(path))
+
+    if not address:
+        raise Exception('Error storing file.')
+
+    sys.stdout = old_stdout
+
+    print(address)
+
+if __name__ == "__main__":
+    main()
