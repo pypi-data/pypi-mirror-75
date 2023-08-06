@@ -1,0 +1,30 @@
+# -*- coding: utf-8 -*-
+from setuptools import setup
+
+packages = \
+['django_require_login']
+
+package_data = \
+{'': ['*']}
+
+install_requires = \
+['django>=2.2,<4.0']
+
+setup_kwargs = {
+    'name': 'django-require-login',
+    'version': '1.1.0',
+    'description': 'Middleware to require login for all Django URLs',
+    'long_description': '# Django Require Login\n\n[![Build Status](https://travis-ci.org/laactech/django-require-login.svg?branch=master)](https://travis-ci.org/laactech/django-require-login)\n[![codecov](https://codecov.io/gh/laactech/django-require-login/branch/master/graph/badge.svg)](https://codecov.io/gh/laactech/django-require-login)\n[![PyPI](https://img.shields.io/pypi/v/django-require-login)](https://pypi.org/project/django-require-login/)\n[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/python/black)\n[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://github.com/laactech/django-require-login/blob/master/LICENSE.md)\n\nForked from [django-stronghold](https://github.com/mgrouchy/django-stronghold)\n\nRequire login on all your django URLs by default\n\n## Supported Versions\n\n* Python 3.6, 3.7, 3.8\n* Django 2.2, 3.0, 3.1\n\n## Installation and Setup\n\nInstall via pip.\n\n```sh\npip install django-require-login\n```\n\nThen add the middleware to your MIDDLEWARE in your Django settings file\n\n```python\nMIDDLEWARE = [\n    #...\n    "django_require_login.middleware.LoginRequiredMiddleware",\n]\n\n```\n\nAfter adding the middleware, all your Django views will default to login required.\n\nIf your `LOGIN_URL` and `LOGOUT_REDIRECT_URL` contain a\n[named URL pattern](https://docs.djangoproject.com/en/2.2/topics/http/urls/#naming-url-patterns)\nadd `REQUIRE_LOGIN_PUBLIC_NAMED_URLS` to your settings file with your `LOGIN_URL` and\n`LOGOUT_REDIRECT_URL`\n\n```python\nREQUIRE_LOGIN_PUBLIC_NAMED_URLS = (LOGIN_URL, LOGOUT_REDIRECT_URL)\n```\n\nIf your `LOGIN_URL` and `LOGOUT_REDIRECT_URL` don\'t contain a named URL pattern add \n`REQUIRE_LOGIN_PUBLIC_URLS` to your settings file with your `LOGIN_URL` and\n`LOGOUT_REDIRECT_URL`\n\n```python\nREQUIRE_LOGIN_PUBLIC_URLS = (LOGIN_URL, LOGOUT_REDIRECT_URL)\n```\n\n## Usage\n\nTo make a view public again you can use the public decorator:\n\n### For function based views\n```python\nfrom django_require_login.decorators import public\nfrom django.http import HttpResponse\n\n\n@public\ndef my_view(request):\n    return HttpResponse("Public")\n\n```\n\n### For class based views (decorator)\n\n```python\nfrom django.utils.decorators import method_decorator\nfrom django_require_login.decorators import public\nfrom django.views.generic import View\nfrom django.http import HttpResponse\n\n\nclass SomeView(View):\n    def get(self, request, *args, **kwargs):\n        return HttpResponse("Public view")\n    \n    @method_decorator(public)\n    def dispatch(self, *args, **kwargs):\n        return super().dispatch(*args, **kwargs)\n```\n\n### For class based views (mixin)\n\n```python\nfrom django_require_login.mixins import PublicViewMixin\nfrom django.views.generic import View\n\n\nclass SomeView(PublicViewMixin, View):\n\tpass\n```\n\n## Configuration (optional)\n\nYou can add a tuple of url regexes in your settings file with the\n`REQUIRE_LOGIN_PUBLIC_URLS` setting. Any url that matches against these patterns\n will be made public without using the `@public` decorator.\n\n\n### REQUIRE_LOGIN_PUBLIC_URLS\n\n**Default**:\n```python\nREQUIRE_LOGIN_PUBLIC_URLS = ()\n```\n\n#### Development Defaults\nIf `DEBUG` is True, `REQUIRE_LOGIN_PUBLIC_URLS` contains:\n```python\nfrom django.conf import settings\n\n(\n    r\'{}.+$\'.format(settings.STATIC_URL),\n    r\'{}.+$\'.format(settings.MEDIA_URL),\n)\n\n```\nThis is additive to your settings to support serving static files and media files from\nthe development server. It does not replace any settings you may have in\n`REQUIRE_LOGIN_PUBLIC_URLS`.\n\n> Note: Public URL regexes are matched against \n>[HttpRequest.path_info](https://docs.djangoproject.com/en/dev/ref/request-response/#django.http.HttpRequest.path_info).\n\n### REQUIRE_LOGIN_PUBLIC_NAMED_URLS\nYou can add a tuple of url names in your settings file with the\n`REQUIRE_LOGIN_PUBLIC_NAMED_URLS` setting. Names in this setting will be reversed using\n`django.urls.reverse` and any url matching the output of the reverse\ncall will be made public without using the `@public` decorator:\n\n**Default**:\n```python\nREQUIRE_LOGIN_PUBLIC_NAMED_URLS = ()\n```\n\n### REQUIRE_LOGIN_USER_TEST_FUNC\nOptionally, set REQUIRE_LOGIN_USER_TEST_FUNC to a callable to limit access to users\nthat pass a custom test. The callback receives a `User` object and should\nreturn `True` if the user is authorized. This is equivalent to decorating a\nview with `user_passes_test`.\n\n**Example**:\n\n```python\nREQUIRE_LOGIN_USER_TEST_FUNC = lambda user: user.is_staff\n```\n\n**Default**:\n\n```python\nREQUIRE_LOGIN_USER_TEST_FUNC = lambda user: user.is_authenticated\n```\n\n## Integration with Django REST Framework\n\nDjango REST Framework is not part of Django and uses its own authentication system.\nFor this reason, you need to make all of your DRF views public and rely on DRF\'s\nauthentication system.\n\n### Example\n\nAssuming all your DRF views live under `/api/` you can make them all public using a regex:\n\n```python\nREQUIRE_LOGIN_PUBLIC_URLS = (r"^/api/.*",)\n```\n\n## Security\n\nIf you believe you\'ve found a bug with security implications, please do not disclose this\nissue in a public forum.\n\nEmail us at [support@laac.dev](mailto:support@laac.dev)\n\n## Contribute\n\nSee [CONTRIBUTING.md](https://github.com/laactech/django-require-login/blob/master/CONTRIBUTING.md)\n',
+    'author': 'Steven Pate',
+    'author_email': 'steven@laac.dev',
+    'maintainer': None,
+    'maintainer_email': None,
+    'url': 'https://github.com/laactech/django-require-login',
+    'packages': packages,
+    'package_data': package_data,
+    'install_requires': install_requires,
+    'python_requires': '>=3.6,<4.0',
+}
+
+
+setup(**setup_kwargs)
