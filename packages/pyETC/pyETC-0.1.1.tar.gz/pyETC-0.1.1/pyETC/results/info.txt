@@ -1,0 +1,110 @@
+sky_site: OAN_Ratir_X1.5
+atmosphere_type: file
+ext_file: OAN_extinction
+atm_file: OAN_atm_trans
+D_M1: 1.3
+D_M2: 0.58
+M2_factor: 1
+focal_length: OrderedDict([('DDRAGO-B', 8.124), ('DDRAGO-R', 8.124), ('CAGIRE', 4.874)])
+Fwhm_psf_opt: OrderedDict([('g', 0.26), ('r', 0.26), ('i', 0.37), ('z', 0.37), ('y', 0.37), ('J', 0.59), ('H', 0.73), ('gri', 0.3), ('zy', 0.37), ('V', 0.26), ('R', 0.37)])
+detailed_trans: 1
+filter_folder: COLIBRI
+optical_design: OrderedDict([('telescope', OrderedDict([('mirrors', OrderedDict([('Al_OHP_unam', 3)])), ('lenses', OrderedDict([('N-BaK4', 1)])), ('coating', OrderedDict([('template_tel', 4)])), ('dichroics', OrderedDict([('template_tel', 1)]))])), ('DDRAGO-B', OrderedDict([('coating', OrderedDict([('template_vis', 2)])), ('dichroics', OrderedDict([('template_vis', 1)])), ('windows', OrderedDict([('template_vis', 1)]))])), ('DDRAGO-R', OrderedDict([('lenses', OrderedDict([('internal_trans_tot', 1)])), ('coating', OrderedDict([('template_vis', 2)])), ('dichroics', OrderedDict([('template_vis', 1)])), ('windows', OrderedDict([('template_vis', 1)]))])), ('CAGIRE', OrderedDict([('mirrors', OrderedDict([('Au', 2)])), ('lenses', OrderedDict([('S-FTM16', 1)])), ('coating', OrderedDict([('template_ir', 18)]))]))])
+cameras: OrderedDict([('DDRAGO-B', OrderedDict([('camera_type', 'e2v231_84'), ('sensor', 'dd_SI_100C'), ('Nphotocell_X', 4096), ('Nphotocell_Y', 4096), ('Photocell_SizeX', 1.5e-05), ('Photocell_SizeY', 1.5e-05), ('ReadoutTime', 6), ('FWC', 350000), ('RN', 8), ('DC', 0.001), ('gain', 1.5), ('bits', 16)])), ('DDRAGO-R', OrderedDict([('camera_type', 'e2v231_84'), ('sensor', 'dd_SI_100C'), ('Nphotocell_X', 4096), ('Nphotocell_Y', 4096), ('Photocell_SizeX', 1.5e-05), ('Photocell_SizeY', 1.5e-05), ('ReadoutTime', 6), ('FWC', 350000), ('RN', 8), ('DC', 0.001), ('gain', 1.5), ('bits', 16)])), ('CAGIRE', OrderedDict([('camera_type', 'sofradir'), ('sensor', 'sofradir_70'), ('Nphotocell_X', 2048), ('Nphotocell_Y', 2048), ('Photocell_SizeX', 1.5e-05), ('Photocell_SizeY', 1.5e-05), ('ReadoutTime', 1), ('FWC', 80000), ('RN', 20), ('DC', 0.0027), ('gain', 1.3), ('bits', 16)]))])
+verbose: True
+plot: True
+lambda_start: 0.2
+lambda_end: 3
+lambda_step: 0.001
+etc_type: snr
+object_type: magnitude
+object_folder: /data/calspec/
+object_file: bd02d3375_stis_001.txt
+object_magnitude: 16
+SNR: 70.65538206554363
+exptime: 5
+Nexp: 1
+seeing_zenith: 1
+elevation: 41.9
+moon_age: 7
+Temp_night: 5
+psf_type: gaussian
+moffat_beta: 3
+fwhm_type: seeing
+filter_band: r
+channel: DDRAGO-B
+binning_X: 1
+binning_Y: 1
+photometry_system: AB
+radius_int_fwhm: 0.675
+PSF_position_on_ccd: nogrid
+path: /home/corre/codes/mygithub/pyETC/pyETC
+telescope: colibri
+scale2Airmass: False
+wavelength_ang: [ 2000.  2010.  2020. ... 29980. 29990. 30000.]
+Trans_telescope: [0.00000000e+00 8.99654207e-10 9.10911062e-09 ... 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00]
+Trans_inst_channel: [0.00000000e+00 8.64448200e-05 1.38311712e-03 ... 3.45779280e-04
+ 8.64448200e-05 0.00000000e+00]
+Trans_optics_total: [0.00000000e+00 7.77704460e-14 1.25989668e-11 ... 0.00000000e+00
+ 0.00000000e+00 0.00000000e+00]
+dig_noise: 0.43301270189221935
+camera_efficiency: [0.00015257 0.00030514 0.00045771 ... 0.         0.         0.        ]
+sky_brightness: [20.15 20.15 20.15 ... 15.   15.   15.  ]
+Trans_filter: [0. 0. 0. ... 0. 0. 0.]
+system_response: [0. 0. 0. ... 0. 0. 0.]
+effWavelength: 6198.873533910317
+SB_eff: 19.946987251403087
+airmass: 1.4953717490083194
+seeing_los_arcsec: 1.2194975961304766
+Trans_atmosphere: [0.00268317 0.00536634 0.0080495  ... 0.         0.         0.        ]
+pixelSize: 1.5e-05
+foc_len: 8.124
+FoV_tel: 675.9369850146185
+FoV_axis1: 25.99878814511589
+FoV_axis2: 25.99878814511589
+pixelScale_X: 0.380841623219471
+pixelScale_Y: 0.380841623219471
+obstruction: 0.19905325443786978
+A_tel: 10631.149539747861
+A_pixel: 0.14504034197644153
+Instrument_bg: 0
+FWHM_tot: 1.2469059254683215
+radius_aperture_phot: 0.841661499691117
+spatial_binning: 4.420007942283584
+npix: 16.0
+T_dithering: 0.0
+deadtime_tot: 0.0
+Passband_width: 530.930306497037
+Passband_cuton: 5495.228522852289
+Passband_cutoff: 6895.0295029502995
+Flux_zero_Jy: 3631
+zeropoint: 24.11797008434952
+Object_fph: [1.09076630e-03 1.08533961e-03 1.07996664e-03 ... 7.27662644e-05
+ 7.27420009e-05 7.27177536e-05]
+Object_fes: 1766.8026164835424
+Object_mag: [16. 16. 16. ... 16. 16. 16.]
+total_exposure_time: 5.0
+trans_mean_tel: 0.5691510091682731
+trans_mean_inst: 0.666383258993041
+trans_mean_optics: 0.37927270434873195
+trans_mean_filter: 0.8499999999999965
+trans_mean_atm: 0.886676054083325
+trans_mean_cam: 0.9069141502032143
+trans_mean_system: 0.37927270434873195
+factor_ima: 1.0
+f_pix: 0.06261544240194397
+f_PSF: 0.7172693882335293
+Sky_CountRate: 8.48795238460051
+SNR_pix: 21.534788440046196
+mag_pix: 16
+Ftot_el_pix: 553.1456373401458
+Ftot_el: 6336.367159272746
+DIT_pix: 5.0
+DIT: 5.0
+N_el_tot_pix1: 604.0234119650406
+N_el_tot_pix2: 604.0234119650406
+saturation: No
+mag: 16
+fph: [1.09076630e-03 1.08533961e-03 1.07996664e-03 ... 7.27662644e-05
+ 7.27420009e-05 7.27177536e-05]
