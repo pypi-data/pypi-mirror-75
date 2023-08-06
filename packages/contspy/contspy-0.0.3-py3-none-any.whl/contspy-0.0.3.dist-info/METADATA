@@ -1,0 +1,60 @@
+Metadata-Version: 2.1
+Name: contspy
+Version: 0.0.3
+Summary: Numerical continuation tools for partial differential equations using spectral elements method
+Home-page: https://github.com/ajacquey/contspy
+Author: Antoine B. Jacquey
+Author-email: ajacquey@mit.edu
+License: MIT
+Project-URL: Code, https://github.com/ajacquey/contspy
+Project-URL: Issues, https://github.com/ajacquey/contspy/issues
+Platform: any
+Classifier: Development Status :: 1 - Planning
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Scientific/Engineering
+Classifier: Topic :: Scientific/Engineering :: Mathematics
+Requires-Python: >=3.5
+Description-Content-Type: text/markdown
+Requires-Dist: numpy
+Requires-Dist: termcolor
+Requires-Dist: matplotlib
+Requires-Dist: importlib-metadata ; python_version < "3.8"
+
+# contspy
+
+[![gh-actions](https://img.shields.io/github/workflow/status/ajacquey/contspy/ci?style=flat-square)](https://github.com/ajacquey/contspy/actions?query=workflow%3Aci)
+[![CircleCI](https://img.shields.io/circleci/project/github/ajacquey/contspy/master.svg?style=flat-square)](https://circleci.com/gh/ajacquey/contspy/tree/master)
+[![travis](https://img.shields.io/travis/ajacquey/contspy.svg?style=flat-square)](https://travis-ci.org/ajacquey/contspy)
+[![codecov](https://img.shields.io/codecov/c/github/ajacquey/contspy.svg?style=flat-square)](https://codecov.io/gh/ajacquey/contspy)
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg?style=flat-square)](https://github.com/psf/black)
+[![awesome](https://img.shields.io/badge/awesome-yes-8209ba.svg?style=flat-square)](https://github.com/ajacquey/contspy)
+[![PyPI pyversions](https://img.shields.io/pypi/pyversions/contspy.svg?style=flat-square)](https://pypi.org/pypi/contspy/)
+[![PyPi Version](https://img.shields.io/pypi/v/contspy.svg?style=flat-square)](https://pypi.org/project/contspy)
+[![GitHub stars](https://img.shields.io/github/stars/ajacquey/contspy.svg?logo=github&label=Stars&logoColor=white&style=flat-square)](https://github.com/ajacquey/contspy)
+[![PyPi downloads](https://img.shields.io/pypi/dm/contspy.svg?style=flat-square)](https://pypistats.org/packages/contspy)
+
+Contspy provides several tools to perform numerical continuation for partial differential equations (PDEs) using the spectral elements method.
+
+### Testing
+
+To run the contspy unit tests, check out this repository and type
+```
+pytest
+```
+
+### License
+
+contspy is published under the [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+
+### Acknowledgements
+
+
+
