@@ -1,0 +1,3 @@
+[pytest11]
+pytest_github_actions_annotate_failures = pytest_github_actions_annotate_failures.plugin
+
