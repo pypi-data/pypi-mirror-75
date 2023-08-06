@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        curator=cloud_curator.main:cli
+    
