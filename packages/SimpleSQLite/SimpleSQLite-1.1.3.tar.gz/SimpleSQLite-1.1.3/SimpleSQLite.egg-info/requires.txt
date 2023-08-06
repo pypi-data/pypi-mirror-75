@@ -1,0 +1,15 @@
+setuptools>=38.3.0
+DataProperty<2,>=0.50.0
+mbstrdecoder<2,>=1.0.0
+pathvalidate<3
+sqliteschema<2,>=1.0.1
+tabledata<2,>=1.1.3
+typepy<2,>=1.1.1
+
+[logging]
+loguru<1,>=0.4.1
+
+[test]
+pytablereader>=0.28
+pytablewriter>=0.50
+pytest>=5
