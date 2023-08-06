@@ -1,0 +1,17 @@
+CHANGES.rst
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+lib_platform/__init__.py
+lib_platform/__init__conf__.py
+lib_platform/lib_platform.py
+lib_platform/lib_platform_cli.py
+lib_platform/py.typed
+lib_platform.egg-info/PKG-INFO
+lib_platform.egg-info/SOURCES.txt
+lib_platform.egg-info/dependency_links.txt
+lib_platform.egg-info/entry_points.txt
+lib_platform.egg-info/not-zip-safe
+lib_platform.egg-info/requires.txt
+lib_platform.egg-info/top_level.txt
