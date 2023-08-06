@@ -1,0 +1,14 @@
+msgpack
+toml
+pyyaml
+stringcase
+typing_inspect>=0.4.0
+jinja2
+
+[test]
+coverage
+pytest
+pytest-cov
+pytest-flake8
+mypy
+flake8
