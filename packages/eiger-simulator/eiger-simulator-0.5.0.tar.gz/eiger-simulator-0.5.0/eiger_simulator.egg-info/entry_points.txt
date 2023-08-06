@@ -1,0 +1,3 @@
+[console_scripts]
+eiger-simulator = eigersim.server:main
+
