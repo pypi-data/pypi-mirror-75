@@ -1,0 +1,17 @@
+LICENSE
+MANIFEST.in
+README.md
+VERSION
+setup.cfg
+setup.py
+src/wechaty_plugin_contrib/__init__.py
+src/wechaty_plugin_contrib/daily_plugin.py
+src/wechaty_plugin_contrib/ding_dong_plugin.py
+src/wechaty_plugin_contrib/ding_dong_rank_plugin.py
+src/wechaty_plugin_contrib/validate_plugin.py
+src/wechaty_plugin_contrib.egg-info/PKG-INFO
+src/wechaty_plugin_contrib.egg-info/SOURCES.txt
+src/wechaty_plugin_contrib.egg-info/dependency_links.txt
+src/wechaty_plugin_contrib.egg-info/requires.txt
+src/wechaty_plugin_contrib.egg-info/top_level.txt
+src/wechaty_plugin_contrib/contrib/__init__.py
