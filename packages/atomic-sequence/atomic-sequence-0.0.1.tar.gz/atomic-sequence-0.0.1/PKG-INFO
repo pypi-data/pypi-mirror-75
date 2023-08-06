@@ -1,0 +1,49 @@
+Metadata-Version: 2.1
+Name: atomic-sequence
+Version: 0.0.1
+Summary: A lock-free, thread-safe sequence counter using the C++ atomic library.
+Home-page: https://github.com/arossoshynskyy/atomic-sequence
+Author: Andriy Rossoshynskyy
+Author-email: andriy.rossoshynskyy@gmail.com
+License: UNKNOWN
+Description: # Atomic Sequence
+        
+        A lock-free sequence which uses the C++ atomic library under the hood. This gives
+        a ~3.5x speed increase over using python locks 
+        
+        ## Install
+        The packge can be installed the usual way using setup.py
+        
+        ```
+        python setup.py install
+        ```
+        
+        ## Usage
+        
+        ```python
+        from atomic import Sequence
+        
+        sequence = Sequence(0)
+        
+        # set current sequence value to 1
+        sequence.set(1)
+        # get current value
+        value = sequence.get()
+        # increment the sequence value and get the new value
+        value = sequence.increment_and_get(1)
+        # increment the sequence value and get the value directly preceding the operation
+        value = sequence.get_and_increment(1)
+        ```
+        
+        ## Testing
+        To run unittests and benchmarks use tox:
+        
+        ```
+        pipenv run tox
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
