@@ -1,0 +1,14 @@
+MANIFEST.in
+README.rst
+setup.py
+damona/__init__.py
+damona/damona.py
+damona.egg-info/PKG-INFO
+damona.egg-info/SOURCES.txt
+damona.egg-info/dependency_links.txt
+damona.egg-info/entry_points.txt
+damona.egg-info/not-zip-safe
+damona.egg-info/requires.txt
+damona.egg-info/top_level.txt
+recipes/__init__.py
+test/test_damona.py
