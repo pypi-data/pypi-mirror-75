@@ -1,0 +1,3 @@
+[console_scripts]
+boba-server = server.run_server:main
+
