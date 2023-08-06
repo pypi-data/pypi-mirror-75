@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: id-document-validator
+Version: 0.0.1
+Summary: A simple Identity Document Characters Validator (just for DNI and cedula identity documents)
+    you use it as follows: from validator.validato import Validator. Then, you call the is_valid method:
+    Validato.is_valid(document_name, document_numeration), this must return or True or False
+Home-page: https://github.com/greatBrain/id_document_validator
+Author: Erick M. Fana (roy-mustang)
+Author-email: efanaportes@gmail.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3.7
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
