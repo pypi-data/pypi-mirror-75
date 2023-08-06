@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: dival
+Version: 0.5.2
+Summary: Deep Inversion Validation Library
+Home-page: https://github.com/jleuschn/dival
+Author: Johannes Leuschner
+Author-email: jleuschn@uni-bremen.de
+License: MIT
+Description: UNKNOWN
+Platform: UNKNOWN
+Provides-Extra: torch_learned_reconstructors
