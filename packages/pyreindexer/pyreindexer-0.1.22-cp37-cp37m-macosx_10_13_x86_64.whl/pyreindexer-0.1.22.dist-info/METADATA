@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: pyreindexer
+Version: 0.1.22
+Summary: A connector that allows to interact with Reindexer
+Home-page: https://github.com/Restream/pyreindexer
+Author: Igor Tulmentyev
+Author-email: igtulm@gmail.com
+Maintainer: Oleg Gerasimov
+Maintainer-email: ogerasimov@gmail.com
+License: Apache License 2.0
+Platform: UNKNOWN
+Requires-Dist: envoy
+Requires-Dist: delegator
+Requires-Dist: pytest
+
+UNKNOWN
+
+
