@@ -1,0 +1,13 @@
+MANIFEST.in
+README.md
+proxies.txt
+requirements.txt
+setup.py
+random_tunnel/__init__.py
+random_tunnel/https.py
+random_tunnel/utils.py
+random_tunnel.egg-info/PKG-INFO
+random_tunnel.egg-info/SOURCES.txt
+random_tunnel.egg-info/dependency_links.txt
+random_tunnel.egg-info/requires.txt
+random_tunnel.egg-info/top_level.txt

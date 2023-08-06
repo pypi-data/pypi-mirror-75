@@ -1,0 +1,46 @@
+# random-tunnel
+
+`一款可以使用随机代理地址访问目标服务的turbo-tunnel插件`
+
+## 安装方法
+
+```bash
+$ pip3 install random-tunnel
+```
+
+## 使用方法
+
+```bash
+$ turbo-tunnel -l http+random://127.0.0.1:9999/?provider=${provider_url} -p random_tunnel
+```
+
+这样会在本地创建一个`HTTPS`代理服务器，客户端通过该代理服务器访问目标服务时，会随机使用`${provider_url}`指定的代理服务器列表中的某一个代理。
+
+### 支持的`provider`类型
+
+#### http/https
+
+该url必须按照以下格式返回`application/json`类型的包体：
+
+```json
+{
+    "results": [{
+        "ip": "1.2.3.4",
+        "port": 8080,
+        "type": "https"
+    }, {
+        "ip": "2.2.2.2",
+        "port": 8888,
+        "type": "https"
+    }]
+}
+```
+
+同时，该url需要支持`limit`查询参数用于指定查询的条数。
+
+#### file
+
+本地文件方式，如：`file:///data/proxies.txt`。该文件需要将代理服务器以每行一个的形式存放，格式为：`http://1.2.3.4:8080`。
+
+
+
