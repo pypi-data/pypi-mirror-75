@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: zenith
+Version: 0.0.2
+Summary: A library with various functionality that can be useful in the processing of data in machine learning, computer vision, data science etc.
+Home-page: https://github.com/ovipaul/zenith
+Author: Ovi Paul
+Author-email: ovipaulcs@gmail.com
+License: UNKNOWN
+Description: # zenith
+        Python Library
+        
+        
+        Change Log
+        ===========
+        
+        0.0.1 (07/11/2020)
+        --------------------
+        -First Release
+        -Added overlap_grid function.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
