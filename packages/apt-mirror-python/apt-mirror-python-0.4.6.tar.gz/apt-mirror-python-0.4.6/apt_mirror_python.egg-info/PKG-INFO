@@ -1,0 +1,31 @@
+Metadata-Version: 2.1
+Name: apt-mirror-python
+Version: 0.4.6
+Summary: A small and efficient tool that lets you mirror a part of or the whole Debian GNU/Linux distribution or any other apt sources.
+Home-page: https://github.com/sir-xw/apt-mirror-python
+Author: Xie Wei
+Author-email: xw.master@live.cn
+License: UNKNOWN
+Description: # apt-mirror rewritten by Python
+        
+        
+        This project is started as a line by line translate from apt-mirror 0.5.4, so it is 100% compatible with apt-mirror config file.
+        
+        In v0.2 it becomes an object-oriented program.
+        
+        ## Usage:
+        Get help from http://apt-mirror.github.com/
+        
+        ## Todo:
+        
+        * Automatically check the checksum of index files before download archive files.
+        * If check failed, retry several times.
+        * threading.Queue for download threads.
+        * Accept command line arguments to override variables from mirror.list file.
+        
+        Any improvement is welcome.
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: License :: OSI Approved :: GNU General Public License v2 (GPLv2)
+Classifier: Operating System :: POSIX :: Linux
+Description-Content-Type: text/markdown

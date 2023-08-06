@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README.md
+VERSION
+setup.py
+apt_mirror/__init__.py
+apt_mirror/apt_index.py
+apt_mirror/config.py
+apt_mirror/utils.py
+apt_mirror_python.egg-info/PKG-INFO
+apt_mirror_python.egg-info/SOURCES.txt
+apt_mirror_python.egg-info/dependency_links.txt
+apt_mirror_python.egg-info/entry_points.txt
+apt_mirror_python.egg-info/top_level.txt
