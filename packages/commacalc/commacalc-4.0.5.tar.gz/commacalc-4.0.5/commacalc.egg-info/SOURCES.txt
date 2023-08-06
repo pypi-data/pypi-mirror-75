@@ -1,0 +1,15 @@
+README.md
+setup.py
+bash_completion/,
+commacalc/__init__.py
+commacalc/currencies.py
+commacalc/extra.py
+commacalc/pretty_number.py
+commacalc/primes.py
+commacalc/units.py
+commacalc.egg-info/PKG-INFO
+commacalc.egg-info/SOURCES.txt
+commacalc.egg-info/dependency_links.txt
+commacalc.egg-info/entry_points.txt
+commacalc.egg-info/requires.txt
+commacalc.egg-info/top_level.txt

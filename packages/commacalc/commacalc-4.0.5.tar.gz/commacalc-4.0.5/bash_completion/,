@@ -1,0 +1,17 @@
+# commacalc completion                                     -*- shell-script -*-
+
+_commacalc () {
+	local cur opts
+    COMPREPLY=()
+    cur="${COMP_WORDS[COMP_CWORD]}"
+    # prev="${COMP_WORDS[COMP_CWORD-1]}"
+
+	opts=$(python3 <<!
+from commacalc import *
+print(' '.join(i for i in globals().keys() if not i.startswith('_')))
+!
+	)
+
+	mapfile -t COMPREPLY < <(compgen -W "${opts}" -- "${cur}")
+}
+complete -F _commacalc ,
