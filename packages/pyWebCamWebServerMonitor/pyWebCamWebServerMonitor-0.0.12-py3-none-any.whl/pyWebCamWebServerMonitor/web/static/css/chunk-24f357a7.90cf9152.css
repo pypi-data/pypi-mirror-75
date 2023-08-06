@@ -1,0 +1,1 @@
+table thead tr:nth-child(2) th:nth-child(6) div.th-wrap{width:10rem!important;margin:auto!important}.blink{-webkit-animation:blinker .7s cubic-bezier(.5,0,1,1) infinite alternate;animation:blinker .7s cubic-bezier(.5,0,1,1) infinite alternate}@-webkit-keyframes blinker{0%{opacity:1}to{opacity:0}}@keyframes blinker{0%{opacity:1}to{opacity:0}}.but-space{margin:.2rem}
