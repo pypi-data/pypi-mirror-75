@@ -1,0 +1,11 @@
+tensorflow==2.1.0
+
+[develop]
+pytest
+pytest-cov
+mock
+Pillow
+pre-commit
+pandas
+sklearn
+numpy
