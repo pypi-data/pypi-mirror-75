@@ -1,0 +1,120 @@
+Metadata-Version: 2.1
+Name: tcolorpy
+Version: 0.0.6
+Summary: tcolopy is a Python library to apply true color for terminal text.
+Home-page: https://github.com/thombashi/tcolorpy
+Author: Tsuyoshi Hombashi
+Author-email: tsuyoshi.hombashi@gmail.com
+License: MIT License
+Project-URL: Source, https://github.com/thombashi/tcolorpy
+Project-URL: Tracker, https://github.com/thombashi/tcolorpy/issues
+Description: .. contents:: **tcolorpy**
+           :backlinks: top
+           :depth: 2
+        
+        
+        Summary
+        ============================================
+        tcolopy is a Python library to apply true color for terminal text.
+        
+        .. image:: https://badge.fury.io/py/tcolorpy.svg
+            :target: https://badge.fury.io/py/tcolorpy
+            :alt: PyPI package version
+        
+        .. image:: https://img.shields.io/pypi/pyversions/tcolorpy.svg
+            :target: https://pypi.org/project/tcolorpy
+            :alt: Supported Python versions
+        
+        .. image:: https://img.shields.io/pypi/implementation/tcolorpy.svg
+            :target: https://pypi.org/project/tcolorpy
+            :alt: Supported Python implementations
+        
+        .. image:: https://img.shields.io/travis/thombashi/tcolorpy/master.svg?label=Linux/macOS%20CI
+            :target: https://travis-ci.org/thombashi/tcolorpy
+            :alt: Linux/macOS CI status
+        
+        .. image:: https://img.shields.io/appveyor/ci/thombashi/tcolorpy/master.svg?label=Windows%20CI
+            :target: https://ci.appveyor.com/project/thombashi/tcolorpy/branch/master
+            :alt: Windows CI status
+        
+        .. image:: https://codecov.io/gh/thombashi/tcolorpy/branch/master/graph/badge.svg
+            :target: https://codecov.io/gh/thombashi/tcolorpy
+            :alt: Test coverage: codecov
+        
+        
+        Installation
+        ============================================
+        ::
+        
+            pip install tcolorpy
+        
+        
+        Usage
+        ============================================
+        
+        Library usage
+        --------------------------------------------
+        
+        :Sample Code:
+            .. code-block:: python
+        
+                from tcolorpy import tcolor
+        
+                print(tcolor("tcolopy example", color="#ee1177", styles=["bold", "italic", "underline"]))
+        
+        :Output:
+            .. figure:: ss/oneline.png
+                :scale: 60%
+                :alt: oneline
+        
+        CLI usage
+        --------------------------------------------
+        You can also use ``tcolorpy`` via CLI:
+        
+        ::
+        
+            $ python -m tcolorpy "tcolopy example" -c "#ee1177" -s bold,italic,underline
+        
+        
+        Output examples
+        --------------------------------------------
+        Apply true color and styles to text:
+        
+        .. figure:: ss/styles.png
+            :scale: 60%
+            :alt: true_color_and_styles
+        
+        You can also specify by color names:
+        
+        .. figure:: ss/ansi_colors.png
+            :scale: 60%
+            :alt: color_names
+        
+        
+        Dependencies
+        ============================================
+        Python 3.5+
+        No external dependencies.
+        
+Keywords: truecolor,terminal color
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Information Technology
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3 :: Only
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Classifier: Topic :: Software Development :: Libraries
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Classifier: Topic :: Terminals
+Classifier: Topic :: Text Processing
+Requires-Python: >=3.5
+Description-Content-Type: text/x-rst
+Provides-Extra: test
