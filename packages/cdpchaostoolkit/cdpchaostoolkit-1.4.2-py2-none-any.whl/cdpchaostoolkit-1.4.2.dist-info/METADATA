@@ -1,0 +1,28 @@
+Metadata-Version: 2.1
+Name: cdpchaostoolkit
+Version: 1.4.2
+Summary: CDP Chaostoolkit - Modified
+Home-page: UNKNOWN
+Author: vzt-cdp
+Author-email: suchetha.panduranga@verizonconnect.com
+License: Apache Software License 2.0
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: Implementation
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Requires-Python: >=3.5.*
+Requires-Dist: click (>=7.0)
+Requires-Dist: click-plugins (>=1.0.4)
+Requires-Dist: logzero (>=1.5.0)
+Requires-Dist: chaostoolkit-lib (>=1.6.0)
+Requires-Dist: requests (>=2.21)
+Requires-Dist: python-json-logger (>=0.1.11)
+Requires-Dist: vztcdpchaos-report
+Requires-Dist: vztcdpchaos-slack
+
+UNKNOWN
+
+
