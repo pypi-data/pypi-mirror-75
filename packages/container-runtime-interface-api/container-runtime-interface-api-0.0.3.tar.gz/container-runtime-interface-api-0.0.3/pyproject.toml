@@ -1,0 +1,25 @@
+[tool.black]
+line-length = 120
+target-version = ['py36', 'py37', 'py38']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | src/cri_api/v1alpha2
+  | src/cri_api/github
+  | src/cri_api/github\.com
+  | vendor
+)/
+'''
+
+[tool.pytest.ini_options]
+junit_family = 'xunit2'
