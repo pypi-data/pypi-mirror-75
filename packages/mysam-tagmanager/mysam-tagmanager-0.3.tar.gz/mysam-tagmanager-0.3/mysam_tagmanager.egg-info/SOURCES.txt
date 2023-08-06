@@ -1,0 +1,11 @@
+MANIFEST.in
+README.rst
+setup.py
+mysam/__init__.py
+mysam/tag_const.py
+mysam/tagconfig.py
+mysam/tagmaker.py
+mysam_tagmanager.egg-info/PKG-INFO
+mysam_tagmanager.egg-info/SOURCES.txt
+mysam_tagmanager.egg-info/dependency_links.txt
+mysam_tagmanager.egg-info/top_level.txt
