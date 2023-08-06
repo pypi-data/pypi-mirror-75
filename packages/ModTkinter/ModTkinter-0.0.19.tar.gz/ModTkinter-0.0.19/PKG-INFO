@@ -1,0 +1,22 @@
+Metadata-Version: 2.1
+Name: ModTkinter
+Version: 0.0.19
+Summary: A Mordernised version of Tkinter, HighDPI for Windows10
+Home-page: UNKNOWN
+Author: Zin-Lin-Htun
+Author-email: zinlinhtun34@gmail.com
+License: UNKNOWN
+Description: Modernised with More Widgets and 15 new Button Classes
+        
+        import ModTkinter
+        from ModTkinter import *
+        
+        Analysis will be available on next versions
+        
+Keywords: tkinter
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.8
+Description-Content-Type: text/x-rst
