@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: hbdatacache
+Version: 0.5
+Summary: Package to manage temporary files in the cache and streamline codes with downloads and repetitive functions
+Home-page: https://github.com/ZehLuckmann/hbdatacache
+Author: José Henrique Luckmann
+Author-email: joseh.luckmann@gmail.com
+License: UNKNOWN
+Description: # HB Datacache
+        
+        Package to manage temporary files in the cache and streamline codes with downloads and repetitive functions
+        
+            import hbdatacache
+        
+            #Check if exist temp file
+            if (hbdatacache.check_temp_data("example_data", parameters=["teste",])):
+                #Loading data from temp
+                data = hbdatacache.load_temp_data("example_data", parameters=["teste",])
+            else:
+                #Generate new data
+                data = [1,2,3,4,5,6,7,8,9,10] #Your data generating...
+                #Save data
+                hbdatacache.save_temp_data(data, "example_data", parameters=["teste",])
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
