@@ -1,0 +1,16 @@
+Metadata-Version: 1.2
+Name: visible-model-runner
+Version: 0.0.2
+Summary: Frontend library for machine learning engineers
+Home-page: https://visible_model_runner.io
+Author: Streamlit Inc
+Author-email: 415296473@qq.com
+License: Apache 2
+Description: # Streamlit
+        
+        This is the Python library for Streamlit. It includes the `visible_model_runner`
+        package which the user installs and loads as well as the "proxy" which
+        communicates with the browser.
+        
+Platform: UNKNOWN
+Requires-Python: >=3.6

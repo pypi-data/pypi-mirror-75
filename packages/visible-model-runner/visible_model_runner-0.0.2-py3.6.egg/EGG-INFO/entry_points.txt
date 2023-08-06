@@ -1,0 +1,3 @@
+[console_scripts]
+visible_model_runner = visible_model_runner.cli:main
+
