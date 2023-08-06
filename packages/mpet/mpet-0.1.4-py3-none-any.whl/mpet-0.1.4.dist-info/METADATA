@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: mpet
+Version: 0.1.4
+Summary: Multiphase porous electrode theory
+Home-page: https://bitbucket.org/bazantgroup/mpet
+Author: Dan Cogswell
+Author-email: cogswell@mit.edu
+License: MIT
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Requires-Python: >=3.5,<3.8
+Requires-Dist: numpy
+Requires-Dist: scipy
+Requires-Dist: matplotlib
+Requires-Dist: pyQt5
+
+UNKNOWN
+
+
