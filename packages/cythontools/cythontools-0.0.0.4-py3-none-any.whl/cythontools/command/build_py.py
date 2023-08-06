@@ -1,0 +1,22 @@
+# AUTOMATICALLY GENERATED AS DERIVATIVE OF skbuild.command PACKAGE (cythontools)
+from skbuild.command.build_py import os as _skbuild_command_build_py_os
+from skbuild.command.build_py import distutils_log as _skbuild_command_build_py_distutils_log
+from skbuild.command.build_py import set_build_base_mixin as _skbuild_command_build_py_set_build_base_mixin
+from skbuild.command.build_py import CMAKE_INSTALL_DIR as _skbuild_command_build_py_CMAKE_INSTALL_DIR
+from skbuild.command.build_py import distribution_hide_listing as _skbuild_command_build_py_distribution_hide_listing
+from skbuild.command.build_py import new_style as _skbuild_command_build_py_new_style
+from skbuild.command.build_py import build_py as _skbuild_command_build_py_build_py
+
+
+class set_build_base_mixin(_skbuild_command_build_py_set_build_base_mixin):
+    pass
+
+class build_py(_skbuild_command_build_py_build_py):
+    pass
+
+
+os = _skbuild_command_build_py_os
+distutils_log = _skbuild_command_build_py_distutils_log
+CMAKE_INSTALL_DIR = _skbuild_command_build_py_CMAKE_INSTALL_DIR
+distribution_hide_listing = _skbuild_command_build_py_distribution_hide_listing
+new_style = _skbuild_command_build_py_new_style
