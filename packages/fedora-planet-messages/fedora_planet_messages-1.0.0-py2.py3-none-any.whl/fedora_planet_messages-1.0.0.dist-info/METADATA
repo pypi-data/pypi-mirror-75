@@ -1,0 +1,43 @@
+Metadata-Version: 2.1
+Name: fedora-planet-messages
+Version: 1.0.0
+Summary: JSON schema definitions for messages published by Fedora planet
+Home-page: https://github.com/fedora-infra/anitya/
+Maintainer: Fedora Infrastructure Team
+Maintainer-email: infrastructure@lists.fedoraproject.org
+License: GPLv2+
+Keywords: fedora
+Platform: Fedora
+Platform: GNU/Linux
+Classifier: License :: OSI Approved :: GNU General Public License v2 or later (GPLv2+)
+Classifier: Operating System :: POSIX :: Linux
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: fedora-messaging
+
+Fedora planet Message Schema
+============================
+
+JSON schema definitions for messages published by Fedora planet.
+
+See http://json-schema.org/ for documentation on the schema format. See
+https://fedora-messaging.readthedocs.io/en/latest/messages.html for
+documentation on fedora-messaging.
+
+Testing
+-------
+
+To test this schema you need to create a python virtual environment and install test-requirements.txt.
+See the instructions bellow:
+
+.. code-block:: bash
+
+   python -m venv .venv
+   . .venv/bin/activate 
+   pip install -r test-requirements.txt
+
+After test environment is created, you can run tests by typing ``tox``.
+
+
