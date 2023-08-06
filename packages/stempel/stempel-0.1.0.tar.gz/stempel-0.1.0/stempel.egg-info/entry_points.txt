@@ -1,0 +1,4 @@
+[console_scripts]
+analysis = stempel.analysis:main
+stempel = stempel.stempel:main
+
