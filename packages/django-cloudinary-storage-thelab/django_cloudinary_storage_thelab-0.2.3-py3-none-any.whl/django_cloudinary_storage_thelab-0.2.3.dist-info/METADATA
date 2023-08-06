@@ -1,0 +1,29 @@
+Metadata-Version: 2.1
+Name: django-cloudinary-storage-thelab
+Version: 0.2.3
+Summary: UNKNOWN
+Home-page: https://github.com/klis87/django-cloudinary-storage
+Author: Konrad Lisiczynski
+Author-email: klisiczynski@gmail.com
+License: MIT
+Keywords: django cloudinary storage
+Platform: UNKNOWN
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Topic :: Internet :: WWW/HTTP
+Requires-Dist: cloudinary (>=1.20.0)
+Requires-Dist: requests (>=2.23.0)
+Provides-Extra: video
+Requires-Dist: python-magic (>=0.4.12) ; extra == 'video'
+
+UNKNOWN
+
+
