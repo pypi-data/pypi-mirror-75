@@ -1,0 +1,19 @@
+#!python
+
+from fire import Fire
+from zstandard import ZstdDecompressor
+import sys
+from os import fdopen
+
+
+@Fire
+def main(filepath):
+  with open(filepath, 'rb') as f:
+    dctx = ZstdDecompressor()
+    with fdopen(sys.stdout.fileno(), 'wb') as out:
+      with dctx.stream_reader(f) as reader:
+        while True:
+          chunk = reader.read()
+          if not chunk:
+            break
+          out.write(chunk)
