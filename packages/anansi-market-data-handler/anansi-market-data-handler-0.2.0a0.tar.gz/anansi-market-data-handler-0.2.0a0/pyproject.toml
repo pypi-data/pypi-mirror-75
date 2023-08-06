@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "anansi-market-data-handler"
+version = "0.2.0-alpha.0"
+description = "An API to obtain and manipulate market data, which aims to be independent from both market and  broker."
+authors = ["Marcus Vintem <marcus@vintem.tech>"]
+
+license = "GPL-3.0-or-later"
+readme = "README.md"
+homepage = "https://github.com/marcusmello/tradingbots"
+repository = "https://gitlab.com/theanansibot/market-data-handler.git"
+keywords = ["candlesticks", "cryptocurrency", "stock market"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+requests = "^2.24.0"
+pendulum = "^2.1.0"
+requests_mock = "^1.8.0"
+pandas = "^1.0.5"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[tool.dephell.main]
+from = {format = "poetry", path = "pyproject.toml"}
+to = {format = "pipfile", path = "Pipfile"}
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
+
