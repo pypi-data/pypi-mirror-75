@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: pyPSCF
+Version: 0.1.3
+Summary: A Hysplit backtraj and PSCF tool for atmospheric science
+Home-page: https://gricad-gitlab.univ-grenoble-alpes.fr/webersa/pyPSCF
+Author: Samuël Weber
+Author-email: samuel.weber@univ-grenoble-alpes.fr
+License: UNKNOWN
+Project-URL: Source, https://gricad-gitlab.univ-grenoble-alpes.fr/webersa/pyPSCF
+Project-URL: Documentation, https://pypscf.readthedocs.io/en/latest/
+Description: [![Documentation Status](https://img.shields.io/badge/Documentation-API-green)](https://webersa.gricad-pages.univ-grenoble-alpes.fr/pypscf/)
+        
+        # pyPSCF
+        
+        The Potential Source Contribution Function is a tool to investigate the
+        geographical sources origin of chemical species in the atmosphere.
+        
+        See the UserGuide for detailed information.
+        
+        # Compute large number of backtrajectories
+        
+        Under the hood [hysplit](https://ready.arl.noaa.gov/HYSPLIT.php) is used to
+        compute backtrajectories. This GUI allows you to compute easily large number of
+        backtrajectories given a starting date and an end date.
+        
+        ![backtraj](static/img/BackTrajGUI.png)
+        
+        # Install
+        
+        Simply clone this repo if you are used to git:
+        
+            git clone https://gricad-gitlab.univ-grenoble-alpes.fr/webersa/pyPSCF.git
+        
+        or download the zipped archive.
+        
+        You will need python and some other dependancies. See the
+        [docs](https://pyPSCF.readthedocs.org).
+        
+        # Compute PSCF 
+        
+        ## Select parameters 
+        
+        The second tab of the GUI are the PSCF parameters.
+        
+        ![PSCF](static/img/PSCF.png)
+        
+        ## Output
+        
+        A figure will show up with the PSCF in colorscale. You can clic on a gridcell to
+        see all the backtrajectories that pass through this gridcell.
+        
+        ![example](static/img/SeaSalt_BT.png)
+        
+        # Contribution
+        
+        This GUI is an adapted GUI from the game "The Battle For Westnoth", developed by
+        Elvish_Hunter, 2014-2015, under the GNU GPL v2 license.
+        
+        Original PSCF script: Jean-Eudes PETIT 
+        
+        New PSCF script and GUI tools : Samuel WEBER
+        
+        Icons are taken from the Tango Desktop Project (http://tango.freedesktop.org)
+        and are released in the Public Domain.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python
+Classifier: Development Status :: 1 - Planning
+Classifier: License :: OSI Approved
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Topic :: Scientific/Engineering :: Atmospheric Science
+Requires-Python: >=3
+Description-Content-Type: text/markdown
+Provides-Extra: plot

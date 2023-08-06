@@ -1,0 +1,17 @@
+MANIFEST.in
+README.md
+setup.py
+pyPSCF/BackTrajHysplit.py
+pyPSCF/__init__.py
+pyPSCF/pyPSCF.py
+pyPSCF.egg-info/PKG-INFO
+pyPSCF.egg-info/SOURCES.txt
+pyPSCF.egg-info/dependency_links.txt
+pyPSCF.egg-info/requires.txt
+pyPSCF.egg-info/top_level.txt
+static/img/BackTrajGUI.png
+static/img/ModifStationGUI.png
+static/img/PSCF.png
+static/img/SeaSalt_BT.png
+static/img/Terminal_Output.png
+static/img/logoIGE.png
