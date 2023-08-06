@@ -1,0 +1,3 @@
+[console_scripts]
+python-jsonapi=python_jsonapi.__main__:main
+
