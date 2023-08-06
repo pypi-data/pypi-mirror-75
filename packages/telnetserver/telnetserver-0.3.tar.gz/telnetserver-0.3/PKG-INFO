@@ -1,0 +1,22 @@
+Metadata-Version: 1.1
+Name: telnetserver
+Version: 0.3
+Summary: Really simple and easy to use telnet server for small projects.
+Home-page: https://github.com/OliverLSanz/Simple-Python-Telnet-Server
+Author: Óliver L. Sanz
+Author-email: oliverlsanz@gmail.com
+License: MIT
+Download-URL: https://github.com/OliverLSanz/Simple-Python-Telnet-Server/archive/v0.3.tar.gz
+Description: UNKNOWN
+Keywords: telnet,server,simple
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
