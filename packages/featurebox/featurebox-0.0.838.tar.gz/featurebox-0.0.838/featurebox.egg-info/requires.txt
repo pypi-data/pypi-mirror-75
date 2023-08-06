@@ -1,0 +1,14 @@
+pandas
+numpy
+sympy>=1.5.1
+scipy
+scikit-learn
+joblib
+matplotlib
+networkx
+seaborn
+requests
+tqdm
+six
+deap>=1.2
+scikit-image
