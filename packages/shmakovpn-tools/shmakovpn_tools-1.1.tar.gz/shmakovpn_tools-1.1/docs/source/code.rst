@@ -1,0 +1,5 @@
+Code
+====
+
+.. automodule:: example
+ :members:
