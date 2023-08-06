@@ -1,0 +1,4 @@
+
+
+class PyUnitExceptionNone(Exception):
+    pass
