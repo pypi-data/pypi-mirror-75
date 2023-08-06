@@ -1,0 +1,26 @@
+Metadata-Version: 2.1
+Name: psearcherr
+Version: 0.1.0
+Summary: Rewrite for Python baidu search client: iridesc/psearcher
+Home-page: https://github.com/duangsuse-valid-projects/psearcher-r
+Author: duangsuse
+Author-email: fedora-opensuse@outlook.com
+License: MIT
+Description: # psearcher-r
+        
+        Rewrite for Python baidu search client: [iridesc/psearcher](https://github.com/iridesc/psearcher)
+        
+        ```python
+        from psearcherr import Baidu
+        from psearcherr import Bing
+        
+        for engine in [Baidu(kw='蝙蝠侠'), Bing(kw='蝙蝠侠 黑暗骑士')]:
+          result = engine.search(amount=20)
+          print(result)
+        ```
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Description-Content-Type: text/markdown
