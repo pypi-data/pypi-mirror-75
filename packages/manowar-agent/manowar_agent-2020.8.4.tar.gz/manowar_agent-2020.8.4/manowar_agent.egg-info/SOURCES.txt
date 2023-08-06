@@ -1,0 +1,15 @@
+README.md
+manowar_agent
+setup.py
+etc/manowar_agent/collector.yaml
+etc/manowar_agent/minion
+etc/manowar_agent/saltcell.yaml
+etc/manowar_agent/state/_modules/platpi.py
+manowar_agent.egg-info/PKG-INFO
+manowar_agent.egg-info/SOURCES.txt
+manowar_agent.egg-info/dependency_links.txt
+manowar_agent.egg-info/requires.txt
+manowar_agent.egg-info/top_level.txt
+saltcell/__init__.py
+saltcell/clientcollector.py
+saltcell/mown.py
