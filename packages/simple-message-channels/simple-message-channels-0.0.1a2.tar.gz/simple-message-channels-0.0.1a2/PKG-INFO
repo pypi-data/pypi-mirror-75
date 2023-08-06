@@ -1,0 +1,55 @@
+Metadata-Version: 2.1
+Name: simple-message-channels
+Version: 0.0.1a2
+Summary: Sans I/O wire protocol for Hypercore
+Home-page: https://github.com/hyperpy/simple-message-channels
+Keywords: hypercore,hypercore-protocol
+Author: decentral1se
+Author-email: hi@decentral1.se
+Maintainer: decentral1se
+Maintainer-email: hi@decentral1.se
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: attrs (>=19.3.0,<20.0.0)
+Requires-Dist: pyvarint (>=0.0.1-alpha.2,<0.0.2)
+Project-URL: Repository, https://github.com/hyperpy/simple-message-channels
+Description-Content-Type: text/markdown
+
+# simple-message-channels
+
+[![Build Status](https://drone.autonomic.zone/api/badges/hyperpy/simple-message-channels/status.svg)](https://drone.autonomic.zone/hyperpy/simple-message-channels)
+
+## Sans I/O wire protocol for Hypercore
+
+## Install
+
+```sh
+$ pip install simple-message-channels
+```
+
+## Example
+
+```python
+from simple_message_channels import SimpleMessageChannel
+
+smc1 = SimpleMessageChannel()
+smc2 = SimpleMessageChannel()
+
+payload = smc1.send(0, 1, b"foo")
+print(f"sent: {payload}")
+
+for idx in range(0, len(payload)):
+    smc2.recv(payload[idx : idx + 1])
+print(f"received: {smc2.messages}")
+```
+
+Output:
+
+```sh
+sent: b'\x04\x01foo'
+received: [(0, 1, b'foo')]
+```
+
