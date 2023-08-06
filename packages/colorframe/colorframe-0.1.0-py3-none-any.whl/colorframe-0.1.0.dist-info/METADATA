@@ -1,0 +1,16 @@
+Metadata-Version: 2.1
+Name: colorframe
+Version: 0.1.0
+Summary: Python utility to add borders to my photography pictures
+License: MIT
+Author: Felix Soubelet
+Author-email: felix.soubelet@protonmail.com
+Requires-Python: >=3.6,<4.0
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: Pillow (>=7.2.0,<8.0.0)
+Requires-Dist: joblib (>=0.16.0,<0.17.0)
+Requires-Dist: loguru (>=0.5.1,<0.6.0)
