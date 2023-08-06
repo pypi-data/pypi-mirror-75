@@ -1,0 +1,9 @@
+{
+  "title": "⏰ 5 minute timer ⏰",
+  "sounds": {
+    "5m": {
+      "message": "5 minutes have passed.",
+      "sound_filename": "ring.mp3"
+    }},
+  "loop": 1
+}
