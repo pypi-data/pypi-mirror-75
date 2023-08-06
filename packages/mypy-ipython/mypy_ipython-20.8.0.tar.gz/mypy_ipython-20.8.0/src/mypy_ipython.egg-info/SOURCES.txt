@@ -1,0 +1,11 @@
+README.rst
+setup.py
+src/mypy_ipython/__init__.py
+src/mypy_ipython/_version.py
+src/mypy_ipython/check_cells.py
+src/mypy_ipython/recorder.py
+src/mypy_ipython.egg-info/PKG-INFO
+src/mypy_ipython.egg-info/SOURCES.txt
+src/mypy_ipython.egg-info/dependency_links.txt
+src/mypy_ipython.egg-info/requires.txt
+src/mypy_ipython.egg-info/top_level.txt

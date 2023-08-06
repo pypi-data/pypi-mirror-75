@@ -1,0 +1,46 @@
+Metadata-Version: 2.1
+Name: mypy_ipython
+Version: 20.8.0
+Summary: UNKNOWN
+Home-page: https://github.com/moshez/mypy_ipython
+Author: Moshe Zadka
+Author-email: moshez@zadka.club
+License: MIT
+Project-URL: Documentation, https://mypy-ipython.readthedocs.io/en/latest/
+Project-URL: Source, https://github.com/moshez/mypy_ipython
+Description: MyPy/Jupyter Integration
+        ========================
+        
+        `Full documentation`_
+        
+        .. _Full documentation: https://mypy-ipython.readthedocs.io/en/latest/
+        
+        Quick Start
+        -----------
+        
+        * Install this (for example,
+          ``pip install mypy-ipython``)
+          in the virtual environment your kernel is running
+          (usually the same virtual environment Jupyter is running).
+        * Run
+          ``%load_ext mypy_ipython``
+          in a notebook cell.
+        * Whenever you need to check the types, run
+          ``%mypy``
+          in a cell.
+        
+        Contributing
+        ------------
+        
+        * All contributions must follow our Code of Conduct.
+        * In your first pull request, please add yourself to the contributor list.
+        
+        Contributors
+        ------------
+        
+        * Moshe Zadka <moshez@zadka.club>
+        
+Platform: UNKNOWN
+Provides-Extra: test
+Provides-Extra: lint
+Provides-Extra: doc
