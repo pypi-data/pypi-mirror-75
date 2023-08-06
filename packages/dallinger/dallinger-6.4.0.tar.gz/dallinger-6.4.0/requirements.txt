@@ -1,0 +1,32 @@
+-c constraints-deps.txt
+-c constraints.txt
+APScheduler
+cached-property
+boto3
+click
+faker
+Flask-Sockets
+Flask
+flask-crossdomain
+flask-login
+Flask-WTF
+future
+gevent
+greenlet
+gunicorn
+localconfig
+pexpect
+psycopg2-binary
+psutil
+redis
+requests
+rq
+selenium
+six
+SQLAlchemy
+sqlalchemy-postgres-copy
+tabulate
+timeago
+tzlocal
+ua-parser
+user-agents
