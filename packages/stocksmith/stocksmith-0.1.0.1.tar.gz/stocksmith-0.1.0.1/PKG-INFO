@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: stocksmith
+Version: 0.1.0.1
+Summary: Automated tools for stock analysis.
+Home-page: https://github.com/stocksmith/stocksmith/
+Author: Saakshaat
+Author-email: saakshaat2001@gmail.com
+Maintainer: Saakshaat
+Maintainer-email: saakshaat2001@gmail.com
+Requires-Python: >=3.8,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: pendulum (>=2.1.2,<3.0.0)
+Project-URL: Repository, https://github.com/stocksmith/stocksmith/
