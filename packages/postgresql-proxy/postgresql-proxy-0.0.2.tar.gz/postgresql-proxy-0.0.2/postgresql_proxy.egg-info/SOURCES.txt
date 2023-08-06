@@ -1,0 +1,12 @@
+README.md
+setup.py
+postgresql_proxy/__init__.py
+postgresql_proxy/config_schema.py
+postgresql_proxy/connection.py
+postgresql_proxy/interceptors.py
+postgresql_proxy/proxy.py
+postgresql_proxy.egg-info/PKG-INFO
+postgresql_proxy.egg-info/SOURCES.txt
+postgresql_proxy.egg-info/dependency_links.txt
+postgresql_proxy.egg-info/not-zip-safe
+postgresql_proxy.egg-info/top_level.txt
