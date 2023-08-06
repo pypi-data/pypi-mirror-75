@@ -1,0 +1,14 @@
+MANIFEST.in
+Readme.md
+setup.cfg
+setup.py
+KorAPClient/__init__.py
+KorAPClient/__main__.py
+KorAPClient.egg-info/PKG-INFO
+KorAPClient.egg-info/SOURCES.txt
+KorAPClient.egg-info/dependency_links.txt
+KorAPClient.egg-info/requires.txt
+KorAPClient.egg-info/top_level.txt
+KorAPClient/tests/__init__.py
+KorAPClient/tests/test_korapclient.py
+bin/korapclient
