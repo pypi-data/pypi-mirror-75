@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<registry>
+
+    <records prefix="plone.bundles/ftw-subsite-resources"
+             interface='Products.CMFPlone.interfaces.IBundleRegistry'
+             remove="True"/>
+
+    <record name="ftw.subsite.banner_root_only"
+            remove="True" />
+
+    <record name="ftw.subsite.bannerfoldername"
+            remove="True" />
+
+</registry>
