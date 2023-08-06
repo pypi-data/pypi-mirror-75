@@ -1,0 +1,12 @@
+#!python
+
+import os
+import sys
+from jirachlog.config import Config
+from jirachlog import git
+
+config = Config()
+
+git.parse(config)
+
+git.print_issues(config)
