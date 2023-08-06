@@ -1,0 +1,16 @@
+affine
+cartopy>=0.18
+geopandas
+jinja2
+matplotlib
+metpy
+numpy
+pandas
+pydantic
+pyproj
+psycopg2
+scipy
+shapely
+
+[:python_version < "3.9"]
+backports.zoneinfo
