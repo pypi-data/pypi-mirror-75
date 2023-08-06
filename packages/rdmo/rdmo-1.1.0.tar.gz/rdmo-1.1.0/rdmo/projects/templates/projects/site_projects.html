@@ -1,0 +1,37 @@
+{% extends 'core/page.html' %}
+{% load i18n %}
+{% load static %}
+{% load compress %}
+{% load core_tags %}
+{% load accounts_tags %}
+
+{% block head %}
+    {% compress css %}
+    <link rel="stylesheet" href="{% static 'projects/css/projects.scss' %}" type="text/x-scss" />
+    {% endcompress %}
+{% endblock %}
+
+{% block sidebar %}
+    <h2>{% trans 'Search projects' %}</h2>
+
+    <form method="GET">
+        <input type="text" class="form-control" id="search" name="title" placeholder="{% trans 'Search project title' %}"
+               value="{{request.GET.title }}" />
+    </form>
+
+    <h2>{% trans 'Options' %}</h2>
+
+    <ul class="list-unstyled">
+        <li>
+            <a href="{% url 'projects' %}">{% trans 'Back to my projects' %}</a>
+        </li>
+    </ul>
+
+{% endblock %}
+
+{% block page %}
+    <h1>{% blocktrans trimmed with site=request.site %}All projects on {{ site }}{% endblocktrans %}</h1>
+
+    {% include 'projects/projects_table.html' %}
+    {% include 'projects/projects_pagination.html' %}
+{% endblock %}
