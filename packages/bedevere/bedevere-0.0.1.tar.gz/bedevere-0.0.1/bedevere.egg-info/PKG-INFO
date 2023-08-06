@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: bedevere
+Version: 0.0.1
+Summary: A collection of useful mathematical functions for my other projects
+Home-page: https://github.com/noahgill409/bedevere
+Author: noahgill409
+Author-email: noahgill409@gmail.com
+License: MIT
+Description: In the bedevere package, there are currently two modules: markov and discrete_sums, that one might find useful in implementing these mathematical concepts. I created them for my own work, but feel free to use them, modify them, or give feedback regarding implementation.
+        Github: https://github.com/noahgill409/bedevere
+Platform: UNKNOWN
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown

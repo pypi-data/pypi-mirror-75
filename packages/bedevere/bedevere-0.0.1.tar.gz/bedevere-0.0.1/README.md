@@ -1,0 +1,2 @@
+In the bedevere package, there are currently two modules: markov and discrete_sums, that one might find useful in implementing these mathematical concepts. I created them for my own work, but feel free to use them, modify them, or give feedback regarding implementation.
+Github: https://github.com/noahgill409/bedevere
