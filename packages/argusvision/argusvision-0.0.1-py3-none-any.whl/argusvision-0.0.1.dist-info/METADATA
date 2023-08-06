@@ -1,0 +1,21 @@
+Metadata-Version: 2.1
+Name: argusvision
+Version: 0.0.1
+Summary: Downloads pretrained Argus Vision models
+Home-page: UNKNOWN
+License: UNKNOWN
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
+Requires-Dist: torch (>=1.5.0)
+Requires-Dist: azure-storage-blob (==12.3.2)
+Requires-Dist: azure-identity (>=1.3.0)
+Requires-Dist: tqdm (==4.32.1)
+
+# Argus Vision
+
+This is a simple example readme file.
+
+For Windows, torch needs to be install from wheel file.
+Please download the latest torch from here: https://download.pytorch.org/whl/torch_stable.html
+and then install it using: pip install <.whl file>
+
