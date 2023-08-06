@@ -1,0 +1,229 @@
+syntax = "proto3";
+
+import "google/protobuf/timestamp.proto";
+import "google/protobuf/struct.proto";
+import "google/protobuf/field_mask.proto";
+import "google/protobuf/empty.proto";
+
+import "common.proto";
+import "id.proto";
+
+option java_package = "io.calixa.domain.account";
+option java_multiple_files = true;
+option optimize_for = SPEED;
+
+package calixa.domain.account;
+
+enum AccountStatus {
+    ACCOUNT_STATUS_UNSPECIFIED = 0;
+    ACCOUNT_ACTIVE = 1;
+    ACCOUNT_SUSPENDED = 2;
+    ACCOUNT_DELETED = 3;
+}
+
+message Account {
+    string account_id = 1;
+    string organization_id = 2;
+
+    string name = 4;
+    AccountStatus status = 5;
+    string domain_name = 6;
+    string created_by_user_id = 7;
+    google.protobuf.Struct properties = 8;
+    string address_id = 9;
+
+    // Output only fields
+    // https://cloud.google.com/apis/design/design_patterns#output_fields
+    google.protobuf.Timestamp created_at = 10;
+    google.protobuf.Timestamp updated_at = 11;
+
+    string canonical_id = 12;
+}
+
+enum AccountUserStatus {
+    ACCOUNT_USER_STATUS_UNSPECIFIED = 0;
+    ACCOUNT_USER_ACTIVE = 1;
+    ACCOUNT_USER_SUSPENDED = 2;
+    ACCOUNT_USER_DELETED = 3;
+    ACCOUNT_USER_INVITED = 4;
+
+    // Try to keep aligned with OrganizationUserStatus.
+}
+
+message AccountAssociation {
+    string account_id = 1;
+    string role_id = 2;
+    string account_user_id = 3;
+    string canonical_account_id = 4;
+    string canonical_account_user_id = 5;
+    google.protobuf.Timestamp created_at = 20;
+    google.protobuf.Timestamp updated_at = 21;
+}
+
+message AccountUserAssociation {
+    // This is the inverse of AccountAssociation
+    string account_user_id = 1;
+    string role_id = 2;
+    string canonical_account_user_id = 3;
+}
+
+message AccountUser {
+    string account_user_id = 1;
+    repeated AccountAssociation account_associations = 2;
+    string organization_id = 3;
+    string email = 4;
+
+    AccountUserStatus status = 5;
+    google.protobuf.Timestamp last_login_at = 6;
+    string first_name = 7;
+    string last_name = 8;
+
+    google.protobuf.Struct properties = 10;
+    string canonical_id = 11;
+
+    // Output only fields
+    // https://cloud.google.com/apis/design/design_patterns#output_fields
+    google.protobuf.Timestamp created_at = 20;
+    google.protobuf.Timestamp updated_at = 21;
+}
+
+message AccountUserRole {
+    string organization_id = 1;
+    string account_user_role_id = 2;
+    string name = 3;
+
+    google.protobuf.Timestamp created_at = 20;
+    google.protobuf.Timestamp updated_at = 21;
+}
+
+// ---------------------- gRPCs
+
+service AccountService {
+    rpc GetAccounts (GetAccountsRequest) returns (stream Account) {
+    }
+    rpc GetAccountUsers (GetAccountUsersRequest) returns (stream AccountUser) {
+    }
+    rpc GetAccountUser (GetAccountUserRequest) returns (AccountUser) {
+    }
+    rpc GetAccount (GetAccountRequest) returns (Account) {
+    }
+    rpc GetAccountByProperty (GetAccountByPropertyRequest) returns (Account) {
+    }
+    rpc CreateAccount (CreateAccountRequest) returns (Account) {
+    }
+    rpc SaveAccount (CreateAccountRequest) returns (Account) {
+    }
+    rpc CreateAccountUser (CreateAccountUserRequest) returns (AccountUser) {
+    }
+    rpc SaveAccountUser (CreateAccountUserRequest) returns (AccountUser) {
+    }
+    rpc UpdateAccount (UpdateAccountRequest) returns (Account) {
+    }
+    rpc UpdateAccountUser (UpdateAccountUserRequest) returns (AccountUser) {
+    }
+    rpc AddUserToAccount (UpdateAccountUserAssociationRequest) returns (google.protobuf.Empty) {
+    }
+    rpc RemoveUserFromAccount (RemoveAccountUserAssociationRequest) returns (google.protobuf.Empty) {
+    }
+    rpc SetUsersOnAccount (UpdateAccountUserAssociationRequest) returns (google.protobuf.Empty) {
+    }
+
+    rpc CreateAccountUserRole (CreateAccountUserRoleRequest) returns (AccountUserRole) {
+    }
+
+    rpc GetAccountUserRole (GetAccountUserRoleRequest) returns (AccountUserRole) {
+    }
+
+    rpc GetAccountUserRoles (GetAccountUsersRoleRequest) returns (stream AccountUserRole) {
+    }
+
+    rpc UpdateAccountUserRole (UpdateAccountUserRoleRequest) returns (AccountUserRole) {
+    }
+}
+
+message CreateAccountRequest {
+    Account account = 1;
+    calixa.domain.common.RequestContext request_context = 2;
+}
+
+message CreateAccountUserRequest {
+    AccountUser accountUser = 1;
+    calixa.domain.common.RequestContext request_context = 2;
+}
+
+message CreateAccountUserRoleRequest {
+    AccountUserRole accountUserRole = 1;
+    calixa.domain.common.RequestContext request_context = 2;
+}
+
+message GetAccountUserRoleRequest {
+    string organization_id = 1;
+    oneof keys {
+        string role_id = 2;
+        string name = 3;
+    };
+}
+
+message GetAccountUsersRoleRequest {
+    string organization_id = 1;
+}
+
+message UpdateAccountUserRoleRequest {
+    AccountUserRole role = 1;
+    google.protobuf.FieldMask update_mask = 2;
+    calixa.domain.common.RequestContext request_context = 3;
+}
+
+message RemoveAccountUserAssociationRequest {
+    string organization_id = 1;
+    string account_id = 2;
+    repeated string account_user_ids = 3;
+    calixa.domain.common.RequestContext request_context = 4;
+}
+
+message UpdateAccountUserAssociationRequest {
+    string organization_id = 1;
+    string account_id = 2;
+    repeated AccountUserAssociation associations = 3;
+    calixa.domain.common.RequestContext request_context = 4;
+}
+
+message GetAccountsRequest {
+    string organization_id = 1;
+}
+
+message GetAccountUserRequest {
+    string organization_id = 1;
+    string account_id = 2;
+    string account_user_id = 3;
+}
+
+message GetAccountUsersRequest {
+    string organization_id = 1;
+    oneof key {
+        string account_id = 2;
+        string email = 3;
+    }
+}
+
+message GetAccountRequest {
+    string organization_id = 1;
+    string account_id = 2;
+}
+
+message GetAccountByPropertyRequest {
+    string organization_id = 1;
+    calixa.domain.common.Property matcher = 2;
+}
+
+message UpdateAccountRequest {
+    Account account = 1;
+    google.protobuf.FieldMask update_mask = 2;
+    calixa.domain.common.RequestContext request_context = 3;
+}
+
+message UpdateAccountUserRequest {
+    AccountUser accountUser = 1;
+    google.protobuf.FieldMask update_mask = 2;
+    calixa.domain.common.RequestContext request_context = 3;
+}
