@@ -1,0 +1,3 @@
+[console_scripts]
+folklore = folklore_cli.cmds:main
+
