@@ -1,0 +1,7 @@
+{
+  "display_name": "Tensorflow 2.2.0 with GPU",
+  "metadata": {
+    "image_name": "tensorflow/tensorflow:2.2.0-gpu"
+  },
+  "schema_name": "runtime-image"
+}
