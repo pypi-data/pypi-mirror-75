@@ -1,0 +1,14 @@
+LICENSE.md
+MANIFEST.in
+README.md
+build.py
+requirements.txt
+setup.py
+fastx/__init__.py
+fastx.egg-info/PKG-INFO
+fastx.egg-info/SOURCES.txt
+fastx.egg-info/dependency_links.txt
+fastx.egg-info/not-zip-safe
+fastx.egg-info/requires.txt
+fastx.egg-info/top_level.txt
+src/kseq.h
