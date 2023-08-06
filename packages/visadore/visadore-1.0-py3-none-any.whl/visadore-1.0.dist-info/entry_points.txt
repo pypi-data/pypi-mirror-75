@@ -1,0 +1,5 @@
+[visadore.visadore.mock1a]
+get_resource_name = visadore.mock_instrument.feature:ResourceNameFeature
+instr_product = visadore.mock_instrument.feature:InstrumentProductFeature
+local_product = visadore.mock_instrument.feature:LocalProductFeature
+

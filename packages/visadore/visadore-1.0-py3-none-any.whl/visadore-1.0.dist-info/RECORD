@@ -1,0 +1,15 @@
+visadore/__init__.py,sha256=k3fKSBsZui-coLPiasIngANIBfsSR3ws1f_9qAPKv24,226
+visadore/base.py,sha256=IT7CGMtb4KI6AV4YKS5mZLazgkCM5WsG1ngtNwMDuNk,421
+visadore/identity.py,sha256=Iojlyu1sYXPebpk9Wjgfp4lBqaXB0K4XBKIVpafiCW0,1217
+visadore/instrument.py,sha256=DtHexnNnp4TfxLFpexObdl8hRhAeY9FM0-NM3T7tuxE,3598
+visadore/mock_instrument/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+visadore/mock_instrument/feature.py,sha256=JVMoy8l2Gr0BDxGBQwEth_W5y97bpaNDzMk_qStcJj0,757
+visadore/test/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+visadore/test/test_identity_parser.py,sha256=nvPtX8KoUI1sypv0VxLB0n6y47FW9833DDejY-vthhI,1634
+visadore/test/test_mock_instrument.py,sha256=s1amBuvAGPjAnMosBnB9Qn97ZinVptBVaAPlC5Q3fsI,1197
+visadore-1.0.dist-info/LICENSE.txt,sha256=WtjCEwlcVzkh1ziO35P2qfVEkLjr87Flro7xlHz3CEY,11556
+visadore-1.0.dist-info/METADATA,sha256=aUhPYT3WjZDGsY_CgOeQJbM43LzmNlfCrkSf2kyiyfg,2353
+visadore-1.0.dist-info/WHEEL,sha256=YUYzQ6UQdoqxXjimOitTqynltBCkwY6qlTfTh2IzqQU,97
+visadore-1.0.dist-info/entry_points.txt,sha256=3g8ftmTkrHS1wZmNjPyEslUHt745O1pcb5ULeNrtQvQ,244
+visadore-1.0.dist-info/top_level.txt,sha256=S48OZ-ZilwPCkwHQzKvYJjmV-aBa-5pHyJ4_eWL8t4U,9
+visadore-1.0.dist-info/RECORD,,
