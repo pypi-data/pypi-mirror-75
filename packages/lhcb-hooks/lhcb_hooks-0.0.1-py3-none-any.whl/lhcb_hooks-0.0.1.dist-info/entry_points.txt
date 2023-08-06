@@ -1,0 +1,4 @@
+
+        [console_scripts]
+        check-for-license-file=lhcb_pre_commit_hooks.hooks.check_for_license_file:check_for_license
+    

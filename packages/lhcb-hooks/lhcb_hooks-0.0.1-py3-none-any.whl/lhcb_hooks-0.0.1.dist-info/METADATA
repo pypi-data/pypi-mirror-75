@@ -1,0 +1,65 @@
+Metadata-Version: 2.1
+Name: lhcb-hooks
+Version: 0.0.1
+Summary: LHCb Pre-commit Hooks
+Home-page: UNKNOWN
+Author: CERN - LHCb Core Software
+Author-email: lhcb-core-soft@cern.ch
+License: GPLv3+
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Topic :: Software Development :: Build Tools
+Classifier: License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*, !=3.4.*, <4
+Requires-Dist: lb-dev
+Requires-Dist: lb-dev-formatting
+
+================
+Pre-commit hooks
+================
+
+This repository contains python pre-commit hooks used for LHCb
+
+How to use pre-commit hooks
+---------------------------
+
+In order to use pre-commit hooks, at first you need to install the pre-commit python package (e.g. ``pip install pre-commit``).
+Also, you need to enable it in your repository of choice. To do that, navigate inside a directory of the repository and run ``pre-commit install``
+
+Afterwards, you will need to choose the hooks to use. 
+In order to do that, you will need a *.pre-commit-config.yaml* at the top level of your repository. Inside the config file, you declare which hooks you want to use from which repositories
+An example config file would look like this https://ibb.co/HFLWg3R and another one can be found in the lb_dev repository https://gitlab.cern.ch/lhcb-core/lb_dev/blob/master/.pre-commit-config.yaml
+
+- repos is a list of repositories
+- repo can be any link that you can use along with `git clone`
+- rev is the commit sha or the tag of the repo you want to use
+- hooks are the hooks of the repo that will be used in your project
+- id is the id of the hook, which can be found in the hooks configuration of the repo
+- verbose true means that print statements inside the hook appear on the screen
+
+You can check more options on what you can have inside your config yaml here (https://pre-commit.com/) in the **.pre-commit-config.yaml - top level** section
+
+**You do not need to clone the hook repository for it to work, all you have to do are the steps above**
+
+How to create your own hooks
+----------------------------
+
+To create your own hooks you need to have a repository to contain them and a *.pre-commit-hooks.yaml* where you define your hooks
+
+The hooks you create are basically scripts you write and then link their executable version on the hooks yaml file. 
+
+At the very least, your hook in the yaml needs to contain an id and an entry field  where id is the id you give to the hook (it is not the name, you can also define a name in the name field) and entry is the entrypoint of the hook. Where the executable is. For example, for python hooks, you create a console-script entrypoint and the name you give that console-script is what you need to put into the entry field.
+
+Check more hook options here (https://pre-commit.com/) in the **Creating new hooks** section
+
+You can also see an example hooks yaml in the top level of this repository
+
+Hooks can be created using a lot of different tools, like python, go, docker and more
+
