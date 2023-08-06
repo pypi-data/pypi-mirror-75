@@ -1,0 +1,14 @@
+
+[dev]
+black
+
+[docs]
+sphinx
+sphinx_rtd_theme
+
+[release]
+wheel
+twine
+
+[tests]
+pytest
