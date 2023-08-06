@@ -1,0 +1,13 @@
+attr
+autopep8
+click
+packaging
+pipdeptree
+requests
+thoth-analyzer
+thoth-common
+thoth-python
+virtualenv
+
+[:python_version < "3.8"]
+importlib-metadata

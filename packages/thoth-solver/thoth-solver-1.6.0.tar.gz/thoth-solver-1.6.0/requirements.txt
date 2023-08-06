@@ -1,0 +1,11 @@
+attr
+autopep8
+click
+importlib-metadata; python_version < '3.8'
+packaging
+pipdeptree
+requests
+thoth-analyzer
+thoth-common
+thoth-python
+virtualenv
