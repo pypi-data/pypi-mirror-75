@@ -1,0 +1,3 @@
+[console_scripts]
+arexecute = arexecute.__main__:main
+
