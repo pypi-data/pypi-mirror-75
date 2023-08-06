@@ -1,0 +1,18 @@
+Metadata-Version: 1.1
+Name: native-fork-locking
+Version: 0.2.1
+Summary: "This module provides locks that can be safely used for frequently forked applications"
+Home-page: https://github.com/heni/rem
+Author: Kirill Trofimenkov
+Author-email: trofimenkov@yandex-team.ru
+License: UNKNOWN
+Description: ### native-fork-locking Library
+        This module provides locks that can be safely used for frequently forked applications
+        
+Keywords: locks fork rem
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Console
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 2 :: Only
