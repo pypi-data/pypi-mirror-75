@@ -1,0 +1,15 @@
+MANIFEST.in
+README.md
+setup.py
+pyGoogleTranslate/__init__.py
+pyGoogleTranslate.egg-info/PKG-INFO
+pyGoogleTranslate.egg-info/SOURCES.txt
+pyGoogleTranslate.egg-info/dependency_links.txt
+pyGoogleTranslate.egg-info/requires.txt
+pyGoogleTranslate.egg-info/top_level.txt
+pyGoogleTranslate/internal/__init__.py
+pyGoogleTranslate/internal/caching.py
+pyGoogleTranslate/internal/domain.py
+pyGoogleTranslate/internal/google_translate_data.py
+pyGoogleTranslate/internal/language_code.py
+pyGoogleTranslate/internal/translation_caches/translation_caches.animenosekai_caches
