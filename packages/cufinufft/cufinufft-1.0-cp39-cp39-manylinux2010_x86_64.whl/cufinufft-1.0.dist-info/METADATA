@@ -1,0 +1,18 @@
+Metadata-Version: 2.1
+Name: cufinufft
+Version: 1.0
+Summary: Python interface to cufinufft
+Home-page: http://github.com/flatironinstitute/cufinufft
+Author: Python interfaces by: Melody Shih, Joakim Anden, Garrett Wright
+Author-email: yoyoshih13@gmail.com
+License: Apache 2
+Platform: UNKNOWN
+Requires-Dist: numpy
+Requires-Dist: pycuda
+Provides-Extra: docs
+Requires-Dist: sphinx ; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme ; extra == 'docs'
+
+Python interface to cufinufft (CUDA Flatiron Institute Nonuniform Fast Fourier Transform) library.
+
+
