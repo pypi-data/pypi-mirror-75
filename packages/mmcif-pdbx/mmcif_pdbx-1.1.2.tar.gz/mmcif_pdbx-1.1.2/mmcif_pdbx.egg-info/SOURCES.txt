@@ -1,0 +1,16 @@
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+versioneer.py
+mmcif_pdbx.egg-info/PKG-INFO
+mmcif_pdbx.egg-info/SOURCES.txt
+mmcif_pdbx.egg-info/dependency_links.txt
+mmcif_pdbx.egg-info/top_level.txt
+mmcif_pdbx.egg-info/zip-safe
+pdbx/__init__.py
+pdbx/_version.py
+pdbx/containers.py
+pdbx/errors.py
+pdbx/reader.py
+pdbx/writer.py
