@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.cfg
+setup.py
+geomac_wildfires/__init__.py
+geomac_wildfires/cli.py
+geomac_wildfires.egg-info/PKG-INFO
+geomac_wildfires.egg-info/SOURCES.txt
+geomac_wildfires.egg-info/dependency_links.txt
+geomac_wildfires.egg-info/entry_points.txt
+geomac_wildfires.egg-info/requires.txt
+geomac_wildfires.egg-info/top_level.txt
