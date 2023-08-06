@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+setup.py
+tests/__init__.py
+tests/test_main.py
+tests/test_openinghoursparser.py
+transporthours/__init__.py
+transporthours/main.py
+transporthours/openinghoursparser.py
+transporthours.egg-info/PKG-INFO
+transporthours.egg-info/SOURCES.txt
+transporthours.egg-info/dependency_links.txt
+transporthours.egg-info/top_level.txt
