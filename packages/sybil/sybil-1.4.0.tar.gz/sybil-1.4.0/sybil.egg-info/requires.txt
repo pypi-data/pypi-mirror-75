@@ -1,0 +1,12 @@
+
+[build]
+sphinx
+pkginfo
+setuptools-git
+twine
+wheel
+
+[test]
+nose
+pytest>=3.5.0
+pytest-cov
