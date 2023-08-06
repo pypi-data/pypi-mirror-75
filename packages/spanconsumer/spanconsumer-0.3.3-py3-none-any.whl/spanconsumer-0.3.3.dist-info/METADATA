@@ -1,0 +1,39 @@
+Metadata-Version: 2.1
+Name: spanconsumer
+Version: 0.3.3
+Summary: a declarative async framework for RabbitMQ consumers
+Home-page: UNKNOWN
+Author: Billy Peake
+License: UNKNOWN
+Platform: UNKNOWN
+Requires-Dist: spantools
+Requires-Dist: marshmallow (>=3.0.0rc8)
+Requires-Dist: aio-pika
+Requires-Dist: aiormq
+Requires-Dist: typing-extensions
+Requires-Dist: idna (==2.8)
+Provides-Extra: build
+Requires-Dist: twine ; extra == 'build'
+Requires-Dist: wheel ; extra == 'build'
+Provides-Extra: dev
+Requires-Dist: black ; extra == 'dev'
+Requires-Dist: autopep8 ; extra == 'dev'
+Provides-Extra: doc
+Requires-Dist: sphinx ; extra == 'doc'
+Requires-Dist: sphinx-autodoc-typehints ; extra == 'doc'
+Requires-Dist: sphinx-data-fields ; extra == 'doc'
+Requires-Dist: sphinx-rtd-theme ; extra == 'doc'
+Provides-Extra: lint
+Requires-Dist: black ; extra == 'lint'
+Requires-Dist: flake8 ; extra == 'lint'
+Requires-Dist: mypy ; extra == 'lint'
+Provides-Extra: test
+Requires-Dist: grahamcracker ; extra == 'test'
+Requires-Dist: pytest-sugar ; extra == 'test'
+Requires-Dist: pytest-cov ; extra == 'test'
+Requires-Dist: pytest-html ; extra == 'test'
+Requires-Dist: pytest-timeout ; extra == 'test'
+
+UNKNOWN
+
+
