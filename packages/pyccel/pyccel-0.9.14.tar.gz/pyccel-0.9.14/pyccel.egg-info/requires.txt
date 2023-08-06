@@ -1,0 +1,10 @@
+numpy
+scipy
+sympy>=1.2
+textx>=1.6
+pylint>=1.8
+parse>=1.8
+redbaron>=0.7
+tabulate
+termcolor
+fastcache
