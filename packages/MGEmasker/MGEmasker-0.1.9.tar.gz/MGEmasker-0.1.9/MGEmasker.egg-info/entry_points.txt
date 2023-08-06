@@ -1,0 +1,3 @@
+[console_scripts]
+mge_masker = mge_masker.run_mge_masker:main
+
