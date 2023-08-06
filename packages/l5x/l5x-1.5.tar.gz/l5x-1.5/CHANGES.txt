@@ -1,0 +1,28 @@
+v1.0, March 24, 2013 -- Initial release.
+
+v1.1, July 23, 2013
+ - Python 3.x support.
+ - Access producer and remote data for consumed tags.
+ - I/O module interface.
+ - Safety network number access.
+
+v1.2, August 24, 2016
+ - Added array resizing.
+
+v1.3, August 12, 2018
+ - Unicode output corrections.
+ - Raise an exception when encountering L5X exports created
+   with Encode Source Protected Content set.
+ - Clear all non-decorated data elements when setting new
+   tag values.
+ - Initialize tag arrays after resizing.
+
+v1.4, October 14, 2018
+ - Add support for multilingual tag comments.
+
+v1.5,
+ - Add access to NAT addresses.
+ - Add support for port-specific SNNs.
+ - Add support for changing tag aliases.
+ - Fix problems with empty CDATA sections, e.g. empty structured text lines.
+ - Switch internal XML handling to ElementTree.
