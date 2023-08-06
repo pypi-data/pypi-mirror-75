@@ -1,0 +1,3 @@
+[console_scripts]
+find-git-repos = find_git_repos:main
+
