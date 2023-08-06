@@ -1,0 +1,8 @@
+include me_finder/logging.yml me_finder/config.ini LICENSE
+exclude Dockerfile bitbucket-pipelines.yml *.sh requirements* Makefile .*
+
+prune scripts
+prune *.egg-info
+prune tests*
+prune volumes*
+prune conda*
