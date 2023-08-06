@@ -1,0 +1,38 @@
+Metadata-Version: 2.1
+Name: timeflux-hackeeg
+Version: 0.1.0
+Summary: Timeflux HackEEG plugin
+Home-page: https://timeflux.io
+Author: Pierre Clisson
+Author-email: contact@timeflux.io
+License: MIT
+Project-URL: Documentation, http://doc.timeflux.io/projects/timeflux-hackeeg/
+Project-URL: Source Code, https://github.com/timeflux/timeflux_hackeeg
+Project-URL: Bug Tracker, https://github.com/timeflux/timeflux_hackeeg/issues
+Description: Timeflux HackEEG plugin
+        =======================
+        
+        This plugin provides a driver for the `HackEEG <https://www.starcat.io/products/hackeeg-shield/>`__ shield.
+        
+        Installation
+        ------------
+        
+        First, make sure that `Timeflux <https://github.com/timeflux/timeflux>`__ is installed.
+        
+        You can then install this plugin in the `timeflux` environment:
+        
+        ::
+        
+            $ conda activate timeflux
+            $ pip install timeflux_hackeeg
+        
+Keywords: timeflux
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Console
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python
+Provides-Extra: dev
