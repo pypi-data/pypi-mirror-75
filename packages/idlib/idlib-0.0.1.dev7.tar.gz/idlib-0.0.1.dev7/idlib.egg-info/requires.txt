@@ -1,0 +1,16 @@
+orthauth>=0.0.13[yaml]
+requests
+
+[oauth]
+google-auth-oauthlib
+
+[rdf]
+rdflib>=5.0.0rc1
+pyontutils>=0.1.23
+
+[test]
+pytest
+joblib>=0.14.1
+rdflib>=5.0.0rc1
+pyontutils>=0.1.23
+google-auth-oauthlib
