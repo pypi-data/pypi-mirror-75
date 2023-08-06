@@ -1,0 +1,3 @@
+[console_scripts]
+buildflaskapp = buildflaskapp.buildflaskapp:main
+
