@@ -1,0 +1,15 @@
+scaffold/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+scaffold/restframework/__init__.py,sha256=47DEQpj8HBSa-_TImW-5JCeuQeRkm5NMpJWZG3hSuFU,0
+scaffold/restframework/apps.py,sha256=zbu6DVHY6Pxsae7cQJDpYXbFKGy6bng5tbiv1dm1uBU,101
+scaffold/restframework/authentication.py,sha256=yBSKg5KCPiEBNjo7oWO3Fav19CrwyEaZMaY_cxTA20Q,256
+scaffold/restframework/filters.py,sha256=BFMZSGKeWTBlBNYvMiIU0boOmUgjvaBUMxa-SR0fMCg,16248
+scaffold/restframework/pagination.py,sha256=V9VGLdfDEbQ_YrqXHqLPFDuI9E851ZoA-_UFBj8us3E,1498
+scaffold/restframework/permissions.py,sha256=cHSnkDCofSceGhxpbjW3iVr2-9i_oIjeNvnCxS6ls8k,495
+scaffold/settings/__init__.py,sha256=uYh1hGOxlm-ogKOZDrx7AS309_WCxv0mKFA0wb-uZag,11077
+scaffold/settings/apps.py,sha256=TyYbxZqWHU6s4eJ9DZlCFRIAlUeunzTemf7g28CxbYQ,100
+scaffold/settings/tests.py,sha256=mrbGGRNg5jwbTJtWWa7zSKdDyeB4vmgZCRc2nk6VY-g,60
+django_scaffold_tools-0.0.1.dist-info/LICENSE,sha256=xx0jnfkXJvxRnG63LTGOxlggYnIysveWIZ6H3PNdCrQ,11357
+django_scaffold_tools-0.0.1.dist-info/METADATA,sha256=kAayECCMUWN-xJV9DRnn3_YcsUnEJ840IdHjxLHnxKA,1644
+django_scaffold_tools-0.0.1.dist-info/WHEEL,sha256=g4nMs7d-Xl9-xC9XovUrsDHGXt-FT0E17Yqo92DEfvY,92
+django_scaffold_tools-0.0.1.dist-info/top_level.txt,sha256=aLfYcjRWwVHB73DR9jvLh71eUnfVb37BudybADkmaSM,9
+django_scaffold_tools-0.0.1.dist-info/RECORD,,
