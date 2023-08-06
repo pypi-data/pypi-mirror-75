@@ -1,0 +1,14 @@
+LICENSE
+MANIFEST.in
+README
+requirements.txt
+setup.py
+pysox/__init__.py
+pysox/sender.py
+pysox/soxdata.py
+pysox/soxtimestamp.py
+python_sox.egg-info/PKG-INFO
+python_sox.egg-info/SOURCES.txt
+python_sox.egg-info/dependency_links.txt
+python_sox.egg-info/requires.txt
+python_sox.egg-info/top_level.txt
