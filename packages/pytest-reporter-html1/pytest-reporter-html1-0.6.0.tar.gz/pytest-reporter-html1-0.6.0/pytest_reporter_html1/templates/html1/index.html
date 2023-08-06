@@ -1,0 +1,106 @@
+{% extends "html1/base.html" %}
+{% block content %}
+<section id="summary">
+  <div class="container">
+    {% block summary %}
+    <div class="metadata">
+      <table>
+        {% block session_metadata %}
+        <tr>
+          <th>Started</th>
+          <td>{{ started|strftime(time_format) }}</td>
+        </tr>
+        <tr>
+          <th>Ended</th>
+          <td>
+            {% if ended %}
+              {{ ended|strftime(time_format) }}
+            {% else %}
+              <i>In progress...</i>
+            {% endif %}
+          </td>
+        </tr>
+        {% if ended %}
+          <tr>
+            <th>Duration</th>
+            {% set duration = ended - started %}
+            <td>{{ duration|timedelta }}</td>
+          </tr>
+        {% endif %}
+        {% if config._metadata %}
+          {% for key, value in config._metadata.items() %}
+            <tr>
+              <th>{{ key }}</th>
+              <td>
+                {% if value is mapping %}
+                  {% for key, value in value.items() %}
+                    {{ key }}: {{ value }}<br>
+                  {% endfor %}
+                {% else %}
+                  {{ value|urlize }}
+                {% endif %}
+              </td>
+            </tr>
+            {% endfor %}
+        {% endif %}
+        {% endblock %}
+      </table>
+    </div>
+    <div class="graph">
+      {% include "html1/chart.svg" %}
+      <div class="legend">
+        {% for category, tests in tests|groupby('status.category') %}
+          <span class="status badge {{ category }} {{ tests|map(attribute='status.style')|first|join(' ') }}">
+            {{ tests|count }}
+          </span>
+          <span>{{ category }}</span>
+        {% endfor %}
+      </div>
+    </div>
+    {% endblock %}
+  </div>
+</section>
+{% if warnings %}
+  <section id="warnings">
+    <div class="container">
+      {% for warning in warnings %}
+        <div class="status badge warning">WARNING</div>
+        <div>{{ warning.filename }}:{{ warning.lineno }}<br>{{ warning.message }}</div>
+      {% endfor %}
+    </div>
+  </section>
+{% endif %}
+<section id="test-files">
+  <div class="container">
+    {% for fspath, tests in tests|groupby('item.fspath') %}
+      {% set first_item = tests|map(attribute='item')|first %}
+      <details class="file">
+        <summary>
+          <div class="title file-title">
+            {% block module_title scoped %}
+            <h2 class="fspath">
+              {% block module_name scoped %}
+              {{ first_item.nodeid.split('::')|first }}
+              {% endblock %}
+            </h2>
+            <div class="counts">
+            {% for category, tests in tests|groupby('status.category') -%}
+              <span title="{{ tests|count }} {{ category }}" class="count status badge {{ category }} {{ tests|map(attribute='status.style')|first|join(' ') }}">{{ tests|count }}</span>
+            {%- endfor %}
+            </div>
+            <div class="duration">
+              {{ tests|map(attribute='phases')|map('sum', 'report.duration')|sum|timedelta }}
+            </div>
+            {% endblock %}
+          </div>
+        </summary>
+        <div class="content box">
+          {% block module_content scoped %}
+            {% include "html1/module.html" %}
+          {% endblock %}
+        </div>
+      </details>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
