@@ -1,0 +1,17 @@
+.bumpversion.cfg
+.mergify.yml
+.travis.yml
+CHANGELOG.md
+LICENSE
+MANIFEST.in
+README.md
+setup.cfg
+setup.py
+compatibleversion/__init__.py
+compatibleversion.egg-info/PKG-INFO
+compatibleversion.egg-info/SOURCES.txt
+compatibleversion.egg-info/dependency_links.txt
+compatibleversion.egg-info/entry_points.txt
+compatibleversion.egg-info/requires.txt
+compatibleversion.egg-info/top_level.txt
+tests/test_compatibleversion.py
