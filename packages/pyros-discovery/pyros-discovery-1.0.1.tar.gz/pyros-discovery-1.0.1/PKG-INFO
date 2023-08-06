@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: pyros-discovery
+Version: 1.0.1
+Summary: Simple discovery service for PyROS
+Home-page: https://github.com/Abstract-Horizon/pyros-discovery
+Author: Daniel Sendula
+License: UNKNOWN
+Description: # PyROS Discovery
+        
+        This is simple discovery service and client. It uses broadcast of UDP packets on available networks interfaces.
+        
+        It is based on simple, human readable, query/response packages.
+        
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: License :: OSI Approved :: Apache Software License
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
