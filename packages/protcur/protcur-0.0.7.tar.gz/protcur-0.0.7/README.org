@@ -1,0 +1,23 @@
+#+TITLE: protcur
+#+AUTHOR: Tom Gillespie
+
+#+HTML: <a href="https://pypi.org/project/protcur/"><img alt="PyPI version" src="https://badge.fury.io/py/protcur.svg"></a>
+# #+HTML: <a href="https://travis-ci.org/tgbugs/protc"><img alt="Build Status" src="https://travis-ci.org/tgbugs/protc.svg?branch=master"></a>
+# #+HTML: <a href="https://coveralls.io/github/tgbugs/protc?branch=master"><img alt="Coverage Status" src="https://coveralls.io/repos/github/tgbugs/protc/badge.svg?branch=master"></a>
+
+A dashboard for web annotation workflows for protocol curation.
+
+* Setup
+** Python
+=pip install protcur=
+** Gentoo
+As root.
+#+BEGIN_SRC bash
+layman -a tgbugs-overlay
+emerge -p protcur
+vim /etc/portage/package.accept_keywords
+emerge protcur
+vim /etc/conf.d/protcur
+rc-config add protcur default
+/etc/init.d/protcur start
+#+END_SRC
