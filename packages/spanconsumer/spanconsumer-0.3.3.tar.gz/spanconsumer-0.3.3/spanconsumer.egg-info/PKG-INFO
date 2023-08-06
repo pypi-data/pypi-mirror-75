@@ -1,0 +1,14 @@
+Metadata-Version: 2.1
+Name: spanconsumer
+Version: 0.3.3
+Summary: a declarative async framework for RabbitMQ consumers
+Home-page: UNKNOWN
+Author: Billy Peake
+License: UNKNOWN
+Description: UNKNOWN
+Platform: UNKNOWN
+Provides-Extra: dev
+Provides-Extra: lint
+Provides-Extra: doc
+Provides-Extra: build
+Provides-Extra: test
