@@ -1,0 +1,19 @@
+{# 
+    sidebar_device_list_item - Sidebar device list item.
+    Parameters:
+    - device: Device object of the item.
+    - device_alias: Active device alias.
+ #}
+{% macro sidebar_device_list_item(device, device_alias) -%}
+    <a href="/devices/{{device.alias}}/" class="item {% if device_alias == device.alias %}active{% endif %}">
+        {% if device.device_type in ['specter', 'coldcard', 'trezor', 'ledger'] %}
+            <img src="/static/img/{{device.device_type|lower}}_icon.svg" width="22px">
+        {% else %}
+            <img src="/static/img/other_icon.svg" width="22px">
+        {% endif %}
+        <div>
+            {{ device.name }}<br>
+            <span class="note" style="font-size: 0.75em;">{{ device.keys | length}} keys</span>
+        </div>
+    </a>
+{%- endmacro %}

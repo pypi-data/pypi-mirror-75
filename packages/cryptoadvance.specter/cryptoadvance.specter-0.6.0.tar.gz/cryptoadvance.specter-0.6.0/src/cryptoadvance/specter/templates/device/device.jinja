@@ -1,0 +1,136 @@
+{% extends "base.jinja" %}
+{% block main %}
+	{% include "includes/hwi/hwi.jinja" %}
+	<h1>{{ device.name }}</h1>
+	<form action="./" method="POST">
+		<div class="row" style="text-align: center; line-height: 2;">
+			{% include "device/components/device_type.jinja" %}
+		</div>
+		<button type="submit" class="btn hidden" id="settype" name="action" value="settype" style="margin: auto; margin-top: 10px; align-self:center;">Update</button>
+	</form>
+	<br>
+	<div class="table-holder">
+		<table>
+			<thead>
+				<tr>
+					<th>Network</th><th>Purpose</th><th>Derivation</th><th></th><th>Key</th><th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for key in device.keys %}
+					<tr>
+						<td>
+							{% from "components/bitcoin_svg.jinja" import bitcoin_svg %}
+							{% if key.xpub.startswith("xpub") %}
+								{{ bitcoin_svg('main', 16) }} Main
+							{% else %}
+								{{ bitcoin_svg('test', 16) }} Test
+							{% endif %}
+						</td>
+						<td>{{ key.purpose }}</td>
+						<td>{{ key.derivation }}</td>
+						<td width="10" class="qr-trigger">
+							<img src="/static/img/qr_tiny.svg"/>
+							<qr-code class="qr-popup" value="{{key}}" width="200"></qr-code>
+						</td>
+						<td class="xpub scroll">
+							<span class="explorer-link" onclick="copyText('{{ key }}', 'Copied key: {{ key }}')">{{ key }}</span>
+						</td>
+						<td width="80px">
+							<form action="./" method="POST">
+								<input type="hidden" name="key" value="{{ key.original }}">
+								<button type="submit" name="action" value="delete_key" class="btn danger hovering">Delete</button>
+							</form>
+						</td>
+					</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div class="spacer"></div>
+	<div class="row">
+		{% if device.supports_hwi_toggle_passphrase %}
+		<button type="button" class="btn centered" onclick="togglePassphrase()">Toggle device passphrase</button>
+		&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+		{% endif %}
+		{% if device.device_type != 'bitcoincore' %}
+		<form action="./" method="POST">
+			<button id="add_keys" type="submit" name="action" value="add_keys" class="btn centered">Add more keys</button>
+		</form>
+		&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
+		{% endif %}
+		<form action="./" method="POST">
+			<button type="submit" name="action" value="forget" class="btn danger centered">Forget the device</button>
+		</form>
+		{# TODO: Add wallets used in #}
+	</div>
+	<br>
+	{% if wallets %}
+		<h1>Wallets Using This Device</h1>
+		<div class="row overflow">
+			{% for wallet in wallets %}
+				<a href="{{ url_for('wallet', wallet_alias=wallet.alias) }}" style="text-decoration: none;">
+					<div class="small-card radio">
+						{% if wallet.is_multisig %}
+							<img src="/static/img/multisig_icon.svg" width="18px">
+						{% else %}
+							<img src="/static/img/simple_icon.svg" width="18px">
+						{% endif %}
+						{{ wallet.name }}
+					</div>
+				</a>
+			{% endfor %}
+		</div>
+	{% endif %}
+{% endblock %}
+
+{% block scripts %}
+	<script>
+		document.addEventListener("DOMContentLoaded", function(){
+			var deviceType = document.getElementById("device_type");
+			if (deviceType != null) {
+				deviceType.value = '{{ device.device_type }}';
+			}
+			deviceType.addEventListener("change", function() {
+				var setTypeButton = document.getElementById("settype");
+				if (deviceType.value != '{{ device.device_type }}') {
+					setTypeButton.style.display = 'block';
+				} else {
+                	setTypeButton.style.display = 'none';
+				}
+			}, false);
+		});
+
+		async function togglePassphrase(){
+        	let devices = await enumerate('{{ device.device_type }}');
+			if(devices == null || devices.length == 0){
+				return;
+			}
+			let device = await selectDevice(devices, '');
+        	showHWIProgress("Processing...", `Keep your ${capitalize(device.type)} connected.`);
+			let result = null;
+			try {
+				result = await hwi.togglePassphrase(device);
+			} catch (error) {
+				handleHWIError(error);
+				return null;
+			}
+			if(!overlayIsActive()){
+				showNotification("HWI is ready again", 10000);
+				// no need to proceed at all
+				return null;
+			}
+			hidePageOverlay();
+			if (device.type == "keepkey") {
+				result = await enterPin(device, false);
+				if(result == null){
+					return null;
+				}
+				if(!('success' in result) || !result.success){
+					throw "Failed to unlock device! Invalid PIN code?";
+				}
+			}
+			showNotification("{{ device.name }} passphrase toggled successfuly", 5000)
+		}
+	</script>
+{% endblock %}

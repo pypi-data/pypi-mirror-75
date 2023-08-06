@@ -1,0 +1,127 @@
+{% from 'includes/sidebar/components/sidebar_btn.jinja' import sidebar_btn %}
+<style>
+    #wallets_overview_link {
+        text-transform: none;
+        text-decoration: none;
+        float: right;
+        margin-right: 10px;
+    }
+
+    #wallets_overview_link:hover {
+        text-decoration: underline;
+        color: #fff;
+    }
+</style>
+<div id="side-content">
+    <nav class="side">
+        {% if specter.info["initialblockdownload"] %}
+            <p class="warning">&#9432;<br>Bitcoin Core is still syncing...<br>(data might be outdated)</p>
+        {% endif %}
+        {% if specter.network_info.version < 190000 %}
+            <p class="warning">&#9432;<br>Bitcoin Core version is outdated.<br>Some features might not work...<br>(minimum required: v19.0.0).</p>
+        {% endif %}
+        {% if specter.chain %}
+            <div onclick="showPageOverlay('bitcoin_core_info')" class="item core" style="cursor: pointer;">
+            {% else %}
+            <a href="/settings/" class="item core">
+        {% endif %}
+            {% from "components/bitcoin_svg.jinja" import bitcoin_svg %}
+            {{ bitcoin_svg(specter.info.chain, 40) }}
+            {% include "includes/sidebar/components/bitcoin_core_info.jinja" %}
+            <div>
+                Bitcoin Core<br>
+                <small>
+                    {% if specter.chain %}
+                        {% if specter.bitcoin_core_version != '' %}
+                            v{{ specter.bitcoin_core_version }}
+                        {% endif %}
+                        ({{specter.chain}}):
+                        {% if specter.info["blocks"] %}
+                            {{ specter.info.blocks }} blocks
+                        {% else %}
+                            {{ specter.info.chain }}
+                        {% endif %}
+                    {% else %}
+                        Unavailable. Click to configure.
+                    {% endif %}
+                </small>
+            </div>
+        {% if specter.chain %}
+            </div>
+            {% else %}
+            </a>
+        {% endif %}
+        <div class="separator">
+            <span id="toggle_wallets_list" style="cursor: pointer;">Wallets &nbsp; &#9660;</span>
+            {% if (specter.wallet_manager.wallets | length) > 1 %}
+                <a class="note" id="wallets_overview_link" href="/wallets_overview/" style="cursor: pointer;">
+                    Wallets overview
+                </a>
+            {% endif %}
+        </div>
+        {% if (specter.device_manager.devices | length) != 0 and specter.chain %}
+            {% from 'includes/sidebar/components/sidebar_wallet_list_item.jinja' import sidebar_wallet_list_item %}
+            <div id="wallets_list">
+            {% for wallet in specter.wallet_manager.wallets_names %}
+                {{ sidebar_wallet_list_item(specter.wallet_manager.wallets[wallet], wallet_alias, specter.info.chain) }}
+            {% endfor %}
+            </div>
+            {{ sidebar_btn('new_wallet', 'Add new wallet') }}
+        {% elif specter.chain %}
+            <p class="warning">&#9432;<br>Please create at least one device to enable wallets.</p>
+        {% else %}
+            <p class="warning">&#9432;<br>Wallets are unavailable if Specter is not connected to Bitcoin Core!</p>
+        {% endif %}
+
+        <div class="separator">
+            <span id="toggle_devices_list" style="cursor: pointer;">Devices &nbsp; &#9660;</span>
+        </div>
+        {% from 'includes/sidebar/components/sidebar_device_list_item.jinja' import sidebar_device_list_item %}
+        <div id="devices_list">
+            {% for device_name in specter.device_manager.devices_names %}
+                    {{ sidebar_device_list_item(specter.device_manager.devices[device_name], device_alias) }}
+            {% endfor %}
+        </div>
+        {{ sidebar_btn('new_device', 'Add new device') }}
+        <div class="footer">
+            Brought to you by<br>
+            <a href="https://cryptoadvance.io" target="_blank">
+                <img src="/static/img/ca.png">
+            </a>
+        </div>
+    </nav>
+    <div id="side-expand">
+        <div>▶</div>
+    </div>
+</div>
+<script>
+    function toggleList(type) {
+        let titleButton = document.getElementById('toggle_' + type + '_list');
+        let list = document.getElementById(type + '_list');
+        if (list.style.display === 'none') {
+            list.style.display = 'block';
+            titleButton.innerHTML = capitalize(type) + ' &nbsp; &#9660;';
+        } else {
+            list.style.display = 'none';
+            titleButton.innerHTML = capitalize(type) + ' &nbsp; &#9654;';
+        }
+    }
+
+    document.addEventListener("DOMContentLoaded", function(){
+        if ('{{ specter.device_manager.devices_names | length }}' == '0') {
+            document.getElementById('toggle_devices_list').innerHTML = 'Devices';
+        } else {
+            document.getElementById('toggle_devices_list').addEventListener('click', (event) => {
+                toggleList('devices');
+            });
+        }
+
+        if ('{{ specter.wallet_manager.wallets_names | length }}' == '0') {
+            document.getElementById('toggle_wallets_list').innerHTML = 'Wallets';
+        } else {
+            document.getElementById('toggle_wallets_list').addEventListener('click', (event) => {
+                toggleList('wallets');
+            });
+        }
+    });
+</script>

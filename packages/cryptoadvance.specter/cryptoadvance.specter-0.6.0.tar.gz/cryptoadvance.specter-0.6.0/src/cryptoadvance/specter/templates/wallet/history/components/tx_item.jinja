@@ -1,0 +1,41 @@
+{# 
+    tx_item - Transation table row.
+    Parameters:
+    - tx: The transaction to display
+    - wallet: Wallet object
+    - specter: Specter object.
+ #}
+{% macro tx_item(tx, wallet, specter) -%}
+    {% from 'wallet/components/explorer_link.jinja' import explorer_link %}
+    {% set txid = tx['txid'] %}
+    <tr class="{%if tx['confirmations'] == 0 %}unconfirmed{%endif%}">
+        <td>
+            {# coinbase txs are 'immature' until 100 confs #}
+            {% if tx['category'] == 'immature' %}
+                <img src="/static/img/unconfirmed_receive_icon.svg"/>
+            {% else %}
+                <img src="/static/img/{% if tx['confirmations'] == 0 %}unconfirmed_{% endif %}{{tx['category']}}_icon.svg"/>
+            {% endif %}
+        </td>
+        <td class="tx scroll">
+            {{ explorer_link('tx', tx['txid'], tx['txid'], specter.explorer) }}
+        </td>
+        <td class="tx scroll">
+            {% if wallet == none %}
+                {% set wallet = specter.wallet_manager.get_by_alias(tx['wallet_alias']) %}
+            {% endif %}
+            {{ explorer_link('address', tx['address'], tx['address'] if wallet == none else wallet.get_address_name(tx['address'], -1), specter.explorer) }}
+        </td>
+        <td>
+            {{ tx['amount'] | btcamount }}
+        </td>
+        <td>
+            {%if tx['confirmations'] == 0 %}
+                Pending.
+            {% else %}
+                {{ tx['confirmations'] }} conf.
+            {% endif %}
+            ({{ tx['time'] | datetime }})
+        </td>
+    </tr>
+{%- endmacro %}
