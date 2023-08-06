@@ -1,0 +1,4 @@
+[console_scripts]
+lad = list_all_data.cli_script:main
+listAllData = list_all_data.cli_script:main
+
