@@ -1,0 +1,76 @@
+Metadata-Version: 2.1
+Name: nti.site
+Version: 2.2.0
+Summary: Opinionated ZODB persistent site implementations
+Home-page: https://github.com/NextThought/nti.site
+Author: Jason Madden
+Author-email: jason@nextthought.com
+License: Apache
+Keywords: Site management
+Platform: UNKNOWN
+Classifier: Intended Audience :: Developers
+Classifier: Natural Language :: English
+Classifier: Operating System :: OS Independent
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Programming Language :: Python :: 2
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: Implementation :: CPython
+Classifier: Programming Language :: Python :: Implementation :: PyPy
+Provides-Extra: docs
+Provides-Extra: test
+Requires-Dist: BTrees (>=4.3.2)
+Requires-Dist: ZODB (>=5.6.0)
+Requires-Dist: nti.schema
+Requires-Dist: nti.transactions (>=3.0.0)
+Requires-Dist: persistent
+Requires-Dist: setuptools
+Requires-Dist: six
+Requires-Dist: transaction (>=2.4.0)
+Requires-Dist: zope.component
+Requires-Dist: zope.container
+Requires-Dist: zope.interface (>=4.4.2)
+Requires-Dist: zope.location
+Requires-Dist: zope.proxy
+Requires-Dist: zope.site
+Requires-Dist: zope.traversing
+Provides-Extra: docs
+Requires-Dist: Sphinx; extra == 'docs'
+Requires-Dist: repoze.sphinx.autointerface; extra == 'docs'
+Requires-Dist: sphinx-rtd-theme; extra == 'docs'
+Requires-Dist: fudge; extra == 'docs'
+Requires-Dist: nti.testing (>=3.0.0); extra == 'docs'
+Requires-Dist: pyhamcrest; extra == 'docs'
+Requires-Dist: z3c.baseregistry; extra == 'docs'
+Requires-Dist: zope.testrunner; extra == 'docs'
+Requires-Dist: coverage; extra == 'docs'
+Provides-Extra: test
+Requires-Dist: fudge; extra == 'test'
+Requires-Dist: nti.testing (>=3.0.0); extra == 'test'
+Requires-Dist: pyhamcrest; extra == 'test'
+Requires-Dist: z3c.baseregistry; extra == 'test'
+Requires-Dist: zope.testrunner; extra == 'test'
+Requires-Dist: coverage; extra == 'test'
+
+==========
+ nti.site
+==========
+
+.. image:: https://travis-ci.org/NextThought/nti.site.svg?branch=master
+    :target: https://travis-ci.org/NextThought/nti.site
+
+.. image:: https://coveralls.io/repos/github/NextThought/nti.site/badge.svg?branch=master
+    :target: https://coveralls.io/github/NextThought/nti.site?branch=master
+
+nti.site offers a set of classes and utility functions to integrate
+non-persistent name-based configuration of components using
+``z3c.baseregistry`` with persistent in-database components. These are
+mixed and matched at runtime as needed to keep one "main" application
+persistent site in the component lookup order.
+
+For complete details and the changelog, see the `documentation <http://ntisite.readthedocs.io/>`_.
+
+
