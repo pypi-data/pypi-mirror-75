@@ -1,0 +1,155 @@
+---
+metadata:
+  title: |
+    Test script for the (TR1) Helper
+  short title: |
+    TR1 Test
+  description: |
+    A tool to test the (TR1) Helper is working
+  authors:
+    - name: Matthew Pennington
+      organization: n/a
+  revision_date: 2020-07-27
+  error help: |
+    We are sorry but an error has occurred.
+    Please email [Tonic Workflows](mailto:workflow@tonic.works) for support.
+  exit url: /
+---
+modules:
+  - docassemble.docusign.da_docusign
+  - .objects
+---
+mandatory: true
+code: |
+  #do something here to confirm we are in test mode 
+  
+  electronic_signatures
+
+  if electronic_signatures == False:
+    test_mobile_number = "+441143830382"
+    test_email = "no-reply@tonic.works"
+    
+  title_numbers = 'SK12345678'
+  property_address = 'Malfoy Mansion, Narrow Lane, Wiltshire, SN14 1AZ'
+
+  consideration_one = 'Yes'
+  consideration_two = ''
+  consideration_three = ''
+  consideration_one_text = 'Three Hundred Thousand (300000)'
+  consideration_three_text = ''
+  
+  transfer_one = 'Yes'
+  transfer_two = ''
+  transfer_modifications_text = ''
+  
+  trust_one = 'Yes'
+  trust_two = ''
+  trust_three = ''
+  trust_text = ''
+  
+  additional_provisions = ''
+
+  deliver_to.name.first = "Neville"
+  deliver_to.name.last = "Longbottom"
+  deliver_to.email = test_email
+---
+objects:
+  transferors: DAList.using(object_type=TRParty, auto_gather = False)
+  transferees: DAList.using(object_type=TRParty, auto_gather = False)
+---
+code: |
+  transferors.clear()
+  
+  transferors.appendObject(TRParty)
+  transferors[0].name.first = "Ariana"
+  transferors[0].name.middle = ""
+  transferors[0].name.last = "Dumbledore"
+  transferors[0].name.email = test_email
+  transferors[0].name.mobile_number = test_mobile_number
+  transferors[0].witness.name.first = "Aberforth"
+  transferors[0].witness.name.middle = ""
+  transferors[0].witness.name.last = "Dumbledore"
+  transferors[0].witness.address.address = "The Hogs Head Inn, Hogsmeade, United Kingdom, SK1 1DS"
+  transferors[0].witness.name.email = test_email
+  transferors[0].witness.name.mobile_number = test_mobile_number
+
+  transferors.appendObject(TRParty)
+  transferors[1].name.first = "Albus"
+  transferors[1].name.middle = "Percival Wulfric Brian"
+  transferors[1].name.last = "Dumbledore"
+  transferors[1].name.email = test_email
+  transferors[1].name.mobile_number = test_mobile_number
+  transferors[1].witness.name.first = "Aurelius"
+  transferors[1].witness.name.middle = ""
+  transferors[1].witness.name.last = "Dumbledore"
+  transferors[1].witness.address.address = "The Hogs Head Inn, Hogsmeade, United Kingdom, SK1 1DS"
+  transferors[1].witness.name.email = test_email
+  transferors[1].witness.name.mobile_number = test_mobile_number
+
+  transferors.gathered = True
+---
+code: |
+  transferees.clear()
+  
+  transferees.appendObject(TRParty)
+  transferees[0].name.first = "Harry"
+  transferees[0].name.middle = ""
+  transferees[0].name.last = "Potter"
+  transferees[0].address.address = "Second Floor, The Burrow, Ottery St. Catchpole, OS1 1DS"
+  transferees[0].name.email = test_email
+  transferees[0].name.mobile_number = test_mobile_number
+  transferees[0].witness.name.first = "Ron"
+  transferees[0].witness.name.middle = ""
+  transferees[0].witness.name.last = "Weasley"
+  transferees[0].witness.address.address = "Second Floor, The Burrow, Ottery St. Catchpole, OS1 1DS"
+  transferees[0].witness.name.email = test_email
+  transferees[0].witness.name.mobile_number = test_mobile_number
+
+  transferees.appendObject(TRParty)
+  transferees[1].name.first = "Ginevra"
+  transferees[1].name.middle = "Molly"
+  transferees[1].name.last = "Weasley"
+  transferees[1].address.address = "First Floor, The Burrow, Ottery St. Catchpole, OS1 1DS"
+  transferees[1].name.email = test_email
+  transferees[1].name.mobile_number = test_mobile_number
+  transferees[1].witness.name.first = "Percy"
+  transferees[1].witness.name.middle = "Ignatius"
+  transferees[1].witness.name.last = "Weasley"
+  transferees[1].witness.address.address = "First Floor, The Burrow, Ottery St. Catchpole, OS1 1DS"
+  transferees[1].witness.name.email = test_email
+  transferees[1].witness.name.mobile_number = test_mobile_number
+
+  transferees.gathered = True
+---
+include:
+  - tr1Output.yml
+---
+include:
+  - docusignBuilder.yml
+---
+include:
+  - docusignQuestions.yml
+---
+question: |
+  Do you want to test electronic signing of a sample TR1?
+subquestion: |
+  By pushing a test TR1 to Docusign for signatures
+yesno: electronic_signatures
+---
+question: |
+  What's your mobile number and email address?
+subquestion: |
+  <p>Please enter your mobile number in order to receive 2FA SMS's as you test the signature process, and email address so you can receive the Docusign email notifications.</p>
+fields:
+  - Mobile (in +44 format): test_mobile_number
+    required: True
+  - Email: test_email
+    datatype: email
+    required: True
+---
+question: Not in Docusign Test Mode
+event: not_in_docusign_test_mode
+subquestion: |
+  This interview is only for testing the TR1 populates correctly when docusign is in test mode
+
+  Set test-mode to True under docusign in your Docassemble config if you want to run this.
