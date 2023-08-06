@@ -1,0 +1,16 @@
+pandas==1.0.5
+packaging
+
+[all]
+dask>=2.1.0
+distributed>=2.3.2
+ray==0.8.6
+pyarrow<0.17
+
+[dask]
+dask>=2.1.0
+distributed>=2.3.2
+
+[ray]
+ray==0.8.6
+pyarrow<0.17
