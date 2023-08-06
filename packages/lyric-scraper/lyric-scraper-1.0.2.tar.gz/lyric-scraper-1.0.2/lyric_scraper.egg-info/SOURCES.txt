@@ -1,0 +1,14 @@
+LICENSE.txt
+MANIFEST.in
+README.md
+requirements.txt
+setup.cfg
+setup.py
+lyric_scraper/__init__.py
+lyric_scraper/main.py
+lyric_scraper.egg-info/PKG-INFO
+lyric_scraper.egg-info/SOURCES.txt
+lyric_scraper.egg-info/dependency_links.txt
+lyric_scraper.egg-info/entry_points.txt
+lyric_scraper.egg-info/requires.txt
+lyric_scraper.egg-info/top_level.txt
