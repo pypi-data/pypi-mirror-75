@@ -1,0 +1,44 @@
+Metadata-Version: 2.1
+Name: simple-hypercore-protocol
+Version: 0.0.1a2
+Summary: The Hypercore protocol state machine
+Home-page: https://github.com/hyperpy/simple-hypercore-protocol
+Author: decentral1se
+Author-email: hi@decentral1.se
+Maintainer: decentral1se
+Maintainer-email: hi@decentral1.se
+Requires-Python: >=3.6,<4.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Requires-Dist: protobuf (>=3.12.4,<4.0.0)
+Project-URL: Repository, https://github.com/hyperpy/simple-hypercore-protocol
+Description-Content-Type: text/markdown
+
+# simple-hypercore-protocol
+
+[![Build Status](https://drone.autonomic.zone/api/badges/hyperpy/simple-hypercore-protocol/status.svg)](https://drone.autonomic.zone/hyperpy/simple-hypercore-protocol)
+
+## The Hypercore protocol state machine
+
+## Install
+
+```sh
+$ pip install simple-hypercore-protocol
+```
+
+## Example
+
+```python
+from simple_hypercore_protocol import messages
+
+print(messages.Request(index=0))
+```
+
+Output:
+
+```sh
+index: 0
+```
+
