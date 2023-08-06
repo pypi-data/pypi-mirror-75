@@ -1,0 +1,20 @@
+Metadata-Version: 2.1
+Name: expkg-am
+Version: 0.0.2
+Summary: Sample package
+Home-page: UNKNOWN
+Author: andreamarin
+Author-email: andrea.marin2411@gmail.com
+License: UNKNOWN
+Platform: UNKNOWN
+Classifier: Programming Language :: Python :: 3
+Classifier: Operating System :: OS Independent
+Classifier: License :: OSI Approved :: MIT License
+Requires-Python: >=3.6
+Description-Content-Type: text/markdown
+
+# Test post-install scripts
+
+Simple package to test post-install 
+
+
