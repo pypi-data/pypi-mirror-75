@@ -1,0 +1,5 @@
+[console_scripts]
+NUMTdumper = numtdumper.numtdumper:main
+filtertranslate = numtdumper.filtertranslate:main
+numtdumper = numtdumper.numtdumper:main
+
