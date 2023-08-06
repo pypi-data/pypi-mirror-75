@@ -1,0 +1,11 @@
+build/
+dist/
+.*
+*egg-info
+_*
+*\.log
+*\.pyc
+tags
+result
+coverage.xml
+!__init__.py
