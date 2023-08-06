@@ -1,0 +1,5 @@
+# Include the README
+include *.md *.js *.css .html
+
+recursive-include ossFileField/templates *
+recursive-include ossFileField/static *

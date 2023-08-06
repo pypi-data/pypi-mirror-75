@@ -1,0 +1,232 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+	<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+</head>
+<body>
+
+<div class='image'>
+	<a href="{{ widget.href }}" target="_blank" id="a-href" style="text-decoration: none">
+		<img src="{% if widget.value %}{{ widget.value }}{% else %}/static/img/img_default.png{% endif %}" id="img-href" style="display: inline-block; width: 50px">
+	</a>
+</div>
+
+<div id="oss-file"></div>
+
+<br/>
+
+<div id="container">
+	<a id="select-files" href="javascript:void(0);" class='btn'>选择文件</a>
+	<a id="post-files" href="javascript:void(0);" class='btn'>开始上传</a>
+</div>
+<input type="hidden" id="id-{{ widget.name }}" name="{{ widget.name }}"{% if widget.value != None %} value="{{ widget.value|stringformat:'s' }}"{% endif %} />
+
+</body>
+
+<script type="text/javascript" src="{% static 'lib/plupload/js/plupload.full.min.js' %}"></script>
+<script type="text/javascript">
+	var expire = 0
+	var prefix = "{{ widget.attrs.prefix }}"
+	var ossUrl = "{{ widget.attrs.bucket }}" ? "{{ widget.attrs.domain }}/{{ widget.attrs.bucket }}/" : "{{ widget.attrs.domain }}/"
+	var MIME_TYPES = {
+        image: {title: "图片文件", extensions: "jpg,gif,png,jpeg"},
+        apk: {title: "APK文件", extensions: "apk"},
+        video: {title : "视频文件", extensions : "flv,mpg,mpeg,avi,wmv,mov,asf,rm,rmvb,mkv,m4v,mp4"},
+		zip: {title : "压缩文件", extensions : "rar,zip,7z"},
+		all: {title: "所有类型", extensions: "*"}
+	};
+
+	function send_request() {
+		var xmlhttp = null;
+		if (window.XMLHttpRequest) {
+			xmlhttp=new XMLHttpRequest();
+		} else if (window.ActiveXObject) {
+			xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+		}
+	
+		if (xmlhttp!=null) {
+			// serverUrl是 用户获取 '签名和Policy' 等信息的应用服务器的URL，请将下面的IP和Port配置为您自己的真实信息。
+			serverUrl = "{{ widget.attrs.get_token_url }}"
+
+			xmlhttp.open( "GET", serverUrl, false );
+			xmlhttp.send( null );
+			return xmlhttp.responseText
+		} else {
+			alert("Your browser does not support XMLHTTP.");
+		}
+	};
+
+	function check_object_radio() {
+		var tt = document.getElementsByName('myradio');
+		for (var i = 0; i < tt.length ; i++ ) {
+			if(tt[i].checked)
+			{
+				g_object_name_type = tt[i].value;
+				break;
+			}
+		}
+	};
+
+	function get_signature() {
+			// 可以判断当前expire是否超过了当前时间， 如果超过了当前时间， 就重新取一下，60s 作为缓冲。
+			now = Date.parse(new Date()) / 1000; 
+			if (expire < now + 60) {
+				body = send_request()
+				var obj = eval ("(" + body + ")");
+				host = obj['host']
+				policyBase64 = obj['policy']
+				accessid = obj['accessid']
+				signature = obj['signature']
+				expire = parseInt(obj['expire'])
+				callbackbody = obj['callback']
+				key = obj['dir']
+				return true;
+			};
+			return false;
+	};
+
+	function random_string(len) {
+	　　len = len || 32;
+	　　var chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';   
+	　　var maxPos = chars.length;
+	　　var pwd = '';
+	　　for (i = 0; i < len; i++) {
+		　　pwd += chars.charAt(Math.floor(Math.random() * maxPos));
+		}
+		return pwd;
+	};
+
+	function get_suffix(filename) {
+		pos = filename.lastIndexOf('.')
+		suffix = ''
+		if (pos != -1) {
+			suffix = filename.substring(pos)
+		}
+		return suffix;
+	};
+
+	function calculate_object_name(filename, file_size) {
+		var file_name = filename.replace(/ /g, '')
+		g_object_name = key + prefix + random_string(10) + '_' + String(file_size) + '_' + file_name
+		return ''
+	};
+
+	function set_upload_param(up, filename, file_size, ret) {
+		if (ret == false) {
+			ret = get_signature()
+		};
+
+		g_object_name = key;
+		if (filename != '') { suffix = get_suffix(filename)
+			calculate_object_name(filename, file_size)
+		};
+
+		new_multipart_params = {
+			'key' : g_object_name,
+			'policy': policyBase64,
+			'OSSAccessKeyId': accessid, 
+			'success_action_status' : '200', //让服务端返回200,不然，默认会返回204
+			// 'callback' : callbackbody,
+			'signature': signature,
+		};
+
+		up.setOption({
+			'url': host,
+			'multipart_params': new_multipart_params
+		});
+
+		up.start();
+	};
+
+	var uploader = new plupload.Uploader({
+		runtimes : 'html5,flash,silverlight,html4',	// 上传模式,依次退化
+		browse_button : 'select-files',	// 上传选择的点选按钮，**必需**
+		container: document.getElementById('container'),	// 上传区域DOM ID，默认是browser_button的父元素
+		flash_swf_url : 'lib/plupload-2.1.2/js/Moxie.swf',  // 引入flash,相对路径
+		silverlight_xap_url : 'lib/plupload-2.1.2/js/Moxie.xap',
+		url : 'http://oss.aliyuncs.com',
+
+		filters: {
+			mime_types : [
+				MIME_TYPES['{{widget.attrs.file_type}}']
+			],
+			max_file_size : '{{widget.attrs.max_file_size}}',
+			prevent_duplicates : true //不允许选取重复文件
+		},
+
+		init: {
+			PostInit: function() {
+				document.getElementById('post-files').onclick = function() {
+					set_upload_param(uploader, '', 0, false);
+					return false;
+				};
+			},
+
+			FilesAdded: function(up, files) {
+				plupload.each(files, function(file) {
+					document.getElementById('oss-file').innerHTML += '<div id="' + file.id + '">' + file.name + ' (' + plupload.formatSize(file.size) + ')\
+					<b>\
+						<a id="clean" href="#" style="text-decoration: none">&nbsp;❌</a>\
+					</b>'
+					+'<div class="progress"><div class="progress-bar" style="width: 0%"></div></div>'
+					+'</div>';
+					
+					var div = document.getElementById('clean');
+					// 绑定事件, 点击开始上传之前允许取消
+					div.onclick = function() {
+						document.getElementById(file.id).innerHTML = '';
+						uploader.removeFile(file,true);
+						document.getElementById(file.id).remove();
+					};
+				});
+			},
+
+			BeforeUpload: function(up, file) {
+				check_object_radio();
+				set_upload_param(up, file.name, file.size, true);
+			},
+
+			UploadProgress: function(up, file) {
+				var d = document.getElementById(file.id);
+				d.getElementsByTagName('b')[0].innerHTML = '<span>' + file.percent + '%</span>';
+				var prog = d.getElementsByTagName('div')[0];
+				var progBar = prog.getElementsByTagName('div')[0]
+				progBar.style.width= 4*file.percent+'px';
+				progBar.setAttribute('aria-valuenow', file.percent);
+			},
+
+			FileUploaded: function(up, file, info) {
+				var img_full_url = ossUrl+ g_object_name
+				$("#a-href").attr('href', img_full_url);
+				$("#img-href").attr('src', img_full_url).css('display', 'inline-block');
+				$('#id-{{ widget.name }}').val(img_full_url);
+			},
+
+			'UploadComplete': function() {
+				alert('上传文件成功!');
+			},
+
+			Error: function(up, err) {
+				if (err.code == -600) {
+					alert("\n当前文件太大, 文件应小于{{widget.attrs.max_file_size}}");
+				}
+				else if (err.code == -601) {
+					alert("\n当前文件类型支持上传");
+				}
+				else if (err.code == -602) {
+					alert("\n请勿重复上传");
+				}
+				else 
+				{
+					alert("\nError xml:" + err.response);
+				}
+			}
+		}
+	});
+
+	uploader.init();
+</script>
+</html>
