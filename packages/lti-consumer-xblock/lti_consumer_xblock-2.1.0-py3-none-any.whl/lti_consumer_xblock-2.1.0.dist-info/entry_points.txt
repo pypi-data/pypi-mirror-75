@@ -1,0 +1,6 @@
+[lms.djangoapp]
+lti_consumer = lti_consumer:LTIConsumerApp
+
+[xblock.v1]
+lti_consumer = lti_consumer:LtiConsumerXBlock
+
