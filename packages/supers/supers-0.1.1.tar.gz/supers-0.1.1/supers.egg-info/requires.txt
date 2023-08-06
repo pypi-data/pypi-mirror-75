@@ -1,0 +1,11 @@
+
+[build]
+setuptools
+wheel
+twine
+
+[tests]
+pytest
+pytest-cov
+flake8
+flake8-black
