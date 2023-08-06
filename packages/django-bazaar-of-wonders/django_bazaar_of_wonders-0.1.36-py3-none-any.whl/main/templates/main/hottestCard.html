@@ -1,0 +1,41 @@
+{% extends 'main/base.html' %}
+{% load materializecss %}
+
+{% block content %}
+
+    <div class="row" style="display: flex">
+        <div class="column1" style="float: center;">
+            <!-- display cards -->
+            {% include 'main/includes/card_promotions.html' %}
+        </div>
+    </div>
+
+ <!-- limit 24 cards per page, page indices here -->
+<footer class="page footer" style="text-align: center">
+    <ul class="pagination" >
+        {% if data.has_previous %}
+        <li>
+        <a style="color: white;" href="?page={{data.previous_page_number}}" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+        </a>
+        </li>
+        {% endif %}
+        {% for p in data.paginator.page_range %}
+            {% if p <= data.number|add:4 and p >= data.number|add:-4 %}
+                {% if data.number == p %}
+                    <li><a style="color: rgb(228, 193, 152); background-color: rgb(40, 17, 19);" href="?page={{p}}&{{dynamic_form_qs}}">{{p}}</a></li>
+                {% else %}
+                    <li><a style="color: rgb(228, 193, 152); background-color: rgb(40, 17, 19);" href="?page={{p}}&{{dynamic_form_qs}}">{{p}}</a></li>
+                {% endif %}
+        {% endif %}
+        {% endfor %}
+        {% if data.has_next %}
+        <li>
+        <a style="color: white;" href="?page={{data.next_page_number}}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+        </li>
+        {% endif %}
+    </ul>
+</footer>>
+{% endblock %}

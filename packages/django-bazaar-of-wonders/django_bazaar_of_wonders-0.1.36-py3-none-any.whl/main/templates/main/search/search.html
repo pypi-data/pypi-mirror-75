@@ -1,0 +1,13 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+<!-- display search/sort form -->
+<div class="col s3" style="text-align: center;"> 
+{% include 'main/includes/search.html' %}
+</div>
+
+<div class="col s9" style="text-align: center;"> 
+<!-- display search result cards-->
+{% include 'main/includes/cards.html' %}
+</div>
+{% endblock %}
