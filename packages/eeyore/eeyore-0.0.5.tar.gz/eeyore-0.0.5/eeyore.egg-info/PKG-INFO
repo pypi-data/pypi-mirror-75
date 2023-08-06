@@ -1,0 +1,20 @@
+Metadata-Version: 1.1
+Name: eeyore
+Version: 0.0.5
+Summary: MCMC methods for neural networks
+Home-page: https://github.com/papamarkou/eeyore
+Author: Theodore Papamarkou
+Author-email: papamarkout@ornl.gov
+License: MIT
+Download-URL: https://github.com/papamarkou/eeyore/archive/v0.0.5.tar.gz
+Description: ![](https://github.com/papamarkou/eeyore/workflows/eeyore/badge.svg)
+        
+Keywords: Bayesian,deep learning,Markov chains,MCMC,Monte Carlo,neural networks
+Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Natural Language :: English
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
