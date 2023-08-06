@@ -1,0 +1,19 @@
+Metadata-Version: 2.1
+Name: ClickSQL
+Version: 0.0.1
+Summary: SQL programming
+Home-page: http://www.github.com/sn0wfree/ClickSQL
+Author: sn0wfree
+Author-email: snowfreedom0815@gmail.com
+License: MIT Licence
+Description: # ClickSQL
+         
+        ClickSQL is a smart client for clickhouse database, which may help clickhouse users to use clickhouse more easier and smoother. 
+        it aim to make the clickhouse to be the good alternative Relational Database of MySQL. 
+        
+        more information for clickhouse can be found at [here](http://clikchouse.tech)
+        
+        
+Keywords: ClickSQL,Databases
+Platform: UNKNOWN
+Description-Content-Type: text/markdown
