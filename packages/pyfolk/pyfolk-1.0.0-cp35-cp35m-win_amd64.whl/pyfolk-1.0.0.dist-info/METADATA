@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: pyfolk
+Version: 1.0.0
+Summary: Folk Edu package
+Home-page: UNKNOWN
+Author: HighGreat
+Author-email: highgreat@hg-fly.com
+License: UNKNOWN
+Requires-Dist: numpy (==1.18.2)
+Requires-Dist: opencv-contrib-python (==3.4.8.29)
+Requires-Dist: gevent (==20.6.1)
+
+Folk Edu
+
+
